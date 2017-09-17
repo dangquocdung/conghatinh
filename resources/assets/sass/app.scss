@@ -1,0 +1,28 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "~sweetalert2/dist/sweetalert2.css";
+@import "variables";
+@import "global";
+@import "messages";
+@import "croppie";
+
+@for $i from 1 through 10 {
+  .margin-bottom-#{$i * 10} {
+    margin-bottom: #{$i * 10}px;
+  }
+  .margin-top-#{$i * 10} {
+    margin-top: #{$i * 10}px;
+  }
+}
+
+.HelpText {
+  &.error {
+    color: $danger-color;
+  }
+  &.info {
+    font-size: 0.7em;
+  }
+}

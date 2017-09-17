@@ -1,0 +1,47 @@
+<div class="UserActivation">
+  <table class="table table-bordered table-striped table-hover" v-if="userList.length > 0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Token</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr v-for="user in userList">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ (user.activation_token && user.activation_token.token) ? user.activation_token.token : '' }}</td>
+        <td align="right" class="col-sm-2">
+          <div class="pull-left gap-left gap-10 activate-button">
+            <confirm-modal
+              btn-text='<i class="fa fa-check"></i> Activate'
+              btn-class="btn-success"
+              :url="activateUser"
+              :post-data="{userId: user.id}"
+              v-on:onConfirm="removeUserFromList(user)"
+              message="Are you sure you want to activate this user?">
+            </confirm-modal>
+          </div>
+          <div class="pull-left gap-left gap-10 delete-button">
+            <confirm-modal
+              btn-text='<i class="fa fa-trash"></i> Delete'
+              btn-class="btn-danger"
+              :url="deleteUser"
+              :post-data="{userId: user.id}"
+              v-on:onConfirm="removeUserFromList(user)"
+              message="Are you sure you want to delete this user?">
+            </confirm-modal>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div v-else>
+    <h3>No users pending for activation</h3>
+  </div>
+</div>
