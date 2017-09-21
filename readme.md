@@ -1,7 +1,7 @@
 # Inferno
 A Laravel based application which I use as a boiler plate for any project.
 
-The theme used for the application is Bootstrap based AdminLTE theme which can be found <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html">here</a>.
+The theme used for the application is Bootstrap based admin theme which can be found <a href="https://almsaeedstudio.com/themes/admin/index2.html">here</a>.
 
 ## Installation
 Git clone the repository and then run composer install to get the vendor packages.

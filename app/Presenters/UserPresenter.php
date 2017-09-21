@@ -14,7 +14,7 @@ class UserPresenter extends Presenter
         if ($profile->profile_pic != null && $profile->profile_pic != '') {
             return $profile->profile_pic;
         } else {
-            return url('adminlte/avatar.png');
+            return url('admin/avatar.png');
         }
     }
 }

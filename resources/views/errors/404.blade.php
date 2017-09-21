@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Page not found</title>
-  <link rel="stylesheet" href="{{ url('adminlte/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ url('adminlte/css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ url('admin/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
   <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
   <style>
     h1 {

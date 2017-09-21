@@ -1,0 +1,102 @@
+@media (max-width: 767px) {
+  .language-wrapper-mb {
+    text-align: center;
+    .language-list {
+        width: 100%;
+        padding: 5px 0px 0px;
+        a {
+            margin: 0px 10px;
+        }
+    }
+  }
+  .header-menu-name-mb{
+    a {
+      margin-right: 10px;
+    }
+  }
+  .search-icon-mb {
+    background: url(../../images/icon/icon-search.png) no-repeat;
+    width: 15px;
+    height: 17px;
+    padding-left: 2px;
+    margin-top: 9px;
+    display: inline-block;
+    float: right;
+  }
+  
+  .navbar-toggle {
+    position: relative;
+    float: left;
+    margin-left: 15px;
+    margin-right: 5px !important;
+    border-color: #fff !important;
+    &:hover{
+      background-color: #0083F3 !important;
+    }
+  }
+  .navbar-inverse {
+    background-color: #1E62CA;
+    border-color: #0083F3 !important;
+    .navbar-nav{
+      .active{
+        a{
+          color: #fff;
+          background-color: #0083F3 !important;
+        }
+      }
+      li{
+        a{
+          color: #fff ;
+        }
+      }
+    }
+  }
+  .mobile-submenu {
+    li{
+      a{
+        color: #fff ;
+        position: relative;
+        display: block;
+        padding: 7px 20px;
+      }
+    }
+  }
+  .header-menu-name-mb {
+    // background: url('../../images/logo2.png') top center no-repeat;
+    color: #1D62CA;
+    margin-top: 16px;
+    padding-top: 6px;
+    font-size: 17px;
+    text-decoration: none!important;
+    margin: 0!important;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 35px;
+    font-family: Roboto,sans-serif!important;
+    text-align: center;
+    span {
+        text-shadow: -1px -1px 0px #fff, 0px -1px 0px #fff, 1px -1px 0px #fff, -1px 0px 0px #fff, 1px 1px 0px #fff, -1px 1px 0px #fff, 0px 1px 0px #fff, 1px 1px 0px #fff;
+      }
+    }
+
+    .document-file-name {
+        font-size: 13px;
+        line-height: 20px;
+        color: #0083f3;
+        float: left;
+        margin-left: 0px;
+        padding-top: 5px;
+    }
+
+    .row-right{
+      float: left;
+      margin-left: -15px !important;
+    }
+
+    .liked-website {
+      .select-box {
+          margin-bottom: 8px;
+      }
+
+    }
+}

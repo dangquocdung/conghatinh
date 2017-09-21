@@ -26,7 +26,7 @@ class UserController extends Controller
 {
     public function getRegistrationPage()
     {
-        return view('adminlte.pages.register');
+        return view('admin.pages.register');
     }
 
     public function postHandleUserRegistration(UserRegisterRequest $request)
@@ -78,7 +78,8 @@ class UserController extends Controller
         // doing the attempt for login
         if (Auth::attempt($credentials, $remember)) {
             event(new LoggedIn());
-            return redirect()->intended('dashboard');
+//            return redirect()->intended('dashboard');
+            return redirect(route('dashboard'));
         }
 
         flash('Cannot login. Check your username and password again', 'danger');
@@ -111,7 +112,7 @@ class UserController extends Controller
             'my_recent_activities' => DB::table('watchdogs')->where('user_id', request()->user()->id)->count(),
         ];
 
-        return view('adminlte.pages.dashboard', compact('dashboardData'));
+        return view('admin.pages.dashboard', compact('dashboardData'));
     }
 
     /**
@@ -121,7 +122,7 @@ class UserController extends Controller
      */
     public function pageUserProfile()
     {
-        return view('adminlte.pages.user-profile');
+        return view('admin.pages.user-profile');
     }
 
     /**
@@ -224,7 +225,7 @@ class UserController extends Controller
             abort(403, 'You are now allowed on this url.');
         }
 
-        return view('adminlte.pages.reset-forgot-password')->with('token', $token->token);
+        return view('admin.pages.reset-forgot-password')->with('token', $token->token);
     }
 
     public function postSetForgotPassword(ResetForgotPasswordRequest $request)
@@ -256,6 +257,6 @@ class UserController extends Controller
         $rows = $watchdog->getUserActivityList(Auth::user()->id, []);
         $options = null;
 
-        return view('adminlte.pages.watchdog', compact('rows', 'options'));
+        return view('admin.pages.watchdog', compact('rows', 'options'));
     }
 }

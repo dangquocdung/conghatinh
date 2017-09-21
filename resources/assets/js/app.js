@@ -17,6 +17,7 @@ import BulmaModal from './components/BulmaModal'
 import FileField from './components/FileField'
 import ImportUsers from './components/UserImport/ImportUsers'
 import EditUsers from './components/UserImport/EditUsers'
+//
 
 // Adding the X-CSRF-Token to all axios request
 axios.interceptors.request.use(function(config){
@@ -46,10 +47,15 @@ Vue.component('bulma-modal', BulmaModal)
 Vue.component('file-field', FileField)
 Vue.component('import-users', ImportUsers)
 Vue.component('edit-users', EditUsers)
+//
+
+// Vue.component('edit-post', require('./components/Editpost.vue'));
+// Vue.component('dropzone', require('./components/Dropzone.vue'));
+Vue.component('v-select', require('./components/V-Select.vue'));
 
 const app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello World!'
+    message: 'Chúc bạn một ngày làm việc vui vẻ và hiệu quả!'
   }
 })

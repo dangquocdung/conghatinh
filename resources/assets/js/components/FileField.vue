@@ -17,7 +17,7 @@
   export default {
     data () {
       return {
-        imagePreview: '/adminlte/upload_image.png'
+        imagePreview: '/admin/upload_image.png'
       }
     },
 

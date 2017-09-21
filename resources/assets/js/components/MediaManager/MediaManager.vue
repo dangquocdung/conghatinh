@@ -1,7 +1,7 @@
 <template src="./MediaManager.html"></template>
 <script>
   import {
-    getMedia, mediaUpload, metaDataSave
+    getMedia, mediaUpload, metaDataSave, deleteMedia
   } from './../../config'
   import Dropzone from 'vue2-dropzone'
 
@@ -93,8 +93,8 @@
       margin: 0;
       .thumbnail {
         position: relative;
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         overflow: hidden;
         img {
           position: absolute;

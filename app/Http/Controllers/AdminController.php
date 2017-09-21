@@ -24,7 +24,24 @@ class AdminController extends Controller
 
     public function getConfigPage()
     {
-        return view('adminlte.pages.admin.config');
+        return view('admin.pages.admin.config');
+    }
+
+    public function getUser()
+    {
+        $users = User::orderBy('id', 'asc')->paginate(10);
+        return view('admin.pages.admin.user',compact('users'));
+    }
+
+    public function postAddUser()
+    {
+        $user = User::create(['name' => $request->input('name'),'slug'=>str_slug($request->input('name'))]);
+
+        event(new ChuyenMucCreated($chuyenmuc));
+
+        flash('Thêm chuyên mục thành công');
+        
+        return redirect()->back();
     }
 
     public function getUserActivationPending()
@@ -33,7 +50,7 @@ class AdminController extends Controller
             ->where('active', 0)
             ->orderBy('created_at', 'desc')
             ->get();
-        return view('adminlte.pages.admin.user-activation-pending', compact('users'));
+        return view('admin.pages.admin.user-activation-pending', compact('users'));
     }
 
     /**
@@ -45,7 +62,7 @@ class AdminController extends Controller
     {
         $settings = Setting::all();
 
-        return view('adminlte.pages.settings')->with('settings', $settings);
+        return view('admin.pages.settings')->with('settings', $settings);
     }
 
     public function postHandleSettingsPageSave(Request $request)
@@ -94,7 +111,7 @@ class AdminController extends Controller
     public function getManageRoles()
     {
         $roles = Role::orderBy('id', 'asc')->paginate(10);
-        return view('adminlte.pages.admin.manage-roles', compact('roles'));
+        return view('admin.pages.admin.manage-roles', compact('roles'));
     }
 
     public function postSaveRoles(SaveRoleRequest $request)
@@ -115,7 +132,7 @@ class AdminController extends Controller
     {
         $role = Role::find($id);
 
-        return view('adminlte.pages.admin.role-edit', compact('role'));
+        return view('admin.pages.admin.role-edit', compact('role'));
     }
 
     /**
@@ -143,7 +160,7 @@ class AdminController extends Controller
     public function getManagePermission()
     {
         $permissions = Permission::orderBy('id', 'asc')->paginate(10);
-        return view('adminlte.pages.admin.manage-permissions', compact('permissions'));
+        return view('admin.pages.admin.manage-permissions', compact('permissions'));
     }
 
     public function postSavePermission(SavePermissionRequest $request)
@@ -163,7 +180,7 @@ class AdminController extends Controller
     {
         $permission = Permission::find($id);
 
-        return view('adminlte.pages.admin.permission-edit', compact('permission'));
+        return view('admin.pages.admin.permission-edit', compact('permission'));
     }
 
     public function postUpdatePermission(SavePermissionRequest $request)
@@ -178,7 +195,7 @@ class AdminController extends Controller
 
     public function importUser()
     {
-        return view('adminlte.pages.admin.import-user');
+        return view('admin.pages.admin.import-user');
     }
 
     public function handleImportUser(Request $request, UserImport $userImport)

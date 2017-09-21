@@ -1,51 +1,79 @@
 <?php
 
-Route::get('/', function () {return view('adminlte.pages.login');});
-Route::post('/login', ['as' => 'login', 'uses' => 'UserController@login']);
 
-Route::post('forgot-password/send', ['as' => 'forgot-password-send', 'uses' => 'UserController@postForgotPassword']);
-Route::get('forgot-password/set/{token}', ['as' => 'set-forgot-password', 'uses' => 'UserController@getSetForgotPassword']);
-Route::post('forgot-password/update', ['as' => 'update-forgot-password', 'uses' => 'UserController@postSetForgotPassword']);
+Route::get('/', function () {
+   return view('guest.trang-chu');
+});
+
+Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
+Route::post('/dang-nhap', 'UserController@login')->name('login');
+
+Route::post('forgot-password/send','UserController@postForgotPassword')->name('forgot-password-send');
+Route::get('forgot-password/set/{token}', 'UserController@getSetForgotPassword')->name('set-forgot-password');
+Route::post('forgot-password/update', 'UserController@postSetForgotPassword')->name('update-forgot-password');
 
 /*Urls based on functionality of User can register*/
 if (\Setting::get('user_can_register')) {
-    Route::get('register', ['as' => 'register', 'uses' => 'UserController@getRegistrationPage']);
-    Route::post('do-register', ['as' => 'do-register', 'uses' => 'UserController@postHandleUserRegistration']);
-    Route::get('config/user/activation-pending', [
-        'middleware' => ['auth', 'role:admin'],
-        'as' => 'user-activation-pending',
-        'uses' => 'AdminController@getUserActivationPending'
-    ]);
+    Route::get('register', 'UserController@getRegistrationPage')->name('register');
+    Route::post('do-register', 'UserController@postHandleUserRegistration')->name('do-register');
+
+    Route::get('toa-soan/config/user/activation-pending', 'AdminController@getUserActivationPending')->middleware(['auth', 'role:admin'])->name('user-activation-pending');
 }
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('dashboard', ['as' => 'dashboard', 'uses' => 'UserController@pageDashboard']);
-    Route::get('config/system/my-activities', ['as' => 'my-activities', 'uses' => 'UserController@pageMyActivities']);
-    Route::post('do-logout', ['as' => 'logout', 'uses' => 'UserController@postLogout']);
-    Route::get('user/profile', ['as' => 'profile', 'uses' => 'UserController@pageUserProfile']);
-    Route::post('user/profile', ['as' => 'update-profile', 'uses' => 'UserController@postUpdateProfile']);
-    Route::post('user/password-change', ['as' => 'change-password', 'uses' => 'UserController@postHandlePasswordChange']);
-    Route::get('media-manager', ['as' => 'media-manager', 'uses' => 'MediaController@index']);
+Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
+    Route::get('dashboard', 'UserController@pageDashboard')->name('dashboard');
+    Route::get('config/system/my-activities', 'UserController@pageMyActivities')->name('my-activities');
+    Route::post('do-logout', 'UserController@postLogout')->name('logout');
+    Route::get('user/profile', 'UserController@pageUserProfile')->name('profile');
+    Route::post('user/profile', 'UserController@postUpdateProfile')->name('update-profile');
+    Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
+    Route::get('media-manager', 'MediaController@index')->name('media-manager');
+
+    Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
+    Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');
+    Route::post('them-tin-tuc-su-kien','TinTucController@store')->name('them-tin-tuc');
+    Route::get('edit-tin-tuc-su-kien','TinTucController@create')->name('edit-tin-tuc');
+    Route::post('edit-tin-tuc-su-kien','TinTucController@store')->name('update-tin-tuc');
 
     Route::group(['middleware' => 'role:admin'], function () {
-        Route::get('config', ['as' => 'config', 'uses' => 'AdminController@getConfigPage']);
-        Route::get('config/system/activities', ['as' => 'activities', 'uses' => 'WatchdogController@getWatchdogPage']);
-        Route::get('config/system/settings', ['as' => 'settings', 'uses' => 'AdminController@getSettingsPage']);
-        Route::post('config/system/settings', ['as' => 'settings-save', 'uses' => 'AdminController@postHandleSettingsPageSave']);
-        Route::post('config/system/settings-add', ['as' => 'settings-add', 'uses' => 'AdminController@postHandleSettingsPageAdd']);
+        Route::get('config', 'AdminController@getConfigPage')->name('config');
+        Route::get('config/system/activities', 'WatchdogController@getWatchdogPage')->name('activities');
+        Route::get('config/system/settings', 'AdminController@getSettingsPage')->name('settings');
+        Route::post('config/system/settings', 'AdminController@postHandleSettingsPageSave')->name('settings-save');
+        Route::post('config/system/settings-add', 'AdminController@postHandleSettingsPageAdd')->name('settings-add');
 
+
+        Route::get('config/user/manager', 'AdminController@getUser')->name('user');
+        Route::post('config/user/manager', 'AdminController@postAddUser')->name('save-user');
+        
         Route::get('config/user/import', 'AdminController@importUser')->name('import-user');
         Route::post('config/user/import', 'AdminController@handleImportUser')->name('bulk-import-user');
         Route::get('config/user/import/get-data/{uuid}', 'AdminController@getImportData')->name('get-import-data');
 
         Route::get('config/user/roles', 'AdminController@getManageRoles')->name('manage-roles');
         Route::post('config/user/role-save', 'AdminController@postSaveRoles')->name('save-role');
-        Route::get('config/user/roles/{id}', ['as' => 'edit-role', 'uses' => 'AdminController@getEditRole']);
-        Route::post('config/user/role/update', ['as' => 'update-role', 'uses' => 'AdminController@postUpdateRole']);
+        Route::get('config/user/roles/{id}', 'AdminController@getEditRole')->name('edit-role');
+        Route::post('config/user/role/update', 'AdminController@postUpdateRole')->name('update-role');
 
-        Route::get('config/user/permissions', ['as' => 'manage-permissions', 'uses' => 'AdminController@getManagePermission']);
-        Route::post('config/user/permission-save', ['as' => 'save-permission', 'uses' => 'AdminController@postSavePermission']);
-        Route::get('config/user/permission/{id}', ['as' => 'edit-permission', 'uses' => 'AdminController@getEditPermission']);
-        Route::post('config/user/permission/update', ['as' => 'update-permission', 'uses' => 'AdminController@postUpdatePermission']);
+        Route::get('config/user/permissions', 'AdminController@getManagePermission')->name('manage-permissions');
+        Route::post('config/user/permission-save', 'AdminController@postSavePermission')->name('save-permission');
+        Route::get('config/user/permission/{id}', 'AdminController@getEditPermission')->name('edit-permission');
+        Route::post('config/user/permission/update', 'AdminController@postUpdatePermission')->name('update-permission');
+    });
+
+    Route::group(['middleware' => 'role:tbt'], function () {
+        
+
+        Route::get('config/chuyen-muc', 'ChuyenMucController@index')->name('chuyen-muc');
+        Route::post('config/chuyen-muc', 'ChuyenMucController@store')->name('save-chuyen-muc');
+        Route::get('config/chuyen-muc/{id}', 'ChuyenMucController@show')->name('edit-chuyen-muc');
+        Route::post('config/chuyen-muc/update', 'ChuyenMucController@update')->name('update-chuyen-muc');
+
+        Route::get('config/loai-tin', 'LoaiTinController@index')->name('loai-tin');
+        Route::post('config/loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
+        Route::get('config/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
+        Route::post('config/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
+
+        
     });
 });

@@ -26,6 +26,8 @@ return [
 
         'role' => Spatie\Permission\Models\Role::class,
 
+
+
     ],
 
     'table_names' => [
@@ -76,6 +78,7 @@ return [
         */
 
         'role_has_permissions' => 'role_has_permissions',
+
 
     ],
 

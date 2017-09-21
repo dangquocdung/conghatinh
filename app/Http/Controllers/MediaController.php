@@ -8,6 +8,6 @@ class MediaController extends Controller
 {
     public function index()
     {
-        return view('adminlte.pages.media-manager');
+        return view('admin.pages.media-manager');
     }
 }

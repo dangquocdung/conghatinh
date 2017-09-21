@@ -49,4 +49,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Tokens')
             ->where('type', '=', 'user_activation');
     }
+
+    public function tintuc()
+    {
+        return $this->hasMany('App\TinTuc','user_id','id');
+    }
 }

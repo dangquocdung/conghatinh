@@ -15,6 +15,12 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
     Route::post('media-upload', 'Api\MediaApiController@uploadMediaImage');
     Route::post('media/meta-data', 'Api\MediaApiController@imageMetaData');
 
+    Route::post('delete-media', 'Api\MediaApiController@deleteMedia');
+
+    Route::post('delete-tin-tuc', 'Api\UserApiController@postDeleteTinTuc');
+    
+
+
     Route::group(['middleware' => 'role:admin'], function () {
         Route::post('activate-user', 'Api\UserApiController@postActivateUser');
         Route::post('delete-user', 'Api\UserApiController@postDeleteUser');
@@ -23,4 +29,14 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
         Route::get('import-users/{uuid}', 'Api\AdminApiController@importCorrectUsers')->name('import-incomplete-data');
         Route::get('edit-users/{uuid}', 'Api\AdminApiController@editWrongUsersLive');
     });
+
+    Route::group(['middleware' => 'role:tbt'], function () {
+       
+        Route::post('delete-chuyen-muc', 'Api\TbtApiController@postDeleteChuyenMuc');
+        
+        Route::post('delete-loai-tin', 'Api\TbtApiController@postDeleteLoaiTin');
+        
+    });
+
+    
 });

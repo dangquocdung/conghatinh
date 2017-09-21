@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
+use App\ChuyenMuc;
+use App\LoaiTin;
+use App\TinTuc;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,6 +25,30 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        view()->composer(['guest.trang-chu'],function($view){
+
+          $chuyenmuc = ChuyenMuc::all();
+          
+          $view->with('chuyenmuc',$chuyenmuc);
+
+          $loaitin = LoaiTin::all();
+          
+          $view->with('loaitin',$loaitin);
+
+          $tintuc = TinTuc::all();
+
+          $view->with('tintuc',$tintuc);
+
+        });
+
+        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create'],function($view){
+
+          $chuyenmuc = ChuyenMuc::all();
+          
+          $view->with('chuyenmuc',$chuyenmuc);
+
+        });
     }
 
     /**

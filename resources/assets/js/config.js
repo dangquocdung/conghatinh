@@ -1,4 +1,4 @@
-export const apiDomain = window.inferno.host
+export const apiDomain = window.dungthinh.host
 
 export const uploadProfilePic = apiDomain + 'api/v1/image-upload'
 export const activateUser = apiDomain + 'api/v1/activate-user'
@@ -8,3 +8,6 @@ export const getMedia = apiDomain + 'api/v1/get-media'
 export const mediaUpload = apiDomain + 'api/v1/media-upload'
 export const metaDataSave = apiDomain + 'api/v1/media/meta-data'
 export const editErrorUserData = apiDomain + 'api/v1/edit-users/'
+
+export const deleteMedia = apiDomain + 'api/v1/delete-media'
+export const mediaManager = apiDomain + 'toa-soan/media-manager'

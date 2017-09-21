@@ -19,7 +19,7 @@ class MediaApiController extends Controller
      */
     public function index()
     {
-        $images = Media::orderBy('created_at', 'desc')->get();
+        $images = Media::orderBy('created_at', 'desc')->take(20)->get();
         return response()->json(['data' => $images], 200);
     }
 
@@ -92,5 +92,19 @@ class MediaApiController extends Controller
         $media->save();
 
         return $media;
+    }
+
+    public function deleteMedia(Request $request)
+    {
+        $media = Media::find($request->input('currentImageId'));
+
+        if (!$media) {
+            return response('Image not found', 400);
+        }
+
+
+        $media->delete();
+
+        return redirect()->back();
     }
 }

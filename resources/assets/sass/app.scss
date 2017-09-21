@@ -1,28 +1,15 @@
-
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-@import "~sweetalert2/dist/sweetalert2.css";
-@import "variables";
-@import "global";
-@import "messages";
-@import "croppie";
+@import "customVariables";
 
-@for $i from 1 through 10 {
-  .margin-bottom-#{$i * 10} {
-    margin-bottom: #{$i * 10}px;
-  }
-  .margin-top-#{$i * 10} {
-    margin-top: #{$i * 10}px;
-  }
-}
+// Bootstrap
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-.HelpText {
-  &.error {
-    color: $danger-color;
-  }
-  &.info {
-    font-size: 0.7em;
-  }
-}
+// Custom
+@import "header-menu";
+@import "owl";
+@import "desktop";
+@import "mobile";
+@import "tablet";

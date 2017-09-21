@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Events\User\Activate;
 use App\Events\User\Deleted;
+use App\Events\User\TinTucDeleted;
 use App\Http\Controllers\Controller;
 use App\Repositories\Dashboard\DashboardRepository;
 use App\Tokens;
@@ -11,6 +12,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use LRedis;
+
+use App\TinTuc;
 
 class UserApiController extends Controller
 {
@@ -145,5 +148,19 @@ class UserApiController extends Controller
             'rows' => $rows,
         ];
         return response()->json(['data' => $data], 200);
+    }
+
+    public function postDeleteTinTuc(Request $request)
+    {
+        $tinTucId = $request->input('id');
+
+        // this is only done to get the role name
+        $tintuc = TinTuc::find($tinTucId);
+
+        DB::table('tin_tucs')->where('id', $tinTucId)->delete();
+
+        event(new TinTucDeleted($tintuc));
+        
+        return response(['data' => 'Tin bài đã bị xoá'], 200);
     }
 }

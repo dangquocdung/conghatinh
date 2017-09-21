@@ -27,6 +27,6 @@ class WatchdogController extends Controller
         ];
 
         $rows = $this->watchdog->getUserActivityList(null, $options);
-        return view('adminlte.pages.watchdog', compact('rows', 'options'));
+        return view('admin.pages.watchdog', compact('rows', 'options'));
     }
 }
