@@ -101,7 +101,7 @@ class TinTucController extends Controller
 
             // 'avatar' => $folder . $thumbFileName,
 
-            'avatar'=> $request->input('avatar'),
+            'avatar'=> substr($request->input('avatar'), strpos($request->input('avatar'),'u')),
 
             'gioithieu' => $request->input('gioithieu'),
 
@@ -157,7 +157,7 @@ class TinTucController extends Controller
 
         $tintuc->slug = str_slug($request->input('name'));
 
-        $tintuc->avatar = $request->input('avatar');
+        $tintuc->avatar = substr($request->input('avatar'), strpos($request->input('avatar'),'u'));
 
         $tintuc->gioithieu = $request->input('gioithieu');
 

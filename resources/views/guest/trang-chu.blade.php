@@ -29,6 +29,8 @@
 
                   @include('guest.home.tinhoatdong')
 
+                  
+
 
                   @include('guest.home.thongtinchidaodieuhanh')
                   <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
@@ -92,4 +94,5 @@
       });
     })
   </script>
+
 @endsection

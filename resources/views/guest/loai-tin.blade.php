@@ -18,13 +18,13 @@
                 @foreach ($lt->tintuc as $tin)
                <div class="main-news">
                    <div class="main-news-thumb-nail">
-                       <a href="">
+                       <a href="chi-tiet/{{$tin->slug}}">
                            <img src="{{$tin->avatar}}">
                        </a>
                    </div>
                    <div class="main-news-content">
                      <div class="tieu-de-chuyen-muc">
-                       <a href="#" class="main-news-title bold">
+                       <a href="chi-tiet/{{$tin->slug}}" class="main-news-title bold">
                          {{$tin->name}}
                        </a>
 
