@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.trang-chu'],function($view){
+        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet'],function($view){
 
           $chuyenmuc = ChuyenMuc::all();
           
@@ -36,13 +36,9 @@ class AppServiceProvider extends ServiceProvider
           
           $view->with('loaitin',$loaitin);
 
-          $tintuc = TinTuc::all();
-
-          $view->with('tintuc',$tintuc);
-
         });
 
-        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create'],function($view){
+        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit'],function($view){
 
           $chuyenmuc = ChuyenMuc::all();
           

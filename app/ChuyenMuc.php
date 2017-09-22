@@ -17,6 +17,6 @@ class ChuyenMuc extends Model
 
 	public function tintuc()
 	{
-		return $this->hasManyThrough('App\TinTuc','App\ChuyenMucCon','chuyenmuc_id','chuyenmuccon_id','id');
+		return $this->hasManyThrough('App\TinTuc','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
   	}
 }

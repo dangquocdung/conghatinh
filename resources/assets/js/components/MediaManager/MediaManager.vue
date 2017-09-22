@@ -72,13 +72,30 @@
         }
       },
       handleImageMetaDataSave() {
+
         this.currentImage.meta_data.currentImageId = this.currentImage.id
+
         this.$http.post(metaDataSave, this.currentImage.meta_data)
           .then(response => {
             console.log('response', response)
           }).catch(error => {
             console.log('error', error)
         })
+      },
+      deleteMedia() {
+
+        this.currentImage.meta_data.currentImageId = this.currentImage.id
+
+        this.$http.post(deleteMedia, this.currentImage.meta_data)
+          .then(response => {
+
+            console.log('response', response)
+
+          }).catch(error => {
+            console.log('error', error)
+        })
+
+        location.reload();
       }
     }
   }

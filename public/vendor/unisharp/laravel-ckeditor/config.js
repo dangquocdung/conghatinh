@@ -36,6 +36,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
+	config.extraPlugins = 'justify';
+
 	//height
 	config.height = 500; 
 

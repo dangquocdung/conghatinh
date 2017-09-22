@@ -18,15 +18,18 @@
                   <div class="row">
 
                   @include('guest.home.tintuc-slider')
-                  
-                    <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
+
                   
                   @include('guest.home.tintucsukien')
-                  <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
+
                     {{-- Theo dong su kien --}}
                     {{-- <div class="col-md-12">
                             @include('guest.home.theodongsukien')
                     </div> --}}
+
+                  @include('guest.home.tinhoatdong')
+
+
                   @include('guest.home.thongtinchidaodieuhanh')
                   <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
                   @include('guest.home.vanbanchidaodieuhanh')

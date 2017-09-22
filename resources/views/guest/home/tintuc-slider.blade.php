@@ -1,46 +1,13 @@
 <div class="portlet">
   <div id="brand_carousel" class="owl-carousel brand-logo">
+    @foreach ($tinslide as $ts)
     <div class="item text-center">
-        <img src="http://docs.ttdt.dsp.vn/images/image/m_nhatban_1502874569918.JPG" alt="Disney" class="img-responsive" />
+        <img src="{{ $ts->avatar }}" alt="{{ $ts->name }}" class="img-responsive" />
         <div class="content_news">
-          <a href="h#" target="_blank">Oppo khai trương Brand Shop tại Crescent Mall Phú Mỹ Hưng - TP.HCM</a>
+          <a href="{{ $ts->slug }}" target="_blank">{{ $ts->name }}</a>
         </div>
     </div>
-    <div class="item text-center">
-        <img src="http://docs.ttdt.dsp.vn/images/image/m_nhatban_1502874569918.JPG" alt="Disney" class="img-responsive" />
-        <div class="content_news">
-          <a href="h#" target="_blank">Oppo khai trương Brand Shop tại Crescent Mall Phú Mỹ Hưng - TP.HCM</a>
-        </div>
-    </div>
-    <div class="item text-center">
-        <img src="http://docs.ttdt.dsp.vn/images/image/m_nhatban_1502874569918.JPG" alt="Disney" class="img-responsive" />
-        <div class="content_news">
-          <a href="h#" target="_blank">Oppo khai trương Brand Shop tại Crescent Mall Phú Mỹ Hưng - TP.HCM</a>
-        </div>
-    </div>
-    <div class="item text-center">
-        <img src="http://docs.ttdt.dsp.vn/images/image/m_nhatban_1502874569918.JPG" alt="Disney" class="img-responsive" />
-        <div class="content_news">
-          <a href="h#" target="_blank">Oppo khai trương Brand Shop tại Crescent Mall Phú Mỹ Hưng - TP.HCM</a>
-        </div>
-    </div>
-    <div class="item text-center">
-        <img src="http://docs.ttdt.dsp.vn/images/image/m_nhatban_1502874569918.JPG" alt="Disney" class="img-responsive" />
-        <div class="content_news">
-          <a href="h#" target="_blank">Oppo khai trương Brand Shop tại Crescent Mall Phú Mỹ Hưng - TP.HCM</a>
-        </div>
-    </div>
-    <div class="item text-center">
-        <img src="http://docs.ttdt.dsp.vn/images/image/m_nhatban_1502874569918.JPG" alt="Disney" class="img-responsive" />
-        <div class="content_news">
-          <a href="h#" target="_blank">Oppo khai trương Brand Shop tại Crescent Mall Phú Mỹ Hưng - TP.HCM</a>
-        </div>
-    </div>
-    <div class="item text-center">
-        <img src="http://docs.ttdt.dsp.vn/images/image/m_nhatban_1502874569918.JPG" alt="Disney" class="img-responsive" />
-        <div class="content_news">
-          <a href="h#" target="_blank">Oppo khai trương Brand Shop tại Crescent Mall Phú Mỹ Hưng - TP.HCM</a>
-        </div>
-    </div>
+    @endforeach
+
   </div>
 </div>

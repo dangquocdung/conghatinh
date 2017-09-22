@@ -1,73 +1,69 @@
+@php
+    $cm = $chuyenmuc->where('slug','tin-tuc-su-kien')->first();
+
+    $ttsk = $cm->tintuc->sortByDesc('id')->take(6);
+
+    $ttsk1 = $ttsk->shift();
+
+
+
+@endphp
+
+@if ($ttsk1)
 <div class="portlet">
     <div class="portlet-header">
-        <a href="#" class="portlet-danh-muc-title">
+        <a href="chuyen-muc/tin-tuc-su-kien" class="portlet-danh-muc-title">
             <h4 class="portlet-header-title no-pd-top">Tin tức sự kiện</h4>
         </a>
     </div>
+
     <div class="portlet-content">
             <div class="row">
                   <div class="col-md-7 col-sm-7 col-xs-12">
                     <div class="main-news">
                       <div class="">
-                        <a href="#" class="main-news-title bold">
-          								Thăm, hỗ trợ đồng bào tỉnh Lai Châu khắc phục thiệt hại do mưa lũ
+                        <a href="chi-tiet/" class="main-news-title bold">
+          								{{ $ttsk1->name }}
           							</a>
 
                       </div>
 
                         <div class="main-news-thumb-nail">
-                            <a href="/web/guest/chinh-quyen/chi-tiet?id=27819&amp;_c=3">
-                                <img src="http://docs.ttdt.dsp.vn/images/image/m_laichau_1502601516903.JPG">
+                            <a href="chi-tiet/{{ $ttsk1->slug }}">
+                                <img src="{{ $ttsk1->avatar }}">
                             </a>
                         </div>
                         <div class="main-news-content">
-                            <p style="text-align:justify">Trưa ngày 13/8, đoàn công tác thành phố Đà Nẵng do Phó Chủ tịch UBND thành phố Hồ Kỳ Minh làm Trưởng đoàn đã đến thăm, trao 500 triệu đồng hỗ trợ đồng bào tỉnh Lai Châu bị thiệt hại do mưa lũ. Trưa ngày 13/8, đoàn công tác thành phố Đà Nẵng do Phó Chủ tịch UBND thành phố Hồ Kỳ Minh làm Trưởng đoàn đã đến thăm, trao 500 triệu đồng hỗ trợ đồng bào tỉnh Lai Châu bị thiệt hại do mưa lũ.</p>
+                            {{ $ttsk1->gioithieu }}
                         </div>
                         <div class="clear"></div>
                     </div>
                   </div>
 
+                @if (count($ttsk) > 0)
+
                   <div class="col-md-5 col-sm-5 col-xs-12">
 
                     <div class="news">
                         <ul class="list-news">
+                            @foreach($ttsk as $tin)
                             <li class="news-item default-news bullet-arrow">
                               <a class="icon-list"><i></i></a>
                               <div class="default-news-content">
-                                  <a href="#" class="news-title ">
-                										Báo Công an thành phố Đà Nẵng kỷ niệm 30 năm phát hành số báo đầu tiên
-                									</a>
+                                  <a href="chi-tiet/{{ $tin->slug }}" class="news-title ">
+                                      {{ $tin->name }}
+                                  </a>
                               </div>
                             </li>
-                            <li class="news-item default-news bullet-arrow">
-                              <a class="icon-list"><i></i></a>
-                              <div class="default-news-content">
-                                  <a href="#" class="news-title ">
-                										Báo Công an thành phố Đà Nẵng kỷ niệm 30 năm phát hành số báo đầu tiên
-                									</a>
-                              </div>
-                            </li>
-                            <li class="news-item default-news bullet-arrow">
-                              <a class="icon-list"><i></i></a>
-                              <div class="default-news-content">
-                                  <a href="#" class="news-title ">
-                										Báo Công an thành phố Đà Nẵng kỷ niệm 30 năm phát hành số báo đầu tiên
-                									</a>
-                              </div>
-                            </li>
-                            <li class="news-item default-news bullet-arrow">
-                              <a class="icon-list"><i></i></a>
-                              <div class="default-news-content">
-                                  <a href="#" class="news-title ">
-                										Báo Công an thành phố Đà Nẵng kỷ niệm 30 năm phát hành số báo đầu tiên
-                									</a>
-                              </div>
-                            </li>
-
-
+                            @endforeach
                         </ul>
                     </div>
                   </div>
+
+                    @endif
             </div>
     </div>
 </div>
+<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
+
+    @endif

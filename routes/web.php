@@ -1,9 +1,15 @@
 <?php
 
 
-Route::get('/', function () {
-   return view('guest.trang-chu');
-});
+Route::get('/', 'GuestController@index');
+Route::get('/en', 'GuestController@indexEN');
+
+Route::get('chi-tiet/{slug}','GuestController@tinTuc');
+Route::get('chuyen-muc/{slug}','GuestController@chuyenMuc');
+Route::get('loai-tin/{slug}','GuestController@loaiTin');
+
+
+
 
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
 Route::post('/dang-nhap', 'UserController@login')->name('login');
@@ -32,8 +38,10 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
     Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');
     Route::post('them-tin-tuc-su-kien','TinTucController@store')->name('them-tin-tuc');
-    Route::get('edit-tin-tuc-su-kien','TinTucController@create')->name('edit-tin-tuc');
-    Route::post('edit-tin-tuc-su-kien','TinTucController@store')->name('update-tin-tuc');
+
+    Route::get('edit-tin-tuc-su-kien/{slug}','TinTucController@edit')->name('edit-tin-tuc');
+    
+    Route::post('edit-tin-tuc-su-kien','TinTucController@update')->name('update-tin-tuc');
 
     Route::group(['middleware' => 'role:admin'], function () {
         Route::get('config', 'AdminController@getConfigPage')->name('config');

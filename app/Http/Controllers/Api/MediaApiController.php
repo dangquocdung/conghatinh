@@ -104,7 +104,6 @@ class MediaApiController extends Controller
 
 
         $media->delete();
-
-        return redirect()->back();
+        
     }
 }

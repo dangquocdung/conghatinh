@@ -133,9 +133,11 @@ class TinTucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $tintuc = TinTuc::where('slug',$slug)->first();
+
+        return view('admin.pages.tin-tuc-su-kien-edit',compact('tintuc'));
     }
 
     /**
@@ -145,9 +147,28 @@ class TinTucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $tintuc = TinTuc::find($request->input('id'));
+
+        $tintuc->loaitin_id = $request->input('loaitin_id');
+
+        $tintuc->name = $request->input('name');
+
+        $tintuc->slug = str_slug($request->input('name'));
+
+        $tintuc->avatar = $request->input('avatar');
+
+        $tintuc->gioithieu = $request->input('gioithieu');
+
+        $tintuc->noidung = $request->input('noidung');
+
+        $tintuc->save();
+        // event(new TinTucCreated($tintuc));
+
+        flash('Cập nhật bản tin thành công');
+
+        return redirect()->route('tin-tuc-su-kien');
     }
 
     /**

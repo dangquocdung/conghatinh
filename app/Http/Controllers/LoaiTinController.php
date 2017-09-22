@@ -16,7 +16,7 @@ class LoaiTinController extends Controller
      */
     public function index()
     {
-        $loaitin = LoaiTin::orderBy('id', 'asc')->paginate(10);
+        $loaitin = LoaiTin::orderBy('id', 'asc')->paginate(20);
         return view('admin.pages.tbt.loai-tin', compact('loaitin'));
     }
 
@@ -93,7 +93,7 @@ class LoaiTinController extends Controller
         $lt->save();
 
         flash('Loại tin đã được cập nhật');
-        return redirect()->back();
+        return redirect( route('loai-tin'));
     }
 
 

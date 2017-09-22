@@ -7,7 +7,7 @@
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
       <li><a href="{{route('tin-tuc-su-kien')}}">Tin tức</a></li>
-      <li class="active">Tạo mới</li>
+      <li class="active">Edit Tin bài</li>
     </ol>
   </section>
 @endsection
@@ -18,30 +18,51 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Tạo mới</h3>
+          <h3 class="box-title">{{ $tintuc->name }}</h3>
         </div>
         <!-- /.box-header -->
-        <form action="{{ route('them-tin-tuc') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('update-tin-tuc') }}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
-          <input type="hidden" name="avatar" id="avatar">
+          <input type="hidden" name="id" value="{{ $tintuc->id }}" id="">
+
+          <input type="hidden" name="avatar" value="{{ $tintuc->avatar }}" id="avatar">
+
           <div class="box-body">
 
             <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+
               <option value=""></option>
+
               @foreach ($chuyenmuc as $cm)
+
               <optgroup label="{{ $cm->name}}">
+
                 @foreach ($cm->loaitin as $lt)
-                  <option value={{ $lt->id }}>{{ $lt->name}}</option>
+
+                  @if ($tintuc->loaitin_id == $lt->id )
+
+                    <option value={{ $lt->id }} selected="">{{ $lt->name}}</option>
+
+                  @else
+
+                    <option value={{ $lt->id }}>{{ $lt->name}}</option>
+
+                  @endif
+
                 @endforeach
+
               </optgroup>
+              
               @endforeach
+
             </select>
             
             <br>
             <br>
            
 
-            <input name="name" class="form-control input-lg" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" required="">
+            <input name="name" class="form-control input-lg" type="text" value="{{$tintuc->name}}" style="font-weight: bold; font-size: 1.5em" required="">
+
             <br>
 
             {{-- <div class='input-group date' id='ngaydang'>
@@ -67,8 +88,7 @@
                       
             {{-- <img id="uploadedimage" class="img-responsive" src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" /> --}}
 
-            <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" 
-                 src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" />
+            <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $tintuc->avatar }}" width="500px" style="margin: 0 auto;" />
 
 
           
@@ -76,12 +96,12 @@
 
             <br>
 
-            <textarea class="form-control" name="gioithieu" rows="3" cols="80" placeholder="Giới thiệu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
+            <textarea class="form-control" name="gioithieu" rows="3" cols="80" required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;">{{ $tintuc->gioithieu }}</textarea>
 
                 
             <br>
             
-            <textarea id="noi-dung" name="noidung" required="">Nội dung ...</textarea>
+            <textarea id="noi-dung" name="noidung" required="">{!! $tintuc->noidung !!}</textarea>
             
             <br>
 
@@ -107,7 +127,7 @@
 
           <div class="box-footer">
             
-            <button type="submit" class="btn btn-success pull-right">Gởi chờ duyệt</button>
+            <button type="submit" class="btn btn-success pull-right">Cập nhật</button>
 
             <button type="button" class="btn btn-danger pull-left">Huỷ bài viết</button>
 

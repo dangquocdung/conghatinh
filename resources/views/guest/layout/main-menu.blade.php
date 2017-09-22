@@ -12,7 +12,7 @@
               </li>
               @foreach ($chuyenmuc as $cm)
               <li class="header-menu-item">
-                  <a class="title-menu" href="{{$cm->slug}}">
+                  <a class="title-menu" href="chuyen-muc/{{$cm->slug}}">
                       <span>{{$cm->name}}</span>
                   </a>
                   @if (count($cm->loaitin) > 0)
@@ -23,7 +23,7 @@
                           <ul class="header-menu-sub container">
                             @foreach ($cm->loaitin as $lt)
                               <li class="header-menu-sub-item">
-                                  <a class="title-menu" href="/{{$cm->slug}}/{{$lt->slug}}">{{$lt->name}}</a>
+                                  <a class="title-menu" href="loai-tin/{{$lt->slug}}">{{$lt->name}}</a>
                               </li>
                             @endforeach
                           </ul>

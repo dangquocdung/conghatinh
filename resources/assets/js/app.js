@@ -29,7 +29,7 @@ window.eventBus = new Vue({})
 
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
-Vue.use(VueSocketio, 'http://localhost:8890')
+// Vue.use(VueSocketio, 'http://localhost:8890')
 
 // Making axios available as $http
 // so that the ajax calls are not axios dependent

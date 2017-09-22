@@ -86,7 +86,7 @@ class ChuyenMucController extends Controller
         $cm->save();
 
         flash('Chuyên mục đã được cập nhật');
-        return redirect()->back();
+        return redirect( route('chuyen-muc'));
     }
 
     /**

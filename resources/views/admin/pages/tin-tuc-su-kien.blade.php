@@ -47,10 +47,10 @@
 
               <tr>
                 <td>{{$tin->id}}</td>
-                <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="100"></td>
+                <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
                 
                 <td>
-                  {{ucwords($tin->name)}}
+                  {!! ucwords($tin->name) !!}
                   <br>
                   <span class="label label-warning">Nổi bật</span>
                   <span class="label label-success">Đã duyệt</span>
@@ -62,7 +62,7 @@
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                     <div class="pull-left">
-                      <a href="{{route('edit-tin-tuc', $tin->id)}}" class="btn btn-primary btn-xs">
+                      <a href="{{route('edit-tin-tuc', $tin->slug)}}" class="btn btn-primary btn-xs">
                         <i class="fa fa-edit"></i> Edit
                       </a>
                     </div>

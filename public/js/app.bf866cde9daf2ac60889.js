@@ -1819,7 +1819,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         size: 'viewport'
       }).then(function (response) {
         _this.image = response;
-        _this.axios.post(__WEBPACK_IMPORTED_MODULE_1__config__["h" /* uploadProfilePic */], { img: _this.image }).then(function (response) {
+        _this.axios.post(__WEBPACK_IMPORTED_MODULE_1__config__["i" /* uploadProfilePic */], { img: _this.image }).then(function (response) {
           _this.canUpload = true;
           _this.modalVisible = false;
           _this.button = {
@@ -1948,12 +1948,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       }
     },
     handleImageMetaDataSave: function handleImageMetaDataSave() {
+
       this.currentImage.meta_data.currentImageId = this.currentImage.id;
+
       this.$http.post(__WEBPACK_IMPORTED_MODULE_0__config__["d" /* metaDataSave */], this.currentImage.meta_data).then(function (response) {
         console.log('response', response);
       }).catch(function (error) {
         console.log('error', error);
       });
+    },
+    deleteMedia: function deleteMedia() {
+
+      this.currentImage.meta_data.currentImageId = this.currentImage.id;
+
+      this.$http.post(__WEBPACK_IMPORTED_MODULE_0__config__["e" /* deleteMedia */], this.currentImage.meta_data).then(function (response) {
+
+        console.log('response', response);
+      }).catch(function (error) {
+        console.log('error', error);
+      });
+
+      location.reload();
     }
   }
 });
@@ -2178,8 +2193,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      activateUser: __WEBPACK_IMPORTED_MODULE_2__config__["f" /* activateUser */],
-      deleteUser: __WEBPACK_IMPORTED_MODULE_2__config__["g" /* deleteUser */],
+      activateUser: __WEBPACK_IMPORTED_MODULE_2__config__["g" /* activateUser */],
+      deleteUser: __WEBPACK_IMPORTED_MODULE_2__config__["h" /* deleteUser */],
       userList: []
     };
   },
@@ -58006,7 +58021,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "MediaManager__Wrapper"
   }, [(_vm.showUploader) ? _c('div', {
     staticClass: "Uploader__Wrapper"
-  }, [_c('p', [_vm._v("I am the uploader "), _c('span', {
+  }, [_c('p', [_vm._v("Tải hình ảnh"), _c('span', {
     staticClass: "pull-right"
   }, [_c('i', {
     staticClass: "fa fa-times",
@@ -58136,13 +58151,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   })]), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-primary pull-right",
+    staticClass: "btn btn-primary",
     on: {
       "click": _vm.handleImageMetaDataSave
     }
   }, [_c('i', {
     staticClass: "fa fa-save"
-  }), _vm._v(" Save\n          ")])])])])])], 1)
+  }), _vm._v(" Save\n          ")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-danger pull-right",
+    on: {
+      "click": _vm.deleteMedia
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-trash-o"
+  }), _vm._v(" Delete\n          ")])])])])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -106656,7 +106678,7 @@ window.eventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({});
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_socket_io___default.a, 'http://localhost:8890');
+// Vue.use(VueSocketio, 'http://localhost:8890')
 
 // Making axios available as $http
 // so that the ajax calls are not axios dependent
@@ -106741,7 +106763,7 @@ module.exports = Component.exports
   mounted: function mounted() {
     var _this = this;
 
-    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(__WEBPACK_IMPORTED_MODULE_2__config__["e" /* watchdogData */]).then(function (resp) {
+    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(__WEBPACK_IMPORTED_MODULE_2__config__["f" /* watchdogData */]).then(function (resp) {
       console.log('resp', resp.data.data);
       _this.rows = resp.data.data.rows;
       _this.labels = resp.data.data.labels;
@@ -107220,15 +107242,15 @@ module.exports = Component.exports
 
 "use strict";
 /* unused harmony export apiDomain */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return uploadProfilePic; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return activateUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return deleteUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return watchdogData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return uploadProfilePic; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return activateUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return deleteUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return watchdogData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getMedia; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return mediaUpload; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return metaDataSave; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return editErrorUserData; });
-/* unused harmony export deleteMedia */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return deleteMedia; });
 /* unused harmony export mediaManager */
 var apiDomain = window.dungthinh.host;
 

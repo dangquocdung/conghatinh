@@ -12,7 +12,7 @@ class LoaiTin extends Model
 
     public function tintuc()
 	{
-	return $this->hasMany('App\TinTuc','chuyenmuccon_id','id');
+	return $this->hasMany('App\TinTuc','loaitin_id','id');
 	}
 
 	public function chuyenmuc()
