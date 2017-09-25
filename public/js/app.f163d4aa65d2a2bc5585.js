@@ -106670,7 +106670,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // Adding the X-CSRF-Token to all axios request
 __WEBPACK_IMPORTED_MODULE_2_axios___default.a.interceptors.request.use(function (config) {
   config.headers['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
-  config.headers['APP'] = 'Inferno';
+  config.headers['APP'] = 'dungdang';
   return config;
 });
 window.eventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({});
@@ -107251,7 +107251,7 @@ module.exports = Component.exports
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return editErrorUserData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return deleteMedia; });
 /* unused harmony export mediaManager */
-var apiDomain = window.dungthinh.host;
+var apiDomain = window.dungdang.host;
 
 var uploadProfilePic = apiDomain + 'api/v1/image-upload';
 var activateUser = apiDomain + 'api/v1/activate-user';

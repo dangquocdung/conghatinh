@@ -1,4 +1,4 @@
-export const apiDomain = window.dungthinh.host
+export const apiDomain = window.dungdang.host
 
 export const uploadProfilePic = apiDomain + 'api/v1/image-upload'
 export const activateUser = apiDomain + 'api/v1/activate-user'

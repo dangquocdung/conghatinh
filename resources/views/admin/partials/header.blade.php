@@ -28,6 +28,6 @@
 
   <script>
     window.Laravel = { csrfToken: '{{ csrf_token() }}' }
-    window.dungthinh = { host: '{{ url("/") }}/' }
+    window.dungdang = { host: '{{ url("/") }}/' }
   </script>
 </head>

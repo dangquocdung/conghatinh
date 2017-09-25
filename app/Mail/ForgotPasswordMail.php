@@ -30,7 +30,7 @@ class ForgotPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->from('reachme@amitavroy.com')
+        return $this->from('admin@hatinh.gov.vn')
             ->view('mails.forgot-password');
     }
 }
