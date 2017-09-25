@@ -8,7 +8,7 @@ Route::get('chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('chuyen-muc/{slug}','GuestController@chuyenMuc');
 Route::get('loai-tin/{slug}','GuestController@loaiTin');
 
-Route::get('watchdog-entries', 'Api\UserApiController@getUserWatchdogEntries');
+Route::get('api/v1/watchdog-entries', 'Api\UserApiController@getUserWatchdogEntries');
 
 
 
