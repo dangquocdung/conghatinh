@@ -6,7 +6,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'v1', 'middleware' => 'auth'], function () {
+Route::group('prefix' => 'v1', function () {
 
     Route::post('sidebar-toggle', 'Api\UserApiController@postSidebarToggle');
 
