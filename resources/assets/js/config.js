@@ -1,4 +1,4 @@
-// export const apiDomain = window.dungdang
+// export const apiDomain = window.dungdang.host
 
 export const uploadProfilePic = 'api/v1/image-upload'
 export const activateUser = 'api/v1/activate-user'

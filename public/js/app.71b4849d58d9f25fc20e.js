@@ -107250,7 +107250,7 @@ module.exports = Component.exports
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return editErrorUserData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return deleteMedia; });
 /* unused harmony export mediaManager */
-// export const apiDomain = window.dungdang
+// export const apiDomain = window.dungdang.host
 
 var uploadProfilePic = 'api/v1/image-upload';
 var activateUser = 'api/v1/activate-user';
