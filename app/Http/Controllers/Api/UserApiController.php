@@ -147,7 +147,10 @@ class UserApiController extends Controller
             'labels' => $labels,
             'rows' => $rows,
         ];
-        return response()->json(['data' => $data], 200);
+
+        return response()
+            ->json(['data' => $data], 200)
+            ->setCallback($request->input('callback'));
     }
 
     public function postDeleteTinTuc(Request $request)
