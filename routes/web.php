@@ -86,7 +86,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
 
 
-Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'api/v1', 'middleware' => 'auth:api'], function () {
 
     Route::post('sidebar-toggle', 'Api\UserApiController@postSidebarToggle');
 
