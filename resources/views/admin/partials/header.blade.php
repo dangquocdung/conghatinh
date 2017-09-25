@@ -7,7 +7,9 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
+  $.ajaxSetup({
+     headers: {'X-CSRF-Token': $('meta[name=csrf_token]').attr('content')}
+  });
   <base href="{{asset('')}}">
 
   <link rel="stylesheet" href="{{ url('admin/css/bootstrap.min.css') }}">
@@ -30,9 +32,5 @@
   <script>
     window.Laravel = { csrfToken: '{{ csrf_token() }}' }
     window.dungdang = { host: '{{ url("/") }}/' }
-
-    $.ajaxSetup({
-       headers: {'X-CSRF-Token': $('meta[name=csrf_token]').attr('content')}
-    });
   </script>
 </head>
