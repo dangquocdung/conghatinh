@@ -50,7 +50,7 @@
                 <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
                 
                 <td>
-                  {!! ucwords($tin->name) !!}
+                  <a href="chi-tiet/{{ $tin->slug }}"></a>{!! ucwords($tin->name) !!}
                   <br>
                   <span class="label label-warning">Nổi bật</span>
                   <span class="label label-success">Đã duyệt</span>
