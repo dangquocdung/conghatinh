@@ -12,7 +12,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
 
     Route::post('image-upload', 'Api\UserApiController@postUploadProfilePic');
 
-    Route::get('watchdog-entries', 'Api\UserApiController@getUserWatchdogEntries');
+    
 
     Route::get('get-media', 'Api\MediaApiController@index');
 
