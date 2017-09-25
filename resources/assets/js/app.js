@@ -22,7 +22,7 @@ import EditUsers from './components/UserImport/EditUsers'
 // Adding the X-CSRF-Token to all axios request
 axios.interceptors.request.use(function(config){
   config.headers['X-CSRF-TOKEN'] = window.Laravel.csrfToken
-  config.headers['APP'] = 'dungdang'
+  // config.headers['APP'] = 'dungdang'
   return config
 })
 window.eventBus = new Vue({})

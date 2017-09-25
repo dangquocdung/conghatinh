@@ -1,13 +1,13 @@
-export const apiDomain = window.dungdang.host
+// export const apiDomain = window.dungdang
 
-export const uploadProfilePic = apiDomain + 'api/v1/image-upload'
-export const activateUser = apiDomain + 'api/v1/activate-user'
-export const deleteUser = apiDomain + 'api/v1/delete-user'
-export const watchdogData = apiDomain + 'api/v1/watchdog-entries'
-export const getMedia = apiDomain + 'api/v1/get-media'
-export const mediaUpload = apiDomain + 'api/v1/media-upload'
-export const metaDataSave = apiDomain + 'api/v1/media/meta-data'
-export const editErrorUserData = apiDomain + 'api/v1/edit-users/'
+export const uploadProfilePic = 'api/v1/image-upload'
+export const activateUser = 'api/v1/activate-user'
+export const deleteUser = 'api/v1/delete-user'
+export const watchdogData = 'api/v1/watchdog-entries'
+export const getMedia = 'api/v1/get-media'
+export const mediaUpload = 'api/v1/media-upload'
+export const metaDataSave = 'api/v1/media/meta-data'
+export const editErrorUserData = 'api/v1/edit-users/'
 
-export const deleteMedia = apiDomain + 'api/v1/delete-media'
-export const mediaManager = apiDomain + 'toa-soan/media-manager'
+export const deleteMedia = 'api/v1/delete-media'
+export const mediaManager = 'toa-soan/media-manager'
