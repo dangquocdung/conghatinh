@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="{{ url('admin/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/default.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
-  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+  <link rel="stylesheet" href="{{ mix('admin/css/admin.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/_all-skins.min.css') }}">
   @yield('css')
 

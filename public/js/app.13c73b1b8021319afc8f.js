@@ -107268,7 +107268,14 @@ var mediaManager = apiDomain + 'toa-soan/media-manager';
 
 /***/ }),
 
-/***/ "./resources/assets/sass/app.scss":
+/***/ "./resources/assets/sass/admin.scss":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/assets/sass/guest.scss":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -107279,7 +107286,8 @@ var mediaManager = apiDomain + 'toa-soan/media-manager';
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./resources/assets/js/app.js");
-module.exports = __webpack_require__("./resources/assets/sass/app.scss");
+__webpack_require__("./resources/assets/sass/guest.scss");
+module.exports = __webpack_require__("./resources/assets/sass/admin.scss");
 
 
 /***/ })

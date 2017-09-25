@@ -178,6 +178,7 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */
@@ -186,6 +187,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
     ],
 

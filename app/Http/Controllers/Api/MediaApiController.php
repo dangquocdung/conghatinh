@@ -20,6 +20,7 @@ class MediaApiController extends Controller
     public function index()
     {
         $images = Media::orderBy('created_at', 'desc')->take(20)->get();
+        
         return response()->json(['data' => $images], 200);
     }
 
