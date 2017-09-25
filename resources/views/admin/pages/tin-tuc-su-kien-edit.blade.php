@@ -88,7 +88,7 @@
                       
             {{-- <img id="uploadedimage" class="img-responsive" src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" /> --}}
 
-            <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $tintuc->avatar }}" width="500px" style="margin: 0 auto;" />
+            <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $tintuc->avatar }}" width="500px" alt="{{$tintuc->name}}" style="margin: 0 auto;" />
 
 
           
