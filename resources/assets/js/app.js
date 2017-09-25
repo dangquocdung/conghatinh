@@ -25,6 +25,7 @@ axios.interceptors.request.use(function(config){
   // config.headers['APP'] = 'dungdang'
   return config
 })
+
 window.eventBus = new Vue({})
 
 Vue.use(VueAxios, axios)

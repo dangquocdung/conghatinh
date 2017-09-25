@@ -106673,6 +106673,7 @@ __WEBPACK_IMPORTED_MODULE_2_axios___default.a.interceptors.request.use(function 
   // config.headers['APP'] = 'dungdang'
   return config;
 });
+
 window.eventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({});
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
