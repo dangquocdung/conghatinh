@@ -8,11 +8,6 @@ Route::get('chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('chuyen-muc/{slug}','GuestController@chuyenMuc');
 Route::get('loai-tin/{slug}','GuestController@loaiTin');
 
-
-
-
-
-
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
 Route::post('/dang-nhap', 'UserController@login')->name('login');
 
