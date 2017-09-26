@@ -1,4 +1,5 @@
 <header class="hidden-xs">
+
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
@@ -13,6 +14,7 @@
       </div>
     </div>
   </div>
+
   <div id="header-brand">
       <div id="background-brand">
           <div class="brand-text">

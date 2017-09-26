@@ -1,8 +1,10 @@
 <?php
 
+Route::resource('web', 'WebController');
 
 Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
+
 
 Route::get('chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('chuyen-muc/{slug}','GuestController@chuyenMuc');

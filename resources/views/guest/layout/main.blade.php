@@ -16,27 +16,13 @@
     window.Laravel = { csrfToken: '{{ csrf_token() }}' }
     window.webtinh = { host: '{{ url("/") }}/' }
   </script>
+  @include('guest.layout.js')
 
 </head>
 <body>
-  @include('guest.layout.menu-mobile')
+{{--  @include('guest.layout.menu-mobile')--}}
   <div id="page">
-    <!-- Navbar -->
 
-    <nav class="visible-xs">
-      <div class="container">
-        <div class="row">
-            <div class="mm-toggle-wrap">
-              <div class="mm-toggle">
-                <i class="fa fa-align-justify"></i>
-              </div>
-          </div>
-          {{-- <div class="header-menu-name-mb" style="text-align: center">
-            <img src="./images/logo2.png" style="height: 45px">
-            <span>CỔNG TTĐT TỈNH HÀ TĨNH</span>
-          </div> --}}
-      </div>
-    </nav>
 
     @include('guest.layout.header-banner')
     @include('guest.layout.main-menu')
@@ -45,7 +31,7 @@
     @include('guest.layout.footer')
   </div>
   <!-- JS -->
-  @include('guest.layout.js')
+{{--  @include('guest.layout.js')--}}
   @yield('js')
 
 </body>

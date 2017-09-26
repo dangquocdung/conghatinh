@@ -29,12 +29,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet'],function($view){
 
           $chuyenmuc = ChuyenMuc::all();
-          
-          $view->with('chuyenmuc',$chuyenmuc);
-
           $loaitin = LoaiTin::all();
-          
-          $view->with('loaitin',$loaitin);
+          $tinnoibat5 = TinTuc::all();
+          $tinmoi5 = TinTuc::all();
+
+          $view->with(compact('chuyenmuc','loaitin','tinnoibat5', 'tinmoi5'));
 
         });
 
@@ -42,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
 
           $chuyenmuc = ChuyenMuc::all();
           
-          $view->with('chuyenmuc',$chuyenmuc);
+          $view->with(compact('chuyenmuc'));
 
         });
     }

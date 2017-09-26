@@ -19,7 +19,7 @@
 
                   @include('guest.home.tintuc-slider')
 
-                  
+
                   @include('guest.home.tintucsukien')
 
                     {{-- Theo dong su kien --}}
@@ -29,7 +29,7 @@
 
                   @include('guest.home.tinhoatdong')
 
-                  
+
 
 
                   @include('guest.home.thongtinchidaodieuhanh')

@@ -1,0 +1,26 @@
+.zone-topview {
+
+  background: #f9f9f9;
+  border-bottom: 1px solid #eaeaea;
+
+  .label {
+    border-radius: 0 !important;
+    margin-top: 0;
+    display: block;
+    text-transform: uppercase;
+    border-top: 2px solid #3bb5b5;
+    font-family: RobotoSlab-Bold;
+    font-size: 14px;
+    text-align: center;
+    padding: 8px 0 10px;
+  }
+
+
+  article{
+    text-align: justify;
+    padding: 5px;
+    img{
+      width: 100%;
+    }
+  }
+}
