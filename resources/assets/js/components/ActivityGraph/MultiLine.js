@@ -3,6 +3,14 @@ import {Line} from 'vue-chartjs'
 import {watchdogData} from './../../config'
 
 export default Line.extend({
+
+  data () {
+    return {
+      rows: [],
+      labels: []
+    }
+  },
+
   mounted () {
     axios.get(watchdogData)
       .then(resp => {
@@ -12,19 +20,25 @@ export default Line.extend({
         this.setUpGraph()
       })
   },
-  data () {
-    return {
-      rows: [],
-      labels: []
-    }
-  },
+  
   methods: {
     setUpGraph() {
       this.renderChart({
+
         labels: this.labels,
-        datasets: [
-          {label: 'Hoạt động của tôi', backgroundColor: '#dd4b39', data: this.rows}
-        ]
+          datasets: [
+            {
+              label: '# of Votes',
+              data: this.rows,
+              borderWidth: 1
+            },  
+            {
+              label: '# of Points',
+              data: [7, 11, 5, 8, 3, 7],
+              borderWidth: 1
+            }
+          ]
+        
       }, {responsive: true, maintainAspectRatio: false})
     }
   }

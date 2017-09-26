@@ -1,8 +1,18 @@
+// CommitChart.js
+import { Doughnut } from 'vue-chartjs'
 import axios from 'axios'
-import {Line} from 'vue-chartjs'
 import {watchdogData} from './../../config'
 
-export default Line.extend({
+
+export default Doughnut.extend({
+
+  data () {
+    return {
+      rows: [],
+      labels: []
+    }
+  },
+
   mounted () {
     axios.get(watchdogData)
       .then(resp => {
@@ -12,12 +22,8 @@ export default Line.extend({
         this.setUpGraph()
       })
   },
-  data () {
-    return {
-      rows: [],
-      labels: []
-    }
-  },
+
+
   methods: {
     setUpGraph() {
       this.renderChart({
@@ -29,4 +35,3 @@ export default Line.extend({
     }
   }
 })
-

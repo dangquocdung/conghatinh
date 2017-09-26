@@ -1612,12 +1612,15 @@ module.exports = {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LineChat__ = __webpack_require__("./resources/assets/js/components/ActivityGraph/LineChat.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__DoughnutChart__ = __webpack_require__("./resources/assets/js/components/ActivityGraph/DoughnutChart.js");
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    'line-chart': __WEBPACK_IMPORTED_MODULE_0__LineChat__["a" /* default */]
+    'line-chart': __WEBPACK_IMPORTED_MODULE_0__LineChat__["a" /* default */],
+    'doughnut-chart': __WEBPACK_IMPORTED_MODULE_1__DoughnutChart__["a" /* default */]
   }
 });
 
@@ -57794,8 +57797,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-12"
-  }, [_c('line-chart')], 1)])])])])
+    staticClass: "col-md-8"
+  }, [_c('line-chart')], 1), _vm._v(" "), _c('div', {
+    staticClass: "col-md-4"
+  }, [_c('doughnut-chart')], 1)])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "box-header with-border"
@@ -106742,6 +106747,51 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/ActivityGraph/DoughnutChart.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__("./node_modules/vue-chartjs/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_chartjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__("./node_modules/axios/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__("./resources/assets/js/config.js");
+// CommitChart.js
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["Doughnut"].extend({
+  data: function data() {
+    return {
+      rows: [],
+      labels: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(__WEBPACK_IMPORTED_MODULE_2__config__["f" /* watchdogData */]).then(function (resp) {
+      console.log('resp', resp.data.data);
+      _this.rows = resp.data.data.rows;
+      _this.labels = resp.data.data.labels;
+      _this.setUpGraph();
+    });
+  },
+
+
+  methods: {
+    setUpGraph: function setUpGraph() {
+      this.renderChart({
+        labels: this.labels,
+        datasets: [{ label: 'Hoạt động của tôi', backgroundColor: '#dd4b39', data: this.rows }]
+      }, { responsive: true, maintainAspectRatio: false });
+    }
+  }
+}));
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/ActivityGraph/LineChat.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -106777,7 +106827,7 @@ module.exports = Component.exports
     setUpGraph: function setUpGraph() {
       this.renderChart({
         labels: this.labels,
-        datasets: [{ label: 'My activities', backgroundColor: '#dd4b39', data: this.rows }]
+        datasets: [{ label: 'Hoạt động của tôi', backgroundColor: '#dd4b39', data: this.rows }]
       }, { responsive: true, maintainAspectRatio: false });
     }
   }
