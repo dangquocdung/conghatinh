@@ -1,9 +1,11 @@
 <div class="block3">
 
     <div class="left_block">
-        <h2>
-            <a>Tin tức - Sự kiện nổi bật</a>
-        </h2>
+        <div class="portlet-header">
+            <a href="chuyen-muc/tin-tuc-su-kien" class="portlet-danh-muc-title">
+                <h4 class="portlet-header-title no-pd-top">Tin tức sự kiện nổi bật</h4>
+            </a>
+        </div>
 
     </div>
     <div class="col-md-8" id="tinNoiBatChinh">
@@ -13,7 +15,7 @@
         {{--@endphp--}}
 
 
-        <div class="hot-news">
+        <div class="hot-news" style="padding-top: 15px;">
 
             <a href="#" class="hot-news-thumb-nail ">
                 <img src="">

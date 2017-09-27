@@ -189,10 +189,6 @@ nav{
 
 }
 
-#tinNoiBatChinh{
-  padding-top: 10px;
-
-}
 .hot-news-thumb-nail {
   img {
 
@@ -212,11 +208,11 @@ nav{
 
 #tin-noi-bat ul{
   li.active{
-    background: #dedede;
+    background: #F5E8CA;
   }
   li{
     &:hover{
-      background: #dedede;
+      background: #F5E8CA;
     }
   }
 }

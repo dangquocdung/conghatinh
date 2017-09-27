@@ -2,7 +2,7 @@
   <div id="brand_carousel" class="owl-carousel brand-logo">
     @foreach ($tinslide as $ts)
     <div class="item text-center">
-        <img src="{{ $ts->avatar }}" alt="{{ $ts->name }}" class="img-responsive" />
+        <img src="{{ $ts->avatar }}" alt="{{ $ts->name }}" height="120px" width="100%"/>
         <div class="content_news">
           <a href="chi-tiet/{{ $ts->slug }}">{{ $ts->name }}</a>
         </div>

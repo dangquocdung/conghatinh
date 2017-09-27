@@ -58,18 +58,22 @@
                         <ul class="nav navbar-nav">
 
                             <li><a href="#">Trang chủ</a></li>
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="#">Tin Tức - Sự kiện</a></li>
+                            <li><a href="#">DVC trực tuyến</a></li>
+                            <li><a href="#">English</a></li>
 
-                            @foreach($chuyenmuc as $cm)
+                            {{--@foreach($chuyenmuc as $cm)--}}
 
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $cm->name }} <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        @foreach($cm->loaitin as $lt)
-                                            <li><a href="loai-tin/{{$lt->slug}}">{{$lt->name}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                            @endforeach
+                                {{--<li class="dropdown">--}}
+                                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $cm->name }} <span class="caret"></span></a>--}}
+                                    {{--<ul class="dropdown-menu">--}}
+                                        {{--@foreach($cm->loaitin as $lt)--}}
+                                            {{--<li><a href="loai-tin/{{$lt->slug}}">{{$lt->name}}</a></li>--}}
+                                        {{--@endforeach--}}
+                                    {{--</ul>--}}
+                                {{--</li>--}}
+                            {{--@endforeach--}}
 
                             {{--<li class="dropdown">--}}
                             {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>--}}
@@ -86,20 +90,20 @@
                         </ul>
 
 
-                        {{--<ul class="nav navbar-nav navbar-right">--}}
-                            {{--<li>--}}
-                                {{--<form class="form-inline" style="padding: 8px 15px;">--}}
-                                    {{--<div class="input-group">--}}
-                                        {{--<input class="form-control" type="text" placeholder="Tìm kiếm...">--}}
-                                        {{--<span class="input-group-btn">--}}
-                                        {{--<button class="btn btn-primary" type="button">--}}
-                                        {{--<i class="fa fa-search"></i>--}}
-                                        {{--</button>--}}
-                                        {{--</span>--}}
-                                    {{--</div>--}}
-                                {{--</form>--}}
-                        {{--</li>--}}
-                        {{--</ul>--}}
+                        <ul class="nav navbar-nav navbar-right hidden-sm">
+                            <li>
+                                <form class="form-inline" style="padding: 8px 15px;">
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" placeholder="Tìm kiếm...">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                        </button>
+                                        </span>
+                                    </div>
+                                </form>
+                        </li>
+                        </ul>
 
                     </div><!--/.nav-collapse -->
 
