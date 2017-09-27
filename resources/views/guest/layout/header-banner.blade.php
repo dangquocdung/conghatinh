@@ -57,7 +57,7 @@
 
                         <ul class="nav navbar-nav">
 
-                            <li class="current"><a href="#">Trang chủ</a></li>
+                            <li><a href="#">Trang chủ</a></li>
 
                             @foreach($chuyenmuc as $cm)
 
@@ -86,20 +86,20 @@
                         </ul>
 
 
-                        {{--<ul class="nav navbar-nav navbar-right">--}}
-                        {{--<li>--}}
-                        {{--<form class="form-inline" style="margin-top: 8px;">--}}
-                        {{--<div class="input-group">--}}
-                        {{--<input class="form-control" type="text" placeholder="Search for...">--}}
-                        {{--<span class="input-group-btn">--}}
-                        {{--<button class="btn btn-primary" type="button">--}}
-                        {{--<i class="fa fa-search"></i>--}}
-                        {{--</button>--}}
-                        {{--</span>--}}
-                        {{--</div>--}}
-                        {{--</form>--}}
-                        {{--</li>--}}
-                        {{--</ul>--}}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <form class="form-inline" style="padding: 8px 15px;">
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" placeholder="Tìm kiếm...">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                        </button>
+                                        </span>
+                                    </div>
+                                </form>
+                        </li>
+                        </ul>
 
                     </div><!--/.nav-collapse -->
 

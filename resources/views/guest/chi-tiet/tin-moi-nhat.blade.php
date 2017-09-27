@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3 hidden-xs">
     <div class="box-tm">
 
         <article class="clearfix">

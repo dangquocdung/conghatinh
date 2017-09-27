@@ -1,98 +1,127 @@
 <div class="block3">
-<div class="col-md-8">
-    <div class="portlet" style="padding-bottom: 15px">
-        <div class="portlet-content">
-            <div class="row">
-                <div class="carousel slide" id="carousel-example-captions" data-ride="carousel">
 
-                    @php
-                        $tinactive = $tinnoibat->shift();
-                    @endphp
+    <div class="left_block">
+        <h2>
+            <a>Tin tức - Sự kiện nổi bật</a>
+        </h2>
 
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-captions" data-slide-to="{{ $tinactive->id }}" class="active"></li>
+    </div>
+    <div class="col-md-8" id="tinNoiBatChinh">
 
-                        @foreach ($tinnoibat as $tnb)
-
-                            <li data-target="#carousel-example-captions" data-slide-to="{{ $tnb->id}}" class=""></li>
-
-                        @endforeach
+        {{--@php--}}
+            {{--$tinactive = $tinnoibat->shift();--}}
+        {{--@endphp--}}
 
 
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
+        <div class="hot-news">
 
-                        <div class="item active">
-                            <a href="chi-tiet/{{ $tinactive->slug }}">
-                                <img src="{{ $tinactive->avatar }} " alt=" {{ $tinactive->name }} " width="100%">
-                            </a>
-                        </div>
+            <a href="#" class="hot-news-thumb-nail ">
+                <img src="">
+            </a>
 
-                        @foreach ($tinnoibat as $tnb)
+            <div class="hot-news-title" style="display: block;">
+                <a href=""><h4></h4></a>
 
-                            <div class="item">
-                                <a href="chi-tiet/{{ $tnb->slug }}">
-                                    <img src="{{ $tnb->avatar }}" alt="{{ $tnb->name }}" width="100%">
+
+            </div>
+            <div class="hot-news-desc">
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="col-md-4">
+
+
+                <div id="tin-noi-bat">
+
+                <ul>
+                    @foreach ($tinnoibat as $tnb)
+
+                        <li>
+                            <div class="hot-news-block">
+
+                                <a href="chi-tiet/{{ $tnb->slug }}" class="news-title">
+                                    {{ $tnb->name }}
                                 </a>
+
+                                <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" style="display: none;">
+
+                                <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
+
                             </div>
+                        </li>
 
-                        @endforeach
+                    @endforeach
 
-                    </div>
-                    {{-- <a href="#carousel-example-captions" class="left carousel-control" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-                    <a href="#carousel-example-captions" class="right carousel-control" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> --}}
-                </div>
-
-
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="portlet" style="padding-bottom: 15px">
-        <div class="portlet-content">
-            <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
-                <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Tin Mới</a>
-                    </li>
-                    <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Tin Nổi bật</a>
-                    </li>
                 </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade in active" role="tabpanel" id="home" aria-labelledby="home-tab">
-                        <ul>
-                            @foreach ($tinmoi as $tm)
-                                <li>
-                                    <div class="hot-news-block">
-                                        <a href="chi-tiet/{{ $tm->slug }}" class="news-title">
-                                            {{ $tm->name }}
-                                        </a>
-                                    </div>
-                                </li>
-                            @endforeach
-
-                        </ul>
-                    </div>
-
-                    <div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profile-tab">
-                        <ul>
-                            @foreach ($tinnoibat as $tnb)
-
-                                <li>
-                                    <div class="hot-news-block">
-                                        <a href="chi-tiet/{{ $tnb->slug }}" class="news-title">
-                                            {{ $tnb->name }}
-                                        </a>
-                                    </div>
-                                </li>
-
-                            @endforeach
-
-                        </ul>
-                    </div>
                 </div>
-            </div>
-        </div>
+
+
+
+
     </div>
 </div>
-</div>
+
+<script>
+
+    function UnionSwitchMode2() {
+
+        var idUnion_image_thumb = "tin-noi-bat"
+
+
+        var jQueryActive = $("#" + idUnion_image_thumb + ' .active');
+
+
+        var jQueryNext = jQueryActive.next().length ? jQueryActive.next() : $("#" + idUnion_image_thumb + ' ul li:first');
+
+        //Tìm giá trị
+
+        var imgAlt = jQueryNext.find('img').attr("alt");
+
+        var imgTitle = jQueryNext.find('img').attr("src");
+
+        var imgDesc = jQueryNext.find('.hot-news-block').html();
+
+        var aHref = jQueryNext.find('a').attr("href");
+
+        var imgDescHeight = $("#tinNoiBatChinh .hot-news").find('#tinNoiBatChinh .hot-news-block').height();
+
+        var newsDesc = jQueryNext.find('.item-desc').html();
+
+        $("#tinNoiBatChinh .hot-news").animate( {marginBottom: "0"}, 0, function() {
+
+            jQueryActive.removeClass('active');
+
+            jQueryNext.addClass('active');
+
+
+
+
+            $("#tinNoiBatChinh .hot-news img").attr({ src: imgTitle, alt: imgAlt });
+
+
+
+            $("#tinNoiBatChinh .hot-news .hot-news-title a").attr({href: aHref});
+
+            $("#tinNoiBatChinh .hot-news .hot-news-title h4").html(imgAlt);
+
+            $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
+
+            
+
+        });
+
+
+
+    }
+
+    $(document).ready(function () {
+        $(".tin-noi-bat ul li:first").addClass('active');
+
+        setInterval("UnionSwitchMode2()", "4000");
+
+    })
+</script>

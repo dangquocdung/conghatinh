@@ -16,7 +16,7 @@ class GuestController extends Controller
 
         $tinslide = TinTuc::orderBy('id', 'decs')->take(10)->get();
 
-        $tinnoibat = TinTuc::orderBy('id', 'decs')->take(6)->get();
+        $tinnoibat = TinTuc::orderBy('id', 'decs')->take(10)->get();
 
         // $tintucsukien = TinTuc::where('')->orderBy('id', 'decs')->take(6)->get();
 

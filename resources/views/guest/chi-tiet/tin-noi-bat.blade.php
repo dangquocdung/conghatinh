@@ -3,19 +3,19 @@
 
   <h4 class="label">Tin nổi bật</h4>
 
-@foreach ($tinnoibat4 as $tin)
+    @foreach ($tinnoibat4 as $tin)
 
-   <article>
+       <article>
 
-      <a href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">
-          <img src="{{$tin->avatar}}" alt="{{$tin->name}}">
-      </a>
+          <a href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">
+              <img src="{{$tin->avatar}}" alt="{{$tin->name}}">
+          </a>
 
-      <h6>
-          <a class="title" href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">{{ $tin->name }}</a>
-      </h6>
-   </article>
-@endforeach
+          <h6>
+              <a class="title" href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">{{ $tin->name }}</a>
+          </h6>
+       </article>
+    @endforeach
 
 </section>
 
