@@ -8,7 +8,7 @@
 @section('content')
   <div class="container">
       <div class="row nen-trang">
-          <div class=".col-lg-9 col-md-9 col-sm-12 col-xs-12 portlet-layout layout-left margin-mobile">
+          <div class=".col-lg-9 col-md-9 col-sm-12 col-xs-12 portlet-layout layout-left margin-mobile" style="margin-top: 15px;">
 
 
 

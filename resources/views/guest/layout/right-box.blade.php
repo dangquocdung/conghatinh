@@ -1,4 +1,4 @@
-<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 portlet-layout layout-right">
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 portlet-layout layout-right" style="margin-top: 15px;">
   {{-- Thông tin chính quyền --}}
   {{-- <div class="portlet-content" style="margin-bottom: 10px;">
       <div class="portlet portlet-panel">

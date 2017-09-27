@@ -1,4 +1,4 @@
-<div class="container nen-trang">
+<div class="container">
     <div class="row">
 
         <header class="hidden-xs">
@@ -37,7 +37,7 @@
         </header>
 
 
-        <nav class="navbar navbar-default" id="main-menu">
+        <nav class="navbar navbar-default" id="main-menu" >
 
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -86,20 +86,20 @@
                         </ul>
 
 
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <form class="form-inline" style="padding: 8px 15px;">
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="Tìm kiếm...">
-                                        <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                        </button>
-                                        </span>
-                                    </div>
-                                </form>
-                        </li>
-                        </ul>
+                        {{--<ul class="nav navbar-nav navbar-right">--}}
+                            {{--<li>--}}
+                                {{--<form class="form-inline" style="padding: 8px 15px;">--}}
+                                    {{--<div class="input-group">--}}
+                                        {{--<input class="form-control" type="text" placeholder="Tìm kiếm...">--}}
+                                        {{--<span class="input-group-btn">--}}
+                                        {{--<button class="btn btn-primary" type="button">--}}
+                                        {{--<i class="fa fa-search"></i>--}}
+                                        {{--</button>--}}
+                                        {{--</span>--}}
+                                    {{--</div>--}}
+                                {{--</form>--}}
+                        {{--</li>--}}
+                        {{--</ul>--}}
 
                     </div><!--/.nav-collapse -->
 

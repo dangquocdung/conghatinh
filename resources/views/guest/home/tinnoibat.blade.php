@@ -24,7 +24,7 @@
 
 
             </div>
-            <div class="hot-news-desc">
+            <div class="hot-news-desc" style="text-align: justify; line-height: 20px;">
 
             </div>
         </div>
@@ -35,7 +35,7 @@
     <div class="col-md-4">
 
 
-                <div id="tin-noi-bat">
+                <div id="tin-noi-bat" style="padding-top: 15px;">
 
                 <ul>
                     @foreach ($tinnoibat as $tnb)
