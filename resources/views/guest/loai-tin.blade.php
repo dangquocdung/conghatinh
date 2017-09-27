@@ -7,7 +7,7 @@
 @endsection
 @section('content')
   <div class="container">
-    <div class="row">
+    <div class="row nen-trang">
       <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 portlet-layout layout-left">
         <section class="portlet">
            <div class="portlet-content">

@@ -7,10 +7,10 @@
 @endsection
 @section('content')
   <div class="container">
-    <div class="row">
-      @include('guest.chi-tiet.tin-noi-bat')
+    <div class="row nen-trang">
+{{--      @include('guest.chi-tiet.tin-noi-bat')--}}
       @include('guest.chi-tiet.chi-tiet')
-      @include('guest.layout.right-box')
+      @include('guest.chi-tiet.tin-moi-nhat')
     </div>
   </div>
 @endsection

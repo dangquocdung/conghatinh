@@ -27,7 +27,7 @@
     @include('guest.layout.header-banner')
     @include('guest.layout.main-menu')
     @yield('content')
-    @include('guest.layout.lienketwebsite')
+{{--    @include('guest.layout.lienketwebsite')--}}
     @include('guest.layout.footer')
   </div>
   <!-- JS -->

@@ -7,8 +7,10 @@
 @endsection
 @section('content')
   <div class="container">
-      <div class="row">
+      <div class="row nen-trang">
           <div class=".col-lg-9 col-md-9 col-sm-12 col-xs-12 portlet-layout layout-left margin-mobile">
+
+
 
                 @include('guest.home.tinnoibat')
                 {{-- <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
@@ -21,6 +23,7 @@
 
 
                   @include('guest.home.tintucsukien')
+
 
                     {{-- Theo dong su kien --}}
                     {{-- <div class="col-md-12">

@@ -26,3 +26,5 @@
 
 <!-- countdown js -->
 <script type="text/javascript" src="guest/js/countdown.js"></script>
+
+<script type="text/javascript" src="guest/js/jquery-scrolltofixed-min.js"></script>

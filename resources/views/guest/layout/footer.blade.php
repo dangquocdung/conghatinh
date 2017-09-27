@@ -1,3 +1,4 @@
+<div class="container nen-trang">
 <div class="porlet-main-footer">
     <div class="main-footer-header-wrapper">
         <div class="container">
@@ -20,11 +21,7 @@
                 <li class="main-footer-menu-item main-footer-menu-item-right">
                     <a href="mailto:toasoan@hatinh.gov.vn">Góp ý</a>
                 </li>
-                <li class="main-footer-menu-item main-footer-menu-item-right" style="float:right;">
-                    <a href="http://hatinh.gov.vn/rss">
-                        <i class="ht-icon-rss"></i> RSS
-                    </a>
-                </li>
+
             </ul>
         </div>
     </div>
@@ -49,4 +46,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

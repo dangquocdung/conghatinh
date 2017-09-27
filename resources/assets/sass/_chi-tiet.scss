@@ -24,3 +24,52 @@
     }
   }
 }
+
+
+.box-tm {
+  background: #f9f9f9;
+  margin-bottom: 18px;
+
+  .thumb {
+    width: 58px;
+    float: left;
+    margin: 3px 10px 0 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+.thumb {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.tags {
+  background: #eee;
+  padding: 8px 15px 3px;
+  clear: both;
+
+  li {
+    font-family: Roboto-Bold;
+    font-size: 12px;
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 5px 5px 0;
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+#abde{
+  ul {
+    list-style-type: none;
+    list-style: none;
+  }
+}

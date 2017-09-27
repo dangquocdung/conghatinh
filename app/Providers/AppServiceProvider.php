@@ -29,11 +29,14 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet'],function($view){
 
           $chuyenmuc = ChuyenMuc::all();
-          $loaitin = LoaiTin::all();
-          $tinnoibat5 = TinTuc::all();
-          $tinmoi5 = TinTuc::all();
 
-          $view->with(compact('chuyenmuc','loaitin','tinnoibat5', 'tinmoi5'));
+          $loaitin = LoaiTin::all();
+
+          $tinnoibat4 = TinTuc::orderby('id','desc')->take(4)->get();
+
+          $tinmoi5 = TinTuc::orderby('id','desc')->take(5)->get();
+
+          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5'));
 
         });
 

@@ -1,35 +1,5 @@
-<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 portlet-layout layout-left">
-    <div class="portlet-content">
-        <div class=" portlet-content-container">
-            <div class="portlet-body">
-                <style type="text/css">
-                    span.error {
-                        color: #a94442;
-                        font-weight: bold;
-                    }
-                    .alert {
-                        position: fixed;
-                        z-index: 1036;
-                        right: 0;
-                        min-width: 320px;
-                        top: 0;
-                    }
-                    .chi-tiet-title,
-                    .chi-tiet-tac-gia {
-                        text-transform: none !important;
-                    }
-                    .chi-tiet-main-content table {
-                        border-collapse: collapse;
-                    }
-                    .chi-tiet-main-content table td,
-                    .chi-tiet-main-content table th {
-                        padding: 10px!important;
-                    }
-                    video {
-                        width: 100%;
-                        height: auto;
-                    }
-                </style>
+<div class="col-md-9">
+
                 <div class="portlet">
                     <div class="portlet-content portlet-content-no-header">
                         <div class="chi-tiet-header">
@@ -41,18 +11,62 @@
                                     <span class="chi-tiet-publish-date">{{ $tin->created_at }}</span>
                                 </div>
                             </div>
-                            <div class="chi-tiet-sub-content-wrap">
-                                <div class="chi-tiet-sub-content">
-                                    <p style="text-align:justify"><span style="font-size:15px">{{ $tin->gioithieu }}</span>
+                            <div class="chi-tiet-avatar" style="margin-bottom: 10px;">
+                                <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" width="90%" style="display: block; margin: 0 auto;">
+                            </div>
+
+                            <div class="row">
+
+
+                                <div class="col-md-3">
+
+                                    @include('guest.chi-tiet.tin-noi-bat')
+
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="chi-tiet-sub-content-wrap">
+                                        <div class="chi-tiet-sub-content">
+                                            <p style="text-align:justify"><span style="font-size:15px">{{ $tin->gioithieu }}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="chi-tiet-main-content">
+                                        {!! $tin->noidung !!}
+
+                                    </div>
+
+                                    <div>
+                                        <table style="width: 485px; height: auto;" bordercolor="#3068f8" cellspacing="0" cellpadding="0" rules="none" align="center" border="2px">
+                                            <tbody>
+                                            <tr>
+                                                <td style="background-color: #e3edf7; padding:5px; text-align:justify" align="left">
+                                                    <div style="font-size: 13px; color: #000080;">
+                                                        <div>Mọi sự giúp đỡ, xin bạn đọc gửi về Báo <em>Thanh Niên</em> theo thông tin sau: Chủ tài khoản: Báo Thanh Niên. Số tài khoản: 1471000.000.0115 - Ngân hàng thương mại cổ phần Đầu tư và phát triển Việt Nam - chi nhánh Ba Tháng Hai, TP.HCM. Nội dung ghi: Giúp đỡ anh Trần Minh Sơn; hoặc Báo Thanh Niên sẽ nhận trực tiếp tại tòa soạn, các văn phòng đại diện trong cả nước. Chúng tôi sẽ chuyển đến gia đình anh Sơn trong thời gian sớm nhất.</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <p style="text-align: right;" id="tac-gia">
+                                        <strong>Trương Quang Nam - Diệu Linh</strong>
                                     </p>
+
                                 </div>
                             </div>
-                        </div>
-                        <div class="chi-tiet-main">
-                            <div class="chi-tiet-main-content">
-                                {!! $tin->noidung !!}
-                                
+
+                            <div id="abde">
+                                <ul class="tags">
+                                    <li>Tags:</li>
+                                    <li><a href="/la-lanh-dum-la-rach/tag.html">lá lành đùm lá rách</a></li>
+                                    <li><a href="/giup-do/tag.html">giúp đỡ</a></li>
+                                    <li><a href="/dieu-tri/tag.html">điều trị</a></li>
+                                </ul>
                             </div>
+
                         </div>
                         <hr>
                         <div class="chi-tiet-footer">
@@ -62,7 +76,7 @@
                             <div class="portlet-content">
                                 <div class="related-news">
                                     <ul class="list-news">
-                                        @foreach($tinnoibat5 as $tin)
+                                        @foreach($tinmoi5 as $tin)
                                             <li class="col-md-12 news-item related-default-news bullet-arrow">
                                                 <a class="icon-list">
                                                     <i></i>
@@ -84,7 +98,8 @@
                         <!-- Bài viết cùng chuyên mục -->
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+
+
+
+           
 </div>
