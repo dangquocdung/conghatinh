@@ -1,4 +1,4 @@
-<div class="col-md-9">
+<div class="col-md-9 portlet-layout">
 
                 <div class="portlet">
                     <div class="portlet-content portlet-content-no-header">

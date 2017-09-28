@@ -55,6 +55,32 @@
       }
     }
   }
+
+  .navbar-default {
+    background-color: #1E62CA;
+    border-color: #0083F3 !important;
+    .navbar-nav{
+      .active{
+        a{
+          color: #fff;
+          background-color: #0083F3 !important;
+        }
+      }
+      li{
+        a{
+          color: #fff ;
+        }
+        &:hover{
+          background-color: orange;
+        }
+      }
+    }
+  }
+
+  .navbar-collapse {
+    background-color: #1E62CA;
+    border-color: #0083F3 !important;
+  }
   .mobile-submenu {
     li{
       a{
