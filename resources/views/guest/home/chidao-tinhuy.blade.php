@@ -69,25 +69,34 @@
 
             <script>
                 $(document).ready(function () {
-                    $('.news-block').hover(function () {
 
-                        $('#tinh-uy .main-news-title a').attr({href: $(this).find('a').attr('href')});
-                        $('#tinh-uy .main-news-title a').html($(this).find('a').html());
+                    var isMobile = $(window).width() < 768;
+                    console.log("isMobile");
+                    console.log(isMobile);
 
+                    if(!isMobile) {
+                        $('.news-block').hover(function () {
 
-
-
-
-                        $('#tinh-uy .main-news-thumb-nail img').attr({src: $(this).find('img').attr('src')});
-
-                        $('#tinh-uy .main-news-content').html($(this).find('.gioithieu').html());
+                            $('#tinh-uy .main-news-title a').attr({href: $(this).find('a').attr('href')});
+                            $('#tinh-uy .main-news-title a').html($(this).find('a').html());
 
 
 
 
 
+                            $('#tinh-uy .main-news-thumb-nail img').attr({src: $(this).find('img').attr('src')});
 
-                    })
+                            $('#tinh-uy .main-news-content').html($(this).find('.gioithieu').html());
+
+
+
+
+
+
+                        })
+
+                    }
+
 
 
                 })
