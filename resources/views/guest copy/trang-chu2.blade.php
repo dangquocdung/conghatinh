@@ -23,7 +23,7 @@
               </div>
               <div class="col-md-12">
                   <div class="portlet-content">
-                      @include('guest.home.tintucsukien')
+                      @include('guest.home.chidao-tinhuy.php')
                   </div>
               </div>
               {{-- Theo dong su kien --}}
@@ -45,7 +45,7 @@
               </div>
               <div class="col-md-12">
                   <div class="portlet-content">
-                      @include('guest.home.vanbanchidaodieuhanh')
+                      @include('guest.home.vanban-cddh')
                   </div>
               </div>
               <div class="col-md-12">

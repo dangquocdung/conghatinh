@@ -8,7 +8,7 @@
 @section('content')
   <div class="container">
       <div class="row nen-trang">
-          <div class=".col-lg-9 col-md-9 col-sm-12 col-xs-12 portlet-layout layout-left margin-mobile">
+          <div class=".col-lg-9 col-md-9 col-sm-12 col-xs-12">
 
 
 
@@ -22,22 +22,10 @@
                   @include('guest.home.tintuc-slider')
 
 
-                  @include('guest.home.tintucsukien')
-
-
-                    {{-- Theo dong su kien --}}
-                    {{-- <div class="col-md-12">
-                            @include('guest.home.theodongsukien')
-                    </div> --}}
-
-                  @include('guest.home.tinhoatdong')
-
-
-
-
-                  @include('guest.home.thongtinchidaodieuhanh')
-                  <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
-                  @include('guest.home.vanbanchidaodieuhanh')
+                  @include('guest.home.chidao-tinhuy')
+                  @include('guest.home.chidao-hdnd')
+                  @include('guest.home.chidao-ubnd')
+                  @include('guest.home.vanban-cddh')
                   <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
                   @include('guest.home.tinsonganh')
                   @include('guest.home.tinhuyenthi')

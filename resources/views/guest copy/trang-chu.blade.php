@@ -20,7 +20,7 @@
                   @include('guest.home.tintuc-slider')
 
                   
-                  @include('guest.home.tintucsukien')
+                  @include('guest.home.chidao-tinhuy.php')
 
                     {{-- Theo dong su kien --}}
                     {{-- <div class="col-md-12">
@@ -34,7 +34,7 @@
 
                   @include('guest.home.thongtinchidaodieuhanh')
                   <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
-                  @include('guest.home.vanbanchidaodieuhanh')
+                  @include('guest.home.vanban-cddh')
                   <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
                   @include('guest.home.tinsonganh')
                   @include('guest.home.tinhuyenthi')

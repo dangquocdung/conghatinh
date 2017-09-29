@@ -13,7 +13,7 @@
 <div class="portlet">
     <div class="portlet-header">
         <a href="chuyen-muc/tin-tuc-su-kien" class="portlet-danh-muc-title">
-            <h4 class="portlet-header-title no-pd-top">Tin tức sự kiện</h4>
+            <h4 class="portlet-header-title no-pd-top">Chỉ đạo của UBND tỉnh Hà Tĩnh</h4>
         </a>
     </div>
 
@@ -64,6 +64,5 @@
             </div>
     </div>
 </div>
-<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
 
     @endif

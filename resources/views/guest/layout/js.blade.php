@@ -28,3 +28,12 @@
 <script type="text/javascript" src="guest/js/countdown.js"></script>
 
 <script type="text/javascript" src="guest/js/jquery-scrolltofixed-min.js"></script>
+
+{{--gmapsjs--}}
+
+{{--<script src="http://maps.google.com/maps/api/js"></script>--}}
+
+{{--<script type="text/javascript" src="guest/js/gmaps.js"></script>--}}
+
+{{--<script src="{{mix('/js/guest.js')}}"></script>--}}
+

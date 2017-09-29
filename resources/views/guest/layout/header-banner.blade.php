@@ -3,24 +3,26 @@
 
         <header class="hidden-xs">
 
-          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <img src="./images/banner-main-4.png" alt="" width="100%">
-              </div>
-            <div class="item">
-                <img src="./images/banner-main-3.png" alt="" width="100%">
-            </div>
-            <div class="item">
-                <img src="./images/banner-main-2.png" alt="" width="100%">
-            </div>
-            <div class="item">
-                <img src="./images/banner-main-1.png" alt="" width="100%">
-            </div>
+          {{--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">--}}
+            {{----}}
+            {{--<div class="carousel-inner" role="listbox">--}}
+              {{--<div class="item active">--}}
+                {{--<img src="./images/banner-main-4.png" alt="" width="100%">--}}
+              {{--</div>--}}
+            {{--<div class="item">--}}
+                {{--<img src="./images/banner-main-3.png" alt="" width="100%">--}}
+            {{--</div>--}}
+            {{--<div class="item">--}}
+                {{--<img src="./images/banner-main-2.png" alt="" width="100%">--}}
+            {{--</div>--}}
+            {{--<div class="item">--}}
+                {{--<img src="./images/banner-main-1.png" alt="" width="100%">--}}
+            {{--</div>--}}
 
-            </div>
-          </div>
+            {{--</div>--}}
+          {{--</div>--}}
+
+            @include('guest.layout.header-slide')
 
 
           <div id="header-brand">
@@ -32,8 +34,6 @@
                       
                   </div>
                   <div class="brand-text" style="float: left">
-
-                      
                       <h1>Cổng thông tin điện tử </h1>
                       <h2>Tỉnh Hà Tĩnh </h2>
                   </div>
@@ -50,6 +50,8 @@
         </header>
 
 
+
+
         <nav class="navbar navbar-default" id="main-menu" >
 
                     <div class="navbar-header">
@@ -59,6 +61,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        <div class="visible-xs">
+                            <img src="/images/quochuy.png" width="50px" style="float: left; padding: 10px">
+                            <a class="navbar-brand" href="/" style="float: left;">Hà Tĩnh Web Portal</a>
+
+                        </div>
+
                     </div>
 
                     <div id="navbar" class="navbar-collapse collapse">

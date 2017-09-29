@@ -1,13 +1,13 @@
 <div class="block3">
 
-    <div class="left_block">
-        <div class="portlet-header">
-            <a href="chuyen-muc/tin-tuc-su-kien" class="portlet-danh-muc-title">
-                <h4 class="portlet-header-title no-pd-top">Tin tức sự kiện nổi bật</h4>
-            </a>
-        </div>
 
+    <div class="portlet-header">
+        <a href="chuyen-muc/tin-tuc-su-kien" class="portlet-danh-muc-title">
+            <h4 class="portlet-header-title no-pd-top">Tin tức sự kiện nổi bật</h4>
+        </a>
     </div>
+
+
     <div class="col-md-8" id="tinNoiBatChinh">
 
         {{--@php--}}
@@ -59,11 +59,12 @@
                     @endforeach
 
                 </ul>
+                    <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
+                        <a href="#" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
+                    </div>
                 </div>
 
-                <div class="xem-tiep" style="float:right">
-                    <p><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></p>
-                </div>
+
 
 
 

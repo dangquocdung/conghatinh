@@ -37,24 +37,6 @@
 
                                     </div>
 
-                                    <div>
-                                        <table style="width: 485px; height: auto;" bordercolor="#3068f8" cellspacing="0" cellpadding="0" rules="none" align="center" border="2px">
-                                            <tbody>
-                                            <tr>
-                                                <td style="background-color: #e3edf7; padding:5px; text-align:justify" align="left">
-                                                    <div style="font-size: 13px; color: #000080;">
-                                                        <div>Mọi sự giúp đỡ, xin bạn đọc gửi về Báo <em>Thanh Niên</em> theo thông tin sau: Chủ tài khoản: Báo Thanh Niên. Số tài khoản: 1471000.000.0115 - Ngân hàng thương mại cổ phần Đầu tư và phát triển Việt Nam - chi nhánh Ba Tháng Hai, TP.HCM. Nội dung ghi: Giúp đỡ anh Trần Minh Sơn; hoặc Báo Thanh Niên sẽ nhận trực tiếp tại tòa soạn, các văn phòng đại diện trong cả nước. Chúng tôi sẽ chuyển đến gia đình anh Sơn trong thời gian sớm nhất.</div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <p style="text-align: right;" id="tac-gia">
-                                        <strong>Trương Quang Nam - Diệu Linh</strong>
-                                    </p>
-
                                 </div>
                             </div>
 
