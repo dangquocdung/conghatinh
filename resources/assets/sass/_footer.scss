@@ -1,0 +1,56 @@
+/* Css of main footer */
+.porlet-main-footer {
+  display: block;
+}
+.main-footer-header-wrapper {
+  width: 100%;
+  display: block;
+  text-align: center;
+  background: #1e62ca;
+}
+.main-footer-menu {
+  margin: 0px;
+}
+.main-footer-menu-item {
+  padding: 15px;
+  display: inline-block;
+  text-transform: uppercase;
+  a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+.main-footer-footer-wrapper {
+  display: block;
+  background: url("../../images/shape.png");
+}
+.main-footer-footer-bg {
+  background: url("../../images/city.png") no-repeat bottom;
+  min-height: 150px;
+}
+.main-footer-logo {
+  float: left;
+  display: inline-block;
+  padding: 35px 20px 35px 0;
+  img {
+    height: 100px;
+  }
+}
+.main-footer-footer-content {
+  display: table;
+  color: #fff;
+  padding-top: 20px;
+  line-height: 1.7;
+  font-size: 13px;
+  .license {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+}

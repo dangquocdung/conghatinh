@@ -43,7 +43,7 @@
                   </div>
                 </div>
       </div>
-      @include('guest.layout.right-box')
+{{--      @include('guest.layout.right-box')--}}
   </div>
 </div>
 @endsection

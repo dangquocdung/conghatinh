@@ -71,9 +71,9 @@
                 $(document).ready(function () {
                     $('.news-block').hover(function () {
 
-                        $('#tinh-uy .main-news-title a').html($(this).html());
-                        $('#tinh-uy .main-news-title a').removeClass('news-title');
-                        $('#tinh-uy .main-news-title a').addClass('main-news-title bold');
+                        $('#tinh-uy .main-news-title a').attr({href: $(this).find('a').attr('href')});
+                        $('#tinh-uy .main-news-title a').html($(this).find('a').html());
+
 
 
 
