@@ -8,7 +8,7 @@ class VanBan extends Model
 {
     protected $table = 'vanban';
 
-    protected $fillable = ['user_id','loaitin_id','name','slug','vanban','gioithieu','noidung','noibat','daduyet','ghichu'];
+    protected $fillable = ['user_id','loaitin_id','sovb','kihieuvb','ngaybanhanh','nguoiki_id','cqbh_id','trichyeu','noibat','daduyet'];
 
     public function loaitin()
     {
@@ -19,4 +19,10 @@ class VanBan extends Model
     {
         return $this->belongsTo('App\User','user_id','id');
     }
+
+    public function nguoiki()
+    {
+        return $this->belongsTo('App\NguoiKi','nguoiki_id','id');
+    }
+
 }

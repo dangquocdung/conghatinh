@@ -11,6 +11,7 @@ class CreateVanbanTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('vanban', function (Blueprint $table) {
@@ -25,14 +26,25 @@ class CreateVanbanTable extends Migration
                 ->references('id')->on('loaitin')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('vanban');
-            $table->text('gioithieu');
-            $table->text('noidung');
+            $table->integer('sovb');
+
+            $table->string('kihieuvb');
+            $table->date('ngaybanhanh');
+
+            $table->unsignedInteger('nguoiki_id');
+            $table->foreign('nguoiki_id')
+                ->references('id')->on('nguoiki')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+
+
+            $table->text('trichyeu');
+
+
+
             $table->boolean('noibat')->default(false);
             $table->boolean('daduyet')->default(false);
-            $table->string('ghichu')->nullable();
+
             $table->timestamps();
         });
     }
@@ -46,4 +58,5 @@ class CreateVanbanTable extends Migration
     {
         Schema::dropIfExists('vanban');
     }
+
 }

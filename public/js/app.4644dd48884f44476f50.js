@@ -2248,6 +2248,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -58246,7 +58249,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('select', {
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', [_vm._v("Chọn tệp văn bản")]), _vm._v(" "), _c('select', {
     staticClass: "form-control select2",
     staticStyle: {
       "width": "100%"
@@ -58260,7 +58265,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, _vm._l((_vm.files), function(file) {
     return _c('option', [_vm._v(_vm._s(file.filename + '.' + file.extension))])
-  }))
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

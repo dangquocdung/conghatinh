@@ -46,6 +46,35 @@ class VanBanController extends Controller
     public function store(Request $request)
     {
         //
+        $vb = VanBan::create([
+
+            'user_id' => Auth::user()->id,
+
+            'loaitin_id'=> $request->input('loaitin_id'),
+
+            'sovb' => $request->input('sovb'),
+
+            'kihieuvb' => $request->input('kihieuvb'),
+
+            'ngaybanhanh' => $request->input('ngaybanhanh'),
+
+            'nguoiki_id' => $request->input('nguoiki_id'),
+
+            'cqbh_id' => $request->input('nguoiki_id'),
+
+            'trichyeu' => $request->input('trichyeu'),
+
+            'noibat' => 'false',
+
+            'daduyet' => 'flase'
+
+        ]);
+
+//        event(new VanBanCreated($vb));
+
+        flash('Thêm văn bản thành công!');
+
+        return redirect()->back();
     }
 
     /**

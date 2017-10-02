@@ -13,6 +13,8 @@ use Laravel\Dusk\DuskServiceProvider;
 use App\ChuyenMuc;
 use App\LoaiTin;
 use App\TinTuc;
+use App\CQBH;
+use App\NguoiKi;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -43,8 +45,12 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit'],function($view){
 
           $chuyenmuc = ChuyenMuc::all();
+
+          $cqbh = CQBH::all();
+
+          $nguoiki = NguoiKi::all();
           
-          $view->with(compact('chuyenmuc'));
+          $view->with(compact('chuyenmuc','cqbh', 'nguoiki'));
 
         });
     }

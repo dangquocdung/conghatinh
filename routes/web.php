@@ -46,6 +46,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     //Van ban
     Route::group(['prefix'=>'van-ban'],function (){
+
         Route::get('tat-ca','VanBanController@index')->name('van-ban');
         Route::get('them-van-ban','VanBanController@create')->name('tao-van-ban');
         Route::post('them-van-ban','VanBanController@store')->name('them-van-ban');
@@ -55,6 +56,10 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('edit-van-ban','VanBanController@update')->name('update-van-ban');
 
         Route::get('file-manager', 'FileController@index')->name('file-manager');
+
+
+        Route::post('them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
+        Route::post('them-cqbh','CQBHController@store')->name('save-cqbh');
 
     });
 
