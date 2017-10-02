@@ -15,9 +15,9 @@
         {{--@endphp--}}
 
 
-        <div class="hot-news" >
+        <div class="hot-news" style="padding-top: 15px;">
 
-            <a href="#" class="hot-news-thumb-nail ">
+            <a href="#" class="hot-news-thumb-nail">
                 <img src="">
             </a>
 

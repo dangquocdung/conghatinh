@@ -1,4 +1,4 @@
-<div class="portlet">
+<div class="block3">
     <div class="portlet-header">
         <a href="#" class="portlet-danh-muc-title">
             <h4 class="portlet-header-title no-pd-top">Video</h4>

@@ -57911,7 +57911,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.handleFileDetails(file)
         }
       }
-    }, [_vm._v(_vm._s(file.filename + '.' + file.extension))])])
+    }, [_vm._v(_vm._s(file.id) + "-" + _vm._s(file.filename))])])
   }))]), _vm._v(" "), _c('div', {
     staticClass: "Meta_row margin-bottom-10"
   }, [(!_vm.showUploader) ? _c('button', {
@@ -58257,7 +58257,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "width": "100%"
     },
     attrs: {
-      "name": "tags[]",
+      "name": "vanban[]",
       "multiple": "multiple",
       "data-placeholder": "Chọn tệp văn bản",
       "ondragover": "allowDrop(event)",

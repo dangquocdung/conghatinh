@@ -26,20 +26,18 @@
 
           <table class="table table-bordered table-striped table-hover">
             <thead>
-            <tr>
-              <td>#</td>
-              <td>Tệp văn bản</td>
-              
-              <td>
-                Số văn bản
-              </td>
-              <td>Loại văn bản</td>
-              
-              <td>Trích yếu</td>
-              
-              
-              <td></td>
-            </tr>
+              <tr>
+                <td>#</td>
+                <td>
+                  Số văn bản
+                </td>
+                <td>Loại văn bản</td>
+                <td>Ngày ban hành</td>
+                <td>Trích yếu</td>
+                <td>Người kí</td>
+                <td>Tệp văn bản</td>
+                <td></td>
+              </tr>
             </thead>
             <tbody>
 
@@ -47,17 +45,25 @@
 
               <tr>
                 <td>{{$vb->id}}</td>
-                <td><img src="{{$vb->vanban}}" alt="{{$vb->name}}" width="120"></td>
                 
                 <td>
-                  {{$vb->name}}
+                  {{ $vb->sovb.'/'.$vb->kihieuvb }}
                   <br>
-                  <span class="label label-warning">Nổi bật</span>
-                  <a href="chi-tiet/{{ $vb->slug }}"><span class="label label-success">Đã duyệt</span></a>
+                  @if ($vb->noibat == '1')
+                    <span class="label label-danger">Nổi bật</span>
+                  @endif
+                  @if ($vb->daduyet == '1')
+                      <span class="label label-success">Đã duyệt</span>
+                    @else
+                      <a href="#"><span class="label label-warning">Chờ duyệt...</span></a>
+                  @endif
                 </td>
                 <td>{{$vb->loaitin->name}}</td>
+                <td>{{ $vb->ngaybanhanh }}</td>
                 
-                <td>{{$vb->gioithieu}}</td>
+                <td>{{$vb->trichyeu}}</td>
+                <td>{{ $vb->nguoiki->name }}</td>
+                <td></td>
                 
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}

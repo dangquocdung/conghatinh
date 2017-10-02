@@ -1,42 +1,49 @@
-<div class="portlet">
+<div class="block3">
+
     <div class="portlet-header">
-        <a href="#" class="portlet-danh-muc-title">
+        <a href="chuyen-muc/tin-tuc-su-kien">
             <h4 class="portlet-header-title no-pd-top">Văn bản chỉ đạo, điều hành</h4>
         </a>
     </div>
-    <div class="portlet-content">
-      <div class="document-news">
 
-            <div class="col-md-12">
-              <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
 
-                <ul class="list-news">
-                    <li class="news-item default-news bullet-arrow">
-                        <a class="icon-list"> <i></i> </a>
-                        <div class="default-news-content">
-                            <a style="margin-left:10px;width: 150px;" class="document-file hidden-xs" href="#">
-            									<span class="document-file-icon" style="float: left;">
+            <div class="news">
+                <ul>
+                    @foreach($vanban as $vb)
+                        <li>
 
-            											<i class="icon-pdf"></i>
+                            <div class="news-block">
+                                <a href="chi-tiet/" class="news-title bold">
+                                    Số: {{ $vb->sovb.'/'.$vb->kihieuvb }}
+                                </a>
 
-            									</span>
-            									<span class="document-file-name" style="padding-left: 30px;display: block;float: none;margin-left: 0px;">6093.pdf</span>
-            								</a>
-                            <div>
-                              <a href="/web/guest/chinh-quyen/chi-tiet?id=27803&amp;_c=10" class="news-title">Công văn 6093/UBND-KT triển khai CV số 9990/BTC-NSNN ngày 28/7/2017 của BTC về nguồn kinh phí thực hiện chính sách tinh giản biên chế và nghỉ hưu trước tuổi theo NĐ 108/2017/NĐ-CP và NĐ 25/2015/NĐ-CP</a>
+                                @foreach($vb->tepvanban as $tvb)
+
+                                    <a href="{{ $tvb->path }}" target="_blank">
+
+                                        <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->sovb.'/'.$vb->kihieuvb }}">
+
+                                    </a>
+                                @endforeach
+
+                                <div class="gioithieu">{{$vb->trichyeu}}</div>
+
                             </div>
-                            <a class="document-file-mb visible-xs" href="#" target="_blank">
-                              <span class="document-file-name">6093.pdf</span>
-                            </a>
-                        </div>
-                    </li>
-
+                        </li>
+                    @endforeach
                 </ul>
+
+
+                <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
+                    <a href="#" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
                 </div>
             </div>
-
+        </div>
     </div>
 
-
-    </div>
 </div>
+
+
+

@@ -27,20 +27,20 @@
                     @include('guest.home.tin-noi-bo')
 
                   @include('guest.home.vanban-cddh')
-                  <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
-                  @include('guest.home.tinsonganh')
-                  @include('guest.home.tinhuyenthi')
+                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
+                  {{--@include('guest.home.tinsonganh')--}}
+                  {{--@include('guest.home.tinhuyenthi')--}}
                   @include('guest.home.video')
-                  @include('guest.home.hoidap')
+                  {{--@include('guest.home.hoidap')--}}
                   @include('guest.home.thuvienhinhanh')
-                  @include('guest.home.baocaoktxh')
-                  @include('guest.home.tinhhinhanqp')
-                  <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
-                  @include('guest.home.websitecacdonvi')
-                  <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
-                  @include('guest.home.websitenganhdoc')
-                  <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
-                  @include('guest.home.websitetochuc')
+                  {{--@include('guest.home.baocaoktxh')--}}
+                  {{--@include('guest.home.tinhhinhanqp')--}}
+                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
+                  {{--@include('guest.home.websitecacdonvi')--}}
+                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
+                  {{--@include('guest.home.websitenganhdoc')--}}
+                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
+                  {{--@include('guest.home.websitetochuc')--}}
                   </div>
                 </div>
       </div>

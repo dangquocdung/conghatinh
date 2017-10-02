@@ -25,4 +25,9 @@ class VanBan extends Model
         return $this->belongsTo('App\NguoiKi','nguoiki_id','id');
     }
 
+    public function tepvanban()
+    {
+        return $this->hasMany('App\TepVanBan','vanban_id','id');
+    }
+
 }

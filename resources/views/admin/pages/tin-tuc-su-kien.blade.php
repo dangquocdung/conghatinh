@@ -52,8 +52,14 @@
                 <td>
                   {{$tin->name}}
                   <br>
-                  <span class="label label-warning">Nổi bật</span>
-                  <a href="chi-tiet/{{ $tin->slug }}"><span class="label label-success">Đã duyệt</span></a>
+                  @if ($tin->noibat == '1')
+                    <span class="label label-danger">Nổi bật</span>
+                  @endif
+                  @if ($tin->daduyet == '1')
+                    <span class="label label-success">Đã duyệt</span>
+                  @else
+                    <a href="#"><span class="label label-warning">Chờ duyệt...</span></a>
+                  @endif
                 </td>
                 <td>{{$tin->loaitin->name}}</td>
                 

@@ -14,6 +14,7 @@ use Plank\Mediable\MediaUploader;
 use Auth;
 
 use App\VanBan;
+use App\TepVanBan;
 class VanBanController extends Controller
 {
     /**
@@ -60,15 +61,34 @@ class VanBanController extends Controller
 
             'nguoiki_id' => $request->input('nguoiki_id'),
 
-            'cqbh_id' => $request->input('nguoiki_id'),
-
             'trichyeu' => $request->input('trichyeu'),
 
-            'noibat' => 'false',
+            'noibat' => '0',
 
-            'daduyet' => 'flase'
+            'daduyet' => '0'
 
         ]);
+
+
+
+
+        $tvbs = $request->input('tepvanban');
+
+        foreach ($tvbs as $tvb){
+
+            $path = Media::find($tvb);
+
+
+            TepVanBan::create([
+                'vanban_id' => (int)$vb->id,
+                'media_id' => (int)$tvb,
+                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
+            ]);
+        }
+
+
+
+
 
 //        event(new VanBanCreated($vb));
 

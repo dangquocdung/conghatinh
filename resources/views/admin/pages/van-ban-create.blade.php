@@ -64,14 +64,14 @@
                       <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                       </div>
-                      <input type="text" class="form-control pull-right" id="datepicker" value="<?php echo date('d/m/Y'); ?>">
+                      <input name="ngaybanhanh" type="text" class="form-control pull-right" id="datepicker" value="<?php echo date('Y-m-d'); ?>">
                   </div>
                   <!-- /.input group -->
               </div>
 
               <div class="form-group">
 
-                <textarea class="form-control" name="gioithieu" rows="3" cols="80" placeholder="Trích yếu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
+                <textarea class="form-control" name="trichyeu" rows="3" cols="80" placeholder="Trích yếu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
               </div>
 
               <div class="form-group">
@@ -85,7 +85,15 @@
                   </select>
               </div>
 
-             <van-ban></van-ban>
+              <div class="form-group">
+                  <label>Chọn tệp văn bản</label>
+                  <select name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+                      @foreach($pdfs as $pdf)
+                        <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                      @endforeach
+
+                  </select>
+              </div>
 
 
 
@@ -110,7 +118,7 @@
       {{--End box--}}
     </div>
 
-      <div class="col-sm-4">
+      <div class="col-sm-4 hidden-xs">
           {{--Box--}}
           <div class="box box-primary">
               <div class="box-header with-border">
@@ -152,7 +160,7 @@
           {{--End box--}}
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-sm-4 hidden-xs">
           {{--Box--}}
           <div class="box box-primary">
               <div class="box-header with-border">
@@ -231,8 +239,8 @@
 
     //Date picker
     $('#datepicker').datepicker({
-        format: 'dd/mm/yyyy',
-        autoclose: true
+//        format: 'dd/mm/yyyy',
+//        autoclose: true
     })
 
     drag = function(ev) {

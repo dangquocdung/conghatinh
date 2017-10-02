@@ -15,6 +15,8 @@ use App\LoaiTin;
 use App\TinTuc;
 use App\CQBH;
 use App\NguoiKi;
+use App\VanBan;
+use App\Media;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -38,7 +40,9 @@ class AppServiceProvider extends ServiceProvider
 
           $tinmoi5 = TinTuc::orderby('id','desc')->take(5)->get();
 
-          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5'));
+          $vanban = VanBan::orderby('id','desc')->take(5)->get();
+
+          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban'));
 
         });
 
@@ -49,8 +53,10 @@ class AppServiceProvider extends ServiceProvider
           $cqbh = CQBH::all();
 
           $nguoiki = NguoiKi::all();
+
+          $pdfs = Media::where('aggregate_type','pdf')->orderby('id','desc')->get();
           
-          $view->with(compact('chuyenmuc','cqbh', 'nguoiki'));
+          $view->with(compact('chuyenmuc','cqbh', 'nguoiki','pdfs'));
 
         });
     }
