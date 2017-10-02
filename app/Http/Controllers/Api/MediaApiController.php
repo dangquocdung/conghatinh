@@ -19,7 +19,7 @@ class MediaApiController extends Controller
      */
     public function index()
     {
-        $images = Media::orderBy('created_at', 'desc')->take(20)->get();
+        $images = Media::where('aggregate_type','image')->orderBy('created_at', 'desc')->take(20)->get();
         
         return response()->json(['data' => $images], 200);
     }
@@ -103,6 +103,7 @@ class MediaApiController extends Controller
             return response('Image not found', 400);
         }
 
+        flash('Xóa file thành công!');
 
         $media->delete();
         

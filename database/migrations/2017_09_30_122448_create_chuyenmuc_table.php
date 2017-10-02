@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChuyenMucConsTable extends Migration
+class CreateChuyenmucTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateChuyenMucConsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chuyen_muc_cons', function (Blueprint $table) {
+        Schema::create('chuyenmuc', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('chuyenmuc_id')->asigned();
             $table->string('name');
             $table->string('slug')->unique();
             $table->tinyInteger('thutu')->default(1);
@@ -31,6 +30,6 @@ class CreateChuyenMucConsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chuyen_muc_cons');
+        Schema::dropIfExists('chuyenmuc');
     }
 }

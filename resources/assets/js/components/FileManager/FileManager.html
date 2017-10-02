@@ -1,0 +1,60 @@
+<div class="MediaManager__Wrapper">
+
+  <div class="Uploader__Wrapper" v-if="showUploader">
+    <p>Tải văn bản<span class="pull-right"><i class="fa fa-times" v-on:click="showUploader = false"></i></span></p>
+    <dropzone id="myVueDropzone"
+              class="margin-bottom-10"
+              :headers="csrfHeaders"
+              :url="fileUpload"
+              :use-font-awesome="true"
+              accepted-file-types="application/pdf"
+              :thumbnail-height="100"
+              :thumbnail-width="100"
+              v-on:vdropzone-success="showSuccess"
+              v-on:vdropzone-error="onError">
+    </dropzone>
+  </div>
+
+  <div class="galleryWrapper clearfix">
+    <ul>
+      <li v-for="file in files" class="image-attachment">
+        <div class="thumbnail">
+
+          <object  v-bind:data="file.directory + '/' + file.filename + '.' + file.extension" type="application/pdf">
+            <embed v-bind:src="file.directory + '/' + file.filename + '.' + file.extension" type="application/pdf" />
+          </object>
+
+        </div>
+
+        <label draggable="true" ondragstart="drag(event)" v-on:click="handleFileDetails(file)">{{ file.filename + '.' + file.extension }}</label>
+
+
+
+
+      </li>
+    </ul>
+  </div>
+
+  <div class="Meta_row margin-bottom-10">
+    <button class="btn btn-primary" v-on:click="showUploader = true" v-if="!showUploader">Thêm văn bản</button>
+  </div>
+
+  <bulma-modal modal-class="file-manager-details">
+    <div class="row">
+      <div class="col-sm-10">
+
+      <!--<p>{{ image.filename }}</p>-->
+      <object v-bind:data="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" type="application/pdf">
+        <embed v-bind:src="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" type="application/pdf" />
+      </object>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-danger pull-right" v-on:click="deleteFile">
+          <i class="fa fa-trash-o"></i> Delete
+        </button>
+      </div>
+    </div>
+  </bulma-modal>
+
+
+</div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTinTucsTable extends Migration
+class CreateVanbanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,22 @@ class CreateTinTucsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tin_tucs', function (Blueprint $table) {
+        Schema::create('vanban', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('user_id');
-            $table->tinyInteger('chuyenmuccon_id')->assigned();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedInteger('loaitin_id');
+            $table->foreign('loaitin_id')
+                ->references('id')->on('loaitin')
+                ->onUpdate('cascade')->onDelete('cascade');
+
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('avatar');
-            $table->text('modau');
+            $table->string('vanban');
+            $table->text('gioithieu');
             $table->text('noidung');
             $table->boolean('noibat')->default(false);
             $table->boolean('daduyet')->default(false);
@@ -36,6 +44,6 @@ class CreateTinTucsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tin_tucs');
+        Schema::dropIfExists('vanban');
     }
 }

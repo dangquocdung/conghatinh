@@ -32,7 +32,7 @@
               <input type="text"
                      name="name"
                      class="form-control"
-                     value="{{ucwords($chuyenmuc->name)}}"
+                     value="{{($chuyenmuc->name)}}"
                      placeholder="Enter role name">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>

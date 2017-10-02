@@ -15,7 +15,7 @@
   </div>
 
   <div class="Meta_row margin-bottom-10">
-    <button class="btn btn-primary" v-on:click="showUploader = true" v-if="!showUploader">Add new</button>
+    <button class="btn btn-primary" v-on:click="showUploader = true" v-if="!showUploader">Thêm ảnh</button>
   </div>
 
   <div class="galleryWrapper clearfix">
@@ -28,6 +28,9 @@
                v-bind:alt="image.directory"
                v-bind:title="(image.meta_data !== null) ? image.meta_data.alt : ''">
         </div>
+
+        <p>{{ (image.meta_data !== null) ? image.meta_data.alt : '' }}</p>
+
       </li>
     </ul>
   </div>

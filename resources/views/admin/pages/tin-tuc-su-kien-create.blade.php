@@ -26,9 +26,15 @@
           <input type="hidden" name="avatar" id="avatar">
           <div class="box-body">
 
+              @php
+
+                  $loaitin = $chuyenmuc->whereNotIn('id',[4,5])->all();
+
+              @endphp
+
             <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
               <option value=""></option>
-              @foreach ($chuyenmuc as $cm)
+              @foreach ($loaitin as $cm)
               <optgroup label="{{ $cm->name}}">
                 @foreach ($cm->loaitin as $lt)
                   <option value={{ $lt->id }}>{{ $lt->name}}</option>
@@ -81,7 +87,7 @@
                 
             <br>
             
-            <textarea id="noi-dung" name="noidung" required="">Nội dung ...</textarea>
+            <textarea id="noi-dung" name="noidung" required=""></textarea>
             
             <br>
 

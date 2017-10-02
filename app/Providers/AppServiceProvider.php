@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
-        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit'],function($view){
+        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit'],function($view){
 
           $chuyenmuc = ChuyenMuc::all();
           

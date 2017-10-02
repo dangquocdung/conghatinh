@@ -19,12 +19,13 @@
                 <div class="col-md-12">
                   <div class="row">
 
-                  @include('guest.home.tintuc-slider')
+                    @include('guest.home.tintuc-slider')
 
 
-                  @include('guest.home.chidao-tinhuy')
-                  @include('guest.home.chidao-hdnd')
-                  @include('guest.home.chidao-ubnd')
+                    @include('guest.home.chidao-dieuhanh')
+                    @include('guest.home.van-ban')
+                    @include('guest.home.tin-noi-bo')
+
                   @include('guest.home.vanban-cddh')
                   <img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">
                   @include('guest.home.tinsonganh')

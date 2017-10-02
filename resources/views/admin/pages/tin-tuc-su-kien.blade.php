@@ -50,7 +50,7 @@
                 <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
                 
                 <td>
-                  {!! ucwords($tin->name) !!}
+                  {{$tin->name}}
                   <br>
                   <span class="label label-warning">Nổi bật</span>
                   <a href="chi-tiet/{{ $tin->slug }}"><span class="label label-success">Đã duyệt</span></a>
@@ -84,6 +84,8 @@
             
             </tbody>
           </table>
+
+            {{$tintuc->render()}}
           </div>
 
           

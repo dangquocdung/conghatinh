@@ -34,7 +34,7 @@
         <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i><span>Hoạt động</span></a>
       </li>
 
-      <li class="{{ Request::is('toa-soan/*') ? 'active' : ''  }} treeview">
+      <li class="{{ Request::is('toa-soan/tin-tuc/*') ? 'active' : ''  }} treeview">
         <a href="#">
           <i class="fa fa-newspaper-o"></i> <span> Tin tức - Sự kiện</span>
           <span class="pull-right-container">
@@ -51,6 +51,27 @@
           
           <li class="{{ Request::is('toa-soan/media-manager') ? 'active' : ''  }} treeview">
             <a href="{{route('media-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý Hình ảnh</span></a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/van-ban/*') ? 'active' : ''  }} treeview">
+        <a href="#">
+          <i class="fa fa-newspaper-o"></i> <span> Văn bản</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ Request::is('toa-soan/van-ban/them-van-ban') ? 'active' : ''  }}">
+            <a href="{{route('tao-van-ban')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
+          </li>
+          <li class="{{ Request::is('toa-soan/van-ban/tat-ca') ? 'active' : ''  }}">
+            <a href="{{route('van-ban')}}"><i class="fa fa-circle-o"></i> Tất cả Văn bản</a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/van-ban/file-manager') ? 'active' : ''  }} treeview">
+            <a href="{{route('file-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý file</span></a>
           </li>
         </ul>
       </li>

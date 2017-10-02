@@ -1,4 +1,7 @@
 @php
+
+    $coquan = $loaitin->where('chuyenmuc_id','33')->all();
+
     $cm = $chuyenmuc->where('slug','tin-tuc-su-kien')->first();
 
     $ttsk = $cm->tintuc->sortByDesc('id')->take(6);
@@ -9,12 +12,17 @@
 
 @endphp
 
+
+
 @if ($ttsk1)
-<div class="block3">
+
+    @foreach($coquan as $cq)
+
+<div class="block3" id="{{$cq->slug}}">
 
     <div class="portlet-header">
         <a href="chuyen-muc/tin-tuc-su-kien">
-            <h4 class="portlet-header-title no-pd-top">Chỉ đạo của Tỉnh ủy Hà Tĩnh</h4>
+            <h4 class="portlet-header-title no-pd-top">{{$cq->name}}</h4>
         </a>
     </div>
 
@@ -22,7 +30,7 @@
 
     <div class="col-md-7 col-sm-7 col-xs-12">
       <div class="row">
-        <div class="main-news" id="tinh-uy">
+        <div class="main-news">
           <div class="main-news-title" >
             <a href="chi-tiet/" class="main-news-title bold">
                             {{ $ttsk1->name }}
@@ -67,40 +75,6 @@
                 @endforeach
             </ul>
 
-            <script>
-                $(document).ready(function () {
-
-                    var isMobile = $(window).width() < 768;
-                    console.log("isMobile");
-                    console.log(isMobile);
-
-                    if(!isMobile) {
-                        $('.news-block').hover(function () {
-
-                            $('#tinh-uy .main-news-title a').attr({href: $(this).find('a').attr('href')});
-                            $('#tinh-uy .main-news-title a').html($(this).find('a').html());
-
-
-
-
-
-                            $('#tinh-uy .main-news-thumb-nail img').attr({src: $(this).find('img').attr('src')});
-
-                            $('#tinh-uy .main-news-content').html($(this).find('.gioithieu').html());
-
-
-
-
-
-
-                        })
-
-                    }
-
-
-
-                })
-            </script>
 
             <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
                 <a href="#" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
@@ -115,4 +89,46 @@
 
 </div>
 
+@endforeach
+
 @endif
+
+<script>
+    $(document).ready(function () {
+
+        var isMobile = $(window).width() < 768;
+        console.log("isMobile");
+        console.log(isMobile);
+
+        if(!isMobile) {
+
+            @foreach($coquan as $cq)
+
+            $('#{{$cq->slug}} .news-block').hover(function () {
+
+                $('#{{$cq->slug}} .main-news-title a').attr({href: $(this).find('a').attr('href')});
+                $('#{{$cq->slug}} .main-news-title a').html($(this).find('a').html());
+
+
+
+
+
+                $('#{{$cq->slug}} .main-news-thumb-nail img').attr({src: $(this).find('img').attr('src')});
+
+                $('#{{$cq->slug}} .main-news-content').html($(this).find('.gioithieu').html());
+
+
+
+
+
+
+            })
+            @endforeach
+
+        }
+
+
+
+    })
+</script>
+

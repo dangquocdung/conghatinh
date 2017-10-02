@@ -44,14 +44,14 @@
         }
       },
       showSuccess (file, response) {
-        console.log('response', response)
-        var imageData = response.data
-        imageData.meta_data = {
-          alt: '',
-          caption: '',
-          currentImageId: imageData.id
-        }
-        this.images.unshift(imageData)
+          console.log('response', response)
+          var imageData = response.data
+          imageData.meta_data = {
+              alt: '',
+              caption: '',
+              currentImageId: imageData.id
+          }
+          this.images.unshift(imageData)
       },
       onError (file, error) {
         console.log('file error', file, error)

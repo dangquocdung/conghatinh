@@ -177,7 +177,6 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
-
         /*
          * Application Service Providers...
          */
@@ -240,7 +239,6 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
-
     ],
 
 ];

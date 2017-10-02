@@ -26,7 +26,11 @@ if (\Setting::get('user_can_register')) {
 }
 
 Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
+
+    Route::get('/', 'UserController@pageDashboard')->name('dashboard');
+
     Route::get('dashboard', 'UserController@pageDashboard')->name('dashboard');
+
     Route::get('config/system/my-activities', 'UserController@pageMyActivities')->name('my-activities');
     Route::post('do-logout', 'UserController@postLogout')->name('logout');
     Route::get('user/profile', 'UserController@pageUserProfile')->name('profile');
@@ -39,8 +43,21 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('them-tin-tuc-su-kien','TinTucController@store')->name('them-tin-tuc');
 
     Route::get('edit-tin-tuc-su-kien/{slug}','TinTucController@edit')->name('edit-tin-tuc');
-    
-    Route::post('edit-tin-tuc-su-kien','TinTucController@update')->name('update-tin-tuc');
+
+    //Van ban
+    Route::group(['prefix'=>'van-ban'],function (){
+        Route::get('tat-ca','VanBanController@index')->name('van-ban');
+        Route::get('them-van-ban','VanBanController@create')->name('tao-van-ban');
+        Route::post('them-van-ban','VanBanController@store')->name('them-van-ban');
+
+        Route::get('edit-van-ban/{slug}','VanBanController@edit')->name('edit-van-ban');
+
+        Route::post('edit-van-ban','VanBanController@update')->name('update-van-ban');
+
+        Route::get('file-manager', 'FileController@index')->name('file-manager');
+
+    });
+
 
     Route::group(['middleware' => 'role:admin'], function () {
         Route::get('config', 'AdminController@getConfigPage')->name('config');
@@ -111,6 +128,13 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
     Route::post('delete-media', 'Api\MediaApiController@deleteMedia');
 
     Route::post('delete-tin-tuc', 'Api\UserApiController@postDeleteTinTuc');
+
+
+    Route::get('get-file', 'Api\FileApiController@index');
+
+    Route::post('file-upload', 'Api\FileApiController@uploadFile');
+
+    Route::post('delete-file', 'Api\FileApiController@deleteFile');
     
 
 

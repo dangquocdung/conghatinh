@@ -4,6 +4,7 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import VueSocketio from 'vue-socket.io'
 
+
 // importing custom components
 import SidebarCollapse from "./components/SidebarCollapse";
 import ImageUpload from "./components/ImageUpload";
@@ -30,6 +31,7 @@ window.eventBus = new Vue({})
 
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
+
 // Vue.use(VueSocketio, 'http://localhost:8890')
 
 // Making axios available as $http
@@ -53,6 +55,8 @@ Vue.component('edit-users', EditUsers)
 // Vue.component('edit-post', require('./components/Editpost.vue'));
 // Vue.component('dropzone', require('./components/Dropzone.vue'));
 Vue.component('v-select', require('./components/V-Select.vue'));
+Vue.component('file-manager', require('./components/FileManager/FileManager.vue'));
+Vue.component('van-ban', require('./components/Vanban.vue'));
 
 const app = new Vue({
   el: '#app',

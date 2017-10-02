@@ -46,7 +46,7 @@
               <input type="text"
                      name="name"
                      class="form-control"
-                     value="{{ucwords($loaitin->name)}}"
+                     value="{{($loaitin->name)}}"
                      placeholder="Enter role name">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>

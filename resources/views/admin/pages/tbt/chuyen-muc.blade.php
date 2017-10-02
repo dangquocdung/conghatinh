@@ -35,7 +35,7 @@
             @foreach($chuyenmucs as $chuyenmuc)
               <tr>
                 <td>{{$chuyenmuc->id}}</td>
-                <td>{{ucwords($chuyenmuc->name)}}</td>
+                <td>{{($chuyenmuc->name)}}</td>
                 <td><span class="label label-success">{{$chuyenmuc->slug}}</span></td>
                 <td>{{$chuyenmuc->thutu}}</td>
                 <td class="col-sm-3">

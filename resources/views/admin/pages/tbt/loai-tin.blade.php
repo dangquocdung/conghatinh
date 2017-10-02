@@ -35,7 +35,7 @@
             @foreach($loaitin as $lt)
               <tr>
                 <td>{{$lt->id}}</td>
-                <td>{{ucwords($lt->name)}}</td>
+                <td>{{($lt->name)}}</td>
                 <td>{{ $lt->chuyenmuc->name }}</td>
                 <td>{{$lt->thutu}}</td>
                 <td class="col-sm-3">

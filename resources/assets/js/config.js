@@ -11,3 +11,7 @@ export const editErrorUserData = 'api/v1/edit-users/'
 
 export const deleteMedia = 'api/v1/delete-media'
 export const mediaManager = 'toa-soan/media-manager'
+
+export const getFile = 'api/v1/get-file'
+export const fileUpload = 'api/v1/file-upload'
+export const deleteFile = 'api/v1/delete-file'
