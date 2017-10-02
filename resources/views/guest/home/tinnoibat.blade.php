@@ -10,23 +10,26 @@
 
     <div class="col-md-8" id="tinNoiBatChinh">
 
-        {{--@php--}}
-            {{--$tinactive = $tinnoibat->shift();--}}
-        {{--@endphp--}}
+        @php
+            $tin1 = $tinnoibat->first();
+        @endphp
+
+
 
 
         <div class="hot-news" style="padding-top: 15px;">
 
             <a href="#" class="hot-news-thumb-nail">
-                <img src="">
+                <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}">
             </a>
 
             <div class="hot-news-title" style="display: block;">
-                <a href=""><h4></h4></a>
+                <a href="chi-tiet/{{ $tin1->slug }}"><h4>{{ $tin1->name }}</h4></a>
 
 
             </div>
             <div class="hot-news-desc" style="text-align: justify; line-height: 20px;">
+                {{ $tin1->gioithieu }}
 
             </div>
         </div>

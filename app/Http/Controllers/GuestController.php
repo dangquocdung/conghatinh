@@ -18,6 +18,8 @@ class GuestController extends Controller
 
         $tinnoibat = TinTuc::orderBy('id', 'decs')->take(10)->get();
 
+
+
         // $tintucsukien = TinTuc::where('')->orderBy('id', 'decs')->take(6)->get();
 
         return view('guest.trang-chu', compact('tinmoi','tinslide','tinnoibat'));
