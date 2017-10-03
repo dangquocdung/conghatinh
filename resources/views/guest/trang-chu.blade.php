@@ -23,7 +23,6 @@
 
 
                     @include('guest.home.chidao-dieuhanh')
-                    @include('guest.home.van-ban')
                     @include('guest.home.tin-noi-bo')
                     @include('guest.home.thuvien-hinhanh')
 

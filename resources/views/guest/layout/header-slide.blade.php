@@ -83,14 +83,23 @@
     .jssora073.jssora073dn {opacity:.4;}
     .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 </style>
-<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:165px;overflow:hidden;visibility:hidden;">
+<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:165px;overflow:hidden;visibility:hidden; opacity: 0.6">
     <!-- Loading Screen -->
     <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-        <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
+        <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/013.jpg" />
     </div>
     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:165px;overflow:hidden;">
         <div>
             <img data-u="image" src="img/001.jpg" />
+        </div>
+        <div>
+            <img data-u="image" src="img/002.jpg" />
+        </div>
+        <div>
+            <img data-u="image" src="img/003.jpg" />
+        </div>
+        <div>
+            <img data-u="image" src="img/004.jpg" />
         </div>
         <div>
             <img data-u="image" src="img/005.jpg" />
@@ -114,16 +123,7 @@
             <img data-u="image" src="img/011.jpg" />
         </div>
         <div>
-            <img data-u="image" src="img/024.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/025.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/026.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/027.jpg" />
+            <img data-u="image" src="img/012.jpg" />
         </div>
         <a data-u="any" href="https://www.jssor.com" style="display:none">carousel html</a>
     </div>
