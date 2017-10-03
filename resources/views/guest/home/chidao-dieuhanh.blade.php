@@ -1,6 +1,6 @@
 @php
 
-    $coquan = $loaitin->where('chuyenmuc_id','3')->all();
+    $loaitin = $loaitin->where('chuyenmuc_id','3')->all();
 
     $cm = $chuyenmuc->where('slug','tin-tuc-su-kien')->first();
 
@@ -18,98 +18,98 @@
 
     @foreach($loaitin as $lt)
 
-<div class="block3" id="{{$lt->slug}}">
+        <div class="block3" id="{{$lt->slug}}">
 
-    <div class="portlet-header">
-        <a href="chuyen-muc/tin-tuc-su-kien">
-            <h4 class="portlet-header-title no-pd-top">{{$lt->name}}</h4>
-        </a>
-    </div>
-
-
-
-    <div class="col-md-7 col-sm-7 col-xs-12">
-      <div class="row">
-        {{--<div class="main-news">--}}
-          {{--<div class="main-news-title" >--}}
-            {{--<a href="chi-tiet/" class="main-news-title bold">--}}
-                            {{--{{ $ttsk1->name }}--}}
-                        {{--</a>--}}
-
-          {{--</div>--}}
-
-        {{--<div class="main-news-thumb-nail">--}}
-            {{--<a href="chi-tiet/{{ $ttsk1->slug }}">--}}
-                {{--<img src="{{ $ttsk1->avatar }}">--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div class="main-news-content">--}}
-            {{--{{ $ttsk1->gioithieu }}--}}
-        {{--</div>--}}
-        {{--<div class="clear"></div>--}}
-        {{--</div>--}}
+        <div class="portlet-header">
+            <a href="chuyen-muc/tin-tuc-su-kien">
+                <h4 class="portlet-header-title no-pd-top">{{$lt->name}}</h4>
+            </a>
+        </div>
 
 
-          <div class="cms-container-tintuc">
-              <a class="tin_title_text" href="#">
 
-                  <img style="display: inline-block; width: 160px; height:auto;" src="https://hanoi.gov.vn/image/image_gallery?img_id=2003102801695" alt="">
+        <div class="col-md-7 col-sm-7 col-xs-12">
+          <div class="row">
+            {{--<div class="main-news">--}}
+              {{--<div class="main-news-title" >--}}
+                {{--<a href="chi-tiet/" class="main-news-title bold">--}}
+                                {{--{{ $ttsk1->name }}--}}
+                            {{--</a>--}}
 
-                  <div class="tin_title_text">
-                      Giám sát tình hình thực hiện nhiệm vụ phát triển kinh tế -xã hội năm 2017 tại Sở Kế hoạch và Đầu tư
+              {{--</div>--}}
+
+            {{--<div class="main-news-thumb-nail">--}}
+                {{--<a href="chi-tiet/{{ $ttsk1->slug }}">--}}
+                    {{--<img src="{{ $ttsk1->avatar }}">--}}
+                {{--</a>--}}
+            {{--</div>--}}
+            {{--<div class="main-news-content">--}}
+                {{--{{ $ttsk1->gioithieu }}--}}
+            {{--</div>--}}
+            {{--<div class="clear"></div>--}}
+            {{--</div>--}}
+
+
+              <div class="cms-container-tintuc">
+                  <a class="tin_title_text" href="#">
+
+                      <img style="display: inline-block; width: 160px; height:auto;" src="https://hanoi.gov.vn/image/image_gallery?img_id=2003102801695" alt="">
+
+                      <div class="tin_title_text">
+                          Giám sát tình hình thực hiện nhiệm vụ phát triển kinh tế -xã hội năm 2017 tại Sở Kế hoạch và Đầu tư
+                      </div>
+                  </a>
+                  <br>
+
+                  <div class="tin_title_abstract" style="display:;">
+
+                      <p> HNP - Sáng 2/10, Phó Chủ tịch Thường trực HĐND TP Nguyễn Ngọc Tuấn chủ trì giám sát tại Sở Kế hoạch và Đầu tư về tình hình thực hiện nhiệm vụ phát triển kinh tế - xã hội năm 2017.</p>
+
                   </div>
-              </a>
-              <br>
-
-              <div class="tin_title_abstract" style="display:;">
-
-                  <p> HNP - Sáng 2/10, Phó Chủ tịch Thường trực HĐND TP Nguyễn Ngọc Tuấn chủ trì giám sát tại Sở Kế hoạch và Đầu tư về tình hình thực hiện nhiệm vụ phát triển kinh tế - xã hội năm 2017.</p>
-
               </div>
           </div>
-      </div>
+        </div>
+
+        @if (count($ttsk) > 0)
+
+          <div class="col-md-5 col-sm-5 col-xs-12">
+              <div class="row">
+
+            <div class="news">
+                <ul>
+                    @foreach($ttsk as $tin)
+                    <li>
+
+                      <div class="news-block">
+                          <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
+                          <a href="chi-tiet/{{ $tin->slug }}" class="news-title">
+                               {{ $tin->name }}
+                          </a>
+
+                          <img src="{{$tin->avatar}}" alt="" style="display:none;">
+
+                          <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
+
+                      </div>
+                    </li>
+                    @endforeach
+                </ul>
+
+
+                <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
+                    <a href="#" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
+                </div>
+            </div>
+              </div>
+          </div>
+
+        @endif
+
+
+
     </div>
 
-    @if (count($ttsk) > 0)
-
-      <div class="col-md-5 col-sm-5 col-xs-12">
-          <div class="row">
-
-        <div class="news">
-            <ul>
-                @foreach($ttsk as $tin)
-                <li>
-
-                  <div class="news-block">
-                      <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
-                      <a href="chi-tiet/{{ $tin->slug }}" class="news-title">
-                           {{ $tin->name }}
-                      </a>
-
-                      <img src="{{$tin->avatar}}" alt="" style="display:none;">
-
-                      <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
-
-                  </div>
-                </li>
-                @endforeach
-            </ul>
-
-
-            <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
-                <a href="#" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
-            </div>
-        </div>
-          </div>
-      </div>
-
-    @endif
-
-
-
-</div>
-
-@endforeach
+    @endforeach
 
 @endif
 

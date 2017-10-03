@@ -12,7 +12,7 @@
 
 
 
-                @include('guest.home.tinnoibat')
+                @include('guest.home.tin-noi-bat')
                 {{-- <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
                   <img src="http://docs.ttdt.dsp.vn/images/banner/hethongdichvucongtructuyen_1476955571482.png" width="100%" style="margin-bottom: 15px;">
                 </a> --}}
@@ -25,7 +25,7 @@
                     @include('guest.home.chidao-dieuhanh')
                     @include('guest.home.van-ban')
                     @include('guest.home.tin-noi-bo')
-                    @include('guest.home.thuvienhinhanh')
+                    @include('guest.home.thuvien-hinhanh')
 
                   @include('guest.home.vanban-cddh')
                   {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}

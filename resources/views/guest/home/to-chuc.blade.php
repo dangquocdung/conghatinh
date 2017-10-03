@@ -1,5 +1,3 @@
-
-
 @foreach($nhomcq as $ncq)
 
 

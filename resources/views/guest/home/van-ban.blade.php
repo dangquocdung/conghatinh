@@ -1,6 +1,6 @@
 @php
 
-    $coquan = $loaitin->where('chuyenmuc_id','32')->all();
+    $loaitin = $loaitin->where('chuyenmuc_id','32')->all();
 
     $cm = $chuyenmuc->where('slug','tin-tuc-su-kien')->first();
 
@@ -15,7 +15,7 @@
 
 
 
-    @foreach($coquan as $cq)
+    @foreach($loaitin as $cq)
 
 <div class="block3" id="{{$cq->slug}}">
 
@@ -79,7 +79,7 @@
 
         if(!isMobile) {
 
-            @foreach($coquan as $cq)
+            @foreach($loaitin as $cq)
 
             $('#{{$cq->slug}} .news-block').hover(function () {
 
