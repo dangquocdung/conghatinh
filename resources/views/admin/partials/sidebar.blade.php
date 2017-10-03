@@ -57,7 +57,7 @@
 
       <li class="{{ Request::is('toa-soan/van-ban/*') ? 'active' : ''  }} treeview">
         <a href="#">
-          <i class="fa fa-newspaper-o"></i> <span> Văn bản</span>
+          <i class="fa fa-file-pdf-o"></i> <span> Văn bản</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -93,6 +93,10 @@
           </li>
           <li class="{{ Request::is('toa-soan/config/chuyen-muc') ? 'active' : ''  }}">
             <a href="{{route('chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
+          </li>
+          <li class="divider"></li>
+          <li class="{{ Request::is('toa-soan/config/lien-ket') ? 'active' : ''  }}">
+            <a href="{{route('lien-ket')}}"><i class="fa fa-circle-o"></i> Quản lý liên kết</a>
           </li>
         </ul>
       </li>

@@ -8,7 +8,7 @@
 @section('content')
   <div class="container">
       <div class="row nen-trang">
-          <div class=".col-lg-9 col-md-9 col-sm-12 col-xs-12">
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 
 
 
@@ -25,15 +25,17 @@
                     @include('guest.home.chidao-dieuhanh')
                     @include('guest.home.van-ban')
                     @include('guest.home.tin-noi-bo')
+                    @include('guest.home.thuvienhinhanh')
 
                   @include('guest.home.vanban-cddh')
                   {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
                   {{--@include('guest.home.tinsonganh')--}}
                   {{--@include('guest.home.tinhuyenthi')--}}
                   @include('guest.home.video')
-                  {{--@include('guest.home.hoidap')--}}
-                  @include('guest.home.thuvienhinhanh')
-                  {{--@include('guest.home.baocaoktxh')--}}
+                    @include('guest.home.chien-luoc')
+                  @include('guest.home.hoi-dap')
+
+                  @include('guest.home.to-chuc')
                   {{--@include('guest.home.tinhhinhanqp')--}}
                   {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
                   {{--@include('guest.home.websitecacdonvi')--}}
@@ -43,10 +45,12 @@
                   {{--@include('guest.home.websitetochuc')--}}
                   </div>
                 </div>
+          </div>
+          <div class="col-lg-3 col-md-3 hidden-sm hidden-xs margin-top-15">
+            @include('guest.layout.right-box')
+          </div>
       </div>
-{{--      @include('guest.layout.right-box')--}}
   </div>
-</div>
 @endsection
 @section('js')
   <script>

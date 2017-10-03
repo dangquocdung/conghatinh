@@ -1,4 +1,4 @@
-<div class="portlet">
+<div class="block3">
   <div id="brand_carousel" class="owl-carousel brand-logo">
     @foreach ($tinslide as $ts)
     <div class="item text-center">

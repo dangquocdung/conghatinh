@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\NhomCQ;
 use App\Repositories\Dashboard\DashboardRepository;
 use App\Repositories\Dashboard\EloquentDashboard;
 use App\Repositories\Watchdog\EloquentWatchdog;
@@ -42,7 +43,9 @@ class AppServiceProvider extends ServiceProvider
 
           $vanban = VanBan::orderby('id','desc')->take(5)->get();
 
-          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban'));
+          $nhomcq = NhomCQ::all();
+
+          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','nhomcq'));
 
         });
 

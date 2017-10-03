@@ -29,12 +29,14 @@ body {
 
 
 
+
 .block3 {
   border: 1px solid #bebebe;
   border-radius: 4px;
   margin-bottom: 5px;
   margin-top: 15px;
   overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   .portlet-header {
 
@@ -44,7 +46,7 @@ body {
     background-color: #D89F44;
     background-image: url('/images/background/lotus.ico'), url('/images/background/trong-dong.png');
     background-size: 32px 32px, auto;
-    background-position: 2px 4px,right top;
+    background-position: 2px 2px,right top;
     background-repeat: no-repeat;
     a{
       text-decoration: none;
@@ -93,11 +95,14 @@ body {
 
           vertical-align: top;
           border: 1px solid #cbccce!important;
+          border-radius: 3px;
 
           object-position: top;
           height: 350px;
           max-width: 100%;
           object-fit: cover;
+
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
       }
 
@@ -128,6 +133,15 @@ body {
           padding: 5px;
           text-align: justify;
         }
+
+        &:hover{
+          font-weight: bold;
+          a{
+            color: #ce663f !important;
+          }
+
+
+        }
       }
       li.active {
         background: #D89F44;
@@ -141,40 +155,43 @@ body {
       }
 
 
+
     }
 
   }
 
-  .main-news {
-    float: left;
-    padding: 20px 10px 10px 15px;
-    width: 100%;
-    display: block;
-    // border-bottom: 1px solid #e1e8ee;
-    overflow: hidden;
-    padding-bottom: 10px;
-    .main-news-title {
-      font-size: 1.05em;
-      color: #000000 !important;
-      line-height: 18px;
-      margin-bottom: 15px;
-      &:hover{
-        text-decoration: none;
-      }
+
+  .cms-container-tintuc {
+    padding: 10px 10px 10px 15px;
+
+    margin-bottom: 7px;
+    margin-top: 7px;
+
+    img{
+      float:left;
+      margin-right:10px;
+      width: 160px;
+      border: 1px solid #cbccce!important;
+      border-radius: 3px;
+
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-    .main-news-thumb-nail {
-      margin-top: 10px;
-      float: left;
-      width: 35%;
-      img {
-        width: 100%;
-        max-width: 100%;
-        padding-right: 10px;
-      }
+
+    .tin_title_text {
+
+      font-weight: bold;
+      text-decoration: none;
+
+
     }
-    .main-news-content{
-      margin-top: 8px;
-    }
+
+
+
+    text-align: justify;
+
+    vertical-align: middle;
+    width: auto;
+
   }
 
   .news{
@@ -198,11 +215,44 @@ body {
         }
 
         &:hover{
-          background: #D89F44;
-          opacity: 0.8;
+          font-weight: bold;
           a{
-            color: #ffffff !important;
+            color: #ce663f !important;
           }
+
+
+        }
+
+      }
+    }
+  }
+
+  .chuyen-trang{
+
+    padding: 10px 15px 10px 10px;
+
+    ul{
+      list-style-type: none;
+      padding-left: 0px;
+
+      li {
+        margin-bottom: 10px;
+
+        a{
+          text-decoration: none;
+        }
+
+        .news-block{
+          border-bottom: 1px solid #e1e8ee;
+          padding: 5px;
+          text-align: justify;
+          font-size: 0.95em;
+        }
+
+        &:hover{
+
+          font-weight: bold;
+          color: #CE663F;
 
 
         }
@@ -215,6 +265,8 @@ body {
 
 
 }
+
+
 
 
 

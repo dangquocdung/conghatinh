@@ -150,8 +150,11 @@
             });
 
         $("#tin-noi-bat ul li")
+
             .on('mouseenter', function() {
+
                 console.log("li mouse enter");
+
                 $(this).addClass('hover');
 
                 var imgAlt = $(this).find('img').attr("alt");

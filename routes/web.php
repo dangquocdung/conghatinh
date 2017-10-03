@@ -103,6 +103,11 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('config/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
         Route::post('config/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
 
+        Route::get('config/lien-ket', 'CoQuanController@index')->name('lien-ket');
+        Route::post('config/lien-ket', 'CoQuanController@store')->name('save-lien-ket');
+        Route::get('config/lien-ket/{id}', 'CoQuanController@show')->name('edit-lien-ket');
+        Route::post('config/lien-ket/update', 'CoQuanController@update')->name('update-lien-ket');
+
         
     });
 });

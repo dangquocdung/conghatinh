@@ -17,18 +17,18 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Chuyên mục</h3>
+          <h3 class="box-title">Loại tin</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
           <table class="table table-bordered table-striped table-hover">
             <thead>
             <tr>
-              <td>#</td>
-              <td>Loại tin</td>
-              <td>Chuyên mục</td>
-              <td>Thứ tự</td>
-              <td></td>
+              <th>#</th>
+              <th>Loại tin</th>
+              <th>Chuyên mục</th>
+              <th>Thứ tự</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -81,9 +81,17 @@
             {{csrf_field()}}
             <div class="form-group">
               <label>Chuyên mục</label>
-              <select class="form-control" name="chuyenmuc_id" style="width: 100%;">
+              <select class="form-control chuyenmuc" name="chuyenmuc_id" style="width: 100%;">
                 @foreach ($chuyenmuc as $cm)
-                  <option value={{ $cm->id }}>{{ $cm->name }}</option>
+
+                  @if ($chuyenmuc_id == $cm->id)
+
+                    <option value={{ $cm->id }} data-id={{ count($cm->loaitin) }} selected>{{ $cm->name }}</option>
+
+                  @else
+                    <option value={{ $cm->id }} data-id={{ count($cm->loaitin) }}>{{ $cm->name }}</option>
+
+                  @endif
                 @endforeach
               </select>
             </div>
@@ -99,8 +107,8 @@
             </div>
             <div class="form-group">
               <label>Thứ tự hiện thị</label>
-              <select class="form-control" name="thutu" style="width: 100%;">
-                @for ($i = 1; $i < 10; $i++)
+              <select class="form-control loaitin" name="thutu" style="width: 100%;">
+                @for ($i = 1; $i < 13; $i++)
                   <option value={{ $i }}>{{ $i }}</option>
                 @endfor
               </select>
@@ -116,4 +124,76 @@
       {{--End box--}}
     </div>
   </div>
+
 @endsection
+
+@section('js')
+
+  <script>
+    $(document).ready(function () {
+
+        $(function () {
+            thutu_hienthi(); //this calls it on load
+            $('.chuyenmuc').change(thutu_hienthi());
+        });
+
+
+
+        function thutu_hienthi() {
+
+            var $v = $('.chuyenmuc').val();
+
+            var $n = $('.chuyenmuc').find(':selected').attr('data-id');
+
+            console.log($n)
+
+            var $str ='';
+
+            if ($n > 0){
+                for($i = 1; $i <= $n; $i++){
+                    $str = $str + '<option value=' + $i + '>' + $i + '</option>'
+                }
+                $str = $str + '<option value=' + $i + ' selected>' + $i + '</option>'
+            }else{
+                $str = $str + '<option value=1 selected>1</option>';
+            }
+
+
+
+            $('.loaitin').html($str);
+
+
+        }
+
+        $('.chuyenmuc').change(function () {
+
+            var $v = $(this).val();
+
+            var $n = $(this).find(':selected').attr('data-id');
+
+            console.log($n)
+
+            var $str ='';
+
+            if ($n > 0){
+                for($i = 1; $i <= $n; $i++){
+                    $str = $str + '<option value=' + $i + '>' + $i + '</option>'
+                }
+                $str = $str + '<option value=' + $i + ' selected>' + $i + '</option>'
+            }else{
+                $str = $str + '<option value=1 selected>1</option>';
+            }
+
+
+
+            $('.loaitin').html($str);
+
+
+        });
+
+
+
+    })
+  </script>
+
+  @stop

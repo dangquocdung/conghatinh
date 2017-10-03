@@ -2,11 +2,11 @@
 
 @section('breadcrumb')
   <section class="content-header">
-    <h1>Quản lý Chuyên mục<small>Các chuyên mục hiện có trên ứng dụng</small></h1>
+    <h1>Quản lý Loại tin<small>Các liên kết hiện có</small></h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">chuyenmucs</li>
+      <li class="active">Liên kết</li>
     </ol>
   </section>
 @endsection
@@ -17,7 +17,7 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Chuyên mục</h3>
+          <h3 class="box-title">Liên kết</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -25,23 +25,23 @@
             <thead>
             <tr>
               <th>#</th>
-              <th>Chuyên mục</th>
-              <th>Đường dẫn</th>
-              <th>Thứ tự</th>
+              <th>Cơ quan</th>
+              <th>Nhóm</th>
+              <th>Liên kết</th>
               <th></th>
             </tr>
             </thead>
             <tbody>
-            @foreach($chuyenmucs as $chuyenmuc)
+            @foreach($coquan as $lt)
               <tr>
-                <td>{{$chuyenmuc->id}}</td>
-                <td>{{($chuyenmuc->name)}}</td>
-                <td><span class="label label-success">{{$chuyenmuc->slug}}</span></td>
-                <td>{{$chuyenmuc->thutu}}</td>
+                <td>{{$lt->id}}</td>
+                <td>{{($lt->name)}}</td>
+                <td>{{ $lt->nhomcq->name }}</td>
+                <td>{{$lt->lienket}}</td>
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                     <div class="pull-left">
-                      <a href="{{route('edit-chuyen-muc', $chuyenmuc->id)}}" class="btn btn-primary btn-xs">
+                      <a href="{{route('edit-lien-ket', $lt->id)}}" class="btn btn-primary btn-xs">
                         <i class="fa fa-edit"></i> Edit
                       </a>
                     </div>
@@ -49,10 +49,10 @@
                       <confirm-modal
                         btn-text='<i class="fa fa-trash"></i> Delete'
                         btn-class="btn-danger"
-                        url="{{url('api/v1/delete-chuyen-muc')}}"
-                        :post-data="{{json_encode(['id' => $chuyenmuc->id])}}"
+                        url="{{url('api/v1/delete-lien-ket')}}"
+                        :post-data="{{json_encode(['id' => $lt->id])}}"
                         :refresh="true"
-                        message="Bạn chắc chắn muốn xoá chuyên mục {{$chuyenmuc->name}}?">
+                        message="Bạn chắc chắn muốn xoá liên kết {{$lt->name}}?">
                       </confirm-modal>
                     </div>
                   {{-- @endif --}}
@@ -62,7 +62,7 @@
             </tbody>
           </table>
 
-          {{$chuyenmucs->render()}}
+          {{$coquan->render()}}
         </div>
         <!-- /.box-body -->
       </div>
@@ -73,30 +73,47 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Thêm Chuyên mục</h3>
+          <h3 class="box-title">Thêm Liên kết</h3>
         </div>
-        <form action="{{route('save-chuyen-muc')}}" method="post" id="role-save-form">
+        <form action="{{route('save-lien-ket')}}" method="post" id="role-save-form">
           <!-- /.box-header -->
           <div class="box-body">
             {{csrf_field()}}
             <div class="form-group">
-              <label for="">Name:</label>
+              <label>Nhóm</label>
+              <select class="form-control chuyenmuc" name="nhomcq_id" style="width: 100%;">
+                @foreach ($nhomcq as $cm)
+
+                  @if ($nhomcq_id == $cm->id)
+
+                    <option value={{ $cm->id }} selected>{{ $cm->name }}</option>
+
+                  @else
+                    <option value={{ $cm->id }}>{{ $cm->name }}</option>
+
+                  @endif
+                @endforeach
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="">Tên cơ quan:</label>
               <input type="text"
-                     placeholder="Nhập tên Chuyên mục"
+                     placeholder="Nhập tên cơ quan"
                      name="name"
                      value="{{old('name')}}"
                      class="form-control">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>
-            <div class="form-group">
-              <label>Thứ tự hiện thị</label>
-              <select class="form-control" name="thutu" style="width: 100%;">
-                @for ($i = 1; $i <= count($chuyenmucs); $i++)
-                  <option value={{ $i }}>{{ $i }}</option>
-                @endfor
-                  <option value={{ $i }} selected>{{ $i }}</option>
-              </select>
-            </div>
+              <div class="form-group">
+                  <label for="">Liên kết:</label>
+                  <input type="text"
+                         placeholder="Nhập đường dẫn liên kết http"
+                         name="lienket"
+                         value="{{old('lienket')}}"
+                         class="form-control">
+                  <div class="HelpText error">{{$errors->first('name')}}</div>
+              </div>
           </div>
           <!-- /.box-body -->
 
@@ -108,4 +125,9 @@
       {{--End box--}}
     </div>
   </div>
+
 @endsection
+
+@section('js')
+
+@stop

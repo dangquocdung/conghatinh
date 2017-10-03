@@ -1,29 +1,30 @@
 <div class="container nen-trang">
 <div class="porlet-main-footer">
     <div class="main-footer-header-wrapper">
-        <div class="container">
-            <ul class="main-footer-menu">
+
+
+            <ul class="main-footer-menu" style="margin-left: 0; padding-left: 0">
                 <li class="main-footer-menu-item">
-                    <a href="http://hatinh.gov.vn/chinh-quyen">Chính quyền</a>
-                </li>
-                <li class="main-footer-menu-item main-footer-menu-item-right">
-                    <a href="http://hatinh.gov.vn/cong-dan">Công dân</a>
+                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Trang chủ</a>
                 </li>
                 <li class="main-footer-menu-item">
-                    <a href="http://hatinh.gov.vn/doanh-nghiep">Doanh nghiệp</a>
+                    <a href="#">Giới thiệu BBT Cổng</a>
                 </li>
-                <li class="main-footer-menu-item main-footer-menu-item-right">
-                    <a target="_blank" href="http://dulichbien.hatinh.top/">Du khách</a>
+                <li class="main-footer-menu-item">
+                    <a href="#">Liên hệ công tác</a>
                 </li>
-                <li class="main-footer-menu-item" style="margin-left:-3px">
-                    <a href="http://hatinh.gov.vn/lien-he-cong-tac">Liên hệ công tác</a>
+                <li class="main-footer-menu-item">
+                    <a href="#">Sơ đồ cổng</a>
                 </li>
-                <li class="main-footer-menu-item main-footer-menu-item-right">
-                    <a href="mailto:toasoan@hatinh.gov.vn">Góp ý</a>
+                <li class="main-footer-menu-item">
+                    <a href="#">Góp ý</a>
+                </li>
+                <li class="main-footer-menu-item">
+                    <a href="mailto:toasoan@hatinh.gov.vn"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
                 </li>
 
             </ul>
-        </div>
+
     </div>
     <div class="main-footer-footer-wrapper">
         <div class="main-footer-footer-bg">

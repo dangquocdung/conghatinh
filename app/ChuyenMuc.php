@@ -19,4 +19,9 @@ class ChuyenMuc extends Model
 	{
 		return $this->hasManyThrough('App\TinTuc','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
   	}
+
+    public function vanban()
+    {
+        return $this->hasManyThrough('App\VanBan','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
+    }
 }

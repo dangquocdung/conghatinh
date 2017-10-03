@@ -25,7 +25,9 @@ class TinTucController extends Controller
     public function index()
     {
         $tintuc = TinTuc::orderby('id','desc')->paginate(10);
+
         return view('admin.pages.tin-tuc-su-kien',compact('tintuc'));
+
     }
 
     /**

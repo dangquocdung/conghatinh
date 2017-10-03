@@ -1,8 +1,17 @@
+@php
+
+    $chuyenmuc = \App\ChuyenMuc::whereIn('id', array('4','5'))->get();
+
+@endphp
+
+@foreach($chuyenmuc as $cm)
+
+
 <div class="block3">
 
     <div class="portlet-header">
-        <a href="chuyen-muc/tin-tuc-su-kien">
-            <h4 class="portlet-header-title no-pd-top">Văn bản chỉ đạo, điều hành</h4>
+        <a href="chuyen-muc/{{ $cm->slug }}">
+            <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
         </a>
     </div>
 
@@ -11,13 +20,15 @@
 
             <div class="news">
                 <ul>
-                    @foreach($vanban as $vb)
+                    @foreach($cm->vanban->take(5) as $vb)
                         <li>
 
                             <div class="news-block">
+
                                 <a href="chi-tiet/" class="news-title bold">
                                     Số: {{ $vb->sovb.'/'.$vb->kihieuvb }}
                                 </a>
+                                <a href=""><span class="label label-success">{{ $vb->loaitin->name}}</span></a>
 
                                 @foreach($vb->tepvanban as $tvb)
 
@@ -44,6 +55,10 @@
     </div>
 
 </div>
+
+    @endforeach
+
+
 
 
 

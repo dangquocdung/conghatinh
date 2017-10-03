@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\User\LoaiTinCreated;
+use App\CoQuan;
 use Illuminate\Http\Request;
-
 use Session;
+use App\NhomCQ;
 
-use App\LoaiTin;
-
-
-class LoaiTinController extends Controller
+class CoQuanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,15 +16,16 @@ class LoaiTinController extends Controller
      */
     public function index()
     {
-        $loaitin = LoaiTin::orderBy('id', 'desc')->paginate(20);
+        $nhomcq = NhomCQ::all();
+        $coquan = CoQuan::orderBy('id', 'desc')->paginate(20);
 
-        if (Session::has('chuyenmuc_id')){
-            $chuyenmuc_id = Session::get('chuyenmuc_id');
+        if (Session::has('nhomcq_id')){
+            $nhomcq_id = Session::get('nhomcq_id');
         }else{
-            $chuyenmuc_id = 1;
+            $nhomcq_id = 1;
         }
 
-        return view('admin.pages.tbt.loai-tin', compact('loaitin','chuyenmuc_id'));
+        return view('admin.pages.tbt.lien-ket', compact('nhomcq','coquan','nhomcq_id'));
     }
 
     /**
@@ -48,19 +46,19 @@ class LoaiTinController extends Controller
      */
     public function store(Request $request)
     {
-        $loaitin = LoaiTin::create([
-            'chuyenmuc_id'=>$request->input('chuyenmuc_id'),
+        $cq = CoQuan::create([
+            'nhomcq_id'=>$request->input('nhomcq_id'),
             'name' => $request->input('name'),
             'slug'=>str_slug($request->input('name')),
-            'thutu'=>($request->input('thutu'))
+            'lienket'=>($request->input('lienket'))
         ]);
 
-        event(new LoaiTinCreated($loaitin));
+//        event(new LoaiTinCreated($loaitin));
 
-        flash('Thêm loại tin thành công');
+        flash('Thêm liên kết thành công');
 
 
-        Session::put('chuyenmuc_id', $request->input('chuyenmuc_id'));
+        Session::put('nhomcq_id', $request->input('nhomcq_id'));
 
         return redirect()->back();
     }
@@ -68,23 +66,24 @@ class LoaiTinController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\CoQuan  $coQuan
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $loaitin = LoaiTin::find($id);
+        $nhomcq = NhomCQ::all();
+        $lienket = CoQuan::find($id);
 
-        return view('admin.pages.tbt.loai-tin-edit', compact('loaitin'));
+        return view('admin.pages.tbt.lien-ket-edit', compact('nhomcq','lienket'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\CoQuan  $coQuan
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CoQuan $coQuan)
     {
         //
     }
@@ -93,30 +92,29 @@ class LoaiTinController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\CoQuan  $coQuan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $lt = LoaiTin::find($request->input('id'));
-        $lt->chuyenmuc_id = $request->input('chuyenmuc_id');
-        $lt->name = $request->input('name');
-        $lt->slug = str_slug($request->input('name'));
-        $lt->thutu = $request->input('thutu');
-        $lt->save();
+        $lk = CoQuan::find($request->input('id'));
+        $lk->nhomcq_id = $request->input('nhomcq_id');
+        $lk->name = $request->input('name');
+        $lk->slug = str_slug($request->input('name'));
+        $lk->lienket = $request->input('lienket');
+        $lk->save();
 
-        flash('Loại tin đã được cập nhật');
-        return redirect( route('loai-tin'));
+        flash('Liên kết đã được cập nhật');
+        return redirect( route('lien-ket'));
     }
-
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\CoQuan  $coQuan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CoQuan $coQuan)
     {
         //
     }

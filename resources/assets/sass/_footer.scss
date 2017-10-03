@@ -1,17 +1,23 @@
 /* Css of main footer */
 .porlet-main-footer {
+  margin-top: 10px;
   display: block;
+
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 .main-footer-header-wrapper {
   width: 100%;
   display: block;
   text-align: center;
-  background: #1e62ca;
+  background: #ce663f;
+  border-radius: 4px 4px 0 0;
 }
 .main-footer-menu {
   margin: 0px;
 }
 .main-footer-menu-item {
+
   padding: 15px;
   display: inline-block;
   text-transform: uppercase;

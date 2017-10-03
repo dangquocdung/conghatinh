@@ -239,8 +239,8 @@
 
     //Date picker
     $('#datepicker').datepicker({
-//        format: 'dd/mm/yyyy',
-//        autoclose: true
+        format: 'yyyy-mm-dd',
+        autoclose: true
     })
 
     drag = function(ev) {
