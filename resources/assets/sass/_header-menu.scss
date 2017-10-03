@@ -11,10 +11,10 @@
 }
 
 header {
-	//height: 160px;
+	height: 160px;
 
 	#header-brand {
-		//background: url(../../images/banner-n1.png) left top no-repeat;
+
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -24,6 +24,8 @@ header {
 		z-index: 2;
 		#background-brand {
 
+			background: url(../../images/background/header_bg.png) left top no-repeat;
+			height: 160px;
 			position: relative;
 			top: 0;
 
