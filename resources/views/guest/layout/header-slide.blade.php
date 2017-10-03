@@ -9,7 +9,7 @@
             $AutoPlay: 1,
             $AutoPlaySteps: 4,
             $SlideDuration: 460,
-            $SlideWidth: 180,
+            $SlideWidth: 200,
             $SlideSpacing: 3,
             $Cols: 5,
             $Align: 390,
