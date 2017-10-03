@@ -1,5 +1,5 @@
 <!-- mobile menu -->
-<div id="mobile-menu">
+<div id="mobile-menu visible-xs" class="navbar-collapse collapse">
   <div id="mobile-search">
     <form>
       <div class="input-group">

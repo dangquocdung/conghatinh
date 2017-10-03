@@ -18,13 +18,6 @@
                       <h2>Tỉnh Hà Tĩnh </h2>
                   </div>
               </div>
-              <div class="language-wrapper">
-                    <div class="language-list">
-                        <a href="/web/ja"><i class="icon-flag-custom icon-flag-ja"></i></a>
-                        <a href="/web/en"><i class="icon-flag-custom icon-flag-en"></i></a>
-                        <a class="hidden" href="/web/guest/"><i class="icon-flag-custom icon-flag-vi"></i></a>
-                    </div>
-                </div>
               </div>
           </div>
         </header>
@@ -85,7 +78,7 @@
 
 
                         <ul class="nav navbar-nav navbar-right hidden-sm">
-                            <li>
+                            <li style="border-right: none;">
                                 <form class="form-inline" style="padding: 8px 15px;">
                                     <div class="input-group">
                                         <input class="form-control" type="text" placeholder="Tìm kiếm...">
