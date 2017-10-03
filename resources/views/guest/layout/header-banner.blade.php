@@ -1,29 +1,7 @@
 <div class="container nen-trang">
 
-
+    @include('guest.layout.header-slide')
         <header class="hidden-xs">
-
-          {{--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">--}}
-            {{----}}
-            {{--<div class="carousel-inner" role="listbox">--}}
-              {{--<div class="item active">--}}
-                {{--<img src="./images/banner-main-4.png" alt="" width="100%">--}}
-              {{--</div>--}}
-            {{--<div class="item">--}}
-                {{--<img src="./images/banner-main-3.png" alt="" width="100%">--}}
-            {{--</div>--}}
-            {{--<div class="item">--}}
-                {{--<img src="./images/banner-main-2.png" alt="" width="100%">--}}
-            {{--</div>--}}
-            {{--<div class="item">--}}
-                {{--<img src="./images/banner-main-1.png" alt="" width="100%">--}}
-            {{--</div>--}}
-
-            {{--</div>--}}
-          {{--</div>--}}
-
-            @include('guest.layout.header-slide')
-
 
           <div id="header-brand">
               <div class="container">
@@ -48,8 +26,6 @@
               </div>
           </div>
         </header>
-
-
 
 
         <nav class="navbar navbar-default" id="main-menu" >
