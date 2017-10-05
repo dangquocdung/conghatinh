@@ -8,7 +8,7 @@
     </div>
 
 
-    <div class="col-md-8" id="tinNoiBatChinh">
+    <div id="tinNoiBatChinh" class="col-md-8 w3-animate-left">
 
         @php
             $tin1 = $tinnoibat->first();
@@ -20,7 +20,7 @@
         <div class="hot-news" style="padding-top: 15px;">
 
             <a href="#" class="hot-news-thumb-nail">
-                <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}">
+                <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
             </a>
 
             <div class="hot-news-title" style="display: block;">
@@ -113,14 +113,18 @@
                 jQueryNext.addClass('active');
 
 
-                $("#tinNoiBatChinh .hot-news img").attr({src: imgTitle, alt: imgAlt});
 
+
+
+                $("#tinNoiBatChinh .hot-news img").attr({src: imgTitle, alt: imgAlt});
 
                 $("#tinNoiBatChinh .hot-news .hot-news-title a").attr({href: aHref});
 
                 $("#tinNoiBatChinh .hot-news .hot-news-title h4").html(imgAlt);
 
                 $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
+
+
 
 
             });
@@ -165,6 +169,8 @@
 
                 var newsDesc = $(this).find('.item-desc').html();
 
+                $("#tinNoiBatChinh").addClass('w3-animate-left');
+
                 $("#tinNoiBatChinh .hot-news img").attr({src: imgTitle, alt: imgAlt});
 
                 $("#tinNoiBatChinh .hot-news .hot-news-title a").attr({href: aHref});
@@ -179,6 +185,7 @@
             .on("mouseleave", function() {
                 console.log('li mouse leave');
                 $(this).removeClass('hover');
+                $("#tinNoiBatChinh").removeClass('w3-animate-left');
 //                $("#tinNoiBatChinh .hot-news .hot-news-block").stop(true, true);
             });
 

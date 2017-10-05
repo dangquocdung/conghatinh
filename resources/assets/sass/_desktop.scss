@@ -71,7 +71,42 @@ body {
 
   }
 
+  .w3-animate-left {
+    position: relative;
+    animation: animateleft 0.6s
+  }
+  @keyframes animateleft {
+    from {
+      left: -300px;
+      opacity: 0
+    }
+    to {
+      left: 0;
+      opacity: 1
+    }
+  }
+
+  .w3-animate-top {
+    position: relative;
+    animation: animatetop 0.4s
+  }
+  @keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0
+    }
+    to {
+      top: 0;
+      opacity: 1
+    }
+  }
+
+
   #tinNoiBatChinh{
+
+
+
+
 
     .hot-news{
       .hot-news-title{
@@ -103,6 +138,8 @@ body {
           object-fit: cover;
 
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
         }
       }
 

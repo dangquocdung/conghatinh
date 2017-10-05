@@ -1,4 +1,4 @@
-.zone-topview {
+#tin-noi-bat-left {
 
   background: #f9f9f9;
   border-bottom: 1px solid #eaeaea;
@@ -9,10 +9,11 @@
     display: block;
     text-transform: uppercase;
     border-top: 2px solid #3bb5b5;
-    font-family: RobotoSlab-Bold;
+
     font-size: 14px;
     text-align: center;
-    padding: 8px 0 10px;
+    padding-top: 12px;
+    color: black;
   }
 
 
@@ -21,9 +22,70 @@
     padding: 5px;
     img{
       width: 100%;
+      border: 1px solid #cbccce !important;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    a{
+      text-decoration: none !important;
     }
   }
 }
+
+.fixed{
+  position: fixed !important;
+}
+
+.absolute{
+  position: absolute !important;
+}
+
+
+.chi-tiet-tin{
+
+  padding-left: 10px;
+
+  .main-title {
+    font-size: 2.4em;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin-bottom: 20px;
+  }
+
+  .meta {
+    margin-bottom: 15px;
+
+    time {
+      color: #888;
+      display: block;
+    }
+
+    .meta-author {
+      display: none;
+    }
+  }
+
+  .gioi-thieu{
+
+    text-align: justify;
+  }
+
+  .noi-dung{
+    padding-top: 10px;
+    text-align: justify;
+  }
+  img{
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+
+
+}
+
+
+
+
 
 
 .box-tm {

@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
 
           $loaitin = LoaiTin::all();
 
-          $tinnoibat4 = TinTuc::orderby('id','desc')->take(4)->get();
+          $tinnoibat4 = TinTuc::orderby('id','desc')->take(6)->get();
 
           $tinmoi5 = TinTuc::orderby('id','desc')->take(5)->get();
 
