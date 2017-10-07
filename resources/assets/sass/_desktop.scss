@@ -303,6 +303,19 @@ body {
 
 }
 
+#back-top {
+  display: inline-block;
+
+  height: 50px;
+  width: 50px;
+
+  position: fixed;
+  bottom:35px;
+  right: 2%;
+  z-index: 100;
+  opacity: 0.5;
+}
+
 
 
 

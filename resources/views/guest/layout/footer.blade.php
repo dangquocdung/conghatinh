@@ -50,4 +50,36 @@
     </div>
 </div>
 </div>
+
+<div id="back-top">
+  <a href="#"> <img src="./images/btt.png" alt="Top" width=100%> </a>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    // hide #back-top first
+    $("#back-top").hide();
+
+    // fade in #back-top
+    $(function () {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('#back-top').fadeIn();
+        } else {
+          $('#back-top').fadeOut();
+        }
+      });
+
+      // scroll body to 0px on click
+      $('#back-top').click(function () {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    });
+  });
+</script>
+
 </footer>

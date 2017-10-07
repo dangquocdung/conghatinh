@@ -1,4 +1,4 @@
-<div id="tin-noi-bat-left">
+<div id="tin-noi-bat-left" class="hidden-xs">
 
     <h4 class="label">Tin nổi bật</h4>
 
@@ -23,21 +23,16 @@
 
     $(document).ready(function () {
 
-        var top = $('#tin-noi-bat-left').offset().top - parseFloat($('#tin-noi-bat-left').css('marginTop').replace(/auto/, 0));
-
-        $(window).scroll(function (event) {
-
-            // what the y position of the scroll is
-            var y = $(this).scrollTop();
-
-            // whether that's below the form
-            if (y >= top) {
-                // if so, ad the fixed class
-                $('#tin-noi-bat-left').addClass('fixed');
-            } else {
-                // otherwise remove it
-                $('#tin-noi-bat-left').removeClass('fixed');
-            }
+        $('#tin-noi-bat-left').scrollToFixed({
+            marginTop: 10,
+            // neither of these fixes the problem:
+            // removeOffset, offsets
+            limit: function() {
+                var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true) - 50;
+                return limit;
+            },
+            removeOffsets: true,
+            zIndex: 999
         });
     });
 

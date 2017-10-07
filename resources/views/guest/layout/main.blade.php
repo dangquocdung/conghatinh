@@ -32,6 +32,7 @@
   </div>
   <!-- JS -->
 {{--  @include('guest.layout.js')--}}
+
   @yield('js')
 
 </body>
