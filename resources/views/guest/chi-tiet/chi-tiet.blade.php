@@ -1,9 +1,5 @@
 <div class="col-md-9">
 
-    
-
-    
-
     {{-- <ul class="breadcrumb">
       <li><a href="#">Home</a></li>
       <li><a href="#">Vehicles</a></li>
@@ -30,7 +26,7 @@
         <div class="row">
 
 
-            <div class="chi-tiet-tin">
+            <div class="tieu-de-tin">
 
 
 
