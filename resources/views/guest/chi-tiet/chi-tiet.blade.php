@@ -1,10 +1,35 @@
 <div class="col-md-9">
 
+    
+
+    
+
+    {{-- <ul class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Vehicles</a></li>
+      <li><a href="#">Vans</a></li>
+      <li><a href="#">Camper Vans</a></li>
+      <li><a href="#">1989 VW Westfalia Vanagon</a></li>
+    </ul> --}}
+
+    <div class="btn-group btn-breadcrumb">
+        <a href="#" class="btn btn-warning"><i class="glyphicon glyphicon-home"></i></a>
+        <a href="#" class="btn btn-warning">Snippets</a>
+        <a href="#" class="btn btn-warning">Breadcrumbs</a>
+        <a href="#" class="btn btn-warning">Default</a>
+    </div>
+        
+
+
+
 
 
     <div class="col-md-12">
 
+
         <div class="row">
+
+
             <div class="chi-tiet-tin">
 
 
@@ -27,7 +52,7 @@
 
             <div class="col-md-9">
 
-                <div class="row">
+                
 
                 <div class="chi-tiet-tin">
 
@@ -47,26 +72,24 @@
                     </div>
                 </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-12">
-        <div class="row">
-
-            <div id="tag">
+                <div id="tag">
                 <ul class="tags">
-                    <li>Tags:</li>
-                    <li><a href="/la-lanh-dum-la-rach/tag.html">lá lành đùm lá rách</a></li>
-                    <li><a href="/giup-do/tag.html">giúp đỡ</a></li>
-                    <li><a href="/dieu-tri/tag.html">điều trị</a></li>
+                    <li><i class="fa fa-tags" aria-hidden="true"></i></li>
+                    <span class="badge badge-default">Default</span>
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-info">Info</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-danger">Danger</span>
                 </ul>
             </div>
 
+                
+            </div>
         </div>
-
     </div>
+
+    
     
 
            

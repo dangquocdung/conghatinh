@@ -1,6 +1,8 @@
 #tin-noi-bat-left {
 
-  background: #f9f9f9;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: #B1C3CB;
   border-bottom: 1px solid #eaeaea;
   z-index: 999;
 
@@ -10,11 +12,14 @@
     display: block;
     text-transform: uppercase;
     border-top: 2px solid #3bb5b5;
+    background: #98ae72;
 
     font-size: 14px;
     text-align: center;
-    padding-top: 12px;
-    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+    letter-spacing: 1.5px;
   }
 
 
@@ -44,17 +49,18 @@
 
 .chi-tiet-tin{
 
-  padding-left: 10px;
+  
 
   .main-title {
     font-size: 2.4em;
     font-weight: bold;
     line-height: 1.2em;
-    margin-bottom: 20px;
+    margin:0 0 5px 0;
+
   }
 
   .meta {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
     time {
       color: #888;
@@ -111,28 +117,35 @@
   position: relative;
 }
 
-.tags {
-  background: #eee;
-  padding: 8px 15px 3px;
-  clear: both;
 
-  li {
-    font-family: Roboto-Bold;
-    font-size: 12px;
-    display: inline-block;
-    text-transform: uppercase;
-    margin: 0 5px 5px 0;
+#tag{
 
-    a {
-      text-decoration: none;
-      color: #000;
-    }
+
+  .tags {
+    border-radius: 3px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #B1C3CB;
+    padding: 8px 15px 3px;
+    clear: both;
+
   }
-}
 
-#abde{
+
   ul {
+
     list-style-type: none;
     list-style: none;
+
+    li {
+      display: inline-block;
+      margin: 0 5px 5px 0;
+
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+
   }
+
 }

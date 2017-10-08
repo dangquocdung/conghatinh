@@ -1,9 +1,8 @@
 <div class="block3">
 
-
     <div class="portlet-header">
-        <a href="chuyen-muc/tin-tuc-su-kien" class="portlet-danh-muc-title">
-            <h4 class="portlet-header-title no-pd-top">Tin tức sự kiện nổi bật</h4>
+        <a href="#">
+            <h4 class="portlet-header-title no-pd-top">Tin tức, sự kiện nổi bật</h4>
         </a>
     </div>
 
@@ -17,7 +16,7 @@
 
 
 
-        <div class="hot-news" style="padding-top: 15px;">
+        <div class="hot-news">
 
             <a href="#" class="hot-news-thumb-nail">
                 <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
@@ -40,7 +39,7 @@
     <div class="col-md-4">
 
 
-                <div id="tin-noi-bat" style="padding-top: 15px;">
+                <div id="tin-noi-bat">
 
                 <ul>
                     @foreach ($tinnoibat as $tnb)

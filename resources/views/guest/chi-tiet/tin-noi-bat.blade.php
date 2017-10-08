@@ -28,7 +28,7 @@
             // neither of these fixes the problem:
             // removeOffset, offsets
             limit: function() {
-                var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true) - 50;
+                var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
                 return limit;
             },
             removeOffsets: true,

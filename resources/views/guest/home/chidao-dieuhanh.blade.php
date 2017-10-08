@@ -21,7 +21,7 @@
         <div class="block3" id="{{$lt->slug}}">
 
         <div class="portlet-header">
-            <a href="chuyen-muc/tin-tuc-su-kien">
+            <a href="#">
                 <h4 class="portlet-header-title no-pd-top">{{$lt->name}}</h4>
             </a>
         </div>

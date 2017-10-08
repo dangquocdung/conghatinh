@@ -7,7 +7,6 @@
         <a href="#" class="portlet-danh-muc-title">
             <h4 class="portlet-header-title no-pd-top">Thư viện hình ảnh</h4>
         </a>
-        <span class="underline"></span>
     </div>
 
     <div id="hinhanh_carousel" class="owl-carousel hinhanh-logo">

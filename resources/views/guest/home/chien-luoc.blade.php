@@ -10,7 +10,7 @@
 <div class="block3">
 
     <div class="portlet-header">
-        <a href="chuyen-muc/{{ $cm->slug }}">
+        <a href="#">
             <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
         </a>
     </div>

@@ -45,7 +45,6 @@
                     <div id="navbar" class="navbar-collapse collapse">
 
                         <ul class="nav navbar-nav">
-
                             <li><a href="#">Trang chủ</a></li>
                             <li><a href="#">Giới thiệu</a></li>
                             <li><a href="#">Tin Tức - Sự kiện</a></li>
