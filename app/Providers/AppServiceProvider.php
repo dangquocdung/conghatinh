@@ -18,6 +18,7 @@ use App\CQBH;
 use App\NguoiKi;
 use App\VanBan;
 use App\Media;
+use App\Banner;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -45,7 +46,9 @@ class AppServiceProvider extends ServiceProvider
 
           $nhomcq = NhomCQ::all();
 
-          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','nhomcq'));
+          $banner = Banner::orderby('thutu','asc')->get();
+
+          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','nhomcq','banner'));
 
         });
 

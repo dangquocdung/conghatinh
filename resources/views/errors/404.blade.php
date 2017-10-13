@@ -1,41 +1,49 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Page not found</title>
-  <link rel="stylesheet" href="{{ url('admin/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
-  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-  <style>
-    h1 {
-      font-size: 5em;
-      color: #dd4b39;
-    }
-    p {
-      font-size: 2em;
-    }
-    .error-wrapper {
-      text-align: left;
-      width: 50%;
-      margin: 0px auto;
-      margin-top: 5em;
-    }
-  </style>
-</head>
-<body>
+@extends('guest.layout.main')
+@section('title')
+  <title>Trang chủ</title>
+@endsection
+
+@section('content')
+
+
+
+
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="error-wrapper">
-          <h1>Page not found.</h1>
+      <div class="row nen-trang">
+        <div class="container">
+          
+          <img src="https://blog.socioboard.com/wp-content/uploads/2016/02/design-error-message-240.png" alt="" width="100%" style="padding-top: 15px;">
+
           @if($exception->getMessage())
             <p>{{$exception->getMessage()}}</p>
           @else
-            <p>The page you are trying look for is not present.</p>
+            
+            <div class="tien-ich"> 
+              <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
+          </div>
+
           @endif
+
         </div>
+
       </div>
-    </div>
   </div>
-</body>
-</html>
+@stop
+
+
+@section('js')
+
+<script>
+
+  function goBack() {
+      window.history.back();
+  } 
+
+  
+</script>
+
+
+
+ @stop
+
+

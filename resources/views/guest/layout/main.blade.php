@@ -21,7 +21,7 @@
 </head>
 <body>
 {{--  @include('guest.layout.menu-mobile')--}}
-  <div id="page">
+  <div id="page" id="app">
 
 
     @include('guest.layout.header-banner')

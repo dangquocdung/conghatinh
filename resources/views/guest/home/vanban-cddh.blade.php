@@ -10,7 +10,7 @@
 <div class="block3">
 
     <div class="portlet-header">
-        <a href="chuyen-muc/{{ $cm->slug }}">
+        <a href="van-ban/{{ $cm->slug }}">
             <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
         </a>
     </div>
@@ -18,7 +18,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="row">
 
-            <div class="news">
+            <div class="news-vanban">
                 <ul>
                     @foreach($cm->vanban->take(5) as $vb)
                         <li>
@@ -26,6 +26,7 @@
                             <div class="news-block">
 
                                 <a href="chi-tiet/" class="news-title bold">
+                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                                     Số: {{ $vb->sovb.'/'.$vb->kihieuvb }}
                                 </a>
                                 <a href=""><span class="label label-success">{{ $vb->loaitin->name}}</span></a>

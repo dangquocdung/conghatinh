@@ -51,7 +51,7 @@
                                     {{ $tnb->name }}
                                 </a>
 
-                                <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" style="display: none;">
+                                <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
 
                                 <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
 
@@ -88,9 +88,11 @@
 
         //Tìm giá trị
 
+        
+
         var imgAlt = jQueryNext.find('img').attr("alt");
 
-        var imgTitle = jQueryNext.find('img').attr("src");
+        var imgSrc = jQueryNext.find('img').attr("src");
 
         var imgDesc = jQueryNext.find('.hot-news-block').html();
 
@@ -115,7 +117,7 @@
 
 
 
-                $("#tinNoiBatChinh .hot-news img").attr({src: imgTitle, alt: imgAlt});
+                $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
 
                 $("#tinNoiBatChinh .hot-news .hot-news-title a").attr({href: aHref});
 
@@ -160,17 +162,19 @@
 
                 $(this).addClass('hover');
 
+                
                 var imgAlt = $(this).find('img').attr("alt");
 
-                var imgTitle = $(this).find('img').attr("src");
+                var imgSrc = $(this).find('img').attr("src");
 
                 var aHref = $(this).find('a').attr("href");
 
                 var newsDesc = $(this).find('.item-desc').html();
 
+
                 $("#tinNoiBatChinh").addClass('w3-animate-left');
 
-                $("#tinNoiBatChinh .hot-news img").attr({src: imgTitle, alt: imgAlt});
+                $("#tinNoiBatChinh .hot-news img").attr({ src: imgSrc, alt: imgAlt });
 
                 $("#tinNoiBatChinh .hot-news .hot-news-title a").attr({href: aHref});
 

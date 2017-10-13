@@ -10,6 +10,10 @@ Route::get('chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('chuyen-muc/{slug}','GuestController@chuyenMuc');
 Route::get('loai-tin/{slug}','GuestController@loaiTin');
 
+Route::get('van-ban/{slug}','GuestController@vanBan');
+
+Route::get('all-van-ban','GuestController@apiVanBan');
+
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
 Route::post('/dang-nhap', 'UserController@login')->name('login');
 
@@ -103,10 +107,15 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('config/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
         Route::post('config/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
 
-        Route::get('config/lien-ket', 'CoQuanController@index')->name('lien-ket');
-        Route::post('config/lien-ket', 'CoQuanController@store')->name('save-lien-ket');
-        Route::get('config/lien-ket/{id}', 'CoQuanController@show')->name('edit-lien-ket');
-        Route::post('config/lien-ket/update', 'CoQuanController@update')->name('update-lien-ket');
+        Route::get('config/lien-ket/so-ban-nganh', 'CoQuanController@index')->name('so-ban-nganh');
+        Route::post('config/lien-ket/so-ban-nganh', 'CoQuanController@store')->name('save-so-ban-nganh');
+        Route::get('config/lien-ket/so-ban-nganh/{id}', 'CoQuanController@show')->name('edit-so-ban-nganh');
+        Route::post('config/lien-ket/so-ban-nganh/update', 'CoQuanController@update')->name('update-so-ban-nganh');
+
+        Route::get('config/lien-ket/banner-trang-chu', 'BannerController@index')->name('banner-trang-chu');
+        Route::post('config/lien-ket/banner-trang-chu', 'BannerController@store')->name('save-banner-trang-chu');
+        Route::get('config/lien-ket/banner-trang-chu/{id}', 'BannerController@show')->name('edit-banner-trang-chu');
+        Route::post('config/lien-ket/banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
 
         
     });

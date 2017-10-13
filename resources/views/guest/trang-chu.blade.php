@@ -2,9 +2,7 @@
 @section('title')
   <title>Trang chủ</title>
 @endsection
-@section('header-menu-item')
-  active
-@endsection
+
 @section('content')
   <div class="container">
       <div class="row nen-trang">

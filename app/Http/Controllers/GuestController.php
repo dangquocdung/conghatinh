@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\TinTuc;
 use App\LoaiTin;
 use App\ChuyenMuc;
-use App;
+use App\VanBan;
 
 class GuestController extends Controller
 {
@@ -66,5 +66,24 @@ class GuestController extends Controller
         $cm = ChuyenMuc::where('slug',$slug)->first();
 
         return view('guest.chuyen-muc', compact('cm'));
+    }
+
+    public function vanBan($slug)
+    {
+        $vb = ChuyenMuc::where('slug',$slug)->first();
+
+        return view('guest.van-ban', compact('vb'));
+    }
+
+    public function apiVanBan()
+    {
+        $model = VanBan::searchPaginateAndOrder();
+        $columns = VanBan::$columns;
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
     }
 }

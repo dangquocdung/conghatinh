@@ -94,9 +94,25 @@
           <li class="{{ Request::is('toa-soan/config/chuyen-muc') ? 'active' : ''  }}">
             <a href="{{route('chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
           </li>
-          <li class="divider"></li>
-          <li class="{{ Request::is('toa-soan/config/lien-ket') ? 'active' : ''  }}">
-            <a href="{{route('lien-ket')}}"><i class="fa fa-circle-o"></i> Quản lý liên kết</a>
+          
+        </ul>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/config/lien-ket/*') ? 'active' : ''  }} treeview">
+        <a href="#">
+          <i class="fa fa-folder-open-o"></i> <span>Chuyên mục</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          
+          <li class="{{ Request::is('toa-soan/config/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
+            <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Quản lý Banner trang chủ</a>
+          </li>
+          
+          <li class="{{ Request::is('toa-soan/config/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
+            <a href="{{route('so-ban-nganh')}}"><i class="fa fa-circle-o"></i> Quản lý Sở, Ban, Ngành</a>
           </li>
         </ul>
       </li>

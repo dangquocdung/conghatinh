@@ -1,10 +1,14 @@
 #tin-noi-bat-left {
 
-  border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background: #B1C3CB;
-  border-bottom: 1px solid #eaeaea;
+  //border-radius: 3px;
+  //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  //background: #B1C3CB;
+  //border-bottom: 1px solid #eaeaea;
+
+  border-right: 1px solid #eaeaea;
+  padding-right: 7px;
   z-index: 999;
+  padding-left: 7px;
 
   .label {
     border-radius: 0 !important;
@@ -48,6 +52,8 @@
 
 
 .tieu-de-tin{
+
+  padding: 10px;
 
   
 
@@ -152,3 +158,108 @@
   }
 
 }
+
+.tien-ich {
+    border-top: solid 1px #CBCCCE;
+    padding: 10px 0;
+    margin-top: 10px;
+    overflow: hidden;
+
+    line-height: 20px;
+    font-size: 0.9em;
+
+    text-align: center;
+
+    a{
+      text-decoration: none;
+    }
+}
+
+.block4{
+
+  border: 1px solid #bebebe;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  overflow: hidden;
+
+
+  .block-header {
+
+    float: left;
+    width: 100%;
+    padding: 3px 5px 1px 35px;
+    background-color: #D89F44;
+    background-image: url('/images/background/lotus.ico'), url('/images/background/trong-dong.png');
+    background-size: 32px 32px, auto;
+    background-position: 2px 2px,right top;
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+    
+    h4 {
+
+      color: #ffffff !important;
+      font-family: arial;
+      line-height: 30px;
+      margin: 0;
+      padding-left: 5px;
+      text-align: left;
+      text-transform: uppercase !important;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+
+
+
+
+  .news-rightbox{
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  ul{
+      list-style-type: none;
+      padding-left: 0px;
+
+      li {
+
+        a{
+          text-decoration: none;
+        }
+
+        .news-block{
+          margin-bottom: 5px;
+          
+          font-size: 0.95em;
+
+
+        }
+
+         &:not(:last-child){
+
+            border-bottom: 1px solid #e1e8ee;
+
+          }
+
+        &:not(:first-child){
+          margin-top: 3px;
+        }
+
+
+        &:hover{
+
+          font-weight: bold;
+          color: #CE663F;
+
+
+        }
+
+      }
+    }
+}
+
+}
+
+

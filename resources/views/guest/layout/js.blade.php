@@ -29,6 +29,8 @@
 
 <script type="text/javascript" src="guest/js/jquery-scrolltofixed-min.js"></script>
 
+
+
 {{--gmapsjs--}}
 
 {{--<script src="http://maps.google.com/maps/api/js"></script>--}}

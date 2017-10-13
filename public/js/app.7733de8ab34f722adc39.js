@@ -106996,6 +106996,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('edit-users', __WEBPACK_IM
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('v-select', __webpack_require__("./resources/assets/js/components/V-Select.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('file-manager', __webpack_require__("./resources/assets/js/components/FileManager/FileManager.vue"));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('van-ban', __webpack_require__("./resources/assets/js/components/Vanban.vue"));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('vanban-manager', __webpack_require__("./resources/assets/js/components/VanBanManager/VanBanManager.vue"));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
@@ -107546,6 +107547,27 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/VanBanManager/VanBanManager.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  null,
+  /* template */
+  null,
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/quocdungdang/git-clone/inferno/resources/assets/js/components/VanBanManager/VanBanManager.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/Vanban.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -107706,8 +107728,8 @@ var deleteFile = 'api/v1/delete-file';
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./resources/assets/js/app.js");
-__webpack_require__("./resources/assets/sass/guest.scss");
-module.exports = __webpack_require__("./resources/assets/sass/admin.scss");
+__webpack_require__("./resources/assets/sass/admin.scss");
+module.exports = __webpack_require__("./resources/assets/sass/guest.scss");
 
 
 /***/ })

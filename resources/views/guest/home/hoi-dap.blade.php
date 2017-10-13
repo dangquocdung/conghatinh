@@ -12,34 +12,14 @@
 
             <div class="chuyen-trang">
                 <ul>
-                    <li>
+                    <li class="col-md-12 col-sm-12 col-xs-1">
 
                         <div class="news-block">
                             <i class="fa fa-question-circle-o" aria-hidden="true"></i>
                             &nbsp;Hỏi thông tin liệt sĩ (Trần Quang Năng - Đồng Luận Thanh Thủy - Tỉnh Phú Thọ)
                         </div>
                     </li>
-                    <li>
-
-                        <div class="news-block">
-                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-                            &nbsp;Hỏi thông tin liệt sĩ (Trần Quang Năng - Đồng Luận Thanh Thủy - Tỉnh Phú Thọ)
-                        </div>
-                    </li>
-                    <li>
-
-                        <div class="news-block">
-                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-                            &nbsp;Hỏi thông tin liệt sĩ (Trần Quang Năng - Đồng Luận Thanh Thủy - Tỉnh Phú Thọ)
-                        </div>
-                    </li>
-                    <li>
-
-                        <div class="news-block">
-                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-                            &nbsp;Hỏi thông tin liệt sĩ (Trần Quang Năng - Đồng Luận Thanh Thủy - Tỉnh Phú Thọ)
-                        </div>
-                    </li>
+                    
                 </ul>
             </div>
         </div>

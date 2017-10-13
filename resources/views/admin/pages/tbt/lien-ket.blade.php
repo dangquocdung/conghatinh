@@ -2,7 +2,7 @@
 
 @section('breadcrumb')
   <section class="content-header">
-    <h1>Quản lý Loại tin<small>Các liên kết hiện có</small></h1>
+    <h1>Quản lý Liên kết<small>Các liên kết hiện có</small></h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
@@ -41,7 +41,7 @@
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                     <div class="pull-left">
-                      <a href="{{route('edit-lien-ket', $lt->id)}}" class="btn btn-primary btn-xs">
+                      <a href="{{route('edit-so-ban-nganh', $lt->id)}}" class="btn btn-primary btn-xs">
                         <i class="fa fa-edit"></i> Edit
                       </a>
                     </div>
@@ -75,7 +75,7 @@
         <div class="box-header with-border">
           <h3 class="box-title">Thêm Liên kết</h3>
         </div>
-        <form action="{{route('save-lien-ket')}}" method="post" id="role-save-form">
+        <form action="{{route('save-so-ban-nganh')}}" method="post" id="role-save-form">
           <!-- /.box-header -->
           <div class="box-body">
             {{csrf_field()}}

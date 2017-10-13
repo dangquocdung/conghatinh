@@ -1,0 +1,42 @@
+
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <td>#</td>
+                <td>
+                    Số văn bản
+                </td>
+                <td>Loại văn bản</td>
+                <td>Ngày ban hành</td>
+                <td>Trích yếu</td>
+                <td>Người kí</td>
+                <td>Tệp văn bản</td>
+
+            </tr>
+            </thead>
+            <tbody>
+
+
+
+            <tr v-for="vb in vanban">
+                <td>{{ vb.id }}</td>
+                <td>{{ vb.sovb + '/' + vb.kihieuvb }}</td>
+                <td>{{ vb.loaitin_id }}</td>
+                <td>{{ vb.ngaybanhanh }}</td>
+                <td>{{ vb.trichyeu }}</td>
+                <td>{{ vb.nguoiki_id }}</td>
+                <td></td>
+
+            </tr>
+
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+

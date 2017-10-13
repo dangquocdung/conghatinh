@@ -1,5 +1,10 @@
-$(document).ready(function () {
+import Vue from 'vue'
 
-    alert("hello");
+import DataViewer from './components/DataViewer.vue'
 
-})
+var app = new Vue({
+    el: '#app',
+    components: {
+        DataViewer
+    }
+}

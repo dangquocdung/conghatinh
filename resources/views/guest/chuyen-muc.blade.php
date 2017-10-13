@@ -1,42 +1,45 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Chi tiết tin</title>
+  <title>Chuyên mục {{ $cm->name }}</title>
 @endsection
-@section('header-menu-item')
-  active
-@endsection
+
 @section('content')
   <div class="container">
     <div class="row nen-trang">
-      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 portlet-layout layout-left">
-        <section class="portlet">
-           <div class="portlet-content">
-             <div class="portlet-header">
-                <h4 class="portlet-header-title">{{ $cm->name }}</h4>
-             </div>
-             <div class="portlet-content">
+
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+
+          <div class="block3">
+              <div class="breadcrumb">
+                  <a class="breadcrumb-item" href="#"><i class="glyphicon glyphicon-home"></i></a>
+                  <span class="breadcrumb-item active">{{ $cm->name }}</span>
+              </div>
+        
+        
+
+             <div class="loai-tin">
                 @foreach ($cm->tintuc as $tin)
-               <div class="main-news">
-                   <div class="main-news-thumb-nail">
+               <div class="mau-tin">
+                   <div class="avatar">
                        <a href="chi-tiet/{{$tin->slug}}">
                            <img src="{{$tin->avatar}}">
                        </a>
                    </div>
-                   <div class="main-news-content">
-                     <div class="tieu-de-chuyen-muc">
+                   <div class="noi-dung">
+                     <div class="tieu-de">
                        <a href="chi-tiet/{{$tin->slug}}" class="main-news-title bold">
                          {{$tin->name}}
                        </a>
 
                      </div>
-                     <div class="chi-tiet-publish-date">
+                     <div class="ngay-dang">
                        {{-- {{ Carbon\Carbon::$tin->created_at->formatLocalized('%H:%M GMT+7 | %d-%m-%Y') }} --}}
-                       {{$tin->created_at}}
-                       
+                       Đăng ngày {{ Carbon\Carbon::parse($tin->created_at)->format('d/m/Y H:m:s')}}
+
 
                      </div>
 
-                     <div class="hidden-xs">
+                     <div class="gioi-thieu">
                        {{ $tin->gioithieu }}
                      </div>
                    </div>
@@ -44,19 +47,12 @@
                </div>
                @endforeach
              </div>
-           </div>
-        </section>
-      </div>
 
 
-      @include('guest.layout.right-box')
+          </div>
+
+    
     </div>
   </div>
-@endsection
-@section('js')
-  <script>
-    $(document).ready(function() {
-
-    })
-  </script>
+</div>
 @endsection

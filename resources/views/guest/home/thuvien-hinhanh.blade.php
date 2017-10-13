@@ -11,19 +11,19 @@
 
     <div id="hinhanh_carousel" class="owl-carousel hinhanh-logo">
       <div class="item text-center">
-          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%">
+          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%" align="" title="">
       </div>
       <div class="item text-center">
-          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%">
+          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%" align="" title="">
       </div>
       <div class="item text-center">
-          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%">
+          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%" align="" title="">
       </div>
       <div class="item text-center">
-          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%">
+          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%" align="" title="">
       </div>
       <div class="item text-center">
-          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%">
+          <img class="news-image" src="http://docs.ttdt.dsp.vn/images/images/TheoDongSuKien/50-nam-asean.png" width="100%" align="" title="">
       </div>
 
     </div>

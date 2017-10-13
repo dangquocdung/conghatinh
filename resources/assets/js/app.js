@@ -57,6 +57,7 @@ Vue.component('edit-users', EditUsers)
 Vue.component('v-select', require('./components/V-Select.vue'));
 Vue.component('file-manager', require('./components/FileManager/FileManager.vue'));
 Vue.component('van-ban', require('./components/Vanban.vue'));
+Vue.component('vanban-manager', require('./components/VanBanManager/VanBanManager.vue'));
 
 const app = new Vue({
   el: '#app',

@@ -36,7 +36,7 @@ class TbtApiController extends Controller
         // this is only done to get the role name
         $chuyenmuc = ChuyenMuc::find($chuyenMucId);
 
-        DB::table('chuyen_mucs')->where('id', $chuyenMucId)->delete();
+        DB::table('chuyenmuc')->where('id', $chuyenMucId)->delete();
 
         event(new ChuyenMucDeleted($chuyenmuc));
         
@@ -57,7 +57,7 @@ class TbtApiController extends Controller
 
         
 
-        DB::table('chuyen_muc_cons')->where('id', $loaiTinId)->delete();
+        DB::table('loaitin')->where('id', $loaiTinId)->delete();
 
         event(new LoaiTinDeleted($loaitin));
         

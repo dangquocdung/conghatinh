@@ -5,7 +5,7 @@
   <title>Access Denied</title>
   <link rel="stylesheet" href="{{ url('admin/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
-  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+  <link rel="stylesheet" href="{{ mix('/guest/css/guest.css') }}">
   <style>
     h1 {
       font-size: 5em;

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Helper\DataViewer;
 
 class VanBan extends Model
 {
@@ -29,5 +30,12 @@ class VanBan extends Model
     {
         return $this->hasMany('App\TepVanBan','vanban_id','id');
     }
+
+    use DataViewer;
+
+    public static $columns = [
+        'id', 'name', 'email',
+        'phone', 'created_at', 'updated_at'
+    ];
 
 }

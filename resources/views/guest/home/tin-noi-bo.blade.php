@@ -66,7 +66,7 @@
                           {{ $tin->name }}
                       </a>
 
-                      <img src="{{$tin->avatar}}" alt="" style="display:none;">
+                      <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" title="{{ $tin->name }}" style="display:none;">
 
                       <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
 
