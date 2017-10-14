@@ -89,42 +89,11 @@
         <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/013.jpg" />
     </div>
     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:165px;overflow:hidden;">
+        @foreach ($toppic as $tp)
         <div>
-            <img data-u="image" src="img/001.jpg" />
+            <img data-u="image" src="{{ $tp->hinhanh }}" />
         </div>
-        <div>
-            <img data-u="image" src="img/002.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/003.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/004.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/005.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/006.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/007.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/008.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/009.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/010.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/011.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="img/012.jpg" />
-        </div>
+        @endforeach
         <a data-u="any" href="https://www.jssor.com" style="display:none">carousel html</a>
     </div>
 </div>

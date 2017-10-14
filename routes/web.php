@@ -6,13 +6,15 @@ Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
 
 
-Route::get('chi-tiet/{slug}','GuestController@tinTuc');
-Route::get('chuyen-muc/{slug}','GuestController@chuyenMuc');
-Route::get('loai-tin/{slug}','GuestController@loaiTin');
+Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
+Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
+Route::get('/loai-tin/{slug}','GuestController@loaiTin');
 
-Route::get('van-ban/{slug}','GuestController@vanBan');
+Route::get('/van-ban/{slug}','GuestController@vanBan');
 
-Route::get('all-van-ban','GuestController@apiVanBan');
+Route::get('/api/van-ban-all','GuestController@apiVanBan');
+
+Route::get('/api/all-van-ban','GuestController@allVanBan');
 
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
 Route::post('/dang-nhap', 'UserController@login')->name('login');
@@ -48,29 +50,33 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     Route::get('edit-tin-tuc-su-kien/{slug}','TinTucController@edit')->name('edit-tin-tuc');
 
+    Route::post('update-tin-tuc-su-kien','TinTucController@update')->name('update-tin-tuc');
+
     //Van ban
     Route::group(['prefix'=>'van-ban'],function (){
 
-        Route::get('tat-ca','VanBanController@index')->name('van-ban');
-        Route::get('them-van-ban','VanBanController@create')->name('tao-van-ban');
-        Route::post('them-van-ban','VanBanController@store')->name('them-van-ban');
+        Route::get('/tat-ca','VanBanController@index')->name('van-ban');
+        Route::get('/them-van-ban','VanBanController@create')->name('tao-van-ban');
+        Route::post('/them-van-ban','VanBanController@store')->name('them-van-ban');
 
-        Route::get('edit-van-ban/{slug}','VanBanController@edit')->name('edit-van-ban');
+        Route::get('/edit-van-ban/{id}','VanBanController@edit')->name('edit-van-ban');
 
-        Route::post('edit-van-ban','VanBanController@update')->name('update-van-ban');
+        Route::post('/update-van-ban','VanBanController@update')->name('update-van-ban');
 
-        Route::get('file-manager', 'FileController@index')->name('file-manager');
+        Route::get('/file-manager', 'FileController@index')->name('file-manager');
 
 
-        Route::post('them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
-        Route::post('them-cqbh','CQBHController@store')->name('save-cqbh');
+        Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
+        Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
 
     });
 
 
     Route::group(['middleware' => 'role:admin'], function () {
         Route::get('config', 'AdminController@getConfigPage')->name('config');
+
         Route::get('config/system/activities', 'WatchdogController@getWatchdogPage')->name('activities');
+
         Route::get('config/system/settings', 'AdminController@getSettingsPage')->name('settings');
         Route::post('config/system/settings', 'AdminController@postHandleSettingsPageSave')->name('settings-save');
         Route::post('config/system/settings-add', 'AdminController@postHandleSettingsPageAdd')->name('settings-add');
@@ -92,11 +98,21 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('config/user/permission-save', 'AdminController@postSavePermission')->name('save-permission');
         Route::get('config/user/permission/{id}', 'AdminController@getEditPermission')->name('edit-permission');
         Route::post('config/user/permission/update', 'AdminController@postUpdatePermission')->name('update-permission');
+
+
+        Route::get('config/system/toppic', 'TopPicController@index')->name('toppic');
+        Route::post('config/system/save-toppic', 'TopPicController@store')->name('save-toppic');
+        Route::get('config/system/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
+        Route::post('config/system/update-toppic', 'TopPicController@update')->name('update-toppic');
+        
+
+
+
+
     });
 
     Route::group(['middleware' => 'role:tbt'], function () {
         
-
         Route::get('config/chuyen-muc', 'ChuyenMucController@index')->name('chuyen-muc');
         Route::post('config/chuyen-muc', 'ChuyenMucController@store')->name('save-chuyen-muc');
         Route::get('config/chuyen-muc/{id}', 'ChuyenMucController@show')->name('edit-chuyen-muc');

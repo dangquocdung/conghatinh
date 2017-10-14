@@ -44,12 +44,23 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
 
+                        
+
                         <ul class="nav navbar-nav">
                             <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Giới thiệu</a></li>
-                            <li><a href="#">Tin Tức - Sự kiện</a></li>
-                            <li><a href="#">DVC trực tuyến</a></li>
-                            <li><a href="#">English</a></li>
+                            @foreach ($chuyenmuc as $cm)
+                                @if ($cm->vitri == 1)
+                                    <li><a href="{{ $cm->path}}/{{ $cm->slug}}">{{ $cm->name }}</a></li>
+                                @endif
+                            @endforeach
+
+                            {{-- @php
+                                $vanban = $chuyenmuc->skip(2)->take(2);
+                            @endphp
+
+                            @foreach ($vanban as $cm)
+                                <li><a href="van-ban/{{ $cm->slug}}">{{ $cm->name }}</a></li>
+                            @endforeach --}}
 
                             {{--@foreach($chuyenmuc as $cm)--}}
 

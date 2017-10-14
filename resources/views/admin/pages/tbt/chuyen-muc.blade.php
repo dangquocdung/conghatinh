@@ -26,7 +26,9 @@
             <tr>
               <th>#</th>
               <th>Chuyên mục</th>
+              <th>Url</th>
               <th>Đường dẫn</th>
+              <th>Vị trí</th>
               <th>Thứ tự</th>
               <th></th>
             </tr>
@@ -36,7 +38,18 @@
               <tr>
                 <td>{{$chuyenmuc->id}}</td>
                 <td>{{($chuyenmuc->name)}}</td>
+                <td>{{ $chuyenmuc->path}} </td>
                 <td><span class="label label-success">{{$chuyenmuc->slug}}</span></td>
+                <td>
+                  @if ($chuyenmuc->vitri == 0 )
+                    <span class="label label-danger">Ẩn</span>
+                  @elseif ($chuyenmuc->vitri == 1)
+                    <span class="label label-info">Trên</span>
+                  @else
+                    <span class="label label-warning">Dưới</span>
+                  @endif
+
+                </td>
                 <td>{{$chuyenmuc->thutu}}</td>
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
@@ -88,6 +101,24 @@
                      class="form-control">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>
+
+            <div class="form-group">
+              <label>Loại url</label>
+              <select class="form-control" name="path" style="width: 100%;">                  
+                  <option value='chuyen-muc' selected>chuyen-muc</option>
+                  <option value='van-ban'>van-ban</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Vị trí</label>
+              <select class="form-control" name="vitri" style="width: 100%;">                  
+                  <option value='1' selected>Menu Trên</option>
+                  <option value='2'>Menu Dưới</option>
+                  <option value='2'>Ẩn</option>
+              </select>
+            </div>
+
             <div class="form-group">
               <label>Thứ tự hiện thị</label>
               <select class="form-control" name="thutu" style="width: 100%;">

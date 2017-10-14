@@ -36,6 +36,50 @@
                      placeholder="Enter role name">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>
+
+            <div class="form-group">
+              <label>Loại url</label>
+              <select class="form-control" name="path" style="width: 100%;">                  
+                  <option value='chuyen-muc' 
+                  @if ($chuyenmuc->path == 'chuyen-muc')
+                    selected=""
+                  @endif 
+                  >chuyen-muc</option>
+                  <option value='van-ban'
+                  @if ($chuyenmuc->path == 'van-ban')
+                    selected=""
+                  @endif 
+                  >van-ban</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Vị trí</label>
+              <select class="form-control" name="vitri" style="width: 100%;">                  
+                  <option value='1'
+
+                  @if ($chuyenmuc->vitri == 1)
+                    selected=""
+                  @endif 
+
+                  >Menu Trên</option>
+                  <option value='2'
+
+                  @if ($chuyenmuc->vitri == 2)
+                    selected=""
+                  @endif
+
+                  >Menu Dưới</option>
+                  <option value='0'
+
+                  @if ($chuyenmuc->vitri == 0)
+                    selected=""
+                  @endif
+
+                  >Ẩn</option>
+              </select>
+            </div>
+
             <div class="form-group">
               <label>Thứ tự hiện thị</label>
               <select class="form-control" name="thutu" style="width: 100%;">

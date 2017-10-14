@@ -28,9 +28,8 @@
             <thead>
               <tr>
                 <td>#</td>
-                <td>
-                  Số văn bản
-                </td>
+                <td>Số văn bản</td>
+                <td>Nhóm</td>
                 <td>Loại văn bản</td>
                 <td>Ngày ban hành</td>
                 <td>Trích yếu</td>
@@ -59,6 +58,7 @@
                   @endif
                 </td>
                 <td>{{$vb->loaitin->name}}</td>
+                <td>{{$vb->loaivb->name}}</td>
                 <td>{{ $vb->ngaybanhanh }}</td>
                 
                 <td>{{$vb->trichyeu}}</td>
@@ -66,23 +66,24 @@
                 <td></td>
                 
                 <td class="col-sm-3">
-                  {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
+                  
                     <div class="pull-left">
-                      <a href="{{route('edit-tin-tuc', $vb->slug)}}" class="btn btn-primary btn-xs">
+                      <a href="{{route('edit-van-ban', $vb->id)}}" class="btn btn-primary btn-xs">
                         <i class="fa fa-edit"></i> Edit
                       </a>
                     </div>
+
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
                         btn-text='<i class="fa fa-trash"></i> Delete'
                         btn-class="btn-danger"
-                        url="{{url('api/v1/delete-tin-tuc')}}"
+                        url="{{url('api/v1/delete-van-ban')}}"
                         :post-data="{{json_encode(['id' => $vb->id])}}"
                         :refresh="true"
-                        message="Bạn chắc chắn muốn xoá bản tin {{$vb->name}}?">
+                        message="Bạn chắc chắn muốn xoá văn bản {{$vb->name}}?">
                       </confirm-modal>
                     </div>
-                  {{-- @endif --}}
+                  
                 </td>
               </tr>
 

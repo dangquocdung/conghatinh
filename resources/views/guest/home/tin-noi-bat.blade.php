@@ -39,7 +39,7 @@
     <div class="col-md-4">
 
 
-                <div id="tin-noi-bat">
+                <div id="tin-noi-bat" class="scroll">
 
                 <ul>
                     @foreach ($tinnoibat as $tnb)

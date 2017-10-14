@@ -6,7 +6,7 @@
 @section('content')
   <div class="container">
     <div class="row nen-trang">
-      
+
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 
 
@@ -31,4 +31,7 @@
     <script type="text/javascript" src="{{mix('/js/guest.js')}}"></script>
 
     @stop
+
+
+
 

@@ -53,6 +53,10 @@ class VanBanController extends Controller
 
             'loaitin_id'=> $request->input('loaitin_id'),
 
+
+            'loaivb_id'=> $request->input('loaivb_id'),
+
+
             'sovb' => $request->input('sovb'),
 
             'kihieuvb' => $request->input('kihieuvb'),
@@ -116,7 +120,10 @@ class VanBanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vb = VanBan::find($id);
+
+        return view('admin.pages.van-ban-edit',compact('vb'));
+
     }
 
     /**

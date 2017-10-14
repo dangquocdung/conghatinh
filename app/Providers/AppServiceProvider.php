@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
+use App\TopPic;
 use App\ChuyenMuc;
 use App\LoaiTin;
 use App\TinTuc;
@@ -19,6 +20,8 @@ use App\NguoiKi;
 use App\VanBan;
 use App\Media;
 use App\Banner;
+use App\LinhVuc;
+use App\LoaiVB;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -32,7 +35,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet'],function($view){
+        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet','guest.van-ban'],function($view){
+
+          $toppic = TopPic::orderby('thutu','asc')->get();
 
           $chuyenmuc = ChuyenMuc::all();
 
@@ -44,11 +49,17 @@ class AppServiceProvider extends ServiceProvider
 
           $vanban = VanBan::orderby('id','desc')->take(5)->get();
 
+          $cqbh = CQBH::all();
+
           $nhomcq = NhomCQ::all();
 
           $banner = Banner::orderby('thutu','asc')->get();
 
-          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','nhomcq','banner'));
+          $linhvuc = LinhVuc::all();
+
+          $loaivb = LoaiVB::all();
+
+          $view->with(compact('toppic','chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','nhomcq','banner','linhvuc','loaivb'));
 
         });
 
@@ -61,8 +72,10 @@ class AppServiceProvider extends ServiceProvider
           $nguoiki = NguoiKi::all();
 
           $pdfs = Media::where('aggregate_type','pdf')->orderby('id','desc')->get();
+
+          $loaivb = LoaiVB::all();
           
-          $view->with(compact('chuyenmuc','cqbh', 'nguoiki','pdfs'));
+          $view->with(compact('chuyenmuc','loaivb','cqbh', 'nguoiki','pdfs'));
 
         });
     }

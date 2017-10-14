@@ -4,17 +4,12 @@
         <span class="breadcrumb-item active">{{ $vb->name }}</span>
     </div>
 
-    <div id="app">
+    <div id="app" style="padding: 5px;">
 
-        <vanban-manager></vanban-manager>
+        <van-ban-viewer source="/api/van-ban-all" title="Danh sách văn bản" />
 
 
 
     </div>
-
-
-
-
-
 
 </div>

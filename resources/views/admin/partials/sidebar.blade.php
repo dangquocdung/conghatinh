@@ -100,19 +100,21 @@
 
       <li class="{{ Request::is('toa-soan/config/lien-ket/*') ? 'active' : ''  }} treeview">
         <a href="#">
-          <i class="fa fa-folder-open-o"></i> <span>Chuyên mục</span>
+          <i class="fa fa-folder-open-o"></i> <span>Liên kết</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
+
+          
           
           <li class="{{ Request::is('toa-soan/config/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
-            <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Quản lý Banner trang chủ</a>
+            <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Banner trang chủ</a>
           </li>
           
           <li class="{{ Request::is('toa-soan/config/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
-            <a href="{{route('so-ban-nganh')}}"><i class="fa fa-circle-o"></i> Quản lý Sở, Ban, Ngành</a>
+            <a href="{{route('so-ban-nganh')}}"><i class="fa fa-circle-o"></i> Sở, Ban, Ngành</a>
           </li>
         </ul>
       </li>
@@ -130,20 +132,20 @@
           </a>
           <ul class="treeview-menu">
             <li class="{{ Request::is('toa-soan/config/user/manager') ? 'active' : ''  }}">
-              <a href="{{route('user')}}"><i class="fa fa-circle-o"></i> Users</a>
+              <a href="{{route('user')}}"><i class="fa fa-circle-o"></i> Người dùng</a>
             </li>
-            <li class="{{ Request::is('toa-soan/config/user/import') ? 'active' : ''  }}">
+            {{-- <li class="{{ Request::is('toa-soan/config/user/import') ? 'active' : ''  }}">
               <a href="{{route('import-user')}}"><i class="fa fa-circle-o"></i> Import Users</a>
-            </li>
+            </li> --}}
             <li class="{{ Request::is('toa-soan/config/user/roles') ? 'active' : ''  }}">
-              <a href="{{route('manage-roles')}}"><i class="fa fa-circle-o"></i> Manage Roles</a>
+              <a href="{{route('manage-roles')}}"><i class="fa fa-circle-o"></i> Nhóm quyền</a>
             </li>
             <li class="{{ Request::is('toa-soan/config/user/permissions') ? 'active' : ''  }}">
-              <a href="{{route('manage-permissions')}}"><i class="fa fa-circle-o"></i> Manage Permissions</a>
+              <a href="{{route('manage-permissions')}}"><i class="fa fa-circle-o"></i> Quyền hạn</a>
             </li>
             @if(\Setting::get('user_can_register'))
               <li class="{{ Request::is('toa-soan/config/user/activation-pending') ? 'active' : ''  }}">
-                <a href="{{route('user-activation-pending')}}"><i class="fa fa-circle-o"></i> Activation pending</a>
+                <a href="{{route('user-activation-pending')}}"><i class="fa fa-circle-o"></i> Kích hoạt users</a>
               </li>
             @endif
           </ul>
@@ -158,15 +160,20 @@
         </a>
         <ul class="treeview-menu">
           <li class="{{ Request::is('toa-soan/config/system/my-activities') ? 'active' : ''  }}">
-            <a href="{{route('my-activities')}}"><i class="fa fa-circle-o"></i> Nhật kí tác động</a>
+            <a href="{{route('my-activities')}}"><i class="fa fa-circle-o"></i> Tác động</a>
           </li>
           @role('admin')
             <li class="{{ Request::is('toa-soan/config/system/activities') ? 'active' : ''  }}">
-              <a href="{{route('activities')}}"><i class="fa fa-circle-o"></i> Activities</a>
+              <a href="{{route('activities')}}"><i class="fa fa-circle-o"></i> Nhật kí</a>
             </li>
             <li class="{{ Request::is('toa-soan/config/system/settings') ? 'active' : ''  }}">
-              <a href="{{route('settings')}}"><i class="fa fa-circle-o"></i> Settings</a>
+              <a href="{{route('settings')}}"><i class="fa fa-circle-o"></i> Cài đặt</a>
             </li>
+
+            <li class="{{ Request::is('toa-soan/config/system/toppic') ? 'active' : ''  }}">
+              <a href="{{route('toppic')}}"><i class="fa fa-circle-o"></i> Hình chạy</a>
+            </li>
+
           @endrole
         </ul>
       </li>

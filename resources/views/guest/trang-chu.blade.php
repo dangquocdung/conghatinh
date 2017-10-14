@@ -52,39 +52,41 @@
 @section('js')
   <script>
     $(document).ready(function() {
-      $('#brand_carousel').owlCarousel({
-        autoPlay: 5000,
-        items: 4,
-        navigation: true,
-        pagination: false,
-        itemsDesktop: [1199, 4],
-        itemsDesktopSmall: [979, 4],
-        itemsTablet: [768, 3],
-        itemsTabletSmall: false,
-        itemsMobile: [479, 2]
-      });
-      $('#video_carousel').owlCarousel({
-        autoPlay: 5000,
-        items: 4,
-        navigation: true,
-        pagination: false,
-        itemsDesktop: [1199, 4],
-        itemsDesktopSmall: [979, 4],
-        itemsTablet: [768, 3],
-        itemsTabletSmall: false,
-        itemsMobile: [479, 2]
-      });
-      $('#hinhanh_carousel').owlCarousel({
-        autoPlay: 5000,
-        items: 4,
-        navigation: true,
-        pagination: false,
-        itemsDesktop: [1199, 4],
-        itemsDesktopSmall: [979, 4],
-        itemsTablet: [768, 3],
-        itemsTabletSmall: false,
-        itemsMobile: [479, 2]
-      });
+
+        $('#brand_carousel').owlCarousel({
+          autoPlay: 5000,
+          items: 4,
+          navigation: true,
+          pagination: false,
+          itemsDesktop: [1199, 4],
+          itemsDesktopSmall: [979, 4],
+          itemsTablet: [768, 3],
+          itemsTabletSmall: false,
+          itemsMobile: [479, 2]
+        });
+        $('#video_carousel').owlCarousel({
+          autoPlay: 5000,
+          items: 4,
+          navigation: true,
+          pagination: false,
+          itemsDesktop: [1199, 4],
+          itemsDesktopSmall: [979, 4],
+          itemsTablet: [768, 3],
+          itemsTabletSmall: false,
+          itemsMobile: [479, 2]
+        });
+        $('#hinhanh_carousel').owlCarousel({
+          autoPlay: 5000,
+          items: 4,
+          navigation: true,
+          pagination: false,
+          itemsDesktop: [1199, 4],
+          itemsDesktopSmall: [979, 4],
+          itemsTablet: [768, 3],
+          itemsTabletSmall: false,
+          itemsMobile: [479, 2]
+        });
+
     })
   </script>
 

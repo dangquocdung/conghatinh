@@ -28,23 +28,31 @@
 
               @php
 
-                  $vanban = $chuyenmuc->whereIn('id',[4,5])->all();
+                  $vanban = $chuyenmuc->where('slug','van-ban')->first();
 
               @endphp
               <div class="form-group">
-                  <label>Chọn thể loại văn bản</label>
+                  <label>Chọn nhóm văn bản</label>
 
-                    <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+                    <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;">
                       <option value=""></option>
-
-                      @foreach ($vanban as $cm)
-                      <optgroup label="{{ $cm->name}}">
-                        @foreach ($cm->loaitin as $lt)
-                          <option value={{ $lt->id }}>{{ $lt->name}}</option>
-                        @endforeach
-                      </optgroup>
+                      @foreach($vanban->loaitin as $nvb)
+                          <option value="{{ $nvb->id }}">{{ $nvb->name }}</option>
                       @endforeach
-                    </select>
+
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label>Chọn loại văn bản</label>
+
+                    <select class="form-control select2" name="loaivb_id" data-placeholder="Chọn loại văn bản" style="width: 100%;">
+                      <option value=""></option>
+                      @foreach($loaivb as $lvb)
+                          <option value="{{ $lvb->id }}">{{ $lvb->name }}</option>
+                      @endforeach
+
+                  </select>
               </div>
 
 
@@ -76,13 +84,26 @@
 
               <div class="form-group">
                   <label>Người kí</label>
-                  <select class="form-control select2" name="nguoiki_id" data-placeholder="Chọn người kí" style="width: 100%;">
+
+                  <select name="nguoiki_id" id="nguoiki" class="form-control select2" data-placeholder="Chọn người kí" data-rel="chosen" required="">
+                      <option value=""></option>
+
+                      @foreach ($cqbh as $cq)
+                      <optgroup label="{{ $cq->name}}">
+                        @foreach ($cq->nguoiki as $nk)
+                          <option value={{ $nk->id }}>{{ $nk->name}}</option>
+                        @endforeach
+                      </optgroup>
+                      @endforeach
+                    </select>
+
+                  {{-- <select class="form-control select2" name="nguoiki_id" data-placeholder="Chọn người kí" style="width: 100%;">
                       <option value=""></option>
                       @foreach($nguoiki as $nk)
                           <option value="{{ $nk->id }}">{{ $nk->name }}</option>
                       @endforeach
 
-                  </select>
+                  </select> --}}
               </div>
 
               <div class="form-group">

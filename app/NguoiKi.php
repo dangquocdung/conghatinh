@@ -14,4 +14,9 @@ class NguoiKi extends Model
     {
         return $this->hasMany('App\VanBan','nguoiki_id','id');
     }
+
+    public function cqbh()
+	{
+	return $this->belongsTo('App\CQBH','cqbh_id','id');
+  	}
 }

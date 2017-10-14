@@ -37,7 +37,12 @@ class ChuyenMucController extends Controller
      */
     public function store(Request $request)
     {
-        $chuyenmuc = ChuyenMuc::create(['name' => $request->input('name'),'slug'=>str_slug($request->input('name')),'thutu'=>($request->input('thutu'))]);
+        $chuyenmuc = ChuyenMuc::create([
+            'name' => $request->input('name'),
+            'slug' => str_slug($request->input('name')),
+            'path' => $request->input('path'),
+            'vitri' => $request->input('vitri'),
+            'thutu'=>($request->input('thutu'))]);
 
         event(new ChuyenMucCreated($chuyenmuc));
 
@@ -82,6 +87,8 @@ class ChuyenMucController extends Controller
         $cm = ChuyenMuc::find($request->input('id'));
         $cm->name = $request->input('name');
         $cm->slug = str_slug($request->input('name'));
+        $cm->path = $request->input('path');
+        $cm->vitri = $request->input('vitri');
         $cm->thutu = $request->input('thutu');
         $cm->save();
 

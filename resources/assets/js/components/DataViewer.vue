@@ -5,12 +5,14 @@
                 {{title}}
             </div>
             <div class="dv-header-columns">
-                <span class="dv-header-pre">Search: </span>
+                <span class="dv-header-pre">Lọc: </span>
                 <select class="dv-header-select" v-model="query.search_column">
-                    <option v-for="column in columns" :value="column">{{column}}</option>
+                    <option value="sovb">Theo Số</option>
+                    <option value="ngaybanhanh">Theo Ngày ban hành</option>
+                    <option value="trichyeu">Theo Trích yếu</option>
                 </select>
             </div>
-            <div class="dv-header-operators">
+            <div class="dv-header-operators" style="display:none;">
                 <select class="dv-header-select" v-model="query.search_operator">
                     <option v-for="(value, key) in operators" :value="key">{{value}}</option>
                 </select>
@@ -22,36 +24,97 @@
                        @keyup.enter="fetchIndexData()">
             </div>
             <div class="dv-header-submit">
-                <button class="dv-header-btn"@click="fetchIndexData()">Filter</button>
+                <button class="dv-header-btn"@click="fetchIndexData()">Lọc</button>
             </div>
         </div>
         <div class="dv-body">
             <table class="dv-table">
                 <thead>
                 <tr>
-                    <th v-for="column in columns" @click="toggleOrder(column)">
-                        <span>{{column}}</span>
-                        <span class="dv-table-column" v-if="column === query.column">
-                <span v-if="query.direction === 'desc'">&darr;</span>
-                <span v-else>&uarr;</span>
-              </span>
+                    <!--<th v-for="column in columns" @click="toggleOrder(column)">-->
+                        <!--<span>{{column}}</span>-->
+                        <!--<span class="dv-table-column" v-if="column === query.column">-->
+                            <!--<span v-if="query.direction === 'desc'">&darr;</span>-->
+                            <!--<span v-else>&uarr;</span>-->
+                          <!--</span>-->
+                    <!--</th>-->
+
+                    <th @click="toggleOrder('sovb')">
+                        <span>Số/KH</span>
+
+                        <span class="dv-table-column" v-if="'sovb' === query.column">
+                            <span v-if="query.direction === 'desc'">&darr;</span>
+                            <span v-else>&uarr;</span>
+                          </span>
                     </th>
+
+                    <th @click="toggleOrder('ngaybanhanh')">
+                        <span>Ngày ban hành</span>
+
+                        <span class="dv-table-column" v-if="'ngaybanhanh' === query.column">
+                            <span v-if="query.direction === 'desc'">&darr;</span>
+                            <span v-else>&uarr;</span>
+                          </span>
+                    </th>
+
+                    <th>
+                        <span>Loại VB</span>
+                    </th>
+
+                    <th @click="toggleOrder('trichyeu')">
+                        <span>Trích yếu</span>
+
+                        <span class="dv-table-column" v-if="'trichyeu' === query.column">
+                            <span v-if="query.direction === 'desc'">&darr;</span>
+                            <span v-else>&uarr;</span>
+                          </span>
+                    </th>
+                    <th>Tệp văn bản</th>
+
+
+
+
+
                 </tr>
                 </thead>
+
                 <tbody>
+
                 <tr v-for="row in model.data">
-                    <td v-for="(value, key) in row">{{value}}</td>
+
+
+
+
+
+                    <!--<td v-for="(value, key) in row">{{value}}</td>-->
+
+
+                    <td>{{row.sovb}}/{{row.kihieuvb}}</td>
+                    <td>{{row.ngaybanhanh}}</td>
+                    <td>{{row.loaitin.name}}</td>
+                    <td>{{row.trichyeu}}</td>
+                    <td width="15%">
+                        <span v-for="tvb in row.tepvanban">
+                            <img v-on:click="handlePDFDetails(tvb)" src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" >
+                        </span>
+                    </td>
+
+
+
+
                 </tr>
+
                 </tbody>
+
             </table>
         </div>
         <div class="dv-footer">
             <div class="dv-footer-item">
-                <span>Displaying {{model.from}} - {{model.to}} of {{model.total}} rows</span>
+                <span>Đang hiện thị từ {{model.from}} đến {{model.to}} trong tổng {{model.total}} văn bản</span>
             </div>
             <div class="dv-footer-item">
                 <div class="dv-footer-sub">
-                    <span>Rows per page</span>
+                    <span>Tùy chỉnh số văn bản trên mỗi trang</span>
                     <input type="text" v-model="query.per_page"
                            class="dv-footer-input"
                            @keyup.enter="fetchIndexData()">
@@ -80,11 +143,11 @@
                 columns: {},
                 query: {
                     page: 1,
-                    column: 'id',
+                    column: 'sovb',
                     direction: 'desc',
                     per_page: 15,
-                    search_column: 'id',
-                    search_operator: 'equal',
+                    search_column: 'sovb',
+                    search_operator: 'like',
                     search_input: ''
                 },
                 operators: {
@@ -132,15 +195,24 @@
             },
             fetchIndexData() {
                 var vm = this
+
                 axios.get(`${this.source}?column=${this.query.column}&direction=${this.query.direction}&page=${this.query.page}&per_page=${this.query.per_page}&search_column=${this.query.search_column}&search_operator=${this.query.search_operator}&search_input=${this.query.search_input}`)
                     .then(function(response) {
+
                         Vue.set(vm.$data, 'model', response.data.model)
+
                         Vue.set(vm.$data, 'columns', response.data.columns)
                     })
                     .catch(function(response) {
+
                         console.log(response)
+
                     })
+            },
+            handlePDFDetails(tvb){
+                window.open(tvb.path)
             }
+
         }
     }
 </script>

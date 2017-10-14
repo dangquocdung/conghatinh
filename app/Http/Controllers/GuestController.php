@@ -12,11 +12,11 @@ class GuestController extends Controller
 {
     public function index()
     {
-        $tinmoi = TinTuc::orderBy('id', 'decs')->take(5)->get();
+//        $tinmoi = TinTuc::orderBy('id', 'decs')->take(5)->get();
 
-        $tinslide = TinTuc::orderBy('id', 'decs')->take(10)->get();
+//        $tinslide = TinTuc::orderBy('id', 'decs')->take(13)->get();
 
-        $tinnoibat = TinTuc::orderBy('id', 'decs')->take(10)->get();
+        $tinnoibat = TinTuc::orderBy('id', 'decs')->take(13)->get();
 
 
 
@@ -77,13 +77,27 @@ class GuestController extends Controller
 
     public function apiVanBan()
     {
-        $model = VanBan::searchPaginateAndOrder();
+        $model = VanBan::where('daduyet','1')->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
+
         $columns = VanBan::$columns;
 
         return response()
             ->json([
                 'model' => $model,
                 'columns' => $columns
+            ]);
+    }
+
+    public function allVanBan()
+    {
+        $vanban = VanBan::with('tepvanban')->with('loaitin')->get();
+
+
+
+
+        return response()
+            ->json([
+                'vanban' => $vanban
             ]);
     }
 }
