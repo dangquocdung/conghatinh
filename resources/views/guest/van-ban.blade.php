@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>{{ $vb->name }}</title>
+  {{-- <title>{{ $lt->chuyenmuc->name}} >> {{ $lt->name }}</title> --}}
 @endsection
 
 @section('content')
@@ -13,8 +13,28 @@
 
 
                 <div class="van-ban">
+                    <div class="block3">
+                        <div class="breadcrumb">
+                            <a class="breadcrumb-item" href="/"><i class="glyphicon glyphicon-home"></i></a>
+                            <a class="breadcrumb-item" href="/van-ban">Tất cả Văn Bản</i></a>
+                            {{-- <span class="breadcrumb-item active">{{ $lt->name }}</span> --}}
+                        </div>
 
-                    @include('guest.van-ban.danh-sach')
+                        <div id="app" style="padding: 5px;">
+
+                            @if ($lt != 'van-ban')
+
+                                <van-ban-viewer source="/api/van-ban-all/{{$lt->id}}" title="Danh sách {{$lt->name}}" />
+                            @else
+                                <van-ban-viewer source="/api/van-ban-all" title="Tất cả văn bản" />
+
+                            @endif
+
+
+
+                        </div>
+
+                    </div>
 
                 </div>
             </div>

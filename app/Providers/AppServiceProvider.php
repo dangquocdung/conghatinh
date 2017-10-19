@@ -35,11 +35,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet','guest.van-ban'],function($view){
+        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet','guest.van-ban','guest.chi-tiet-van-ban'],function($view){
 
           $toppic = TopPic::orderby('thutu','asc')->get();
 
-          $chuyenmuc = ChuyenMuc::all();
+          $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
           $loaitin = LoaiTin::all();
 
@@ -65,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit'],function($view){
 
-          $chuyenmuc = ChuyenMuc::all();
+          $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
           $cqbh = CQBH::all();
 

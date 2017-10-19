@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\LoaiVB;
+use App\TepVanBan;
+use App\VanBan;
 
 class LoaiVanBanTableSeeder extends Seeder
 {
@@ -15,12 +17,21 @@ class LoaiVanBanTableSeeder extends Seeder
     {
         $faker = Factory::create();
 
+        DB::statement("SET foreign_key_checks=0");
+
+        
+        TepVanBan::truncate();
+        VanBan::truncate();
         LoaiVB::truncate();
 
-        foreach(range(1, 10) as $i) {
+        DB::statement("SET foreign_key_checks=1");
+
+        $loaivb = array("Thông báo","Quyết định","Kế hoạch","Công văn","Báo cáo","Chương trình","Chỉ thị");
+
+        foreach($loaivb as $lvb) {
             LoaiVB::create([
-                'name' => $faker->firstname,
-                'slug' => str_slug($faker->firstname)
+                'name' => $lvb,
+                'slug' => str_slug($lvb)
             ]);
         }
     }

@@ -1747,6 +1747,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2212,7 +2216,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('span', [_vm._v("Ngày ban hành")]), _vm._v(" "), ('ngaybanhanh' === _vm.query.column) ? _c('span', {
     staticClass: "dv-table-column"
-  }, [(_vm.query.direction === 'desc') ? _c('span', [_vm._v("↓")]) : _c('span', [_vm._v("↑")])]) : _vm._e()]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('th', {
+  }, [(_vm.query.direction === 'desc') ? _c('span', [_vm._v("↓")]) : _c('span', [_vm._v("↑")])]) : _vm._e()]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('th', {
     on: {
       "click": function($event) {
         _vm.toggleOrder('trichyeu')
@@ -2221,7 +2225,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('span', [_vm._v("Trích yếu")]), _vm._v(" "), ('trichyeu' === _vm.query.column) ? _c('span', {
     staticClass: "dv-table-column"
   }, [(_vm.query.direction === 'desc') ? _c('span', [_vm._v("↓")]) : _c('span', [_vm._v("↑")])]) : _vm._e()]), _vm._v(" "), _c('th', [_vm._v("Tệp văn bản")])])]), _vm._v(" "), _c('tbody', _vm._l((_vm.model.data), function(row) {
-    return _c('tr', [_c('td', [_vm._v(_vm._s(row.sovb) + "/" + _vm._s(row.kihieuvb))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.ngaybanhanh))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.loaitin.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.trichyeu))]), _vm._v(" "), _c('td', {
+    return _c('tr', [_c('td', [_c('a', {
+      attrs: {
+        "href": '/chi-tiet-van-ban/' + row.id
+      }
+    }, [_vm._v(_vm._s(row.sovb) + "/" + _vm._s(row.kihieuvb))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.ngaybanhanh))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.loaitin.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.linhvuc.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.trichyeu))]), _vm._v(" "), _c('td', {
       attrs: {
         "width": "15%"
       }
@@ -2317,6 +2325,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("»")])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('th', [_c('span', [_vm._v("Loại VB")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('th', [_c('span', [_vm._v("Lĩnh vực")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

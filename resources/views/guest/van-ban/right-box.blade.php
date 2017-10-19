@@ -54,7 +54,7 @@
                 <ul>
                     @foreach ($loaivb as $lvb)
                     <li>
-                        <a href="van-ban/linh-vuc/{{$lvb->slug}}">
+                        <a href="van-ban/loai-van-ban/{{$lvb->slug}}">
                             <div class="news-block">
                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lvb->name }}
                             </div>

@@ -6,7 +6,7 @@
 
     <div id="app" style="padding: 5px;">
 
-        <van-ban-viewer source="/api/van-ban-all" title="Danh sách văn bản" />
+        <van-ban-viewer source="/api/van-ban-all/{{$vb->slug}}" title="Danh sách văn bản" />
 
 
 

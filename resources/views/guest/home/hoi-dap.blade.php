@@ -12,7 +12,7 @@
 
             <div class="chuyen-trang">
                 <ul>
-                    <li class="col-md-12 col-sm-12 col-xs-1">
+                    <li class="col-md-12 col-sm-12 col-xs-12">
 
                         <div class="news-block">
                             <i class="fa fa-question-circle-o" aria-hidden="true"></i>

@@ -1,4 +1,4 @@
-<div id="tin-noi-bat-left" class="hidden-xs">
+<div id="tin-noi-bat-left" class="hidden-xs hidden-sm">
 
     <h4 class="label">Tin nổi bật</h4>
 

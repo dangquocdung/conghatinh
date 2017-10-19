@@ -13,10 +13,10 @@
 
     <div class="block3">
         <div class="breadcrumb">
-            <a class="breadcrumb-item" href="#"><i class="glyphicon glyphicon-home"></i></a>
+            <a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>
             <a class="breadcrumb-item" href="chuyen-muc/{{ $tin->loaitin->chuyenmuc->slug }}">{{ $tin->loaitin->chuyenmuc->name }}</a>
-            <a class="breadcrumb-item" href="chuyen-muc/{{ $tin->loaitin->slug }}">{{ $tin->loaitin->name }}</a>
-            <span class="breadcrumb-item active">{{ $tin->name }}</span>
+            <a class="breadcrumb-item" href="loai-tin/{{ $tin->loaitin->slug }}">{{ $tin->loaitin->name }}</a>
+            {{-- <span class="breadcrumb-item active">{{ $tin->name }}</span> --}}
         </div>
         
     
@@ -88,11 +88,17 @@
                 <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
             </div>
 
+            
+            @include('guest.chi-tiet.lien-quan')
+            
+
         </div>
 
     
 
     </div>
+
+    
     
 
            

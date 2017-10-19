@@ -14,15 +14,19 @@ class GuestController extends Controller
     {
 //        $tinmoi = TinTuc::orderBy('id', 'decs')->take(5)->get();
 
-//        $tinslide = TinTuc::orderBy('id', 'decs')->take(13)->get();
+        
 
         $tinnoibat = TinTuc::orderBy('id', 'decs')->take(13)->get();
+
+        $tinslide = TinTuc::where('loaitin_id','10')->orderBy('id', 'decs')->take(12)->get();
+
+        $tinvideo = TinTuc::where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
 
 
 
         // $tintucsukien = TinTuc::where('')->orderBy('id', 'decs')->take(6)->get();
 
-        return view('guest.trang-chu', compact('tinmoi','tinslide','tinnoibat'));
+        return view('guest.trang-chu', compact('tinmoi','tinslide','tinvideo','tinnoibat'));
     }
 
     public function indexEN()
@@ -51,33 +55,74 @@ class GuestController extends Controller
     {
         $tin = TinTuc::where('slug',$slug)->first();
 
-        return view('guest.chi-tiet', compact('tin'));
+        $lt = $tin->loaitin_id;
+
+        $ngay = $tin->created_at;
+
+        $tinlq = TinTuc::where('loaitin_id',$lt)->where('created_at','>',$ngay)->orderBy('id', 'decs')->take(10)->get();
+
+
+        return view('guest.chi-tiet', compact('tin','tinlq'));
     }
 
     public function loaiTin($slug)
     {
         $lt = LoaiTin::where('slug',$slug)->first();
 
-        return view('guest.loai-tin', compact('lt'));
+        $tintuc = TinTuc::where('loaitin_id',$lt->id)->orderby('id','desc')->paginate(12);
+
+        return view('guest.loai-tin', compact('lt','tintuc'));
     }
 
     public function chuyenMuc($slug)
     {
         $cm = ChuyenMuc::where('slug',$slug)->first();
 
-        return view('guest.chuyen-muc', compact('cm'));
+        $lt = LoaiTin::select('id')->where('chuyenmuc_id',$cm->id)->get();
+
+        $tintuc = TinTuc::whereIn('loaitin_id',$lt)->orderby('id','desc')->paginate(12);
+
+
+
+        // $tintuc = TinTuc::whereIn('loaitin_id',$lt)->orderby('id','desc')->paginate(12);
+
+        // return response()
+        //     ->json([
+        //         'tintuc' => $tintuc
+        //     ]);
+
+        return view('guest.chuyen-muc', compact('cm','tintuc'));
     }
 
-    public function vanBan($slug)
+    public function vanBan($slug='van-ban')
     {
-        $vb = ChuyenMuc::where('slug',$slug)->first();
+        if ($slug != 'van-ban'){
 
-        return view('guest.van-ban', compact('vb'));
+            $lt = LoaiTin::where('slug',$slug)->first();
+
+            
+
+        }else{
+
+            $lt = 'van-ban';
+
+
+        }
+
+        return view('guest.van-ban', compact('lt'));
+        
     }
 
-    public function apiVanBan()
+    public function apiVanBan($id=null)
     {
-        $model = VanBan::where('daduyet','1')->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
+        if ($id != null){
+            $model = VanBan::where('daduyet','0')->where('loaitin_id',$id)->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
+
+
+        }else{
+            $model = VanBan::where('daduyet','0')->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
+
+        }
 
         $columns = VanBan::$columns;
 
@@ -88,16 +133,42 @@ class GuestController extends Controller
             ]);
     }
 
-    public function allVanBan()
+    // public function apiVanBanCDDH()
+    // {
+    //     $model = VanBan::where('daduyet','0')->where('loaitin_id','9')->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
+
+    //     $columns = VanBan::$columns;
+
+    //     return response()
+    //         ->json([
+    //             'model' => $model,
+    //             'columns' => $columns
+    //         ]);
+    // }
+
+    // public function apiVanBanCB()
+    // {
+    //     $model = VanBan::where('daduyet','0')->where('loaitin_id','10')->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
+
+    //     $columns = VanBan::$columns;
+
+    //     return response()
+    //         ->json([
+    //             'model' => $model,
+    //             'columns' => $columns
+    //         ]);
+    // }
+
+
+    public function ctVanBan($id)
     {
-        $vanban = VanBan::with('tepvanban')->with('loaitin')->get();
+        $vb = VanBan::find($id);
 
+        // return response()
+        //     ->json([
+        //         'vanban' => $vb
+        //     ]);
 
-
-
-        return response()
-            ->json([
-                'vanban' => $vanban
-            ]);
+        return view('guest.chi-tiet-van-ban', compact('vb'));
     }
 }

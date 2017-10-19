@@ -24,15 +24,17 @@ class VanBanTableSeeder extends Seeder
 
         DB::statement("SET foreign_key_checks=1");
 
-        foreach(range(1, 20) as $i) {
+        foreach(range(1,100) as $i) {
 
             VanBan::create([
 
                 'user_id' => '2',
 
-	            'loaitin_id' => '9',
+	            'loaitin_id' => $faker->numberBetween($min = 9, $max = 10),
 
-	            'loaivb_id' => '1',
+	            'loaivb_id' => $faker->numberBetween($min = 1, $max = 7),
+
+                'linhvuc_id' => $faker->numberBetween($min = 1, $max = 4),
 
 	            'sovb' => $faker->randomNumber,
 

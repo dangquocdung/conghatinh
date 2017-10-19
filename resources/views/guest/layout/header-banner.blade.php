@@ -47,7 +47,7 @@
                         
 
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Trang chủ</a></li>
+                            <li><a href="#"><i class="fa fa-university" aria-hidden="true"></i></a></li>
                             @foreach ($chuyenmuc as $cm)
                                 @if ($cm->vitri == 1)
                                     <li><a href="{{ $cm->path}}/{{ $cm->slug}}">{{ $cm->name }}</a></li>

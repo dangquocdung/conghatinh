@@ -1,5 +1,5 @@
 @php
-    $cm = $chuyenmuc->where('slug','tin-chinh-quyen')->first();
+    $cm = $chuyenmuc->where('slug','tin-tuc-su-kien')->first();
 
     
 @endphp

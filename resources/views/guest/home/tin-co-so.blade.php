@@ -1,5 +1,5 @@
 @php
-    $cm = $chuyenmuc->where('slug','tin-chinh-quyen')->first();
+    $cm = $chuyenmuc->where('slug','tin-co-so')->first();
 
     
 @endphp
@@ -57,8 +57,8 @@
                   <div class="tin_title_text">
                         {{ $tin1->name }}
                     </div>
-
-                    <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">                    
+                    <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
+                    
                 </a>
               
                 <div class="tin_title_abstract" style="display:;">
@@ -83,7 +83,6 @@
 
                           
                               <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
-
                               <a href="chi-tiet/{{ $tin->slug }}" class="news-title">
                                    {{ $tin->name }}
                               </a>

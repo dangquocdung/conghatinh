@@ -14,5 +14,8 @@ class DatabaseSeeder extends Seeder
          // $this->call(LinhvucTableSeeder::class);
          // $this->call(LoaiVanBanTableSeeder::class);
          $this->call(VanBanTableSeeder::class);
+
+        // $this->call(TinTucTableSeeder::class);
+    
     }
 }

@@ -60,9 +60,6 @@
                     <th>
                         <span>Loại VB</span>
                     </th>
-                    <th>
-                        <span>Lĩnh vực</span>
-                    </th>
 
                     <th @click="toggleOrder('trichyeu')">
                         <span>Trích yếu</span>
@@ -92,10 +89,9 @@
                     <!--<td v-for="(value, key) in row">{{value}}</td>-->
 
 
-                    <td><a :href="'/chi-tiet-van-ban/' + row.id">{{row.sovb}}/{{row.kihieuvb}}</a></td>
+                    <td>{{row.sovb}}/{{row.kihieuvb}}</td>
                     <td>{{row.ngaybanhanh}}</td>
                     <td>{{row.loaitin.name}}</td>
-                    <td>{{row.linhvuc.name}}</td>
                     <td>{{row.trichyeu}}</td>
                     <td width="15%">
                         <span v-for="tvb in row.tepvanban">

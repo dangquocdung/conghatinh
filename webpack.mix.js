@@ -11,11 +11,10 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js').version()
-    .sass('resources/assets/sass/admin.scss', 'public/admin/css').version();
-
-
-mix.js('resources/assets/js/guest.js', 'public/js').version()
-    .sass('resources/assets/sass/guest.scss', 'public/guest/css').version();
+mix.js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/admin.scss', 'public/admin/css')
+	.js('resources/assets/js/guest.js', 'public/js').version()
+    .sass('resources/assets/sass/guest.scss', 'public/guest/css')
+    .version();
 
 mix.disableNotifications();

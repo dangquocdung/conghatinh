@@ -56,6 +56,8 @@ class VanBanController extends Controller
 
             'loaivb_id'=> $request->input('loaivb_id'),
 
+            'linhvuc_id'=> $request->input('linhvuc_id'),
+
 
             'sovb' => $request->input('sovb'),
 

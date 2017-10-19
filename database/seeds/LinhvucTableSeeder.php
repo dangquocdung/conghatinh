@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\LinhVuc;
+use App\VanBan;
+use App\TepVanBan;
 
 class LinhvucTableSeeder extends Seeder
 {
@@ -15,12 +17,21 @@ class LinhvucTableSeeder extends Seeder
     {
         $faker = Factory::create();
 
+        DB::statement("SET foreign_key_checks=0");
+
+        
+        TepVanBan::truncate();
+        VanBan::truncate();
         LinhVuc::truncate();
 
-        foreach(range(1, 5) as $i) {
+        DB::statement("SET foreign_key_checks=1");
+
+        $linhvuc = array("Kinh tế tổng hợp","Nội chính","Văn hóa – Xã hội","Đô thị");
+
+        foreach($linhvuc as $lv) {
             LinhVuc::create([
-                'name' => $faker->name,
-                'slug' => str_slug($faker->name)
+                'name' => $lv,
+                'slug' => str_slug($lv)
             ]);
         }
     }

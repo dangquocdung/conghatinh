@@ -1,4 +1,4 @@
-<footer>
+
 <div class="container nen-trang">
 <div class="porlet-main-footer">
     <div class="main-footer-header-wrapper">
@@ -81,5 +81,3 @@
     });
   });
 </script>
-
-</footer>

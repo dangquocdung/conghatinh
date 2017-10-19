@@ -10,11 +10,16 @@ Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
 Route::get('/loai-tin/{slug}','GuestController@loaiTin');
 
-Route::get('/van-ban/{slug}','GuestController@vanBan');
+Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
-Route::get('/api/van-ban-all','GuestController@apiVanBan');
+Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
 
-Route::get('/api/all-van-ban','GuestController@allVanBan');
+// Route::get('/api/van-ban-all/chi-dao-dieu-hanh','GuestController@apiVanBanCHDH');
+
+// Route::get('/api/van-ban-all/cong-bao','GuestController@apiVanBanCB');
+
+Route::get('/chi-tiet-van-ban/{id}','GuestController@ctVanBan');
+
 
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
 Route::post('/dang-nhap', 'UserController@login')->name('login');
