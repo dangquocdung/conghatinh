@@ -1,7 +1,7 @@
 
-    <div class="block-header">
-        
-        <h4>Các tin mới hơn</h4>
+    <div class="lienquan-header">
+
+        <a href="">Các tin mới hơn</a>
         
     </div>
 

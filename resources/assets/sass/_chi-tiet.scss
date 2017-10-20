@@ -133,20 +133,14 @@
   margin-bottom: 0 !important;
 
 
-  .tags {
-    border-radius: 3px;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: #B1C3CB;
-    padding: 8px 15px 3px;
-    clear: both;
-
-  }
-
-
   ul {
 
     list-style-type: none;
     list-style: none;
+
+    display: block;
+
+
 
     li {
       display: inline-block;
@@ -156,6 +150,10 @@
         text-decoration: none;
         color: #000;
       }
+    }
+
+    .tag-border{
+      background-color: #eaeaeaea;
     }
 
   }
@@ -283,6 +281,28 @@
       }
     }
 }
+
+}
+
+
+.lienquan-header {
+  background: rgba(0, 0, 0, 0) url(../images/titlebg-red.png) no-repeat scroll right center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 22px;
+  display: inline-block;
+  padding: 0 20px 0 10px;
+  color: #fff;
+  border-left:3px solid #ca1f25;
+
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:hover{
+    border-left:3px solid #670306;
+  }
 
 }
 

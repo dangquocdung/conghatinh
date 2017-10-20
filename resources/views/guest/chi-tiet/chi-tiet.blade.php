@@ -45,13 +45,11 @@
                 <div class="col-md-9">
 
 
-
                     <div class="chi-tiet-tin">
 
                         <div class="chi-tiet-avatar" style="margin-bottom: 10px;">
                             <img src="{{$tin->avatar}}" alt="{{ $tin->name }}">
                         </div>
-
 
 
                         <div class="gioi-thieu">
@@ -62,21 +60,22 @@
                         <div class="noi-dung">
                             {!! $tin->noidung !!}
                         </div>
+
+                        <div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
+                            <strong>{!! $tin->tacgia !!}</strong>
+                            <br>
+                            <em><small>Nguồn: {!! $tin->nguon !!}</small></em>
+                        </div>
                     </div>
 
                     <div id="tag">
-                    <ul class="tags">
-                        <li><i class="fa fa-tags" aria-hidden="true"></i></li>
-                        <span class="badge badge-default">Default</span>
-                        <span class="badge badge-primary">Primary</span>
-                        <span class="badge badge-success">Success</span>
-                        <span class="badge badge-info">Info</span>
-                        <span class="badge badge-warning">Warning</span>
-                        <span class="badge badge-danger">Danger</span>
-                    </ul>
-                </div>
-
-
+                        <ul class="tags">
+                            <li><i class="fa fa-tags" aria-hidden="true"></i></li>
+                            
+                            <span class="tag-border">Success</span>
+                            
+                        </ul>
+                    </div>
                 </div>
             </div>
 
