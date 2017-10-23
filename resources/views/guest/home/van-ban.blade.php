@@ -18,7 +18,7 @@
 
         @php
 
-          $tins = $lt->vanban->take(5);
+          $tins = $lt->vanban->take(3);
 
 
         @endphp
