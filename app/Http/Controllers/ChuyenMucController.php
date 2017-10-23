@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\User\ChuyenMucCreated;
 use Illuminate\Http\Request;
 use App\ChuyenMuc;
+use App\Banner;
 
 class ChuyenMucController extends Controller
 {
@@ -13,6 +14,16 @@ class ChuyenMucController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+        $this->middleware('auth');
+
+        $banner = Banner::where('vitri','1')->orderby('thutu','asc')->get();
+
+        view()->share('banner',$banner);
+    }
+
+
     public function index()
     {
         $chuyenmucs = ChuyenMuc::orderBy('thutu', 'asc')->paginate(10);
@@ -42,7 +53,9 @@ class ChuyenMucController extends Controller
             'slug' => str_slug($request->input('name')),
             'path' => $request->input('path'),
             'vitri' => $request->input('vitri'),
-            'thutu'=>($request->input('thutu'))]);
+            'thutu'=> $request->input('thutu'),
+            'banner_id' => $request->input('banner')
+            ]);
 
         event(new ChuyenMucCreated($chuyenmuc));
 
@@ -59,9 +72,10 @@ class ChuyenMucController extends Controller
      */
     public function show($id)
     {
+        $chuyenmucs = ChuyenMuc::all();
         $chuyenmuc = ChuyenMuc::find($id);
 
-        return view('admin.pages.tbt.chuyen-muc-edit', compact('chuyenmuc'));
+        return view('admin.pages.tbt.chuyen-muc-edit', compact('chuyenmuc','chuyenmucs'));
     }
 
     /**
@@ -90,6 +104,7 @@ class ChuyenMucController extends Controller
         $cm->path = $request->input('path');
         $cm->vitri = $request->input('vitri');
         $cm->thutu = $request->input('thutu');
+        $cm->banner_id = $request->input('banner');
         $cm->save();
 
         flash('Chuyên mục đã được cập nhật');

@@ -25,7 +25,13 @@
 
                         <li class="col-md-6">
 
-                            <div class="news-block"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }}</div>
+
+                            <div class="news-block">
+                                <a href="/loai-tin/{{ $lt->slug }}">
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }}
+                                </a>
+                            </div>
+
                         </li>
 
                     @endforeach

@@ -81,7 +81,7 @@
                         @foreach($tins as $tin)
                         <li>
 
-                          
+
                               <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
 
                               <a href="chi-tiet/{{ $tin->slug }}" class="news-title">
@@ -92,14 +92,14 @@
 
                               <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
 
-                          
+
                         </li>
                         @endforeach
-                        
+
                     </ul>
 
 
-                    
+
                 </div>
               </div>
           </div>
@@ -114,6 +114,17 @@
 </div>
 
 
+@if ($cm->banner_id != null)
+
+    <div class="block3">
+
+        @foreach($banner as $bn)
+            @if ($bn->id == $cm->banner_id)
+                <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
+            @endif
+        @endforeach
+    </div>
+@endif
 
 
 <script>

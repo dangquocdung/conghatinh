@@ -37,7 +37,7 @@ class TinTucTableSeeder extends Seeder
                 'gioithieu' => $faker->text($maxNbChars = 500),
 
                 'noidung' => $faker->text($maxNbChars = 1000).
-                			'<br><br><img src="'.$faker->imageUrl($width = 640, $height = 480).'">'.$faker->text($maxNbChars = 2000),
+                			'<br><br><img src="'.$faker->imageUrl($width = 640, $height = 480).'"><br>'.$faker->text($maxNbChars = 2000),
                 			
                 'tacgia' => $faker->name,
 

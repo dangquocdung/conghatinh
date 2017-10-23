@@ -8,11 +8,16 @@ class Banner extends Model
 {
     protected $table = 'banner';
 
-	protected $fillable = ['user_id','name','slug','avatar','banner','lienket','thutu','daduyet','ghichu'];
+	protected $fillable = ['user_id','vitri','name','slug','banner','lienket','thutu','daduyet','ghichu'];
 
 	  
 	public function user()
 	{
 	    return $this->belongsTo('App\User','user_id','id');
 	}
+
+    public function chuyenmuc()
+    {
+        return $this->hasMany('App\ChuyenMuc','banner_id','id');
+    }
 }

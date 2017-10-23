@@ -53,6 +53,7 @@
                                     <li><a href="{{ $cm->path}}/{{ $cm->slug}}">{{ $cm->name }}</a></li>
                                 @endif
                             @endforeach
+                            <li><a href="http://dichvucong.hatinh.gov.vn/portaldvc/Home/default.aspx">DVC trực tuyến</a></li>
 
                             {{-- @php
                                 $vanban = $chuyenmuc->skip(2)->take(2);

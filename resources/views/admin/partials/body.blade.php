@@ -26,5 +26,7 @@
     </div>
     <strong>Copyright &copy; 2017 <a href="#">Cổng Thông tin điện tử tỉnh Hà Tĩnh</a>.</strong> Bản quyền sản phẩm được bảo vệ theo luật sở hữu trí tuệ nước CHXHCN Việt Nam.
   </footer>
+
 </div>
+
 <!-- ./wrapper -->

@@ -15,8 +15,10 @@
                     <li class="col-md-12 col-sm-12 col-xs-12">
 
                         <div class="news-block">
-                            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                            <a href="/chi-tiet/">
+                                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
                             &nbsp;Hỏi thông tin liệt sĩ (Trần Quang Năng - Đồng Luận Thanh Thủy - Tỉnh Phú Thọ)
+                            </a>
                         </div>
                     </li>
                     

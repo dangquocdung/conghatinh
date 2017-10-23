@@ -19,6 +19,7 @@ class CreateBannerTable extends Migration
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('vitri')->default(0);
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('banner');

@@ -8,12 +8,14 @@ class ChuyenMuc extends Model
 {
     protected $table = 'chuyenmuc';
 
-    protected $fillable = ['name','slug','thutu','ghichu'];
+    protected $fillable = ['name','slug','thutu','ghichu','banner_id'];
 
     public function loaitin()
 	{
 		return $this->hasMany('App\LoaiTin','chuyenmuc_id','id');
 	}
+
+
 
 	public function tintuc()
 	{
@@ -24,4 +26,5 @@ class ChuyenMuc extends Model
     {
         return $this->hasManyThrough('App\VanBan','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
     }
+
 }

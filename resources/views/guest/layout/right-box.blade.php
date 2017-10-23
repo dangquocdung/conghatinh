@@ -10,12 +10,12 @@
     </div>
 
     @foreach ($banner as $bn)
-
-    <div class="box">
-    	<a href="{{$bn->lienket}}" target="_blank">
-    		<img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">
-    	</a>
-    </div>
-
+        @if ($bn->vitri == 0)
+            <div class="box">
+                <a href="{{$bn->lienket}}" target="_blank">
+                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">
+                </a>
+            </div>
+        @endif
     @endforeach
 </div>

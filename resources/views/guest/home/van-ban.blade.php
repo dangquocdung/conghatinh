@@ -24,13 +24,14 @@
         @endphp
 
 
-        <div class="row" style="margin: 0 0 5px 0">
+
           
 
     
          
 
             @if ($tins)
+            <div class="col-md-6" style="float:left">
 
             <div class="breadcrumb">
                 <span class="breadcrumb-item active">
@@ -88,8 +89,9 @@
                     </div>
                 </div>
             </div>
+            </div>
             @endif
-        </div>
+
     
     @endforeach
 

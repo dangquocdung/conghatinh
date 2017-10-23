@@ -43,6 +43,8 @@ class BannerController extends Controller
 
             'user_id' => Auth::user()->id,
 
+            'vitri'=>$request->input('vitri'),
+
             'name' => $request->input('name'),
 
             'slug'=>str_slug($request->input('name')),

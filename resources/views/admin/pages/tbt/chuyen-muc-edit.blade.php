@@ -83,7 +83,8 @@
             <div class="form-group">
               <label>Thứ tự hiện thị</label>
               <select class="form-control" name="thutu" style="width: 100%;">
-                @for ($i = 1; $i < 10; $i++)
+
+                @for ($i = 1; $i <= count($chuyenmucs); $i++)
 
                   @if ($chuyenmuc->thutu == $i)
 
@@ -97,6 +98,36 @@
                 @endfor
               </select>
             </div>
+
+            <div class="form-group">
+              <label>Banner ngang</label>
+              <select class="form-control" name="banner" id="banner" style="width: 100%;">
+                <option selected disabled>Chọn Banner</option>
+                @foreach ($banner as $bn)
+
+                  @if ($bn->id == $chuyenmuc->banner_id)
+                    <option path="{{$bn->banner}}" value={{ $bn->id }} selected>{{ $bn->name }}</option>
+                  @else
+                    <option path="{{$bn->banner}}" value={{ $bn->id }} >{{ $bn->name }}</option>
+                  @endif
+
+                @endforeach
+              </select>
+            </div>
+
+
+
+            <div class="form-group">
+              @if ($chuyenmuc->banner_id == null )
+                <img id="preview" src="http://placehold.it/200x30" width="100%" style="margin: 0 auto;" />
+
+              @else
+                <img id="preview" src="http://placehold.it/200x30" width="100%" style="margin: 0 auto;" />
+              @endif
+
+
+            </div>
+
 
             <div class="form-group">
               <button class="btn btn-success">
@@ -114,4 +145,27 @@
 
     </div>
   </div>
+@endsection
+
+@section('js')
+
+  <script>
+      $(document).ready(function () {
+
+          var element = $("#banner").find('option:selected');
+          var path = element.attr("path");
+
+          $("#preview").attr('src',path);
+
+          $("#banner").change(function () {
+              var element = $(this).find('option:selected');
+              var path = element.attr("path");
+
+              $("#preview").attr('src',path);
+          })
+
+      })
+
+  </script>
+
 @endsection

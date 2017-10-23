@@ -8,34 +8,16 @@
       <div class="row nen-trang">
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 
+              @include('guest.home.tin-noi-bat')
+              @include('guest.home.tin-anh')
+              @include('guest.home.chidao-dieuhanh2')
+              @include('guest.home.van-ban')
+              @include('guest.home.tin-co-so')
+              @include('guest.home.chien-luoc')
+{{--              @include('guest.home.hoi-dap')--}}
+              @include('guest.home.video')
+              @include('guest.home.to-chuc')
 
-
-                @include('guest.home.tin-noi-bat')
-                {{-- <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
-                  <img src="http://docs.ttdt.dsp.vn/images/banner/hethongdichvucongtructuyen_1476955571482.png" width="100%" style="margin-bottom: 15px;">
-                </a> --}}
-                
-
-                    @include('guest.home.tintuc-slider')
-                    {{-- @include('guest.home.tin-tuc-su-kien') --}}
-                    @include('guest.home.chidao-dieuhanh')
-                    @include('guest.home.van-ban')
-                    @include('guest.home.tin-co-so')
-                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
-                  {{--@include('guest.home.tinsonganh')--}}
-                  {{--@include('guest.home.tinhuyenthi')--}}
-                  
-                    @include('guest.home.chien-luoc')
-                    @include('guest.home.hoi-dap')
-                    @include('guest.home.video')
-                    @include('guest.home.to-chuc')
-                  {{--@include('guest.home.tinhhinhanqp')--}}
-                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
-                  {{--@include('guest.home.websitecacdonvi')--}}
-                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
-                  {{--@include('guest.home.websitenganhdoc')--}}
-                  {{--<img src="http://placehold.it/800x150" width="100%" style="margin-bottom: 15px;">--}}
-                  {{--@include('guest.home.websitetochuc')--}}
                   
           </div>
           <div class="col-lg-3 col-md-3 hidden-sm hidden-xs margin-top-15">

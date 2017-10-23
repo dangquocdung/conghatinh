@@ -1,7 +1,7 @@
 <div class="block3">
   <div class="portlet-header">
         <a href="#" class="portlet-danh-muc-title">
-            <h4 class="portlet-header-title no-pd-top">Tin ảnh</h4>
+            <h4 class="portlet-header-title no-pd-top">Hình ảnh Hà Tĩnh</h4>
         </a>
     </div>
   <div id="brand_carousel" class="owl-carousel brand-logo">

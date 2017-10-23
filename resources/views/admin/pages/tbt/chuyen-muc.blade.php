@@ -30,14 +30,27 @@
               <th>Đường dẫn</th>
               <th>Vị trí</th>
               <th>Thứ tự</th>
+
               <th></th>
             </tr>
             </thead>
             <tbody>
             @foreach($chuyenmucs as $chuyenmuc)
               <tr>
-                <td>{{$chuyenmuc->id}}</td>
-                <td>{{($chuyenmuc->name)}}</td>
+                <td>
+                  {{$chuyenmuc->id}}
+
+                </td>
+                <td>
+                  {{($chuyenmuc->name)}}
+                  <br>
+                  
+                  @foreach($banner as $bn)
+                    @if ($bn->id == $chuyenmuc->banner_id)
+                      <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
+                    @endif
+                    @endforeach
+                </td>
                 <td>{{ $chuyenmuc->path}} </td>
                 <td><span class="label label-success">{{$chuyenmuc->slug}}</span></td>
                 <td>
@@ -51,6 +64,7 @@
 
                 </td>
                 <td>{{$chuyenmuc->thutu}}</td>
+
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                     <div class="pull-left">
@@ -125,9 +139,30 @@
                 @for ($i = 1; $i <= count($chuyenmucs); $i++)
                   <option value={{ $i }}>{{ $i }}</option>
                 @endfor
-                  <option value={{ $i }} selected>{{ $i }}</option>
+                <option value={{ $i }} selected>{{ $i }}</option>
               </select>
             </div>
+
+            <div class="form-group">
+              <label>Banner ngang</label>
+              <select class="form-control" name="banner" id="banner" style="width: 100%;">
+                <option selected disabled>Chọn Banner</option>
+                @foreach ($banner as $bn)
+
+                  <option value={{ $bn->id }} path="{{$bn->banner}}">{{ $bn->name }}</option>
+
+                @endforeach
+              </select>
+            </div>
+
+
+
+            <div class="form-group">
+              <img id="preview" src="http://placehold.it/200x30" width="100%" style="margin: 0 auto;" />
+            </div>
+
+
+
           </div>
           <!-- /.box-body -->
 
@@ -139,4 +174,22 @@
       {{--End box--}}
     </div>
   </div>
+@endsection
+
+@section('js')
+
+  <script>
+      $(document).ready(function () {
+
+          $("#banner").change(function () {
+              var element = $(this).find('option:selected');
+              var path = element.attr("path");
+
+              $("#preview").attr('src',path);
+          })
+
+      })
+
+  </script>
+
 @endsection

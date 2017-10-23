@@ -1,3 +1,9 @@
+@php
+    $cm = $chuyenmuc->where('slug','tin-tuc-su-kien')->first();
+
+
+@endphp
+
 <div class="block3">
 
     <div class="portlet-header">
@@ -27,7 +33,7 @@
 
 
             </div>
-            <div class="hot-news-desc" style="text-align: justify; line-height: 20px;">
+            <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
                 {{ $tin1->gioithieu }}
 
             </div>
@@ -73,6 +79,19 @@
 
     </div>
 </div>
+
+@if ($cm->banner_id != null)
+
+<div class="block3">
+
+    @foreach($banner as $bn)
+        @if ($bn->id == $cm->banner_id)
+            <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
+        @endif
+    @endforeach
+</div>
+@endif
+
 
 <script>
 
