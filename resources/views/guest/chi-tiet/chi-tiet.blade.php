@@ -70,9 +70,9 @@
 
                     <div id="tag">
                         <ul class="tags">
-                            <li><i class="fa fa-tags" aria-hidden="true"></i></li>
-                            
-                            <span class="tag-border">Success</span>
+                            {{--<li><i class="fa fa-tags" aria-hidden="true"></i></li>--}}
+
+                            {{--<span class="tag-border">Success</span>--}}
                             
                         </ul>
                     </div>

@@ -80,7 +80,7 @@
 
       @role('tbt')
 
-      <li class="{{ Request::is('toa-soan/config/*') ? 'active' : ''  }} treeview">
+      <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
         <a href="#">
           <i class="fa fa-folder-open-o"></i> <span>Chuyên mục</span>
           <span class="pull-right-container">
@@ -88,17 +88,17 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/config/loai-tin') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/cau-hinh/loai-tin') ? 'active' : ''  }}">
             <a href="{{route('loai-tin')}}"><i class="fa fa-circle-o"></i> Quản lý loại tin</a>
           </li>
-          <li class="{{ Request::is('toa-soan/config/chuyen-muc') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/cau-hinh/chuyen-muc') ? 'active' : ''  }}">
             <a href="{{route('chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
           </li>
           
         </ul>
       </li>
 
-      <li class="{{ Request::is('toa-soan/config/lien-ket/*') ? 'active' : ''  }} treeview">
+      <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/*') ? 'active' : ''  }} treeview">
         <a href="#">
           <i class="fa fa-folder-open-o"></i> <span>Liên kết</span>
           <span class="pull-right-container">
@@ -109,11 +109,11 @@
 
           
           
-          <li class="{{ Request::is('toa-soan/config/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
             <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Banner trang chủ</a>
           </li>
           
-          <li class="{{ Request::is('toa-soan/config/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
             <a href="{{route('so-ban-nganh')}}"><i class="fa fa-circle-o"></i> Sở, Ban, Ngành</a>
           </li>
         </ul>

@@ -2172,7 +2172,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "dv-header-input",
     attrs: {
       "type": "text",
-      "placeholder": "Search"
+      "placeholder": "Nội dung lọc"
     },
     domProps: {
       "value": (_vm.query.search_input)

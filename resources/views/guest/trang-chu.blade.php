@@ -10,12 +10,22 @@
 
               @include('guest.home.tin-noi-bat')
               @include('guest.home.tin-anh')
-              @include('guest.home.chidao-dieuhanh2')
+              <div class="block3">
+                  <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
+                      <img src="uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
+                  </a>
+              </div>
+              @include('guest.home.chidao-dieuhanh')
               @include('guest.home.van-ban')
               @include('guest.home.tin-co-so')
               @include('guest.home.chien-luoc')
 {{--              @include('guest.home.hoi-dap')--}}
               @include('guest.home.video')
+              <div class="block3">
+                  <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
+                      <img src="uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
+                  </a>
+              </div>
               @include('guest.home.to-chuc')
 
                   

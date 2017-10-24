@@ -86,7 +86,9 @@
 
     @foreach($banner as $bn)
         @if ($bn->id == $cm->banner_id)
-            <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
+            <a href="{{$bn->lienket}}" target="_blank">
+                <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
+            </a>
         @endif
     @endforeach
 </div>

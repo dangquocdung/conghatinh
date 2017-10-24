@@ -118,25 +118,25 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'role:tbt'], function () {
         
-        Route::get('config/chuyen-muc', 'ChuyenMucController@index')->name('chuyen-muc');
-        Route::post('config/chuyen-muc', 'ChuyenMucController@store')->name('save-chuyen-muc');
-        Route::get('config/chuyen-muc/{id}', 'ChuyenMucController@show')->name('edit-chuyen-muc');
-        Route::post('config/chuyen-muc/update', 'ChuyenMucController@update')->name('update-chuyen-muc');
+        Route::get('cau-hinh/chuyen-muc', 'ChuyenMucController@index')->name('chuyen-muc');
+        Route::post('cau-hinh/chuyen-muc', 'ChuyenMucController@store')->name('save-chuyen-muc');
+        Route::get('cau-hinh/chuyen-muc/{id}', 'ChuyenMucController@show')->name('edit-chuyen-muc');
+        Route::post('cau-hinh/chuyen-muc/update', 'ChuyenMucController@update')->name('update-chuyen-muc');
 
-        Route::get('config/loai-tin', 'LoaiTinController@index')->name('loai-tin');
-        Route::post('config/loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
-        Route::get('config/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
-        Route::post('config/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
+        Route::get('cau-hinh/loai-tin', 'LoaiTinController@index')->name('loai-tin');
+        Route::post('cau-hinh/loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
+        Route::get('cau-hinh/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
+        Route::post('cau-hinh/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
 
-        Route::get('config/lien-ket/so-ban-nganh', 'CoQuanController@index')->name('so-ban-nganh');
-        Route::post('config/lien-ket/so-ban-nganh', 'CoQuanController@store')->name('save-so-ban-nganh');
-        Route::get('config/lien-ket/so-ban-nganh/{id}', 'CoQuanController@show')->name('edit-so-ban-nganh');
-        Route::post('config/lien-ket/so-ban-nganh/update', 'CoQuanController@update')->name('update-so-ban-nganh');
+        Route::get('cau-hinh/lien-ket/so-ban-nganh', 'CoQuanController@index')->name('so-ban-nganh');
+        Route::post('cau-hinh/lien-ket/so-ban-nganh', 'CoQuanController@store')->name('save-so-ban-nganh');
+        Route::get('cau-hinh/lien-ket/so-ban-nganh/{id}', 'CoQuanController@show')->name('edit-so-ban-nganh');
+        Route::post('cau-hinh/lien-ket/so-ban-nganh/update', 'CoQuanController@update')->name('update-so-ban-nganh');
 
-        Route::get('config/lien-ket/banner-trang-chu', 'BannerController@index')->name('banner-trang-chu');
-        Route::post('config/lien-ket/banner-trang-chu', 'BannerController@store')->name('save-banner-trang-chu');
-        Route::get('config/lien-ket/banner-trang-chu/{id}', 'BannerController@show')->name('edit-banner-trang-chu');
-        Route::post('config/lien-ket/banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
+        Route::get('cau-hinh/lien-ket/banner-trang-chu', 'BannerController@index')->name('banner-trang-chu');
+        Route::post('cau-hinh/lien-ket/banner-trang-chu', 'BannerController@store')->name('save-banner-trang-chu');
+        Route::get('cau-hinh/lien-ket/banner-trang-chu/{id}', 'BannerController@edit')->name('edit-banner-trang-chu');
+        Route::post('cau-hinh/lien-ket/banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
 
         
     });

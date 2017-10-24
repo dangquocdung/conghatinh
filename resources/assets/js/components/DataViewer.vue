@@ -19,7 +19,7 @@
             </div>
             <div class="dv-header-search">
                 <input type="text" class="dv-header-input"
-                       placeholder="Search"
+                       placeholder="Nội dung lọc"
                        v-model="query.search_input"
                        @keyup.enter="fetchIndexData()">
             </div>
