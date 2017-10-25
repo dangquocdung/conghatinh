@@ -18978,7 +18978,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")();
-exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 80px !important;\n    height: 60px !important;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.media-manager-details .modal-content {\n  width: 80%;\n}\n.media-manager-details .modal-content .big-image img {\n    max-width: 660px;\n}\n", ""]);
+exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 70px !important;\n    height: 60px !important;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.media-manager-details .modal-content {\n  width: 80%;\n}\n.media-manager-details .modal-content .big-image img {\n    max-width: 660px;\n}\n", ""]);
 
 /***/ }),
 
