@@ -176,6 +176,10 @@
     }
 }
 
+.lienquan-header{
+  margin-top: 15px;
+}
+
 .tin-lien-quan{
 
     padding-left: 10px;
@@ -189,6 +193,14 @@
 
           a{
             text-decoration: none;
+          }
+          &:hover{
+            font-weight: bold;
+            a{
+              color: #ce663f;
+            }
+
+
           }
         }
       }

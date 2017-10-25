@@ -27,18 +27,19 @@
           <table class="table table-bordered table-striped table-hover">
             <thead>
             <tr>
-              <td>#</td>
-              <td>Hình ảnh</td>
+              <th>#</th>
+              <th>Ngày đăng</th>
+              <th>Hình ảnh</th>
               
-              <td>
+              <th>
                 Tiêu đề
-              </td>
-              <td>Loại Tin</td>
+              </th>
+              <th>Loại Tin</th>
               
-              <td>Giới thiệu</td>
+              <th>Giới thiệu</th>
               
               
-              <td></td>
+              <th>Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +48,7 @@
 
               <tr>
                 <td>{{$tin->id}}</td>
+                <td>{{ \Carbon\Carbon::parse($tin->ngaydang)->format('d/m/Y H:i:s') }}</td>
                 <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
                 
                 <td>

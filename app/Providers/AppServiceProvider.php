@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet','guest.van-ban','guest.chi-tiet-van-ban'],function($view){
+        view()->composer(['errors::404','guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet','guest.van-ban','guest.chi-tiet-van-ban'],function($view){
 
           $toppic = TopPic::orderby('thutu','asc')->get();
 
@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
 
           $loaitin = LoaiTin::all();
 
-          $tinnoibat4 = TinTuc::orderby('id','desc')->take(6)->get();
+          $tinnoibat4 = TinTuc::orderby('id','desc')->take(4)->get();
 
           $tinmoi5 = TinTuc::orderby('id','desc')->take(5)->get();
 
@@ -78,6 +78,19 @@ class AppServiceProvider extends ServiceProvider
           $view->with(compact('chuyenmuc','loaivb','cqbh', 'nguoiki','pdfs'));
 
         });
+
+        view()->composer(['errors::403','errors::404','errors::500'],function($view){
+
+            $toppic = TopPic::orderby('thutu','asc')->get();
+
+            $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+
+
+
+            $view->with(compact('toppic','chuyenmuc'));
+
+        });
+
     }
 
     /**

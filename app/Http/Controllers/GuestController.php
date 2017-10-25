@@ -55,14 +55,13 @@ class GuestController extends Controller
     {
         $tin = TinTuc::where('slug',$slug)->first();
 
-        $lt = $tin->loaitin_id;
+        $ngay = $tin->ngaydang;
 
-        $ngay = $tin->created_at;
+        $tinlq_new = TinTuc::orderBy('ngaydang','desc')->take(10)->get();
 
-        $tinlq = TinTuc::where('loaitin_id',$lt)->where('created_at','>',$ngay)->orderBy('id', 'decs')->take(10)->get();
+        $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
-
-        return view('guest.chi-tiet', compact('tin','tinlq'));
+        return view('guest.chi-tiet', compact('tin','tinlq_new','tinlq_old'));
     }
 
     public function loaiTin($slug)

@@ -21,7 +21,7 @@ class TinTucTableSeeder extends Seeder
         
         foreach(range(1, 1000) as $i) {
 
-        	
+
             TinTuc::create([
 
                 'user_id' => '2',
@@ -38,10 +38,13 @@ class TinTucTableSeeder extends Seeder
 
                 'noidung' => $faker->text($maxNbChars = 1000).
                 			'<br><br><img src="'.$faker->imageUrl($width = 640, $height = 480).'"><br>'.$faker->text($maxNbChars = 2000),
-                			
+
                 'tacgia' => $faker->name,
 
-                'nguon' => $faker->domainName
+                'nguon' => $faker->domainName,
+
+                'ngaydang' => $faker->dateTime()
+
 
             ]);
         }

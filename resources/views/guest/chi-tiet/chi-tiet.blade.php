@@ -28,7 +28,9 @@
 
                     <h1 class="main-title cms-title">{{ $tin->name }}</h1>
                     <div class="meta clearfix">
-                        <time><i class="fa fa-clock-o"></i>{{ $tin->created_at }}</time>
+                        <em>
+                            <time><i class="fa fa-clock-o"></i> Đăng ngày {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s') }}</time>
+                        </em>
                     </div>
                 </div>
 
@@ -88,7 +90,11 @@
             </div>
 
             
-            @include('guest.chi-tiet.lien-quan')
+            @include('guest.chi-tiet.lien-quan-new')
+
+            <br>
+
+            @include('guest.chi-tiet.lien-quan-old')
             
 
         </div>

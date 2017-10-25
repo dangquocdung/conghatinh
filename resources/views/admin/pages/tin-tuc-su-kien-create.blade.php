@@ -50,6 +50,27 @@
             <input name="name" class="form-control input-lg" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" required="">
             <br>
 
+              <div class="form-group">
+
+
+
+                  <div class='input-group date' id='datetimepicker1'>
+                      <input type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
+                      <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                  </div>
+              </div>
+
+              <script type="text/javascript">
+                  $(function () {
+                      $('#datetimepicker1').datetimepicker({
+                          format:'DD/MM/YYYY HH:mm:ss'
+                      });
+                  });
+              </script>
+              <br>
+
             {{-- <div class='input-group date' id='ngaydang'>
                 <input type='text' class="form-control" />
                 <span class="input-group-addon">
