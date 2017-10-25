@@ -67,6 +67,23 @@
                   </select>
               </div>
 
+              <div class="form-group">
+                  <label>Chọn lĩnh vực văn bản</label>
+
+                  <select class="form-control select2" name="linhvuc_id" data-placeholder="Chọn lĩnh vực văn bản" style="width: 100%;">
+                      <option value=""></option>
+                      @foreach($linhvuc as $lv)
+                          @if ($vb->linhvuc_id == $lvb->id)
+                            <option value="{{ $lv->id }}" selected="">{{ $lv->name }}</option>
+                          @else
+                              <option value="{{ $lv->id }}">{{ $lv->name }}</option>
+
+                              @endif
+                      @endforeach
+
+                  </select>
+              </div>
+
 
               <div class="form-group">
 
@@ -143,7 +160,7 @@
 
           <div class="box-footer">
             
-            <button type="submit" class="btn btn-success pull-right">Gởi chờ duyệt</button>
+            <button type="submit" class="btn btn-success pull-right">Cập nhật</button>
 
             <button type="button" class="btn btn-danger pull-left">Huỷ bài viết</button>
 

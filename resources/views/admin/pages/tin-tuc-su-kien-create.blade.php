@@ -152,7 +152,7 @@
     </div>
     <div class="col-sm-3">
       {{--Box--}}
-      <div class="box box-primary">
+      <div class="box box-primary" id="thu-vien-hinh-anh">
         <div class="box-header with-border">
           <h3 class="box-title">Thư viện Hình ảnh</h3>
         </div>
@@ -165,7 +165,28 @@
         <!-- /.box-body -->
       </div>
       {{--End box--}}
+
+        <script>
+
+            $(document).ready(function () {
+
+                $('#thu-vien-hinh-anh').scrollToFixed({
+                    marginTop: 10,
+                    // neither of these fixes the problem:
+                    // removeOffset, offsets
+//                    limit: function() {
+//                        var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
+//                        return limit;
+//                    },
+                    removeOffsets: true,
+                    zIndex: 999
+                });
+            });
+
+
+        </script>
     </div>
+
 
 
   </div>

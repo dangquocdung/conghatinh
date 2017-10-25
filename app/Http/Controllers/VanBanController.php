@@ -23,6 +23,19 @@ class VanBanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+
+        $this->middleware('auth');
+
+        $linhvuc = LinhVuc::all();
+
+//        $banner = Banner::where('vitri','1')->orderby('thutu','asc')->get();
+
+        view()->share('linhvuc',$linhvuc);
+    }
+
+
     public function index()
     {
         $vanban = VanBan::orderby('id','desc')->paginate(10);
@@ -36,8 +49,8 @@ class VanBanController extends Controller
      */
     public function create()
     {
-        $linhvuc = LinhVuc::all();
-        return view('admin.pages.van-ban-create',compact('linhvuc'));
+//        $linhvuc = LinhVuc::all();
+        return view('admin.pages.van-ban-create');
     }
 
     /**
@@ -137,9 +150,12 @@ class VanBanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $vb = VanBan::find($request->input('id'));
+
+
+
     }
 
     /**
