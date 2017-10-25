@@ -8,7 +8,7 @@ class TinTuc extends Model
 {
     protected $table = 'tintuc';
 
-	protected $fillable = ['user_id','loaitin_id','name','slug','avatar','gioithieu','noidung','noibat','daduyet','ghichu'];
+	protected $fillable = ['user_id','loaitin_id','name','slug','avatar','gioithieu','noidung','noibat','daduyet','ghichu','tacgia','nguon','ngaydang'];
 
 	public function loaitin()
 	{

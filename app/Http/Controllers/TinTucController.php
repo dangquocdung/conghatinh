@@ -109,6 +109,10 @@ class TinTucController extends Controller
 
             'noidung' => $request->input('noidung'),
 
+            'tacgia' => $request->input('tacgia'),
+
+            'nguon' => $request->input('nguon'),
+
             'ngaydang' => $request->input('ngaydang')
 
         ]);
@@ -166,6 +170,10 @@ class TinTucController extends Controller
         $tintuc->gioithieu = $request->input('gioithieu');
 
         $tintuc->noidung = $request->input('noidung');
+
+        $tintuc->tacgia = $request->input('tacgia');
+
+        $tintuc->nguon = $request->input('nguon');
 
         $tintuc->ngaydang = Carbon::parse($request->input('ngaydang'));
 

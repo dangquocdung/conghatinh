@@ -47,9 +47,22 @@
                   <label>Chọn loại văn bản</label>
 
                     <select class="form-control select2" name="loaivb_id" data-placeholder="Chọn loại văn bản" style="width: 100%;">
+
                       <option value=""></option>
                       @foreach($loaivb as $lvb)
                           <option value="{{ $lvb->id }}">{{ $lvb->name }}</option>
+                      @endforeach
+
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label>Chọn lĩnh vực văn bản</label>
+
+                  <select class="form-control select2" name="linhvuc_id" data-placeholder="Chọn lĩnh vực văn bản" style="width: 100%;">
+                      <option value=""></option>
+                      @foreach($linhvuc as $lv)
+                          <option value="{{ $lv->id }}">{{ $lv->name }}</option>
                       @endforeach
 
                   </select>

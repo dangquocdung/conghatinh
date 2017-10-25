@@ -64,9 +64,11 @@
                         </div>
 
                         <div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
-                            <strong>{!! $tin->tacgia !!}</strong>
+                            <strong>{{ $tin->tacgia  }}</strong>
                             <br>
-                            <em><small>Nguồn: {!! $tin->nguon !!}</small></em>
+                            @if ($tin->nguon)
+                                <em><small>Nguồn: {{ $tin->nguon }}</small></em>
+                            @endif
                         </div>
                     </div>
 

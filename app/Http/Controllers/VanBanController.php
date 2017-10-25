@@ -15,6 +15,7 @@ use Auth;
 
 use App\VanBan;
 use App\TepVanBan;
+use App\LinhVuc;
 class VanBanController extends Controller
 {
     /**
@@ -35,7 +36,8 @@ class VanBanController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.van-ban-create');
+        $linhvuc = LinhVuc::all();
+        return view('admin.pages.van-ban-create',compact('linhvuc'));
     }
 
     /**

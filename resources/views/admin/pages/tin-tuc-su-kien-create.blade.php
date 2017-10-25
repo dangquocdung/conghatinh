@@ -112,6 +112,11 @@
             
             <br>
 
+              <input name="tacgia" class="form-control" type="text" placeholder="Tác giả" required="">
+              <br>
+              <input name="nguon" class="form-control" type="text" placeholder="Nguồn" required="">
+              <br>
+
             {{-- {!! app('captcha')->display(); !!} --}}
               
             
