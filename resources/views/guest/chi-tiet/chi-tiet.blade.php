@@ -49,13 +49,13 @@
 
                     <div class="chi-tiet-tin">
 
-                        <div class="chi-tiet-avatar" style="margin-bottom: 10px;">
-                            <img src="{{$tin->avatar}}" alt="{{ $tin->name }}">
-                        </div>
+                        {{--<div class="chi-tiet-avatar" style="margin-bottom: 10px;">--}}
+                            {{--<img src="{{$tin->avatar}}" alt="{{ $tin->name }}">--}}
+                        {{--</div>--}}
 
 
                         <div class="gioi-thieu">
-                            {{ $tin->gioithieu }}
+                            <strong><em>{{ $tin->gioithieu }}</em></strong>
                         </div>
 
 
