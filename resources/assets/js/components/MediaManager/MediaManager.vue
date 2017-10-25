@@ -110,8 +110,8 @@
       margin: 0;
       .thumbnail {
         position: relative;
-        width: 80px;
-        height: 40px;
+        width: 80px !important;
+          height: 60px !important;
         overflow: hidden;
         img {
           position: absolute;
