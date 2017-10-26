@@ -179,19 +179,19 @@ class VanBanController extends Controller
 
         TepVanBan::where('vanban_id',$request->input('id'))->delete();
 
-//        $tvbs = $request->input('tepvanban');
-//
-//        foreach ($tvbs as $tvb){
-//
-//            $path = Media::find($tvb);
-//
-//
-//            TepVanBan::create([
-//                'vanban_id' => (int)$vb->id,
-//                'media_id' => (int)$tvb,
-//                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
-//            ]);
-//        }
+        $tvbs = $request->input('tepvanban');
+
+        foreach ($tvbs as $tvb){
+
+            $path = Media::find($tvb);
+
+
+            TepVanBan::create([
+                'vanban_id' => $request->input('id'),
+                'media_id' => (int)$tvb,
+                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
+            ]);
+        }
 
         return redirect()->route('van-ban');
 
