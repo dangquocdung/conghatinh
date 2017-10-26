@@ -40,7 +40,7 @@ class FileApiController extends Controller
 
         $nameonly = preg_replace('/\..+$/', '', $file->getClientOriginalName());
 
-        $mainFileName = $nameonly . '.' . $file->getClientOriginalExtension();
+        $mainFileName = $nameonly .'_'.$uniqid. '.' . $file->getClientOriginalExtension();
 
         if (!file_exists(public_path($folder))) {
             mkdir(public_path($folder), 0755, true);
