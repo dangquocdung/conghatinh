@@ -32,8 +32,9 @@
 
             @if ($tins)
             <div class="col-md-6" style="float:left">
+                <div class="row">
 
-            <div class="breadcrumb">
+            <div class="breadcrumb" style="margin-left: 3px; margin-right: 3px">
                 <span class="breadcrumb-item active">
                   <a href="van-ban/{{ $lt->slug }}" style="text-decoration: none;">
                     <span class="glyphicon glyphicon-share-alt"></span> 
@@ -88,6 +89,7 @@
 
                     </div>
                 </div>
+            </div>
             </div>
             </div>
             @endif
