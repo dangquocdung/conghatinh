@@ -36,7 +36,7 @@ class FileApiController extends Controller
 
         $folder = 'uploads/van-ban/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
 
-        $uniqid = uniqid();
+        $uniqid = $file->getClientOrginalName();
 
 //        $nameonly = preg_replace('/\..+$/', '', $file->getClientOriginalName());
 
