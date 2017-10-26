@@ -21,8 +21,9 @@
           <h3 class="box-title">Tạo mới</h3>
         </div>
         <!-- /.box-header -->
-        <form action="{{ route('them-van-ban') }}" method="post">
+        <form action="{{ route('update-van-ban') }}" method="post">
           {{ csrf_field() }}
+            <input type="hidden" name="id" id="id" value="{{$vb->id}}">
           <input type="hidden" name="avatar" id="avatar">
           <div class="box-body">
 
@@ -73,7 +74,7 @@
                   <select class="form-control select2" name="linhvuc_id" data-placeholder="Chọn lĩnh vực văn bản" style="width: 100%;">
                       <option value=""></option>
                       @foreach($linhvuc as $lv)
-                          @if ($vb->linhvuc_id == $lvb->id)
+                          @if ($vb->linhvuc_id == $lv->id)
                             <option value="{{ $lv->id }}" selected="">{{ $lv->name }}</option>
                           @else
                               <option value="{{ $lv->id }}">{{ $lv->name }}</option>
@@ -138,13 +139,39 @@
 
                   </select> --}}
               </div>
+              @php
+
+              $items = array();
+
+
+
+              foreach($tepvanban as $tvb){
+                if ($tvb->vanban_id == $vb->id){
+                    $items[] = $tvb->media_id;
+                }
+
+              }
+
+              @endphp
 
               <div class="form-group">
                   <label>Chọn tệp văn bản</label>
                   <select name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+
+
                       @foreach($pdfs as $pdf)
-                        <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                          @if (in_array($pdf->id,$items))
+                              <option value="{{$pdf->id}}" selected>{{ $pdf->id.'-'.$pdf->filename }}</option>
+                          @else
+                              <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                          @endif
+
                       @endforeach
+
+
+
+
+
 
                   </select>
               </div>

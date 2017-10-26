@@ -138,8 +138,9 @@ class VanBanController extends Controller
     public function edit($id)
     {
         $vb = VanBan::find($id);
+        $tepvanban = TepVanBan::all();
 
-        return view('admin.pages.van-ban-edit',compact('vb'));
+        return view('admin.pages.van-ban-edit',compact('vb','tepvanban'));
 
     }
 
@@ -152,7 +153,47 @@ class VanBanController extends Controller
      */
     public function update(Request $request)
     {
-        $vb = VanBan::find($request->input('id'));
+        $vb = VanBan::where('id', $request->input('id'))->update([
+
+            'user_id' => Auth::user()->id,
+
+            'loaitin_id'=> $request->input('loaitin_id'),
+
+
+            'loaivb_id'=> $request->input('loaivb_id'),
+
+            'linhvuc_id'=> $request->input('linhvuc_id'),
+
+
+            'sovb' => $request->input('sovb'),
+
+            'kihieuvb' => $request->input('kihieuvb'),
+
+            'ngaybanhanh' => $request->input('ngaybanhanh'),
+
+            'nguoiki_id' => $request->input('nguoiki_id'),
+
+            'trichyeu' => $request->input('trichyeu')
+
+        ]);
+
+        TepVanBan::where('vanban_id',$request->input('id'))->delete();
+
+//        $tvbs = $request->input('tepvanban');
+//
+//        foreach ($tvbs as $tvb){
+//
+//            $path = Media::find($tvb);
+//
+//
+//            TepVanBan::create([
+//                'vanban_id' => (int)$vb->id,
+//                'media_id' => (int)$tvb,
+//                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
+//            ]);
+//        }
+
+        return redirect()->route('van-ban');
 
 
 

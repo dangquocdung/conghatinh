@@ -12,12 +12,17 @@
         </a>
     </div>
 
+    @if (count($tinnoibat) > 0)
+
 
     <div id="tinNoiBatChinh" class="col-md-8 w3-animate-left">
 
         @php
             $tin1 = $tinnoibat->first();
         @endphp
+
+
+
 
 
 
@@ -78,6 +83,8 @@
 
 
     </div>
+
+    @endif
 </div>
 
 @if ($cm->banner_id != null)

@@ -105,7 +105,7 @@
             
             <br>
 
-              <input name="tacgia" class="form-control" type="text" required="" value="{{$tintuc->tacgia}}">
+              <input name="tacgia" class="form-control" type="text" value="{{$tintuc->tacgia}}">
               <br>
               <input name="nguon" class="form-control" type="text" value="{{$tintuc->nguon}}">
               <br>

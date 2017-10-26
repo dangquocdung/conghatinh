@@ -31,6 +31,7 @@
                 <td>Số văn bản</td>
                 <td>Nhóm</td>
                 <td>Loại văn bản</td>
+                <td>Lĩnh vực</td>
                 <td>Ngày ban hành</td>
                 <td>Trích yếu</td>
                 <td>Người kí</td>
@@ -59,6 +60,7 @@
                 </td>
                 <td>{{$vb->loaitin->name}}</td>
                 <td>{{$vb->loaivb->name}}</td>
+                <td>{{ $vb->linhvuc->name }}</td>
                 <td>{{ $vb->ngaybanhanh }}</td>
                 
                 <td>{{$vb->trichyeu}}</td>
