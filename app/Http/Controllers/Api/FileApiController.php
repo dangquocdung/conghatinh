@@ -36,11 +36,11 @@ class FileApiController extends Controller
 
         $folder = 'uploads/van-ban/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
 
-        $uniqid = $file->getClientOrginalName();
+        $uniqid = uniqid();
 
-//        $nameonly = preg_replace('/\..+$/', '', $file->getClientOriginalName());
+        $nameonly = preg_replace('/\..+$/', '', $file->getClientOriginalName());
 
-        $mainFileName = $uniqid . '.' . $file->getClientOriginalExtension();
+        $mainFileName = $nameonly . '.' . $file->getClientOriginalExtension();
 
         if (!file_exists(public_path($folder))) {
             mkdir(public_path($folder), 0755, true);
