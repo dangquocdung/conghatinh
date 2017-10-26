@@ -18,11 +18,16 @@
   <div class="galleryWrapper clearfix">
     <ul>
       <li v-for="file in files" class="image-attachment">
+
+
         <div class="thumbnail">
 
-          <object  v-bind:data="file.directory + '/' + file.filename + '.' + file.extension" type="application/pdf">
-            <embed v-bind:src="file.directory + '/' + file.filename + '.' + file.extension" type="application/pdf" />
-          </object>
+          <img src="/images/pdf-file-512.png" alt="" width="30px">
+
+
+          <!--<object  v-bind:data="file.directory + '/' + file.filename + '.' + file.extension" type="application/pdf">-->
+            <!--<embed v-bind:src="file.directory + '/' + file.filename + '.' + file.extension" type="application/pdf" />-->
+          <!--</object>-->
 
         </div>
 

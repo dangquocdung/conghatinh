@@ -58188,19 +58188,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('ul', _vm._l((_vm.files), function(file) {
     return _c('li', {
       staticClass: "image-attachment"
-    }, [_c('div', {
-      staticClass: "thumbnail"
-    }, [_c('object', {
-      attrs: {
-        "data": file.directory + '/' + file.filename + '.' + file.extension,
-        "type": "application/pdf"
-      }
-    }, [_c('embed', {
-      attrs: {
-        "src": file.directory + '/' + file.filename + '.' + file.extension,
-        "type": "application/pdf"
-      }
-    })])]), _vm._v(" "), _c('label', {
+    }, [_vm._m(0, true), _vm._v(" "), _c('label', {
       attrs: {
         "draggable": "true",
         "ondragstart": "drag(event)"
@@ -58248,7 +58236,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('i', {
     staticClass: "fa fa-trash-o"
   }), _vm._v(" Delete\n        ")])])])])], 1)
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "thumbnail"
+  }, [_c('img', {
+    attrs: {
+      "src": "/images/pdf-file-512.png",
+      "alt": "",
+      "width": "30px"
+    }
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
