@@ -123,7 +123,7 @@
                   <label>Chọn tệp văn bản</label>
                   <select name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
                       @foreach($pdfs as $pdf)
-                        <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                        <option value="{{$pdf->id}}">{{ $pdf->filename }}</option>
                       @endforeach
 
                   </select>

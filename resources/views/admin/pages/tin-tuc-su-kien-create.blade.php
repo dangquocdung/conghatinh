@@ -212,6 +212,7 @@
     //Drag & drop
 
     var dropbox = document.getElementById('dropbox');
+
     dropbox.addEventListener('drop', drop, false);
 
 
