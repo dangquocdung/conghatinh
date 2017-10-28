@@ -196,6 +196,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('delete-tin-tuc', 'TinTucController@destroy');
 
         Route::post('duyet-tin-tuc', 'TinTucController@postDuyetTinTuc');
+
+        Route::post('noi-bat-tin-tuc', 'TinTucController@postNoiBatTinTuc');
        
         Route::post('delete-chuyen-muc', 'Api\TbtApiController@postDeleteChuyenMuc');
         

@@ -218,4 +218,18 @@ class TinTucController extends Controller
 
         return response(['data' => 'Tin bài đã được duyệt đăng'], 200);
     }
+
+    public function postNoiBatTinTuc(Request $request)
+    {
+        $tinTucId = $request->input('id');
+
+
+        $tintuc = TinTuc::find($tinTucId);
+
+        $tintuc->noibat = $request->input('noibat');
+
+        $tintuc->save();
+
+        return response(['data' => 'Bản tin đã nổi bật'], 200);
+    }
 }

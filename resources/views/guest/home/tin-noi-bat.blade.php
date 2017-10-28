@@ -1,8 +1,3 @@
-@php
-    $cm = $chuyenmuc->where('slug','tin-tuc-su-kien')->first();
-
-
-@endphp
 
 <div class="block3">
 
@@ -73,7 +68,7 @@
 
                 </ul>
                     <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
-                        <a href="#" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
+                        <a href="/tin-noi-bat" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
                     </div>
                 </div>
 
@@ -87,19 +82,16 @@
     @endif
 </div>
 
-@if ($cm->banner_id != null)
 
 <div class="block3">
 
-    @foreach($banner as $bn)
-        @if ($bn->id == $cm->banner_id)
-            <a href="{{$bn->lienket}}" target="_blank">
-                <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
+
+            <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
+                <img src="/uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
             </a>
-        @endif
-    @endforeach
+
 </div>
-@endif
+
 
 
 <script>
