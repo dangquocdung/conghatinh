@@ -167,9 +167,6 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
     Route::post('delete-media', 'Api\MediaApiController@deleteMedia');
 
-    Route::post('delete-tin-tuc', 'Api\UserApiController@postDeleteTinTuc');
-
-
     Route::get('get-file', 'Api\FileApiController@index');
 
     Route::post('file-upload', 'Api\FileApiController@uploadFile');
@@ -195,6 +192,10 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'role:tbt'], function () {
+
+        Route::post('delete-tin-tuc', 'TinTucController@destroy');
+
+        Route::post('duyet-tin-tuc', 'TinTucController@postDuyetTinTuc');
        
         Route::post('delete-chuyen-muc', 'Api\TbtApiController@postDeleteChuyenMuc');
         

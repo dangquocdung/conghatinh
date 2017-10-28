@@ -8,7 +8,7 @@
 
     <div class="portlet-header">
         <a href="/chuyen-muc/tin-tuc-su-kien">
-            <h4 class="portlet-header-title no-pd-top">Tin tức, Sự kiện</h4>
+            <h4 class="portlet-header-title no-pd-top">Nổi bật</h4>
         </a>
     </div>
 

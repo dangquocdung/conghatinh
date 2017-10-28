@@ -54,13 +54,26 @@
                 <td>
                   {{$tin->name}}
                   <br>
+
                   @if ($tin->noibat == '1')
                     <span class="label label-danger">Nổi bật</span>
                   @endif
+
                   @if ($tin->daduyet == '1')
-                    <span class="label label-success">Đã duyệt</span>
+                    <span class="label label-success">Đã duyệt đăng</span>
                   @else
-                    <a href="#"><span class="label label-warning">Chờ duyệt...</span></a>
+                    <div class="pull-left gap-left gap-10">
+                      <confirm-modal
+                              btn-text='Chờ duyệt đăng...'
+                              btn-class="btn-warning"
+                              url="{{url('api/v1/duyet-tin-tuc')}}"
+                              :post-data="{{json_encode(['id' => $tin->id])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn duyệt đăng bản tin {{$tin->name}}?">
+                      </confirm-modal>
+                    </div>
+
+                    {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
                   @endif
                 </td>
                 <td>{{$tin->loaitin->name}}</td>

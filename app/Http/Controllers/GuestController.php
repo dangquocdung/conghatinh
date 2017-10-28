@@ -16,11 +16,11 @@ class GuestController extends Controller
 
         
 
-        $tinnoibat = TinTuc::orderBy('id', 'decs')->take(13)->get();
+        $tinnoibat = TinTuc::where('daduyet','1')->orderBy('id', 'decs')->take(13)->get();
 
-        $tinslide = TinTuc::where('loaitin_id','10')->orderBy('id', 'decs')->take(12)->get();
+        $tinslide = TinTuc::where('daduyet','1')->where('loaitin_id','10')->orderBy('id', 'decs')->take(12)->get();
 
-        $tinvideo = TinTuc::where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
+        $tinvideo = TinTuc::where('daduyet','1')->where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
 
 
 

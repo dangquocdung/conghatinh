@@ -18946,7 +18946,7 @@ exports.push([module.i, "\n.Image-upload .Modal {\n  border-top: 1px solid #f4f4
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")();
-exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 100px;\n    height: 100px;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.file-manager-details .modal-content {\n  height: 100% !important;\n}\n.file-manager-details .modal-content object {\n    width: 100%;\n    height: 920px;\n}\n", ""]);
+exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 30px;\n    height: 58px;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.file-manager-details .modal-content {\n  height: 100% !important;\n}\n.file-manager-details .modal-content object {\n    width: 100%;\n    height: 920px;\n}\n", ""]);
 
 /***/ }),
 

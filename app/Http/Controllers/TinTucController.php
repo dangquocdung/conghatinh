@@ -191,8 +191,31 @@ class TinTucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $tinTucId = $request->input('id');
+
+        // this is only done to get the role name
+        $tintuc = TinTuc::find($tinTucId);
+
+        DB::table('tintuc')->where('id', $tinTucId)->delete();
+
+        event(new TinTucDeleted($tintuc));
+
+        return response(['data' => 'Tin bài đã bị xoá'], 200);
+    }
+
+    public function postDuyetTinTuc(Request $request)
+    {
+        $tinTucId = $request->input('id');
+
+
+        $tintuc = TinTuc::find($tinTucId);
+
+        $tintuc->daduyet = '1';
+
+        $tintuc->save();
+
+        return response(['data' => 'Tin bài đã được duyệt đăng'], 200);
     }
 }

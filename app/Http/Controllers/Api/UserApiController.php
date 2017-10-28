@@ -151,17 +151,5 @@ class UserApiController extends Controller
         return response()->json(['data' => $data], 200);
     }
 
-    public function postDeleteTinTuc(Request $request)
-    {
-        $tinTucId = $request->input('id');
 
-        // this is only done to get the role name
-        $tintuc = TinTuc::find($tinTucId);
-
-        DB::table('tintuc')->where('id', $tinTucId)->delete();
-
-        event(new TinTucDeleted($tintuc));
-        
-        return response(['data' => 'Tin bài đã bị xoá'], 200);
-    }
 }
