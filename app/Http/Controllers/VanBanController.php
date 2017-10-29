@@ -39,7 +39,8 @@ class VanBanController extends Controller
     public function index()
     {
         $vanban = VanBan::orderby('id','desc')->paginate(10);
-        return view('admin.pages.van-ban',compact('vanban'));
+        $tepvanban = TepVanBan::all();
+        return view('admin.pages.van-ban',compact('vanban','tepvanban'));
     }
 
     /**

@@ -66,7 +66,7 @@
 
                                             <a href="{{ $tvb->path }}" target="_blank">
 
-                                                <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->sovb.'/'.$vb->kihieuvb }}">
+                                                <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
 
                                             </a>
                                         @endforeach

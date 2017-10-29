@@ -88,11 +88,6 @@
 
               <div class="form-group">
 
-                <input name="sovb" class="form-control" type="number" placeholder="Số văn bản (vd: 6789)" value="{{$vb->sovb}}" style="font-weight: bold; font-size: 1.5em" required="">
-              </div>
-
-              <div class="form-group">
-
                 <input name="kihieuvb" class="form-control" type="text" placeholder="Kí hiệu văn bản (vd: QD-UBND)" value="{{$vb->kihieuvb}}" style="font-weight: bold; font-size: 1.5em" required="">
               </div>
 

@@ -79,6 +79,13 @@
                 <td>
 
 
+
+                  @foreach($vb->tepvanban as $tvb)
+                      <a href="{{ $tvb->path }}" target="_blank">
+                        <img src="/images/pdf-file-512.png" alt="{{ $vb->kihieuvb }}" title="{{ $vb->kihieuvb }}" width="20px">
+                      </a>
+                  @endforeach
+
                 </td>
                 
                 <td class="col-sm-3">

@@ -130,11 +130,10 @@
 
               <div class="form-group">
                   <label>Chọn tệp văn bản</label>
-                  <select name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+                  <select id="tepvanban" name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">
                       @foreach($pdfs as $pdf)
-                        <option value="{{$pdf->id}}">{{ $pdf->filename }}</option>
+                        <option value="{{$pdf->id}}" style="width: 100%">{{ $pdf->filename }}</option>
                       @endforeach
-
                   </select>
               </div>
 
@@ -284,6 +283,8 @@
         $('.select2').select2({
           width: '100%'
         });
+
+
     });
 
 
@@ -308,6 +309,7 @@
             format:'DD-MM-YYYY'
         });
     });
+
 
 </script>
 @stop
