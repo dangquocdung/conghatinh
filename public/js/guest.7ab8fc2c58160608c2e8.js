@@ -1764,10 +1764,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             columns: {},
             query: {
                 page: 1,
-                column: 'sovb',
+                column: 'kihieuvb',
                 direction: 'desc',
                 per_page: 15,
-                search_column: 'sovb',
+                search_column: 'kihieuvb',
                 search_operator: 'like',
                 search_input: ''
             },
@@ -2120,7 +2120,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('option', {
     attrs: {
-      "value": "sovb"
+      "value": "kihieuvb"
     }
   }, [_vm._v("Theo Số")]), _vm._v(" "), _c('option', {
     attrs: {
@@ -2203,10 +2203,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('thead', [_c('tr', [_c('th', {
     on: {
       "click": function($event) {
-        _vm.toggleOrder('sovb')
+        _vm.toggleOrder('kihieuvb')
       }
     }
-  }, [_c('span', [_vm._v("Số/KH")]), _vm._v(" "), ('sovb' === _vm.query.column) ? _c('span', {
+  }, [_c('span', [_vm._v("Số/KH")]), _vm._v(" "), ('kihieuvb' === _vm.query.column) ? _c('span', {
     staticClass: "dv-table-column"
   }, [(_vm.query.direction === 'desc') ? _c('span', [_vm._v("↓")]) : _c('span', [_vm._v("↑")])]) : _vm._e()]), _vm._v(" "), _c('th', {
     on: {

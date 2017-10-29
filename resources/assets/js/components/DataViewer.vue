@@ -7,7 +7,7 @@
             <div class="dv-header-columns">
                 <span class="dv-header-pre">Lọc: </span>
                 <select class="dv-header-select" v-model="query.search_column">
-                    <option value="sovb">Theo Số</option>
+                    <option value="kihieuvb">Theo Số</option>
                     <option value="ngaybanhanh">Theo Ngày ban hành</option>
                     <option value="trichyeu">Theo Trích yếu</option>
                 </select>
@@ -39,10 +39,10 @@
                           <!--</span>-->
                     <!--</th>-->
 
-                    <th @click="toggleOrder('sovb')">
+                    <th @click="toggleOrder('kihieuvb')">
                         <span>Số/KH</span>
 
-                        <span class="dv-table-column" v-if="'sovb' === query.column">
+                        <span class="dv-table-column" v-if="'kihieuvb' === query.column">
                             <span v-if="query.direction === 'desc'">&darr;</span>
                             <span v-else>&uarr;</span>
                           </span>
@@ -147,10 +147,10 @@
                 columns: {},
                 query: {
                     page: 1,
-                    column: 'sovb',
+                    column: 'kihieuvb',
                     direction: 'desc',
                     per_page: 15,
-                    search_column: 'sovb',
+                    search_column: 'kihieuvb',
                     search_operator: 'like',
                     search_input: ''
                 },

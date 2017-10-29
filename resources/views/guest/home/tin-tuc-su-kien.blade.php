@@ -35,21 +35,25 @@
         @if ($i == 1)
             @if ($tin1)
                 <div class="col-md-12" style="float:left">
-                    <div class="breadcrumb">
-                        <span class="breadcrumb-item active">
-                          <a href="loai-tin/{{ $lt->slug }}" style="text-decoration: none;">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            <strong>{{ $lt->name }}</strong>
-                          </a>
-                        </span>
-                        <span class="pull-right">
-                          <a href="loai-tin/{{ $lt->slug }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
-                        </span>
+                    <div class="row">
+                        <div class="breadcrumb" style="margin-left: 3px; margin-right: 3px">
+                            <span class="breadcrumb-item active">
+                              <a href="loai-tin/{{ $lt->slug }}" style="text-decoration: none;">
+                                <span class="glyphicon glyphicon-share-alt"></span>
+                                <strong>{{ $lt->name }}</strong>
+                              </a>
+                            </span>
+                            <span class="pull-right">
+                              <a href="loai-tin/{{ $lt->slug }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
+                            </span>
+                        </div>
                     </div>
                     <div class="col-md-7 col-sm-7 col-xs-12" >
                         <div class="row">
 
-                            <div class="news-main">
+
+                        <div class="news-main" style="margin-left: -15px">
+
                                 <a class="tin_title_text" href="/chi-tiet/{{$tin1->slug}}">
                                     <div class="tin_title_text">
                                         {{ $tin1->name }}
@@ -61,8 +65,10 @@
                                 <div class="tin_title_abstract" style="display:;">
                                     {{ $tin1->gioithieu }}
                                 </div>
-                            </div>
+
                         </div>
+                        </div>
+
                     </div>
 
                     @if (count($tins)>0)
