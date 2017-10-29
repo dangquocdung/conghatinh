@@ -2229,7 +2229,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '/chi-tiet-van-ban/' + row.id
       }
-    }, [_vm._v(_vm._s(row.sovb) + "/" + _vm._s(row.kihieuvb))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.ngaybanhanh))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.loaitin.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.linhvuc.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.trichyeu))]), _vm._v(" "), _c('td', {
+    }, [_vm._v(_vm._s(row.kihieuvb))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.ngaybanhanh))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.loaitin.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.linhvuc.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.trichyeu))]), _vm._v(" "), _c('td', {
       attrs: {
         "width": "15%"
       }

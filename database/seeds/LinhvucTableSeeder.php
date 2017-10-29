@@ -26,7 +26,7 @@ class LinhvucTableSeeder extends Seeder
 
         DB::statement("SET foreign_key_checks=1");
 
-        $linhvuc = array("Kinh tế tổng hợp","Nội chính","Văn hóa – Xã hội","Đô thị");
+        $linhvuc = array("Kinh tế tổng hợp","Nội chính","Văn hóa – Xã hội","Đô thị","Khác");
 
         foreach($linhvuc as $lv) {
             LinhVuc::create([

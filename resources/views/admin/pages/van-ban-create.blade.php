@@ -71,28 +71,37 @@
 
               <div class="form-group">
 
-                <input name="sovb" class="form-control" type="number" placeholder="Số văn bản (vd: 6789)" style="font-weight: bold; font-size: 1.5em" required="">
+                <input name="kihieuvb" class="form-control" type="text" placeholder="Số (Kí hiệu) văn bản" style="font-weight: bold; font-size: 1.5em" required="">
               </div>
 
               <div class="form-group">
 
-                <input name="kihieuvb" class="form-control" type="text" placeholder="Kí hiệu văn bản (vd: QD-UBND)" style="font-weight: bold; font-size: 1.5em" required="">
-              </div>
 
-              <!-- Date -->
-              <div class="form-group">
-                  <div class="input-group date">
-                      <div class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                      </div>
-                      <input name="ngaybanhanh" type="text" class="form-control pull-right" id="datepicker" value="<?php echo date('Y-m-d'); ?>">
+
+                  <div class='input-group date' id='datetimepicker_ngaydang'>
+                      <input name="ngaydang" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
+                      <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                   </div>
-                  <!-- /.input group -->
               </div>
+
 
               <div class="form-group">
 
                 <textarea class="form-control" name="trichyeu" rows="3" cols="80" placeholder="Trích yếu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
+              </div>
+
+              <!-- Date -->
+              <div class="form-group">
+                  <label>Ngày ban hành</label>
+                  <div class='input-group date' id='datetimepicker_ngaybanhanh'>
+                      <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
+                      <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                  </div>
+                  <!-- /.input group -->
               </div>
 
               <div class="form-group">
@@ -250,15 +259,23 @@
 
 @section('css')
 
-<link rel="stylesheet" href="/admin/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
 
 @stop
 
 @section('js')
 
-<script type="text/javascript" src="/admin/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+
 
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+
+
 
 
 <script>
@@ -269,11 +286,6 @@
         });
     });
 
-    //Date picker
-    $('#datepicker').datepicker({
-        format: 'yyyy-mm-dd',
-        autoclose: true
-    })
 
     drag = function(ev) {
         event.dataTransfer.setData("text", ev.target.innerText);
@@ -286,6 +298,16 @@
     allowDrop = function(ev) {
         ev.preventDefault();
     };
+
+    $(function () {
+        $('#datetimepicker_ngaydang').datetimepicker({
+            format:'DD/MM/YYYY HH:mm:ss'
+        });
+
+        $('#datetimepicker_ngaybanhanh').datetimepicker({
+            format:'DD-MM-YYYY'
+        });
+    });
 
 </script>
 @stop

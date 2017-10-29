@@ -62,6 +62,14 @@ class VanBanController extends Controller
     public function store(Request $request)
     {
         //
+
+
+        $ngaybanhanh = Carbon::parse($request->input('ngaybanhanh'));
+
+
+
+
+
         $vb = VanBan::create([
 
             'user_id' => Auth::user()->id,
@@ -73,16 +81,15 @@ class VanBanController extends Controller
 
             'linhvuc_id'=> $request->input('linhvuc_id'),
 
-
-            'sovb' => $request->input('sovb'),
-
             'kihieuvb' => $request->input('kihieuvb'),
 
-            'ngaybanhanh' => $request->input('ngaybanhanh'),
+            'ngaybanhanh' => $ngaybanhanh,
 
             'nguoiki_id' => $request->input('nguoiki_id'),
 
             'trichyeu' => $request->input('trichyeu'),
+
+            'ngaydang' => $request->input('ngaydang'),
 
             'noibat' => '0',
 
@@ -159,13 +166,9 @@ class VanBanController extends Controller
 
             'loaitin_id'=> $request->input('loaitin_id'),
 
-
             'loaivb_id'=> $request->input('loaivb_id'),
 
             'linhvuc_id'=> $request->input('linhvuc_id'),
-
-
-            'sovb' => $request->input('sovb'),
 
             'kihieuvb' => $request->input('kihieuvb'),
 
@@ -173,7 +176,10 @@ class VanBanController extends Controller
 
             'nguoiki_id' => $request->input('nguoiki_id'),
 
-            'trichyeu' => $request->input('trichyeu')
+            'trichyeu' => $request->input('trichyeu'),
+
+            'ngaydang' => $request->input('ngaydang')
+
 
         ]);
 
@@ -205,8 +211,30 @@ class VanBanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+
+        // this is only done to get the role name
+        $vb = VanBan::find($request->input('id'));
+
+        $vb->delete();
+
+//        event(new TinTucDeleted($tintuc));
+
+        return response(['data' => 'Văn bản đã bị xoá'], 200);
+    }
+
+    public function postDuyetVanBan(Request $request)
+    {
+
+
+
+        $vb = VanBan::find($request->input('id'));
+
+        $vb->daduyet = '1';
+
+        $vb->save();
+
+        return response(['data' => 'Văn bản đã được duyệt đăng'], 200);
     }
 }

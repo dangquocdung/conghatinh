@@ -202,6 +202,10 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('delete-chuyen-muc', 'Api\TbtApiController@postDeleteChuyenMuc');
         
         Route::post('delete-loai-tin', 'Api\TbtApiController@postDeleteLoaiTin');
+
+        Route::post('delete-van-ban', 'VanBanController@destroy');
+
+        Route::post('duyet-van-ban', 'VanBanController@postDuyetVanBan');
         
     });
 

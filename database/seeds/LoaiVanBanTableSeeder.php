@@ -26,7 +26,7 @@ class LoaiVanBanTableSeeder extends Seeder
 
         DB::statement("SET foreign_key_checks=1");
 
-        $loaivb = array("Thông báo","Quyết định","Kế hoạch","Công văn","Báo cáo","Chương trình","Chỉ thị");
+        $loaivb = array("Thông báo","Quyết định","Kế hoạch","Công văn","Báo cáo","Chương trình","Chỉ thị","Giấy mời");
 
         foreach($loaivb as $lvb) {
             LoaiVB::create([

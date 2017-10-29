@@ -62,13 +62,6 @@
                   </div>
               </div>
 
-              <script type="text/javascript">
-                  $(function () {
-                      $('#datetimepicker1').datetimepicker({
-                          format:'DD/MM/YYYY HH:mm:ss'
-                      });
-                  });
-              </script>
               <br>
 
             {{-- <div class='input-group date' id='ngaydang'>
@@ -166,25 +159,6 @@
       </div>
       {{--End box--}}
 
-        <script>
-
-            $(document).ready(function () {
-
-                $('#thu-vien-hinh-anh').scrollToFixed({
-                    marginTop: 10,
-                    // neither of these fixes the problem:
-                    // removeOffset, offsets
-//                    limit: function() {
-//                        var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
-//                        return limit;
-//                    },
-                    removeOffsets: true,
-                    zIndex: 999
-                });
-            });
-
-
-        </script>
     </div>
 
 
@@ -275,6 +249,21 @@
 
         $('.select2').select2({
           width: '100%'
+        });
+    });
+
+    $(document).ready(function () {
+
+        $('#thu-vien-hinh-anh').scrollToFixed({
+            marginTop: 10,
+            removeOffsets: true,
+            zIndex: 999
+        });
+    });
+
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format:'DD/MM/YYYY HH:mm:ss'
         });
     });
 </script>

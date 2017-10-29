@@ -9,7 +9,7 @@ class VanBan extends Model
 {
     protected $table = 'vanban';
 
-    protected $fillable = ['user_id','loaitin_id','linhvuc_id','sovb','kihieuvb','ngaybanhanh','nguoiki_id','cqbh_id','trichyeu','noibat','daduyet'];
+    protected $fillable = ['user_id','loaitin_id','linhvuc_id','kihieuvb','ngaybanhanh','nguoiki_id','cqbh_id','trichyeu','noibat','daduyet'];
 
     public function loaitin()
     {
@@ -43,7 +43,7 @@ class VanBan extends Model
 
     use DataViewer;
 
-    public static $columns = ['sovb','ngaybanhanh','loaitin','linhvuc','trichyeu'
+    public static $columns = ['kihieuvb','ngaybanhanh','loaitin','linhvuc','trichyeu'
 //        'id','user_id','loaitin_id','sovb','kihieuvb','ngaybanhanh','nguoiki_id',
 //        'trichyeu','noibat','daduyet', 'created_at', 'updated_at'
     ];

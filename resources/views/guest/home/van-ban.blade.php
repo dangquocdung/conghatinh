@@ -58,7 +58,7 @@
 
                                         <a href="chi-tiet-van-ban/{{$vb->id}}" class="news-title bold">
                                             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                            Số: {{ $vb->sovb.'/'.$vb->kihieuvb }}
+                                            Số: {{ $vb->kihieuvb }}
                                         </a>
                                         
 

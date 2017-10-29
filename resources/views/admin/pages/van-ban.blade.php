@@ -33,6 +33,7 @@
                 <td>Loại văn bản</td>
                 <td>Lĩnh vực</td>
                 <td>Ngày ban hành</td>
+                <td>Ngày đăng</td>
                 <td>Trích yếu</td>
                 <td>Người kí</td>
                 <td>Tệp văn bản</td>
@@ -47,25 +48,38 @@
                 <td>{{$vb->id}}</td>
                 
                 <td>
-                  {{ $vb->sovb.'/'.$vb->kihieuvb }}
+                  {{ $vb->kihieuvb }}
                   <br>
-                  @if ($vb->noibat == '1')
-                    <span class="label label-danger">Nổi bật</span>
-                  @endif
+
                   @if ($vb->daduyet == '1')
-                      <span class="label label-success">Đã duyệt</span>
-                    @else
-                      <a href="#"><span class="label label-warning">Chờ duyệt...</span></a>
+                    <span class="label label-success">Đã duyệt đăng</span>
+                  @else
+                    <div class="pull-left gap-left gap-10">
+                      <confirm-modal
+                              btn-text='Chờ duyệt đăng...'
+                              btn-class="btn-warning"
+                              url="{{url('api/v1/duyet-van-ban')}}"
+                              :post-data="{{json_encode(['id' => $vb->id])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vb->kihieuvb}}?">
+                      </confirm-modal>
+                    </div>
+
+                    {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
                   @endif
                 </td>
                 <td>{{$vb->loaitin->name}}</td>
                 <td>{{$vb->loaivb->name}}</td>
                 <td>{{ $vb->linhvuc->name }}</td>
-                <td>{{ $vb->ngaybanhanh }}</td>
+                <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($vb->ngaydang)->format('d-m-Y H:i:s') }}</td>
                 
                 <td>{{$vb->trichyeu}}</td>
                 <td>{{ $vb->nguoiki->name }}</td>
-                <td></td>
+                <td>
+
+
+                </td>
                 
                 <td class="col-sm-3">
                   
@@ -82,7 +96,7 @@
                         url="{{url('api/v1/delete-van-ban')}}"
                         :post-data="{{json_encode(['id' => $vb->id])}}"
                         :refresh="true"
-                        message="Bạn chắc chắn muốn xoá văn bản {{$vb->name}}?">
+                        message="Bạn chắc chắn muốn xoá văn bản {{$vb->kihieuvb}}?">
                       </confirm-modal>
                     </div>
                   

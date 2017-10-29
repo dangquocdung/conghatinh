@@ -26,7 +26,7 @@ class CreateVanbanTable extends Migration
                 ->references('id')->on('loaitin')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('sovb');
+
 
             $table->string('kihieuvb');
             $table->date('ngaybanhanh');
