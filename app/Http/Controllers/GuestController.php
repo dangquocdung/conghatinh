@@ -115,11 +115,11 @@ class GuestController extends Controller
     public function apiVanBan($id=null)
     {
         if ($id != null){
-            $model = VanBan::where('daduyet','0')->where('loaitin_id',$id)->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
+            $model = VanBan::where('daduyet','1')->where('loaitin_id',$id)->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
 
 
         }else{
-            $model = VanBan::where('daduyet','0')->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
+            $model = VanBan::where('daduyet','1')->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
 
         }
 
