@@ -36,11 +36,13 @@ class FileApiController extends Controller
 
         $folder = 'uploads/van-ban/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
 
-        $uniqid = uniqid();
+//        $uniqid = uniqid();
+
+        $uniqid =strtolower(str_random(3));
 
         $nameonly = preg_replace('/\..+$/', '', $file->getClientOriginalName());
 
-        $mainFileName = $uniqid . '.' . $file->getClientOriginalExtension();
+        $mainFileName = $nameonly.'_'.$uniqid . '.' . $file->getClientOriginalExtension();
 
         if (!file_exists(public_path($folder))) {
             mkdir(public_path($folder), 0755, true);
@@ -62,7 +64,8 @@ class FileApiController extends Controller
 
     public function deleteFile(Request $request)
     {
-        $file = Media::find($request->input('currentFile.id'));
+
+        $file = Media::find($request->input('id'));
 
 
         if (!$file) {

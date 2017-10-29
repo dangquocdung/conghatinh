@@ -37,6 +37,7 @@
                   directory: '',
                   filename: '',
                   extension: '',
+                  id: '',
               }
           },
           showSuccess (file, response) {
@@ -56,16 +57,15 @@
 
           deleteFile() {
 
-              this.$http.post(deleteFile, this.currentFile.id)
+              this.$http.post(deleteFile, this.currentFile)
                   .then(response => {
 
                       console.log('response', response)
 
                   }).catch(error => {
-
                   console.log('error', error)
-
               })
+
 
               location.reload();
           }
@@ -104,9 +104,10 @@
   .file-manager-details {
     .modal-content {
         height: 100% !important;
+        padding: 0 !important;
       object{
           width: 100%;
-          height: 920px;
+          height: 940px;
 
       }
     }

@@ -152,7 +152,7 @@
       {{--End box--}}
     </div>
 
-      <div class="col-sm-4 hidden-xs">
+      <div class="col-md-4 hidden-xs">
           {{--Box--}}
           <div class="box box-primary">
               <div class="box-header with-border">
@@ -194,7 +194,7 @@
           {{--End box--}}
       </div>
 
-      <div class="col-sm-4 hidden-xs">
+      <div class="col-md-4 hidden-xs">
           {{--Box--}}
           <div class="box box-primary">
               <div class="box-header with-border">
@@ -230,9 +230,7 @@
     <div class="col-md-12 clear-fix">
       {{--Box--}}
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Thư viện văn bản</h3>
-        </div>
+
         <!-- /.box-header -->
         <div class="box-body">
           <file-manager></file-manager>

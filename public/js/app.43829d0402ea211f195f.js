@@ -1818,7 +1818,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return {
                 directory: '',
                 filename: '',
-                extension: ''
+                extension: '',
+                id: ''
             };
         },
         showSuccess: function showSuccess(file, response) {
@@ -1835,11 +1836,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         deleteFile: function deleteFile() {
 
-            this.$http.post(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* deleteFile */], this.currentFile.id).then(function (response) {
+            this.$http.post(__WEBPACK_IMPORTED_MODULE_0__config__["c" /* deleteFile */], this.currentFile).then(function (response) {
 
                 console.log('response', response);
             }).catch(function (error) {
-
                 console.log('error', error);
             });
 
@@ -18946,7 +18946,7 @@ exports.push([module.i, "\n.Image-upload .Modal {\n  border-top: 1px solid #f4f4
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")();
-exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 30px;\n    height: 58px;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.file-manager-details .modal-content {\n  height: 100% !important;\n}\n.file-manager-details .modal-content object {\n    width: 100%;\n    height: 920px;\n}\n", ""]);
+exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 30px;\n    height: 58px;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.file-manager-details .modal-content {\n  height: 100% !important;\n  padding: 0 !important;\n}\n.file-manager-details .modal-content object {\n    width: 100%;\n    height: 940px;\n}\n", ""]);
 
 /***/ }),
 
@@ -58188,7 +58188,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('ul', _vm._l((_vm.files), function(file) {
     return _c('li', {
       staticClass: "image-attachment"
-    }, [_vm._m(0, true), _vm._v(" "), _c('label', {
+    }, [_c('img', {
+      attrs: {
+        "src": "/images/pdf-file-512.png",
+        "alt": "",
+        "width": "20px"
+      }
+    }), _vm._v("  \n        "), _c('a', {
       attrs: {
         "draggable": "true",
         "ondragstart": "drag(event)"
@@ -58199,24 +58205,35 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v(_vm._s(file.filename))])])
-  }))]), _vm._v(" "), _c('div', {
+  }))]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('div', {
     staticClass: "Meta_row margin-bottom-10"
   }, [(!_vm.showUploader) ? _c('button', {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-warning",
     on: {
       "click": function($event) {
         _vm.showUploader = true
       }
     }
-  }, [_vm._v("Thêm văn bản")]) : _vm._e()]), _vm._v(" "), _c('bulma-modal', {
+  }, [_c('i', {
+    staticClass: "fa fa-plus",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v("  Thêm")]) : _vm._e()]), _vm._v(" "), _c('bulma-modal', {
     attrs: {
       "modal-class": "file-manager-details"
     }
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-sm-10"
-  }, [_c('object', {
+  }, [_c('button', {
+    staticClass: "btn btn-danger pull-right",
+    staticStyle: {
+      "margin": "5px"
+    },
+    on: {
+      "click": _vm.deleteFile
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-trash-o"
+  }), _vm._v(" Xóa\n        ")]), _vm._v(" "), _c('object', {
     attrs: {
       "data": _vm.currentFile.directory + '/' + _vm.currentFile.filename + '.' + _vm.currentFile.extension,
       "type": "application/pdf"
@@ -58226,27 +58243,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "src": _vm.currentFile.directory + '/' + _vm.currentFile.filename + '.' + _vm.currentFile.extension,
       "type": "application/pdf"
     }
-  })])]), _vm._v(" "), _c('div', {
-    staticClass: "col-sm-2"
-  }, [_c('button', {
-    staticClass: "btn btn-danger pull-right",
-    on: {
-      "click": _vm.deleteFile
-    }
-  }, [_c('i', {
-    staticClass: "fa fa-trash-o"
-  }), _vm._v(" Delete\n        ")])])])])], 1)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "thumbnail"
-  }, [_c('img', {
-    attrs: {
-      "src": "/images/pdf-file-512.png",
-      "alt": "",
-      "width": "30px"
-    }
-  })])
-}]}
+  })])])], 1)
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
