@@ -35,7 +35,7 @@
       </li>
 
       <li class="{{ Request::is('toa-soan/tin-tuc/*') ? 'active' : ''  }} treeview">
-        <a href="#">
+        <a href="javascript:void(0)">
           <i class="fa fa-newspaper-o"></i> <span> Tin tức - Sự kiện</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -56,7 +56,7 @@
       </li>
 
       <li class="{{ Request::is('toa-soan/van-ban/*') ? 'active' : ''  }} treeview">
-        <a href="#">
+        <a href="javascript:void(0)">
           <i class="fa fa-file-pdf-o"></i> <span> Văn bản</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -81,7 +81,7 @@
       @role('tbt')
 
       <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
-        <a href="#">
+        <a href="javascript:void(0)">
           <i class="fa fa-folder-open-o"></i> <span>Chuyên mục</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -99,7 +99,7 @@
       </li>
 
       <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/*') ? 'active' : ''  }} treeview">
-        <a href="#">
+        <a href="javascript:void(0)">
           <i class="fa fa-folder-open-o"></i> <span>Liên kết</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -124,7 +124,7 @@
 
       @role('admin')
         <li class="{{ Request::is('toa-soan/config/user/*') ? 'active' : ''  }} treeview">
-          <a href="#">
+          <a href="javascript:void(0)">
             <i class="fa fa-user"></i> <span>Users and Roles</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -152,7 +152,7 @@
         </li>
       @endrole
       <li class="{{ Request::is('toa-soan/config/system/*') ? 'active' : ''  }} treeview">
-        <a href="#">
+        <a href="javascript:void(0)">
           <i class="fa fa-gear"></i> <span>Cấu hình</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
