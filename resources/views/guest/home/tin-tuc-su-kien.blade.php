@@ -52,21 +52,21 @@
                         <div class="row">
 
 
-                        <div class="news-main" style="margin-left: -15px">
+                            <div class="news-main" style="margin-left: -15px">
 
-                                <a class="tin_title_text" href="/chi-tiet/{{$tin1->slug}}">
-                                    <div class="tin_title_text">
-                                        {{ $tin1->name }}
+                                    <a class="tin_title_text" href="/chi-tiet/{{$tin1->slug}}">
+                                        <div class="tin_title_text">
+                                            {{ $tin1->name }}
+                                        </div>
+
+                                        <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
+                                    </a>
+
+                                    <div class="tin_title_abstract" style="display:;">
+                                        {{ $tin1->gioithieu }}
                                     </div>
 
-                                    <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
-                                </a>
-
-                                <div class="tin_title_abstract" style="display:;">
-                                    {{ $tin1->gioithieu }}
-                                </div>
-
-                        </div>
+                            </div>
                         </div>
 
                     </div>

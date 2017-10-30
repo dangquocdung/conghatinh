@@ -86,7 +86,7 @@
                     <div class="col-md-7 col-sm-7 col-xs-12" >
                         <div class="row">
 
-                            <div class="news-main">
+                            <div class="news-main" style="margin-left: -15px">
                                 <a class="tin_title_text" href="/chi-tiet/{{$tin1->slug}}">
                                     <div class="tin_title_text">
                                         {{ $tin1->name }}
