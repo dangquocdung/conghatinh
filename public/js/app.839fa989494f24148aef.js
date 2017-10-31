@@ -107279,6 +107279,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('confirm-modal', __WEBPACK
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('activity-graph', __WEBPACK_IMPORTED_MODULE_11__components_ActivityGraph_ActivityGraph___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('media-manager', __WEBPACK_IMPORTED_MODULE_12__components_MediaManager_MediaManager___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('bulma-modal', __WEBPACK_IMPORTED_MODULE_13__components_BulmaModal___default.a);
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('file-field', __WEBPACK_IMPORTED_MODULE_14__components_FileField___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('import-users', __WEBPACK_IMPORTED_MODULE_15__components_UserImport_ImportUsers___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('edit-users', __WEBPACK_IMPORTED_MODULE_16__components_UserImport_EditUsers___default.a);

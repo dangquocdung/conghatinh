@@ -47,6 +47,7 @@ Vue.component('confirm-modal', ConfirmModal)
 Vue.component('activity-graph', ActivityGraph)
 Vue.component('media-manager', MediaManager)
 Vue.component('bulma-modal', BulmaModal)
+
 Vue.component('file-field', FileField)
 Vue.component('import-users', ImportUsers)
 Vue.component('edit-users', EditUsers)

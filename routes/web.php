@@ -42,7 +42,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     Route::get('dashboard', 'UserController@pageDashboard')->name('dashboard');
 
-    Route::get('config/system/my-activities', 'UserController@pageMyActivities')->name('my-activities');
+    Route::get('cau-hinh/he-thong/my-activities', 'UserController@pageMyActivities')->name('my-activities');
     Route::post('do-logout', 'UserController@postLogout')->name('logout');
     Route::get('user/profile', 'UserController@pageUserProfile')->name('profile');
     Route::post('user/profile', 'UserController@postUpdateProfile')->name('update-profile');
@@ -56,6 +56,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::get('edit-tin-tuc-su-kien/{slug}','TinTucController@edit')->name('edit-tin-tuc');
 
     Route::post('update-tin-tuc-su-kien','TinTucController@update')->name('update-tin-tuc');
+
 
     //Van ban
     Route::group(['prefix'=>'van-ban'],function (){
@@ -78,13 +79,13 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
 
     Route::group(['middleware' => 'role:admin'], function () {
-        Route::get('config', 'AdminController@getConfigPage')->name('config');
+        Route::get('cau-hinh', 'AdminController@getConfigPage')->name('config');
 
-        Route::get('config/system/activities', 'WatchdogController@getWatchdogPage')->name('activities');
+        Route::get('cau-hinh/he-thong/activities', 'WatchdogController@getWatchdogPage')->name('activities');
 
-        Route::get('config/system/settings', 'AdminController@getSettingsPage')->name('settings');
-        Route::post('config/system/settings', 'AdminController@postHandleSettingsPageSave')->name('settings-save');
-        Route::post('config/system/settings-add', 'AdminController@postHandleSettingsPageAdd')->name('settings-add');
+        Route::get('cau-hinh/he-thong/settings', 'AdminController@getSettingsPage')->name('settings');
+        Route::post('cau-hinh/he-thong/settings', 'AdminController@postHandleSettingsPageSave')->name('settings-save');
+        Route::post('cau-hinh/he-thong/settings-add', 'AdminController@postHandleSettingsPageAdd')->name('settings-add');
 
 
         Route::get('config/user/manager', 'AdminController@getUser')->name('user');
@@ -105,10 +106,10 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('config/user/permission/update', 'AdminController@postUpdatePermission')->name('update-permission');
 
 
-        Route::get('config/system/toppic', 'TopPicController@index')->name('toppic');
-        Route::post('config/system/save-toppic', 'TopPicController@store')->name('save-toppic');
-        Route::get('config/system/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
-        Route::post('config/system/update-toppic', 'TopPicController@update')->name('update-toppic');
+        Route::get('cau-hinh/he-thong/toppic', 'TopPicController@index')->name('toppic');
+        Route::post('cau-hinh/he-thong/save-toppic', 'TopPicController@store')->name('save-toppic');
+        Route::get('cau-hinh/he-thong/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
+        Route::post('cau-hinh/he-thong/update-toppic', 'TopPicController@update')->name('update-toppic');
         
 
 

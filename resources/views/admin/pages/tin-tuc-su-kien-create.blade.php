@@ -24,7 +24,6 @@
         <form action="{{ route('them-tin-tuc') }}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <input type="hidden" name="avatar" id="avatar">
-
           <div class="box-body">
 
               @php
@@ -70,6 +69,7 @@
               <div class="form-group">
                 <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive"
                  src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" />
+
                   <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
               </div>
 
@@ -84,7 +84,7 @@
 
               <div class="form-group">
             
-                <textarea id="noi-dung" name="noidung" required=""></textarea>
+                <textarea id="noi-dung" name="noidung" required></textarea>
               </div>
 
               <div class="form-group">
@@ -96,14 +96,14 @@
                 <input name="nguon" class="form-control" type="text" placeholder="Nguồn">
               </div>
 
-              {{--<div class="form-group">--}}
-                  {{--<label>Chọn tệp văn bản</label>--}}
-                  {{--<select id="tepvanban" name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">--}}
-                      {{--@foreach($pdfs as $pdf)--}}
-                          {{--<option value="{{$pdf->id}}" style="width: 100%">{{ $pdf->filename }}</option>--}}
-                      {{--@endforeach--}}
-                  {{--</select>--}}
-              {{--</div>--}}
+              <div class="form-group">
+                  <label>Chọn tệp văn bản</label>
+                  <select id="tepvanban" name="teptintuc[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">
+                      @foreach($pdfs as $pdf)
+                          <option value="{{$pdf->id}}" style="width: 100%">{{ $pdf->filename }}</option>
+                      @endforeach
+                  </select>
+              </div>
 
             {{-- {!! app('captcha')->display(); !!} --}}
               
@@ -137,7 +137,6 @@
 
 
       </div>
-        
       
       {{--End box--}}
     </div>

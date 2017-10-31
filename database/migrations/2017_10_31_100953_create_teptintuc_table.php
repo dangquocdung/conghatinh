@@ -26,6 +26,8 @@ class CreateTeptintucTable extends Migration
                 ->references('id')->on('media')
                 ->onUpdate('cascade')->onDelete('cascade');
 
+            $table->string('path');
+
             $table->timestamps();
         });
     }

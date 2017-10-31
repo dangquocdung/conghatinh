@@ -50,9 +50,7 @@
     <button class="btn btn-warning" v-on:click="showUploader = true" v-if="!showUploader"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Thêm</button>
   </div>
 
-
-
-  <bulma-modal modal-class="file-manager-details">
+    <bulma-modal modal-class="file-manager-details">
 
         <button class="btn btn-danger pull-right" v-on:click="deleteFile" style="margin: 5px;">
           <i class="fa fa-trash-o"></i> Xóa
@@ -62,7 +60,7 @@
           <embed v-bind:src="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" type="application/pdf" />
         </object>
 
-  </bulma-modal>
+    </bulma-modal>
 
 
 </div>

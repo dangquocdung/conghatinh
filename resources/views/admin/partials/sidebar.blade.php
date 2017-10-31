@@ -76,27 +76,8 @@
         </ul>
       </li>
 
-      
 
       @role('tbt')
-
-      <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
-        <a href="javascript:void(0)">
-          <i class="fa fa-folder-open-o"></i> <span>Chuyên mục</span>
-          <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/cau-hinh/loai-tin') ? 'active' : ''  }}">
-            <a href="{{route('loai-tin')}}"><i class="fa fa-circle-o"></i> Quản lý loại tin</a>
-          </li>
-          <li class="{{ Request::is('toa-soan/cau-hinh/chuyen-muc') ? 'active' : ''  }}">
-            <a href="{{route('chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
-          </li>
-          
-        </ul>
-      </li>
 
       <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
@@ -151,7 +132,7 @@
           </ul>
         </li>
       @endrole
-      <li class="{{ Request::is('toa-soan/config/system/*') ? 'active' : ''  }} treeview">
+      <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-gear"></i> <span>Cấu hình</span>
           <span class="pull-right-container">
@@ -159,19 +140,26 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/config/system/my-activities') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/my-activities') ? 'active' : ''  }}">
             <a href="{{route('my-activities')}}"><i class="fa fa-circle-o"></i> Tác động</a>
           </li>
           @role('admin')
-            <li class="{{ Request::is('toa-soan/config/system/activities') ? 'active' : ''  }}">
+            <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/activities') ? 'active' : ''  }}">
               <a href="{{route('activities')}}"><i class="fa fa-circle-o"></i> Nhật kí</a>
             </li>
-            <li class="{{ Request::is('toa-soan/config/system/settings') ? 'active' : ''  }}">
+            <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/settings') ? 'active' : ''  }}">
               <a href="{{route('settings')}}"><i class="fa fa-circle-o"></i> Cài đặt</a>
             </li>
 
-            <li class="{{ Request::is('toa-soan/config/system/toppic') ? 'active' : ''  }}">
+            <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/toppic') ? 'active' : ''  }}">
               <a href="{{route('toppic')}}"><i class="fa fa-circle-o"></i> Hình chạy</a>
+            </li>
+
+            <li class="{{ Request::is('toa-soan/cau-hinh/loai-tin') ? 'active' : ''  }}">
+              <a href="{{route('loai-tin')}}"><i class="fa fa-circle-o"></i> Quản lý loại tin</a>
+            </li>
+            <li class="{{ Request::is('toa-soan/cau-hinh/chuyen-muc') ? 'active' : ''  }}">
+              <a href="{{route('chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
             </li>
 
           @endrole
