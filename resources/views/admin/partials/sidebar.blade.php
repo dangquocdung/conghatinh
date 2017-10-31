@@ -36,7 +36,7 @@
 
       <li class="{{ Request::is('toa-soan/tin-tuc/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
-          <i class="fa fa-newspaper-o"></i> <span> Tin tức - Sự kiện</span>
+          <i class="fa fa-newspaper-o"></i> <span> Tin, Bài</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
