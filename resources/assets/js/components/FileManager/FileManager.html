@@ -20,7 +20,9 @@
   <div class="galleryWrapper clearfix">
     <ul>
       <li v-for="file in files" class="image-attachment">
-        <img src="/images/pdf-file-512.png" alt="" width="20px"> &nbsp;
+
+          <img src="/images/pdf-file-512.png" alt="" width="20px"> &nbsp;
+
         <a draggable="true" ondragstart="drag(event)" v-on:click="handleFileDetails(file)">{{file.filename}}</a>
         <!--<span v-on:click="deleteFile(file)"><i class="fa fa-times" aria-hidden="true"></i></span>-->
       </li>
@@ -56,13 +58,9 @@
           <i class="fa fa-trash-o"></i> Xóa
         </button>
 
-
         <object v-bind:data="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" type="application/pdf">
           <embed v-bind:src="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" type="application/pdf" />
         </object>
-
-
-
 
   </bulma-modal>
 

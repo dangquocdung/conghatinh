@@ -58194,7 +58194,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "alt": "",
         "width": "20px"
       }
-    }), _vm._v("  \n        "), _c('a', {
+    }), _vm._v("  \n\n        "), _c('a', {
       attrs: {
         "draggable": "true",
         "ondragstart": "drag(event)"

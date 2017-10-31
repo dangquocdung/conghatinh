@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\User\TinTucCreated;
 
+use App\TepTinTuc;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -116,6 +117,20 @@ class TinTucController extends Controller
             'ngaydang' => $request->input('ngaydang')
 
         ]);
+
+        $ttts = $request->input('teptintuc');
+
+        foreach ($ttts as $ttt){
+
+            $path = Media::find($ttt);
+
+
+            TepTinTuc::create([
+                'tintuc_id' => (int)$tintuc->id,
+                'media_id' => (int)$ttt,
+                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
+            ]);
+        }
 
         event(new TinTucCreated($tintuc));
 

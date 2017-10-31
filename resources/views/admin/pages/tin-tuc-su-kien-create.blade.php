@@ -24,6 +24,7 @@
         <form action="{{ route('them-tin-tuc') }}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <input type="hidden" name="avatar" id="avatar">
+
           <div class="box-body">
 
               @php
@@ -32,23 +33,25 @@
 
               @endphp
 
-            <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
-              <option value=""></option>
-              @foreach ($loaitin as $cm)
-              <optgroup label="{{ $cm->name}}">
-                @foreach ($cm->loaitin as $lt)
-                  <option value={{ $lt->id }}>{{ $lt->name}}</option>
-                @endforeach
-              </optgroup>
-              @endforeach
-            </select>
-            
-            <br>
-            <br>
+              <div class="form-group">
+
+                <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+                  <option value=""></option>
+                  @foreach ($loaitin as $cm)
+                  <optgroup label="{{ $cm->name}}">
+                    @foreach ($cm->loaitin as $lt)
+                      <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                    @endforeach
+                  </optgroup>
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
            
 
-            <input name="name" class="form-control input-lg" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" required="">
-            <br>
+                <input name="name" class="form-control input-lg" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" required="">
+              </div>
 
               <div class="form-group">
 
@@ -62,53 +65,45 @@
                   </div>
               </div>
 
-              <br>
-
-            {{-- <div class='input-group date' id='ngaydang'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div> --}}
-
-            {{-- <br> --}}
 
 
-            {{-- <div class="control-group">
-              <label class="control-label" for="fileInput"></label>
-              <br>
-
-              <input type="hidden" name="MAX_UPLOAD_SIZE" value="250000">
-
-              <input name="avatar" type="file" name="jimage" id="jimage" accept="image/jpeg" required>
-            </div>  
-
-            <br> --}}
-                      
-            {{-- <img id="uploadedimage" class="img-responsive" src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" /> --}}
-
-            <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" 
+              <div class="form-group">
+                <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive"
                  src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" />
+                  <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
+              </div>
 
 
           
-            <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
 
-            <br>
 
-            <textarea class="form-control" name="gioithieu" rows="3" cols="80" placeholder="Giới thiệu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
+              <div class="form-group">
 
-                
-            <br>
+                <textarea class="form-control" name="gioithieu" rows="3" cols="80" placeholder="Giới thiệu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
+              </div>
+
+              <div class="form-group">
             
-            <textarea id="noi-dung" name="noidung" required=""></textarea>
-            
-            <br>
+                <textarea id="noi-dung" name="noidung" required=""></textarea>
+              </div>
 
-              <input name="tacgia" class="form-control" type="text" placeholder="Tác giả">
-              <br>
-              <input name="nguon" class="form-control" type="text" placeholder="Nguồn">
-              <br>
+              <div class="form-group">
+
+                <input name="tacgia" class="form-control" type="text" placeholder="Tác giả">
+              </div>
+
+              <div class="form-group">
+                <input name="nguon" class="form-control" type="text" placeholder="Nguồn">
+              </div>
+
+              <div class="form-group">
+                  <label>Chọn tệp văn bản</label>
+                  <select id="tepvanban" name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">
+                      @foreach($pdfs as $pdf)
+                          <option value="{{$pdf->id}}" style="width: 100%">{{ $pdf->filename }}</option>
+                      @endforeach
+                  </select>
+              </div>
 
             {{-- {!! app('captcha')->display(); !!} --}}
               
@@ -139,7 +134,22 @@
           </div>
         </form>
         <!-- /.box-body -->
+
+
       </div>
+
+        {{--Box--}}
+        <div class="box box-primary">
+
+            <!-- /.box-header -->
+            <div class="box-body">
+                <file-manager></file-manager>
+
+
+            </div>
+            <!-- /.box-body -->
+        </div>
+        {{--End box--}}
       
       {{--End box--}}
     </div>

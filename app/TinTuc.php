@@ -19,4 +19,9 @@ class TinTuc extends Model
 	{
 	    return $this->belongsTo('App\User','user_id','id');
 	}
+
+    public function teptintuc()
+    {
+        return $this->hasMany('App\TepTinTuc','tintuc_id','id');
+    }
 }
