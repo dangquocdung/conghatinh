@@ -27,17 +27,17 @@
           <table class="table table-bordered table-striped table-hover">
             <thead>
               <tr>
-                <td>#</td>
-                <td>Số văn bản</td>
-                <td>Nhóm</td>
-                <td>Loại văn bản</td>
-                <td>Lĩnh vực</td>
-                <td>Ngày ban hành</td>
-                <td>Ngày đăng</td>
-                <td>Trích yếu</td>
-                <td>Người kí</td>
-                <td>Tệp văn bản</td>
-                <td></td>
+                <th>#</th>
+                <th>Số văn bản</th>
+                <th>Nhóm</th>
+                <th>Loại văn bản</th>
+                <th>Lĩnh vực</th>
+                <th>Ngày ban hành</th>
+                <th>Ngày đăng</th>
+                <th>Trích yếu</th>
+                <th>Người kí</th>
+                <th>Tệp văn bản</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>

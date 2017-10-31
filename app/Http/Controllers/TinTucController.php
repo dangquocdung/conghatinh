@@ -213,9 +213,11 @@ class TinTucController extends Controller
         // this is only done to get the role name
         $tintuc = TinTuc::find($tinTucId);
 
-        DB::table('tintuc')->where('id', $tinTucId)->delete();
+        $tintuc->delete();
 
-        event(new TinTucDeleted($tintuc));
+//        DB::table('tintuc')->where('id', $tinTucId)->delete();
+//
+//        event(new TinTucDeleted($tintuc));
 
         return response(['data' => 'Tin bài đã bị xoá'], 200);
     }

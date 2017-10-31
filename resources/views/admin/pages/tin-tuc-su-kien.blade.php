@@ -37,6 +37,8 @@
               <th>Loại Tin</th>
               
               <th>Giới thiệu</th>
+              <th>Tệp đính kèm</th>
+
               
               
               <th>Thao tác</th>
@@ -106,6 +108,18 @@
                 <td>{{$tin->loaitin->name}}</td>
                 
                 <td>{{$tin->gioithieu}}</td>
+
+                <td>
+
+
+
+                  @foreach($tin->teptintuc as $ttt)
+                    <a href="{{ $ttt->path }}" target="_blank">
+                      <img src="/images/pdf-file-512.png" alt="{{ $tin->name }}" title="{{ $tin->name }}" width="20px">
+                    </a>
+                  @endforeach
+
+                </td>
                 
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
