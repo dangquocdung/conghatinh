@@ -49,7 +49,7 @@
               <div class="form-group">
            
 
-                <input name="name" class="form-control input-lg" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" required="">
+                <input name="name" class="form-control input-lg" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
               </div>
 
               <div class="form-group">

@@ -2,14 +2,10 @@ body {
 	background: #FFFFFF url(../../images/body_bg.gif) repeat left top;
 
   // background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEABAMAAACuXLVVAAAAHlBMV…9gfGm1lK7WMlooehWaZjO+dtNsb9lvPu124U67Mb5m/4L/B4gmAYtHuY9eAAAAAElFTkSuQmCC);
-	color: #333333;
-    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 20px;
-	text-align: left;
-	letter-spacing: 0.5px;
-
+  color: #3f3f3f;
+  font: normal normal 100% Arial,Helvetica,sans-serif;
+  line-height: 1.5em;
+  font-size: 1.2em;
   box-shadow: inset 0 0 250px #D89F44;
 
   .nen-trang{
@@ -34,7 +30,6 @@ body {
   border-radius: 3px;
   margin-bottom: 5px;
   margin-top: 7px;
-  margin-right: -15px;
   overflow: hidden;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -217,6 +212,8 @@ body {
   .news-main {
 
     padding: 0 7px 0 15px;
+
+    margin-bottom: 10px;
     
 
     img{
@@ -225,6 +222,8 @@ body {
       width: 160px;
       border: 1px solid #cbccce!important;
       border-radius: 3px;
+
+      overflow: hidden;
 
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }

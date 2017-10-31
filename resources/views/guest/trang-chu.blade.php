@@ -31,7 +31,7 @@
 
                   
           </div>
-          <div class="col-lg-3 col-md-3 hidden-sm hidden-xs margin-top-15">
+          <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
             @include('guest.layout.right-box')
           </div>
       </div>
