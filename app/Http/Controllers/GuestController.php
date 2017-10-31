@@ -112,6 +112,14 @@ class GuestController extends Controller
         
     }
 
+    public function tinNoiBat()
+    {
+
+        $tintuc = TinTuc::where('daduyet','1')->where('noibat','1')->orderby('id','desc')->paginate(12);
+
+        return view('guest.tin-noi-bat', compact('tintuc'));
+    }
+
     public function apiVanBan($id=null)
     {
         if ($id != null){
