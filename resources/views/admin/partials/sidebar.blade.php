@@ -46,7 +46,7 @@
             <a href="{{route('tao-tin-tuc')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
           </li>
           <li class="{{ Request::is('toa-soan/tin-tuc-su-kien') ? 'active' : ''  }}">
-            <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Tin tức - Sự kiện</a>
+            <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Danh sách tin, bài</a>
           </li>
           
           <li class="{{ Request::is('toa-soan/media-manager') ? 'active' : ''  }} treeview">
@@ -71,7 +71,7 @@
           </li>
 
           <li class="{{ Request::is('toa-soan/van-ban/file-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('file-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý file</span></a>
+            <a href="{{route('file-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý tệp văn bản</span></a>
           </li>
         </ul>
       </li>
