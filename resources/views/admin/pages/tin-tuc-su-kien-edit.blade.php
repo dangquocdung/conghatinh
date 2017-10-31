@@ -28,87 +28,88 @@
           <input type="hidden" name="avatar" value="{{ $tintuc->avatar }}" id="avatar">
 
           <div class="box-body">
+              <div class="form-group">
 
-            <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+                <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
 
-              <option value=""></option>
+                  <option value=""></option>
 
-              @foreach ($chuyenmuc as $cm)
+                  @foreach ($chuyenmuc as $cm)
 
-              <optgroup label="{{ $cm->name}}">
+                  <optgroup label="{{ $cm->name}}">
 
-                @foreach ($cm->loaitin as $lt)
+                    @foreach ($cm->loaitin as $lt)
 
-                  @if ($tintuc->loaitin_id == $lt->id )
+                      @if ($tintuc->loaitin_id == $lt->id )
 
-                    <option value={{ $lt->id }} selected="">{{ $lt->name}}</option>
+                        <option value={{ $lt->id }} selected="">{{ $lt->name}}</option>
 
-                  @else
+                      @else
 
-                    <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                        <option value={{ $lt->id }}>{{ $lt->name}}</option>
 
-                  @endif
+                      @endif
 
-                @endforeach
+                    @endforeach
 
-              </optgroup>
-              
-              @endforeach
+                  </optgroup>
 
-            </select>
+                  @endforeach
+
+                </select>
             
-            <br>
-            <br>
-           
+              </div>
+              <div class="form-group">
+                  <input name="name" class="form-control input-lg" type="text" value="{{$tintuc->name}}" style="font-weight: bold; font-size: 1.5em" required="">
+              </div>
+              <div class="form-group">
+                  <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $tintuc->avatar }}" width="500px" alt="{{$tintuc->name}}" style="margin: 0 auto;" />
+                  <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
+              </div>
 
-            <input name="name" class="form-control input-lg" type="text" value="{{$tintuc->name}}" style="font-weight: bold; font-size: 1.5em" required="">
+              <div class="form-group">
+                  <textarea class="form-control" name="gioithieu" rows="3" cols="80" required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;">{{ $tintuc->gioithieu }}</textarea>
+              </div>
 
-            <br>
+              <div class="form-group">
+                  <textarea id="noi-dung" name="noidung" required="">{!! $tintuc->noidung !!}</textarea>
+              </div>
 
-            {{-- <div class='input-group date' id='ngaydang'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div> --}}
+              <div class="form-group">
+                  <input name="tacgia" class="form-control" type="text" value="{{$tintuc->tacgia}}">
+              </div>
+              <div class="form-group">
+                <input name="nguon" class="form-control" type="text" value="{{$tintuc->nguon}}">
+              </div>
 
-            {{-- <br> --}}
+              @php
 
-
-            {{-- <div class="control-group">
-              <label class="control-label" for="fileInput"></label>
-              <br>
-
-              <input type="hidden" name="MAX_UPLOAD_SIZE" value="250000">
-
-              <input name="avatar" type="file" name="jimage" id="jimage" accept="image/jpeg" required>
-            </div>  
-
-            <br> --}}
-                      
-            {{-- <img id="uploadedimage" class="img-responsive" src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" /> --}}
-
-            <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $tintuc->avatar }}" width="500px" alt="{{$tintuc->name}}" style="margin: 0 auto;" />
+                  $items = array();
 
 
-          
-            <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
 
-            <br>
+                  foreach($teptintuc as $ttt){
+                    if ($ttt->tintuc_id == $tintuc->id){
+                        $items[] = $ttt->media_id;
+                    }
 
-            <textarea class="form-control" name="gioithieu" rows="3" cols="80" required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;">{{ $tintuc->gioithieu }}</textarea>
+                  }
 
-                
-            <br>
-            
-            <textarea id="noi-dung" name="noidung" required="">{!! $tintuc->noidung !!}</textarea>
-            
-            <br>
+              @endphp
 
-              <input name="tacgia" class="form-control" type="text" value="{{$tintuc->tacgia}}">
-              <br>
-              <input name="nguon" class="form-control" type="text" value="{{$tintuc->nguon}}">
-              <br>
+              <div class="form-group">
+                  <label>Tệp đính kèm</label>
+                  <select name="teptintuc[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp đính kèm" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+                      @foreach($pdfs as $pdf)
+                          @if (in_array($pdf->id,$items))
+                              <option value="{{$pdf->id}}" selected>{{ $pdf->id.'-'.$pdf->filename }}</option>
+                          @else
+                              <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                          @endif
+
+                      @endforeach
+                  </select>
+              </div>
 
             {{-- {!! app('captcha')->display(); !!} --}}
               

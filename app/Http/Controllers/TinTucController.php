@@ -92,45 +92,55 @@ class TinTucController extends Controller
 
         //
 
-        $tintuc = TinTuc::create([
+        $tintuc = new TinTuc;
 
-            'user_id' => Auth::user()->id,
+        $tintuc->user_id = Auth::user()->id;
 
-            'loaitin_id'=> $request->input('loaitin_id'),
+        $tintuc->loaitin_id = $request->input('loaitin_id');
 
-            'name' => $request->input('name'),
+        $tintuc->name = $request->input('name');
 
-            'slug'=>str_slug($request->input('name')),
+        $tintuc->slug = str_slug($request->input('name'));
 
-            // 'avatar' => $folder . $thumbFileName,
+        if ($request->input('avatar')){
+            $tintuc->avatar = substr($request->input('avatar'), strpos($request->input('avatar'),'u'));
 
-            'avatar'=> substr($request->input('avatar'), strpos($request->input('avatar'),'u')),
+        }else{
+            $tintuc->avatar = "images/no-image-found.gif";
 
-            'gioithieu' => $request->input('gioithieu'),
+        }
 
-            'noidung' => $request->input('noidung'),
+        $tintuc->gioithieu = $request->input('gioithieu');
 
-            'tacgia' => $request->input('tacgia'),
+        $tintuc->noidung = $request->input('noidung');
 
-            'nguon' => $request->input('nguon'),
+        $tintuc->tacgia = $request->input('tacgia');
 
-            'ngaydang' => $request->input('ngaydang')
+        $tintuc->nguon = $request->input('nguon');
 
-        ]);
+        $tintuc->ngaydang = $request->input('ngaydang');
+
+        $tintuc->save();
 
         $ttts = $request->input('teptintuc');
 
-        foreach ($ttts as $ttt){
+        if ($ttts){
 
-            $path = Media::find($ttt);
+            foreach ($ttts as $ttt){
+
+                $path = Media::find($ttt);
 
 
-            TepTinTuc::create([
-                'tintuc_id' => (int)$tintuc->id,
-                'media_id' => (int)$ttt,
-                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
-            ]);
+                TepTinTuc::create([
+                    'tintuc_id' => (int)$tintuc->id,
+                    'media_id' => (int)$ttt,
+                    'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
+                ]);
+            }
+
+
         }
+
 
         event(new TinTucCreated($tintuc));
 
@@ -159,8 +169,10 @@ class TinTucController extends Controller
     public function edit($slug)
     {
         $tintuc = TinTuc::where('slug',$slug)->first();
+        $teptintuc = TepTinTuc::all();
 
-        return view('admin.pages.tin-tuc-su-kien-edit',compact('tintuc'));
+
+        return view('admin.pages.tin-tuc-su-kien-edit',compact('tintuc','teptintuc'));
     }
 
     /**
