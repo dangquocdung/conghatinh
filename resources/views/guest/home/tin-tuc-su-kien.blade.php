@@ -26,7 +26,7 @@
 
             $i++;
 
-            $tins = $lt->tintuc->take(5);
+            $tins = $lt->tintuc->sortByDesc('id')->take(5);
 
             $tin1= $tins->shift();
 

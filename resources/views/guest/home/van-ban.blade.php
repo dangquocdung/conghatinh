@@ -18,7 +18,7 @@
 
         @php
 
-          $tins = $lt->vanban->take(3);
+          $tins = $lt->vanban->sortByDesc('id')->take(3);
 
 
         @endphp
