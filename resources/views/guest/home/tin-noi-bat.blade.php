@@ -16,12 +16,6 @@
             $tin1 = $tinnoibat->first();
         @endphp
 
-
-
-
-
-
-
         <div class="hot-news">
 
             <a href="#" class="hot-news-thumb-nail">
@@ -29,9 +23,9 @@
             </a>
 
             <div class="hot-news-title" style="display: block;">
-                <a href="chi-tiet/{{ $tin1->slug }}"><h4>{{ $tin1->name }}</h4></a>
-
-
+                <h3>
+                    <a href="chi-tiet/{{ $tin1->slug }}">{{ $tin1->name }}</a>
+                </h3>
             </div>
             <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
                 {{ $tin1->gioithieu }}
@@ -139,9 +133,9 @@
 
                 $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
 
-                $("#tinNoiBatChinh .hot-news .hot-news-title a").attr({href: aHref});
+                $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
 
-                $("#tinNoiBatChinh .hot-news .hot-news-title h4").html(imgAlt);
+                $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
 
                 $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
 
@@ -196,9 +190,9 @@
 
                 $("#tinNoiBatChinh .hot-news img").attr({ src: imgSrc, alt: imgAlt });
 
-                $("#tinNoiBatChinh .hot-news .hot-news-title a").attr({href: aHref});
+                $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
 
-                $("#tinNoiBatChinh .hot-news .hot-news-title h4").html(imgAlt);
+                $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
 
                 $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
 
