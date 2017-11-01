@@ -16,14 +16,15 @@
                     </div>
                     <div class="so-do">
                         <ul id="tree1">
+                            <li><i class="fa fa-university" aria-hidden="true"></i> Trang chủ</li>
                             @foreach($chuyenmuc as $cm)
                                 <li>
-                                    {{ $cm->name }}
+                                    <i class="fa fa-folder-o" aria-hidden="true"></i> {{ $cm->name }}
 
                                     <ul>
                                         @foreach($cm->loaitin as $lt)
                                             <li>
-                                                <a href="loai-tin/{{ $lt->slug }}" target="_blank">
+                                                <i class="fa fa-folder-o" aria-hidden="true"></i> <a href="loai-tin/{{ $lt->slug }}" target="_blank">
                                                 {{ $lt->name }}
                                                 </a>
                                             </li>
@@ -111,8 +112,8 @@
         $.fn.extend({
             treed: function (o) {
 
-                var openedClass = 'glyphicon-minus-sign';
-                var closedClass = 'glyphicon-plus-sign';
+                var openedClass = 'fa-folder-open-o';
+                var closedClass = 'fa-folder-o';
 
                 if (typeof o != 'undefined'){
                     if (typeof o.openedClass != 'undefined'){
@@ -122,6 +123,7 @@
                         closedClass = o.closedClass;
                     }
                 };
+
 
                 /* initialize each of the top levels */
                 var tree = $(this);
@@ -163,6 +165,7 @@
         });
         /* Initialization of treeviews */
         $('#tree1').treed();
+
     </script>
     @stop
 
