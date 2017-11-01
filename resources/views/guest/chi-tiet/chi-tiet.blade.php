@@ -83,7 +83,7 @@
 
                         </div>
 
-                        <div class="pull-left">
+                        <div class="pull-right">
                             @foreach($tin->teptintuc as $ttt)
                                 <a href="{{ $ttt->path }}" target="_blank">
                                     <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
