@@ -45,12 +45,12 @@
 
 
                               
-                              <div class="col-md-8 tin_title_abstract" style="display:;">
+                              <div class="tin_title_abstract" style="display:;">
 
                                   {{ $tin->gioithieu}}
                               </div>
 
-                                <div class="col-md-4 pull-right">
+                                <div class="pull-right" style="margin-left: 15px;">
                                     @foreach($tin->teptintuc as $ttt)
                                         <a href="{{ $ttt->path }}" target="_blank">
                                             <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
