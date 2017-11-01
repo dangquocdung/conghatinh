@@ -84,6 +84,8 @@
                         </div>
 
                         <div class="pull-left">
+
+                            <span>Tải về: </span>
                             @foreach($tin->teptintuc as $ttt)
                                 <a href="{{ $ttt->path }}" target="_blank">
 
