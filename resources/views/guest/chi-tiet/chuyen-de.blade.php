@@ -63,6 +63,35 @@
                             {!! $tin->noidung !!}
                         </div>
 
+                        <div class="noi-dung">
+
+                            @foreach($tin->teptintuc as $ttt)
+
+                                {{--<object data="data/test.pdf" type="application/pdf" width="300" height="200">--}}
+                                    {{--<a href="data/test.pdf">test.pdf</a>--}}
+                                {{--</object>--}}
+
+
+
+                                {{--<object data="{{ $ttt->path }}" type="application/pdf" width="100%" height="100%">--}}
+
+                                    <embed src= "{{ $ttt->path }}" width="100%" height="640px">
+
+                                {{--</object>--}}
+
+                            @endforeach
+
+                        </div>
+                        <br>
+
+                        <div class="pull-right">
+                            @foreach($tin->teptintuc as $ttt)
+                                <a href="{{ $ttt->path }}" target="_blank">
+                                    <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
+                                </a>
+                            @endforeach
+                        </div>
+
                         <div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
                             <strong>{{ $tin->tacgia  }}</strong>
                             <br>

@@ -50,15 +50,15 @@ class TinTucController extends Controller
     public function store(Request $request, MediaUploader $mediaUploader)
     {
 
-        $validator = Validator::make($request->all(), [
-            'file' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()
-                ->back()
-                ->withErrors($validator);
-        }
+//        $validator = Validator::make($request->all(), [
+//            'file' => 'required'
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return redirect()
+//                ->back()
+//                ->withErrors($validator);
+//        }
 
         // $validator = Validator::make($request->all(), [
         //     'avatar' => 'file|image'
