@@ -215,6 +215,26 @@ class TinTucController extends Controller
         $tintuc->ngaydang = Carbon::parse($request->input('ngaydang'));
 
         $tintuc->save();
+
+        TepTinTuc::where('tintuc_id',$request->input('id'))->delete();
+
+        $ttts = $request->input('teptintuc');
+
+        if ($ttts){
+
+            foreach ($ttts as $ttt){
+
+                $path = Media::find($ttt);
+
+
+                TepTinTuc::create([
+                    'tintuc_id' => (int)$tintuc->id,
+                    'media_id' => (int)$ttt,
+                    'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
+                ]);
+            }
+        }
+
         // event(new TinTucCreated($tintuc));
 
         flash('Cập nhật bản tin thành công');
