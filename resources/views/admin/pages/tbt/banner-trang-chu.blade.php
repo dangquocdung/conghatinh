@@ -21,7 +21,7 @@
         {{--Box--}}
         <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Banner ngang</h3>
+          <h3 class="box-title">Banner phải</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -78,7 +78,7 @@
         {{--Box--}}
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Banner trang chủ</h3>
+                <h3 class="box-title">Banner ngang</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
