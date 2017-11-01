@@ -68,17 +68,6 @@
                                 <embed src= "{{ $ttt->path }}" width="100%" height="640px">
                             @endforeach
                         </div>
-                        <br>
-
-                        <div class="pull-right">
-                            @foreach($tin->teptintuc as $ttt)
-                                <a href="{{ $ttt->path }}" target="_blank">
-                                    <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
-                                </a>
-                            @endforeach
-                        </div>
-
-
 
                         <div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
                             <strong>{{ $tin->tacgia  }}</strong>
