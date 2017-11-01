@@ -43,6 +43,13 @@
                                   
                               </a>
 
+
+                              
+                              <div class="tin_title_abstract" style="display:;">
+
+                                  {{ $tin->gioithieu}}
+                              </div>
+
                                 <div class="pull-right">
                                     @foreach($tin->teptintuc as $ttt)
                                         <a href="{{ $ttt->path }}" target="_blank">
@@ -50,11 +57,6 @@
                                         </a>
                                     @endforeach
                                 </div>
-                              
-                              <div class="tin_title_abstract" style="display:;">
-
-                                  {{ $tin->gioithieu}}
-                              </div>
                           </div>
                         </div>
                        @endforeach
