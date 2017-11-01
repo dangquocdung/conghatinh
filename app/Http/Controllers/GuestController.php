@@ -120,6 +120,12 @@ class GuestController extends Controller
         return view('guest.tin-noi-bat', compact('tintuc'));
     }
 
+
+    public function getSoDoCong()
+    {
+        return view('guest.so-do-cong');
+    }
+
     public function apiVanBan($id=null)
     {
         if ($id != null){

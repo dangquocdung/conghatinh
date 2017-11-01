@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['errors::404','guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet','guest.van-ban','guest.chi-tiet-van-ban','guest.tin-noi-bat'],function($view){
+        view()->composer(['errors::404','guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet','guest.van-ban','guest.chi-tiet-van-ban','guest.tin-noi-bat','guest.so-do-cong'],function($view){
 
           $toppic = TopPic::orderby('thutu','asc')->get();
 

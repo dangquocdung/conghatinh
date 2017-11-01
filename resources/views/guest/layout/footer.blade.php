@@ -6,19 +6,19 @@
 
             <ul class="main-footer-menu" style="margin-left: 0; padding-left: 0">
                 <li class="main-footer-menu-item">
-                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Trang chủ</a>
+                    <a href="javascript:void(0)"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Trang chủ</a>
                 </li>
                 <li class="main-footer-menu-item">
-                    <a href="#">Giới thiệu BBT Cổng</a>
+                    <a href="ban-bien-tap">Giới thiệu BBT Cổng</a>
                 </li>
                 <li class="main-footer-menu-item">
-                    <a href="#">Liên hệ công tác</a>
+                    <a href="lien-he-cong-tac">Liên hệ công tác</a>
                 </li>
                 <li class="main-footer-menu-item">
-                    <a href="#">Sơ đồ cổng</a>
+                    <a href="so-do-cong">Sơ đồ cổng</a>
                 </li>
                 <li class="main-footer-menu-item">
-                    <a href="#">Góp ý</a>
+                    <a href="gop-y">Góp ý</a>
                 </li>
                 <li class="main-footer-menu-item">
                     <a href="mailto:toasoan@hatinh.gov.vn"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
