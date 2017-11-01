@@ -32,7 +32,7 @@
 
               @php
 
-                  $loaitin = $chuyenmuc->whereNotIn('id',[4,5])->all();
+                  $loaitin = $chuyenmuc->where('id','<>','4')->all();
 
               @endphp
 

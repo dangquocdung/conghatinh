@@ -63,6 +63,14 @@
                             {!! $tin->noidung !!}
                         </div>
 
+                        <div class="tep-dinh-kem">
+                            @foreach($tin->teptintuc as $ttt)
+                                <a href="{{ $ttt->path }}" target="_blank">
+                                    <img src="/images/pdf-file-512.png" alt="{{ $tin->name }}" title="{{ $tin->name }}" width="20px">
+                                </a>
+                            @endforeach
+                        </div>
+
                         <div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
                             <strong>{{ $tin->tacgia  }}</strong>
                             <br>
