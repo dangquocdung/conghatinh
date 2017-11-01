@@ -76,7 +76,7 @@
               </div>
 
               <div class="form-group">
-                  <textarea id="noi-dung" name="noidung" required="">{!! $tintuc->noidung !!}</textarea>
+                  <textarea id="noi-dung" name="noidung">{!! $tintuc->noidung !!}</textarea>
               </div>
 
               <div class="form-group">

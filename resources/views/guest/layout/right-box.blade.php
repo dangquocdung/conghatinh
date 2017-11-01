@@ -1,7 +1,9 @@
 <div class="right-box">
 
     <div class="box">
-    	<img src="/images/ban-do-ha-tinh.png" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh">
+        <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
+    	    <img src="/images/ban-do-ha-tinh.png" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh">
+        </a>
     </div>
 
     @foreach ($banner as $bn)

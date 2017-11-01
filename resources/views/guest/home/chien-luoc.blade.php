@@ -27,8 +27,8 @@
 
 
                             <div class="news-block">
-                                <a href="/chuyen-de/{{ $lt->slug }}">
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }}
+                                <a href="/loai-tin/{{ $lt->slug }}">
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }} ({{ count($lt->tintuc) }})
                                 </a>
                             </div>
 

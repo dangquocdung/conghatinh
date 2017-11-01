@@ -17,7 +17,7 @@
 
                         @foreach($ncq->coquan as $cq)
 
-                            <li class="col-md-4">
+                            <li class="col-md-4 col-xs-6">
 
                                 <a href="{{ $cq->lienket }}" target="_blank">
 

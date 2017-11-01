@@ -88,7 +88,7 @@
 
               <div class="form-group">
             
-                <textarea id="noi-dung" name="noidung" required></textarea>
+                <textarea id="noi-dung" name="noidung"></textarea>
               </div>
 
               <div class="form-group">

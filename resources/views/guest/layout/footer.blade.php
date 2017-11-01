@@ -39,9 +39,12 @@
                     </p>
                     <p class="main-footer-info-text">
                         Giấy phép số 48/GP-BVHTT cấp ngày 18/02/2003 của Bộ Văn hóa Thông tin
-                        <br> Trưởng ban Ban biên tập: Phan Tấn Linh, Giám Đốc Sở Thông tin - Truyền Thông
-                        <br> Địa chỉ: 66 Phan Đình Phùng, TP. Hà Tĩnh. Email: <a style="color:#FFF" href="mailto:portalhatinh@hatinh.gov.vn">portalhatinh@hatinh.gov.vn</a>
-                        <br> Điện thoại: (+84.239) 3686586, Fax:(+84.239) 3850288
+                        <br>
+                        <strong>Trưởng ban Ban biên tập: Phan Tấn Linh, Giám Đốc Sở Thông tin - Truyền Thông</strong>
+                        <br>
+                        <em>Địa chỉ: 66 Phan Đình Phùng, TP. Hà Tĩnh. Email: <a style="color:#FFF" href="mailto:portalhatinh@hatinh.gov.vn">portalhatinh@hatinh.gov.vn</a></em>
+                        <br>
+                        <em>Điện thoại: (+84.239) 3686586, Fax:(+84.239) 3850288</em>
                         <br> Ghi rõ nguồn Cổng Thông tin điện tử tỉnh Hà Tĩnh hoặc <a style="color:#FFF" href="http://www.hatinh.gov.vn/">www.hatinh.gov.vn</a> khi bạn phát hành lại thông tin từ Website này.
                     </p>
                 </div>
