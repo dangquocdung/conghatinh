@@ -49,6 +49,7 @@
 
                                   {{ $tin->gioithieu}}
                               </div>
+                                <br>
 
                                 <div class="pull-right">
                                     @foreach($tin->teptintuc as $ttt)
