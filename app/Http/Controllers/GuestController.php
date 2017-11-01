@@ -64,6 +64,20 @@ class GuestController extends Controller
         return view('guest.chi-tiet', compact('tin','tinlq_new','tinlq_old'));
     }
 
+    public function tepTin($slug)
+    {
+        $tin = TinTuc::where('slug',$slug)->first();
+
+        $ngay = $tin->ngaydang;
+
+        $tinlq_new = TinTuc::orderBy('ngaydang','desc')->take(10)->get();
+
+        $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
+
+        return view('guest.chi-tiet', compact('tin','tinlq_new','tinlq_old'));
+    }
+
+
     public function loaiTin($slug)
     {
         $lt = LoaiTin::where('slug',$slug)->first();
@@ -72,6 +86,16 @@ class GuestController extends Controller
 
         return view('guest.loai-tin', compact('lt','tintuc'));
     }
+
+    public function chuyenDe($slug)
+    {
+        $lt = LoaiTin::where('slug',$slug)->first();
+
+        $tintuc = TinTuc::where('loaitin_id',$lt->id)->orderby('id','desc')->paginate(12);
+
+        return view('guest.chuyen-de', compact('lt','tintuc'));
+    }
+
 
     public function chuyenMuc($slug)
     {

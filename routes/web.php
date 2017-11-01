@@ -9,6 +9,11 @@ Route::get('/en', 'GuestController@indexEN');
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
 Route::get('/loai-tin/{slug}','GuestController@loaiTin');
+
+Route::get('/chuyen-de/{slug}','GuestController@chuyenDe');
+
+Route::get('/tep-tin/{slug}','GuestController@tepTin');
+
 Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 
