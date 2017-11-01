@@ -50,7 +50,7 @@
                                   {{ $tin->gioithieu}}
                               </div>
 
-                                <div class="pull-left">
+                                <div class="pull-left" style="padding-top: 7px;">
                                     @foreach($tin->teptintuc as $ttt)
                                         <a href="{{ $ttt->path }}" target="_blank">
                                             <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
