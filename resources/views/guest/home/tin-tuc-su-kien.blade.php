@@ -50,8 +50,6 @@
                     </div>
                     <div class="col-md-7 col-sm-7 col-xs-12" >
                         <div class="row">
-
-
                             <div class="news-main" style="margin-left: -15px">
 
                                     <a class="tin_title_text" href="/chi-tiet/{{$tin1->slug}}">
@@ -65,7 +63,6 @@
                                     <div class="tin_title_abstract" style="display:;">
                                         {{ $tin1->gioithieu }}
                                     </div>
-
                             </div>
                         </div>
 
@@ -80,8 +77,6 @@
                                     <ul class="news-block">
                                         @foreach($tins as $tin)
                                             <li>
-
-
                                                 <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
 
                                                 <a href="chi-tiet/{{ $tin->slug }}" class="news-title">
@@ -91,15 +86,9 @@
                                                 <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
 
                                                 <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
-
-
                                             </li>
                                         @endforeach
-
                                     </ul>
-
-
-
                                 </div>
                             </div>
                         </div>

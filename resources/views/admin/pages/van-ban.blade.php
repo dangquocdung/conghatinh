@@ -1,4 +1,8 @@
-	@extends('admin.html')
+@extends('admin.html')
+
+@section('title')
+  <title>Danh sách văn bản</title>
+@stop
 
 @section('breadcrumb')
   <section class="content-header">

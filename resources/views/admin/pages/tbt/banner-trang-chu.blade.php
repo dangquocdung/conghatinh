@@ -1,5 +1,9 @@
 @extends('admin.html')
 
+@section('title')
+    <title>Banner trang chủ</title>
+@stop
+
 @section('breadcrumb')
   <section class="content-header">
     <h1>Quản lý Banner Trang chủ<small>Các banner hiện có</small></h1>

@@ -38,9 +38,9 @@ body {
     float: left;
     width: 100%;
     padding: 3px 5px 1px 35px;
-    background-color: #D89F44;
+    background-color: #30679b;
     background-image: url('/images/background/lotus.ico'), url('/images/background/trong-dong.png');
-    background-size: 32px 32px, auto;
+    background-size: 26px 26px, auto;
     background-position: 2px 2px,right top;
     background-repeat: no-repeat;
     margin-bottom: 10px;
@@ -50,7 +50,7 @@ body {
 
         color: #ffffff !important;
         font-family: arial;
-        line-height: 30px;
+        line-height: 24px;
         margin: 0;
         padding-left: 5px;
         text-align: left;
@@ -167,10 +167,6 @@ body {
           text-decoration: none;
         }
 
-
-
-
-
         .hot-news-block{
 
           border-bottom: 1px solid #e1e8ee;
@@ -184,29 +180,18 @@ body {
           a{
             color: #ce663f !important;
           }
-
-
         }
       }
       li.active {
-        background: #D89F44;
+        background: #4594F2;
         opacity: 0.8;
 
         .news-title {
           color: #ffffff !important;
-
         }
-
       }
-
-
-
     }
-
   }
-
-
-
 
   .news-main {
 
@@ -218,43 +203,30 @@ body {
     img{
       float:left;
       margin-right:10px;
-      margin-bottom: 10px;
       width: 160px;
       border: 1px solid #cbccce!important;
       border-radius: 3px;
-
       overflow: hidden;
-
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .tin_title_text {
-
       font-weight: bold;
       text-decoration: none;
       margin-bottom: 10px;
-
-
     }
     .tin_title_abstract{
       margin-bottom: 15px;
-
     }
 
-
-
     text-align: justify;
-
     vertical-align: middle;
     width: auto;
-
   }
 
   .news-five{
-
     padding: 0 15px 0 7px;
-
-     }
+  }
 
 
   .news-vanban{
@@ -272,13 +244,8 @@ body {
         text-decoration: none;
       }
       
-      
       text-align: justify;
       font-size: 0.95em;
-
-        
-
-      
 
       &:not(:first-child){
           margin-top: 10px;
@@ -305,11 +272,7 @@ body {
   }
   
 
-  
-
   .chuyen-trang{
-
-    
 
     ul{
       list-style-type: none;
@@ -334,16 +297,11 @@ body {
           font-weight: bold;
           color: #CE663F;
 
-
         }
 
       }
     }
   }
-
-
-
-
 }
 
 #back-top {

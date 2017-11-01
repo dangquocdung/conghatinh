@@ -1,5 +1,9 @@
 @extends('admin.html')
 
+@section('title')
+  <title>Chuyên mục</title>
+@stop
+
 @section('breadcrumb')
   <section class="content-header">
     <h1>Quản lý Chuyên mục<small>Các chuyên mục hiện có trên ứng dụng</small></h1>

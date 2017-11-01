@@ -1,5 +1,9 @@
 @extends('admin.html')
 
+@section('title')
+    <title>Tạo mới văn bản</title>
+@stop
+
 @section('breadcrumb')
   <section class="content-header">
     <h1>Quản lý Tin Tức<small>Các tin tức - sự kiện hiện có trên ứng dụng</small></h1>
