@@ -32,16 +32,24 @@
 
                                   @else
 
-                                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpS3UrDgKd7jcT3BkbPkU4d0mzV7c6PRQ5JmNQIv2Mu2eQ_UpMA" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 120px; height:auto;" >
+                                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpS3UrDgKd7jcT3BkbPkU4d0mzV7c6PRQ5JmNQIv2Mu2eQ_UpMA" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 80px; height:auto;" >
 
 
                                   @endif
 
-                                      <div class="tin_title_text">
+                                  <div class="tin_title_text">
                                       {{$tin->name}}
                                   </div>
                                   
                               </a>
+
+                                <div class="pull-right">
+                                    @foreach($tin->teptintuc as $ttt)
+                                        <a href="{{ $ttt->path }}" target="_blank">
+                                            <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
+                                        </a>
+                                    @endforeach
+                                </div>
                               
                               <div class="tin_title_abstract" style="display:;">
 
