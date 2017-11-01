@@ -85,11 +85,11 @@
 
                         <div class="pull-left">
 
-                            <span>Tải về: </span>
+                            <p>Tải về: </p>
                             @foreach($tin->teptintuc as $ttt)
                                 <a href="{{ $ttt->path }}" target="_blank">
 
-                                    <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true" style="color:red"></i>
+                                    <i class="fa fa-file-pdf-o" aria-hidden="true" style="color:red"></i>
                                     {{--<img src="/images/pdf-file-512.png" alt="{{ $tin->name }}" title="{{ $tin->name }}" width="20px !important">--}}
                                 </a>
                             @endforeach
