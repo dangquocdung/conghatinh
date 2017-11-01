@@ -48,7 +48,7 @@
                             <div class="hot-news-block">
 
                                 <a href="chi-tiet/{{ $tnb->slug }}" class="news-title">
-                                    {{ $tnb->name }}
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
                                 </a>
 
                                 <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">

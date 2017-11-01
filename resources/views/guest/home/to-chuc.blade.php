@@ -21,7 +21,7 @@
 
                                 <a href="{{ $cq->lienket }}" target="_blank">
 
-                                    <div class="news-block"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
+                                    <div class="news-block"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
                                 </a>
                             </li>
 
