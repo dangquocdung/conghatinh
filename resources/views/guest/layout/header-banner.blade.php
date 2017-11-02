@@ -5,7 +5,7 @@
 
         <header class="hidden-xs">
 
-            @include('guest.layout.header-slide')
+{{--            @include('guest.layout.header-slide')--}}
 
           <div id="header-brand">
               <div class="container">

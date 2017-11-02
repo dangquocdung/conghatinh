@@ -15,19 +15,15 @@
                 <div class="van-ban">
                     <div class="block3">
                         <div class="breadcrumb">
-                            <a class="breadcrumb-item" href="#"><i class="glyphicon glyphicon-home"></i></a>
-                            <a class="breadcrumb-item" href="#">{{$vb->loaitin->chuyenmuc->name}}</a>
-                            <a class="breadcrumb-item" href="#">{{$vb->loaitin->name}}</a>
-                            <span class="breadcrumb-item active">{{ $vb->sovb.'/'.$vb->kihieuvb }}</span>
+                            <a class="breadcrumb-item" href="/"><i class="glyphicon glyphicon-home"></i></a>
+                            <a class="breadcrumb-item" href="{{$vb->loaitin->chuyenmuc->slug}}">{{$vb->loaitin->chuyenmuc->name}}</a>
+                            <a class="breadcrumb-item" href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">{{$vb->loaitin->name}}</a>
+                            <span class="breadcrumb-item active">{{ $vb->kihieuvb }}</span>
                         </div>
 
                         <div class="dv-body">
                             <table class="dv-table">
                             <tbody>
-                                <tr>
-                                    <td style="width:30%;">Số văn bản</td>
-                                    <td>{{ $vb->sovb }}</td>
-                                </tr>
                                 <tr>
                                     <td style="width:30%;">Kí hiệu văn bản</td>
                                     <td>{{ $vb->kihieuvb }}</td>
@@ -59,9 +55,14 @@
                                 <tr>
                                     <td style="width:30%;">Tệp tin đính kèm</td>
                                     <td>
-                                        <p class="bg_dk">
-                                            <a class="dinhkem-pdf" href="http://vanban.hanoi.gov.vn/documents/10182/2518750/CD_16_2017.pdf"> CD_16_2017.pdf</a>
-                                        </p>
+                                        @foreach($vb->tepvanban as $tvb)
+
+                                            <a href="{{ $tvb->path }}" target="_blank">
+
+                                                <img src="/images/pdf-file-512.png" alt="" width="30px" title="{{ $vb->kihieuvb }}">
+
+                                            </a>
+                                        @endforeach
                                     </td>
                                 </tr>
                             </tbody>

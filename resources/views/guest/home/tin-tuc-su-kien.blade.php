@@ -73,7 +73,7 @@
                         <div class="col-md-5 col-sm-5 col-xs-12">
                             <div class="row">
 
-                                <div class="news-five" style="border-left: 1px solid #eaeaea; padding-left: 10px">
+                                <div class="news-five">
                                     <ul class="news-block">
                                         @foreach($tins as $tin)
                                             <li>

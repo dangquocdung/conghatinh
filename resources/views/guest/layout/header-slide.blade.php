@@ -9,7 +9,7 @@
             $AutoPlay: 1,
             $AutoPlaySteps: 4,
             $SlideDuration: 460,
-            $SlideWidth: 200,
+            $SlideWidth: 220,
             $SlideSpacing: 3,
             $Cols: 5,
             $Align: 390,
@@ -51,38 +51,7 @@
         /*#endregion responsive code end*/
     };
 </script>
-<style>
-    /* jssor slider loading skin spin css */
-    .jssorl-009-spin img {
-        animation-name: jssorl-009-spin;
-        animation-duration: 1.6s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
 
-    @keyframes jssorl-009-spin {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-
-    .jssorb057 .i {position:absolute;cursor:pointer;}
-    .jssorb057 .i .b {fill:none;stroke:#fff;stroke-width:2000;stroke-miterlimit:10;stroke-opacity:0.4;}
-    .jssorb057 .i:hover .b {stroke-opacity:.7;}
-    .jssorb057 .iav .b {stroke-opacity: 1;}
-    .jssorb057 .i.idn {opacity:.3;}
-
-    .jssora073 {display:block;position:absolute;cursor:pointer;}
-    .jssora073 .a {fill:#ddd;fill-opacity:.7;stroke:#000;stroke-width:160;stroke-miterlimit:10;stroke-opacity:.7;}
-    .jssora073:hover {opacity:.8;}
-    .jssora073.jssora073dn {opacity:.4;}
-    .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
-</style>
 <div id="jssor_1">
     <!-- Loading Screen -->
     <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
