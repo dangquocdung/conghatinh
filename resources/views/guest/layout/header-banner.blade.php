@@ -1,16 +1,17 @@
 <div class="container nen-trang">
+    <div class="">
 
-    <div class="margin-15px">
+
 
 
         <header class="hidden-xs">
 
-            @include('guest.layout.header-slide')
+{{--            @include('guest.layout.header-slide')--}}
 
           <div id="header-brand">
               <div class="container">
               <div id="background-brand">
-                  <div class="brand-text" style="float:left; padding-right: 20px; margin-left: 20px;">
+                  <div class="brand-logo" style="float:left; padding-right: 20px; margin-left: 20px;">
 
                       <img src="/images/quochuy.png" width="100px">
                       
@@ -110,6 +111,6 @@
 
         </nav>
 
-    </div>
 
+    </div>
 </div>
