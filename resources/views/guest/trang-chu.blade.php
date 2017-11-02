@@ -29,7 +29,7 @@
               </div>
               @include('guest.home.to-chuc')
 
-                  
+
           </div>
           <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
             @include('guest.layout.right-box')

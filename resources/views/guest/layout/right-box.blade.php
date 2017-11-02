@@ -2,7 +2,7 @@
 
     <div class="box">
         <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
-    	    <img src="/images/ban-do-ha-tinh.png" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh">
+            <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh">
         </a>
     </div>
 
