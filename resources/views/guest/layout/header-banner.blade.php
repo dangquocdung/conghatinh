@@ -38,8 +38,7 @@
                         </button>
                         <div class="visible-xs">
                             <img src="/images/quochuy.png" width="50px" style="float: left; padding: 10px">
-                            <a class="navbar-brand" href="/" style="float: left;">Hà Tĩnh Web Portal</a>
-
+                            <a class="navbar-brand" href="/" style="float: left; color: #ffffff; font-weight: bold; margin-left: -15px;">Cổng TTĐT Hà Tĩnh</a>
                         </div>
 
                     </div>

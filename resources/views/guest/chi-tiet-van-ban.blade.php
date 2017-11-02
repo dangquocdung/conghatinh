@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>{{ $vb->sovb.'/'.$vb->kihieuvb }}</title>
+  <title>{{ $vb->kihieuvb }}</title>
 @endsection
 
 @section('content')
@@ -70,6 +70,80 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="lienquan-header">
+
+                    <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản cùng loại</a>
+
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+
+                        <div class="tin-lien-quan" style="margin-top: 10px">
+                            <ul>
+
+                                @php
+
+                                    $lvb = $vb->loaitin;
+
+                                @endphp
+
+
+
+                                @foreach($lvb->vanban as $vb)
+
+                                    <li>
+                                        <a href="/chi-tiet-van-ban/{{ $vb->id }}">
+
+                                            <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vb->kihieuvb }} - {{ $vb->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vb->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+                                        </a>
+                                    </li>
+
+                                @endforeach
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="lienquan-header">
+
+                    <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản mới đăng</a>
+
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+
+                        <div class="tin-lien-quan" style="margin-top: 10px">
+                            <ul>
+
+                                @foreach($vanban as $vb)
+
+                                    <li>
+                                        <a href="/chi-tiet-van-ban/{{ $vb->id }}">
+
+                                            <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vb->kihieuvb }} - {{ $vb->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vb->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+                                        </a>
+                                    </li>
+
+                                @endforeach
+
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
 
             <div class="col-md-3 hidden-xs">

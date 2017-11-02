@@ -23,7 +23,7 @@
                         @foreach ($tintuc as $tin)
                           <div class="row" style="border-bottom: 1px solid #eaeaea; padding: 0 15px 10px 0">
                             <div class="news-main" style="margin-top: 10px;">
-                              <span class="label label-info pull-right">{{$tin->loaitin->name}}</span>
+                              <span class="label label-info pull-right hidden-xs">{{$tin->loaitin->name}}</span>
                               <a class="tin_title_text" href="/chi-tiet/{{$tin->slug}}">
 
                                   @if ($lt->chuyenmuc->slug <> 'doanh-nghiep-du-an')
