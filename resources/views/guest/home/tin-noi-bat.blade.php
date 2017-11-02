@@ -77,7 +77,7 @@
 </div>
 
 
-<div class="block3">
+<div class="block2">
 
 
             <a href="http://dichvucong.hatinh.gov.vn" target="_blank">

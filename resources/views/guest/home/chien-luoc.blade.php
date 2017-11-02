@@ -45,7 +45,7 @@
 
 @if ($cm->banner_id != null)
 
-    <div class="block3">
+    <div class="block2">
 
         @foreach($banner as $bn)
             @if ($bn->id == $cm->banner_id)
