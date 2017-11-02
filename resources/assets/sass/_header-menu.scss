@@ -11,7 +11,7 @@
 }
 
 header {
-	height: 160px;
+	height: 200px;
 
 	#header-brand {
 
@@ -20,14 +20,14 @@ header {
 		bottom: 0;
 		left: 0;
 		position: absolute;
-		height: 160px;
+		height: 200px;
 		z-index: 2;
 		#background-brand {
-			margin-top: 5px;
+			//margin-top: 5px;
 			border: solid 1px #0093ef;
 			border-bottom: none;
 			background: url(../../images/background/header_bg.png) left top no-repeat;
-			height: 160px;
+			height: 200px;
 			position: relative;
 			top: 0;
 		}
@@ -36,14 +36,14 @@ header {
 
 			display: inline-block;
 			position: relative;
-			top: 20px;
+			top: 30px;
 
 		}
 
 		.brand-text {
 			display: inline-block;
 			position: relative;
-			top: 30px;
+			top: 40px;
 			h1{
 				color: #00588f;
 				font-family: arial;
