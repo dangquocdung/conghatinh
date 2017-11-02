@@ -91,15 +91,19 @@
 
 
 
-                                @foreach($lvb->vanban as $vb)
+                                @foreach($lvb->vanban as $vbcl)
 
-                                    <li>
-                                        <a href="/chi-tiet-van-ban/{{ $vb->id }}">
+                                    @if ($vbcl->id <> $vb->id)
 
-                                            <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vb->kihieuvb }} - {{ $vb->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vb->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+                                        <li>
+                                            <a href="/chi-tiet-van-ban/{{ $vbcl->id }}">
 
-                                        </a>
-                                    </li>
+                                                <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+                                            </a>
+                                        </li>
+
+                                    @endif
 
                                 @endforeach
 
@@ -122,15 +126,19 @@
                         <div class="tin-lien-quan" style="margin-top: 10px">
                             <ul>
 
-                                @foreach($vanban as $vb)
+                                @foreach($vanban as $vbmd)
+
+                                    @if ($vbmd->id <> $vb->id)
 
                                     <li>
-                                        <a href="/chi-tiet-van-ban/{{ $vb->id }}">
+                                        <a href="/chi-tiet-van-ban/{{ $vbmd->id }}">
 
-                                            <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vb->kihieuvb }} - {{ $vb->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vb->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+                                            <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
                                         </a>
                                     </li>
+
+                                    @endif
 
                                 @endforeach
 

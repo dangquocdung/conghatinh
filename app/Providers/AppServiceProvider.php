@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
 
           $tinmoi5 = TinTuc::where('daduyet','1')->orderby('id','desc')->take(5)->get();
 
-          $vanban = VanBan::orderby('id','desc')->take(5)->get();
+          $vanban = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
 
           $cqbh = CQBH::all();
 
