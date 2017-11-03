@@ -22,7 +22,7 @@
               @include('guest.home.van-ban')
               @include('guest.home.chien-luoc')
 {{--              @include('guest.home.hoi-dap')--}}
-              @include('guest.home.video')
+{{--              @include('guest.home.video')--}}
               <div class="block3">
                   <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
                       <img src="uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
