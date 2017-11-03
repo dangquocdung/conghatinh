@@ -8,7 +8,7 @@
 
 
 
-  
+@if (count($cm) > 0)
 
 <div class="block3" id="{{ $cm->slug }}">
 
@@ -79,7 +79,6 @@
 </div>
 
 @if ($cm->banner_id != null)
-
     <div class="block2">
 
         @foreach($banner as $bn)
@@ -90,6 +89,8 @@
             @endif
         @endforeach
     </div>
+@endif
+
 @endif
 
 
