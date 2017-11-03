@@ -5,7 +5,7 @@
 @endphp
 
 
-<div class="right-box">
+
 
 @foreach($chuyenmuc as $cm)
 
@@ -46,7 +46,7 @@
 
 
     @endforeach
-</div>
+
 
 
 

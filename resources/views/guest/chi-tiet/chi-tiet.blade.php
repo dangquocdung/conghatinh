@@ -117,5 +117,7 @@
 
 
 <div class="col-md-3 hidden-xs">
-    @include('guest.chi-tiet.right-box')
+    <div class="right-box">
+        @include('guest.chi-tiet.right-box')
+    </div>
 </div>
