@@ -106,7 +106,10 @@ class LoaiTinController extends Controller
         $lt->save();
 
         flash('Loại tin đã được cập nhật');
-        return redirect( route('loai-tin'));
+
+//        return redirect( route('loai-tin'));
+
+        return redirect()->back();
     }
 
 
