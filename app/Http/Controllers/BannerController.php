@@ -81,11 +81,11 @@ class BannerController extends Controller
      * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit($id)
     {
-
-        $banner = Banner::orderBy('id', 'desc')->paginate(20);
-        return view('admin.pages.tbt.banner-trang-chu-edit',compact('banner'));
+        $banner = Banner::all();
+        $bn = Banner::find($id);
+        return view('admin.pages.tbt.banner-trang-chu-edit',compact('banner','bn'));
     }
 
     /**
@@ -95,9 +95,24 @@ class BannerController extends Controller
      * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Banner $banner)
+    public function update(Request $request)
     {
-        //
+        $bn = Banner::find($request->input('id'));
+
+        $bn->name = $request->input('name');
+
+        $bn->slug = str_slug($request->input('name'));
+
+        $bn->lienket = $request->input('lienket');
+
+        $bn->banner = substr($request->input('banner'), strpos($request->input('banner'),'u'));
+
+        $bn->thutu = $request->input('thutu');
+
+        $bn->save();
+
+        flash('Banner đã được cập nhật');
+        return redirect( route('banner-trang-chu'));
     }
 
     /**
@@ -106,8 +121,12 @@ class BannerController extends Controller
      * @param  \App\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banner $banner)
+    public function destroy(Request $request)
     {
-        //
+        $bn = Banner::find($request->input('id'));
+        $bn->delete();
+        flash('Xóa Banner thành công');
+        return redirect( route('banner-trang-chu'));
+
     }
 }

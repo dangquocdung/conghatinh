@@ -136,6 +136,16 @@ class GuestController extends Controller
         
     }
 
+    public function getDoanhNghiepHoi()
+    {
+        return view ('guest.doanh-nghiep-hoi');
+    }
+
+    public function getTuVanHoTroPhapLy()
+    {
+        return view ('guest.tu-van-ho-tro-phap-ly');
+    }
+
     public function tinNoiBat()
     {
 

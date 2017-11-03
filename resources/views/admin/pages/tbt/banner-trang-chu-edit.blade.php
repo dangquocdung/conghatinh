@@ -21,9 +21,10 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Thêm Liên kết</h3>
+          <h3 class="box-title">Chỉnh sửa banner</h3>
         </div>
-        <form action="{{route('save-banner-trang-chu')}}" method="post" id="role-save-form">
+        <form action="{{route('update-banner-trang-chu')}}" method="post" id="role-save-form">
+            <input type="hidden" name="id" value="{{ $bn->id }}">
 
 
 
@@ -34,8 +35,13 @@
               <div class="form-group">
                   <label>Loại</label>
                   <select class="form-control" name="vitri" style="width: 100%;">
-                      <option value="0" selected>Banner phải</option>
-                      <option value="1">Banner ngang</option>
+                      @if ($bn->vitri == 0)
+                        <option value="0" selected>Banner phải</option>
+                          <option value="1">Banner ngang</option>
+                      @else
+                          <option value="0">Banner phải</option>
+                          <option value="1" selected>Banner ngang</option>
+                      @endif
                   </select>
               </div>
 
@@ -45,7 +51,7 @@
                      placeholder="Nhập tên banner"
                      name="name"
                      id="name"
-                     value="{{old('name')}}"
+                     value="{{ $bn->name }}"
                      class="form-control">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>
@@ -58,7 +64,7 @@
                        placeholder="Nhập đường dẫn liên kết http"
                        name="lienket"
                        id="lienket"
-                       value="{{old('lienket')}}"
+                       value="{{$bn->lienket}}"
                        class="form-control">
                 <div class="HelpText error">{{$errors->first('lienket')}}</div>
             </div>
@@ -67,16 +73,20 @@
               <label>Thứ tự hiện thị</label>
               <select class="form-control" name="thutu" style="width: 100%;">
                 @for ($i = 1; $i <= count($banner); $i++)
-                  <option value={{ $i }}>{{ $i }}</option>
+                    @if ($i == $bn->thutu)
+                        <option value={{ $i }} selected>{{ $i }}</option>
+                      @else
+                          <option value={{ $i }}>{{ $i }}</option>
+                      @endif
+
                 @endfor
-                  <option value={{ $i }} selected>{{ $i }}</option>
               </select>
             </div>
 
               <div class="form-group">
-                  <label for="">Kéo thả Banner:</label>
+                  <label for="">Banner:</label>
 
-                  <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="http://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
+                  <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $bn->banner }}" width="500px" style="margin: 0 auto;" />
                   <input type="hidden" name="banner" id="banner">
               </div>
 

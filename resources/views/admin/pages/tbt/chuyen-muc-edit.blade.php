@@ -102,7 +102,7 @@
             <div class="form-group">
               <label>Banner ngang</label>
               <select class="form-control" name="banner" id="banner" style="width: 100%;">
-                <option selected disabled>Chọn Banner</option>
+                  <option value="" >Không Chọn Banner</option>
                 @foreach ($banner as $bn)
 
                   @if ($bn->id == $chuyenmuc->banner_id)

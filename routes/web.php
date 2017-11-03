@@ -12,6 +12,10 @@ Route::get('/loai-tin/{slug}','GuestController@loaiTin');
 Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
+
+Route::get('/doanh-nghiep-hoi','GuestController@getDoanhNghiepHoi');
+Route::get('/tu-van-ho-tro-phap-ly','GuestController@getTuVanHoTroPhapLy');
+
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
 
 // Route::get('/api/van-ban-all/chi-dao-dieu-hanh','GuestController@apiVanBanCHDH');
@@ -173,6 +177,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
     Route::post('file-upload', 'Api\FileApiController@uploadFile');
 
     Route::post('delete-file', 'Api\FileApiController@deleteFile');
+
+    Route::post('delete-banner-trang-chu', 'BannerController@destroy');
     
 
 
