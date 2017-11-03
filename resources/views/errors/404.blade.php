@@ -28,17 +28,3 @@
 @stop
 
 
-@section('js')
-
-    <script>
-
-        function goBack() {
-            window.history.back();
-        }
-
-
-    </script>
-
-@stop
-
-

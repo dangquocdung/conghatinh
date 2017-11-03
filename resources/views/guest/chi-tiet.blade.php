@@ -19,11 +19,7 @@
 
 <script>
 
-	function goBack() {
- 	    window.history.back();
- 	} 
-
- 	function newOpenWindows(url){
+	function newOpenWindows(url){
 		
 		var windowprops = "width=100,height=100,scrollbars=yes,status=yes,resizable=no";
 		var heightspeed = 20; // vertical scrolling speed (higher = slower)

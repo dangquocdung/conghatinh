@@ -31,6 +31,11 @@
 
 <script type="text/javascript" src="guest/js/jquery.jscroll.js"></script>
 
+<script type="text/javascript">
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 
 {{--gmapsjs--}}
