@@ -1,5 +1,5 @@
 @php
-    $cm = $chuyenmuc->where('slug','tin-chinh-quyen')->first();
+    $cm = $chuyenmuc->where('slug','tin-hoat-dong')->first();
 
 
 @endphp
@@ -8,7 +8,7 @@
 
 
 
-
+@if (count($cm) > 0)
 
 <div class="block3" id="{{ $cm->slug }}">
 
@@ -163,6 +163,7 @@
     </div>
 @endif
 
+@endif
 
 <script>
     $(document).ready(function () {
