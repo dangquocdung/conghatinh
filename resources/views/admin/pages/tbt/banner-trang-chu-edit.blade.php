@@ -87,7 +87,7 @@
                   <label for="">Banner:</label>
 
                   <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $bn->banner }}" width="500px" style="margin: 0 auto;" />
-                  <input type="hidden" name="banner" id="banner">
+                  <input type="hidden" name="banner" id="banner" value="{{ $bn->banner }}">
               </div>
 
 

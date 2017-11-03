@@ -6,6 +6,8 @@
         </a>
     </div>
 
+    @include('guest.chi-tiet.right-box')
+
     @foreach ($banner as $bn)
         @if ($bn->vitri == 0)
             <div class="box">
@@ -15,5 +17,11 @@
             </div>
         @endif
     @endforeach
+
+    <div class="box">
+        <a href="https://shop.viettel.vn/" target="_blank">
+            <img src="http://www.hatinh.gov.vn/PublishingImages/LoGoVietTel.jpg" alt="Quảng cáo" title="Quảng cáo">
+        </a>
+    </div>
 
 </div>
