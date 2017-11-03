@@ -1,3 +1,4 @@
+<div class="right-box">
 <div class="block4">
     <div class="block-header">
         <h4>Cơ quan ban hành</h4>
@@ -65,6 +66,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

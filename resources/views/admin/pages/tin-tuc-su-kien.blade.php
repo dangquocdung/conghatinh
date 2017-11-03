@@ -60,7 +60,7 @@
                   @if ($tin->noibat == '1')
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
-                              btn-text='Làm Nổi bật?'
+                              btn-text='Hủy Nổi bật'
                               btn-class="btn-danger"
                               url="{{url('api/v1/noi-bat-tin-tuc')}}"
                               :post-data="{{json_encode(['id' => $tin->id, 'noibat'=>'0'])}}"
@@ -72,7 +72,7 @@
                   @else
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
-                              btn-text='Làm Nổi bật?'
+                              btn-text='Làm Nổi bật'
                               btn-class="btn-warning"
                               url="{{url('api/v1/noi-bat-tin-tuc')}}"
                               :post-data="{{json_encode(['id' => $tin->id, 'noibat'=>'1'])}}"
@@ -93,14 +93,25 @@
 
 
                   @if ($tin->daduyet == '1')
-                    <span class="label label-success">Đã duyệt đăng</span>
+                    {{--<span class="label label-success">Đã duyệt đăng</span>--}}
+                    <div class="pull-left gap-left gap-10">
+                      <confirm-modal
+                              btn-text='Thôi Duyệt đăng'
+                              btn-class="btn-danger"
+                              url="{{url('api/v1/duyet-tin-tuc')}}"
+                              :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'0'])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn thôi duyệt đăng bản tin {{$tin->name}}?">
+                      </confirm-modal>
+                    </div>
+
                   @else
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
-                              btn-text='Chờ duyệt đăng...'
-                              btn-class="btn-warning"
+                              btn-text='Chờ duyệt đăng'
+                              btn-class="btn-success"
                               url="{{url('api/v1/duyet-tin-tuc')}}"
-                              :post-data="{{json_encode(['id' => $tin->id])}}"
+                              :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'1'])}}"
                               :refresh="true"
                               message="Bạn chắc chắn muốn duyệt đăng bản tin {{$tin->name}}?">
                       </confirm-modal>

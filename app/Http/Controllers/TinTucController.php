@@ -271,6 +271,8 @@ class TinTucController extends Controller
 
         $tintuc = TinTuc::find($tinTucId);
 
+//        $tintuc->daduyet = $request->input('daduyet');
+
         $tintuc->daduyet = '1';
 
         $tintuc->save();
