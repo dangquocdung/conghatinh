@@ -16,8 +16,8 @@
                     <div class="block3">
                         <div class="breadcrumb">
                             <a class="breadcrumb-item" href="/"><i class="glyphicon glyphicon-home"></i></a>
-                            <a class="breadcrumb-item" href="/van-ban">Tất cả Văn Bản</a>
-                            {{-- <span class="breadcrumb-item active">{{ $lt->name }}</span> --}}
+                            {{--<a class="breadcrumb-item" href="/van-ban">Doan</a>--}}
+                             <span class="breadcrumb-item active">Doanh nghiệp hỏi - CQNN trả lời</span>
                         </div>
 
                         <div id="app" style="padding: 5px;">
