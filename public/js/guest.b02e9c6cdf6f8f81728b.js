@@ -1836,6 +1836,212 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/DoanhNghiepHoi.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__("./node_modules/axios/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+//similar to vue-resource
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['source', 'title'],
+    data: function data() {
+        return {
+            model: {},
+            columns: {},
+            query: {
+                page: 1,
+                column: 'kihieuvb',
+                direction: 'desc',
+                per_page: 15,
+                search_column: 'kihieuvb',
+                search_operator: 'like',
+                search_input: ''
+            },
+            operators: {
+                equal: '=',
+                not_equal: '<>',
+                less_than: '<',
+                greater_than: '>',
+                less_than_or_equal_to: '<=',
+                greater_than_or_equal_to: '>=',
+                in: 'IN',
+                like: 'LIKE'
+            }
+        };
+    },
+    created: function created() {
+        this.fetchIndexData();
+    },
+
+    methods: {
+        next: function next() {
+            if (this.model.next_page_url) {
+                this.query.page++;
+                this.fetchIndexData();
+            }
+        },
+        prev: function prev() {
+            if (this.model.prev_page_url) {
+                this.query.page--;
+                this.fetchIndexData();
+            }
+        },
+        toggleOrder: function toggleOrder(column) {
+            if (column === this.query.column) {
+                // only change direction
+                if (this.query.direction === 'desc') {
+                    this.query.direction = 'asc';
+                } else {
+                    this.query.direction = 'desc';
+                }
+            } else {
+                this.query.column = column;
+                this.query.direction = 'asc';
+            }
+
+            this.fetchIndexData();
+        },
+        fetchIndexData: function fetchIndexData() {
+            var vm = this;
+
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(this.source + '?column=' + this.query.column + '&direction=' + this.query.direction + '&page=' + this.query.page + '&per_page=' + this.query.per_page + '&search_column=' + this.query.search_column + '&search_operator=' + this.query.search_operator + '&search_input=' + this.query.search_input).then(function (response) {
+
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.set(vm.$data, 'model', response.data.model);
+
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.set(vm.$data, 'columns', response.data.columns);
+            }).catch(function (response) {
+
+                console.log(response);
+            });
+        },
+        handlePDFDetails: function handlePDFDetails(tvb) {
+            window.open(tvb.path);
+        }
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /***/ (function(module, exports) {
 
@@ -2333,6 +2539,259 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-2925bc53", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3e44c5c4\"}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/DoanhNghiepHoi.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "dv"
+  }, [_c('div', {
+    staticClass: "dv-header"
+  }, [_c('div', {
+    staticClass: "dv-header-title"
+  }, [_vm._v("\n            " + _vm._s(_vm.title) + "\n        ")]), _vm._v(" "), _c('div', {
+    staticClass: "dv-header-columns"
+  }, [_c('span', {
+    staticClass: "dv-header-pre"
+  }, [_vm._v("Lọc: ")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.query.search_column),
+      expression: "query.search_column"
+    }],
+    staticClass: "dv-header-select",
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.query.search_column = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": "kihieuvb"
+    }
+  }, [_vm._v("Theo Số")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "ngaybanhanh"
+    }
+  }, [_vm._v("Theo Ngày ban hành")]), _vm._v(" "), _c('option', {
+    attrs: {
+      "value": "trichyeu"
+    }
+  }, [_vm._v("Theo Trích yếu")])])]), _vm._v(" "), _c('div', {
+    staticClass: "dv-header-operators",
+    staticStyle: {
+      "display": "none"
+    }
+  }, [_c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.query.search_operator),
+      expression: "query.search_operator"
+    }],
+    staticClass: "dv-header-select",
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.query.search_operator = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, _vm._l((_vm.operators), function(value, key) {
+    return _c('option', {
+      domProps: {
+        "value": key
+      }
+    }, [_vm._v(_vm._s(value))])
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "dv-header-search"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.query.search_input),
+      expression: "query.search_input"
+    }],
+    staticClass: "dv-header-input",
+    attrs: {
+      "type": "text",
+      "placeholder": "Nội dung lọc"
+    },
+    domProps: {
+      "value": (_vm.query.search_input)
+    },
+    on: {
+      "keyup": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        _vm.fetchIndexData()
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.query.search_input = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "dv-header-submit"
+  }, [_c('button', {
+    staticClass: "dv-header-btn",
+    on: {
+      "click": function($event) {
+        _vm.fetchIndexData()
+      }
+    }
+  }, [_vm._v("Lọc")])])]), _vm._v(" "), _c('div', {
+    staticClass: "dv-body"
+  }, [_c('table', {
+    staticClass: "dv-table"
+  }, [_c('thead', [_c('tr', [_c('th', {
+    on: {
+      "click": function($event) {
+        _vm.toggleOrder('kihieuvb')
+      }
+    }
+  }, [_c('span', [_vm._v("Số/KH")]), _vm._v(" "), ('kihieuvb' === _vm.query.column) ? _c('span', {
+    staticClass: "dv-table-column"
+  }, [(_vm.query.direction === 'desc') ? _c('span', [_vm._v("↓")]) : _c('span', [_vm._v("↑")])]) : _vm._e()]), _vm._v(" "), _c('th', {
+    on: {
+      "click": function($event) {
+        _vm.toggleOrder('ngaybanhanh')
+      }
+    }
+  }, [_c('span', [_vm._v("Ngày ban hành")]), _vm._v(" "), ('ngaybanhanh' === _vm.query.column) ? _c('span', {
+    staticClass: "dv-table-column"
+  }, [(_vm.query.direction === 'desc') ? _c('span', [_vm._v("↓")]) : _c('span', [_vm._v("↑")])]) : _vm._e()]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('th', {
+    on: {
+      "click": function($event) {
+        _vm.toggleOrder('trichyeu')
+      }
+    }
+  }, [_c('span', [_vm._v("Trích yếu")]), _vm._v(" "), ('trichyeu' === _vm.query.column) ? _c('span', {
+    staticClass: "dv-table-column"
+  }, [(_vm.query.direction === 'desc') ? _c('span', [_vm._v("↓")]) : _c('span', [_vm._v("↑")])]) : _vm._e()]), _vm._v(" "), _c('th', [_vm._v("Tệp văn bản")])])]), _vm._v(" "), _c('tbody', _vm._l((_vm.model.data), function(row) {
+    return _c('tr', [_c('td', [_c('a', {
+      attrs: {
+        "href": '/chi-tiet-van-ban/' + row.id
+      }
+    }, [_vm._v(_vm._s(row.kihieuvb))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.ngaybanhanh))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.loaitin.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.linhvuc.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(row.trichyeu))]), _vm._v(" "), _c('td', {
+      attrs: {
+        "width": "15%"
+      }
+    }, _vm._l((row.tepvanban), function(tvb) {
+      return _c('span', [_c('img', {
+        staticStyle: {
+          "float": "right"
+        },
+        attrs: {
+          "src": "/images/pdf-file-512.png",
+          "alt": "",
+          "width": "30px"
+        },
+        on: {
+          "click": function($event) {
+            _vm.handlePDFDetails(tvb)
+          }
+        }
+      })])
+    }))])
+  }))])]), _vm._v(" "), _c('div', {
+    staticClass: "dv-footer"
+  }, [_c('div', {
+    staticClass: "dv-footer-item"
+  }, [_c('span', [_vm._v("Đang hiện thị từ " + _vm._s(_vm.model.from) + " đến " + _vm._s(_vm.model.to) + " trong tổng " + _vm._s(_vm.model.total) + " văn bản")])]), _vm._v(" "), _c('div', {
+    staticClass: "dv-footer-item"
+  }, [_c('div', {
+    staticClass: "dv-footer-sub"
+  }, [_c('span', [_vm._v("Tùy chỉnh số văn bản trên mỗi trang")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.query.per_page),
+      expression: "query.per_page"
+    }],
+    staticClass: "dv-footer-input",
+    attrs: {
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.query.per_page)
+    },
+    on: {
+      "keyup": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        _vm.fetchIndexData()
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.query.per_page = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "dv-footer-sub"
+  }, [_c('button', {
+    staticClass: "dv-footer-btn",
+    on: {
+      "click": function($event) {
+        _vm.prev()
+      }
+    }
+  }, [_vm._v("«")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.query.page),
+      expression: "query.page"
+    }],
+    staticClass: "dv-footer-input",
+    attrs: {
+      "type": "text"
+    },
+    domProps: {
+      "value": (_vm.query.page)
+    },
+    on: {
+      "keyup": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        _vm.fetchIndexData()
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.query.page = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('button', {
+    staticClass: "dv-footer-btn",
+    on: {
+      "click": function($event) {
+        _vm.next()
+      }
+    }
+  }, [_vm._v("»")])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('th', [_c('span', [_vm._v("Loại VB")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('th', [_c('span', [_vm._v("Lĩnh vực")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-3e44c5c4", module.exports)
   }
 }
 
@@ -12602,6 +13061,41 @@ module.exports = Component.exports
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/DoanhNghiepHoi.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")(
+  /* script */
+  __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/DoanhNghiepHoi.vue"),
+  /* template */
+  __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3e44c5c4\"}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/DoanhNghiepHoi.vue"),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/quocdungdang/git-clone/inferno/resources/assets/js/components/DoanhNghiepHoi.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] DoanhNghiepHoi.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3e44c5c4", Component.options)
+  } else {
+    hotAPI.reload("data-v-3e44c5c4", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/guest.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12611,6 +13105,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_DataViewer_vue__ = __webpack_require__("./resources/assets/js/components/DataViewer.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_DataViewer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_DataViewer_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_DoanhNghiepHoi_vue__ = __webpack_require__("./resources/assets/js/components/DoanhNghiepHoi.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_DoanhNghiepHoi_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_DoanhNghiepHoi_vue__);
+
 
 
 
@@ -12618,7 +13115,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     components: {
-        VanBanViewer: __WEBPACK_IMPORTED_MODULE_1__components_DataViewer_vue___default.a
+        VanBanViewer: __WEBPACK_IMPORTED_MODULE_1__components_DataViewer_vue___default.a,
+        DoanhNghiepHoi: __WEBPACK_IMPORTED_MODULE_2__components_DoanhNghiepHoi_vue___default.a
     }
 });
 

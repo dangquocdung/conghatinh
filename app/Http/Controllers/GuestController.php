@@ -7,6 +7,7 @@ use App\TinTuc;
 use App\LoaiTin;
 use App\ChuyenMuc;
 use App\VanBan;
+use App\CoQuan;
 
 class GuestController extends Controller
 {
@@ -138,7 +139,8 @@ class GuestController extends Controller
 
     public function getDoanhNghiepHoi()
     {
-        return view ('guest.doanh-nghiep-hoi');
+        $coquan = CoQuan::orderby('nhomcq_id')->get();
+        return view ('guest.doanh-nghiep-hoi',compact('coquan'));
     }
 
     public function getTuVanHoTroPhapLy()
