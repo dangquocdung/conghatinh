@@ -31,6 +31,9 @@
                 <thead>
                 <tr>
                     <th>
+                        <span>Lĩnh vực</span>
+                    </th>
+                    <th>
                         <span>Câu hỏi</span>
                     </th>
                     <th>
@@ -49,6 +52,7 @@
 
                 <tbody>
                     <tr v-for="row in model.data">
+                        <td>{{ row.linhvuc.name }}</td>
                         <td>{{ row.cauhoi }}</td>
                         <td>{{ row.doanhnghiep }}</td>
                         <td>{{ row.ngaytraloi }}</td>
