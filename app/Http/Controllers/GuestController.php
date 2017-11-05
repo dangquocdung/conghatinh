@@ -146,7 +146,8 @@ class GuestController extends Controller
 
     public function getHoTroPhapLy()
     {
-        return view ('guest.ho-tro-phap-ly');
+        $linhvuc = Linhvu::orderby('slug','asc')->get();
+        return view ('guest.ho-tro-phap-ly',compact('linhvuc'));
     }
 
     public function tinNoiBat()

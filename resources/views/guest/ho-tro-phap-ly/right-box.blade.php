@@ -15,13 +15,13 @@
             <div class="news-rightbox">
                 <ul>
 
-                    @foreach($coquan as $cq)
+                    @foreach($linhvuc as $lv)
 
                         <li>
 
                             <div class="news-block">
                                 <a href="javascript:void(0)">
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $cq->name }}
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lv->name }}
                                 </a>
                             </div>
                         </li>
