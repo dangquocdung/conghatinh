@@ -5,6 +5,11 @@ Route::resource('web', 'WebController');
 Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
 
+Route::get('/chuyen-muc/doanh-nghiep-hoi','GuestController@getDoanhNghiepHoi');
+
+Route::get('/chuyen-muc/tu-van-ho-tro-phap-ly','GuestController@getTuVanHoTroPhapLy');
+
+
 
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
@@ -13,8 +18,6 @@ Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
-Route::get('/chuyen-muc/doanh-nghiep-hoi','GuestController@getDoanhNghiepHoi');
-Route::get('/chuyen-muc/tu-van-ho-tro-phap-ly','GuestController@getTuVanHoTroPhapLy');
 
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
 
