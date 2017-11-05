@@ -21,7 +21,7 @@
                         </div>
 
                         <div id="app" style="padding: 5px;">
-                            <doanh-nghiep-hoi source="/api/van-ban-all" title="Tất cả câu hỏi" />
+                            <doanh-nghiep-hoi source="/api/doanh-nghiep-hoi-all" title="Tất cả câu hỏi" />
                         </div>
 
                     </div>

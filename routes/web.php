@@ -13,10 +13,12 @@ Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
-Route::get('/doanh-nghiep-hoi','GuestController@getDoanhNghiepHoi');
-Route::get('/tu-van-ho-tro-phap-ly','GuestController@getTuVanHoTroPhapLy');
+Route::get('/chuyen-muc/doanh-nghiep-hoi','GuestController@getDoanhNghiepHoi');
+Route::get('/chuyen-muc/tu-van-ho-tro-phap-ly','GuestController@getTuVanHoTroPhapLy');
 
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
+
+Route::get('/api/doanh-nghiep-hoi-all','GuestController@apiDoanhNghiepHoi');
 
 // Route::get('/api/van-ban-all/chi-dao-dieu-hanh','GuestController@apiVanBanCHDH');
 

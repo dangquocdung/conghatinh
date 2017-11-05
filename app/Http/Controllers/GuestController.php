@@ -8,6 +8,7 @@ use App\LoaiTin;
 use App\ChuyenMuc;
 use App\VanBan;
 use App\CoQuan;
+use App\DoanhNghiepHoi;
 
 class GuestController extends Controller
 {
@@ -174,6 +175,20 @@ class GuestController extends Controller
         }
 
         $columns = VanBan::$columns;
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
+    }
+
+    public function apiDoanhNghiepHoi()
+    {
+
+        $model = DoanhNghiepHoi::where('daduyet','0')->with('coquan')->get();
+
+        $columns = DoanhNghiepHoi::$columns;
 
         return response()
             ->json([

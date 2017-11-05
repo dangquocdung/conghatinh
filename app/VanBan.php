@@ -2,8 +2,8 @@
 
 namespace App;
 
+use App\Helper\VanBanViewer;
 use Illuminate\Database\Eloquent\Model;
-use App\Helper\DataViewer;
 
 class VanBan extends Model
 {
@@ -41,7 +41,7 @@ class VanBan extends Model
         return $this->hasMany('App\TepVanBan','vanban_id','id');
     }
 
-    use DataViewer;
+    use VanBanViewer;
 
     public static $columns = ['kihieuvb','ngaybanhanh','loaitin','linhvuc','trichyeu'
 //        'id','user_id','loaitin_id','sovb','kihieuvb','ngaybanhanh','nguoiki_id',
