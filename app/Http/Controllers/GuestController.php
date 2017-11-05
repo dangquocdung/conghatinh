@@ -9,6 +9,7 @@ use App\ChuyenMuc;
 use App\VanBan;
 use App\CoQuan;
 use App\DoanhNghiepHoi;
+use App\LinhVuc;
 
 class GuestController extends Controller
 {
@@ -146,7 +147,7 @@ class GuestController extends Controller
 
     public function getHoTroPhapLy()
     {
-        $linhvuc = Linhvu::orderby('slug','asc')->get();
+        $linhvuc = Linhvuc::orderby('slug','asc')->get();
         return view ('guest.ho-tro-phap-ly',compact('linhvuc'));
     }
 
