@@ -144,9 +144,9 @@ class GuestController extends Controller
         return view ('guest.doanh-nghiep-hoi',compact('coquan'));
     }
 
-    public function getTuVanHoTroPhapLy()
+    public function getHoTroPhapLy()
     {
-        return view ('guest.tu-van-ho-tro-phap-ly');
+        return view ('guest.ho-tro-phap-ly');
     }
 
     public function tinNoiBat()
@@ -186,7 +186,7 @@ class GuestController extends Controller
     public function apiDoanhNghiepHoi()
     {
 
-        $model = DoanhNghiepHoi::where('daduyet','0')->with('coquan')->get();
+        $model = DoanhNghiepHoi::where('daduyet','0')->with('coquan')->searchPaginateAndOrder();
 
         $columns = DoanhNghiepHoi::$columns;
 

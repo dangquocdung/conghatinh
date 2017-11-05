@@ -7,7 +7,7 @@ Route::get('/en', 'GuestController@indexEN');
 
 Route::get('/chuyen-muc/doanh-nghiep-hoi','GuestController@getDoanhNghiepHoi');
 
-Route::get('/chuyen-muc/tu-van-ho-tro-phap-ly','GuestController@getTuVanHoTroPhapLy');
+Route::get('/chuyen-muc/ho-tro-phap-ly','GuestController@getHoTroPhapLy');
 
 
 
