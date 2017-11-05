@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-md-3 hidden-xs">
-            @include('guest.doanh-nghiep-hoi.right-box')
+            @include('guest.ho-tro-phap-ly.right-box')
         </div>
       
     </div>
