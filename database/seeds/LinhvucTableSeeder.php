@@ -17,16 +17,18 @@ class LinhvucTableSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        DB::statement("SET foreign_key_checks=0");
+//        DB::statement("SET foreign_key_checks=0");
+//
+//
+//        TepVanBan::truncate();
+//        VanBan::truncate();
+//        LinhVuc::truncate();
+//
+//        DB::statement("SET foreign_key_checks=1");
 
-        
-        TepVanBan::truncate();
-        VanBan::truncate();
-        LinhVuc::truncate();
+//        $linhvuc = array("Kinh tế tổng hợp","Nội chính","Văn hóa – Xã hội","Đô thị","Khác");
 
-        DB::statement("SET foreign_key_checks=1");
-
-        $linhvuc = array("Kinh tế tổng hợp","Nội chính","Văn hóa – Xã hội","Đô thị","Khác");
+        $linhvuc = array("Cấp phép, đầu tư","Công nghệ thông tin","Thương mại quốc tế","Đầu tư","Đất đai","Hợp đồng","Thuế","Hải quan","Xử lý vi phạm trong kinh doanh","Hỗ trợ pháp lý","Phổ biến pháp luật","Bảo hiểm xã hội","Tài nguyên - Môi trường");
 
         foreach($linhvuc as $lv) {
             LinhVuc::create([
