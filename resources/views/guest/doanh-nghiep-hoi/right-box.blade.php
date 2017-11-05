@@ -20,7 +20,7 @@
                         <li>
 
                             <div class="news-block">
-                                <a href="#">
+                                <a href="javascript:void(0)">
                                     <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $cq->name }}
                                 </a>
                             </div>
