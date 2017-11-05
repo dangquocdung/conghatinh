@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\TinTuc;
 use App\LoaiTin;
@@ -10,6 +11,7 @@ use App\VanBan;
 use App\CoQuan;
 use App\DoanhNghiepHoi;
 use App\LinhVuc;
+use App\HoTroPhapLy;
 
 class GuestController extends Controller
 {
@@ -191,6 +193,22 @@ class GuestController extends Controller
         $model = DoanhNghiepHoi::where('daduyet','0')->with('coquan')->searchPaginateAndOrder();
 
         $columns = DoanhNghiepHoi::$columns;
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
+    }
+
+    public function apiHoTroPhapLy()
+    {
+
+//        $model = HoTroPhapLy::where('daduyet','0')->with('coquan')->with('linhvuc')->searchPaginateAndOrder();
+
+        $model = HoTroPhapLy::where('daduyet','0')->with('coquan')->with('linhvuc')->searchPaginateAndOrder();
+
+        $columns = HoTroPhapLy::$columns;
 
         return response()
             ->json([

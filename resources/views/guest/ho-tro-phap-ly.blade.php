@@ -19,7 +19,7 @@
                 </div>
 
                 <div id="app" style="padding: 5px;">
-                    <doanh-nghiep-hoi source="/api/doanh-nghiep-hoi-all" title="Tất cả câu hỏi" />
+                    <ho-tro-phap-ly source="/api/ho-tro-phap-ly" title="Tất cả câu hỏi" />
                 </div>
 
             </div>
@@ -33,3 +33,7 @@
   </div>
 @endsection
 
+
+@section('js')
+    <script type="text/javascript" src="{{mix('/js/guest.js')}}"></script>
+@stop

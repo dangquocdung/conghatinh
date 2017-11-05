@@ -5,9 +5,9 @@ Route::resource('web', 'WebController');
 Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
 
-Route::get('/chuyen-muc/doanh-nghiep-hoi','GuestController@getDoanhNghiepHoi');
+Route::get('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','GuestController@getDoanhNghiepHoi');
 
-Route::get('/chuyen-muc/ho-tro-phap-ly','GuestController@getHoTroPhapLy');
+Route::get('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','GuestController@getHoTroPhapLy');
 
 
 
@@ -23,9 +23,7 @@ Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
 
 Route::get('/api/doanh-nghiep-hoi-all','GuestController@apiDoanhNghiepHoi');
 
-// Route::get('/api/van-ban-all/chi-dao-dieu-hanh','GuestController@apiVanBanCHDH');
-
-// Route::get('/api/van-ban-all/cong-bao','GuestController@apiVanBanCB');
+Route::get('/api/ho-tro-phap-ly','GuestController@apiHoTroPhapLy');
 
 Route::get('/chi-tiet-van-ban/{id}','GuestController@ctVanBan');
 
