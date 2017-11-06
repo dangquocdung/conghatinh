@@ -99,6 +99,8 @@ class BannerController extends Controller
     {
         $bn = Banner::find($request->input('id'));
 
+        $bn->vitri = $request->input('vitri');
+
         $bn->name = $request->input('name');
 
         $bn->slug = str_slug($request->input('name'));
