@@ -42,10 +42,26 @@
         @endif
     @endforeach
 
+
+
     <div class="box">
+        <a href="javascript:void(0);">
+            <img src="uploads/2017/11/59ffc75dc1853.png" alt="Trưng bày tư liệu 'Hoàng Sa- Trường Sa của Việt Nam'" title="Trưng bày tư liệu 'Hoàng Sa- Trường Sa của Việt Nam'">
+        </a>
+    </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+
+            <h4>Doanh nghiệp</h4>
+
+        </div>
         <a href="https://shop.viettel.vn/" target="_blank">
             <img src="http://www.hatinh.gov.vn/PublishingImages/LoGoVietTel.jpg" alt="Quảng cáo" title="Quảng cáo">
         </a>
+
+
     </div>
 
 </div>
