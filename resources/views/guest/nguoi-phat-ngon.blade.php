@@ -19,9 +19,13 @@
                             {{--<a class="breadcrumb-item" href="/van-ban">Doan</a>--}}
                              <span class="breadcrumb-item active">Danh sách người phát ngôn</span>
 
-                            <button class="pull-right btn btn-info btn-sm" id="themCauHoi">
-                                <i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm
-                            </button>
+                            @role('tbt')
+
+                                <button class="pull-right btn btn-info btn-sm" id="themCauHoi">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm
+                                </button>
+
+                            @endrole
 
 
 

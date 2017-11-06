@@ -46,7 +46,7 @@
                 </a>
               </div>
               <div class="pull-right">
-                <a href="{{ route('dang-nhap') }}"
+                <a href="javascript:void(0);"
                    id="logout-button"
                    onclick="document.getElementById('logout-form').submit();"
                    class="btn btn-default btn-flat">Sign out</a>
