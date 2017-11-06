@@ -60,6 +60,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('user/profile', 'UserController@postUpdateProfile')->name('update-profile');
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
     Route::get('media-manager', 'MediaController@index')->name('media-manager');
+    Route::get('/file-manager', 'FileController@index')->name('file-manager');
 
     Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
     Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');
@@ -81,7 +82,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
         Route::post('/update-van-ban','VanBanController@update')->name('update-van-ban');
 
-        Route::get('/file-manager', 'FileController@index')->name('file-manager');
+
 
 
         Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');

@@ -41,7 +41,7 @@
             </div>
         @endif
     @endforeach
-    
+
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
@@ -49,9 +49,16 @@
             <h4>Doanh nghiệp</h4>
 
         </div>
-        <a href="https://shop.viettel.vn/" target="_blank">
-            <img src="http://www.hatinh.gov.vn/PublishingImages/LoGoVietTel.jpg" alt="Quảng cáo" title="Quảng cáo">
-        </a>
+
+        @foreach ($banner as $bn)
+            @if ($bn->vitri == 2)
+                <a href="{{$bn->lienket}}" target="_blank">
+                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">
+                </a>
+            @endif
+        @endforeach
+
+
 
 
     </div>

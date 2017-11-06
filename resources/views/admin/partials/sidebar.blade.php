@@ -49,9 +49,7 @@
             <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Danh sách tin, bài</a>
           </li>
           
-          <li class="{{ Request::is('toa-soan/media-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('media-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý Hình ảnh</span></a>
-          </li>
+
         </ul>
       </li>
 
@@ -70,10 +68,16 @@
             <a href="{{route('van-ban')}}"><i class="fa fa-circle-o"></i> Tất cả Văn bản</a>
           </li>
 
-          <li class="{{ Request::is('toa-soan/van-ban/file-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('file-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý tệp văn bản</span></a>
-          </li>
+
         </ul>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/media-manager') ? 'active' : ''  }} treeview">
+        <a href="{{route('media-manager')}}"><i class="fa fa-camera-retro"></i><span>Quản lý Hình ảnh</span></a>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/file-manager') ? 'active' : ''  }} treeview">
+        <a href="{{route('file-manager')}}"><i class="fa fa-file-pdf-o"></i><span>Quản lý tệp văn bản</span></a>
       </li>
 
 
@@ -91,7 +95,7 @@
           
           
           <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
-            <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Banner trang chủ</a>
+            <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Đặt Banner</a>
           </li>
           
           <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
