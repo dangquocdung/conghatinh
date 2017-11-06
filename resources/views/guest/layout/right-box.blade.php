@@ -52,7 +52,7 @@
 
         @foreach ($banner as $bn)
             @if ($bn->vitri == 2)
-                <div class="box">
+                <div class="box-banner">
                     <a href="{{$bn->lienket}}" target="_blank">
                         <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
                     </a>
@@ -75,7 +75,7 @@
 
         @foreach ($banner as $bn)
             @if ($bn->vitri == 3)
-                <div class="box">
+                <div class="box-banner">
                     <a href="{{$bn->lienket}}" target="_blank">
                         <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
                     </a>
