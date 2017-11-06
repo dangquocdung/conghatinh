@@ -46,12 +46,33 @@
 
         <div class="block-header" style="margin-bottom: 0">
 
-            <h4>Doanh nghiệp</h4>
+            <h4>Tuyên truyền</h4>
 
         </div>
 
         @foreach ($banner as $bn)
             @if ($bn->vitri == 2)
+                <a href="{{$bn->lienket}}" target="_blank">
+                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                </a>
+            @endif
+        @endforeach
+
+
+
+
+    </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+
+            <h4>Doanh nghiệp</h4>
+
+        </div>
+
+        @foreach ($banner as $bn)
+            @if ($bn->vitri == 3)
                 <a href="{{$bn->lienket}}" target="_blank">
                     <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
                 </a>
