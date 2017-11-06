@@ -41,15 +41,7 @@
             </div>
         @endif
     @endforeach
-
-
-
-    <div class="box">
-        <a href="javascript:void(0);">
-            <img src="uploads/2017/11/59ffc75dc1853.png" alt="Trưng bày tư liệu 'Hoàng Sa- Trường Sa của Việt Nam'" title="Trưng bày tư liệu 'Hoàng Sa- Trường Sa của Việt Nam'">
-        </a>
-    </div>
-
+    
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
