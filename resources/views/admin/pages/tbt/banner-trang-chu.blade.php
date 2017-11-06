@@ -190,7 +190,7 @@
         {{--Box Doanh nghiệp--}}
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Banner tuyên truyền</h3>
+                <h3 class="box-title">Banner Doanh nghiệp</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
