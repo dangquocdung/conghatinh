@@ -87,18 +87,9 @@ class GuestController extends Controller
     {
         $lt = LoaiTin::where('slug',$slug)->first();
 
-        $tintuc = TinTuc::where('loaitin_id',$lt->id)->orderby('id','desc')->paginate(12);
+        $tintuc = TinTuc::where('loaitin_id',$lt->id)->where('daduyet','1')->orderby('id','desc')->paginate(12);
 
         return view('guest.loai-tin', compact('lt','tintuc'));
-    }
-
-    public function chuyenDe($slug)
-    {
-        $lt = LoaiTin::where('slug',$slug)->first();
-
-        $tintuc = TinTuc::where('loaitin_id',$lt->id)->orderby('id','desc')->paginate(12);
-
-        return view('guest.chuyen-de', compact('lt','tintuc'));
     }
 
 
@@ -108,7 +99,7 @@ class GuestController extends Controller
 
         $lt = LoaiTin::select('id')->where('chuyenmuc_id',$cm->id)->get();
 
-        $tintuc = TinTuc::whereIn('loaitin_id',$lt)->orderby('id','desc')->paginate(12);
+        $tintuc = TinTuc::whereIn('loaitin_id',$lt)->where('daduyet','1')->orderby('id','desc')->paginate(12);
 
 
 
