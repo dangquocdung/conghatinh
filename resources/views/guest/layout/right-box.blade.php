@@ -1,10 +1,34 @@
 <div class="right-box">
 
-    <div class="box">
-        <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
-            <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh">
-        </a>
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+
+            <h4>Lời chào</h4>
+
+        </div>
+
+        <img src="http://mediahatinh24h.tinmoi.vn/2016/04/hatinh-388.jpg" alt="" width="100%">
+
+
     </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+
+            <h4>Địa giới hành chính</h4>
+
+        </div>
+        <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
+
+            <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
+        </a>
+
+
+    </div>
+
+
 
     @include('guest.chi-tiet.right-box')
 
