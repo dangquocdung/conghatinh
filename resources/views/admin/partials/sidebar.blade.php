@@ -72,6 +72,31 @@
         </ul>
       </li>
 
+      <li class="{{ Request::is('toa-soan/chuyen-trang/*') ? 'active' : ''  }} treeview">
+        <a href="javascript:void(0)">
+          <i class="fa fa-file-pdf-o"></i> <span> Chuyên trang</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ Request::is('toa-soan/chuyen-trang/doanh-nghiep-hoi') ? 'active' : ''  }}">
+            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> Doanh nghiệp hỏi</a>
+          </li>
+          <li class="{{ Request::is('toa-soan/chuyen-trang/ho-tro-phap-ly') ? 'active' : ''  }}">
+            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> Hỗ trợ pháp lý</a>
+          </li>
+          <li class="{{ Request::is('toa-soan/chuyen-trang/nguoi-phat-ngon') ? 'active' : ''  }}">
+            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> DS Người phát ngôn</a>
+          </li>
+          <li class="{{ Request::is('toa-soan/chuyen-trang/phong-vien-thuong-tru') ? 'active' : ''  }}">
+            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> DS Phóng viên thường trú</a>
+          </li>
+
+
+        </ul>
+      </li>
+
       <li class="{{ Request::is('toa-soan/media-manager') ? 'active' : ''  }} treeview">
         <a href="{{route('media-manager')}}"><i class="fa fa-camera-retro"></i><span>Quản lý Hình ảnh</span></a>
       </li>

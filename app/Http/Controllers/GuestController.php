@@ -12,6 +12,7 @@ use App\CoQuan;
 use App\DoanhNghiepHoi;
 use App\LinhVuc;
 use App\HoTroPhapLy;
+use App\NguoiPhatNgon;
 
 class GuestController extends Controller
 {
@@ -134,14 +135,23 @@ class GuestController extends Controller
 
     public function getDoanhNghiepHoi()
     {
+        $chuyenmuc = ChuyenMuc::all();
         $coquan = CoQuan::orderby('nhomcq_id')->get();
-        return view ('guest.doanh-nghiep-hoi',compact('coquan'));
+        return view ('guest.doanh-nghiep-hoi',compact('coquan','chuyenmuc'));
     }
 
     public function getHoTroPhapLy()
     {
+        $chuyenmuc = ChuyenMuc::all();
         $linhvuc = Linhvuc::orderby('slug','asc')->get();
-        return view ('guest.ho-tro-phap-ly',compact('linhvuc'));
+        return view ('guest.ho-tro-phap-ly',compact('linhvuc','chuyenmuc'));
+    }
+
+    public function getNguoiPhatNgon()
+    {
+        $chuyenmuc = ChuyenMuc::all();
+        $coquan = CoQuan::orderby('nhomcq_id')->get();
+        return view ('guest.nguoi-phat-ngon',compact('coquan','chuyenmuc'));
     }
 
     public function tinNoiBat()
@@ -207,6 +217,21 @@ class GuestController extends Controller
                 'columns' => $columns
             ]);
     }
+
+    public function apiNguoiPhatNgon()
+    {
+
+        $model = NguoiPhatNgon::orderby('id','asc')->with('coquan')->get();
+
+        $columns = NguoiPhatNgon::$columns;
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
+    }
+
 
     // public function apiVanBanCDDH()
     // {

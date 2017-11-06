@@ -13,6 +13,10 @@ Route::post('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','DoanhNghiepHoiController@
 Route::get('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','GuestController@getHoTroPhapLy');
 Route::post('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
 
+Route::get('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','GuestController@getNguoiPhatNgon');
+
+Route::post('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
+
 
 
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
@@ -29,6 +33,9 @@ Route::get('/api/doanh-nghiep-hoi-all','GuestController@apiDoanhNghiepHoi');
 
 
 Route::get('/api/ho-tro-phap-ly','GuestController@apiHoTroPhapLy');
+
+Route::get('/api/nguoi-phat-ngon','GuestController@apiNguoiPhatNgon');
+
 
 Route::get('/chi-tiet-van-ban/{id}','GuestController@ctVanBan');
 
