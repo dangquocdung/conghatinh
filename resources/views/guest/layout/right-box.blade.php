@@ -53,7 +53,7 @@
         @foreach ($banner as $bn)
             @if ($bn->vitri == 2)
                 <a href="{{$bn->lienket}}" target="_blank">
-                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">
+                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
                 </a>
             @endif
         @endforeach
