@@ -14,7 +14,7 @@
 
     <div class="block-header">
         
-        <h4><a href="/chuyen-muc/{{ $cm->slug }}"></a>{{ $cm->name }}</h4>
+        <h4><a href="/chuyen-muc/{{ $cm->slug }}">{{ $cm->name }}</a></h4>
         
     </div>
 
