@@ -7,7 +7,11 @@ Route::get('/en', 'GuestController@indexEN');
 
 Route::get('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','GuestController@getDoanhNghiepHoi');
 
+Route::post('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
+
+
 Route::get('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','GuestController@getHoTroPhapLy');
+Route::post('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
 
 
 
@@ -22,6 +26,7 @@ Route::get('/van-ban/{slug?}','GuestController@vanBan');
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
 
 Route::get('/api/doanh-nghiep-hoi-all','GuestController@apiDoanhNghiepHoi');
+
 
 Route::get('/api/ho-tro-phap-ly','GuestController@apiHoTroPhapLy');
 

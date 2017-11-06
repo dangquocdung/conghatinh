@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DoanhNghiepHoi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DoanhNghiepHoiController extends Controller
 {
@@ -35,7 +36,39 @@ class DoanhNghiepHoiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(),
+            [
+                'doanhnghiep' => 'required|min:10|max:191',
+                'daidien' => 'required|min:10|max:50',
+                'dienthoai' => 'required|numeric|min:9',
+                'email'=> 'required|email|max:191',
+                'diachi' => 'required|min:10|max:191',
+                'cauhoi' => 'required|min:20'
+
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
+        $dnh = new DoanhNghiepHoi;
+
+        $dnh->coquan_id = $request->coquan_id;
+        $dnh->doanhnghiep = $request->doanhnghiep;
+        $dnh->daidien = $request->daidien;
+        $dnh->sodt = $request->dienthoai;
+        $dnh->email = $request->email;
+        $dnh->diachi = $request->diachi;
+        $dnh->cauhoi = $request->cauhoi;
+
+        $dnh->save();
+
+        flash('Câu hỏi của bạn đã được gởi đến BBT, xin cảm ơn!');
+
+        return redirect()->back();
+
     }
 
     /**

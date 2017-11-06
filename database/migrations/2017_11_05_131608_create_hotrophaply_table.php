@@ -23,8 +23,8 @@ class CreateHotrophaplyTable extends Migration
             $table->string('doanhnghiep');
             $table->string('daidien');
             $table->string('sodt');
-            $table->string('email')->nullable();
-            $table->string('diachi')->nullable();
+            $table->string('email');
+            $table->string('diachi');
             $table->text('cauhoi');
             $table->boolean('daduyet')->default(false);
 
@@ -32,8 +32,8 @@ class CreateHotrophaplyTable extends Migration
             $table->foreign('coquan_id')
                 ->references('id')->on('coquan');
 
-            $table->timestamp('ngaytraloi');
-            $table->text('cautraloi');
+            $table->timestamp('ngaytraloi')->nullable();
+            $table->text('cautraloi')->nullable();
             $table->text('ghichu')->nullable();
             $table->timestamps();
         });
