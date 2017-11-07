@@ -87,7 +87,7 @@
                 <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
                 
                 <td>
-                  {{$tin->name}}
+                  <strong>{{$tin->name}}</strong>
                   <br>
 
 
