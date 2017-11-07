@@ -16,9 +16,9 @@
                   {{--</a>--}}
               {{--</div>--}}
               @include('guest.home.tin-tuc-su-kien')
-              @include('guest.home.tin-hoat-dong')
+{{--              @include('guest.home.tin-hoat-dong')--}}
               @include('guest.home.chi-dao-dieu-hanh')
-              @include('guest.home.tin-co-so')
+{{--              @include('guest.home.tin-co-so')--}}
               @include('guest.home.van-ban')
               @include('guest.home.chien-luoc')
 {{--              @include('guest.home.hoi-dap')--}}

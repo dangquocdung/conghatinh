@@ -25,8 +25,9 @@
             <thead>
             <tr>
               <th>#</th>
+                <th>Chuyên mục</th>
               <th>Loại tin</th>
-              <th>Chuyên mục</th>
+
               <th>Thứ tự</th>
               <th></th>
             </tr>
@@ -35,8 +36,9 @@
             @foreach($loaitin as $lt)
               <tr>
                 <td>{{$lt->id}}</td>
+                  <td>{{ $lt->chuyenmuc->name }}</td>
                 <td>{{($lt->name)}}</td>
-                <td>{{ $lt->chuyenmuc->name }}</td>
+
                 <td>{{$lt->thutu}}</td>
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}

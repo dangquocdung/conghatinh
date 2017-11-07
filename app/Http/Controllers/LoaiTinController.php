@@ -19,7 +19,7 @@ class LoaiTinController extends Controller
      */
     public function index()
     {
-        $loaitin = LoaiTin::orderBy('id', 'desc')->paginate(20);
+        $loaitin = LoaiTin::orderBy('chuyenmuc_id', 'asc')->orderby('thutu','asc')->paginate(20);
 
         if (Session::has('chuyenmuc_id')){
             $chuyenmuc_id = Session::get('chuyenmuc_id');
