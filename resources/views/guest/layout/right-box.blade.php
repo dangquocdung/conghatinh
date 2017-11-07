@@ -17,7 +17,7 @@
 
         <div class="block-header" style="margin-bottom: 0">
 
-            <h4>Địa giới hành chính</h4>
+            <h4>Bản đồ địa giới hành chính</h4>
 
         </div>
         <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
