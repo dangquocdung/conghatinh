@@ -26,7 +26,7 @@ class ChuyenMucController extends Controller
 
     public function index()
     {
-        $chuyenmucs = ChuyenMuc::orderBy('thutu', 'asc')->paginate(10);
+        $chuyenmucs = ChuyenMuc::orderBy('thutu', 'asc')->paginate(20);
         return view('admin.pages.tbt.chuyen-muc', compact('chuyenmucs'));
     }
 

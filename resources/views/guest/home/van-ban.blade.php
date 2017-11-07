@@ -1,6 +1,6 @@
 @php
 
-    $cm = $chuyenmuc->where('slug','van-ban')->first();
+    $cm = $chuyenmuc->where('id','4')->first();
 
 @endphp
 

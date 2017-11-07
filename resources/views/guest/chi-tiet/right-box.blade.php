@@ -25,7 +25,7 @@
             <div class="news-rightbox">
                 <ul>
 
-                    @foreach($cm->loaitin as $lt)
+                    @foreach($cm->loaitin->sortby('thutu') as $lt)
 
                         <li>
 

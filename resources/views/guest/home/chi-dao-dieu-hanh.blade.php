@@ -1,6 +1,6 @@
 @php
 
-    $chuyenmuc = \App\ChuyenMuc::where('id', '5')->get();
+    $chuyenmuc = \App\ChuyenMuc::where('id', '3')->get();
 
 @endphp
 
@@ -21,7 +21,7 @@
                 <div class="chuyen-trang">
                     <ul>
 
-                        @foreach($cm->loaitin as $lt)
+                        @foreach($cm->loaitin->sortby('thutu') as $lt)
 
                             <li class="col-md-6">
 

@@ -43,10 +43,11 @@
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                     <div class="pull-left">
-                      <a href="{{route('edit-loai-tin', $lt->id)}}" class="btn btn-primary btn-xs">
-                        <i class="fa fa-edit"></i> Edit
-                      </a>
+                        <a href="{{route('edit-loai-tin', [$lt->id] )}}" class="btn btn-primary btn-xs">
+                            <i class="fa fa-edit"></i> Edit
+                        </a>
                     </div>
+
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
                         btn-text='<i class="fa fa-trash"></i> Delete'
@@ -67,6 +68,9 @@
           {{$loaitin->render()}}
         </div>
         <!-- /.box-body -->
+
+
+
       </div>
       {{--End box--}}
     </div>
