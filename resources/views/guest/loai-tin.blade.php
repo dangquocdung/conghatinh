@@ -24,6 +24,7 @@
 
                             <div class="news-main" style="padding: 0;">
                                 <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
+
                                   <span class="label label-info pull-right hidden-xs">{{$tin->loaitin->name}}</span>
                                   <a class="tin_title_text" href="/chi-tiet/{{$tin->slug}}">
 
@@ -59,8 +60,9 @@
                                         @endforeach
                                     </div>
                                 </div>
+
                           </div>
-                        </div>
+                        
                        @endforeach
                     </div>
 
