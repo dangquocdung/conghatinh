@@ -35,7 +35,7 @@
                 </div>
                 <div class="main-footer-footer-content">
                     <p class="license">
-                        &copy; Cổng giao tiếp điện tử Hà Tĩnh
+                        &copy; Cổng thông tin điện tử tỉnh Hà Tĩnh
                     </p>
                     <p class="main-footer-info-text">
                         Giấy phép số 48/GP-BVHTT cấp ngày 18/02/2003 của Bộ Văn hóa Thông tin

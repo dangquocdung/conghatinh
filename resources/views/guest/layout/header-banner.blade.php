@@ -19,7 +19,7 @@
                   </div>
                   <div class="brand-text" style="float: left">
                       <h1>Ủy Ban Nhân Dân tỉnh Hà Tĩnh</h1>
-                      <h2>Cổng giao tiếp điện tử</h2>
+                      <h2>Cổng thông tin điện tử</h2>
                   </div>
               </div>
               </div>
