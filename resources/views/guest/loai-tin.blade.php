@@ -25,7 +25,7 @@
                             <div class="news-main" style="padding: 0;">
                                 <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
 
-                                  <span class="label label-info pull-right hidden-xs">{{$tin->loaitin->name}}</span>
+                                  <span class="label label-info pull-right hidden-xs" style="margin-left: 15px">{{$tin->loaitin->name}}</span>
                                   <a class="tin_title_text" href="/chi-tiet/{{$tin->slug}}">
 
                                       @if ($lt->chuyenmuc->slug <> 'doanh-nghiep-du-an')
@@ -40,7 +40,7 @@
                                       @endif
 
                                       <div class="tin_title_text">
-                                          {{$tin->name}}
+                                          {{$tin->name}} <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                       </div>
 
                                   </a>

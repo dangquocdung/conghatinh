@@ -51,8 +51,9 @@
 
                                 <a class="tin_title_text" href="/chi-tiet/{{$tin1->slug}}">
                                     <div class="tin_title_text">
-                                        {{ $tin1->name }}
+                                        {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                     </div>
+
 
                                     <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
                                 </a>
@@ -77,7 +78,7 @@
                                             <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
 
                                             <a href="chi-tiet/{{ $tin->slug }}" class="news-title">
-                                                {{ $tin->name }}
+                                                {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                             </a>
 
                                             <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
