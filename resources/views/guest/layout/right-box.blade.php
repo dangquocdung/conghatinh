@@ -4,7 +4,7 @@
 
         <div class="block-header" style="margin-bottom: 0">
 
-            <h4>Lời chào</h4>
+            <h4>Lời chào mừng</h4>
 
         </div>
 
