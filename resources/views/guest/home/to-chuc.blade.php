@@ -5,7 +5,7 @@
 
         <div class="portlet-header">
             <a href="#">
-                <h4 class="portlet-header-title no-pd-top">{{ $ncq->name }}</h4>
+                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $ncq->name }}</h4>
             </a>
         </div>
 

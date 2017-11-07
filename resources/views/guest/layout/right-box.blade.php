@@ -3,8 +3,9 @@
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
-
-            <h4>Lời chào mừng</h4>
+            <a href="">
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Lời chào mừng</h4>
+            </a>
 
         </div>
 
@@ -16,8 +17,10 @@
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
+            <a href="">
 
-            <h4>Bản đồ địa giới hành chính</h4>
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới hành chính</h4>
+            </a>
 
         </div>
         <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
@@ -29,8 +32,66 @@
     </div>
 
 
+    @php
 
-    @include('guest.chi-tiet.right-box')
+        $chuyenmuc = \App\ChuyenMuc::whereIn('id',['1','3'])->orderby('thutu','asc')->get();
+
+    @endphp
+
+
+
+
+    @foreach($chuyenmuc as $cm)
+
+
+        <div class="block4">
+
+            <div class="block-header">
+                <a href="/chuyen-muc/{{ $cm->slug }}" style="text-decoration: none">
+                    <h4><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
+                </a>
+
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+
+                    <div class="news-rightbox">
+                        <ul>
+
+                            @foreach($cm->loaitin->sortby('thutu') as $lt)
+
+                                <li>
+
+                                    <div class="news-block">
+                                        <a href="/loai-tin/{{ $lt->slug }}">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }}
+                                        </a>
+                                    </div>
+                                </li>
+
+                            @endforeach
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    @endforeach
+
+
+
+
+
+
+
+
+
+
+    {{--    @include('guest.chi-tiet.right-box')--}}
 
     @foreach ($banner as $bn)
         @if ($bn->vitri == 0)
@@ -45,8 +106,10 @@
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
+            <a href="javascript:void(0);">
 
-            <h4>Tuyên truyền</h4>
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Tuyên truyền</h4>
+            </a>
 
         </div>
 
@@ -68,8 +131,10 @@
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
+            <a href="javascript:void(0);">
 
-            <h4>Doanh nghiệp</h4>
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Doanh nghiệp</h4>
+            </a>
 
         </div>
 

@@ -11,7 +11,7 @@
 
     <div class="portlet-header">
         <a href="van-ban/{{ $cm->slug }}">
-            <h4 class="portlet-header-title no-pd-top">Văn bản mới</h4>
+            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Văn bản QPPL</h4>
         </a>
     </div>
     @foreach ($cm->loaitin as $lt)

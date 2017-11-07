@@ -114,17 +114,17 @@ class GuestController extends Controller
         return view('guest.chuyen-muc', compact('cm','tintuc'));
     }
 
-    public function vanBan($slug='van-ban')
+    public function vanBan($slug)
     {
-        if ($slug != 'van-ban'){
+        if ($slug != 'van-ban-qppl'){
 
             $lt = LoaiTin::where('slug',$slug)->first();
 
-            
+
 
         }else{
 
-            $lt = 'van-ban';
+            $lt = 'van-ban-qppl';
 
 
         }

@@ -68,87 +68,99 @@
                             </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
 
-                <div class="lienquan-header">
+                        <div class="tien-ich" style="border-top: none;">
+                            {{-- <a class="in" href="javascript:newOpenWindows();"><i class="fa fa-print" aria-hidden="true"></i> In bài viết</a> --}}
+                            <a class="in" href="javascript:window.print();"><i class="fa fa-print" aria-hidden="true"></i> In bài viết</a>
 
-                    <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản cùng loại</a>
-
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-
-                        <div class="tin-lien-quan" style="margin-top: 10px">
-                            <ul>
-
-                                @php
-
-                                    $lvb = $vb->loaitin;
-
-                                @endphp
+                            &nbsp;
+                            <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
+                        </div>
 
 
 
-                                @foreach($lvb->vanban as $vbcl)
+                        <div class="lienquan-header">
 
-                                    @if ($vbcl->id <> $vb->id)
+                            <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản cùng loại</a>
 
-                                        <li>
-                                            <a href="/chi-tiet-van-ban/{{ $vbcl->id }}">
+                        </div>
 
-                                                <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="row">
 
-                                            </a>
-                                        </li>
+                                <div class="tin-lien-quan" style="margin-top: 10px">
+                                    <ul>
 
-                                    @endif
+                                        @php
 
-                                @endforeach
+                                            $lvb = $vb->loaitin;
 
-                            </ul>
+                                        @endphp
+
+
+
+                                        @foreach($lvb->vanban as $vbcl)
+
+                                            @if ($vbcl->id <> $vb->id)
+
+                                                <li>
+                                                    <a href="/chi-tiet-van-ban/{{ $vbcl->id }}">
+
+                                                        <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+                                                    </a>
+                                                </li>
+
+                                            @endif
+
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="lienquan-header">
+
+                            <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản mới đăng</a>
+
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="row">
+
+                                <div class="tin-lien-quan" style="margin-top: 10px">
+                                    <ul>
+
+                                        @foreach($vanban as $vbmd)
+
+                                            @if ($vbmd->id <> $vb->id)
+
+                                                <li>
+                                                    <a href="/chi-tiet-van-ban/{{ $vbmd->id }}">
+
+                                                        <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+                                                    </a>
+                                                </li>
+
+                                            @endif
+
+                                        @endforeach
+
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <br>
 
-                <div class="lienquan-header">
-
-                    <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản mới đăng</a>
-
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-
-                        <div class="tin-lien-quan" style="margin-top: 10px">
-                            <ul>
-
-                                @foreach($vanban as $vbmd)
-
-                                    @if ($vbmd->id <> $vb->id)
-
-                                    <li>
-                                        <a href="/chi-tiet-van-ban/{{ $vbmd->id }}">
-
-                                            <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
-
-                                        </a>
-                                    </li>
-
-                                    @endif
-
-                                @endforeach
-
-
-
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
 
 

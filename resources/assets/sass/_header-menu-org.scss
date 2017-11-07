@@ -24,13 +24,9 @@ header {
 		z-index: 2;
 		#background-brand {
 			//margin-top: 5px;
-			//border: solid 1px #0093ef;
+			border: solid 1px #0093ef;
 			border-bottom: none;
-			//background: url(http://new.quangninh.gov.vn/Resources/app/img/banner-n1.png) left top no-repeat;
-			background: url(/images/banner_header.png);
-			background-size:cover;
-			background-repeat:   no-repeat;
-			background-position: center center;
+			//background: url(../../images/background/header_bg.png) left top no-repeat;
 			height: 240px;
 			position: relative;
 			top: 0;

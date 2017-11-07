@@ -14,7 +14,7 @@
 
     <div class="portlet-header">
         <a href="chuyen-muc/{{ $cm->slug }}">
-            <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
+            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
         </a>
     </div>
 
