@@ -81,7 +81,7 @@
 
                         <div class="lienquan-header">
 
-                            <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản cùng loại</a>
+                            <a href="van-ban/{{$vb->loaitin->slug}}">Văn bản cùng loại</a>
 
                         </div>
 
@@ -124,7 +124,7 @@
 
                         <div class="lienquan-header">
 
-                            <a href="{{$vb->loaitin->chuyenmuc->slug}}/{{$vb->loaitin->slug}}">Văn bản mới đăng</a>
+                            <a href="van-ban/{{$vb->loaitin->chuyenmuc->slug}}">Văn bản mới đăng</a>
 
                         </div>
 
