@@ -17,6 +17,7 @@ Route::get('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-ch
 
 Route::post('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
 
+Route::get('/loai-tin/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
 
 
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
@@ -35,6 +36,8 @@ Route::get('/api/doanh-nghiep-hoi-all','GuestController@apiDoanhNghiepHoi');
 Route::get('/api/ho-tro-phap-ly','GuestController@apiHoTroPhapLy');
 
 Route::get('/api/nguoi-phat-ngon','GuestController@apiNguoiPhatNgon');
+
+Route::get('/api/phong-vien-thuong-tru','GuestController@apiPhongVienThuongTru');
 
 
 Route::get('/chi-tiet-van-ban/{id}','GuestController@ctVanBan');

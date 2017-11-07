@@ -4,6 +4,7 @@ import VanBanViewer from './components/DataViewer.vue'
 import DoanhNghiepHoi from './components/DoanhNghiepHoi.vue'
 import HoTroPhapLy from './components/HoTroPhapLy.vue'
 import NguoiPhatNgon from './components/NguoiPhatNgon.vue'
+import PhongVienThuongTru from './components/PhongVienThuongTru.vue'
 
 
 var app = new Vue({
@@ -12,6 +13,7 @@ var app = new Vue({
         VanBanViewer,
         DoanhNghiepHoi,
         HoTroPhapLy,
-        NguoiPhatNgon
+        NguoiPhatNgon,
+        PhongVienThuongTru
     }
 })

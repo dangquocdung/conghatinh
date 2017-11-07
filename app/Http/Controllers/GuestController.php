@@ -13,6 +13,7 @@ use App\DoanhNghiepHoi;
 use App\LinhVuc;
 use App\HoTroPhapLy;
 use App\NguoiPhatNgon;
+use App\PVTT;
 
 class GuestController extends Controller
 {
@@ -154,6 +155,14 @@ class GuestController extends Controller
         return view ('guest.nguoi-phat-ngon',compact('coquan','chuyenmuc'));
     }
 
+    public function getPhongVienThuongTru()
+    {
+
+        $chuyenmuc = ChuyenMuc::all();
+        $coquan = CoQuan::orderby('nhomcq_id')->get();
+        return view ('guest.phong-vien-thuong-tru',compact('coquan','chuyenmuc'));
+    }
+
     public function tinNoiBat()
     {
 
@@ -224,6 +233,20 @@ class GuestController extends Controller
         $model = NguoiPhatNgon::orderby('id','asc')->with('coquan')->get();
 
         $columns = NguoiPhatNgon::$columns;
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
+    }
+
+    public function apiPhongVienThuongTru()
+    {
+
+        $model = PVTT::orderby('id','asc')->get();
+
+        $columns = PVTT::$columns;
 
         return response()
             ->json([
