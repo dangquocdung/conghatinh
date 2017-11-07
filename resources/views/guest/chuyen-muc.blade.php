@@ -20,6 +20,7 @@
 
                      <div class="loai-tin">
                         @foreach ($tintuc as $tin)
+                          <div class="row" style="border-bottom: 1px solid #eaeaea; margin-left: -15px; margin-right: -15px">
 
                             <div class="news-main" style="margin-top: 10px; padding: 0">
                               
@@ -56,9 +57,8 @@
                                         </a>
                                     @endforeach
                                 </div>
-                            </div>
-                             <hr>
-
+                          </div>
+                        </div>
                        @endforeach
                     </div>
 
