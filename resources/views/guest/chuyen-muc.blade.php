@@ -23,8 +23,8 @@
 
 
 
-                            <div class="news-main" style="display:block; margin-top: 10px; padding: 0">
-                                <div class="row">
+                            <div class="news-main" style="padding: 0">
+                                <div class="row" style="padding-left: 10px; padding-right: 10px;">
 
                                       <span class="label label-info pull-right hidden-xs">{{$tin->loaitin->name}}</span>
 
