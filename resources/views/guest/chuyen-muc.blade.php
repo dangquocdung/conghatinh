@@ -20,10 +20,10 @@
 
                      <div class="loai-tin">
                         @foreach ($tintuc as $tin)
-                          <div class="row" style="border-bottom: 1px solid #eaeaea;">
-                              <div class="container">
+                          <div class="row" style="border-bottom: 1px solid #eaeaea; margin-bottom: 5px;">
 
-                                    <div class="news-main" style="margin-top: 10px; padding: 0">
+
+                                    <div class="news-main" style="margin-top: 10px; padding-left: 10px">
                               
                               <span class="label label-info pull-right hidden-xs">{{$tin->loaitin->name}}</span>
 
@@ -59,7 +59,7 @@
                                     @endforeach
                                 </div>
                           </div>
-                              </div>
+
                         </div>
                        @endforeach
                     </div>
