@@ -8,6 +8,8 @@
       <div class="row nen-trang">
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 
+
+
               @include('guest.home.tin-noi-bat')
               {{--@include('guest.home.tin-anh')--}}
               {{--<div class="block3">--}}
@@ -28,7 +30,8 @@
                       <img src="uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
                   </a>
               </div>
-              @include('guest.home.to-chuc')
+
+                @include('guest.home.to-chuc')
 
 
           </div>

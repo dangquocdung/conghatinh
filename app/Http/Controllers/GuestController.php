@@ -58,6 +58,11 @@ class GuestController extends Controller
 
     }
 
+    public function getVideo()
+    {
+        return view('guest.video-chi-tiet');
+    }
+
     public function tinTuc($slug)
     {
         $tin = TinTuc::where('slug',$slug)->first();

@@ -27,6 +27,8 @@ Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
+Route::get('/video','GuestController@getVideo');
+
 
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
 

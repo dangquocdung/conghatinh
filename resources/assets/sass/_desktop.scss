@@ -23,6 +23,10 @@ body {
   }
 }
 
+.breadcrumb{
+  background-color: #F5EACC !important;
+}
+
 .block2 {
   border: 1px solid #bebebe;
   border-radius: 3px;
@@ -227,6 +231,12 @@ body {
       border-radius: 3px;
       overflow: hidden;
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+      &:hover{
+        -moz-transform: scale(1.03);
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+      }
     }
 
     .tin_title_text {
