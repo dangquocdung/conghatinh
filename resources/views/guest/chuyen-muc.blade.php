@@ -24,7 +24,7 @@
 
 
                             <div class="news-main" style="padding: 0">
-                                <div class="row" style="padding-left: 10px; padding-right: 10px;">
+                                <div class="row" style="padding-left: 15px; padding-right: 15px; border-bottom: 1px solid #eaeaea;">
 
                                       <span class="label label-info pull-right hidden-xs">{{$tin->loaitin->name}}</span>
 
@@ -61,7 +61,6 @@
                                     </div>
                                 </div>
                           </div>
-                             <hr>
 
 
                        @endforeach
