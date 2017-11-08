@@ -31,16 +31,16 @@
                 <img u="image" src="./images/banner/006.png" />
             </a>
         </div>
-        <div>
-            <a href="/">
-                <img u="image" src="./images/banner/007.png" />
-            </a>
-        </div>
-        <div>
-            <a href="/">
-                <img u="image" src="./images/banner/008.png" />
-            </a>
-        </div>
+        {{--<div>--}}
+            {{--<a href="/">--}}
+                {{--<img u="image" src="./images/banner/007.png" />--}}
+            {{--</a>--}}
+        {{--</div>--}}
+        {{--<div>--}}
+            {{--<a href="/">--}}
+                {{--<img u="image" src="./images/banner/008.png" />--}}
+            {{--</a>--}}
+        {{--</div>--}}
     </div>
     <!-- Trigger -->
     <script>jssor_slider1_init('slider1_container');</script>
