@@ -2,46 +2,30 @@
 
     <div class="margin-15px">
 
-
-        <header class="hidden-xs">
-
-            {{--            @include('guest.layout.header-slide')--}}
-
-            {{--<img src="/images/banner_header.png" alt="" width="100%">--}}
-
-            <div id="header-brand">
-                <div class="container">
-                    <div id="background-brand">
-                        <div class="brand-text" style="float:left; padding-right: 20px; margin-left: 40px;">
-
-                            <img src="/images/quochuy.png" width="120px">
-
-                        </div>
-                        <div class="brand-text" style="float: left">
-                            <h1>Ủy Ban Nhân Dân tỉnh Hà Tĩnh</h1>
-                            <h2>Cổng thông tin điện tử</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-
-        <nav class="navbar navbar-default" id="main-menu" >
-
+        <nav class="navbar navbar-default hidden-xs" id="main-menu" >
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                @include('guest.layout.header-slide')
+{{--                @include('guest.layout.header-slide-mb')--}}
+            </div>
+
+
+            <div class="menu-mobie">
+                <button style="z-index: 1001;" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="visible-xs">
-                    <img src="/images/quochuy.png" width="50px" style="float: left; padding: 10px">
-                    <a class="navbar-brand" href="/" style="float: left; color: #ffffff; font-weight: bold; margin-left: -15px;">Cổng TTĐT Hà Tĩnh</a>
-                </div>
-
             </div>
+
+            {{--<div class="navbar-header">--}}
+                {{----}}
+                {{--<div class="visible-xs">--}}
+                    {{--<img src="/images/quochuy.png" width="50px" style="float: left; padding: 10px">--}}
+                    {{--<a class="navbar-brand" href="/" style="float: left; color: #ffffff; font-weight: bold; margin-left: -15px;">Cổng TTĐT Hà Tĩnh</a>--}}
+                {{--</div>--}}
+
+            {{--</div>--}}
 
             <div id="navbar" class="navbar-collapse collapse">
 

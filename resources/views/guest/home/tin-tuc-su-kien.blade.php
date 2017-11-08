@@ -54,9 +54,11 @@
                                         {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                     </div>
 
-
                                     <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
                                 </a>
+                                <div class="thumb">
+
+                                </div>
 
                                 <div class="tin_title_abstract" style="display:;">
                                     {{ $tin1->gioithieu }}
