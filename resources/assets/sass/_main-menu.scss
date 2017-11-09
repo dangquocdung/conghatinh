@@ -208,19 +208,18 @@
 
 				&:hover{
 					background-color: #00AA00;
-
-					ul{
-						display: block;
-						transition: background 1s ease;
-					}
 				}
 				ul{
-					display: none;
+
 
 					li{
 						margin-left: -15px;
 						background-color: #0976b4;
 						padding-left: 30px;
+
+						&:hover{
+							background-color: #00AA00;
+						}
 					}
 				}
 			}
