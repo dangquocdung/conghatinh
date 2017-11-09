@@ -22,7 +22,7 @@
                 <div id="navbar" class="navbar-collapse collapse menu-mb">
 
                     <ul>
-                        <li class="{{ Request::is('/') ? 'active' : ''  }}"><a href="/"><i class="fa fa-university" aria-hidden="true"></i></a></li>
+                        <li class="{{ Request::is('/') ? 'active' : ''  }}"><a href="/"><i class="fa fa-university" aria-hidden="true"></i> Trang chủ</a></li>
                         @foreach ($chuyenmuc as $cm)
                             @if ($cm->vitri == 1)
                                 <li class="{{ Request::is($cm->path.'/'.$cm->slug) ? 'active' : ''  }}"><a href="{{ $cm->path}}/{{ $cm->slug}}">{{ $cm->name }}</a>

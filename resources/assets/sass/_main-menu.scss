@@ -195,10 +195,33 @@
 	.menu-mb{
 		ul{
 			list-style: none;
+			padding-left: 0;
 			li{
 				line-height: 40px;
+				padding-left: 15px;
+				a{
+					text-transform: uppercase;
+					color: #ffffff;
+					text-decoration: none;
+					font-weight: 500;
+				}
+
+				&:hover{
+					background-color: #00AA00;
+
+					ul{
+						display: block;
+						transition: background 1s ease;
+					}
+				}
 				ul{
 					display: none;
+
+					li{
+						margin-left: -15px;
+						background-color: #0976b4;
+						padding-left: 30px;
+					}
 				}
 			}
 		}
