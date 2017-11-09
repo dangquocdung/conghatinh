@@ -13,10 +13,29 @@
 
 
                 <div class="block3">
-                    <div class="breadcrumb">
-                        <a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>
-                        <a class="breadcrumb-item" href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">{{ $lt->chuyenmuc->name }}</a>
-                        <span class="breadcrumb-item active">{{ $lt->name }}</span>
+                    {{--<div class="breadcrumb">--}}
+                        {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
+                        {{--<a class="breadcrumb-item" href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">{{ $lt->chuyenmuc->name }}</a>--}}
+                        {{--<span class="breadcrumb-item active">{{ $lt->name }}</span>--}}
+                    {{--</div>--}}
+
+                    <div class="portlet-header" style="padding-left: 10px">
+
+                        <a href="/">
+                            <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
+                        </a>
+
+                        <a href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">
+                            <h4 class="portlet-header-title no-pd-top">{{ $lt->chuyenmuc->name }} / </h4>
+                        </a>
+
+                        <a href="javascript:void(0);">
+                            <h4 class="portlet-header-title no-pd-top">{{ $lt->name }}</h4>
+                        </a>
+
+                        {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
+                        {{--<span class="breadcrumb-item active">{{ $cm->name }}</span>--}}
+
                     </div>
 
                      <div class="loai-tin">

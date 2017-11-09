@@ -19,6 +19,8 @@ Route::post('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-c
 
 Route::get('/loai-tin/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
 
+Route::get('/loai-tin/thu-vien-video','GuestController@getVideo');
+
 
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
@@ -27,7 +29,7 @@ Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
-Route::get('/video','GuestController@getVideo');
+
 
 
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
