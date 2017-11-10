@@ -19,53 +19,38 @@
     })
 </script>
 
+<div class="tat-ca-video"style="margin-top: 30px">
 
-<div style="margin: 15px">
+<div class="row">
+    <div  class="col-sm-12">
+        <div class="col-xs-3">
+            <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-left vertical-text">
+                @foreach($loaivideo as $lv)
+                    @if ($lv->id == 1)
+                        <li class="active"><a href="#{{$lv->slug}}" data-toggle="tab">{{ $lv->name }}</a></li>
+                    @else
+                        <li><a href="#{{$lv->slug}}" data-toggle="tab">{{ $lv->name }}</a></li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                @foreach($loaivideo as $lv)
+                    @if ($lv->id == 1)
+                        <div class="tab-pane active" id="{{$lv->slug}}">{{ $lv->name }}</div>
+                    @else
+                        <div class="tab-pane" id="{{$lv->slug}}">{{ $lv->name }}</div>
+                    @endif
+                @endforeach
 
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
-            <div class="moi-nhat" style="padding-top: 15px">
-                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
-
-                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
-            </div>
-            <div class="moi-nhat" style="padding-top: 15px">
-                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
-            </div>
-            <div class="moi-nhat" style="padding-top: 15px">
-                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="profile">Profile</div>
-        <div role="tabpanel" class="tab-pane" id="messages">Message</div>
-        <div role="tabpanel" class="tab-pane" id="settings">Setting</div>
+        <div class="clearfix"></div>
     </div>
-
 </div>
-
-
-<script>
-    $(document).ready(function () {
-
-        var src = $('.moi-nhat').find('iframe').attr('src');
-
-        src = src + '?rel=0&showinfo=0&controls=0&autohide=1';
-
-
-        $('.moi-nhat').find('iframe').attr('width','160').attr('height','100');
-        $('.moi-nhat').find('iframe').attr('src',src);
-
-    })
-</script>
-
-
+</div>
 

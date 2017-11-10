@@ -14,6 +14,7 @@ use App\LinhVuc;
 use App\HoTroPhapLy;
 use App\NguoiPhatNgon;
 use App\PVTT;
+use App\LoaiVideo;
 
 class GuestController extends Controller
 {
@@ -60,7 +61,8 @@ class GuestController extends Controller
 
     public function getVideo()
     {
-        return view('guest.video-chi-tiet');
+        $loaivideo = LoaiVideo::orderby('thutu')->get();
+        return view('guest.video-chi-tiet',compact('loaivideo'));
     }
 
     public function getHinhAnh()
