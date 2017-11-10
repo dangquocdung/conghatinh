@@ -7,26 +7,34 @@
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             @foreach($video->sortByDesc('id') as $vd)
-            <div class="row">
-                <div class="news-rightbox" style="padding: 2px 10px">
+            <div class="row" style="padding-bottom: 10px">
+                <div class="news-rightbox">
 
-                    <div class="clip" style="width: 40%">
+                    <div class="clip col-md-7">
+                        <div class="row">
 
-                        <div class="embed-responsive embed-responsive-16by9">
+                            <div class="embed-responsive embed-responsive-16by9">
 
-                            {!! $vd->src !!}
+                                {!! $vd->src !!}
 
+                            </div>
                         </div>
 
+
                     </div>
+                    <div class="col-md-5">
+
+                        <div style="text-align: justify">
+                            <strong>{{ $vd->name }}</strong>
+                        </div>
+
+                        <div style="float: left">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> <em>{{ \Carbon\Carbon::parse($vd->created_at)->format('d-m-Y')  }}</em>
+                        </div>
 
 
 
-
-
-
-
-                    <hr>
+                    </div>
 
                 </div>
 

@@ -66,7 +66,7 @@ class GuestController extends Controller
 
         $vd = Video::orderby('id','desc')->first();
 
-        $video = Video::where('noibat','0')->take(5)->get();
+        $video = Video::where('noibat','0')->take(12)->get();
 
         return view('guest.video-chi-tiet',compact('loaivideo','vd','video'));
     }
