@@ -32,7 +32,7 @@
 
               @php
 
-                  $vanban = $chuyenmuc->where('slug','van-ban')->first();
+                  $vanban = $chuyenmuc->where('slug','van-ban-qppl')->first();
 
               @endphp
               <div class="form-group">

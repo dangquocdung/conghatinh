@@ -1,42 +1,71 @@
-{{--<div id="video" class="content-wrap">--}}
+<div id="video-player">
 
-    {{--<div id="video_main" style="padding: 10px 20px">--}}
-        {{--<div class="atc featured video">--}}
-
-            {{--<div class="cover" id="dvideo" style="background-size: cover;">--}}
-                {{--<video controls="controls" width="100%">--}}
-                    {{--<source codecs="H.264" src="http://i.baohatinh.vn/upload/1745/m76-07080205.mp4" type="video/mp4">--}}
-                {{--</video>--}}
-            {{--</div>--}}
-            {{--<div class="hed">--}}
-                {{--<h1>--}}
-                    {{--<a href="/video/tinh-trang-bo-ruong-tra-ruong-cua-nong-dan-ngay-cang-gia-tang/414">Tình trạng bỏ ruộng, trả ruộng của nông dân ngày càng gia tăng</a>--}}
-                {{--</h1>--}}
-                {{--<p class="summary">Hiện nay, do nhiều nguyên nhân tình trạng bỏ ruộng, trả ruộng của người nông dân ngày càng gia tăng. Việc bà con nông dân bỏ ruộng đã tác động không nhỏ đến sản xuất nông nghiệp, gây lãng phí trong việc sử dụng quỹ đất nông nghiệp.</p>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-{{--</div>--}}
-
-
-<div class="player" style="padding: 15px;">
-
-    <div id="myPlayerId">Loading the player...</div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2EIeUlvHAiM" frameborder="0" allowfullscreen></iframe>
 
 </div>
 
 
+<script>
+    $(document).ready(function () {
 
-<script type="text/javascript">
-    var playerInstance = jwplayer('myPlayerId');
-    playerInstance.setup({
-        file: 'https://youtu.be/sNuicYJOWTA',
-        logo: {
-            file: 'http://demo.hatinh.top/images/background/lotus.ico',       //watermark image path
-            link: 'http://demo.hatinh.top/',         //link url on watermark image
-            position: 'bottom-right'      //position of watermark on player
-        },
-        image: ''    //thumbnail image path
-    });
+        var src = $('#video-player').find('iframe').attr('src');
+
+        src = src + '?rel=0';
+
+        $('#video-player').find('iframe').css('display','block').css('margin','0 auto');
+        $('#video-player').find('iframe').attr('width','560').attr('height','315');
+        $('#video-player').find('iframe').attr('src',src);
+
+    })
 </script>
+
+
+<div style="margin: 15px">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="moi-nhat" style="padding-top: 15px">
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
+            </div>
+            <div class="moi-nhat" style="padding-top: 15px">
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
+            </div>
+            <div class="moi-nhat" style="padding-top: 15px">
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">Profile</div>
+        <div role="tabpanel" class="tab-pane" id="messages">Message</div>
+        <div role="tabpanel" class="tab-pane" id="settings">Setting</div>
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        var src = $('.moi-nhat').find('iframe').attr('src');
+
+        src = src + '?rel=0&showinfo=0&controls=0&autohide=1';
+
+
+        $('.moi-nhat').find('iframe').attr('width','160').attr('height','100');
+        $('.moi-nhat').find('iframe').attr('src',src);
+
+    })
+</script>
+
+
+

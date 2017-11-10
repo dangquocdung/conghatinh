@@ -31,8 +31,6 @@
 
 <script type="text/javascript" src="guest/js/jquery.jscroll.js"></script>
 
-<script type="text/javascript" src="guest/js/jwplayer.js"></script>
-
 <script type="text/javascript" src="guest/js/jssor.slider.min.js"></script>
 
 <script>

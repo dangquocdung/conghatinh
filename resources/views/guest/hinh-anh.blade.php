@@ -28,14 +28,14 @@
                             </a>
 
                             <a href="javascript:void (0);">
-                                <h4 class="portlet-header-title no-pd-top">Tất cả Video</h4>
+                                <h4 class="portlet-header-title no-pd-top">Tất cả Album</h4>
                             </a>
 
 
 
                         </div>
 
-                        @include('guest.video.video')
+                        @include('guest.hinh-anh.hinh-anh')
 
 
                     </div>
@@ -45,7 +45,7 @@
             </div>
         <div class="col-md-4 hidden-xs">
 
-                @include('guest.video.right-box')
+                @include('guest.hinh-anh.right-box')
 
         </div>
 
