@@ -1,5 +1,5 @@
 
-<div id="cssmenu" class="navbar-collapse collapse">
+<div id="cssmenu" class="visible-sm visible-md visible-lg">
 
         <ul>
             <li class="{{ Request::is('/') ? 'active' : ''  }}"><a href="/"><i class="fa fa-university" aria-hidden="true"></i></a></li>
