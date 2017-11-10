@@ -72,6 +72,8 @@
         </ul>
       </li>
 
+      {{--Chuyên trang--}}
+
       <li class="{{ Request::is('toa-soan/chuyen-trang/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-file-pdf-o"></i> <span> Chuyên trang</span>
@@ -103,6 +105,10 @@
 
       <li class="{{ Request::is('toa-soan/file-manager') ? 'active' : ''  }} treeview">
         <a href="{{route('file-manager')}}"><i class="fa fa-file-pdf-o"></i><span>Quản lý tệp văn bản</span></a>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/video-manager') ? 'active' : ''  }} treeview">
+        <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Quản lý video</span></a>
       </li>
 
 

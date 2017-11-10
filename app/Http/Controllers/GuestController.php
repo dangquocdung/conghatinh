@@ -15,6 +15,7 @@ use App\HoTroPhapLy;
 use App\NguoiPhatNgon;
 use App\PVTT;
 use App\LoaiVideo;
+use App\Video;
 
 class GuestController extends Controller
 {
@@ -62,7 +63,12 @@ class GuestController extends Controller
     public function getVideo()
     {
         $loaivideo = LoaiVideo::orderby('thutu')->get();
-        return view('guest.video-chi-tiet',compact('loaivideo'));
+
+        $vd = Video::orderby('id','desc')->first();
+
+        $video = Video::where('noibat','0')->take(5)->get();
+
+        return view('guest.video-chi-tiet',compact('loaivideo','vd','video'));
     }
 
     public function getHinhAnh()

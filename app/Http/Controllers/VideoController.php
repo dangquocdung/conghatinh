@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\LoaiVideo;
 use App\Video;
 use Illuminate\Http\Request;
+use Session;
+use Illuminate\Support\Facades\Validator;
 
 class VideoController extends Controller
 {
@@ -15,6 +18,17 @@ class VideoController extends Controller
     public function index()
     {
         //
+        $loaivideo = LoaiVideo::all();
+
+        $video = Video::orderby('id','desc ')->paginate(10);
+
+        if (Session::has('loaivideo_id')){
+            $loaivideo_id = Session::get('chuyenmuc_id');
+        }else{
+            $loaivideo_id = 1;
+        }
+
+        return view('admin.pages.video',compact('video','loaivideo','loaivideo_id'));
     }
 
     /**
@@ -35,7 +49,31 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(),
+            [
+                'name' => 'required|min:10|max:191',
+                'gioithieu' => 'required|min:10'
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
+        $vd = new Video();
+        $vd->loaivideo_id = $request->input('loaivideo_id');
+        $vd->name = $request->input('name');
+        $vd->slug = str_slug($request->input('name'));
+        $vd->gioithieu = $request->input('gioithieu');
+        $vd->src = $request->input('src');
+        $vd->save();
+
+        flash('Thêm video thành công');
+
+        return redirect()->back();
+
+
     }
 
     /**

@@ -6,46 +6,58 @@
             </a>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
+            @foreach($video->sortByDesc('id') as $vd)
             <div class="row">
-                <div class="news-rightbox">
-                    <div class="xem-nhieu" style="display: block">
-                        <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
+                <div class="news-rightbox" style="padding: 2px 10px">
 
+                    <div class="clip" style="width: 40%">
 
-                    </div>
-                    <div class="xem-nhieu" style="display: block">
-                        <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
+                        <div class="embed-responsive embed-responsive-16by9">
 
+                            {!! $vd->src !!}
 
-                    </div>
-                    <div class="xem-nhieu" style="display: block">
-                        <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
-
-
-                    </div>
-                    <div class="xem-nhieu" style="display: block">
-                        <iframe width="854" height="480" src="https://www.youtube.com/embed/q8krkjuuL0M" frameborder="0" gesture="media" allowfullscreen></iframe>
-
+                        </div>
 
                     </div>
 
+
+
+
+
+
+
+                    <hr>
 
                 </div>
+
+
             </div>
+
+            @endforeach
         </div>
     </div>
 </div>
 
+
+
 <script>
     $(document).ready(function () {
 
-        var src = $('.xem-nhieu').find('iframe').attr('src');
+//        var src = $('.embed-responsive').find('iframe').attr('src');
+//
+//        src = src + '?rel=0&showinfo=0&controls=1&autohide=1';
 
-        src = src + '?rel=0&showinfo=0&controls=0&autohide=1';
 
+        $('.embed-responsive').find('iframe').each(function () {
 
-        $('.xem-nhieu').find('iframe').css('height', '100px').css('width','160px');
-        $('.xem-nhieu').find('iframe').attr('src',src);
+            $(this).removeAttr('height').removeAttr('width').addClass('embed-responsive-item');
+            var src = $(this).attr('src');
+            src = src + '?rel=0&showinfo=0&controls=1&autohide=1';
+
+            $(this).attr('src',src);
+
+        })
+//        $('.embed-responsive').find('iframe').attr('src',src);
 
 
     })

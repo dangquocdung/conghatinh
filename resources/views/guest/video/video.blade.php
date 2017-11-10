@@ -1,29 +1,23 @@
-<div id="video-player">
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/2EIeUlvHAiM" frameborder="0" allowfullscreen></iframe>
 
+<div class="clearfix"></div>
+
+<div class="video-player">
+    <div class="embed-responsive embed-responsive-16by9">
+
+        {!! $vd->src !!}
+
+    </div>
 </div>
 
 
-<script>
-    $(document).ready(function () {
 
-        var src = $('#video-player').find('iframe').attr('src');
-
-        src = src + '?rel=0';
-
-        $('#video-player').find('iframe').css('display','block').css('margin','0 auto');
-        $('#video-player').find('iframe').attr('width','560').attr('height','315');
-        $('#video-player').find('iframe').attr('src',src);
-
-    })
-</script>
 
 <div class="tat-ca-video"style="margin-top: 30px">
 
 <div class="row">
     <div  class="col-sm-12">
-        <div class="col-xs-3">
+        <div class="col-xs-1">
             <!-- required for floating -->
             <!-- Nav tabs -->
             <ul class="nav nav-tabs tabs-left vertical-text">
@@ -36,12 +30,39 @@
                 @endforeach
             </ul>
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-11">
             <!-- Tab panes -->
             <div class="tab-content">
                 @foreach($loaivideo as $lv)
                     @if ($lv->id == 1)
-                        <div class="tab-pane active" id="{{$lv->slug}}">{{ $lv->name }}</div>
+                        <div class="tab-pane active" id="{{$lv->slug}}">
+
+
+
+                                <div class="news-rightbox" style="padding: 2px 10px">
+                                    @foreach($lv->video->sortByDesc('id') as $vd)
+
+                                    <div class="clip col-md-4">
+
+                                        <div class="embed-responsive embed-responsive-16by9">
+
+                                            {!! $vd->src !!}
+
+                                        </div>
+
+                                        <div class="tieu-de" style="text-align: center; padding: 5px">
+                                            <strong>{{ $vd->name }}</strong>
+                                        </div>
+
+                                    </div>
+                                    @endforeach
+
+
+                                </div>
+
+
+
+                        </div>
                     @else
                         <div class="tab-pane" id="{{$lv->slug}}">{{ $lv->name }}</div>
                     @endif

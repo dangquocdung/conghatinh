@@ -35,7 +35,11 @@
 
                         </div>
 
+
+
+
                         @include('guest.video.video')
+
 
 
                     </div>
