@@ -2,12 +2,27 @@
 
 <div class="clearfix"></div>
 
+<div class="tieu-de-video" style="text-align: center; text-transform: uppercase">
+    <h3>
+        {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
+    </h3>
+</div>
+<br>
+
 <div class="video-player">
     <div class="embed-responsive embed-responsive-16by9">
 
         {!! $vd->src !!}
 
     </div>
+</div>
+<br>
+<br>
+
+<div class="lienquan-header">
+
+    <a href="javascript:void(0);">Thư viện video</a>
+
 </div>
 
 
@@ -51,7 +66,7 @@
                                         </div>
 
                                         <div class="tieu-de" style="text-align: center; padding: 5px 15px; margin-top: 10px">
-                                            {{ $vd->name }}
+                                            {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
                                         </div>
 
                                     </div>

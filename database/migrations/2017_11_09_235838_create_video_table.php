@@ -20,13 +20,10 @@ class CreateVideoTable extends Migration
                 ->references('id')->on('loaivideo')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('src')->unique();
-            $table->text('gioithieu')->nullable();
+            $table->date('ngayphat');
+            $table->string('src');
             $table->boolean('noibat')->default(false);
             $table->boolean('daduyet')->default(false);
-            $table->string('ghichu')->nullable();
             $table->timestamps();
         });
     }

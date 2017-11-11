@@ -8,7 +8,7 @@ class Video extends Model
 {
     protected $table = 'video';
 
-    protected $fillable = ['name','slug','gioithieu','src','loaivideo_id','ghichu'];
+    protected $fillable = ['ngayphat','src','loaivideo_id'];
 
 
     public function loaivideo()

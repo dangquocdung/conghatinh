@@ -25,13 +25,8 @@
                     <div class="col-md-5">
 
                         <div style="text-align: justify">
-                            <strong>{{ $vd->name }}</strong>
+                            <strong>{{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}</strong>
                         </div>
-
-                        <div style="float: left">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <em>{{ \Carbon\Carbon::parse($vd->created_at)->format('d-m-Y')  }}</em>
-                        </div>
-
 
 
                     </div>

@@ -45,8 +45,7 @@ class VideoTableSeeder extends Seeder
 
             Video::create([
                 'loaivideo_id' => '1',
-                'name' => $vd['name'],
-                'slug' => str_slug($vd['name']),
+                'ngayphat' => $vd['ngayphat'],
                 'src' => $vd['src'],
                 'daduyet' => '1'
             ]);

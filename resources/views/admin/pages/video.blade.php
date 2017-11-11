@@ -27,10 +27,10 @@
               <th>#</th>
               <th>Loại video</th>
               <th>Tiêu đề</th>
-              <th>Giới thiệu</th>
-              <th>Nguồn youtube</th>
+              <th>Ngày đăng</th>
+              <th width="20%">Video</th>
 
-              <th></th>
+              <th width="5%"></th>
             </tr>
             </thead>
             <tbody>
@@ -38,8 +38,8 @@
               <tr>
                 <td>{{$vd->id}}</td>
                 <td>{{ $vd->loaivideo->name }}</td>
-                <td>{{($vd->name)}}</td>
-                <td>{{ $vd->gioithieu }}</td>
+                <td>{{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($vd->created_at)->format('d/m/Y H:i:s') }}</td>
                 <td>
                   <div class="embed-responsive embed-responsive-16by9">
                     {!! $vd->src !!}
@@ -89,7 +89,7 @@
           <div class="box-body">
             {{csrf_field()}}
             <div class="form-group">
-              <label>Nhóm</label>
+              <label>Nhóm video</label>
               <select class="form-control chuyenmuc" name="loaivideo_id" style="width: 100%;">
                 @foreach ($loaivideo as $lv)
                   @if ($loaivideo_id == $lv->id)
@@ -101,41 +101,29 @@
               </select>
             </div>
 
+            <!-- Date -->
             <div class="form-group">
-              <label for="">Tiêu đề:</label>
-              <input type="text"
-                     placeholder="Nhập tiêu đề video"
-                     name="name"
-                     value="{{old('name')}}"
-                     class="form-control"
-                     required >
-              @if ($errors->has('name'))
-                <div class="error">{{ $errors->first('name') }}</div>
-              @endif
+              <label>Ngày phát</label>
+              <div class='input-group date' id='datetimepicker_ngayphat'>
+                <input name="ngayphat" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
+                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+              </div>
+              <!-- /.input group -->
             </div>
 
             <div class="form-group">
-              <label for="">Giới thiệu:</label>
-              <textarea class="form-control" name="gioithieu" rows="3" cols="80" placeholder="Giới thiệu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
-              <div class="HelpText error">{{$errors->first('name')}}</div>
-            </div>
-            @if ($errors->has('gioithieu'))
-              <div class="error">{{ $errors->first('gioithieu') }}</div>
-            @endif
-
-            <div class="form-group">
-              <label for="">Nguồn youtube:</label>
+              <label for="">Mã nhúng:</label>
               <input type="text"
-                     placeholder="Nhập tiêu đề video"
+                     placeholder="Sao chép mã nhúng"
                      name="src"
                      value="{{old('src')}}"
                      class="form-control"
                      required >
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>
-            {{--<div class="form-group">--}}
-              {{--<iframe src="" frameborder="0"></iframe>--}}
-            {{--</div>--}}
+
 
           </div>
           <!-- /.box-body -->
@@ -152,6 +140,10 @@
 @endsection
 
 @section('js')
+  <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+
 
   <script>
     $(document).ready(function () {
@@ -160,6 +152,13 @@
 
 
     })
+
+    $(function () {
+
+        $('#datetimepicker_ngayphat').datetimepicker({
+            format:'DD-MM-YYYY'
+        });
+    });
   </script>
 
 @stop
