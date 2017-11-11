@@ -40,9 +40,9 @@
 
 
                                 <div class="news-rightbox" style="padding: 2px 10px">
-                                    @foreach($lv->video->sortByDesc('id') as $vd)
+                                    @foreach($lv->video->sortByDesc('id')->take(18) as $vd)
 
-                                    <div class="clip col-md-4">
+                                    <div class="clip col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 15px">
 
                                         <div class="embed-responsive embed-responsive-16by9">
 
@@ -50,8 +50,8 @@
 
                                         </div>
 
-                                        <div class="tieu-de" style="text-align: center; padding: 5px">
-                                            <strong>{{ $vd->name }}</strong>
+                                        <div class="tieu-de" style="text-align: center; padding: 5px; margin-top: 10px">
+                                            {{ $vd->name }}
                                         </div>
 
                                     </div>

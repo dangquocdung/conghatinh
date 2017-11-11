@@ -54,15 +54,17 @@
 }
 .vertical-text>li {
 	height: 20px;
-	width: 120px;
-	margin-bottom: 100px;
+	width: 150px;
+	margin-bottom: 130px;
 }
 .vertical-text>li>a {
 	border-bottom: 1px solid #ddd;
 	border-right-color: transparent;
 	text-align: center;
 	border-radius: 4px 4px 0px 0px;
+	padding: 10px 5px !important;
 }
+
 .vertical-text>li.active>a,
 .vertical-text>li.active>a:hover,
 .vertical-text>li.active>a:focus {

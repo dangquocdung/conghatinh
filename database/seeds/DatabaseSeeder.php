@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(HoTroPhapLySeeder::class);
 
         $this->call(LoaiVideoSeeder::class);
+//        $this->call(VideoTableSeeder::class);
     
     }
 }
