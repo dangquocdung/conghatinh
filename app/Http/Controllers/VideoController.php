@@ -24,7 +24,7 @@ class VideoController extends Controller
         $video = Video::orderby('id','desc ')->paginate(10);
 
         if (Session::has('loaivideo_id')){
-            $loaivideo_id = Session::get('chuyenmuc_id');
+            $loaivideo_id = Session::get('loaivideo_id');
         }else{
             $loaivideo_id = 1;
         }
@@ -69,6 +69,8 @@ class VideoController extends Controller
         $vd->save();
 
         flash('Thêm video thành công');
+
+        Session::put('loaivideo_id', $request->input('loaivideo_id'));
 
         return redirect()->back();
 

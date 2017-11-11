@@ -38,7 +38,66 @@
               <tr>
                 <td>{{$vd->id}}</td>
                 <td>{{ $vd->loaivideo->name }}</td>
-                <td>{{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}</td>
+                <td>
+                  {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
+
+                  <div class="clearfix"></div>
+
+                  @if ($vd->noibat == '1')
+                    <div class="pull-left gap-left gap-10">
+                      <confirm-modal
+                              btn-text='Hủy Nổi bật'
+                              btn-class="btn-danger"
+                              url="{{url('api/v1/noi-bat-video')}}"
+                              :post-data="{{json_encode(['id' => $vd->id, 'noibat'=>'0'])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn hủy nổi bật?">
+                      </confirm-modal>
+                    </div>
+
+                  @else
+                    <div class="pull-left gap-left gap-10">
+                      <confirm-modal
+                              btn-text='Làm Nổi bật'
+                              btn-class="btn-warning"
+                              url="{{url('api/v1/noi-bat-video')}}"
+                              :post-data="{{json_encode(['id' => $vd->id, 'noibat'=>'1'])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn làm nổi bật?">
+                      </confirm-modal>
+                    </div>
+
+                  @endif
+
+                  @if ($vd->daduyet == '1')
+                    {{--<span class="label label-success">Đã duyệt đăng</span>--}}
+                    <div class="pull-left gap-left gap-10">
+                      <confirm-modal
+                              btn-text='Thôi Duyệt đăng'
+                              btn-class="btn-danger"
+                              url="{{url('api/v1/duyet-video')}}"
+                              :post-data="{{json_encode(['id' => $vd->id, 'duyetdang'=>'0'])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn thôi duyệt đăng video?">
+                      </confirm-modal>
+                    </div>
+
+                  @else
+                    <div class="pull-left gap-left gap-10">
+                      <confirm-modal
+                              btn-text='Chờ duyệt đăng'
+                              btn-class="btn-success"
+                              url="{{url('api/v1/duyet-video')}}"
+                              :post-data="{{json_encode(['id' => $vd->id, 'duyetdang'=>'1'])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn duyệt đăng video?">
+                      </confirm-modal>
+                    </div>
+
+                    {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                  @endif
+
+                </td>
                 <td>{{ \Carbon\Carbon::parse($vd->created_at)->format('d/m/Y H:i:s') }}</td>
                 <td>
                   <div class="embed-responsive embed-responsive-16by9">
