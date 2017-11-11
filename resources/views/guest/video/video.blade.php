@@ -35,7 +35,7 @@
             <div class="tab-content">
                 @foreach($loaivideo as $lv)
                     @if ($lv->id == 1)
-                        <div class="tab-pane active" id="{{$lv->slug}}">
+                        <div class="tab-pane fade in active" id="{{$lv->slug}}">
 
 
 
@@ -64,7 +64,7 @@
 
                         </div>
                     @else
-                        <div class="tab-pane" id="{{$lv->slug}}">{{ $lv->name }}</div>
+                        <div class="tab-pane fade in" id="{{$lv->slug}}">{{ $lv->name }}</div>
                     @endif
                 @endforeach
 
