@@ -157,7 +157,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
         Route::get('cau-hinh/loai-tin', 'LoaiTinController@index')->name('loai-tin');
         Route::post('cau-hinh/loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
-//        Route::get('cau-hinh/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
+        Route::get('cau-hinh/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
         Route::post('cau-hinh/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
 
         Route::get('cau-hinh/lien-ket/so-ban-nganh', 'CoQuanController@index')->name('so-ban-nganh');
