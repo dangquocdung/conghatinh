@@ -33,6 +33,10 @@
 
 <script type="text/javascript" src="guest/js/jssor.slider.min.js"></script>
 
+<script type="text/javascript" src="guest/js/jquery.fancybox.min.js"></script>
+
+
+
 <script>
     jssor_slider1_init = function (containerId) {
         //Define an array of slideshow transition code

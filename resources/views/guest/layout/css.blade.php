@@ -10,6 +10,7 @@
 <!-- owl.carousel CSS -->
 <link rel="stylesheet" type="text/css" href="./guest/css/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="./guest/css/owl.transitions.css">
+<link rel="stylesheet" type="text/css" href="./guest/css/jquery.fancybox.min.css">
 {{--<link rel="stylesheet" href="./guest/css/main-menu.css">--}}
 {{-- <link rel="stylesheet" href="./guest/css/app.css"> --}}
 <link rel="stylesheet" href="{{ mix('/guest/css/guest.css') }}">

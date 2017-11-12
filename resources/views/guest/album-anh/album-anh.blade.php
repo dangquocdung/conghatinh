@@ -16,7 +16,16 @@
             @endforeach
         @else
 
-            @include('guest.album-anh.modal')
+
+
+
+                @include('guest.album-anh.modal')
+
+
+
+
+
+
 
             <br>
             <br>
@@ -24,11 +33,11 @@
             @foreach($albums->Photos as $img)
                 <li class="col-md-4 col-sm-4 col-xs-6">
                     <div class="album-item">
-                        <a href="#">
+                        <a class="single_image" href="{{ $img->image }}">
 
                             <img src="{{ $img->image }}">
 
-                            <p><em>{{ $img->description }}</em></p>
+                            <p style="text-align: center"><em>{{ $img->description }}</em></p>
                         </a>
                     </div>
                 </li>
@@ -39,3 +48,14 @@
         @endif
     </ul>
 </div>
+
+<script>
+    $(document).ready(function() {
+
+        /* This is basic - uses default settings */
+
+        $("a.single_image").fancybox();
+
+
+    });
+</script>
