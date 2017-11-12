@@ -14,6 +14,8 @@
                     </div>
                 </li>
             @endforeach
+
+
         @else
 
 
@@ -48,6 +50,8 @@
         @endif
     </ul>
 </div>
+
+
 
 <script>
     $(document).ready(function() {

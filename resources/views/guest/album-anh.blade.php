@@ -28,6 +28,16 @@
 
                 @include('guest.album-anh.album-anh')
             </div>
+
+            @if (count($albums) > 1)
+
+                <div class="text-center">
+
+                {{ $albums->render() }}
+
+                </div>
+
+            @endif
         </div>
 
         @if (count($albums) > 1)

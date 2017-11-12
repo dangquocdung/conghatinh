@@ -64,7 +64,7 @@ class GuestController extends Controller
     {
         $loaivideo = LoaiVideo::orderby('thutu')->get();
 
-        $video = Video::where('noibat','1')->take(12)->get();
+        $video = Video::where('daduyet','1')->where('noibat','1')->take(12)->get();
 
         if ($id != null) {
 
@@ -74,7 +74,7 @@ class GuestController extends Controller
 
         }else{
 
-            $vd=null;
+            $vd=Video::where('daduyet','1')->where('noibat','1')->orderby('id','desc')->first();
 
         }
 

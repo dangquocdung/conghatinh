@@ -117,8 +117,47 @@ class VideoController extends Controller
      * @param  \App\Video  $video
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Video $video)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+
+
+        $vd = Video::find($id);
+
+        $vd->delete();
+
+        return response(['data' => 'Video đã bị xoá'], 200);
+    }
+
+    public function postDuyet(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $vd = Video::find($id);
+
+//        $tintuc->daduyet = $request->input('daduyet');
+
+        $vd->daduyet = $request->input('duyetdang');
+
+        $vd->save();
+
+        return response(['data' => 'Done!'], 200);
+    }
+
+    public function postNoiBat(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $vd = Video::find($id);
+
+//        $tintuc->daduyet = $request->input('daduyet');
+
+        $vd->noibat = $request->input('noibat');
+
+        $vd->save();
+
+        return response(['data' => 'Done!'], 200);
     }
 }

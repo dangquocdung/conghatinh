@@ -113,16 +113,16 @@
                     {{--</a>--}}
                   {{--</div>--}}
 
-                  {{--<div class="pull-left gap-left gap-10">--}}
-                    {{--<confirm-modal--}}
-                            {{--btn-text='<i class="fa fa-trash"></i> Delete'--}}
-                            {{--btn-class="btn-danger"--}}
-                            {{--url="{{url('api/v1/delete-loai-tin')}}"--}}
-                            {{--:post-data="{{json_encode(['id' => $vd->id])}}"--}}
-                            {{--:refresh="true"--}}
-                            {{--message="Bạn chắc chắn muốn xoá loại tin {{$lt->name}}?">--}}
-                    {{--</confirm-modal>--}}
-                  {{--</div>--}}
+                  <div class="pull-left gap-left gap-10">
+                    <confirm-modal
+                            btn-text='<i class="fa fa-trash"></i> Delete'
+                            btn-class="btn-danger"
+                            url="{{url('api/v1/delete-video')}}"
+                            :post-data="{{json_encode(['id' => $vd->id])}}"
+                            :refresh="true"
+                            message="Bạn chắc chắn muốn xoá video này?">
+                    </confirm-modal>
+                  </div>
                   {{-- @endif --}}
                 </td>
               </tr>

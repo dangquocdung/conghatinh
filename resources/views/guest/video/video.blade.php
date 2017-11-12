@@ -53,13 +53,19 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 @foreach($loaivideo as $lv)
-                    @if ($lv->id == 1)
-                        <div class="tab-pane fade in active" id="{{$lv->slug}}">
+
+                        <div class="tab-pane fade in
+
+                        @if ($lv->id == 1)
+                                active
+
+                        @endif
+                                " id="{{$lv->slug}}">
 
 
 
                                 <div class="news-rightbox" style="padding: 2px 10px">
-                                    @foreach($lv->video->sortByDesc('ngayphat')->take(15) as $vd)
+                                    @foreach($lv->video->where('daduyet','1')->sortByDesc('ngayphat')->take(15) as $vd)
 
                                     <div class="clip col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 20px; padding: 0 20px">
 
@@ -84,31 +90,31 @@
 
 
                         </div>
-                    @else
-                        <div class="tab-pane fade in" id="{{$lv->slug}}">
+                    {{--@else--}}
+                        {{--<div class="tab-pane fade in" id="{{$lv->slug}}">--}}
 
-                            <div class="news-rightbox" style="padding: 2px 10px">
-                                @foreach($lv->video->sortByDesc('ngayphat')->take(15) as $vd)
+                            {{--<div class="news-rightbox" style="padding: 2px 10px">--}}
+                                {{--@foreach($lv->video->sortByDesc('ngayphat')->take(15) as $vd)--}}
 
-                                    <div class="clip col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 20px; padding: 0 20px">
+                                    {{--<div class="clip col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 20px; padding: 0 20px">--}}
 
-                                        <div class="embed-responsive embed-responsive-16by9">
+                                        {{--<div class="embed-responsive embed-responsive-16by9">--}}
 
-                                            {!! $vd->src !!}
+                                            {{--{!! $vd->src !!}--}}
 
-                                        </div>
+                                        {{--</div>--}}
 
-                                        <div class="tieu-de" style="text-align: center; padding: 5px 15px; margin-top: 10px">
-                                            {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
-                                        </div>
+                                        {{--<div class="tieu-de" style="text-align: center; padding: 5px 15px; margin-top: 10px">--}}
+                                            {{--{{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                @endforeach
+                                    {{--</div>--}}
+                                {{--@endforeach--}}
 
 
-                            </div>
-                        </div>
-                    @endif
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--@endif--}}
                 @endforeach
 
             </div>

@@ -240,7 +240,14 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('delete-van-ban', 'VanBanController@destroy');
 
         Route::post('duyet-van-ban', 'VanBanController@postDuyetVanBan');
-        
+
+        Route::post('duyet-video', 'VideoController@postDuyet');
+
+        Route::post('noi-bat-video', 'VideoController@postNoiBat');
+
+        Route::post('delete-video', 'VideoController@destroy');
+
+
     });
 
     
