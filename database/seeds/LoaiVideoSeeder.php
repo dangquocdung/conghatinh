@@ -20,7 +20,7 @@ class LoaiVideoSeeder extends Seeder
 
         DB::statement("SET foreign_key_checks=1");
 
-        $loaivideo = array("Thời sự Hà Tĩnh","Nông thôn mới","Tài Nguyên & Môi trường");
+        $loaivideo = array("Thời sự Hà Tĩnh","Cải cách hành chính","Khoa học & Công nghệ","Nông thôn mới","Tài Nguyên & Môi trường");
 
 //        $linhvuc = array("Cấp phép, đầu tư","Công nghệ thông tin","Thương mại quốc tế","Đầu tư","Đất đai","Hợp đồng","Thuế","Hải quan","Xử lý vi phạm trong kinh doanh","Hỗ trợ pháp lý","Phổ biến pháp luật","Bảo hiểm xã hội","Tài nguyên - Môi trường");
 

@@ -21,7 +21,7 @@ Route::get('/loai-tin/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@ge
 
 Route::get('/loai-tin/thu-vien-video','GuestController@getVideo');
 
-Route::get('/loai-tin/thu-vien-anh','GuestController@getHinhAnh');
+Route::get('/loai-tin/album-hinh-anh/{slug?}','GuestController@getAlbum');
 
 
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');

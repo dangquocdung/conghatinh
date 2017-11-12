@@ -336,3 +336,53 @@
 }
 
 
+.list-image-view{
+
+  ul {
+
+    li {
+      list-style: none;
+
+      .album-item {
+
+        margin-bottom: 15px;
+
+        a{
+
+          text-decoration: none;
+        }
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          height: 146px;
+        }
+
+        h5 {
+          line-height: 1.3em;
+          text-align: justify;
+        }
+
+      }
+
+    }
+  }
+}
+
+@media (min-width: 767px) {
+
+  .list-image-view{
+
+    ul {
+
+      li {
+        &:nth-child(3n+1) {
+          clear: both;
+        }
+      }
+    }
+  }
+
+}
+
+

@@ -16,7 +16,7 @@ use App\NguoiPhatNgon;
 use App\PVTT;
 use App\LoaiVideo;
 use App\Video;
-
+use App\Album;
 class GuestController extends Controller
 {
     public function index()
@@ -71,10 +71,30 @@ class GuestController extends Controller
         return view('guest.video-chi-tiet',compact('loaivideo','vd','video'));
     }
 
-    public function getHinhAnh()
+    public function getAlbum($slug=null)
     {
-        return view('guest.hinh-anh');
+
+        if ($slug != null){
+
+            $albums = Album::where('slug',$slug)->with('Photos')->first();
+
+
+
+        }else{
+
+            $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
+
+
+
+        }
+
+        return view('guest.album-anh',compact('albums'));
+
+
+
     }
+
+
 
     public function tinTuc($slug)
     {

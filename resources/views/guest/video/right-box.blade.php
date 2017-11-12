@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
-            @foreach($video->sortByDesc('id') as $vd)
+            @foreach($video->sortByDesc('ngayphat') as $vd)
             <div class="row" style="padding-bottom: 10px">
                 <div class="news-rightbox">
 

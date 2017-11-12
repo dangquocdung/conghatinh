@@ -58251,7 +58251,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "thumbnail"
     }, [_c('img', {
       attrs: {
-        "src": image.directory + '/' + image.filename + '.' + image.extension,
+        "src": image.directory + '/' + image.filename + '_thumb.' + image.extension,
         "alt": image.directory,
         "title": (image.meta_data !== null) ? image.meta_data.alt : ''
       },
