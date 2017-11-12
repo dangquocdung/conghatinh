@@ -5,7 +5,12 @@
             <li class="{{ Request::is('/') ? 'active' : ''  }}"><a href="/"><i class="fa fa-university" aria-hidden="true"></i></a></li>
             @foreach ($chuyenmuc as $cm)
                 @if ($cm->vitri == 1)
-                    <li class="{{ Request::is($cm->path.'/'.$cm->slug) ? 'active' : ''  }}"><a href="{{ $cm->path}}/{{ $cm->slug}}">{{ $cm->name }}</a>
+
+                        <li class="{{ Request::is($cm->path.'/'.$cm->slug) ? 'active' : ''  }}"><a href="javascript:void(0);">{{ $cm->name }}</a>
+
+
+{{--                            <li class="{{ Request::is($cm->path.'/'.$cm->slug) ? 'active' : ''  }}"><a href="{{ $cm->path}}/{{ $cm->slug}}">{{ $cm->name }}</a>--}}
+
                         <ul>
                             @if ( $cm->path == 'van-ban')
                                 @foreach($cm->loaitin as $lt)
@@ -21,7 +26,7 @@
                     </li>
                 @endif
             @endforeach
-            <li><a href="http://dichvucong.hatinh.gov.vn/portaldvc/Home/default.aspx">DVC trực tuyến</a></li>
+            <li><a href="http://dichvucong.hatinh.gov.vn/portaldvc/Home/default.aspx" target="_blank">DVC trực tuyến</a></li>
         </ul>
 
 </div>
