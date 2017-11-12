@@ -19,7 +19,7 @@ Route::post('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-c
 
 Route::get('/loai-tin/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
 
-Route::get('/loai-tin/thu-vien-video','GuestController@getVideo');
+Route::get('/loai-tin/thu-vien-video/{id?}','GuestController@getVideo');
 
 Route::get('/loai-tin/album-hinh-anh/{slug?}','GuestController@getAlbum');
 

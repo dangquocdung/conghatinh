@@ -60,15 +60,26 @@ class GuestController extends Controller
 
     }
 
-    public function getVideo()
+    public function getVideo($id=null)
     {
         $loaivideo = LoaiVideo::orderby('thutu')->get();
 
-        $vd = Video::orderby('ngayphat','desc')->first();
-
         $video = Video::where('noibat','1')->take(12)->get();
 
+        if ($id != null) {
+
+            $vd = Video::find($id)->first();
+
+
+
+        }else{
+
+            $vd=null;
+
+        }
+
         return view('guest.video-chi-tiet',compact('loaivideo','vd','video'));
+
     }
 
     public function getAlbum($slug=null)

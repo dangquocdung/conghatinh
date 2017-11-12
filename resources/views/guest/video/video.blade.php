@@ -1,23 +1,27 @@
 
 
-<div class="clearfix"></div>
+@if ($vd != null)
 
-<div class="tieu-de-video" style="text-align: center; text-transform: uppercase">
-    <h3>
-        {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
-    </h3>
-</div>
-<br>
+    <div class="clearfix"></div>
 
-<div class="video-player">
-    <div class="embed-responsive embed-responsive-16by9">
-
-        {!! $vd->src !!}
-
+    <div class="tieu-de-video" style="text-align: center; text-transform: uppercase">
+        <h3>
+            {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
+        </h3>
     </div>
-</div>
-<br>
-<br>
+    <br>
+
+    <div class="video-player">
+        <div class="embed-responsive embed-responsive-16by9">
+
+            {!! $vd->src !!}
+
+        </div>
+    </div>
+    <br>
+    <br>
+
+@endif
 
 <div class="lienquan-header">
 
@@ -28,7 +32,7 @@
 
 
 
-<div class="tat-ca-video"style="margin-top: 30px">
+<div class="tat-ca-video"style="margin-top: 20px">
 
 <div class="row">
     <div  class="col-sm-12">
@@ -59,14 +63,16 @@
 
                                     <div class="clip col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 20px; padding: 0 20px">
 
+
+
                                         <div class="embed-responsive embed-responsive-16by9">
-
                                             {!! $vd->src !!}
-
                                         </div>
 
                                         <div class="tieu-de" style="text-align: center; padding: 5px 15px; margin-top: 10px">
+                                            <a href="loai-tin/thu-vien-video/{{ $vd->id }}">
                                             {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
+                                            </a>
                                         </div>
 
                                     </div>
