@@ -7,8 +7,15 @@ use Illuminate\Support\MessageBag;
 use Validator;
 use App\Album;
 
-class AlbumsController extends Controller
+class AlbumController extends Controller
 {
+
+    public function index()
+    {
+        $albums = Album::with('Photos')->paginate(12);
+        return view('admin.pages.album',compact('albums'));
+        
+    }
     public function getList()
     {
         $albums = Album::with('Photos')->get();

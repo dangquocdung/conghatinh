@@ -77,8 +77,12 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
     Route::get('media-manager', 'MediaController@index')->name('media-manager');
     Route::get('file-manager', 'FileController@index')->name('file-manager');
+
     Route::get('video-manager', 'VideoController@index')->name('video-manager');
     Route::post('save-video', 'VideoController@store')->name('save-video');
+
+    Route::get('album-manager', 'AlbumController@index')->name('album-manager');
+    Route::post('save-album', 'AlbumController@store')->name('album-video');
 
     Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
     Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');

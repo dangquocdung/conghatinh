@@ -107,6 +107,10 @@
         <a href="{{route('file-manager')}}"><i class="fa fa-file-pdf-o"></i><span>Quản lý tệp văn bản</span></a>
       </li>
 
+      <li class="{{ Request::is('toa-soan/album-manager') ? 'active' : ''  }} treeview">
+        <a href="{{route('album-manager')}}"><i class="fa fa-file-photo-o"></i><span>Quản lý album hình ảnh</span></a>
+      </li>
+
       <li class="{{ Request::is('toa-soan/video-manager') ? 'active' : ''  }} treeview">
         <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Quản lý video</span></a>
       </li>

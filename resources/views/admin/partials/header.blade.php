@@ -20,15 +20,18 @@
   <link rel="stylesheet" href="{{ url('admin/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="{{ url('admin/css/jquery.fancybox.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/default.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
   <link rel="stylesheet" href="{{ mix('admin/css/admin.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/_all-skins.min.css') }}">
+
   @yield('css')
 
   <script type="text/javascript" src="{{url('admin/js/jquery-2.2.3.min.js')}}"></script>
   <script type="text/javascript" src="{{url('admin/js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="admin/js/jquery.fancybox.min.js"></script>
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

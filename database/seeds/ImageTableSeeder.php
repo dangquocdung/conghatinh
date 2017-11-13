@@ -20,7 +20,7 @@ class ImageTableSeeder extends Seeder
         Image::truncate();
 
 
-        foreach(range(1, 20) as $i) {
+        foreach(range(1, 500) as $i) {
 
 
             Image::create([
