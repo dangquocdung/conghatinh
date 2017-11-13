@@ -117,6 +117,14 @@
     .jssort101 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.6;}
     .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
 </style>
+
+<div class="tieu-de-video" style="text-align: center; line-height: 30px; padding: 50px 20px 20px 20px">
+    <h3>
+        {{ $albums->name }}
+    </h3>
+</div>
+
+
 <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:620px;overflow:hidden;visibility:hidden">
     <!-- Loading Screen -->
     <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
@@ -126,8 +134,8 @@
 
         @foreach($albums->Photos as $img)
         <div>
-            <img data-u="image" src="{{ $img->image }}" style="object-fit: cover;"/>
-            <img data-u="thumb" src="{{ $img->image }}" style="object-fit: cover;"/>
+            <img data-u="image" src="{{ $img->image }}" title="{{ $img->description }}" style="object-fit: cover;"/>
+            <img data-u="thumb" src="{{ $img->image }}" title="{{ $img->description }}" style="object-fit: cover;"/>
         </div>
         @endforeach
 

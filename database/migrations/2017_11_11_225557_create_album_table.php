@@ -17,8 +17,9 @@ class CreateAlbumTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->text('description');
             $table->string('cover_image');
+            $table->boolean('noibat')->default(false);
+            $table->boolean('daduyet')->default(false);
             $table->timestamps();
         });
     }

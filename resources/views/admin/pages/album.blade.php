@@ -13,7 +13,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -29,7 +29,7 @@
               <th>Ảnh bìa</th>
               <th>Ngày đăng</th>
               <th>Hình ảnh</th>
-              <th></th>
+              <th>Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -47,13 +47,13 @@
                 <td class="col-sm-3">
                   <div class="pull-left">
                     <a id="editAlbum" data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs" album-name="{{ $ab->name }}">
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Chỉnh sửa
                     </a>
                   </div>
 
                   <div class="pull-left gap-left gap-10">
                     <confirm-modal
-                            btn-text='<i class="fa fa-trash"></i> Delete'
+                            btn-text='<i class="fa fa-trash"></i> Xóa'
                             btn-class="btn-danger"
                             url="{{url('api/v1/delete-album')}}"
                             :post-data="{{json_encode(['id' => $ab->id])}}"
@@ -72,7 +72,7 @@
         <!-- /.box-body -->
       </div>
 
-      <!-- Modal -->
+      <!-- Modal Edit Album-->
       <div class="modal modal-default fade" id="modal-default">
         <div class="modal-dialog">
           <div class="modal-content" style="padding: 0">
@@ -103,6 +103,20 @@
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Save changes</button>
             </div>
+
+            {{--Box--}}
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Thư viện Hình ảnh</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <media-manager></media-manager>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            {{--End box--}}
+
           </div>
           <!-- /.modal-content -->
         </div>
@@ -112,24 +126,24 @@
       {{--End box--}}
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-md-4">
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Thêm Album hình ảnh</h3>
+          <h3 class="box-title">Thêm Liên kết</h3>
         </div>
-        <form action="{{route('save-banner-trang-chu')}}" method="post" id="role-save-form">
+        <form action="{{ route('save-album') }}" method="post" id="role-save-form">
+        {{csrf_field()}}
 
 
 
-          <!-- /.box-header -->
+        <!-- /.box-header -->
           <div class="box-body">
-            {{csrf_field()}}
 
             <div class="form-group">
-              <label for="">Tên Banner:</label>
+              <label for="">Tên Album:</label>
               <input type="text"
-                     placeholder="Nhập tên banner"
+                     placeholder="Nhập tên album"
                      name="name"
                      id="name"
                      value="{{old('name')}}"
@@ -138,24 +152,13 @@
             </div>
 
 
-
             <div class="form-group">
-              <label for="">Liên kết:</label>
-              <input type="text"
-                     placeholder="Nhập đường dẫn liên kết http"
-                     name="lienket"
-                     id="lienket"
-                     value="{{old('lienket')}}"
-                     class="form-control">
-              <div class="HelpText error">{{$errors->first('lienket')}}</div>
-            </div>
+              <label for="">Ảnh bìa:</label>
+              <a id="cover" href="">
+                <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="http://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
+              </a>
 
-
-            <div class="form-group">
-              <label for="">Kéo thả Banner:</label>
-
-              <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="http://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
-              <input type="hidden" name="banner" id="banner">
+              <input type="hidden" name="cover_image" id="cover_image">
             </div>
 
 
@@ -195,18 +198,42 @@
 
         /* This is basic - uses default settings */
 
+          $("a#cover").fancybox();
+
           $("a.cover-image").fancybox();
 
           $("#editAlbum").click(function () {
-
-
-
               $("#modal-default").find("input#name").val($(this).attr('album-name'));
-
           })
-
-
       });
+
+      var dropbox = document.getElementById('dropbox');
+      dropbox.addEventListener('drop', drop, false);
+
+
+      function drop(evt) {
+          evt.stopPropagation();
+          evt.preventDefault();
+          var imageUrl = evt.dataTransfer.getData('text/html');
+
+          var rex = /src="?([^"\s]+)"?\s*/;
+          var url, res;
+
+          url = rex.exec(imageUrl);
+          // alert(url[1]);
+
+
+          var str = url[1];
+
+          var res = str.replace("_thumb", "");
+
+          document.getElementById('dropbox').src=res;
+
+          document.getElementById('cover_image').value = url[1];
+
+          var a = document.getElementById('cover'); //or grab it by tagname etc
+          a.href = res;
+      }
   </script>
 
   @stop

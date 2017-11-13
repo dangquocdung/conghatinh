@@ -99,7 +99,9 @@ class GuestController extends Controller
 
         }
 
-        return view('guest.album-anh',compact('albums'));
+        $ab_noibat = Album::with('Photos')->orderby('id','desc')->take(12)->get();
+
+        return view('guest.album-anh',compact('albums','ab_noibat'));
 
 
 

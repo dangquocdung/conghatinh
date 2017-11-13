@@ -7,14 +7,7 @@
   <div class="container">
     <div class="row nen-trang">
 
-
-        @if (count($albums) > 1)
-            <div class="col-lg-8 col-md-8 col-xs-12">
-                @else
-            <div class="col-md-12">
-
-        @endif
-
+        <div class="col-md-12">
             <div class="block3">
                 <div class="portlet-header" style="padding-left: 10px">
                     <a href="/">
@@ -39,12 +32,6 @@
 
             @endif
         </div>
-
-        @if (count($albums) > 1)
-            <div class="col-lg-4 col-md-4 hidden-xs">
-                @include('guest.album-anh.right-box')
-            </div>
-        @endif
     </div>
   </div>
 @endsection

@@ -50,17 +50,17 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-//        $v = Validator::make($request->all(),
-//            [
-//                'name' => 'required|min:10|max:191',
-//                'gioithieu' => 'required|min:10'
-//            ]
-//        );
-//
-//        if ($v->fails())
-//        {
-//            return redirect()->back()->withErrors($v->errors());
-//        }
+        $v = Validator::make($request->all(),
+            [
+                'name' => 'required|min:10|max:191',
+                'gioithieu' => 'required|min:10'
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
 
         $vd = new Video();
         $vd->loaivideo_id = $request->input('loaivideo_id');

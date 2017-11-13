@@ -12,10 +12,41 @@ class AlbumController extends Controller
 
     public function index()
     {
-        $albums = Album::with('Photos')->paginate(12);
+        $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
         return view('admin.pages.album',compact('albums'));
         
     }
+
+
+    public function store(Request $request)
+    {
+        $v = Validator::make($request->all(),
+            [
+                'name' => 'required|min:10|max:191',
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
+        $ab = new Album();
+
+        $ab->name = $request->input('name');
+
+        $ab->slug = str_slug($request->input('name'));
+
+        $ab->cover_image = $request->input('cover_image');
+
+        $ab->save();
+
+        flash('Thêm album thành công');
+
+        return redirect()->back();
+    }
+
+
     public function getList()
     {
         $albums = Album::with('Photos')->get();
