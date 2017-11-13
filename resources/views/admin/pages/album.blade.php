@@ -61,7 +61,7 @@
                     <confirm-modal
                             btn-text='<i class="fa fa-trash"></i> Xóa'
                             btn-class="btn-danger"
-                            url="{{url('api/v1/delete-album')}}"
+                            url="{{ route('delete-album')}}"
                             :post-data="{{json_encode(['id' => $ab->id])}}"
                             :refresh="true"
                             message="Bạn chắc chắn muốn xoá video này?">

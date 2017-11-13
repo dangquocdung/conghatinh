@@ -78,6 +78,7 @@
 <style>
     /* jssor slider loading skin spin css */
     .jssorl-009-spin img {
+
         animation-name: jssorl-009-spin;
         animation-duration: 1.6s;
         animation-iteration-count: infinite;

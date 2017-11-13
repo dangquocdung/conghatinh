@@ -27,7 +27,7 @@ class ImageController extends Controller
 
         Image::create(array(
             'description' => $request->get('desc'),
-            'image' => $request->get('image'),
+            'image' => substr($request->get('cover_image'), strpos($request->get('cover_image'),'u')),
             'album_id'=> $request->get('album_id')
         ));
 

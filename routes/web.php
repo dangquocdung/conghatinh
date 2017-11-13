@@ -86,6 +86,8 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('update-album', 'AlbumController@update')->name('update-album');
     Route::post('update-album-cover', 'AlbumController@updateCover')->name('update-album-cover');
 
+    Route::post('delete-album', 'AlbumController@destroy')->name('delete-album');
+
     Route::post('add-image-to-album','ImageController@store')->name('add-image-to-album');
     Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
 
