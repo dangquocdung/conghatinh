@@ -36,7 +36,13 @@
             @foreach($albums as $ab)
               <tr class="album-item">
                 <td>{{$ab->id}}</td>
-                <td class="name">{{ $ab->name }}</td>
+                <td class="name">
+                  <a href="{{ route('album-manager',['slug'=> $ab->slug]) }}">
+
+                  {{ $ab->name }}
+
+                  </a>
+                </td>
                 <td>
                   <a class="cover-image" href="{{ $ab->cover_image }}">
                     <img src="{{ $ab->cover_image }}" alt="" width="64px">
@@ -46,7 +52,7 @@
                 <td>{{ count($ab->Photos) }}</td>
                 <td class="col-sm-3">
                   <div class="pull-left">
-                    <a id="editAlbum" data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs" album-name="{{ $ab->name }}">
+                    <a id="editAlbum" data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs" album-name="{{ $ab->name }}" album-id="{{ $ab->id }}" album-cover_image="{{ $ab->cover_image }}">
                       <i class="fa fa-edit"></i> Chỉnh sửa
                     </a>
                   </div>
@@ -79,43 +85,38 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" style="padding-bottom: 0">Info Modal</h4>
+              <h4 class="modal-title" style="padding-bottom: 0">Chỉnh sửa</h4>
             </div>
+            <form action="{{ route('update-album') }}" method="post" id="role-save-form">
+              {{csrf_field()}}
             <div class="modal-body">
 
+              <input type="hidden" name="album-id" id="album-id">
+
+
+
               <div class="form-group">
-                <label for="">Tiêu đề:</label>
-                <input type="text"
-                       id="name"
-                       name="name"
-                       class="form-control">
-                <div class="HelpText error">{{$errors->first('name')}}</div>
+
+                <img class="img-responsive" src="http://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
+
               </div>
 
               <div class="form-group">
-                <label for="">Giới thiệu:</label>
-                <textarea id="gioithieu" name="description" class="form-control"></textarea>
-                <div class="HelpText error">{{$errors->first('description')}}</div>
+                <label for="">Tên Album:</label>
+                <input type="text"
+                       name="album-name"
+                       id="name"
+                       value="{{old('name')}}"
+                       class="form-control">
+                <div class="HelpText error">{{$errors->first('name')}}</div>
               </div>
 
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
-
-            {{--Box--}}
-            <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">Thư viện Hình ảnh</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <media-manager></media-manager>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            {{--End box--}}
+            </form>
 
           </div>
           <!-- /.modal-content -->
@@ -130,10 +131,12 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Thêm Liên kết</h3>
+          <h3 class="box-title">Thêm Album</h3>
         </div>
         <form action="{{ route('save-album') }}" method="post" id="role-save-form">
         {{csrf_field()}}
+
+
 
 
 
@@ -203,7 +206,13 @@
           $("a.cover-image").fancybox();
 
           $("#editAlbum").click(function () {
+
               $("#modal-default").find("input#name").val($(this).attr('album-name'));
+
+              $("#modal-default").find("input#album-id").val($(this).attr('album-id'));
+
+              $("#modal-default").find("img").attr('src',$(this).attr('album-cover_image'));
+
           })
       });
 

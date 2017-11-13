@@ -81,8 +81,15 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::get('video-manager', 'VideoController@index')->name('video-manager');
     Route::post('save-video', 'VideoController@store')->name('save-video');
 
-    Route::get('album-manager', 'AlbumController@index')->name('album-manager');
+    Route::get('album-manager/{slug?}', 'AlbumController@index')->name('album-manager');
     Route::post('save-album', 'AlbumController@store')->name('save-album');
+    Route::post('update-album', 'AlbumController@update')->name('update-album');
+    Route::post('update-album-cover', 'AlbumController@updateCover')->name('update-album-cover');
+
+    Route::post('add-image-to-album','ImageController@store')->name('add-image-to-album');
+    Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
+
+
 
     Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
     Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');

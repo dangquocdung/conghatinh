@@ -20,18 +20,18 @@ class ImageTableSeeder extends Seeder
         Image::truncate();
 
 
-        foreach(range(1, 500) as $i) {
-
-
-            Image::create([
-
-                'album_id' => $faker->numberBetween($min = 1, $max = 20),
-
-                'description' => $faker->text($maxNbChars = 191),
-
-                'image' => $faker->imageUrl($width = 640, $height = 480)
-
-            ]);
-        }
+//        foreach(range(1, 500) as $i) {
+//
+//
+//            Image::create([
+//
+//                'album_id' => $faker->numberBetween($min = 1, $max = 20),
+//
+//                'description' => $faker->text($maxNbChars = 191),
+//
+//                'image' => $faker->imageUrl($width = 640, $height = 480)
+//
+//            ]);
+//        }
     }
 }

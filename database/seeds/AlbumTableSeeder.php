@@ -25,20 +25,20 @@ class AlbumTableSeeder extends Seeder
 
         DB::statement("SET foreign_key_checks=1");
 
-        foreach(range(1, 20) as $i) {
-
-
-            Album::create([
-
-                'name' => $faker->sentence($nbWords = 12, $variableNbWords = true),
-
-                'slug' => str_slug($faker->catchPhrase),
-
-                'description' => $faker->text($maxNbChars = 500),
-
-                'cover_image' => $faker->imageUrl($width = 640, $height = 480)
-
-            ]);
-        }
+//        foreach(range(1, 20) as $i) {
+//
+//
+//            Album::create([
+//
+//                'name' => $faker->sentence($nbWords = 12, $variableNbWords = true),
+//
+//                'slug' => str_slug($faker->catchPhrase),
+//
+//                'description' => $faker->text($maxNbChars = 500),
+//
+//                'cover_image' => $faker->imageUrl($width = 640, $height = 480)
+//
+//            ]);
+//        }
     }
 }

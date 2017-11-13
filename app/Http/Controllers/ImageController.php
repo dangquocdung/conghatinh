@@ -10,6 +10,45 @@ use App\Image;
 
 class ImageController extends Controller
 {
+
+    public function store(Request $request)
+    {
+
+        $v = Validator::make($request->all(),
+            [
+                'image' => 'required',
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
+        Image::create(array(
+            'description' => $request->get('desc'),
+            'image' => $request->get('image'),
+            'album_id'=> $request->get('album_id')
+        ));
+
+        flash('Thêm hình ảnh thành công');
+
+        return redirect()->back();
+
+
+
+    }
+
+    public function destroy(Request $request)
+    {
+        $img = Image::find($request->input('id'));
+        $img->delete();
+        flash('Xóa hình ảnh thành công');
+        return redirect()->back();
+
+    }
+
+
     public function getForm($id)
     {
         $album = Album::find($id);

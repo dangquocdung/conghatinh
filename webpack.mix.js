@@ -13,7 +13,7 @@ const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/admin.scss', 'public/admin/css')
-	.js('resources/assets/js/guest.js', 'public/js').version()
+	.js('resources/assets/js/guest.js', 'public/js')
     .sass('resources/assets/sass/guest.scss', 'public/guest/css')
     .version();
 

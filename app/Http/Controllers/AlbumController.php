@@ -10,12 +10,26 @@ use App\Album;
 class AlbumController extends Controller
 {
 
-    public function index()
+    public function index($slug=null)
     {
-        $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
-        return view('admin.pages.album',compact('albums'));
-        
+
+        if ($slug == null){
+
+            $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
+            return view('admin.pages.album',compact('albums'));
+
+
+        }else{
+
+            $ab = Album::where('slug',$slug)->first();
+
+            return view('admin.pages.album-chi-tiet',compact('ab'));
+
+        }
+
     }
+
+
 
 
     public function store(Request $request)
@@ -44,6 +58,49 @@ class AlbumController extends Controller
         flash('Thêm album thành công');
 
         return redirect()->back();
+    }
+
+    public function update(Request $request)
+    {
+        $v = Validator::make($request->all(),
+            [
+                'album-name' => 'required|min:10|max:191',
+                'album-id' => 'required'
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
+        $ab = Album::find($request->input('album-id'));
+
+        $ab->name = $request->input('album-name');
+
+        $ab->slug = str_slug($request->input('album-name'));
+
+        $ab->save();
+
+        flash('Cập nhật album thành công');
+
+        return redirect()->back();
+
+    }
+
+    public function updateCover(Request $request)
+    {
+
+        $ab = Album::find($request->input('album_id'));
+
+        $ab->cover_image = $request->input('cover_image');
+
+        $ab->save();
+
+        flash('Cập nhật bìa album thành công');
+
+        return redirect()->back();
+
     }
 
 
