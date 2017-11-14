@@ -64,7 +64,6 @@ class GuestController extends Controller
     {
         $loaivideo = LoaiVideo::orderby('thutu')->get();
 
-        $video = Video::where('daduyet','1')->where('noibat','1')->take(12)->get();
 
         if ($id != null) {
 
@@ -78,24 +77,24 @@ class GuestController extends Controller
 
         }
 
-        return view('guest.video-chi-tiet',compact('loaivideo','vd','video'));
+        return view('guest.video-chi-tiet',compact('loaivideo','vd'));
 
     }
 
     public function getAlbum($slug=null)
     {
 
-        $ab_noibat = Album::with('Photos')->orderby('id','desc')->take(12)->get();
+
 
         if ($slug == null){
 
             $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
-            return view('guest.album-anh',compact('albums','ab_noibat'));
+            return view('guest.album-anh',compact('albums'));
 
         }else{
 
             $album = Album::where('slug',$slug)->with('Photos')->first();
-            return view('guest.album-chi-tiet',compact('album','ab_noibat'));
+            return view('guest.album-chi-tiet',compact('album'));
 
         }
 

@@ -39,23 +39,15 @@ section{
 
         }
 
-
-
-
-
         .image:hover{
 
           img
           {
               opacity: 0.8;
               overflow: hidden;
-
               -moz-transform: scale(1.1);
               -webkit-transform: scale(1.1);
               transform: scale(1.1);
-
-
-
           }
 
           .btn-delete{
@@ -63,10 +55,6 @@ section{
           }
 
         }
-
-
-
-
       }
     }
   }

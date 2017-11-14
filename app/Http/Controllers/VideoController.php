@@ -64,7 +64,8 @@ class VideoController extends Controller
         $vd = new Video();
         $vd->loaivideo_id = $request->input('loaivideo_id');
         $vd->ngayphat = Carbon::parse($request->input('ngayphat'));
-        $vd->src = $request->input('src');
+        $src = str_replace('width="854" height="480"','',$request->input('src'));
+        $vd->src = str_replace('" frameborder','?rel=0" frameborder',$src);
         $vd->save();
 
         flash('Thêm video thành công');

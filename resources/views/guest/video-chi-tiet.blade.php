@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row nen-trang">
 
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <div class="col-md-12">
 
 
 
@@ -47,11 +47,12 @@
                 </div>
 
             </div>
-        <div class="col-md-4 hidden-xs">
 
-                @include('guest.video.right-box')
 
-        </div>
+
+            @include('guest.video.right-box')
+
+
 
 
 

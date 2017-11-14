@@ -17,7 +17,12 @@
                       {{--<img src="uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">--}}
                   {{--</a>--}}
               {{--</div>--}}
+
+              @include('guest.home.videos')
+
               @include('guest.home.tin-tuc-su-kien')
+
+              @include('guest.home.albums')
 {{--              @include('guest.home.tin-hoat-dong')--}}
               @include('guest.home.chi-dao-dieu-hanh')
 {{--              @include('guest.home.tin-co-so')--}}
