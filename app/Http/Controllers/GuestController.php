@@ -85,23 +85,23 @@ class GuestController extends Controller
     public function getAlbum($slug=null)
     {
 
-        if ($slug != null){
+        $ab_noibat = Album::with('Photos')->orderby('id','desc')->take(12)->get();
 
-            $albums = Album::where('slug',$slug)->with('Photos')->first();
+        if ($slug == null){
 
-
+            $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
+            return view('guest.album-anh',compact('albums','ab_noibat'));
 
         }else{
 
-            $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
-
-
+            $album = Album::where('slug',$slug)->with('Photos')->first();
+            return view('guest.album-chi-tiet',compact('album','ab_noibat'));
 
         }
 
-        $ab_noibat = Album::with('Photos')->orderby('id','desc')->take(12)->get();
 
-        return view('guest.album-anh',compact('albums','ab_noibat'));
+
+
 
 
 

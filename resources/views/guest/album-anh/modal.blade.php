@@ -121,7 +121,7 @@
 
 <div class="tieu-de-video" style="text-align: center; line-height: 30px; padding: 50px 20px 20px 20px">
     <h3>
-        {{ $albums->name }}
+        {{ $album->name }}
     </h3>
 </div>
 
@@ -133,9 +133,10 @@
     </div>
     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:480px;overflow:hidden;">
 
-        @foreach($albums->Photos as $img)
+        @foreach($album->Photos as $img)
         <div>
-            <img data-u="image" src="{{ $img->image }}" title="{{ $img->description }}" style="object-fit: cover;"/>
+            <img data-u="image" src="{!! str_replace('_thumb','',$img->image) !!}" title="{{ $img->description }}" style="object-fit: cover;"/>
+
             <img data-u="thumb" src="{{ $img->image }}" title="{{ $img->description }}" style="object-fit: cover;"/>
         </div>
         @endforeach

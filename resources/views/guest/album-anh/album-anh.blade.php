@@ -1,7 +1,6 @@
 <div class="list-image-view">
     <ul style="padding: 0;">
 
-        @if (count($albums) > 1)
             @foreach($albums as $ab)
                 <li class="col-md-3 col-sm-3 col-xs-6">
                     <div class="album-item">
@@ -16,40 +15,6 @@
             @endforeach
 
 
-        @else
-
-
-
-
-            @include('guest.album-anh.modal')
-
-            <br>
-            <br>
-
-            <div class="lienquan-header">
-
-                <a href="javascript:void(0);">Album nổi bật</a>
-
-            </div>
-            <br>
-            <br>
-
-
-
-            @include('guest.album-anh.lienquan')
-
-
-
-
-
-
-
-
-
-
-
-
-        @endif
     </ul>
 </div>
 
