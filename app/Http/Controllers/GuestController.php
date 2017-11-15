@@ -111,6 +111,14 @@ class GuestController extends Controller
     }
 
 
+    public function getBBT()
+    {
+
+        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+        return view('guest.ban-bien-tap',compact('chuyenmuc'));
+    }
+
+
 
     public function tinTuc($slug)
     {

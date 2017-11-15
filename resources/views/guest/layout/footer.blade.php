@@ -21,7 +21,10 @@
                     <a href="gop-y">Góp ý</a>
                 </li>
                 <li class="main-footer-menu-item">
-                    <a href="mailto:toasoan@hatinh.gov.vn"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
+                    <a href="dang-nhap">Đăng nhập</a>
+                </li>
+                <li class="main-footer-menu-item">
+                    <a href="/rss-feed"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
                 </li>
 
             </ul>

@@ -31,6 +31,8 @@ Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
+Route::get('/ban-bien-tap','GuestController@getBBT');
+
 
 
 
@@ -265,3 +267,7 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
     
 });
+
+
+
+Route::feeds();

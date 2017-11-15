@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class TinTuc extends Model
+class TinTuc extends Model implements Feedable
 {
     protected $table = 'tintuc';
 
@@ -23,5 +25,21 @@ class TinTuc extends Model
     public function teptintuc()
     {
         return $this->hasMany('App\TepTinTuc','tintuc_id','id');
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->name)
+            ->summary($this->gioithieu)
+            ->updated($this->updated_at)
+            ->link('chi-tiet/'.$this->slug)
+            ->author($this->user->name);
+    }
+
+    public static function getFeedItems()
+    {
+        return TinTuc::where('daduyet','1')->orderby('id','desc')->take(20)->get();
     }
 }

@@ -10,29 +10,29 @@
   "devDependencies": {
     "axios": "^0.15.2",
     "bootstrap-sass": "^3.3.7",
-    "cross-env": "^5.0.5",
+    "cross-env": "^5.1.1",
     "jquery": "^3.1.0",
     "laravel-mix": "^0.10.0",
     "lodash": "^4.16.2",
-    "vue": "^2.0.1"
+    "vue": "^2.5.3"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-beta",
-    "chart.js": "^2.5.0",
-    "croppie": "^2.4.0",
-    "express": "^4.15.5",
+    "bootstrap": "^4.0.0-beta.2",
+    "chart.js": "^2.7.1",
+    "croppie": "^2.5.1",
+    "express": "^4.16.2",
     "redis": "^2.8.0",
     "simplemde": "^1.11.2",
     "socket.io": "^1.7.4",
-    "sweetalert2": "^6.9.1",
+    "sweetalert2": "^6.11.5",
     "vue-axios": "^1.2.2",
     "vue-chartjs": "^2.5.6",
     "vue-clip": "^1.0.0",
-    "vue-multiselect": "^2.0.2",
-    "vue-router": "^2.2.0",
+    "vue-multiselect": "^2.0.6",
+    "vue-router": "^2.8.1",
     "vue-select": "github:sagalbot/vue-select",
     "vue-socket.io": "^2.1.0",
     "vue-table-component": "^0.0.1",
-    "vue2-dropzone": "^2.2.8"
+    "vue2-dropzone": "^2.3.6"
   }
 }
