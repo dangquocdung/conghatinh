@@ -108,7 +108,7 @@
         <div class="block-header" style="margin-bottom: 0">
             <a href="javascript:void(0);">
 
-                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Tuyên truyền</h4>
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Sự kiện</h4>
             </a>
 
         </div>
