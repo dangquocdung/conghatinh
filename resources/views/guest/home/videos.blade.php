@@ -99,12 +99,16 @@
                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
 
                     @foreach($vd_noibat as $vd)
-                        <div style="position: relative;">
+                        <div class="video-thumbnail">
                             <a href="/loai-tin/thu-vien-video/{{ $vd->id }}">
 
                                 <img data-u="image" src="{{ $vd->loaivideo->cover_image }}" title="{{ $vd->name }}" />
 
-                                <p style="position: absolute; top: 20px; left:20px">nay ban dem nay hoi</p>
+                                {{--<p style="position: absolute; top:50%; left:50%;content: '\f01d'; font-family: 'FontAwesome'; font-size: 100px"></p>--}}
+
+                                <p style="position: absolute; bottom: 10px; right:10px; font-size: 1.5em; color: #ffffff;">
+                                    {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y')}}
+                                </p>
 
 {{--                                {!! $vd->src !!}--}}
 
