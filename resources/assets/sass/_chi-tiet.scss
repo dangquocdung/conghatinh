@@ -334,7 +334,8 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
-  //margin: 30px;
+  width: 100%;
+
 
   &:before {
     position:absolute;
@@ -357,9 +358,8 @@
 .tieu-de{
   a{
     text-decoration: none !important;
-
   }
-
+  padding: 0 10px 10px 10px;
 }
 
 
