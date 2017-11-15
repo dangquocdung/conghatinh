@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
 
           $ab_noibat = Album::with('Photos')->where('daduyet','1')->where('noibat','1')->orderby('id','desc')->take(12)->get();
 
-          $vd_noibat = Video::where('daduyet','1')->where('noibat','1')->take(12)->get();
+          $vd_noibat = Video::where('daduyet','1')->where('noibat','1')->orderby('ngayphat','desc')->take(12)->get();
 
           $view->with(compact('toppic','chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','nhomcq','banner','linhvuc','loaivb','ab_noibat','vd_noibat'));
 
