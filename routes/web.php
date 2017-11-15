@@ -2,7 +2,7 @@
 
 Route::resource('web', 'WebController');
 
-Route::feeds();
+//Route::feeds();
 
 Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
