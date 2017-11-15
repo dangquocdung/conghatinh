@@ -2,6 +2,8 @@
 
 Route::resource('web', 'WebController');
 
+Route::feeds();
+
 Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
 
@@ -267,7 +269,3 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
     
 });
-
-
-
-Route::feeds();
