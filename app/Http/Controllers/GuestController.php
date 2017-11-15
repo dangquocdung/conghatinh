@@ -64,20 +64,24 @@ class GuestController extends Controller
     {
         $loaivideo = LoaiVideo::orderby('thutu')->get();
 
-
-        if ($id != null) {
-
-            $vd = Video::find($id)->first();
+        if ($id == null) {
 
 
+
+            return view('guest.video-chi-tiet',compact('loaivideo'));
 
         }else{
 
-            $vd=Video::where('daduyet','1')->where('noibat','1')->orderby('id','desc')->first();
+            $video = Video::find($id);
+
+//            return response()
+//                ->json([
+//                    'video' => $vd
+//                ]);
+
+            return view('guest.video-chi-tiet',compact('loaivideo','video'));
 
         }
-
-        return view('guest.video-chi-tiet',compact('loaivideo','vd'));
 
     }
 

@@ -9,7 +9,7 @@
 
             <div class="col-md-12">
 
-
+                @if (!empty($video))
 
 
                 <div class="van-ban">
@@ -38,7 +38,11 @@
 
 
 
-                        @include('guest.video.video')
+
+
+                            @include('guest.video.video')
+
+
 
 
 
@@ -46,11 +50,24 @@
 
                 </div>
 
+                @endif
+
             </div>
 
+        {{--@if (!empty($vd))--}}
+            {{----}}
+            {{----}}
+            {{----}}
+
+        {{--@else--}}
+
+            @include('guest.video.bottom-box')
+
+        {{--@endif--}}
 
 
-            @include('guest.video.right-box')
+
+        @include('guest.video.right-box')
 
 
 
