@@ -25,6 +25,10 @@ Route::get('/loai-tin/thu-vien-video/{id?}','GuestController@getVideo');
 
 Route::get('/loai-tin/album-hinh-anh/{slug?}','GuestController@getAlbum');
 
+Route::get('/loai-tin/lich-lam-viec', 'GuestController@getLLV');
+
+
+
 
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
 Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
@@ -34,7 +38,6 @@ Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
 Route::get('/ban-bien-tap','GuestController@getBBT');
-
 
 
 

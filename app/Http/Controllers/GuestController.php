@@ -17,6 +17,10 @@ use App\PVTT;
 use App\LoaiVideo;
 use App\Video;
 use App\Album;
+use App\Event;
+use Calendar;
+
+
 class GuestController extends Controller
 {
     public function index()
@@ -116,6 +120,31 @@ class GuestController extends Controller
 
         $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
         return view('guest.ban-bien-tap',compact('chuyenmuc'));
+    }
+
+    public function getLLV()
+    {
+        $events = [];
+        $data = Event::all();
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $events[] = Calendar::event(
+                    $value->title,
+                    true,
+                    new \DateTime($value->start_date),
+                    new \DateTime($value->end_date.' +1 day'),
+                    null,
+                    // Add color and link on event
+                    [
+                        'color' => '#f05050',
+                        'url' => 'javascript:void(0);',
+                    ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+
+        return view('guest.lich-lam-viec', compact('calendar'));
     }
 
 

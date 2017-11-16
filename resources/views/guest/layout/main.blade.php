@@ -11,6 +11,7 @@
   @yield('title')
   <base href="{{asset('')}}">
   @include('guest.layout.css')
+  @yield(('style'))
 
   <script>
     window.Laravel = { csrfToken: '{{ csrf_token() }}' }
@@ -33,6 +34,7 @@
 {{--  @include('guest.layout.js')--}}
 
   @yield('js')
+  @yield('script')
 
 </body>
 </html>
