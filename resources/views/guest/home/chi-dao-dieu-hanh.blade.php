@@ -31,7 +31,7 @@
                     <div class="col-md-5 col-xs-12">
 
 
-                        <div class="chuyen-trang">
+                        <div class="chuyen-trang" style="padding-top: 10px">
                             <ul>
 
                                 @foreach($cm->loaitin->sortby('thutu') as $lt)
