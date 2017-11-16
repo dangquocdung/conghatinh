@@ -16,7 +16,7 @@
         <a href="/chuyen-muc/{{ $cm->slug }}" style="text-decoration: none">
 
                 <h4><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
-            
+
         </a>
         
     </div>
