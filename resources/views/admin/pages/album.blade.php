@@ -52,12 +52,12 @@
                 <td>{{ count($ab->Photos) }}</td>
                 <td class="col-sm-3">
                   <div class="pull-left">
-                    <a id="editAlbum" data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs" album-name="{{ $ab->name }}" album-id="{{ $ab->id }}" album-cover_image="{{ $ab->cover_image }}">
+                    <a data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs editAlbum" album-name="{{ $ab->name }}" album-id="{{ $ab->id }}" album-cover_image="{{ $ab->cover_image }}">
                       <i class="fa fa-edit"></i> Chỉnh sửa
                     </a>
                   </div>
 
-                  <div class="pull-left gap-left gap-10">
+                  <div class="pull-left gap-left gap-10" style="padding-left: 5px">
                     <confirm-modal
                             btn-text='<i class="fa fa-trash"></i> Xóa'
                             btn-class="btn-danger"
@@ -205,7 +205,7 @@
 
           $("a.cover-image").fancybox();
 
-          $("#editAlbum").click(function () {
+          $(".editAlbum").click(function () {
 
               $("#modal-default").find("input#name").val($(this).attr('album-name'));
 

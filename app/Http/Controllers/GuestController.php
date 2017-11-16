@@ -35,11 +35,31 @@ class GuestController extends Controller
 
         $tinvideo = TinTuc::where('daduyet','1')->where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
 
+        $events = [];
+        $data = Event::all();
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $events[] = Calendar::event(
+                    $value->title,
+                    true,
+                    new \DateTime($value->start_date),
+                    new \DateTime($value->end_date.' +1 day'),
+                    null,
+                    // Add color and link on event
+                    [
+                        'color' => '#f05050',
+                        'url' => 'javascript:void(0);',
+                    ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+
 
 
         // $tintucsukien = TinTuc::where('')->orderBy('id', 'decs')->take(6)->get();
 
-        return view('guest.trang-chu', compact('tinmoi','tinslide','tinvideo','tinnoibat'));
+        return view('guest.trang-chu', compact('tinmoi','tinslide','tinvideo','tinnoibat','calendar'));
     }
 
     public function indexEN()

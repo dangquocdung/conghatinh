@@ -25,7 +25,7 @@ Route::get('/loai-tin/thu-vien-video/{id?}','GuestController@getVideo');
 
 Route::get('/loai-tin/album-hinh-anh/{slug?}','GuestController@getAlbum');
 
-Route::get('/loai-tin/lich-lam-viec', 'GuestController@getLLV');
+Route::get('/loai-tin/lich-lam-viec', 'GuestController@getLLV')->name('get-lich-lam-viec');
 
 
 
@@ -101,6 +101,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     Route::get('lich-lam-viec', 'EventController@index')->name('lich-lam-viec');
     Route::post('save-lich-lam-viec', 'EventController@store')->name('save-lich-lam-viec');
+    Route::post('update-lich-lam-viec', 'EventController@update')->name('update-lich-lam-viec');
     Route::post('delete-lich-lam-viec', 'EventController@destroy')->name('delete-lich-lam-viec');
 
 

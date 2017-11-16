@@ -3,6 +3,11 @@
   <title>Cổng thông tin điện tử tỉnh Hà Tĩnh</title>
 @endsection
 
+@section('style')
+    <link rel="stylesheet" href="/guest/css/fullcalendar.min.css"/>
+@endsection
+
+
 @section('content')
   <div class="container">
       <div class="row nen-trang">
@@ -47,46 +52,11 @@
   </div>
 @endsection
 @section('js')
-  <script>
-    $(document).ready(function() {
 
-        $('#brand_carousel').owlCarousel({
-          autoPlay: 5000,
-          items: 4,
-          navigation: true,
-          pagination: false,
-          itemsDesktop: [1199, 4],
-          itemsDesktopSmall: [979, 4],
-          itemsTablet: [768, 3],
-          itemsTabletSmall: false,
-          itemsMobile: [479, 2]
-        });
-        $('#video_carousel').owlCarousel({
-          autoPlay: 5000,
-          items: 4,
-          navigation: true,
-          pagination: false,
-          itemsDesktop: [1199, 4],
-          itemsDesktopSmall: [979, 4],
-          itemsTablet: [768, 3],
-          itemsTabletSmall: false,
-          itemsMobile: [479, 2]
-        });
-        $('#hinhanh_carousel').owlCarousel({
-          autoPlay: 5000,
-          items: 4,
-          navigation: true,
-          pagination: false,
-          itemsDesktop: [1199, 4],
-          itemsDesktopSmall: [979, 4],
-          itemsTablet: [768, 3],
-          itemsTabletSmall: false,
-          itemsMobile: [479, 2]
-        });
+    <script src="/guest/js/moment.min.js"></script>
+    <script src="/guest/js/fullcalendar.min.js"></script>
+    <script src="/guest/js/vi.js"></script>
 
-        $('[data-toggle="popover"]').popover(); 
-
-    })
-  </script>
+    {!! $calendar->script() !!}
 
 @endsection

@@ -37,7 +37,7 @@
     {{--<br/>--}}
     {{--<a href="{{url('forgot-password')}}">Tôi đã quên mật khẩu</a><br>--}}
     {{--@if(Setting::get('user_can_register'))--}}
-    {{--<a href="{{route('register')}}" class="text-center">Đăng kí tài khoản mới</a>--}}
+      {{--<a href="{{route('register')}}" class="text-center">Đăng kí tài khoản mới</a>--}}
     {{--@endif--}}
 
   </div>

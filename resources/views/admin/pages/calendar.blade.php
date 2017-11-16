@@ -38,14 +38,24 @@
               <tr>
                 <td>{{ $ev->id }}</td>
                 <td>{{ $ev->title }}</td>
-                <td>{{ $ev->start_date }}</td>
-                <td>{{ $ev->end_date }}</td>
+                <td>{{ \Carbon\Carbon::parse($ev->start_date)->format('d-m-Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($ev->end_date)->format('d-m-Y') }}</td>
                 <td>{{ $ev->created_at }}</td>
                 <td>
 
-                  <div class="pull-left gap-left gap-10">
+                  <div class="pull-left">
+                    <a data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs editLLV" llv-id="{{ $ev->id }}" title="{{ $ev->title }}" start_date="{{ \Carbon\Carbon::parse($ev->start_date)->format('d-m-Y') }}" end_date="{{ \Carbon\Carbon::parse($ev->end_date)->format('d-m-Y') }}">
+                      <i class="fa fa-edit"></i> Chỉnh sửa
+                    </a>
+                  </div>
+
+
+
+
+
+                  <div class="pull-left gap-left gap-10" style="padding-left: 5px">
                     <confirm-modal
-                            btn-text='<i class="fa fa-trash"></i> Delete'
+                            btn-text='<i class="fa fa-trash"></i> Xóa'
                             btn-class="btn-danger"
                             url="{{ route ('delete-lich-lam-viec')}}"
                             :post-data="{{json_encode(['id' => $ev->id])}}"
@@ -53,6 +63,7 @@
                             message="Bạn chắc chắn muốn xoá mục này?">
                     </confirm-modal>
                   </div>
+
 
                 </td>
 
@@ -72,6 +83,71 @@
         <!-- /.box-body -->
       </div>
       {{--End box--}}
+    <!-- Modal Edit Album-->
+      <div class="modal modal-default fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content" style="padding: 0">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" style="padding-bottom: 0">Chỉnh sửa</h4>
+            </div>
+            <form action="{{ route('update-lich-lam-viec') }}" method="post" id="role-save-form">
+              {{csrf_field()}}
+              <div class="modal-body">
+
+                <input type="hidden" name="id" id="llv-id">
+
+                <div class="form-group">
+                  <label for="">Nội dung:</label>
+                  <input type="text"
+                         placeholder="Nội dung làm việc"
+                         id="title"
+                         name="title"
+                         class="form-control"
+                         required >
+                  <div class="HelpText error">{{$errors->first('title')}}</div>
+                </div>
+
+
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Ngày bắt đầu</label>
+                  <div class='input-group date datetimepicker'>
+                    <input id="start_date" name="start_date" type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                  <label>Ngày kết thúc</label>
+                  <div class='input-group date datetimepicker'>
+                    <input id="end_date" name="end_date" type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </form>
+
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
     </div>
 
     <div class="col-sm-4">
@@ -148,6 +224,26 @@
 
 
   <script>
+
+      $(document).ready(function() {
+
+        /* This is basic - uses default settings */
+
+
+          $(".editLLV").click(function () {
+
+//              alert($(this).attr('title'));
+
+              $("#modal-default").find("input#llv-id").val($(this).attr('llv-id'));
+
+              $("#modal-default").find("input#title").val($(this).attr('title'));
+
+              $("#modal-default").find("input#start_date").val($(this).attr('start_date'));
+
+              $("#modal-default").find("input#end_date").val($(this).attr('end_date'));
+
+          })
+      });
 
       $(function () {
 

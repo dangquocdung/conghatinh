@@ -100,7 +100,7 @@
                       </a>
                     </div>
 
-                    <div class="pull-left gap-left gap-10">
+                    <div class="pull-left gap-left gap-10" style="padding-left: 5px">
                       <confirm-modal
                         btn-text='<i class="fa fa-trash"></i> Delete'
                         btn-class="btn-danger"

@@ -17,7 +17,7 @@
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
-            <a href="">
+            <a href="javascript:void(0);">
 
                 <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới hành chính</h4>
             </a>
@@ -27,6 +27,33 @@
 
             <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
         </a>
+
+
+    </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 5px; z-index: 999">
+            <a href="{{ route('get-lich-lam-viec') }}">
+
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Lịch làm việc</h4>
+            </a>
+
+        </div>
+
+        <style>
+            .fc-toolbar{
+                display: none;
+            }
+        </style>
+
+        <div class="lich" style="padding: 5px">
+
+
+            {!! $calendar->calendar() !!}
+
+
+        </div>
 
 
     </div>
