@@ -1,7 +1,7 @@
 <div class="right-box">
 <div class="block4">
     <div class="block-header">
-        <a href="">
+        <a href="javascript:void(0);">
             <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Cơ quan ban hành</h4>
         </a>
     </div>
@@ -16,7 +16,7 @@
 
 <div class="block4">
     <div class="block-header">
-        <a href="">
+        <a href="javascript:void(0);">
             <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Lĩnh vực</h4>
         </a>
     </div>
@@ -41,7 +41,7 @@
 
 <div class="block4">
     <div class="block-header">
-        <a href="">
+        <a href="javascript:void(0);">
             <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Loại văn bản</h4>
         </a>
     </div>

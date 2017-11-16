@@ -14,9 +14,9 @@
 
     <div class="block-header">
         <a href="/chuyen-muc/{{ $cm->slug }}" style="text-decoration: none">
-            <a href="">
+
                 <h4><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
-            </a>
+            
         </a>
         
     </div>
@@ -47,8 +47,7 @@
 
 </div>
 
-
-    @endforeach
+@endforeach
 
 
 
