@@ -23,7 +23,7 @@
 
 
                     <div class="col-md-7 col-xs-12">
-                        <div class="row" style="padding-left: 10px">
+                        <div class="row" style="padding-left: 10px; padding-right: 10px">
                             {!! $calendar->calendar() !!}
                         </div>
                     </div>
