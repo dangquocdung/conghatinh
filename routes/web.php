@@ -99,6 +99,12 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
 
 
+    Route::get('lich-lam-viec', 'EventController@index')->name('lich-lam-viec');
+    Route::post('save-lich-lam-viec', 'EventController@store')->name('save-lich-lam-viec');
+    Route::post('delete-lich-lam-viec', 'EventController@destroy')->name('delete-lich-lam-viec');
+
+
+
 
     Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
     Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');

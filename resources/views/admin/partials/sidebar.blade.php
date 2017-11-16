@@ -115,6 +115,10 @@
         <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Quản lý video</span></a>
       </li>
 
+      <li class="{{ Request::is('toa-soan/lich-lam-viec') ? 'active' : ''  }} treeview">
+        <a href="{{route('lich-lam-viec')}}"><i class="fa fa-file-video-o"></i><span>Quản lý lịch làm việc</span></a>
+      </li>
+
 
       @role('tbt')
 
