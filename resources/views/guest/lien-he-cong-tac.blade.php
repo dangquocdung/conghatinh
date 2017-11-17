@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Tư vấn, hỗ trợ pháp lý doanh nghiệp</title>
+  <title>Liên hệ công tác</title>
 @endsection
 @section('header-menu-item')
   active
@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row nen-trang">
       
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 
             <div class="block3">
@@ -22,10 +22,6 @@
                 {{--</div>--}}
 
                 <div class="portlet-header" style="padding-left: 10px">
-
-                    <a href="/">
-                        <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-                    </a>
 
                     <a href="javascript:void(0);">
                         <h4 class="portlet-header-title no-pd-top">Liên hệ công tác</h4>

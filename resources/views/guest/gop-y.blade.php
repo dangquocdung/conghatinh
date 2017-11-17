@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Tư vấn, hỗ trợ pháp lý doanh nghiệp</title>
+  <title>Góp ý</title>
 @endsection
 @section('header-menu-item')
   active
@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row nen-trang">
       
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 
             <div class="block3">
@@ -22,14 +22,10 @@
                     {{--</button>--}}
                 {{--</div>--}}
 
-                <div class="portlet-header" style="padding-left: 10px">
-
-                    <a href="/">
-                        <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-                    </a>
+                <div class="portlet-header">
 
                     <a href="javascript:void(0);">
-                        <h4 class="portlet-header-title no-pd-top">Góp ý</h4>
+                        <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Góp ý</h4>
                     </a>
 
                     {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
@@ -45,7 +41,7 @@
                         <div class="breadcrumb">
 
                                     <span class="breadcrumb-item active">
-                                        <i class="fa fa-question-circle" aria-hidden="true"></i> Đặt câu hỏi
+                                        <i class="fa fa-comments" aria-hidden="true"></i> Gửi Góp ý
                                     </span>
 
                         </div>
@@ -91,7 +87,7 @@
                                     @endif
                                 </div>
 
-                                <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi câu hỏi</button>
+                                <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi góp ý</button>
                                 <br>
                             </div>
                         </form>

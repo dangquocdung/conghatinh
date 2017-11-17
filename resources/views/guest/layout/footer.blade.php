@@ -24,7 +24,7 @@
                     <a href="dang-nhap">Đăng nhập</a>
                 </li>
                 <li class="main-footer-menu-item">
-                    <a href="/rss-feed"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
+                    <a href="/rss-feed" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
                 </li>
 
             </ul>
