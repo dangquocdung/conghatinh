@@ -28,116 +28,116 @@
 
           <div class="table-responsive">
 
-          <table class="table table-bordered table-striped table-hover">
-            <thead>
-            <tr>
-              <th>#</th>
-              <th>Ngày đăng</th>
-              <th>Hình ảnh</th>
-              
-              <th>
-                Tiêu đề
-              </th>
-              <th>Loại Tin</th>
-              
-              <th>Giới thiệu</th>
-              <th>Tệp đính kèm</th>
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+              <tr>
+                <th>TT</th>
+                <th>Ngày đăng</th>
+                <th>Hình ảnh</th>
 
-              
-              
-              <th>Thao tác</th>
-            </tr>
-            </thead>
-            <tbody>
+                <th>
+                  Tiêu đề
+                </th>
+                <th>Loại Tin</th>
+
+                <th>Giới thiệu</th>
+                <th><i class="fa fa-paperclip" aria-hidden="true"></i></th>
+
+
+
+                <th>Thao tác</th>
+              </tr>
+              </thead>
+              <tbody>
 
               @foreach ($tintuc as $tin)
 
-              <tr>
-                <td>{{$tin->id}}</td>
-                <td>
-                  {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d/m/Y H:i:s') }}
+                <tr>
+                  <td>{{$tin->id}}</td>
+                  <td>
+                    {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d/m/Y H:i:s') }}
 
-                  @if ($tin->noibat == '1')
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Hủy Nổi bật'
-                              btn-class="btn-danger"
-                              url="{{url('api/v1/noi-bat-tin-tuc')}}"
-                              :post-data="{{json_encode(['id' => $tin->id, 'noibat'=>'0'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn hủy nổi bật bản tin {{$tin->name}}?">
-                      </confirm-modal>
-                    </div>
+                    @if ($tin->noibat == '1')
+                      <div class="pull-left gap-left gap-10">
+                        <confirm-modal
+                                btn-text='Hủy Nổi bật'
+                                btn-class="btn-danger"
+                                url="{{url('api/v1/noi-bat-tin-tuc')}}"
+                                :post-data="{{json_encode(['id' => $tin->id, 'noibat'=>'0'])}}"
+                                :refresh="true"
+                                message="Bạn chắc chắn muốn hủy nổi bật bản tin {{$tin->name}}?">
+                        </confirm-modal>
+                      </div>
 
-                  @else
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Làm Nổi bật'
-                              btn-class="btn-warning"
-                              url="{{url('api/v1/noi-bat-tin-tuc')}}"
-                              :post-data="{{json_encode(['id' => $tin->id, 'noibat'=>'1'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn làm nổi bật bản tin {{$tin->name}}?">
-                      </confirm-modal>
-                    </div>
+                    @else
+                      <div class="pull-left gap-left gap-10">
+                        <confirm-modal
+                                btn-text='Làm Nổi bật'
+                                btn-class="btn-warning"
+                                url="{{url('api/v1/noi-bat-tin-tuc')}}"
+                                :post-data="{{json_encode(['id' => $tin->id, 'noibat'=>'1'])}}"
+                                :refresh="true"
+                                message="Bạn chắc chắn muốn làm nổi bật bản tin {{$tin->name}}?">
+                        </confirm-modal>
+                      </div>
 
-                  @endif
+                    @endif
 
-                </td>
-                <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
-                
-                <td>
-                  <strong>{{$tin->name}}</strong>
-                  <br>
+                  </td>
+                  <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
 
-
-
-                  @if ($tin->daduyet == '1')
-                    {{--<span class="label label-success">Đã duyệt đăng</span>--}}
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Thôi Duyệt đăng'
-                              btn-class="btn-danger"
-                              url="{{url('api/v1/duyet-tin-tuc')}}"
-                              :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'0'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn thôi duyệt đăng bản tin {{$tin->name}}?">
-                      </confirm-modal>
-                    </div>
-
-                  @else
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Chờ duyệt đăng'
-                              btn-class="btn-success"
-                              url="{{url('api/v1/duyet-tin-tuc')}}"
-                              :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'1'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn duyệt đăng bản tin {{$tin->name}}?">
-                      </confirm-modal>
-                    </div>
-
-                    {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
-                  @endif
-                </td>
-                <td>{{$tin->loaitin->name}}</td>
-                
-                <td>{{$tin->gioithieu}}</td>
-
-                <td>
+                  <td>
+                    <strong>{{$tin->name}}</strong>
+                    <br>
 
 
 
-                  @foreach($tin->teptintuc as $ttt)
-                    <a href="{{ $ttt->path }}" target="_blank">
-                      <img src="/images/pdf-file-512.png" alt="{{ $tin->name }}" title="{{ $tin->name }}" width="20px">
-                    </a>
-                  @endforeach
+                    @if ($tin->daduyet == '1')
+                      {{--<span class="label label-success">Đã duyệt đăng</span>--}}
+                      <div class="pull-left gap-left gap-10">
+                        <confirm-modal
+                                btn-text='Thôi Duyệt đăng'
+                                btn-class="btn-danger"
+                                url="{{url('api/v1/duyet-tin-tuc')}}"
+                                :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'0'])}}"
+                                :refresh="true"
+                                message="Bạn chắc chắn muốn thôi duyệt đăng bản tin {{$tin->name}}?">
+                        </confirm-modal>
+                      </div>
 
-                </td>
-                
-                <td class="col-sm-3">
-                  {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
+                    @else
+                      <div class="pull-left gap-left gap-10">
+                        <confirm-modal
+                                btn-text='Chờ duyệt đăng'
+                                btn-class="btn-success"
+                                url="{{url('api/v1/duyet-tin-tuc')}}"
+                                :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'1'])}}"
+                                :refresh="true"
+                                message="Bạn chắc chắn muốn duyệt đăng bản tin {{$tin->name}}?">
+                        </confirm-modal>
+                      </div>
+
+                      {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                    @endif
+                  </td>
+                  <td>{{$tin->loaitin->name}}</td>
+
+                  <td>{{$tin->gioithieu}}</td>
+
+                  <td>
+
+
+
+                    @foreach($tin->teptintuc as $ttt)
+                      <a href="{{ $ttt->path }}" target="_blank">
+                        <img src="/images/pdf-file-512.png" alt="{{ $tin->name }}" title="{{ $tin->name }}" width="20px">
+                      </a>
+                    @endforeach
+
+                  </td>
+
+                  <td class="col-sm-3">
+                    {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                     <div class="pull-left">
                       <a href="{{route('edit-tin-tuc', $tin->slug)}}" class="btn btn-primary btn-xs">
                         <i class="fa fa-edit"></i> Edit
@@ -145,27 +145,27 @@
                     </div>
                     <div class="pull-left gap-left gap-10" style="padding-left: 5px">
                       <confirm-modal
-                        btn-text='<i class="fa fa-trash"></i> Delete'
-                        btn-class="btn-danger"
-                        url="{{url('api/v1/delete-tin-tuc')}}"
-                        :post-data="{{json_encode(['id' => $tin->id])}}"
-                        :refresh="true"
-                        message="Bạn chắc chắn muốn xoá bản tin {{$tin->name}}?">
+                              btn-text='<i class="fa fa-trash"></i> Delete'
+                              btn-class="btn-danger"
+                              url="{{url('api/v1/delete-tin-tuc')}}"
+                              :post-data="{{json_encode(['id' => $tin->id])}}"
+                              :refresh="true"
+                              message="Bạn chắc chắn muốn xoá bản tin {{$tin->name}}?">
                       </confirm-modal>
                     </div>
-                  {{-- @endif --}}
-                </td>
-              </tr>
+                    {{-- @endif --}}
+                  </td>
+                </tr>
 
               @endforeach
-            
-            </tbody>
-          </table>
+
+              </tbody>
+            </table>
 
             {{$tintuc->render()}}
           </div>
 
-          
+
         </div>
         <!-- /.box-body -->
       </div>

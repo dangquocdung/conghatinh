@@ -13,12 +13,21 @@
 
 
             <div class="block3">
-                <div class="breadcrumb">
-                    <a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>
-                    <span class="breadcrumb-item active">Tư vấn, hỗ trợ pháp lý doanh nghiệp</span>
-                    <button class="pull-right btn btn-info btn-sm" id="themCauHoi">
+
+                <div class="portlet-header" style="padding-left: 10px">
+
+                    <a href="/">
+                        <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
+                    </a>
+
+                    <a href="javascript:void(0);">
+                        <h4 class="portlet-header-title no-pd-top">Tư vấn, hỗ trợ pháp lý doanh nghiệp</h4>
+                    </a>
+
+                    <button class="pull-right btn btn-info btn-sm" id="themCauHoi" style="margin-right: 7px">
                         <i class="fa fa-plus-circle" aria-hidden="true"></i> Đặt câu hỏi
                     </button>
+
                 </div>
 
                 @include('guest.notifications')
@@ -87,7 +96,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Câu hỏi </label>
-                                    <textarea class="form-control" name="cauhoi"></textarea>
+                                    <textarea class="form-control textarea" name="cauhoi" placeholder="Nhập câu hỏi ở đây"
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                     @if ($errors->has('cauhoi'))
                                         <div class="error">{{ $errors->first('cauhoi') }}</div>
                                     @endif
@@ -138,4 +148,14 @@
 
 @section('js')
     <script type="text/javascript" src="{{mix('/js/guest.js')}}"></script>
+
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script>
+        $(function () {
+
+            $('.textarea').wysihtml5()
+        })
+    </script>
+
 @stop

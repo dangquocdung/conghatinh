@@ -41,8 +41,6 @@ class AppServiceProvider extends ServiceProvider
 
           $toppic = TopPic::orderby('thutu','asc')->get();
 
-          $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-
           $loaitin = LoaiTin::all();
 
           $tinnoibat4 = TinTuc::where('daduyet','1')->where('noibat','1')->orderby('id','desc')->take(4)->get();

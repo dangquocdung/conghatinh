@@ -35,6 +35,9 @@ Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
 Route::get('/loai-tin/{slug}','GuestController@loaiTin');
 Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
+Route::get('/gop-y','GuestController@getGopY');
+Route::get('/gop-y-du-thao-van-ban','GuestController@getGopYVanBan');
+Route::get('/lien-he-cong-tac','GuestController@getLienHeCongTac');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
 Route::get('/ban-bien-tap','GuestController@getBBT');

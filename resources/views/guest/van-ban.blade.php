@@ -14,13 +14,28 @@
 
                 <div class="van-ban">
                     <div class="block3">
-                        <div class="breadcrumb">
-                            <a class="breadcrumb-item" href="/"><i class="glyphicon glyphicon-home"></i></a>
-                            <a class="breadcrumb-item" href="/van-ban/van-ban-qppl">Tất cả Văn Bản</a>
+
+                        <div class="portlet-header" style="padding-left: 10px">
+
+                            <a href="/">
+                                <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
+                            </a>
+
+                            <a href="/van-ban/van-ban-qppl">
+                                <h4 class="portlet-header-title no-pd-top"> Tất cả Văn Bản </h4>
+                            </a>
+
+
                             @if ($lt != 'van-ban-qppl')
-                            <span class="breadcrumb-item active">{{ $lt->name }}</span>
-                                @endif
+
+                                <a href="javascript:void(0);">
+                                    <h4 class="portlet-header-title no-pd-top">/ {{ $lt->name }}</h4>
+                                </a>
+
+                            @endif
+
                         </div>
+
 
                         <div id="app" style="padding: 5px;">
 

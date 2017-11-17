@@ -31,33 +31,6 @@
 
     </div>
 
-    <div class="block4">
-
-        <div class="block-header" style="margin-bottom: 5px; z-index: 999">
-            <a href="{{ route('get-lich-lam-viec') }}">
-
-                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Lịch làm việc</h4>
-            </a>
-
-        </div>
-
-        <style>
-            .fc-toolbar{
-                display: none;
-            }
-        </style>
-
-        <div class="lich" style="padding: 5px">
-
-
-            {!! $calendar->calendar() !!}
-
-
-        </div>
-
-
-    </div>
-
 
     @php
 

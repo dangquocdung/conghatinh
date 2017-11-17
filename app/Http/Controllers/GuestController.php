@@ -23,6 +23,15 @@ use Calendar;
 
 class GuestController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+
+        view()->share('chuyenmuc',$chuyenmuc);
+    }
+
     public function index()
     {
 //        $tinmoi = TinTuc::orderBy('id', 'decs')->take(5)->get();
@@ -286,6 +295,21 @@ class GuestController extends Controller
     public function getSoDoCong()
     {
         return view('guest.so-do-cong');
+    }
+
+    public function getGopY()
+    {
+        return view('guest.gop-y');
+    }
+
+    public function getGopYVanBan()
+    {
+        return view('guest.gop-y-van-ban');
+    }
+
+    public function getLienHeCongTac()
+    {
+        return view('guest.lien-he-cong-tac');
     }
 
     public function apiVanBan($id=null)
