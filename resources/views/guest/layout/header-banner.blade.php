@@ -7,7 +7,7 @@
                 @include('guest.layout.header-slide')
             </div>
 
-            <div class="navbar-header visible-xs" id="menu-mobile">
+            <div class="navbar-header visible-xs" >
                 <div class="menu-mobie">
                     <button style="z-index: 1001;" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -59,20 +59,3 @@
     </div>
 
 </div>
-
-<script>
-    $(document).ready(function () {
-
-        $('#menu-mobile').scrollToFixed({
-//            marginTop: 10,
-            // neither of these fixes the problem:
-            // removeOffset, offsets
-//            limit: function() {
-//                var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
-//                return limit;
-//            },
-//            removeOffsets: true,
-//            zIndex: 999
-        });
-    });
-</script>
