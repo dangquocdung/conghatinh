@@ -31,6 +31,19 @@
 
     </div>
 
+    {{--<div class="block4">--}}
+
+        {{--<div class="block-header" style="margin-bottom: 0">--}}
+            {{--<a href="javascript:void(0);">--}}
+
+                {{--<h4><img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới hành chính</h4>--}}
+            {{--</a>--}}
+
+        {{--</div>--}}
+        {{--<iframe src="http://hatinhtv.vn:8134/hls-live/livepkgr/_definst_/liveevent/livestream1.m3u8" frameborder="0"></iframe>--}}
+
+    {{--</div>--}}
+
 
     @php
 
