@@ -6,7 +6,7 @@
 
             <ul class="main-footer-menu" style="margin-left: 0; padding-left: 0">
                 <li class="main-footer-menu-item">
-                    <a href="javascript:void(0)"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Trang chủ</a>
+                    <a href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Trang chủ</a>
                 </li>
                 <li class="main-footer-menu-item">
                     <a href="ban-bien-tap">Giới thiệu BBT Cổng</a>
