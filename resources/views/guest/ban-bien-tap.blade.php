@@ -30,10 +30,12 @@
 
                     </div>
 
-                    <iframe src="QD-710.pdf" frameborder="0"></iframe>
-
-                    
-
+                    <div class="col-md-6">
+                        <img src="images/QD-710_1.jpg" alt="" width="100%">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/QD-710_2.jpg" alt="" width="100%">
+                    </div>
                 </div>
             </div>
 
@@ -45,8 +47,6 @@
 
 
 @endsection
-
-
 
 
 
