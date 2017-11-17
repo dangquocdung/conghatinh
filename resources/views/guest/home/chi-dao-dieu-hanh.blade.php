@@ -19,13 +19,10 @@
 
                 <div class="col-md-12">
                     <div class="row">
-
-
-
-                    <div class="col-md-7 col-xs-12">
-                        <div class="row" style="padding-left: 10px; padding-right: 10px">
-                            {!! $calendar->calendar() !!}
-                        </div>
+                        <div class="col-md-7 col-xs-12">
+                            <div class="row" style="padding-left: 10px; padding-right: 10px">
+                                {!! $calendar->calendar() !!}
+                            </div>
                     </div>
 
                     <div class="col-md-5 col-xs-12">

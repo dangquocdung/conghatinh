@@ -3,7 +3,7 @@
 
     <div class="block3">
 
-        <div class="portlet-header">
+        <div class="portlet-header" data-toggle="collapse" href="#{{$ncq->slug}}">
             <a href="#">
                 <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $ncq->name }}</h4>
             </a>
@@ -12,7 +12,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
 
-                <div class="chuyen-trang">
+                <div class="chuyen-trang panel-collapse collapse in" id="{{$ncq->slug}}">
                     <ul>
 
                         @foreach($ncq->coquan as $cq)

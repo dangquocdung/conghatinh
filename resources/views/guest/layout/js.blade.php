@@ -21,6 +21,15 @@
 <!--jquery-ui.min js -->
 <script type="text/javascript" src="guest/js/jquery-ui.js"></script>
 
+<!-- DataTables -->
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+
 <!-- main js -->
 {{-- <script type="text/javascript" src="guest/js/main.js"></script> --}}
 
@@ -118,6 +127,11 @@
 </script>
 
 <script type="text/javascript">
+
+    $(function() {
+        FastClick.attach(document.body);
+    });
+
     function goBack() {
         window.history.back();
     }
