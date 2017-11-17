@@ -24,7 +24,7 @@
     $(document).ready(function () {
 
         $('#tin-noi-bat-left').scrollToFixed({
-            marginTop: 10,
+            marginTop: 50,
             // neither of these fixes the problem:
             // removeOffset, offsets
             limit: function() {

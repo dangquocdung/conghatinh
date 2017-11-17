@@ -30,6 +30,8 @@
             </ul>
 
     </div>
+
+
     <div class="main-footer-footer-wrapper">
         <div class="main-footer-footer-bg">
             <div class="container">
@@ -85,5 +87,13 @@
         return false;
       });
     });
+
+      $('.main-footer-header-wrapper').scrollToFixed( {
+
+          bottom: 0,
+
+          limit: $('.main-footer-header-wrapper').offset().top
+
+      });
   });
 </script>

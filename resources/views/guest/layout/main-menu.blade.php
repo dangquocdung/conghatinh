@@ -91,4 +91,22 @@
         });
     })(jQuery);
 
+
+
+    $(document).ready(function () {
+
+        $('#cssmenu').scrollToFixed({
+//            marginTop: 10,
+            // neither of these fixes the problem:
+            // removeOffset, offsets
+//            limit: function() {
+//                var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
+//                return limit;
+//            },
+//            removeOffsets: true,
+//            zIndex: 999
+        });
+    });
+
+
 </script>
