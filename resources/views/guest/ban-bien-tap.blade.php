@@ -30,9 +30,9 @@
 
                     </div>
 
-                    <object data="QD-710.pdf" type="application/pdf" width="100%" height="1245px" style="padding: 25px">
-                        <p>Alternative text - include a link <a href="QD-710.pdf">to the PDF!</a></p>
-                    </object>
+                    <iframe src="QD-710.pdf" frameborder="0"></iframe>
+
+                    
 
                 </div>
             </div>
@@ -45,6 +45,8 @@
 
 
 @endsection
+
+
 
 
 
