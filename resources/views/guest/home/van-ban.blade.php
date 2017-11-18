@@ -45,28 +45,21 @@
 
                                 <li style="margin-top: 0; border-bottom: none;">
 
+                                    <a href="chi-tiet-van-ban/{{$vb->id}}" class="news-title bold">
+                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                        Số: {{ $vb->kihieuvb }} <span class="label label-danger">Mới</span>
+                                    </a>
 
 
-                                        <a href="chi-tiet-van-ban/{{$vb->id}}" class="news-title bold">
-                                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                            Số: {{ $vb->kihieuvb }} <span class="label label-danger">Mới</span>
+                                    @foreach($vb->tepvanban as $tvb)
+                                        <a href="{{ $tvb->path }}" target="_blank">
+                                            <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
                                         </a>
+                                    @endforeach
 
-
-                                        @foreach($vb->tepvanban as $tvb)
-
-                                            <a href="{{ $tvb->path }}" target="_blank">
-
-                                                <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
-
-                                            </a>
-                                        @endforeach
-
-                                        <div class="gioithieu">
-                                            {{$vb->trichyeu}}
-                                        </div>
-
-
+                                    <div class="gioithieu">
+                                        {{$vb->trichyeu}}
+                                    </div>
                                 </li>
                             @endforeach
                          </ul>

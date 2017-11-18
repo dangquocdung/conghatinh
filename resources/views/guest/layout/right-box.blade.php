@@ -31,24 +31,24 @@
 
     </div>
 
-    <div class="block4">
+    {{--<div class="block4">--}}
 
-        <div class="block-header" style="margin-bottom: 0">
-            <a href="javascript:void(0);">
+        {{--<div class="block-header" style="margin-bottom: 0">--}}
+            {{--<a href="javascript:void(0);">--}}
 
-                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Truyền hình Hà Tĩnh</h4>
-            </a>
+                {{--<h4><img src="/images/background/lotus.ico" alt="" width="26px"> Truyền hình Hà Tĩnh</h4>--}}
+            {{--</a>--}}
 
-        </div>
-
-
+        {{--</div>--}}
 
 
 
 
 
 
-    </div>
+
+
+    {{--</div>--}}
 
 
     @php
