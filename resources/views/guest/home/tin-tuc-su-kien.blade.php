@@ -70,7 +70,7 @@
 
                 @if (count($tins)>0)
 
-                    <div class="col-md-5 col-sm-5 col-xs-12 pull-right">
+                    <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="row">
 
                             <div class="news-five">
