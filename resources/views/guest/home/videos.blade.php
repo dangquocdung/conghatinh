@@ -91,6 +91,16 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="row">
 
+            <div style="padding: 0 15px 15px 15px">
+
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lIaJSLKZq8E?rel=0&autoplay=1&showinfo=0&controls=0"></iframe>
+                </div>
+            </div>
+
+            {{--<iframe src="" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
+
+
             <div id="jssor_4" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
                 <!-- Loading Screen -->
                 <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
