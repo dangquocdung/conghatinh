@@ -25,7 +25,7 @@
 
 
         @if ($tins)
-            <div class="col-md-12" style="float:left">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
                 <div class="row">
 
                     <div class="breadcrumb" style="margin-left: 3px; margin-right: 3px">
