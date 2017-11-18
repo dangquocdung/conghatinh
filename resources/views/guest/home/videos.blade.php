@@ -105,6 +105,8 @@
                     {{--</iframe>--}}
 
                     {{--<iframe width=816 height=459 src=http://vcplayer.mediacdn.vn/1.1/?_site=livevtv&live=%2F%2F222.255.27.138%2Fhls%2F4545780bfa790819%2F5%2F3%2Fdbec0a575de345aa211e93be94ebdeade6561baa7d0d7ce0a52a161b98e89011%2FdnR2MQ%3D%3DbWFzdGVy.m3u8&poster=https%3A%2F%2Ftvstatic.vcmedia.vn%2Fvtv%2Fvtv1-thumb.jpg%3Ft%3D1465188650%26t%3D1511021051&autoplay=true&boxVideoID=admLiveVtv_480038_slot1&vid=dnR2MQ%3D%3D&ref=http%3A%2F%2Fvtv.vn%2Ftruyen-hinh-truc-tuyen%2Fvtv1.htm&urlParent=http://play.sohatv.vn/?v=dnR2MQ==&t=20171118230148&autoplay=true&boxVideoID=admLiveVtv_480038_slot1 data-type="video-iframe" frameborder="0" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>--}}
+                    {{--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lIaJSLKZq8E" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
+                    {{--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lIaJSLKZq8E" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
 
 
                 </div>
