@@ -84,7 +84,7 @@
 
     <div class="portlet-header">
         <a href="/loai-tin/thu-vien-video">
-            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Thư viện video</h4>
+            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Truyền hình Hà Tĩnh</h4>
         </a>
     </div>
 
