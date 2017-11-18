@@ -21,6 +21,17 @@
                     <div class="row">
                         <div class="col-md-7 col-xs-12">
                             <div class="row" style="padding-left: 10px; padding-right: 10px">
+
+                                <style>
+                                    .fc-center h2{
+
+                                        text-transform: capitalize;
+                                        font-size: 1.5em;
+                                        font-weight: bold;
+                                        padding-top: 5px;
+
+                                    }
+                                </style>
                                 {!! $calendar->calendar() !!}
                             </div>
                     </div>
