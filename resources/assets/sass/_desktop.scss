@@ -24,7 +24,13 @@ body {
 }
 
 .breadcrumb{
-  background-color: #F5EACC !important;
+  //background-color: #F5EACC !important;
+  background: linear-gradient(to bottom, rgba(4, 143, 224, 0.73) 0, rgba(4, 113, 180, 0.83) 100%);
+  a{
+    color: #ffffff !important;
+  }
+
+
 }
 
 .block2 {
