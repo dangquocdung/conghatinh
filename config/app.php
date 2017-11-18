@@ -241,6 +241,7 @@ return [
         'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+        'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
     ],
 
 ];

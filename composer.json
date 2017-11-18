@@ -9,6 +9,7 @@
         "anhskohbo/no-captcha": "^2.4",
         "anlutro/l4-settings": "^0.4.9",
         "barryvdh/laravel-dompdf": "^0.8.1",
+        "htmlmin/htmlmin": "^5.0",
         "intervention/image": "^2.3",
         "laracasts/flash": "^2.0",
         "laracasts/presenter": "^0.2.1",
