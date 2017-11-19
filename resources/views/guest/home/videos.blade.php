@@ -94,9 +94,15 @@
             <div style="padding: 0 15px 15px 15px">
 
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id='templateframe' class="embed-responsive-item" src="{{Setting::get('video_livestream')}}" allowfullscreen="allowfullscreen">
+                    {{--<iframe id='templateframe' class="embed-responsive-item" src="{{Setting::get('video_livestream')}}" allowfullscreen="allowfullscreen">--}}
 
-                    </iframe>
+
+
+                    {{--</iframe>--}}
+
+                    {{--<iframe width="854" height="480" src="https://www.youtube.com/embed/VB3TUF2nTjw" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
+
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fhttvonline%2Fvideos%2F363204280797940%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
 
                     {{--<iframe width="640" height="360" src="https://www.youtube.com/embed/f3XGoPxJXtM" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
 
