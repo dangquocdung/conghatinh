@@ -94,7 +94,7 @@
             <div style="padding: 0 15px 15px 15px">
 
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id='templateframe' class="embed-responsive-item" src="https://www.youtube.com/embed/f3XGoPxJXtM?rel=0&autoplay=1&showinfo=0&controls=0" allowfullscreen="allowfullscreen">
+                    <iframe id='templateframe' class="embed-responsive-item" src="{{Setting::get('video_livestream')}}" allowfullscreen="allowfullscreen">
 
                     </iframe>
 
