@@ -3,6 +3,7 @@
 	position: relative;
 	z-index: 99;
 	background: linear-gradient(to bottom,#0470b4 0,#095b8c 100%);
+	border: solid 1px #0470b4;
 
 
 	ul{
@@ -18,7 +19,6 @@
 }
 
 #cssmenu,#cssmenu ul,#cssmenu ul li,#cssmenu ul li a,#cssmenu #head-mobile {
-	border: 0;
 	list-style: none;
 	line-height: 1;
 	display: block;

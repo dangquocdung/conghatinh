@@ -1,5 +1,7 @@
 <div class="right-box">
 
+
+
     <div class="block4">
 
         <div class="block-header" style="margin-bottom: 0">
@@ -30,6 +32,8 @@
 
 
     </div>
+
+    @include('guest.home.live-stream')
 
     {{--<div class="block4">--}}
 
