@@ -1,6 +1,6 @@
 @if (strlen(Setting::get('video_livestream')) > 100 )
 
-    <div class="block4" id="live-stream">
+    <div class="block4" id="live-stream" style="border-radius: 5px">
 
         <div class="embed-responsive embed-responsive-16by9">
             {!! Setting::get('video_livestream') !!}
