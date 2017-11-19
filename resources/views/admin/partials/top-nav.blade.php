@@ -33,7 +33,7 @@
               </user-image>
               <p>
                 {{Auth::user()->name}} - {{Auth::user()->profile->designation}}
-                <small>Member since Nov. 2012</small>
+                {{--<small>Member since Nov. 2017</small>--}}
               </p>
             </li>
 
