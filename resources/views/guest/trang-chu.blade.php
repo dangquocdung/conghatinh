@@ -65,7 +65,7 @@
 
           </div>
 
-          <div class="col-lg-3 col-md-3 hidden-sm sidebar-offcanvas" id="sidebar" role="navigation" style="padding-left: 5px">
+          <div class="col-lg-3 col-md-3 hidden-sm hidden-xs sidebar-offcanvas" id="sidebar" role="navigation" style="padding-left: 5px">
 
                 @include('guest.layout.right-box')
 
