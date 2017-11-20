@@ -10,10 +10,18 @@
         <div class="row nen-trang">
             <div class="col-md-12">
                 <div class="block3">
-                    <div class="breadcrumb">
-                        <a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>
-                        <span class="breadcrumb-item active">Sơ đồ cổng</span>
+
+                    <div class="portlet-header">
+
+                        <a href="/">
+                            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/hierarchy.png" alt="" width="20px"> Sơ đồ cổng thông tin</h4>
+                        </a>
+
                     </div>
+                    {{--<div class="breadcrumb">--}}
+                        {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
+                        {{--<span class="breadcrumb-item active">Sơ đồ cổng</span>--}}
+                    {{--</div>--}}
                     <div class="so-do">
                         <ul id="tree1">
                             <li><i class="fa fa-university" aria-hidden="true"></i> Trang chủ</li>

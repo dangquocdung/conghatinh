@@ -95,5 +95,9 @@
           limit: $('.main-footer-header-wrapper').offset().top
 
       });
+
+      $('[data-toggle="offcanvas"]').click(function () {
+          $('.row-offcanvas').toggleClass('active')
+      });
   });
 </script>

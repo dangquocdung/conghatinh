@@ -1,12 +1,12 @@
 
-<div id="cssmenu" class="visible-sm visible-md visible-lg">
+<div id="cssmenu">
 
         <ul>
             <li class="{{ Request::is('/') ? 'active' : ''  }}"><a href="/"><i class="fa fa-university" aria-hidden="true"></i></a></li>
             @foreach ($chuyenmuc as $cm)
                 @if ($cm->vitri == 1)
 
-                        <li class="{{ Request::is($cm->path.'/'.$cm->slug) ? 'active' : ''  }}"><a href="javascript:void(0);">{{ $cm->name }}</a>
+                        <li class="{{ Request::is($cm->path.'/'.$cm->slug) ? 'active' : ''  }}" ><a href="javascript:void(0);">{{ $cm->name }}</a>
 
 
 {{--                            <li class="{{ Request::is($cm->path.'/'.$cm->slug) ? 'active' : ''  }}"><a href="{{ $cm->path}}/{{ $cm->slug}}">{{ $cm->name }}</a>--}}
@@ -26,7 +26,7 @@
                     </li>
                 @endif
             @endforeach
-            <li><a href="http://dichvucong.hatinh.gov.vn/portaldvc/Home/default.aspx" target="_blank">DVC trực tuyến</a></li>
+            {{--<li><a href="http://dichvucong.hatinh.gov.vn/portaldvc/Home/default.aspx" target="_blank">DVC trực tuyến</a></li>--}}
         </ul>
 
 </div>
@@ -95,17 +95,7 @@
 
     $(document).ready(function () {
 
-        $('#cssmenu').scrollToFixed({
-//            marginTop: 10,
-            // neither of these fixes the problem:
-            // removeOffset, offsets
-//            limit: function() {
-//                var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
-//                return limit;
-//            },
-//            removeOffsets: true,
-//            zIndex: 999
-        });
+        $('#cssmenu').scrollToFixed();
     });
 
 

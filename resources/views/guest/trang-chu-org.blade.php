@@ -12,8 +12,16 @@
   <div class="container">
       <div class="row row-offcanvas row-offcanvas-right nen-trang">
 
-          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 main-page">
+          <div class="col-lg-3 col-md-3 hidden-xs" style="padding-right: 5px">
 
+                @include('guest.layout.left-menu')
+
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <div class="row">
+
+                  <div class="trang-giua">
 
 
 
@@ -60,12 +68,14 @@
 
                       @include('guest.home.to-chuc')
 
+                  </div>
 
+              </div>
 
 
           </div>
 
-          <div class="col-lg-3 col-md-3 hidden-sm sidebar-offcanvas" id="sidebar" role="navigation" style="padding-left: 5px">
+          <div class="col-lg-3 col-md-3 hidden-xs sidebar-offcanvas" id="sidebar" role="navigation" style="padding-left: 5px">
 
                 @include('guest.layout.right-box')
 
