@@ -147,7 +147,7 @@
             </a>
         </li>
         <li class="last">
-            <a href="/rss-feed">
+            <a href="/so-do-cong">
                 <span>Sơ đồ cổng</span>
             </a>
         </li>
