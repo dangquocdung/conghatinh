@@ -27,14 +27,14 @@
         var MAX_WIDTH = 980;
 
         function ScaleSlider() {
-            var containerElement = jssor_1_slider.$Elmt.parentNode;
+            var containerElement = jssor_2_slider.$Elmt.parentNode;
             var containerWidth = containerElement.clientWidth;
 
             if (containerWidth) {
 
                 var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
 
-                jssor_1_slider.$ScaleWidth(expectedWidth);
+                jssor_2_slider.$ScaleWidth(expectedWidth);
             }
             else {
                 window.setTimeout(ScaleSlider, 30);
