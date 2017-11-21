@@ -6,7 +6,7 @@
 @section('content-main')
     <div class="block3">
 
-        <div class="portlet-header" style="padding-left: 10px">
+        <div class="portlet-header">
 
             <a href="/">
                 <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>

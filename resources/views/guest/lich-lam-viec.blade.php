@@ -11,7 +11,7 @@
 
 @section('content-main')
     <div class="block3">
-        <div class="portlet-header" style="padding-left: 10px">
+        <div class="portlet-header">
 
             <a href="/chuyen-muc/chi-dao-dieu-hanh">
                 <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Chỉ đạo - điều hành / </h4>

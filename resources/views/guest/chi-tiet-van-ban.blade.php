@@ -6,7 +6,7 @@
 @section('content-main')
     <div class="block3">
 
-        <div class="portlet-header" style="padding-left: 10px">
+        <div class="portlet-header">
 
             <a href="{{$vb->loaitin->chuyenmuc->slug}}">
                 <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{$vb->loaitin->chuyenmuc->name}} / </h4>

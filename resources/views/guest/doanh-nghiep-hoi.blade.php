@@ -6,7 +6,7 @@
 @section('content-main')
     <div class="block3">
 
-                        <div class="portlet-header" style="padding-left: 10px">
+                        <div class="portlet-header">
 
 
                             <a href="javascript:void(0);">
