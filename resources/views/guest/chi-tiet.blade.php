@@ -83,17 +83,7 @@
 				</div>
 			</div>
 
-			<div class="tien-ich">
-				{{-- <a class="in" href="javascript:newOpenWindows();"><i class="fa fa-print" aria-hidden="true"></i> In bài viết</a> --}}
-				<a class="in" href="javascript:window.print();"><i class="fa fa-print" aria-hidden="true"></i> In bài viết</a>
-
-				&nbsp;
-				<a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
-
-
-			</div>
-
-			<div class="fb-share-button" data-href="{{ urlencode(Request::fullUrl()) }}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}&amp;src=sdkpreparse">Chia sẻ</a></div>
+			@include('guest.layout.tien-ich')
 
 			@include('guest.chi-tiet.lien-quan-new')
 
