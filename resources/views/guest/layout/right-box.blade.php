@@ -1,8 +1,5 @@
 <div class="right-box">
-    <div class="block4">
 
-        @include('guest.layout.menu-right')
-    </div>
 
 
 
@@ -22,10 +19,15 @@
 
     <div class="block4">
 
+        @include('guest.layout.menu-right')
+    </div>
+
+    <div class="block4">
+
         <div class="block-header" style="margin-bottom: 0">
             <a href="javascript:void(0);">
 
-                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới hành chính</h4>
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới</h4>
             </a>
 
         </div>
@@ -59,55 +61,55 @@
     {{--</div>--}}
 
 
-    @php
+    {{--@php--}}
 
-        $chuyenmuc = \App\ChuyenMuc::whereIn('id',['1','3'])->orderby('thutu','asc')->get();
+        {{--$chuyenmuc = \App\ChuyenMuc::whereIn('id',['1','3'])->orderby('thutu','asc')->get();--}}
 
-    @endphp
-
-
+    {{--@endphp--}}
 
 
-    @foreach($chuyenmuc as $cm)
 
 
-        <div class="block4">
-
-            <div class="block-header">
-                <a href="/chuyen-muc/{{ $cm->slug }}" style="text-decoration: none">
-                    <h4><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
-                </a>
-
-            </div>
-
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="row">
-
-                    <div class="news-rightbox">
-                        <ul>
-
-                            @foreach($cm->loaitin->sortby('thutu') as $lt)
-
-                                <li>
-
-                                    <div class="news-block">
-                                        <a href="/loai-tin/{{ $lt->slug }}">
-                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }}
-                                        </a>
-                                    </div>
-                                </li>
-
-                            @endforeach
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    {{--@foreach($chuyenmuc as $cm)--}}
 
 
-    @endforeach
+        {{--<div class="block4">--}}
+
+            {{--<div class="block-header">--}}
+                {{--<a href="/chuyen-muc/{{ $cm->slug }}" style="text-decoration: none">--}}
+                    {{--<h4><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>--}}
+                {{--</a>--}}
+
+            {{--</div>--}}
+
+            {{--<div class="col-md-12 col-sm-12 col-xs-12">--}}
+                {{--<div class="row">--}}
+
+                    {{--<div class="news-rightbox">--}}
+                        {{--<ul>--}}
+
+                            {{--@foreach($cm->loaitin->sortby('thutu') as $lt)--}}
+
+                                {{--<li>--}}
+
+                                    {{--<div class="news-block">--}}
+                                        {{--<a href="/loai-tin/{{ $lt->slug }}">--}}
+                                            {{--<i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }}--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+
+                            {{--@endforeach--}}
+
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
+        {{--</div>--}}
+
+
+    {{--@endforeach--}}
 
 
 

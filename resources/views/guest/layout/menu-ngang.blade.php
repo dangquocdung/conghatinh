@@ -30,7 +30,8 @@
         z-index: 100;
         height: 37px;
         padding: 0px  0 0;
-        list-style-type: none; }
+        list-style-type: none;
+        }
 
     /*Top level list items*/
     .ddsmoothmenu ul li {

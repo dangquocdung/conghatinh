@@ -89,11 +89,11 @@
           marginTop: $('.menu-main').height()
       });
 
-//    $('.main-footer-header-wrapper').scrollToFixed( {
+//    $('.menu-bottom').scrollToFixed( {
 //
 //      bottom: 0,
 //
-//      limit: $('.main-footer-header-wrapper').offset().top
+//      limit: $('.menu-bottom').offset().top
 //
 //    });
 

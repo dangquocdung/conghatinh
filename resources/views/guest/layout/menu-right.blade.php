@@ -1,7 +1,7 @@
 <div id="menu-right">
     <ul id="accordion" class="accordion">
         @foreach ($chuyenmuc as $cm)
-            @if ($cm->vitri == 1)
+
                 <li>
                     <div class="link"><i class="fa fa-plus"></i>{{ $cm->name }}<i class="fa fa-chevron-down"></i></div>
                     @if (count($cm->loaitin) > 0)
@@ -13,7 +13,7 @@
                         </ul>
                     @endif
                 </li>
-            @endif
+
         @endforeach
 
     </ul>
