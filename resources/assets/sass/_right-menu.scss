@@ -34,7 +34,7 @@
   .accordion .link {
     cursor: pointer;
     display: block;
-    padding: 10px 10px 10px 42px;
+    padding: 10px 10px 10px 30px;
     color: #095b8c;
     font-size: 14px;
     font-weight: 700;
@@ -51,8 +51,8 @@
 
   .accordion li i {
     position: absolute;
-    top: 16px;
-    left: 12px;
+    top: 10px;
+    left: 5px;
     font-size: 18px;
     color: #095b8c;
     -webkit-transition: all 0.4s ease;
