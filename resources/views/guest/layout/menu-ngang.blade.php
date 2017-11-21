@@ -1,5 +1,5 @@
 <style>
-    .menu {
+    .menu-main, .menu-bottom {
         width: 100%;
         position: inherit;
         background: #b74841;
@@ -122,7 +122,7 @@
 
 </style>
 
-<div class="menu">
+<div class="menu-main">
 
 <div id="top_nav" class="ddsmoothmenu">
     <ul>

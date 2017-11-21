@@ -9,15 +9,4 @@
         </div>
 
     </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#live-stream').scrollToFixed({
-                marginTop: $('#menu-right').height()
-            });
-        });
-    </script>
-
-
-
 @endif

@@ -74,6 +74,8 @@
                        @endforeach
                     </div>
 
+                    @include('guest.layout.tien-ich')
+
                     <div class="text-center">
                       {{ $tintuc->render() }}
                     </div>

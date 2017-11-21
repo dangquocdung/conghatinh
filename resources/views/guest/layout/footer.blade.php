@@ -1,35 +1,31 @@
 
 <div class="container nen-trang">
 <div class="porlet-main-footer">
-    <div class="main-footer-header-wrapper">
+
+    @include('guest.layout.menu-bottom')
+    {{--<div class="main-footer-header-wrapper">--}}
 
 
-            <ul class="main-footer-menu" style="margin-left: 0; padding-left: 0">
-                <li class="main-footer-menu-item">
-                    <a href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Trang chủ</a>
-                </li>
-                <li class="main-footer-menu-item">
-                    <a href="ban-bien-tap">Giới thiệu BBT Cổng</a>
-                </li>
-                <li class="main-footer-menu-item">
-                    <a href="lien-he-cong-tac">Liên hệ công tác</a>
-                </li>
-                <li class="main-footer-menu-item">
-                    <a href="so-do-cong">Sơ đồ cổng</a>
-                </li>
-                <li class="main-footer-menu-item">
-                    <a href="gop-y">Góp ý</a>
-                </li>
-                <li class="main-footer-menu-item">
-                    <a href="dang-nhap">Đăng nhập</a>
-                </li>
-                <li class="main-footer-menu-item">
-                    <a href="/rss-feed" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
-                </li>
+            {{--<ul class="main-footer-menu" style="margin-left: 0; padding-left: 0">--}}
+                {{--<li class="main-footer-menu-item">--}}
+                    {{--<a href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Trang chủ</a>--}}
+                {{--</li>--}}
+                {{--<li class="main-footer-menu-item">--}}
+                    {{--<a href="ban-bien-tap">Ban Biên Tập</a>--}}
+                {{--</li>--}}
+                {{--<li class="main-footer-menu-item">--}}
+                    {{--<a href="gop-y">Góp ý</a>--}}
+                {{--</li>--}}
+                {{--<li class="main-footer-menu-item">--}}
+                    {{--<a href="dang-nhap">Đăng nhập</a>--}}
+                {{--</li>--}}
+                {{--<li class="main-footer-menu-item">--}}
+                    {{--<a href="/rss-feed" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>--}}
+                {{--</li>--}}
 
-            </ul>
+            {{--</ul>--}}
 
-    </div>
+    {{--</div>--}}
 
 
     <div class="main-footer-footer-wrapper">
@@ -88,15 +84,18 @@
       });
     });
 
-      $('#menu-right').scrollToFixed();
+    $('.menu-main').scrollToFixed();
+      $('#live-stream').scrollToFixed({
+          marginTop: $('.menu-main').height()
+      });
 
-    $('.main-footer-header-wrapper').scrollToFixed( {
-
-      bottom: 0,
-
-      limit: $('.main-footer-header-wrapper').offset().top
-
-    });
+//    $('.main-footer-header-wrapper').scrollToFixed( {
+//
+//      bottom: 0,
+//
+//      limit: $('.main-footer-header-wrapper').offset().top
+//
+//    });
 
     $('[data-toggle="offcanvas"]').click(function () {
       $('.row-offcanvas').toggleClass('active')
