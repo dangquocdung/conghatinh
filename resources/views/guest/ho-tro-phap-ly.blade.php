@@ -5,14 +5,8 @@
 @section('header-menu-item')
   active
 @endsection
-@section('content')
-  <div class="container">
-    <div class="row nen-trang">
-      
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-
-
-            <div class="block3">
+@section('content-main')
+    <div class="block3">
 
                 <div class="portlet-header" style="padding-left: 10px">
 
@@ -133,17 +127,12 @@
                 </div>
 
             </div>
-        </div>
-
-        <div class="col-md-3 hidden-xs">
-            <div class="right-box">
-                @include('guest.ho-tro-phap-ly.right-box')
-            </div>
-        </div>
-      
-    </div>
-  </div>
 @endsection
+
+@section('content-right')
+    @include('guest.ho-tro-phap-ly.right-box')
+@stop
+
 
 
 @section('js')

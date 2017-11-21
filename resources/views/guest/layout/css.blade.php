@@ -17,3 +17,8 @@
 <link rel="stylesheet" type="text/css" href="guest/css/jquery.fancybox.min.css">
 
 <link rel="stylesheet" href="{{ mix('/guest/css/guest.css') }}">
+
+
+<style>
+
+</style>

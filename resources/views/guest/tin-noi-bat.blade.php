@@ -5,19 +5,17 @@
 @section('header-menu-item')
   active
 @endsection
-@section('content')
-  <div class="container">
-    <div class="row nen-trang">
-      
-            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+@section('content-main')
+
 
 
                 <div class="block3">
-                    <div class="breadcrumb">
-                        <a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>
-                        {{--<a class="breadcrumb-item" href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">{{ $lt->chuyenmuc->name }}</a>--}}
-                        <span class="breadcrumb-item active">Tin nổi bật</span>
+                    <div class="portlet-header">
+                        {{--<a href="chuyen-muc/{{ $cm->slug }}">--}}
+                            {{--<h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>--}}
+                        {{--</a>--}}
                     </div>
+
 
                      <div class="loai-tin">
                         @foreach ($tintuc as $tin)
@@ -47,10 +45,6 @@
                     </div>
 
                 </div>
-            </div>
-      
 
-    </div>
-  </div>
 @endsection
 

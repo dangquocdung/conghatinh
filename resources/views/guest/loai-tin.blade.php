@@ -5,36 +5,25 @@
 @section('header-menu-item')
   active
 @endsection
-@section('content')
-  <div class="container">
-    <div class="row nen-trang">
-      
-            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-
-
-                <div class="block3">
+@section('content-main')
+    <div class="block3">
                     {{--<div class="breadcrumb">--}}
                         {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
                         {{--<a class="breadcrumb-item" href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">{{ $lt->chuyenmuc->name }}</a>--}}
                         {{--<span class="breadcrumb-item active">{{ $lt->name }}</span>--}}
                     {{--</div>--}}
 
-                    <div class="portlet-header" style="padding-left: 10px">
+                    <div class="portlet-header">
 
-                        <a href="/">
-                            <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-                        </a>
 
                         <a href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">
-                            <h4 class="portlet-header-title no-pd-top">{{ $lt->chuyenmuc->name }} / </h4>
+                            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $lt->chuyenmuc->name }} / </h4>
                         </a>
 
                         <a href="javascript:void(0);">
                             <h4 class="portlet-header-title no-pd-top">{{ $lt->name }}</h4>
                         </a>
 
-                        {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
-                        {{--<span class="breadcrumb-item active">{{ $cm->name }}</span>--}}
 
                     </div>
 
@@ -90,17 +79,10 @@
                     </div>
 
                 </div>
-            </div>
-
-
-        <div class="col-md-3 hidden-xs">
-            <div class="right-box">
-                @include('guest.chi-tiet.right-box')
-            </div>
-        </div>
-      
-
-    </div>
-  </div>
 @endsection
+
+@section('content-right')
+    @include('guest.chi-tiet.right-box')
+@stop
+
 

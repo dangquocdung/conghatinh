@@ -11,6 +11,7 @@ body {
   .nen-trang{
     background: rgba(254, 254, 254, 0.63) !important;
     border: 2px;
+    overflow: hidden;
     //border-radius: 5px;
     //padding-top: 15px;
   }
@@ -37,7 +38,7 @@ body {
   border: 1px solid #bebebe;
   border-radius: 3px;
   margin-bottom: 5px;
-  margin-top: 7px;
+  margin-top: 2px;
   overflow: hidden;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -48,7 +49,7 @@ body {
   border: 1px solid #bebebe;
   border-radius: 3px;
   margin-bottom: 5px;
-  margin-top: 7px;
+  margin-top: 2px;
   padding-bottom: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

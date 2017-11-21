@@ -5,11 +5,8 @@
 @section('header-menu-item')
   active
 @endsection
-@section('content')
-    <div class="container">
-        <div class="row nen-trang">
-            <div class="col-md-12">
-                <div class="block3">
+@section('content-main')
+    <div class="block3">
 
                     <div class="portlet-header">
 
@@ -43,9 +40,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('js')
@@ -175,7 +169,7 @@
         $('#tree1').treed();
 
     </script>
-    @stop
+@stop
 
 
 

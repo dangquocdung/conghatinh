@@ -6,21 +6,9 @@
   active
 @endsection
 
-@section('content')
-  <div class="container">
-    <div class="row nen-trang">
-      
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+@section('content-main')
+    <div class="block3">
 
-
-            <div class="block3">
-                {{--<div class="breadcrumb">--}}
-                    {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
-                    {{--<span class="breadcrumb-item active">Tư vấn, hỗ trợ pháp lý doanh nghiệp</span>--}}
-                    {{--<button class="pull-right btn btn-info btn-sm" id="themCauHoi">--}}
-                        {{--<i class="fa fa-plus-circle" aria-hidden="true"></i> Đặt câu hỏi--}}
-                    {{--</button>--}}
-                {{--</div>--}}
 
                 <div class="portlet-header">
 
@@ -28,8 +16,7 @@
                         <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Góp ý</h4>
                     </a>
 
-                    {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
-                    {{--<span class="breadcrumb-item active">{{ $cm->name }}</span>--}}
+
 
                 </div>
 
@@ -96,16 +83,6 @@
 
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-3 hidden-xs">
-            <div class="right-box">
-{{--                @include('guest.ho-tro-phap-ly.right-box')--}}
-            </div>
-        </div>
-      
-    </div>
-  </div>
 @endsection
 
 

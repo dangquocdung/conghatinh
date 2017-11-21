@@ -80,7 +80,7 @@
     .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 </style>
 
-<div class="block3">
+<div class="block3" style="background-color: #000000 !important; ">
 
     <div class="portlet-header">
         <a href="/loai-tin/album-hinh-anh">

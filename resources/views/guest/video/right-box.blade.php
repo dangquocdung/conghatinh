@@ -1,6 +1,4 @@
-<div class="col-md-2">
 
-    <div class="right-box">
         <div class="block4">
             <div class="block-header">
                 <a href="">
@@ -24,9 +22,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
 
-</div>
 
 
 

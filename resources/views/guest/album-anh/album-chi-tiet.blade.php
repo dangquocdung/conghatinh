@@ -1,5 +1,5 @@
 <div class="list-image-view">
-    <ul style="padding: 0;">
+    <div style="padding: 0;">
 
         @include('guest.album-anh.modal')
 
@@ -14,7 +14,7 @@
         <br>
         <br>
         @include('guest.album-anh.lienquan')
-    </ul>
+    </div>
 </div>
 
 

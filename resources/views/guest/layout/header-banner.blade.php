@@ -3,11 +3,11 @@
     <div class="margin-15px">
 
         <nav class="navbar navbar-default" id="main-menu" >
-            <div class="navbar-header hidden-xs">
+            <div class="navbar-header hidden-sm hidden-xs">
                 @include('guest.layout.header-slide')
             </div>
 
-            <div class="navbar-header visible-xs" >
+            <div class="navbar-header visible-sm visible-xs" >
                 <div class="menu-mobie" style="padding-left: 15px">
 
 
@@ -19,13 +19,7 @@
 
                     </button>
 
-                     </div>
-
-
-
-
-
-
+                </div>
                 @include('guest.layout.header-slide-mb')
 
 

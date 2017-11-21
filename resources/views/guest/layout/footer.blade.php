@@ -88,16 +88,16 @@
       });
     });
 
-      $('.main-footer-header-wrapper').scrollToFixed( {
+    $('.main-footer-header-wrapper').scrollToFixed( {
 
-          bottom: 0,
+      bottom: 0,
 
-          limit: $('.main-footer-header-wrapper').offset().top
+      limit: $('.main-footer-header-wrapper').offset().top
 
-      });
+    });
 
-      $('[data-toggle="offcanvas"]').click(function () {
-          $('.row-offcanvas').toggleClass('active')
-      });
+    $('[data-toggle="offcanvas"]').click(function () {
+      $('.row-offcanvas').toggleClass('active')
+    });
   });
 </script>

@@ -6,14 +6,8 @@
   active
 @endsection
 
-@section('content')
-  <div class="container">
-    <div class="row nen-trang">
-      
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-
-
-            <div class="block3">
+@section('content-main')
+    <div class="block3">
                 {{--<div class="breadcrumb">--}}
                     {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
                     {{--<span class="breadcrumb-item active">Tư vấn, hỗ trợ pháp lý doanh nghiệp</span>--}}
@@ -536,16 +530,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-3 hidden-xs">
-            <div class="right-box">
-{{--                @include('guest.ho-tro-phap-ly.right-box')--}}
-            </div>
-        </div>
-      
-    </div>
-  </div>
 @endsection
 
 

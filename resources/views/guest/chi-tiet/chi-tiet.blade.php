@@ -1,4 +1,4 @@
-<div class="col-md-9">
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 main-page">
 
     {{-- <ul class="breadcrumb">
       <li><a href="#">Home</a></li>
@@ -11,127 +11,6 @@
 
 
 
-    <div class="block3">
-        {{--<div class="breadcrumb">--}}
-            {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
-            {{--<a class="breadcrumb-item" href="chuyen-muc/{{ $tin->loaitin->chuyenmuc->slug }}">{{ $tin->loaitin->chuyenmuc->name }}</a>--}}
-            {{--<a class="breadcrumb-item" href="loai-tin/{{ $tin->loaitin->slug }}">{{ $tin->loaitin->name }}</a>--}}
-             {{--<span class="breadcrumb-item active">{{ $tin->name }}</span> --}}
-        {{--</div>--}}
-
-        <div class="portlet-header" style="padding-left: 10px">
-
-            <a href="/">
-                <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-            </a>
-
-            <a href="chuyen-muc/{{ $tin->loaitin->chuyenmuc->slug }}">
-                <h4 class="portlet-header-title no-pd-top">{{ $tin->loaitin->chuyenmuc->name }} / </h4>
-            </a>
-
-            <a href="loai-tin/{{ $tin->loaitin->slug }}">
-                <h4 class="portlet-header-title no-pd-top">{{ $tin->loaitin->name }}</h4>
-            </a>
-
-            {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
-            {{--<span class="breadcrumb-item active">{{ $cm->name }}</span>--}}
-
-        </div>
-        
-    
-        <div class="col-md-12">
-
-            <div class="row">
-
-                <div class="tieu-de-tin">
-
-                    <h1 class="main-title cms-title">{{ $tin->name }}</h1>
-                    <div class="meta clearfix">
-                        <em>
-                            <time><i class="fa fa-clock-o"></i> Đăng ngày {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s') }}</time>
-                        </em>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="row">
-
-                        @include('guest.chi-tiet.tin-noi-bat')
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-9">
-
-
-                    <div class="chi-tiet-tin">
-
-                        {{--<div class="chi-tiet-avatar" style="margin-bottom: 10px;">--}}
-                            {{--<img src="{{$tin->avatar}}" alt="{{ $tin->name }}">--}}
-                        {{--</div>--}}
-
-
-                        <div class="gioi-thieu">
-                            <strong><em>{{ $tin->gioithieu }}</em></strong>
-                        </div>
-
-
-                        <div class="noi-dung">
-                            {!! $tin->noidung !!}
-                        </div>
-
-                        <div class="noi-dung">
-                            @foreach($tin->teptintuc as $ttt)
-                                <embed src= "{{ $ttt->path }}" width="100%" height="640px">
-                            @endforeach
-                        </div>
-
-
-                        <div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
-                            <strong>{{ $tin->tacgia  }}</strong>
-                            <br>
-                            @if ($tin->nguon)
-                                <em><small>Nguồn: {{ $tin->nguon }}</small></em>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div id="tag">
-                        <ul class="tags">
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tien-ich">
-                {{-- <a class="in" href="javascript:newOpenWindows();"><i class="fa fa-print" aria-hidden="true"></i> In bài viết</a> --}}
-                <a class="in" href="javascript:window.print();"><i class="fa fa-print" aria-hidden="true"></i> In bài viết</a>
-
-                &nbsp;
-                <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
-
-
-            </div>
-
-            <div class="fb-share-button" data-href="{{ urlencode(Request::fullUrl()) }}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}&amp;src=sdkpreparse">Chia sẻ</a></div>
-
-            {{--<a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}&display=popup"> share this </a>--}}
-
-            @include('guest.chi-tiet.lien-quan-new')
-
-            <br>
-
-            @include('guest.chi-tiet.lien-quan-old')
-            
-
-        </div>
-
-    
-
-    </div>
 
     
     
@@ -140,8 +19,8 @@
 </div>
 
 
-<div class="col-md-3 hidden-xs">
+<div class="col-xs-6 col-md-3 hidden-sm sidebar-offcanvas" id="sidebar" role="navigation" style="padding-left: 5px">
     <div class="right-box">
-        @include('guest.chi-tiet.right-box')
+
     </div>
 </div>

@@ -21,7 +21,6 @@
 
 </head>
 <body>
-
 <script>
     $(function() {
         FastClick.attach(document.body);
@@ -30,27 +29,42 @@
 {{--  @include('guest.layout.menu-mobile')--}}
   <div id="page" id="app">
 
-    @include('guest.layout.header-banner')
 
-    <div class="container nen-trang">
-      <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 main-page">
-          @yield('content-main')
-        </div>
+{{--    @include('guest.layout.header-banner')--}}
 
-        <div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar" style="padding-left: 5px">
-          @yield('content-right')
+    <div class="container">
+
+
+      <div id="site-wrapper">
+
+        <div id="site-canvas">
+
+          <div id="site-menu">
+            <h2>My Menu</h2>
+            <p class="lead">Put any HTML you want here.
+              Style it however you want.
+            <ul>
+              <li>Free to scroll up and down</li>
+              <li>But not left and write</li>
+            </ul>
+          </div>
+
+          <a href="#" class="toggle-nav btn btn-lg btn-success pull-right" id="big-sexy"><i class="fa fa-bars"></i> Toggle Nav</a>
+          <!-- #site-canvas -->
         </div>
+        <!-- #site-wrapper> -->
       </div>
-    </div>
-{{--    @yield('content')--}}
-{{--    @include('guest.layout.lienketwebsite')--}}
-    @include('guest.layout.footer')
-  </div>
-  <!-- JS -->
-{{--  @include('guest.layout.js')--}}
 
-  @yield('js')
+
+
+
+    </div>
+
+    @include('guest.layout.footer')
+
+
+  </div>
+
   @yield('script')
 
 </body>

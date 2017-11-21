@@ -80,7 +80,7 @@
     .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
 </style>
 
-<div class="block3">
+<div class="block3" style="background-color: #000000 !important; ">
 
     <div class="portlet-header">
         <a href="/loai-tin/thu-vien-video">
@@ -90,40 +90,23 @@
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="row">
-
-
-
-            {{--<iframe src="" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
-
-
             <div id="jssor_4" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
                 <!-- Loading Screen -->
                 <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
                     <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
                 </div>
                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
-
                     @foreach($vd_noibat as $vd)
                         <div class="video-thumbnail">
                             <a href="/loai-tin/thu-vien-video/{{ $vd->id }}">
-
                                 <img data-u="image" src="{{ $vd->loaivideo->cover_image }}" title="{{ $vd->name }}" />
-
-                                {{--<p style="position: absolute; top:50%; left:50%;content: '\f01d'; font-family: 'FontAwesome'; font-size: 100px"></p>--}}
-
                                 <p style="position: absolute; bottom: 10px; right:10px; font-size: 1.5em; color: #ffffff;">
                                     {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y')}}
                                 </p>
-
-{{--                                {!! $vd->src !!}--}}
-
-                                {{--<iframe src="https://www.youtube.com/embed/RP6h7i4oGsk" frameborder="0" gesture="media" allowfullscreen></iframe>--}}
-
                             </a>
 
                         </div>
                     @endforeach
-
                 </div>
                 <!-- Bullet Navigator -->
                 <div data-u="navigator" class="jssorb057" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">

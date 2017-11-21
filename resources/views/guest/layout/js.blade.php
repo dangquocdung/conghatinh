@@ -121,11 +121,7 @@
 </script>
 
 <script type="text/javascript">
-
-    $(function() {
-        FastClick.attach(document.body);
-    });
-
+    // GoBack
     function goBack() {
         window.history.back();
     }
