@@ -29,6 +29,8 @@
 
         </nav>
 
+        @include('guest.layout.menu-ngang')
+
 {{--        @include('guest.layout.main-menu')--}}
 
 
