@@ -13,7 +13,7 @@
     <script>
         $(document).ready(function () {
             $('#live-stream').scrollToFixed({
-                marginTop:41
+                marginTop: $('#menu-right').height()
             });
         });
     </script>

@@ -22,7 +22,6 @@
                 </div>
                 @include('guest.layout.header-slide-mb')
 
-
             </div>
 
 
@@ -30,7 +29,7 @@
 
         </nav>
 
-        @include('guest.layout.main-menu')
+{{--        @include('guest.layout.main-menu')--}}
 
 
 

@@ -88,6 +88,8 @@
       });
     });
 
+      $('#menu-right').scrollToFixed();
+
     $('.main-footer-header-wrapper').scrollToFixed( {
 
       bottom: 0,

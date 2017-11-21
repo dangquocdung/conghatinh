@@ -1,4 +1,8 @@
 <div class="right-box">
+    <div class="block4">
+
+        @include('guest.layout.right-menu')
+    </div>
 
 
 
