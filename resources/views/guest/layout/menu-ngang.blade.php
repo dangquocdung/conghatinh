@@ -57,6 +57,8 @@
         line-height: 37px;
         text-transform: uppercase;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-weight: 700; }
 
     * html .ddsmoothmenu ul li a {
