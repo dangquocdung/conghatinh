@@ -52,7 +52,3 @@
 @section('js')
     <script type="text/javascript" src="{{mix('/js/guest.js')}}"></script>
 @stop
-
-
-
-

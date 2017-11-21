@@ -8,12 +8,9 @@
 
                         <div class="portlet-header" style="padding-left: 10px">
 
-                            <a href="/">
-                                <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-                            </a>
 
                             <a href="javascript:void(0);">
-                                <h4 class="portlet-header-title no-pd-top">Doanh nghiệp hỏi - CQNN trả lời</h4>
+                                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Doanh nghiệp hỏi - CQNN trả lời</h4>
                             </a>
 
                             <button class="pull-right btn btn-info btn-sm" id="themCauHoi" style="margin-right: 7px">

@@ -8,12 +8,8 @@
     <div class="block3">
         <div class="portlet-header" style="padding-left: 10px">
 
-            <a href="/">
-                <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-            </a>
-
             <a href="javascript:void (0);">
-                <h4 class="portlet-header-title no-pd-top">Tất cả Album</h4>
+                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Tất cả Album</h4>
             </a>
 
         </div>

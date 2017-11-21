@@ -11,32 +11,28 @@
 
 @section('content-main')
     <div class="block3">
-                        <div class="portlet-header" style="padding-left: 10px">
+        <div class="portlet-header" style="padding-left: 10px">
 
-                            <a href="/">
-                                <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-                            </a>
+            <a href="/chuyen-muc/chi-dao-dieu-hanh">
+                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Chỉ đạo - điều hành / </h4>
+            </a>
 
-                            <a href="/chuyen-muc/chi-dao-dieu-hanh">
-                                <h4 class="portlet-header-title no-pd-top">Chỉ đạo - điều hành / </h4>
-                            </a>
-
-                            <a href="javascript:void(0);">
-                                <h4 class="portlet-header-title no-pd-top">Lịch làm việc</h4>
-                            </a>
+            <a href="javascript:void(0);">
+                <h4 class="portlet-header-title no-pd-top">Lịch làm việc</h4>
+            </a>
 
 
-                        </div>
+        </div>
 
-                        <div class="lich" style="padding: 60px 15px">
+        <div class="lich" style="padding: 60px 15px">
 
-                            {!! $calendar->calendar() !!}
+            {!! $calendar->calendar() !!}
 
-                        </div>
+        </div>
 
 
 
-                    </div>
+    </div>
 @endsection
 
 @section('content-right')
