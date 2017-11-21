@@ -56,6 +56,7 @@
         text-decoration: none;
         line-height: 37px;
         text-transform: uppercase;
+        white-space: nowrap;
         font-weight: 700; }
 
     * html .ddsmoothmenu ul li a {
