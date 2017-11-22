@@ -4,21 +4,15 @@
 
 
     <div class="block4">
-
         <div class="block-header" style="margin-bottom: 0">
             <a href="">
                 <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Lời chào mừng</h4>
             </a>
-
         </div>
-
         <img src="http://mediahatinh24h.tinmoi.vn/2016/04/hatinh-388.jpg" alt="" width="100%">
-
-
     </div>
 
     <div class="block4">
-
         @include('guest.layout.menu-right')
     </div>
 

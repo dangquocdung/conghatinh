@@ -188,7 +188,7 @@ class GuestController extends Controller
 
         $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
-        return view('guest.chi-tiet', compact('tin','tinlq_new','tinlq_old'));
+        return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
     }
 
     public function tepTin($slug)
@@ -201,7 +201,7 @@ class GuestController extends Controller
 
         $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
-        return view('guest.chi-tiet', compact('tin','tinlq_new','tinlq_old'));
+        return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
     }
 
 

@@ -90,10 +90,15 @@
   /**
    * Submenu
    -----------------------------*/
+  ul.submenu{
+    padding-left: 10px;
+  }
+
   .submenu {
     display: none;
     //background: #444359;
-    background: linear-gradient(to bottom,#0470b4 0,#095b8c 100%);
+    //background: linear-gradient(to bottom, rgb(249, 246, 246) 0, rgba(9, 121, 196, 0.98) 100%);
+    background: #FFF;
     font-size: 14px;
   }
 
@@ -104,8 +109,8 @@
   .submenu a {
     display: block;
     text-decoration: none;
-    color: #d9d9d9;
-    padding: 12px;
+    color: #b63b4d;
+    padding: 12px 0px;
     //padding-left: 42px;
     -webkit-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;
@@ -113,7 +118,7 @@
   }
 
   .submenu a:hover {
-    background: #0093ef;
+    background: #006eaf;
     color: #FFF;
   }
 }

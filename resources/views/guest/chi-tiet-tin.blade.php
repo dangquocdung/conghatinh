@@ -39,7 +39,46 @@
 
 					<div class="row">
 
-						@include('guest.chi-tiet.tin-noi-bat')
+						<div id="tin-noi-bat-left" class="hidden-xs hidden-sm">
+
+							<h4 class="label">Tin nổi bật</h4>
+
+							@foreach ($tinnoibat4 as $tin)
+
+								<article>
+
+									<a href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">
+										<img src="{{$tin->avatar}}" alt="{{$tin->name}}">
+									</a>
+
+									<h6>
+										<a class="title" href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">{{ $tin->name }}</a>
+									</h6>
+								</article>
+							@endforeach
+
+						</div>
+
+
+						<script>
+
+                            $(document).ready(function () {
+
+                                $('#tin-noi-bat-left').scrollToFixed({
+                                    marginTop: 50,
+                                    // neither of these fixes the problem:
+                                    // removeOffset, offsets
+                                    limit: function() {
+                                        var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
+                                        return limit;
+                                    },
+                                    removeOffsets: true,
+                                    zIndex: 999
+                                });
+                            });
+
+
+						</script>
 
 					</div>
 
@@ -82,14 +121,71 @@
 					</div>
 				</div>
 			</div>
+			<hr>
 
 			@include('guest.layout.tien-ich')
 
-			@include('guest.chi-tiet.lien-quan-new')
+			<div class="lienquan-header">
+
+				<a href="/loai-tin/{{$tin->loaitin->slug}}">Các tin mới hơn</a>
+
+			</div>
+
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+
+					<div class="tin-lien-quan" style="margin-top: 10px">
+						<ul>
+
+
+							@foreach($tinlq_new as $tlq)
+
+								<li>
+									<a href="/chi-tiet/{{ $tlq->slug }}">
+
+										<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+									</a>
+								</li>
+
+							@endforeach
+
+						</ul>
+					</div>
+				</div>
+			</div>
 
 			<br>
 
-			@include('guest.chi-tiet.lien-quan-old')
+			<div class="lienquan-header">
+
+				<a href="/loai-tin/{{$tin->loaitin->slug}}">Các tin cũ hơn</a>
+
+			</div>
+
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+
+					<div class="tin-lien-quan" style="margin-top: 10px">
+						<ul>
+
+
+							@foreach($tinlq_old as $tlq)
+
+								<li>
+									<a href="/chi-tiet/{{ $tlq->slug }}">
+
+										<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+									</a>
+								</li>
+
+							@endforeach
+
+						</ul>
+					</div>
+				</div>
+			</div>
 
 
 		</div>
@@ -101,7 +197,7 @@
 @endsection
 
 @section('content-right')
-	@include('guest.chi-tiet.right-box')
+	@include('guest.menu-right.chi-tiet-tin')
 @endsection
 
 @section('js')

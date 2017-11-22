@@ -7,9 +7,8 @@
                     @if (count($cm->loaitin) > 0)
                         <ul class="submenu">
                             @foreach($cm->loaitin->sortby('thutu') as $lt)
-                                <li><a href="/loai-tin/{{ $lt->slug }}">{{ $lt->name }}</a></li>
-                                @endforeach
-
+                                <li><a href="/loai-tin/{{ $lt->slug }}"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{ $lt->name }}</a></li>
+                            @endforeach
                         </ul>
                     @endif
                 </li>

@@ -153,7 +153,7 @@
 @stop
 
 @section('content-right')
-    @include('guest.van-ban.right-box')
+    @include('guest.menu-right.chi-tiet-van-ban')
 @stop
 
 

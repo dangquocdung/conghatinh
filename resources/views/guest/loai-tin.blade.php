@@ -84,7 +84,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.chi-tiet.right-box')
+    @include('guest.menu-right.loai-tin')
 @stop
 
 
