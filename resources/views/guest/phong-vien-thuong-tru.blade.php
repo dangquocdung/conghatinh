@@ -32,7 +32,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.doanh-nghiep-hoi.right-box')
+    @include('guest.menu-right.chuyen-trang')
 @stop
 
 @section('js')

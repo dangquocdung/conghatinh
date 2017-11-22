@@ -126,7 +126,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.ho-tro-phap-ly.right-box')
+    @include('guest.menu-right.chuyen-trang')
 @stop
 
 
