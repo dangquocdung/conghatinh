@@ -43,16 +43,16 @@
 
 							<h4 class="label">Tin nổi bật</h4>
 
-							@foreach ($tinnoibat4 as $tin)
+							@foreach ($tinnoibat4 as $tinnb)
 
 								<article>
 
-									<a href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">
-										<img src="{{$tin->avatar}}" alt="{{$tin->name}}">
+									<a href="chi-tiet/{{$tinnb->slug}}" title="{{$tinnb->name}}">
+										<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
 									</a>
 
 									<h6>
-										<a class="title" href="chi-tiet/{{$tin->slug}}" title="{{$tin->name}}">{{ $tin->name }}</a>
+										<a class="title" href="chi-tiet/{{$tinnb->slug}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
 									</h6>
 								</article>
 							@endforeach
