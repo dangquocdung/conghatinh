@@ -36,11 +36,13 @@
 }
 .main-footer-footer-wrapper {
   display: block;
-  background: url("../../images/shape.png");
+  //background: url("../../images/shape.png");
 }
 .main-footer-footer-bg {
   //background: url("../../images/city.png") no-repeat bottom;
   min-height: 150px;
+  background: linear-gradient(to bottom, #0494da 0,#095b8c 100%);
+
 }
 .main-footer-logo {
   float: left;
