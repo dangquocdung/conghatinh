@@ -32,6 +32,12 @@
 
                                     }
 
+                                    .fc-day-grid-event .fc-content {
+
+                                        text-overflow: ellipsis;
+
+
+                                    }
                                 </style>
                                 {!! $calendar->calendar() !!}
                             </div>
