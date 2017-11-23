@@ -58,6 +58,7 @@ class GuestController extends Controller
                     [
                         'color' => '#f05050',
                         'url' => '/loai-tin/lich-lam-viec',
+//                        'url' => $value->title,
                     ]
                 );
             }

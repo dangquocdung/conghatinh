@@ -187,6 +187,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -242,6 +243,7 @@ return [
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
