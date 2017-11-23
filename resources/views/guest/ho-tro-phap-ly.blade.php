@@ -41,7 +41,7 @@
 
                                 <div class="form-group">
                                     <label>Lĩnh vực cần hỗ trợ </label>
-                                    <select name="linhvuc_id" id="" class="form-control">
+                                    <select name="linhvuc_id" id="" class="form-control" required>
                                         <option value="" selected disabled > Chọn lĩnh vực</option>
                                         @foreach($linhvuc as $lv)
                                             <option value="{{ $lv->id }}">{{ $lv->name }}</option>
@@ -51,35 +51,35 @@
 
                                 <div class="form-group">
                                     <label>Doanh nghiệp </label>
-                                    <input type="text" class="form-control" name="doanhnghiep">
+                                    <input type="text" class="form-control" name="doanhnghiep" required>
                                     @if ($errors->has('doanhnghiep'))
                                         <div class="error">{{ $errors->first('doanhnghiep') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Người đại diện </label>
-                                    <input type="text" class="form-control" name="daidien">
+                                    <input type="text" class="form-control" name="daidien" required>
                                     @if ($errors->has('daidien'))
                                         <div class="error">{{ $errors->first('daidien') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Điện thoại </label>
-                                    <input type="number" class="form-control" name="dienthoai">
+                                    <input type="number" class="form-control" name="dienthoai" required>
                                     @if ($errors->has('dienthoai'))
                                         <div class="error">{{ $errors->first('dienthoai') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Email </label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" required>
                                     @if ($errors->has('email'))
                                         <div class="error">{{ $errors->first('email') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ </label>
-                                    <input type="text" class="form-control" name="diachi">
+                                    <input type="text" class="form-control" name="diachi" required>
                                     @if ($errors->has('diachi'))
                                         <div class="error">{{ $errors->first('diachi') }}</div>
                                     @endif
@@ -87,7 +87,7 @@
                                 <div class="form-group">
                                     <label>Câu hỏi </label>
                                     <textarea class="form-control textarea" name="cauhoi" placeholder="Nhập câu hỏi ở đây"
-                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                                     @if ($errors->has('cauhoi'))
                                         <div class="error">{{ $errors->first('cauhoi') }}</div>
                                     @endif

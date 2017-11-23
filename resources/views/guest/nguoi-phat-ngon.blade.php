@@ -49,7 +49,7 @@
 
                         <div class="form-group">
                             <label>Cơ quan, đơn vị </label>
-                            <select name="coquan_id" id="" class="form-control">
+                            <select name="coquan_id" id="" class="form-control" required>
                                 <option value="" selected disabled > Chọn đơn vị</option>
                                 @foreach($coquan as $cq)
                                     <option value="{{ $cq->id }}">{{ $cq->name }}</option>
@@ -58,14 +58,14 @@
                         </div>
                         <div class="form-group">
                             <label>Họ và Tên </label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" required>
                             @if ($errors->has('name'))
                                 <div class="error">{{ $errors->first('name') }}</div>
                             @endif
                         </div>
                         <div class="form-group">
                             <label>Chức danh </label>
-                            <input type="text" class="form-control" name="chucdanh">
+                            <input type="text" class="form-control" name="chucdanh" required>
                             @if ($errors->has('chucdanh'))
                                 <div class="error">{{ $errors->first('chucdanh') }}</div>
                             @endif
@@ -76,11 +76,11 @@
                         </div>
                         <div class="form-group">
                             <label>ĐT Di động </label>
-                            <input type="number" class="form-control" name="didong">
+                            <input type="number" class="form-control" name="didong" required>
                         </div>
                         <div class="form-group">
                             <label>Email </label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" name="email" required>
                             @if ($errors->has('email'))
                                 <div class="error">{{ $errors->first('email') }}</div>
                             @endif
