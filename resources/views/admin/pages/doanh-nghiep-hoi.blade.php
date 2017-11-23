@@ -34,6 +34,7 @@
               <th>Địa chỉ</th>
               <th>Nội dung</th>
               <th>Cơ quan</th>
+              <th>Trạng thái</th>
               <th></th>
             </tr>
             </thead>
@@ -43,7 +44,6 @@
               <tr>
                 <td>{{ $dnh->id }}</td>
                 <td>{{ \Carbon\Carbon::parse($dnh->created_at)->format('d-m-Y H:i:s') }}</td>
-
                 <td>{{ $dnh->doanhnghiep }}</td>
                 <td>{{ $dnh->daidien }}</td>
                 <td>{{ $dnh->sodt }}</td>
@@ -51,6 +51,13 @@
                 <td>{{ $dnh->diachi }}</td>
                 <td>{!! $dnh->cauhoi !!}</td>
                 <td>{{ $dnh->coquan->name }}</td>
+                <td>
+                  @if ($dnh->daduyet == '1')
+
+
+                  @endif
+
+                </td>
 
                 <td>
 
