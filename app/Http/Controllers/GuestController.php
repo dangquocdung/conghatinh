@@ -57,7 +57,7 @@ class GuestController extends Controller
                     // Add color and link on event
                     [
                         'color' => '#f05050',
-                        'url' => 'javascript:void(0);',
+                        'url' => '/loai-tin/lich-lam-viec',
                     ]
                 );
             }

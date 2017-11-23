@@ -31,6 +31,7 @@
                                         padding-top: 5px;
 
                                     }
+
                                 </style>
                                 {!! $calendar->calendar() !!}
                             </div>
