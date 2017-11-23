@@ -53,6 +53,8 @@ class AppServiceProvider extends ServiceProvider
 
           $nhomcq = NhomCQ::all();
 
+          $coquan = CoQuan::orderby('nhomcq_id')->get();
+
           $banner = Banner::orderby('thutu','asc')->get();
 
           $linhvuc = LinhVuc::all();
@@ -63,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
 
           $vd_noibat = Video::where('daduyet','1')->where('noibat','1')->orderby('ngayphat','desc')->take(12)->get();
 
-          $view->with(compact('toppic','chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','nhomcq','banner','linhvuc','loaivb','ab_noibat','vd_noibat'));
+          $view->with(compact('toppic','chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','nhomcq','banner','linhvuc','loaivb','ab_noibat','vd_noibat','coquan'));
 
         });
 

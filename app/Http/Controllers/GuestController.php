@@ -153,6 +153,7 @@ class GuestController extends Controller
 
     public function getLLV()
     {
+
         $events = [];
         $data = Event::all();
         if($data->count()) {
