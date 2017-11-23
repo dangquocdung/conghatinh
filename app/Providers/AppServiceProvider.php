@@ -24,6 +24,7 @@ use App\LinhVuc;
 use App\LoaiVB;
 use App\Album;
 use App\Video;
+use App\CoQuan;
 
 
 class AppServiceProvider extends ServiceProvider
