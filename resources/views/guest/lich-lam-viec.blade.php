@@ -36,7 +36,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.menu-right.right-box')
+    @include('guest.menu-right.chuyen-trang')
 @stop
 
 @section('script')

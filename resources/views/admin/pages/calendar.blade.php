@@ -189,7 +189,7 @@
 
             <!-- Date -->
             <div class="form-group">
-              <label>Ngày bắt đầu</label>
+              <label>Ngày kết thúc</label>
               <div class='input-group date datetimepicker'>
                 <input name="end_date" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
                 <span class="input-group-addon">
