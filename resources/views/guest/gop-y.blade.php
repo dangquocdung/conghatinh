@@ -33,44 +33,44 @@
 
                         </div>
 
-                        <form action="{{ route('post-ho-tro-phap-ly') }}" method="post">
+                        <form action="{{ route('post-gop-y') }}" method="post">
                             {{ csrf_field() }}
                             <div class="box-body">
 
                                 <div class="form-group">
                                     <label>Họ và Tên </label>
-                                    <input type="text" class="form-control" name="daidien">
-                                    @if ($errors->has('daidien'))
-                                        <div class="error">{{ $errors->first('daidien') }}</div>
+                                    <input type="text" class="form-control" name="hoten" required>
+                                    @if ($errors->has('hoten'))
+                                        <div class="error">{{ $errors->first('hoten') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Điện thoại </label>
-                                    <input type="number" class="form-control" name="dienthoai">
+                                    <input type="number" class="form-control" name="dienthoai" required>
                                     @if ($errors->has('dienthoai'))
                                         <div class="error">{{ $errors->first('dienthoai') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Email </label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" required>
                                     @if ($errors->has('email'))
                                         <div class="error">{{ $errors->first('email') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ </label>
-                                    <input type="text" class="form-control" name="diachi">
+                                    <input type="text" class="form-control" name="diachi" required>
                                     @if ($errors->has('diachi'))
                                         <div class="error">{{ $errors->first('diachi') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Lời góp ý </label>
-                                    <textarea class="form-control textarea" placeholder="Mời bạn đóng góp ý kiến ở đây"
-                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                    @if ($errors->has('cauhoi'))
-                                        <div class="error">{{ $errors->first('cauhoi') }}</div>
+                                    <textarea name="noidung" class="form-control textarea" placeholder="Mời bạn đóng góp ý kiến ở đây"
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                                    @if ($errors->has('noidung'))
+                                        <div class="error">{{ $errors->first('noidung') }}</div>
                                     @endif
                                 </div>
 
@@ -85,6 +85,12 @@
             </div>
 @endsection
 
+
+@section('content-right')
+
+    @include('guest.menu-right.gop-y')
+
+    @endsection
 
 @section('js')
     <!-- Bootstrap WYSIHTML5 -->

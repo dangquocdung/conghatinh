@@ -83,40 +83,56 @@
         </a>
         <ul class="treeview-menu">
           <li class="{{ Request::is('toa-soan/chuyen-trang/doanh-nghiep-hoi') ? 'active' : ''  }}">
-            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> Doanh nghiệp hỏi</a>
+            <a href="{{route('doanh-nghiep-hoi')}}"><i class="fa fa-circle-o"></i> Doanh nghiệp hỏi</a>
           </li>
           <li class="{{ Request::is('toa-soan/chuyen-trang/ho-tro-phap-ly') ? 'active' : ''  }}">
-            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> Hỗ trợ pháp lý</a>
+            <a href="{{route('ho-tro-phap-ly')}}"><i class="fa fa-circle-o"></i> Hỗ trợ pháp lý</a>
           </li>
-          <li class="{{ Request::is('toa-soan/chuyen-trang/nguoi-phat-ngon') ? 'active' : ''  }}">
-            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> DS Người phát ngôn</a>
-          </li>
-          <li class="{{ Request::is('toa-soan/chuyen-trang/phong-vien-thuong-tru') ? 'active' : ''  }}">
-            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> DS Phóng viên thường trú</a>
+          <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y-du-thao') ? 'active' : ''  }}">
+            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> Góp ý dự thảo văn bản</a>
           </li>
 
 
         </ul>
       </li>
 
-      <li class="{{ Request::is('toa-soan/media-manager') ? 'active' : ''  }} treeview">
-        <a href="{{route('media-manager')}}"><i class="fa fa-camera-retro"></i><span>Quản lý Hình ảnh</span></a>
-      </li>
 
-      <li class="{{ Request::is('toa-soan/file-manager') ? 'active' : ''  }} treeview">
-        <a href="{{route('file-manager')}}"><i class="fa fa-file-pdf-o"></i><span>Quản lý tệp văn bản</span></a>
+      <li class="{{ Request::is('toa-soan/da-phuong-tien/*') ? 'active' : ''  }} treeview">
+        <a href="javascript:void(0)">
+          <i class="fa fa-file-pdf-o"></i> <span> Đa phương tiện</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/media-manager') ? 'active' : ''  }} treeview">
+            <a href="{{route('media-manager')}}"><i class="fa fa-camera-retro"></i><span>Quản lý Hình ảnh</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/file-manager') ? 'active' : ''  }} treeview">
+            <a href="{{route('file-manager')}}"><i class="fa fa-file-pdf-o"></i><span>Quản lý tệp văn bản</span></a>
+          </li>
+        </ul>
       </li>
 
       <li class="{{ Request::is('toa-soan/album-manager') ? 'active' : ''  }} treeview">
-        <a href="{{route('album-manager')}}"><i class="fa fa-file-photo-o"></i><span>Quản lý album hình ảnh</span></a>
+        <a href="{{route('album-manager')}}"><i class="fa fa-file-photo-o"></i><span>Album hình ảnh</span></a>
       </li>
 
       <li class="{{ Request::is('toa-soan/video-manager') ? 'active' : ''  }} treeview">
-        <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Quản lý video</span></a>
+        <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Video</span></a>
       </li>
 
       <li class="{{ Request::is('toa-soan/lich-lam-viec') ? 'active' : ''  }} treeview">
-        <a href="{{route('lich-lam-viec')}}"><i class="fa fa-file-video-o"></i><span>Quản lý lịch làm việc</span></a>
+        <a href="{{route('lich-lam-viec')}}"><i class="fa fa-calendar"></i><span>Lịch làm việc</span></a>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/lien-he-cong-tac') ? 'active' : ''  }} treeview">
+        <a href="{{route('lien-he-cong-tac')}}"><i class="fa fa-calendar"></i><span>Liên hệ công tác</span></a>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/gop-y') ? 'active' : ''  }} treeview">
+        <a href="{{route('gop-y')}}"><i class="fa fa-calendar"></i><span>Góp ý</span></a>
       </li>
 
 

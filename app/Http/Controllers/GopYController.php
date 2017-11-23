@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\HoTroPhapLy;
+use App\GopY;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class HoTroPhapLyController extends Controller
+class GopYController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class HoTroPhapLyController extends Controller
      */
     public function index()
     {
-        $hotropl = HoTroPhapLy::orderBy('id','decs')->paginate(12);
+        $gopy = GopY::orderBy('id','decs')->paginate(12);
 
-        return view('admin.pages.ho-tro-phap-ly',compact('hotropl'));
+        return view('admin.pages.gop-y',compact('gopy'));
     }
 
     /**
@@ -40,12 +40,11 @@ class HoTroPhapLyController extends Controller
     {
         $v = Validator::make($request->all(),
             [
-                'doanhnghiep' => 'required|min:10|max:191',
-                'daidien' => 'required|min:10|max:50',
+                'hoten' => 'required|min:10|max:50',
                 'dienthoai' => 'required|numeric|min:9',
                 'email'=> 'required|email|max:191',
                 'diachi' => 'required|min:10|max:191',
-                'cauhoi' => 'required|min:20'
+                'noidung' => 'required|min:20'
 
             ]
         );
@@ -55,31 +54,29 @@ class HoTroPhapLyController extends Controller
             return redirect()->back()->withErrors($v->errors());
         }
 
-        $dnh = new HoTroPhapLy();
+        $lh = new GopY;
 
-        $dnh->linhvuc_id = $request->linhvuc_id;
-        $dnh->doanhnghiep = $request->doanhnghiep;
-        $dnh->daidien = $request->daidien;
-        $dnh->sodt = $request->dienthoai;
-        $dnh->email = $request->email;
-        $dnh->diachi = $request->diachi;
-        $dnh->cauhoi = $request->cauhoi;
 
-        $dnh->save();
+        $lh->hoten = $request->hoten;
+        $lh->sodt = $request->dienthoai;
+        $lh->email = $request->email;
+        $lh->diachi = $request->diachi;
+        $lh->noidung = $request->noidung;
 
-        flash('Câu hỏi của bạn đã được gởi đến BBT, xin cảm ơn!');
+        $lh->save();
+
+        flash('Góp ý của bạn đã được gởi đến BBT, xin cảm ơn!');
 
         return redirect()->back();
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\HoTroPhapLy  $hoTroPhapLy
+     * @param  \App\GopY  $gopY
      * @return \Illuminate\Http\Response
      */
-    public function show(HoTroPhapLy $hoTroPhapLy)
+    public function show(GopY $gopY)
     {
         //
     }
@@ -87,10 +84,10 @@ class HoTroPhapLyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\HoTroPhapLy  $hoTroPhapLy
+     * @param  \App\GopY  $gopY
      * @return \Illuminate\Http\Response
      */
-    public function edit(HoTroPhapLy $hoTroPhapLy)
+    public function edit(GopY $gopY)
     {
         //
     }
@@ -99,10 +96,10 @@ class HoTroPhapLyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\HoTroPhapLy  $hoTroPhapLy
+     * @param  \App\GopY  $gopY
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HoTroPhapLy $hoTroPhapLy)
+    public function update(Request $request, GopY $gopY)
     {
         //
     }
@@ -110,10 +107,10 @@ class HoTroPhapLyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\HoTroPhapLy  $hoTroPhapLy
+     * @param  \App\GopY  $gopY
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HoTroPhapLy $hoTroPhapLy)
+    public function destroy(GopY $gopY)
     {
         //
     }

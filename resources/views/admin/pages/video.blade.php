@@ -20,7 +20,7 @@
           <h3 class="box-title">Thư viện video</h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body table-responsive">
           <table class="table table-bordered table-striped table-hover">
             <thead>
             <tr>

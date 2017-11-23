@@ -24,7 +24,7 @@
           <h3 class="box-title">Tin tức - Sự kiện</h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body table-responsive">
 
           <div class="table-responsive">
 

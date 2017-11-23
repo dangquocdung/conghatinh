@@ -24,10 +24,7 @@
           <h3 class="box-title">Văn bản Chỉ đạo, Điều hành</h3>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
-
-          <div class="table-responsive">
-
+        <div class="box-body table-responsive">
           <table class="table table-bordered table-striped table-hover">
             <thead>
               <tr>
@@ -120,9 +117,6 @@
           </table>
 
             {{$vanban->render()}}
-          </div>
-
-          
         </div>
         <!-- /.box-body -->
       </div>

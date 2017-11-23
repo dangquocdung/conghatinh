@@ -34,6 +34,12 @@
 
 @endsection
 
+@section('content-right')
+
+    @include('guest.menu-right.gop-y')
+
+@endsection
+
 
 
 

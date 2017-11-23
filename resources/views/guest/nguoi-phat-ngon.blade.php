@@ -15,9 +15,12 @@
 
             @role('tbt')
 
-                <button class="pull-right btn btn-info btn-sm" id="themCauHoi">
+
+
+                <button class="pull-right btn btn-info btn-sm" id="themCauHoi" style="margin-right: 5px">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm
                 </button>
+
 
             @endrole
 

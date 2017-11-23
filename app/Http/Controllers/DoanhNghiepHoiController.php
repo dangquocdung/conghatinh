@@ -15,7 +15,9 @@ class DoanhNghiepHoiController extends Controller
      */
     public function index()
     {
-        //
+        $dnhoi = DoanhNghiepHoi::orderBy('id','decs')->paginate(12);
+
+        return view('admin.pages.doanh-nghiep-hoi',compact('dnhoi'));
     }
 
     /**

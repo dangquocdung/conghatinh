@@ -27,6 +27,11 @@ Route::get('/loai-tin/album-hinh-anh/{slug?}','GuestController@getAlbum');
 
 Route::get('/loai-tin/lich-lam-viec', 'GuestController@getLLV')->name('get-lich-lam-viec');
 
+Route::post('/lien-he-cong-tac','LienHeController@store')->name('post-lien-he-cong-tac');
+
+Route::post('/gop-y','GopYController@store')->name('post-gop-y');
+
+
 
 
 
@@ -107,6 +112,11 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('update-lich-lam-viec', 'EventController@update')->name('update-lich-lam-viec');
     Route::post('delete-lich-lam-viec', 'EventController@destroy')->name('delete-lich-lam-viec');
 
+    Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
+
+    Route::get('gop-y', 'GopYController@index')->name('gop-y');
+
+
 
 
 
@@ -135,6 +145,16 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
         Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
         Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
+
+    });
+
+    //Van ban
+    Route::group(['prefix'=>'chuyen-trang'],function (){
+
+        Route::get('doanh-nghiep-hoi','DoanhNghiepHoiController@index')->name('doanh-nghiep-hoi');
+        Route::get('ho-tro-phap-ly','HoTroPhapLyController@index')->name('ho-tro-phap-ly');
+        Route::get('doanh-nghiep-hoi','DoanhNghiepHoiController@index')->name('doanh-nghiep-hoi');
+
 
     });
 
