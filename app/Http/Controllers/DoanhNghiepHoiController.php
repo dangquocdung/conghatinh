@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\DoanhNghiepHoi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\CoQuan;
+use Carbon\Carbon;
 
 class DoanhNghiepHoiController extends Controller
 {
@@ -16,8 +18,9 @@ class DoanhNghiepHoiController extends Controller
     public function index()
     {
         $dnhoi = DoanhNghiepHoi::orderBy('id','decs')->paginate(12);
+        $coquan = CoQuan::all();
 
-        return view('admin.pages.doanh-nghiep-hoi',compact('dnhoi'));
+        return view('admin.pages.doanh-nghiep-hoi',compact('dnhoi','coquan'));
     }
 
     /**
@@ -102,9 +105,21 @@ class DoanhNghiepHoiController extends Controller
      * @param  \App\DoanhNghiepHoi  $doanhNghiepHoi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DoanhNghiepHoi $doanhNghiepHoi)
+    public function update(Request $request)
     {
-        //
+        $dnh = DoanhNghiepHoi::find($request->input('id'));
+
+        $dnh->nguoitraloi = $request->nguoitraloi;
+        $dnh->chucvu = $request->chucvu;
+        $dnh->cautraloi = $request->cautraloi;
+        $dnh->ngaytraloi = Carbon::now();
+
+
+        $dnh->save();
+
+        flash('Cập nhật thành công!');
+
+        return redirect()->back();
     }
 
     /**
@@ -113,8 +128,24 @@ class DoanhNghiepHoiController extends Controller
      * @param  \App\DoanhNghiepHoi  $doanhNghiepHoi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DoanhNghiepHoi $doanhNghiepHoi)
+    public function destroy(Request $request)
     {
-        //
+        DoanhNghiepHoi::destroy($request->input('id'));
+
+        return response(['data' => 'Done'], 200);
+    }
+
+    public function postDuyet(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $dnh = DoanhNghiepHoi::find($id);
+
+        $dnh->daduyet = $request->input('duyetdang');
+
+        $dnh->save();
+
+        return response(['data' => 'Done'], 200);
     }
 }

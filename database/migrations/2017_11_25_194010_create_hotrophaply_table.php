@@ -15,6 +15,7 @@ class CreateHotrophaplyTable extends Migration
     {
         Schema::create('hotrophaply', function (Blueprint $table) {
             $table->increments('id');
+
             $table->unsignedInteger('linhvuc_id');
             $table->foreign('linhvuc_id')
                 ->references('id')->on('linhvuc')
@@ -28,9 +29,10 @@ class CreateHotrophaplyTable extends Migration
             $table->text('cauhoi');
             $table->boolean('daduyet')->default(false);
 
-            $table->unsignedInteger('coquan_id')->nullable();
+            $table->unsignedInteger('coquan_id');
             $table->foreign('coquan_id')
-                ->references('id')->on('coquan');
+                ->references('id')->on('coquan')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamp('ngaytraloi')->nullable();
             $table->text('cautraloi')->nullable();

@@ -24,7 +24,7 @@
                             <li><i class="fa fa-university" aria-hidden="true"></i> Trang chủ</li>
                             @foreach($chuyenmuc as $cm)
                                 <li>
-                                    <i class="fa fa-folder-o" aria-hidden="true"></i> {{ $cm->name }}
+                                    <i class="fa fa-folder-o" aria-hidden="true"></i> {{ $cm->name }} ({{ count($cm->loaitin) }})
 
                                     <ul>
                                         @foreach($cm->loaitin as $lt)

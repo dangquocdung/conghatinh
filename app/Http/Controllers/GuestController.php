@@ -50,7 +50,7 @@ class GuestController extends Controller
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
                     $value->title,
-                    true,
+                    false,
                     new \DateTime($value->start_date),
                     new \DateTime($value->end_date.' +1 day'),
                     null,
@@ -162,7 +162,7 @@ class GuestController extends Controller
                 $events[] = Calendar::event(
                     $value->title,
                     true,
-                    new \DateTime($value->start_date),
+                    new \DateTime($value->create_add),
                     new \DateTime($value->end_date.' +1 day'),
                     null,
                     // Add color and link on event

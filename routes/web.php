@@ -75,16 +75,12 @@ Route::post('forgot-password/update', 'UserController@postSetForgotPassword')->n
 if (\Setting::get('user_can_register')) {
     Route::get('register', 'UserController@getRegistrationPage')->name('register');
     Route::post('do-register', 'UserController@postHandleUserRegistration')->name('do-register');
-
     Route::get('toa-soan/config/user/activation-pending', 'AdminController@getUserActivationPending')->middleware(['auth', 'role:admin'])->name('user-activation-pending');
 }
 
 Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
-
     Route::get('/', 'UserController@pageDashboard')->name('dashboard');
-
     Route::get('dashboard', 'UserController@pageDashboard')->name('dashboard');
-
     Route::get('cau-hinh/he-thong/my-activities', 'UserController@pageMyActivities')->name('my-activities');
     Route::post('do-logout', 'UserController@postLogout')->name('logout');
     Route::get('user/profile', 'UserController@pageUserProfile')->name('profile');
@@ -92,60 +88,46 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
     Route::get('media-manager', 'MediaController@index')->name('media-manager');
     Route::get('file-manager', 'FileController@index')->name('file-manager');
-
     Route::get('video-manager', 'VideoController@index')->name('video-manager');
     Route::post('save-video', 'VideoController@store')->name('save-video');
-
     Route::get('album-manager/{slug?}', 'AlbumController@index')->name('album-manager');
     Route::post('save-album', 'AlbumController@store')->name('save-album');
     Route::post('update-album', 'AlbumController@update')->name('update-album');
     Route::post('update-album-cover', 'AlbumController@updateCover')->name('update-album-cover');
-
     Route::post('delete-album', 'AlbumController@destroy')->name('delete-album');
-
     Route::post('add-image-to-album','ImageController@store')->name('add-image-to-album');
     Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
-
-
     Route::get('lich-lam-viec', 'EventController@index')->name('lich-lam-viec');
     Route::post('save-lich-lam-viec', 'EventController@store')->name('save-lich-lam-viec');
     Route::post('update-lich-lam-viec', 'EventController@update')->name('update-lich-lam-viec');
     Route::post('delete-lich-lam-viec', 'EventController@destroy')->name('delete-lich-lam-viec');
-
     Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
-
     Route::get('gop-y', 'GopYController@index')->name('gop-y');
-
-
-
-
-
     Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
     Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');
     Route::post('them-tin-tuc-su-kien','TinTucController@store')->name('them-tin-tuc');
-
     Route::get('edit-tin-tuc-su-kien/{slug}','TinTucController@edit')->name('edit-tin-tuc');
-
     Route::post('update-tin-tuc-su-kien','TinTucController@update')->name('update-tin-tuc');
+
+    Route::post('duyet-doanh-nghiep-hoi', 'DoanhNghiepHoiController@postDuyet')->name('duyet-doanh-nghiep-hoi');
+    Route::post('update-doanh-nghiep-hoi', 'DoanhNghiepHoiController@update')->name('update-doanh-nghiep-hoi');
+    Route::post('delete-doanh-nghiep-hoi', 'DoanhNghiepHoiController@destroy')->name('delete-doanh-nghiep-hoi');
+
+    Route::post('duyet-ho-tro-phap-ly', 'HoTroPhapLyController@postDuyet')->name('duyet-ho-tro-phap-ly');
+    Route::post('update-ho-tro-phap-ly', 'HoTroPhapLyController@update')->name('update-ho-tro-phap-ly');
+    Route::post('delete-ho-tro-phap-ly', 'HoTroPhapLyController@destroy')->name('delete-ho-tro-phap-ly');
+
 
 
     //Van ban
     Route::group(['prefix'=>'van-ban'],function (){
-
         Route::get('/tat-ca','VanBanController@index')->name('van-ban');
         Route::get('/them-van-ban','VanBanController@create')->name('tao-van-ban');
         Route::post('/them-van-ban','VanBanController@store')->name('them-van-ban');
-
         Route::get('/edit-van-ban/{id}','VanBanController@edit')->name('edit-van-ban');
-
         Route::post('/update-van-ban','VanBanController@update')->name('update-van-ban');
-
-
-
-
         Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
         Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
-
     });
 
     //Van ban
@@ -296,7 +278,6 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('noi-bat-video', 'VideoController@postNoiBat');
 
         Route::post('delete-video', 'VideoController@destroy');
-
 
     });
 

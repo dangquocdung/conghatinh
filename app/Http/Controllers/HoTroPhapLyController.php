@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\HoTroPhapLy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\CoQuan;
+use App\LinhVuc;
+use Carbon\Carbon;
 
 class HoTroPhapLyController extends Controller
 {
@@ -16,8 +19,12 @@ class HoTroPhapLyController extends Controller
     public function index()
     {
         $hotropl = HoTroPhapLy::orderBy('id','decs')->paginate(12);
+        $coquan = CoQuan::all();
+        $linhvuc = LinhVuc::all();
 
-        return view('admin.pages.ho-tro-phap-ly',compact('hotropl'));
+
+
+        return view('admin.pages.ho-tro-phap-ly',compact('hotropl','coquan','linhvuc'));
     }
 
     /**
@@ -102,9 +109,18 @@ class HoTroPhapLyController extends Controller
      * @param  \App\HoTroPhapLy  $hoTroPhapLy
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HoTroPhapLy $hoTroPhapLy)
+    public function update(Request $request)
     {
-        //
+        $htpl = HoTroPhapLy::find($request->input('id'));
+
+        $htpl->coquan_id = $request->coquan_id;
+        $htpl->cautraloi = $request->cautraloi;
+        $htpl->ngaytraloi = Carbon::now();
+        $htpl->save();
+
+        flash('Cập nhật thành công!');
+
+        return redirect()->back();
     }
 
     /**
@@ -113,8 +129,24 @@ class HoTroPhapLyController extends Controller
      * @param  \App\HoTroPhapLy  $hoTroPhapLy
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HoTroPhapLy $hoTroPhapLy)
+    public function destroy(Request $request)
     {
-        //
+        HoTroPhapLy::destroy($request->input('id'));
+
+        return response(['data' => 'Done'], 200);
+    }
+
+    public function postDuyet(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $htpl = HoTroPhapLy::find($id);
+
+        $htpl->daduyet = $request->input('duyetdang');
+
+        $htpl->save();
+
+        return response(['data' => 'Done'], 200);
     }
 }
