@@ -40,7 +40,7 @@
         float: left;
         font-size: 100%;
         padding: 0;
-        width: 20%;
+        width: 19%;
         text-align: center;
         background: url(/images/menu/border.png) no-repeat right; }
 
@@ -148,9 +148,14 @@
                 <span>Liên hệ</span>
             </a>
         </li>
-        <li class="last">
+        <li class="">
             <a href="/so-do-cong">
                 <span>Sơ đồ cổng</span>
+            </a>
+        </li>
+        <li style="width:5%">
+            <a data-toggle="offcanvas">
+                <i class="fa fa-level-down" aria-hidden="true"></i>
             </a>
         </li>
         {{--@foreach ($chuyenmuc as $cm)--}}

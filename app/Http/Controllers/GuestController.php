@@ -18,6 +18,7 @@ use App\LoaiVideo;
 use App\Video;
 use App\Album;
 use App\Event;
+use App\DuThao;
 use Calendar;
 
 
@@ -121,9 +122,6 @@ class GuestController extends Controller
 
     public function getAlbum($slug=null)
     {
-
-
-
         if ($slug == null){
 
             $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
@@ -135,13 +133,6 @@ class GuestController extends Controller
             return view('guest.album-chi-tiet',compact('album'));
 
         }
-
-
-
-
-
-
-
     }
 
 
@@ -225,15 +216,6 @@ class GuestController extends Controller
 
         $tintuc = TinTuc::whereIn('loaitin_id',$lt)->where('daduyet','1')->orderby('id','desc')->paginate(12);
 
-
-
-        // $tintuc = TinTuc::whereIn('loaitin_id',$lt)->orderby('id','desc')->paginate(12);
-
-        // return response()
-        //     ->json([
-        //         'tintuc' => $tintuc
-        //     ]);
-
         return view('guest.chuyen-muc', compact('cm','tintuc'));
     }
 
@@ -243,13 +225,9 @@ class GuestController extends Controller
 
             $lt = LoaiTin::where('slug',$slug)->first();
 
-
-
         }else{
 
             $lt = 'van-ban-qppl';
-
-
         }
 
         return view('guest.van-ban', compact('lt'));
@@ -306,7 +284,8 @@ class GuestController extends Controller
 
     public function getGopYVanBan()
     {
-        return view('guest.gop-y-van-ban');
+        $duthao = DuThao::orderby('id','desc')->paginate(12);
+        return view('guest.gop-y-van-ban',compact('duthao'));
     }
 
     public function getLienHeCongTac()
@@ -351,8 +330,6 @@ class GuestController extends Controller
     public function apiHoTroPhapLy()
     {
 
-//        $model = HoTroPhapLy::where('daduyet','0')->with('coquan')->with('linhvuc')->searchPaginateAndOrder();
-
         $model = HoTroPhapLy::where('daduyet','0')->with('coquan')->with('linhvuc')->searchPaginateAndOrder();
 
         $columns = HoTroPhapLy::$columns;
@@ -393,41 +370,9 @@ class GuestController extends Controller
     }
 
 
-    // public function apiVanBanCDDH()
-    // {
-    //     $model = VanBan::where('daduyet','0')->where('loaitin_id','9')->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
-
-    //     $columns = VanBan::$columns;
-
-    //     return response()
-    //         ->json([
-    //             'model' => $model,
-    //             'columns' => $columns
-    //         ]);
-    // }
-
-    // public function apiVanBanCB()
-    // {
-    //     $model = VanBan::where('daduyet','0')->where('loaitin_id','10')->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
-
-    //     $columns = VanBan::$columns;
-
-    //     return response()
-    //         ->json([
-    //             'model' => $model,
-    //             'columns' => $columns
-    //         ]);
-    // }
-
-
     public function ctVanBan($id)
     {
         $vb = VanBan::find($id);
-
-        // return response()
-        //     ->json([
-        //         'vanban' => $vb
-        //     ]);
 
         return view('guest.chi-tiet-van-ban', compact('vb'));
     }
