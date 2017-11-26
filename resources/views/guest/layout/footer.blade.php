@@ -85,9 +85,11 @@
     });
 
     $('.menu-main').scrollToFixed();
-      $('#live-stream').scrollToFixed({
-          marginTop: $('.menu-main').height()
-      });
+
+
+//      $('#live-stream').scrollToFixed({
+//          marginTop: $('.menu-main').height()
+//      });
 
 //    $('.menu-bottom').scrollToFixed( {
 //
