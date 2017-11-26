@@ -13,7 +13,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -49,13 +49,48 @@
 
             </table>
           <div class="text-center">
-            {{$dnhoi->render()}}
+            {{$duthao->render()}}
           </div>
         </div>
         <!-- /.box-body -->
       </div>
       {{--End box--}}
     </div>
+
+
+  <div class="col-md-4">
+
+      {{--Box--}}
+      <div class="box box-primary">
+          <div class="box-header with-border">
+              <h3 class="box-title">Thêm Loại tin</h3>
+          </div>
+          <form action="{{route('save-loai-tin')}}" method="post" id="role-save-form">
+              <!-- /.box-header -->
+              <div class="box-body">
+                  {{csrf_field()}}
+
+                  <div class="form-group">
+                      <label for="">Name:</label>
+                      <input type="text"
+                             placeholder="Nhập tên Loại tin"
+                             name="name"
+                             value="{{old('name')}}"
+                             class="form-control">
+                      <div class="HelpText error">{{$errors->first('name')}}</div>
+                  </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                  <button type="submit" class="btn btn-success">Gửi thông tin</button>
+              </div>
+          </form>
+      </div>
+      {{--End box--}}
+
+  </div>
 
     <!-- Modal Edit Album-->
     <div class="modal modal-default fade" id="tra-loi">
@@ -74,14 +109,6 @@
 
               <input type="hidden" name="id" id="dnh-id">
 
-              <div class="form-group">
-                <label>Đơn vị trả lời </label>
-                <select name="coquan_id" class="form-control" disabled>
-                  @foreach($coquan as $cq)
-                    <option value="{{ $cq->id }}">{{ $cq->name }}</option>
-                  @endforeach
-                </select>
-              </div>
               <div class="form-group">
                 <label>Người trả lời </label>
                 <input type="text" class="form-control" name="nguoitraloi" id="nguoitraloi" required>

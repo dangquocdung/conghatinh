@@ -18,6 +18,8 @@ import BulmaModal from './components/BulmaModal'
 import FileField from './components/FileField'
 import ImportUsers from './components/UserImport/ImportUsers'
 import EditUsers from './components/UserImport/EditUsers'
+
+import FileManager from './components/FileManager/FileManager'
 //
 
 // Adding the X-CSRF-Token to all axios request
@@ -51,12 +53,14 @@ Vue.component('bulma-modal', BulmaModal)
 Vue.component('file-field', FileField)
 Vue.component('import-users', ImportUsers)
 Vue.component('edit-users', EditUsers)
+
+Vue.component('file-manager', FileManager)
 //
 
 // Vue.component('edit-post', require('./components/Editpost.vue'));
 // Vue.component('dropzone', require('./components/Dropzone.vue'));
-Vue.component('v-select', require('./components/V-Select.vue'));
-Vue.component('file-manager', require('./components/FileManager/FileManager.vue'));
+// Vue.component('v-select', require('./components/V-Select.vue'));
+// Vue.component('file-manager', require('./components/FileManager/FileManager.vue'));
 // Vue.component('van-ban', require('./components/Vanban.vue'));
 // Vue.component('vanban-manager', require('./components/VanBanManager/VanBanManager.vue'));
 

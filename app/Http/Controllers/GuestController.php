@@ -152,14 +152,14 @@ class GuestController extends Controller
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
                     $value->title,
-                    true,
-                    new \DateTime($value->create_add),
-                    new \DateTime($value->end_date.' +1 day'),
+                    false,
+                    '2017-11-12T0800', //start time (you can also use Carbon instead of DateTime)
+                    '2017-11-12T1000', //end time (you can also use Carbon instead of DateTime)
                     null,
                     // Add color and link on event
                     [
                         'color' => '#f05050',
-                        'url' => 'javascript:void(0);',
+//                        'url' => 'javascript:void(0);',
                     ]
                 );
             }

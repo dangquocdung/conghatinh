@@ -1,15 +1,12 @@
 <div class="MediaManager__Wrapper">
-
-
-
-  <div class="Uploader__Wrapper" v-if="showUploader">
+    <div class="Uploader__Wrapper" v-if="showUploader">
     <p>Tải văn bản<span class="pull-right"><i class="fa fa-times" v-on:click="showUploader = false"></i></span></p>
     <dropzone id="myVueDropzone"
               class="margin-bottom-10"
               :headers="csrfHeaders"
               :url="fileUpload"
               :use-font-awesome="true"
-              accepted-file-types="application/pdf"
+              accepted-file-types=".pdf,.doc"
               :thumbnail-height="60"
               :thumbnail-width="80"
               v-on:vdropzone-success="showSuccess"

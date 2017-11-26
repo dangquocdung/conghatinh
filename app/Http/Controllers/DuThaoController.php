@@ -14,7 +14,9 @@ class DuThaoController extends Controller
      */
     public function index()
     {
-        //
+        $duthao = DuThao::orderBy('id','decs')->paginate(12);
+
+        return view('admin.pages.gop-y-du-thao',compact('duthao'));
     }
 
     /**

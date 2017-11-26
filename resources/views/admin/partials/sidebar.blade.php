@@ -89,7 +89,10 @@
             <a href="{{route('ho-tro-phap-ly')}}"><i class="fa fa-circle-o"></i> Hỗ trợ pháp lý</a>
           </li>
           <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y-du-thao') ? 'active' : ''  }}">
-            <a href="javascript:void(0)"><i class="fa fa-circle-o"></i> Góp ý dự thảo văn bản</a>
+            <a href="{{ route('du-thao-van-ban') }}"><i class="fa fa-circle-o"></i> Góp ý dự thảo văn bản</a>
+          </li>
+          <li class="{{ Request::is('toa-soan/chuyen-trang/hoi-dap-truc-tuyen') ? 'active' : ''  }}">
+            <a href="{{ route('hoi-dap-truc-tuyen') }}"><i class="fa fa-circle-o"></i> Hỏi - Đáp trực tuyến</a>
           </li>
 
 
