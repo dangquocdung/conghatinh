@@ -45,8 +45,10 @@
                                         <label>Hỏi đơn vị </label>
                                         <select name="coquan_id" id="" class="form-control" required>
                                             <option value="" selected disabled > Chọn đơn vị</option>
-                                            @foreach($coquan as $cq)
-                                                <option value="{{ $cq->id }}">{{ $cq->name }}</option>
+                                            @foreach($nhomcq as $ncq)
+                                                @foreach($coquan as $cq)
+                                                    <option value="{{ $cq->id }}">{{ $cq->name }}</option>
+                                                @endforeach
                                             @endforeach
                                         </select>
                                     </div>
