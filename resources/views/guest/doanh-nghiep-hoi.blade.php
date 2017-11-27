@@ -46,7 +46,7 @@
                                         <select name="coquan_id" id="" class="form-control" required>
                                             <option value="" selected disabled > Chọn đơn vị</option>
                                             @foreach($nhomcq as $ncq)
-                                                @foreach($coquan as $cq)
+                                                @foreach($ncq->coquan as $cq)
                                                     <option value="{{ $cq->id }}">{{ $cq->name }}</option>
                                                 @endforeach
                                             @endforeach
