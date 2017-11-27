@@ -16,6 +16,8 @@
 
         @endforeach
 
+        @yield('them-menu')
+
 
     </ul>
 </div>

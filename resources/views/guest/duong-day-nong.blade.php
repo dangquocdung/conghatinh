@@ -51,8 +51,10 @@
                             <label>Cơ quan, đơn vị </label>
                             <select name="coquan_id" id="" class="form-control" required>
                                 <option value="" selected disabled > Chọn đơn vị</option>
-                                @foreach($coquan as $cq)
-                                    <option value="{{ $cq->id }}">{{ $cq->name }}</option>
+                                @foreach($nhomcq as $ncq)
+                                    @foreach($ncq->coquan as $cq)
+                                        <option value="{{ $cq->id }}">{{ $cq->name }}</option>
+                                    @endforeach
                                 @endforeach
                             </select>
                         </div>
@@ -136,7 +138,8 @@
                     </thead>
 
                     <tbody>
-                        @foreach($coquan as $cq)
+                    @foreach($nhomcq as $ncq)
+                        @foreach($ncq->coquan as $cq)
                         <tr>
                             <td>{{ $cq->id }}</td>
                             <td>{{ $cq->name }}</td>
@@ -144,6 +147,7 @@
                             <td>{{ $cq->sodt }}</td>
                         </tr>
                         @endforeach
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -172,6 +176,9 @@
 
 
             $('#example1').DataTable({
+
+                "iDisplayLength": 25,
+
                 "language": {
                     "sProcessing": "Đang xử lý...",
                     "sLengthMenu": "Hiển thị _MENU_ mục",

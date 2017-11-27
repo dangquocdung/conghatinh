@@ -89,6 +89,7 @@
 
 
             $('#example1').DataTable({
+                "iDisplayLength": 25,
                 "language": {
                     "sProcessing": "Đang xử lý...",
                     "sLengthMenu": "Hiển thị _MENU_ mục",

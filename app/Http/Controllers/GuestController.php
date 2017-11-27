@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\NhomCQ;
 use Illuminate\Http\Request;
 use App\TinTuc;
 use App\LoaiTin;
@@ -29,10 +30,10 @@ class GuestController extends Controller
     {
 
         $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-        $coquan = CoQuan::orderby('nhomcq_id')->get();
+        $nhomcq = NhomCQ::orderby('id')->get();
 
         view()->share('chuyenmuc',$chuyenmuc);
-        view()->share('coquan',$coquan);
+        view()->share('nhomcq',$nhomcq);
     }
 
     public function index()

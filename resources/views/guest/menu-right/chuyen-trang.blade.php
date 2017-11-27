@@ -1,43 +1,27 @@
 
 <div class="block4">
-    @include('guest.layout.menu-right')
+    @extends('guest.layout.menu-right')
 </div>
 
-<div class="block4">
+@section('them-menu')
 
-    <div class="block-header">
-        <a href="">
 
-            <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Đơn vị liên kết</h4>
-        </a>
-
-    </div>
-
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="row">
-
-            <div class="news-rightbox">
-                <ul>
-
-                    @foreach($coquan as $cq)
-
-                        <li>
-
-                            <div class="news-block">
-                                <a href="{{ $cq->lienket }}" target="_blank">
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $cq->name }}
-                                </a>
-                            </div>
-                        </li>
-
+    @foreach ($nhomcq as $ncq)
+        <li>
+            <div class="link"><i class="fa fa-plus"></i>{{ $ncq->name }}<i class="fa fa-chevron-down"></i></div>
+            @if (count($ncq->coquan) > 0)
+                <ul class="submenu">
+                    @foreach($ncq->coquan->sortby('id') as $cq)
+                        <li><a href="{{ $cq->lienket }}" target="_blank"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{ $cq->name }}</a></li>
                     @endforeach
-
                 </ul>
-            </div>
-        </div>
-    </div>
+            @endif
+        </li>
+    @endforeach
 
-</div>
+@stop
+
+
 
 
 
