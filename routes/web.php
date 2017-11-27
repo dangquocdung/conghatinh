@@ -31,6 +31,8 @@ Route::post('/lien-he-cong-tac','LienHeController@store')->name('post-lien-he-co
 
 Route::post('/gop-y','GopYController@store')->name('post-gop-y');
 
+Route::resource('gop-y-du-thao','GopYDuThaoController');
+
 
 
 

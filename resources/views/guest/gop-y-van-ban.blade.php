@@ -20,6 +20,77 @@
 
                 @include('guest.notifications')
 
+                <div class="input-box" style="padding: 5px; display: none;transition: opacity 1s ease-out; opacity: 0;">
+                    <div class="dv" style="padding-bottom: 5px">
+
+                        <div class="breadcrumb">
+
+                            <span class="breadcrumb-item active">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i> Đóng góp ý kiến
+                            </span>
+
+                            <span class="pull-right" id="btn-close">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </span>
+
+
+                        </div>
+
+
+                        <form action="{{ route('gop-y-du-thao.store') }}" method="post">
+                            {{ csrf_field() }}
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label>Văn bản dự thảo </label>
+                                    <input id="duthao_id" type="hidden" class="form-control" name="duthao_id">
+                                    <input id="duthao_name" type="text" class="form-control" name="duthao_name" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Họ và Tên </label>
+                                    <input type="text" class="form-control" name="hoten" required>
+                                    @if ($errors->has('daidien'))
+                                        <div class="error">{{ $errors->first('hoten') }}</div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label>Điện thoại </label>
+                                    <input type="number" class="form-control" name="sodt" required>
+                                    @if ($errors->has('dienthoai'))
+                                        <div class="error">{{ $errors->first('sodt') }}</div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label>Email </label>
+                                    <input type="email" class="form-control" name="email" required>
+                                    @if ($errors->has('email'))
+                                        <div class="error">{{ $errors->first('email') }}</div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label>Địa chỉ </label>
+                                    <input type="text" class="form-control" name="diachi" required>
+                                    @if ($errors->has('diachi'))
+                                        <div class="error">{{ $errors->first('diachi') }}</div>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label>Câu hỏi </label>
+                                    <textarea class="form-control textarea" name="noidung" placeholder="Nhập nội dung góp ý ở đây"
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                                    @if ($errors->has('cauhoi'))
+                                        <div class="error">{{ $errors->first('noidung') }}</div>
+                                    @endif
+                                </div>
+
+                                <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi góp ý</button>
+                                <br>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -41,7 +112,15 @@
                                     <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
                                     <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                                     <td>
-                                        <button class="btn btn-info btn-xs">Góp ý</button>
+
+                                        @if ($dt->thoihan >= date('Y-m-d'))
+                                            <button class="btn btn-info btn-xs gopy" duthao_id="{{ $dt->id }}" duthao_name="{{ $dt->name }}">Góp ý</button>
+
+                                            @else
+
+                                            <button class="btn btn-info btn-xs" disabled>Góp ý</button>
+
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -52,66 +131,28 @@
                     </div>
                     <!-- /.box-body -->
 
-                    <div class="input-box" style="padding: 5px; display: none">
-                        <div class="dv" style="padding-bottom: 5px">
+                    <script>
+                        $(".gopy").click(function () {
 
-                            <div class="breadcrumb">
+                            if ( $(".input-box").css("display") == "block" ){
 
-                                        <span class="breadcrumb-item active">
-                                            <i class="fa fa-question-circle" aria-hidden="true"></i> Đặt câu hỏi
-                                        </span>
+                                $(".input-box").css("display","none");
 
-                            </div>
+                            }else{
+                                $(".input-box").css("display","block").css("opacity","1");
+                                $(".input-box input#duthao_id").val($(this).attr("duthao_id"))
+                                $(".input-box input#duthao_name").val($(this).attr("duthao_name"))
+                            }
+                        })
 
-                            <form action="{{ route('post-ho-tro-phap-ly') }}" method="post">
-                                {{ csrf_field() }}
-                                <div class="box-body">
+                        $("#btn-close").click(function () {
 
-                                    <div class="form-group">
-                                        <label>Họ và Tên </label>
-                                        <input type="text" class="form-control" name="daidien">
-                                        @if ($errors->has('daidien'))
-                                            <div class="error">{{ $errors->first('daidien') }}</div>
-                                        @endif
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Điện thoại </label>
-                                        <input type="number" class="form-control" name="dienthoai">
-                                        @if ($errors->has('dienthoai'))
-                                            <div class="error">{{ $errors->first('dienthoai') }}</div>
-                                        @endif
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email </label>
-                                        <input type="email" class="form-control" name="email">
-                                        @if ($errors->has('email'))
-                                            <div class="error">{{ $errors->first('email') }}</div>
-                                        @endif
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Địa chỉ </label>
-                                        <input type="text" class="form-control" name="diachi">
-                                        @if ($errors->has('diachi'))
-                                            <div class="error">{{ $errors->first('diachi') }}</div>
-                                        @endif
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Lời góp ý </label>
-                                        <textarea class="form-control textarea" placeholder="Mời bạn đóng góp ý kiến ở đây"
-                                                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                        @if ($errors->has('cauhoi'))
-                                            <div class="error">{{ $errors->first('cauhoi') }}</div>
-                                        @endif
-                                    </div>
+                            $(".input-box").css("display","none");
 
-                                    <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi góp ý</button>
-                                    <br>
-                                </div>
-                            </form>
-                        </div>
+                        })
+                    </script>
 
 
-                    </div>
                 </div>
             </div>
 @endsection
