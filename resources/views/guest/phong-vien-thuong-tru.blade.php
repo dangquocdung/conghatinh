@@ -23,10 +23,55 @@
 
         </div>
 
+        <div class="col-md-12">
+            <div class="dv-body ">
+                <table id="example1" class="dv-table">
+                    <thead>
+                    <tr>
+                        <th>
+                            <span>TT</span>
+                        </th>
+                        <th>
+                            <span>Đơn vị</span>
+                        </th>
 
-        <div id="app" style="padding: 5px;">
-            <phong-vien-thuong-tru source="/api/phong-vien-thuong-tru" title="Danh sách" />
+                        <th>
+                            <span>Họ và Tên</span>
+                        </th>
+
+                        <th>
+                            <span>Số TNB</span>
+                        </th>
+                        <th>
+                            <span>Điện thoại</span>
+                        </th>
+                        <th>
+                            <span>Email</span>
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach($phongvientt as $pvtt)
+                        <tr>
+                            <td>{{ $pvtt->id }}</td>
+                            <td>{{ $pvtt->cqbc }}</td>
+                            <td>{{ $pvtt->pvtt }}</td>
+                            <td>{{ $pvtt->sothe }}</td>
+                            <td>{{ $pvtt->dienthoai }}</td>
+                            <td>{{ $pvtt->email }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+
+                </table>
+            </div>
         </div>
+
+
+        {{--<div id="app" style="padding: 5px;">--}}
+            {{--<phong-vien-thuong-tru source="/api/phong-vien-thuong-tru" title="Danh sách" />--}}
+        {{--</div>--}}
 
     </div>
 @endsection
@@ -36,7 +81,38 @@
 @stop
 
 @section('js')
-    <script type="text/javascript" src="{{mix('/js/guest.js')}}"></script>
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+
+
+            $('#example1').DataTable({
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Hiển thị _MENU_ mục",
+//                    "sZeroRecords": "No se encontraron resultados",
+//                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+//                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+//                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm kiếm:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+//                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Đầu tiên",
+                        "sLast": "Cuối cùng",
+                        "sNext": "Sau",
+                        "sPrevious": "Trước"
+                    }
+                }
+            })
+
+        })
+    </script>
 @stop
 
 

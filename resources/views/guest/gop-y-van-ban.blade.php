@@ -157,6 +157,10 @@
             </div>
 @endsection
 
+@section('content-right')
+    @include('guest.menu-right.chuyen-trang')
+@stop
+
 
 @section('js')
     <!-- DataTables -->

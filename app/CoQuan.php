@@ -8,7 +8,7 @@ class CoQuan extends Model
 {
     protected $table = 'coquan';
 
-    protected $fillable = ['name','slug','nhomcq_id','lienket'];
+    protected $fillable = ['name','slug','nhomcq_id','lienket','sodt'];
 
     public function nhomcq()
     {

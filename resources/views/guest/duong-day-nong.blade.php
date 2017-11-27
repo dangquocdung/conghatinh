@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Doanh nghiệp hỏi, CQNN trả lời</title>
+    <title>Đường dây nóng</title>
 @endsection
 
 @section('content-main')
@@ -10,7 +10,7 @@
 
 
             <a href="javascript:void(0);">
-                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Danh sách người phát ngôn</h4>
+                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Đường dây nóng</h4>
             </a>
 
             @role('tbt')
@@ -125,34 +125,23 @@
                         </th>
 
                         <th>
-                            <span>Họ và Tên</span>
+                            <span>Website</span>
                         </th>
 
                         <th>
-                            <span>Chức danh</span>
+                            <span>Điện thoại</span>
                         </th>
-                        <th>
-                            <span>ĐT cố định</span>
-                        </th>
-                        <th>
-                            <span>ĐT di động</span>
-                        </th>
-                        <th>
-                            <span>Địa chỉ e-mail</span>
-                        </th>
+
                     </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($nguoiphatngon as $npn)
+                        @foreach($coquan as $cq)
                         <tr>
-                            <td>{{ $npn->id }}</td>
-                            <td>{{ $npn->coquan->name }}</td>
-                            <td>{{ $npn->name }}</td>
-                            <td>{{ $npn->chucdanh }}</td>
-                            <td>{{ $npn->codinh }}</td>
-                            <td>{{ $npn->didong }}</td>
-                            <td>{{ $npn->email }}</td>
+                            <td>{{ $cq->id }}</td>
+                            <td>{{ $cq->name }}</td>
+                            <td><a href="{{ $cq->lienket }}" target="_blank">{{ $cq->lienket }}</a></td>
+                            <td>{{ $cq->sodt }}</td>
                         </tr>
                         @endforeach
                     </tbody>

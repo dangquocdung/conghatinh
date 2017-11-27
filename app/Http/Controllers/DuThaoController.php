@@ -116,8 +116,10 @@ class DuThaoController extends Controller
      * @param  \App\DuThao  $duThao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DuThao $duThao)
+    public function destroy(Request $request)
     {
-        //
+        DuThao::destroy($request->id);
+        flash('Xóa thành công!');
+        return redirect()->back();
     }
 }

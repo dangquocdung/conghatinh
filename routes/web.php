@@ -48,6 +48,7 @@ Route::get('/lien-he-cong-tac','GuestController@getLienHeCongTac');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
 Route::get('/ban-bien-tap','GuestController@getBBT');
+Route::get('/duong-day-nong','GuestController@getHotLine');
 
 
 
@@ -113,6 +114,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
 
     Route::post('them-du-thao-van-ban','DuThaoController@store')->name('them-du-thao-van-ban');
+    Route::post('xoa-du-thao-van-ban','DuThaoController@destroy')->name('xoa-du-thao-van-ban');
 
 
 

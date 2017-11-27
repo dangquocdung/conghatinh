@@ -29,8 +29,10 @@ class GuestController extends Controller
     {
 
         $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+        $coquan = CoQuan::orderby('nhomcq_id')->get();
 
         view()->share('chuyenmuc',$chuyenmuc);
+        view()->share('coquan',$coquan);
     }
 
     public function index()
@@ -237,30 +239,35 @@ class GuestController extends Controller
     public function getDoanhNghiepHoi()
     {
         $chuyenmuc = ChuyenMuc::all();
-        $coquan = CoQuan::orderby('nhomcq_id')->get();
+
         return view ('guest.doanh-nghiep-hoi',compact('coquan','chuyenmuc'));
     }
 
     public function getHoTroPhapLy()
     {
-        $chuyenmuc = ChuyenMuc::all();
+
         $linhvuc = Linhvuc::orderby('slug','asc')->get();
-        return view ('guest.ho-tro-phap-ly',compact('linhvuc','chuyenmuc'));
+        return view ('guest.ho-tro-phap-ly',compact('linhvuc'));
     }
 
     public function getNguoiPhatNgon()
     {
-        $chuyenmuc = ChuyenMuc::all();
-        $coquan = CoQuan::orderby('nhomcq_id')->get();
-        return view ('guest.nguoi-phat-ngon',compact('coquan','chuyenmuc'));
+
+        $nguoiphatngon = NguoiPhatNgon::orderby('id','asc')->with('coquan')->get();
+
+        return view ('guest.nguoi-phat-ngon',compact('nguoiphatngon'));
     }
 
     public function getPhongVienThuongTru()
     {
+        $phongvientt = PVTT::orderby('id','asc')->get();
+        
+        return view ('guest.phong-vien-thuong-tru',compact('phongvientt'));
+    }
 
-        $chuyenmuc = ChuyenMuc::all();
-        $coquan = CoQuan::orderby('nhomcq_id')->get();
-        return view ('guest.phong-vien-thuong-tru',compact('coquan','chuyenmuc'));
+    public function getHotLine()
+    {
+        return view ('guest.duong-day-nong');
     }
 
     public function tinNoiBat()
@@ -341,33 +348,7 @@ class GuestController extends Controller
             ]);
     }
 
-    public function apiNguoiPhatNgon()
-    {
 
-        $model = NguoiPhatNgon::orderby('id','asc')->with('coquan')->get();
-
-        $columns = NguoiPhatNgon::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
-
-    public function apiPhongVienThuongTru()
-    {
-
-        $model = PVTT::orderby('id','asc')->get();
-
-        $columns = PVTT::$columns;
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
-    }
 
 
     public function ctVanBan($id)

@@ -39,7 +39,14 @@
                         <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
                         <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                         <td>
-                            <button class="btn btn-info btn-xs" >Xóa</button>
+                            <confirm-modal
+                                btn-text='<i class="fa fa-trash"></i> Xóa'
+                                btn-class="btn-danger"
+                                url="{{ route('xoa-du-thao-van-ban') }}"
+                                :post-data="{{json_encode(['id' => $dt->id])}}"
+                                :refresh="true"
+                                message="Bạn chắc chắn muốn xoá văn bản này?">
+                            </confirm-modal>
                         </td>
 
                     </tr>
