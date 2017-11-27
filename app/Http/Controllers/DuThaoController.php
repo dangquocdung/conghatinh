@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\DuThao;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DuThaoController extends Controller
 {
@@ -35,9 +37,43 @@ class DuThaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $dt = new DuThao();
+        $dt->user_id = Auth::user()->id;
+        $dt->name = $req->name;
+        $dt->slug = str_slug($req->name);
+        $dt->thoihan = Carbon::parse($req->thoihan)->format('Y-m-d');
+
+        //Xu ly file
+
+        $file = $req->file('file');
+
+        $folder = 'uploads/du-thao-van-ban/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
+
+        $uniqid =strtolower(str_random(3));
+
+        $nameonly = preg_replace('/\..+$/', '', $file->getClientOriginalName());
+
+        $mainFileName = $nameonly.'_'.$uniqid . '.' . $file->getClientOriginalExtension();
+
+        if (!file_exists(public_path($folder))) {
+            mkdir(public_path($folder), 0755, true);
+        }
+
+        $req->file('file')->move(public_path($folder),$mainFileName);
+
+
+        $dt->path_file = $folder.$mainFileName;
+
+        $dt->save();
+
+        flash('Thanh cong');
+
+        return redirect()->back();
+
+
+
     }
 
     /**

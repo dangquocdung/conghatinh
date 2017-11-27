@@ -246,8 +246,6 @@
               $("#tra-loi").find("textarea#cautraloi").html($(this).attr('ctl'));
           });
 
-          $('div.alert').delay(3000).slideUp(300);
-
 
       });
 

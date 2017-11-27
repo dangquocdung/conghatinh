@@ -38,12 +38,11 @@
                                 <tr>
                                     <td>{{ $dt->id }}</td>
                                     <td>{{ $dt->name }}</td>
-                                    <td>{{ $dt->path_file }}</td>
-                                    <td>{{ $dt->thoihan }}</td>
+                                    <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
+                                    <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                                     <td>
                                         <button class="btn btn-info btn-xs">Góp ý</button>
                                     </td>
-
                                 </tr>
                             @endforeach
 

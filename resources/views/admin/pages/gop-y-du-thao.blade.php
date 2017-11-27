@@ -36,10 +36,10 @@
                     <tr>
                         <td>{{ $dt->id }}</td>
                         <td>{{ $dt->name }}</td>
-                        <td>{{ $dt->path_file }}</td>
-                        <td>{{ $dt->thoihan }}</td>
+                        <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
+                        <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                         <td>
-                            <button class="btn btn-info btn-xs">Góp ý</button>
+                            <button class="btn btn-info btn-xs" >Xóa</button>
                         </td>
 
                     </tr>
@@ -63,28 +63,44 @@
       {{--Box--}}
       <div class="box box-primary">
           <div class="box-header with-border">
-              <h3 class="box-title">Thêm Loại tin</h3>
+              <h3 class="box-title">Thêm Văn bản dự thảo</h3>
           </div>
-          <form action="{{route('save-loai-tin')}}" method="post" id="role-save-form">
+          <form action="{{route('them-du-thao-van-ban')}}" method="post" enctype="multipart/form-data" id="role-save-form">
               <!-- /.box-header -->
               <div class="box-body">
                   {{csrf_field()}}
 
                   <div class="form-group">
-                      <label for="">Name:</label>
+                      <label for="">Tên:</label>
                       <input type="text"
-                             placeholder="Nhập tên Loại tin"
+                             placeholder="Nhập tên văn bản dự thảo"
                              name="name"
                              value="{{old('name')}}"
                              class="form-control">
                       <div class="HelpText error">{{$errors->first('name')}}</div>
+                  </div>
+                  <div class="form-group">
+                      <label for="">Tệp đính kèm:</label>
+                      <input type="file"
+                             name="file"
+                             class="form-control">
+                      <div class="HelpText error">{{$errors->first('path_file')}}</div>
+                  </div>
+                  <div class="form-group">
+                      <label for="">Ngày hết hạn:</label>
+                      <div class='input-group date' id='ngayhethan'>
+                          <input name="thoihan" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
+                          <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
                   </div>
 
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                  <button type="submit" class="btn btn-success">Gửi thông tin</button>
+                  <button type="submit" class="btn btn-success">Gửi đăng</button>
               </div>
           </form>
       </div>
@@ -92,129 +108,45 @@
 
   </div>
 
-    <!-- Modal Edit Album-->
-    <div class="modal modal-default fade" id="tra-loi">
-      <div class="modal-dialog">
-        <div class="modal-content" style="padding: 0">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" style="padding-bottom: 0">Trả lời câu hỏi</h4>
-          </div>
-          <form action="{{ route('update-doanh-nghiep-hoi') }}" method="post" id="role-save-form">
-            {{csrf_field()}}
-
-            <div class="modal-body">
-
-
-              <input type="hidden" name="id" id="dnh-id">
-
-              <div class="form-group">
-                <label>Người trả lời </label>
-                <input type="text" class="form-control" name="nguoitraloi" id="nguoitraloi" required>
-                @if ($errors->has('nguoitraloi'))
-                  <div class="error">{{ $errors->first('nguoitraloi') }}</div>
-                @endif
-              </div>
-              <div class="form-group">
-                <label>Chức vụ </label>
-                <input type="text" class="form-control" name="chucvu" id="chucvu" required>
-                @if ($errors->has('chucvu'))
-                  <div class="error">{{ $errors->first('chucvu') }}</div>
-                @endif
-              </div>
-
-              <div class="form-group">
-                <label>Câu trả lời </label>
-                <textarea class="form-control textarea" name="cautraloi" id="cautraloi" placeholder="Nhập câu trả lời ở đây"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
-                @if ($errors->has('cautraloi'))
-                  <div class="error">{{ $errors->first('cautraloi') }}</div>
-                @endif
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-          </form>
-
-        </div>
-        <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-
   </div>
 
 @endsection
 
 
 @section('js')
-  <script>
-      $(document).ready(function() {
-          // Configure/customize these variables.
-          var showChar = 100;  // How many characters are shown by default
-          var ellipsestext = "...";
-          var moretext = "Nhiều hơn >>";
-          var lesstext = "<< Ít hơn";
 
-
-          $('.more').each(function() {
-
-              var content = $(this).html();
-
-              if(content.length > showChar) {
-
-                  var c = content.substr(0, showChar);
-
-                  var h = content.substr(showChar, content.length - showChar);
-
-                  var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span style="display:none">' + h + '</span>&nbsp;&nbsp;<a class="morelink" style="display:inline block">' + moretext + '</a></span>';
-
-
-//                  var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span>' +
-//                      '<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-
-                  $(this).html(html);
-              }
-
-          });
-
-          $(".morelink").click(function(){
-              if($(this).hasClass("less")) {
-                  $(this).removeClass("less");
-                  $(this).html(moretext);
-              } else {
-                  $(this).addClass("less");
-                  $(this).html(lesstext);
-              }
-              $(this).parent().prev().toggle();
-              $(this).prev().toggle();
-              return false;
-          });
-
-          $('.tra-loi').click(function(){
-              $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
-              $("#tra-loi").find("select").val($(this).attr('cq-id'));
-          });
-
-          $('.chinh-sua').click(function(){
-              $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
-              $("#tra-loi").find("select").val($(this).attr('cq-id'));
-              $("#tra-loi").find("input#nguoitraloi").val($(this).attr('ntl'));
-              $("#tra-loi").find("input#chucvu").val($(this).attr('cv'));
-              $("#tra-loi").find("textarea#cautraloi").html($(this).attr('ctl'));
-          });
-
-          $('div.alert').delay(3000).slideUp(300);
-
-
-      });
-
-  </script>
+    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
 
 
+
+
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+
+
+
+
+    <script>
+
+        $(document).ready(function() {
+            $('.select2').select2({
+                width: '100%'
+            });
+
+
+        });
+
+
+
+
+        $(function () {
+
+            $('#ngayhethan').datetimepicker({
+                format:'DD-MM-YYYY'
+            });
+        });
+
+
+    </script>
 @stop

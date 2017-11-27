@@ -57785,7 +57785,7 @@ var render = function() {
                   headers: _vm.csrfHeaders,
                   url: _vm.fileUpload,
                   "use-font-awesome": true,
-                  "accepted-file-types": ".pdf,.doc,.zip,.rar",
+                  "accepted-file-types": ".pdf,.doc,.docx",
                   "max-file-size-in-m-b": 32,
                   "max-number-of-files": 10,
                   "thumbnail-height": 60,

@@ -110,6 +110,9 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('update-tin-tuc-su-kien','TinTucController@update')->name('update-tin-tuc');
 
 
+    Route::post('them-du-thao-van-ban','DuThaoController@store')->name('them-du-thao-van-ban');
+
+
 
 
     //Van ban

@@ -23,14 +23,14 @@ class FileApiController extends Controller
     public function uploadFile(Request $request,MediaUploader $mediaUploader)
     {
 
-        $validator = Validator::make($request->all(), [
-            'file' => 'mimes:pdf'
-        ]);
+//        $validator = Validator::make($request->all(), [
+//            'file' => 'mimes:pdf'
+//        ]);
 
         // if there are validation errors, show that
-        if ($validator->fails()) {
-            return response(['message' => $validator->errors()], 433);
-        }
+//        if ($validator->fails()) {
+//            return response(['message' => $validator->errors()], 433);
+//        }
 
         $file = $request->file('file');
 
