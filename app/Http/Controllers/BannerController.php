@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Banner;
+use App\LoaiBanner;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -13,6 +14,17 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+
+        $loaibn = LoaiBanner::orderby('thutu','asc')->get();
+
+
+        view()->share('loaibn',$loaibn);
+
+    }
+
     public function index()
     {
         

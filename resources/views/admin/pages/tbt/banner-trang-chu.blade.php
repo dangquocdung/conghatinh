@@ -265,10 +265,10 @@
               <div class="form-group">
                   <label>Loại</label>
                   <select class="form-control" name="vitri" style="width: 100%;">
-                      <option value="0" selected>Banner phải</option>
-                      <option value="1">Banner ngang</option>
-                      <option value="2">Banner tuyên truyền</option>
-                      <option value="3">Banner doanh nghiệp</option>
+                      <option disabled>Chọn loại banner</option>
+                      @foreach($loaibn as $lbn)
+                        <option value="{{$lbn->id}}">{{$lbn->name}}</option>
+                      @endforeach
                   </select>
               </div>
 

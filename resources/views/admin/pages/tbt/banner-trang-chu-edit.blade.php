@@ -35,27 +35,13 @@
               <div class="form-group">
                   <label>Loại</label>
                   <select class="form-control" name="vitri" style="width: 100%;">
-                      @if ($bn->vitri == 0)
-                        <option value="0" selected>Banner phải</option>
-                          <option value="1">Banner ngang</option>
-                          <option value="2">Banner tuyên truyền</option>
-                          <option value="3">Banner doanh nghiệp</option>
-                      @elseif ($bn->vitri == 1)
-                          <option value="0">Banner phải</option>
-                          <option value="1" selected>Banner ngang</option>
-                          <option value="2">Banner tuyên truyền</option>
-                          <option value="3">Banner doanh nghiệp</option>
-                      @elseif ($bn->vitri == 2)
-                          <option value="0">Banner phải</option>
-                          <option value="1">Banner ngang</option>
-                          <option value="2" selected>Banner tuyên truyền</option>
-                          <option value="3">Banner doanh nghiệp</option>
-                      @else
-                          <option value="0">Banner phải</option>
-                          <option value="1">Banner ngang</option>
-                          <option value="2">Banner tuyên truyền</option>
-                          <option value="3" selected>Banner doanh nghiệp</option>
-                      @endif
+                      @foreach($loaibn as $lbn)
+                          <option value="{{$lbn->id}}"
+                          @if ($bn->vitri == $lbn->id)
+                            selected
+                          @endif
+                          >{{$lbn->name}}</option>
+                      @endforeach
                   </select>
               </div>
 

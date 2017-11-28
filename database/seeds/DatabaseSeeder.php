@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(AlbumTableSeeder::class);
 
 //        $this->call(ImageTableSeeder::class);
-        $this->call(CoQuanSeeder::class);
+        $this->call(LoaiBannerSeeder::class);
     
     }
 }

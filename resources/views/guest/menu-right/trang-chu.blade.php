@@ -38,6 +38,28 @@
         <div class="block-header" style="margin-bottom: 0">
             <a href="javascript:void(0);">
 
+                <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Liên kết</h4>
+            </a>
+
+        </div>
+
+        @foreach ($banner as $bn)
+            @if ($bn->vitri == 4)
+                <div class="box-banner">
+                    <a href="{{$bn->lienket}}" target="_blank">
+                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                    </a>
+                </div>
+            @endif
+        @endforeach
+
+    </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+            <a href="javascript:void(0);">
+
                 <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Sự kiện</h4>
             </a>
 
@@ -52,9 +74,6 @@
                 </div>
             @endif
         @endforeach
-
-
-
 
     </div>
 
