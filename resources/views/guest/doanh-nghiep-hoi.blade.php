@@ -43,12 +43,14 @@
                             
                                     <div class="form-group">
                                         <label>Hỏi đơn vị </label>
-                                        <select name="coquan_id" id="" class="form-control" required>
+                                        <select name="coquan_id" id="" class="form-control select2" style="width: 100%" required>
                                             <option value="" selected disabled > Chọn đơn vị</option>
                                             @foreach($nhomcq as $ncq)
-                                                @foreach($ncq->coquan as $cq)
-                                                    <option value="{{ $cq->id }}">{{ $cq->name }}</option>
-                                                @endforeach
+                                                <optgroup label="{{ $ncq->name }}">
+                                                    @foreach($ncq->coquan as $cq)
+                                                        <option value="{{ $cq->id }}">{{ $cq->name }}</option>
+                                                    @endforeach
+                                                </optgroup>
                                             @endforeach
                                         </select>
                                     </div>

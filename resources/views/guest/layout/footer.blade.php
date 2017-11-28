@@ -65,6 +65,9 @@
     // hide #back-top first
     $("#back-top").hide();
 
+      //Initialize Select2 Elements
+      $('.select2').select2()
+
     // fade in #back-top
     $(function () {
       $(window).scroll(function () {

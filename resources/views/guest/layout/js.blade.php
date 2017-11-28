@@ -21,6 +21,9 @@
 <!--jquery-ui.min js -->
 <script type="text/javascript" src="guest/js/jquery-ui.js"></script>
 
+<!-- Select2 -->
+<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+
 <!-- FastClick -->
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 

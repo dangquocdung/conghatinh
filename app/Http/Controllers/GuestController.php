@@ -9,7 +9,7 @@ use App\TinTuc;
 use App\LoaiTin;
 use App\ChuyenMuc;
 use App\VanBan;
-use App\CoQuan;
+use App\Banner;
 use App\DoanhNghiepHoi;
 use App\LinhVuc;
 use App\HoTroPhapLy;
@@ -31,9 +31,11 @@ class GuestController extends Controller
 
         $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
         $nhomcq = NhomCQ::orderby('id')->get();
+        $banner = Banner::orderby('thutu','asc')->get();
 
         view()->share('chuyenmuc',$chuyenmuc);
         view()->share('nhomcq',$nhomcq);
+        view()->share('banner',$banner);
     }
 
     public function index()

@@ -41,7 +41,7 @@
 
                                 <div class="form-group">
                                     <label>Lĩnh vực cần hỗ trợ </label>
-                                    <select name="linhvuc_id" id="" class="form-control" required>
+                                    <select name="linhvuc_id" id="" class="form-control select2" style="width: 100%" required>
                                         <option value="" selected disabled > Chọn lĩnh vực</option>
                                         @foreach($linhvuc as $lv)
                                             <option value="{{ $lv->id }}">{{ $lv->name }}</option>
