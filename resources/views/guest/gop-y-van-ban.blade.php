@@ -91,10 +91,12 @@
 
                 </div>
 
-                <div class="box">
+            <div class="col-md-12" style="padding: 5px">
+
+                <div class="dv" style="padding: 5px">
                     <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="example1" class="table table-bordered table-striped">
+                    <div class="dv-body">
+                        <table id="example1" class="dv-table">
                             <thead>
                                 <tr>
                                     <th>TT</th>
@@ -151,6 +153,7 @@
 
                         })
                     </script>
+                </div>
 
 
                 </div>

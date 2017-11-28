@@ -113,43 +113,47 @@
             })
         </script>
 
-        <div class="col-sm-12">
 
-            <div class="dv-body">
-                <table id="example1" class="dv-table">
-                    <thead>
-                    <tr>
-                        <th>
-                            <span>TT</span>
-                        </th>
-                        <th>
-                            <span>Cơ quan</span>
-                        </th>
+        <div class="col-md-12" style="padding: 5px">
 
-                        <th>
-                            <span>Website</span>
-                        </th>
+            <div class="dv" style="padding: 5px">
 
-                        <th>
-                            <span>Điện thoại</span>
-                        </th>
-
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    @foreach($nhomcq as $ncq)
-                        @foreach($ncq->coquan as $cq)
+                <div class="dv-body">
+                    <table id="example1" class="dv-table">
+                        <thead>
                         <tr>
-                            <td>{{ $cq->id }}</td>
-                            <td>{{ $cq->name }}</td>
-                            <td><a href="{{ $cq->lienket }}" target="_blank">{{ $cq->lienket }}</a></td>
-                            <td>{{ $cq->sodt }}</td>
+                            <th>
+                                <span>TT</span>
+                            </th>
+                            <th>
+                                <span>Cơ quan</span>
+                            </th>
+
+                            <th>
+                                <span>Website</span>
+                            </th>
+
+                            <th>
+                                <span>Điện thoại</span>
+                            </th>
+
                         </tr>
+                        </thead>
+
+                        <tbody>
+                        @foreach($nhomcq as $ncq)
+                            @foreach($ncq->coquan as $cq)
+                            <tr>
+                                <td>{{ $cq->id }}</td>
+                                <td>{{ $cq->name }}</td>
+                                <td><a href="{{ $cq->lienket }}" target="_blank">{{ $cq->lienket }}</a></td>
+                                <td>{{ $cq->sodt }}</td>
+                            </tr>
+                            @endforeach
                         @endforeach
-                    @endforeach
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>

@@ -113,52 +113,56 @@
             })
         </script>
 
-        <div class="col-sm-12">
+        <div class="col-sm-12" style="padding: 5px">
 
-            <div class="dv-body">
-                <table id="example1" class="dv-table">
-                    <thead>
-                    <tr>
-                        <th>
-                            <span>TT</span>
-                        </th>
-                        <th>
-                            <span>Cơ quan</span>
-                        </th>
+            <div class="dv" style="padding: 5px">
 
-                        <th>
-                            <span>Họ và Tên</span>
-                        </th>
-
-                        <th>
-                            <span>Chức danh</span>
-                        </th>
-                        <th>
-                            <span>ĐT cố định</span>
-                        </th>
-                        <th>
-                            <span>ĐT di động</span>
-                        </th>
-                        <th>
-                            <span>Địa chỉ e-mail</span>
-                        </th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                        @foreach($nguoiphatngon as $npn)
+                <div class="dv-body">
+                    <table id="example1" class="dv-table">
+                        <thead>
                         <tr>
-                            <td>{{ $npn->id }}</td>
-                            <td>{{ $npn->coquan->name }}</td>
-                            <td>{{ $npn->name }}</td>
-                            <td>{{ $npn->chucdanh }}</td>
-                            <td>{{ $npn->codinh }}</td>
-                            <td>{{ $npn->didong }}</td>
-                            <td>{{ $npn->email }}</td>
+                            <th>
+                                <span>TT</span>
+                            </th>
+                            <th>
+                                <span>Cơ quan</span>
+                            </th>
+
+                            <th>
+                                <span>Họ và Tên</span>
+                            </th>
+
+                            <th>
+                                <span>Chức danh</span>
+                            </th>
+                            <th>
+                                <span>ĐT cố định</span>
+                            </th>
+                            <th>
+                                <span>ĐT di động</span>
+                            </th>
+                            <th>
+                                <span>Địa chỉ e-mail</span>
+                            </th>
                         </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody>
+                            @foreach($nguoiphatngon as $npn)
+                            <tr>
+                                <td>{{ $npn->id }}</td>
+                                <td>{{ $npn->coquan->name }}</td>
+                                <td>{{ $npn->name }}</td>
+                                <td>{{ $npn->chucdanh }}</td>
+                                <td>{{ $npn->codinh }}</td>
+                                <td>{{ $npn->didong }}</td>
+                                <td>{{ $npn->email }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
         </div>

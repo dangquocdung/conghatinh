@@ -4,7 +4,7 @@
 @endsection
 
 @section('content-main')
-    <div class="block3">
+    <div class="block3" >
         <div class="portlet-header">
 
 
@@ -23,48 +23,52 @@
 
         </div>
 
-        <div class="col-md-12">
-            <div class="dv-body ">
-                <table id="example1" class="dv-table">
-                    <thead>
-                    <tr>
-                        <th>
-                            <span>TT</span>
-                        </th>
-                        <th>
-                            <span>Đơn vị</span>
-                        </th>
+        <div class="col-md-12" style="padding: 5px">
 
-                        <th>
-                            <span>Họ và Tên</span>
-                        </th>
-
-                        <th>
-                            <span>Số TNB</span>
-                        </th>
-                        <th>
-                            <span>Điện thoại</span>
-                        </th>
-                        <th>
-                            <span>Email</span>
-                        </th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    @foreach($phongvientt as $pvtt)
+            <div class="dv" style="padding: 5px">
+                <div class="dv-body ">
+                    <table id="example1" class="dv-table">
+                        <thead>
                         <tr>
-                            <td>{{ $pvtt->id }}</td>
-                            <td>{{ $pvtt->cqbc }}</td>
-                            <td>{{ $pvtt->pvtt }}</td>
-                            <td>{{ $pvtt->sothe }}</td>
-                            <td>{{ $pvtt->dienthoai }}</td>
-                            <td>{{ $pvtt->email }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
+                            <th>
+                                <span>TT</span>
+                            </th>
+                            <th>
+                                <span>Đơn vị</span>
+                            </th>
 
-                </table>
+                            <th>
+                                <span>Họ và Tên</span>
+                            </th>
+
+                            <th>
+                                <span>Số TNB</span>
+                            </th>
+                            <th>
+                                <span>Điện thoại</span>
+                            </th>
+                            <th>
+                                <span>Email</span>
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        @foreach($phongvientt as $pvtt)
+                            <tr>
+                                <td>{{ $pvtt->id }}</td>
+                                <td>{{ $pvtt->cqbc }}</td>
+                                <td>{{ $pvtt->pvtt }}</td>
+                                <td>{{ $pvtt->sothe }}</td>
+                                <td>{{ $pvtt->dienthoai }}</td>
+                                <td>{{ $pvtt->email }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
         </div>
 
