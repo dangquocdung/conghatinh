@@ -100,7 +100,8 @@
 
 						<div class="noi-dung">
 							@foreach($tin->teptintuc as $ttt)
-								<embed src= "{{ $ttt->path }}" width="100%" height="640px">
+								<object data="{{ $ttt->path }}" type="application/pdf" width="100%" height="640px"></object>
+								{{--<embed src= "{{ $ttt->path }}" width="100%" height="640px">--}}
 							@endforeach
 						</div>
 

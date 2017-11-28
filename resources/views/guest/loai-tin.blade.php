@@ -36,7 +36,7 @@
                                   <span class="label label-info pull-right hidden-xs" style="margin-left: 15px">{{$tin->loaitin->name}}</span>
                                   <a class="tin_title_text" href="/chi-tiet/{{$tin->slug}}">
 
-                                      @if ($lt->chuyenmuc->slug <> 'doanh-nghiep-du-an')
+                                      @if (strlen(trim($tin->avatar)) > 20)
 
                                         <img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >
 
