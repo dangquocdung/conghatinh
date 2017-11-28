@@ -1,6 +1,4 @@
 @foreach($nhomcq as $ncq)
-
-
     <div class="block3">
 
         <div class="portlet-header" data-toggle="collapse" href="#{{$ncq->slug}}">
@@ -12,28 +10,44 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
 
-                <div class="chuyen-trang panel-collapse collapse in" id="{{$ncq->slug}}">
-                    <ul>
+                @if ($ncq->id<3)
 
-                        @foreach($ncq->coquan as $cq)
+                    <div class="chuyen-trang panel-collapse collapse in" id="{{$ncq->slug}}">
+                        <ul>
+                            @foreach($ncq->coquan as $cq)
 
-                            <li class="col-md-4 col-xs-6">
+                                <li class="col-md-4 col-xs-6">
 
-                                <a href="{{ $cq->lienket }}" target="_blank">
+                                    <a href="{{ $cq->lienket }}" target="_blank">
 
-                                    <div class="news-block"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
-                                </a>
-                            </li>
+                                        <div class="news-block"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @else
+                    <div class="chuyen-trang panel-collapse collapse" id="{{$ncq->slug}}">
+                        <ul>
+                            @foreach($ncq->coquan as $cq)
+                                <li class="col-md-3 col-xs-4">
 
-                        @endforeach
+                                    <a href="{{ $cq->lienket }}" target="_blank">
 
-                    </ul>
-                </div>
+                                        <div class="news-block"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
+                                    </a>
+                                </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                @endif
+
+
+
             </div>
         </div>
-
     </div>
-
 @endforeach
 
 

@@ -5,11 +5,6 @@
 @endphp
 
 
-
-
-
-
-
 <div class="block3" id="{{ $cm->slug }}">
 
     <div class="portlet-header">

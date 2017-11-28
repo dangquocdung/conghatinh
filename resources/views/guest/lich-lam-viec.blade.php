@@ -18,7 +18,7 @@
             </a>
 
             <a href="javascript:void(0);">
-                <h4 class="portlet-header-title no-pd-top">Lịch làm việc</h4>
+                <h4 class="portlet-header-title no-pd-top">Lịch công tác</h4>
             </a>
 
 

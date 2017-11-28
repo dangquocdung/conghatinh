@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
 //        $this->call(DoanhNghiepHoiSeeder::class);
 
-        $this->call(HoTroPhapLySeeder::class);
+//        $this->call(HoTroPhapLySeeder::class);
 
 //        $this->call(LoaiVideoSeeder::class);
 //        $this->call(VideoTableSeeder::class);
@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(AlbumTableSeeder::class);
 
 //        $this->call(ImageTableSeeder::class);
+        $this->call(CoQuanSeeder::class);
     
     }
 }

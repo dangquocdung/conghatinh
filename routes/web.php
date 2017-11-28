@@ -25,8 +25,6 @@ Route::get('/loai-tin/thu-vien-video/{id?}','GuestController@getVideo');
 
 Route::get('/loai-tin/album-hinh-anh/{slug?}','GuestController@getAlbum');
 
-Route::get('/loai-tin/lich-lam-viec', 'GuestController@getLLV')->name('get-lich-lam-viec');
-
 Route::post('/lien-he-cong-tac','LienHeController@store')->name('post-lien-he-cong-tac');
 
 Route::post('/gop-y','GopYController@store')->name('post-gop-y');
@@ -49,6 +47,7 @@ Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
 Route::get('/ban-bien-tap','GuestController@getBBT');
 Route::get('/duong-day-nong','GuestController@getHotLine');
+Route::get('lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
 
 
 
