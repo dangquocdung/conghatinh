@@ -102,11 +102,7 @@
 
 						<div class="noi-dung">
 							@foreach($tin->teptintuc as $ttt)
-
-								<iframe src="{{ $ttt->path }}" width="100%" height="640p"> </iframe>
-								{{--<div id="example1"></div>--}}
-{{--								<object data="{{ $ttt->path }}" type="application/pdf" width="100%" height="640px"></object>--}}
-								{{--<embed src= "{{ $ttt->path }}" width="100%" height="640px">--}}
+								<iframe src="{{ $ttt->path }}" width="100%" height="640px"> </iframe>
 							@endforeach
 						</div>
 
