@@ -1,4 +1,3 @@
-
 <div class="right-box">
 
     <div class="block4">

@@ -28,7 +28,7 @@
 
 @section('content-right')
 
-    @include('guest.layout.right-box')
+    @include('guest.menu-right.trang-chu')
 
 @stop
 
