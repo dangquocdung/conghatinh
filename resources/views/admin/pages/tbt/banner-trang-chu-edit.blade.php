@@ -192,7 +192,9 @@
 
     $(document).ready(function(){
         $("#lienket").focus (function () {
-            $(this).val('/loai-tin/'.to_slug($("#name").val()));
+
+            var str = "/loai-tin/"+to_slug($("#name").val());
+            $(this).val(str);
         })
     })
 </script>
