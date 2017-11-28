@@ -43,7 +43,7 @@
                 <td>
                     {{($bn->name)}}
                     <br>
-                    {{ $bn->lienket }}
+                    <em><small>{{ $bn->lienket }}</small></em>
                 </td>
                 <td><img src="{{$bn->banner}}" alt="{{$bn->name}}" width="120"></td>
                 <td>{{$bn->thutu}}</td>
