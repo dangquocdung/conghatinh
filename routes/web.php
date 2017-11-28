@@ -19,7 +19,7 @@ Route::post('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-c
 
 Route::get('/loai-tin/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
 Route::get('/loai-tin/gop-y-du-thao-van-ban','GuestController@getGopYVanBan');
-Route::get('/loai-tin/duong-day-nong','GuestController@getHotLine');
+Route::get('/loai-tin/duong-day-nong-so-ban-nganh-huyen-thi-thanh','GuestController@getHotLine');
 Route::get('/loai-tin/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
 Route::get('/loai-tin/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
