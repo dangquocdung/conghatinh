@@ -16,6 +16,11 @@ class Banner extends Model
 	    return $this->belongsTo('App\User','user_id','id');
 	}
 
+    public function loaibn()
+    {
+        return $this->belongsTo('App\LoaiBanner','vitri','id');
+    }
+
     public function chuyenmuc()
     {
         return $this->hasMany('App\ChuyenMuc','banner_id','id');

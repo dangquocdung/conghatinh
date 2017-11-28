@@ -18,66 +18,6 @@
 @section('content')
   <div class="row">
     <div class="col-sm-8">
-        {{--Box Phải--}}
-        <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Banner phải</h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <table class="table table-bordered table-striped table-hover">
-            <thead>
-            <tr>
-              <th>#</th>
-              <th>Tên</th>
-              <th>Banner</th>
-              <th>Thứ tự</th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($banner as $bn)
-                @if ($bn->vitri == 0)
-              <tr>
-                <td>{{$bn->id}}</td>
-                <td>
-                    {{($bn->name)}}
-                    <br>
-                    <em><small>{{ $bn->lienket }}</small></em>
-                </td>
-                <td><img src="{{$bn->banner}}" alt="{{$bn->name}}" width="120"></td>
-                <td>{{$bn->thutu}}</td>
-                <td class="col-sm-3">
-                  {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
-                    <div class="pull-left">
-                      <a href="{{route('edit-banner-trang-chu', $bn->id)}}" class="btn btn-primary btn-xs">
-                        <i class="fa fa-edit"></i> Edit
-                      </a>
-                    </div>
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                        btn-text='<i class="fa fa-trash"></i> Delete'
-                        btn-class="btn-danger"
-                        url="{{url('api/v1/delete-banner-trang-chu')}}"
-                        :post-data="{{json_encode(['id' => $bn->id])}}"
-                        :refresh="true"
-                        message="Bạn chắc chắn muốn xoá banner {{$bn->name}}?">
-                      </confirm-modal>
-                    </div>
-                  {{-- @endif --}}
-                </td>
-              </tr>
-              @endif
-            @endforeach
-            </tbody>
-          </table>
-
-          {{$banner->render()}}
-        </div>
-        <!-- /.box-body -->
-        </div>
-        {{--End box--}}
-
 
         {{--Box Ngang--}}
         <div class="box box-primary">
@@ -93,17 +33,18 @@
                         <th>Tên</th>
                         <th>Banner</th>
                         <th>Thứ tự</th>
+                        <th>Loại</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($banner as $bn)
-                        @if ($bn->vitri == 1)
+                    @foreach($banner->sortby('vitri') as $bn)
                         <tr>
                             <td>{{$bn->id}}</td>
                             <td>{{($bn->name)}}</td>
                             <td><img src="{{$bn->banner}}" alt="{{$bn->name}}" width="120"></td>
                             <td>{{$bn->thutu}}</td>
+                            <td>{{ $bn->loaibn->name }}</td>
                             <td class="col-sm-3">
                                 {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                                 <div class="pull-left">
@@ -124,119 +65,6 @@
                                 {{-- @endif --}}
                             </td>
                         </tr>
-                        @endif
-                    @endforeach
-                    </tbody>
-                </table>
-
-                {{$banner->render()}}
-            </div>
-            <!-- /.box-body -->
-        </div>
-        {{--End box--}}
-
-        {{--Box Tuyên truyền--}}
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Banner tuyên truyền</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <table class="table table-bordered table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Tên</th>
-                        <th>Banner</th>
-                        <th>Thứ tự</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($banner as $bn)
-                        @if ($bn->vitri == 2)
-                            <tr>
-                                <td>{{$bn->id}}</td>
-                                <td>{{($bn->name)}}</td>
-                                <td><img src="{{$bn->banner}}" alt="{{$bn->name}}" width="120"></td>
-                                <td>{{$bn->thutu}}</td>
-                                <td class="col-sm-3">
-                                    {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
-                                    <div class="pull-left">
-                                        <a href="{{route('edit-banner-trang-chu', $bn->id)}}" class="btn btn-primary btn-xs">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </a>
-                                    </div>
-                                    <div class="pull-left gap-left gap-10">
-                                        <confirm-modal
-                                                btn-text='<i class="fa fa-trash"></i> Delete'
-                                                btn-class="btn-danger"
-                                                url="{{url('api/v1/delete-banner-trang-chu')}}"
-                                                :post-data="{{json_encode(['id' => $bn->id])}}"
-                                                :refresh="true"
-                                                message="Bạn chắc chắn muốn xoá banner {{$bn->name}}?">
-                                        </confirm-modal>
-                                    </div>
-                                    {{-- @endif --}}
-                                </td>
-                            </tr>
-                        @endif
-                    @endforeach
-                    </tbody>
-                </table>
-
-                {{$banner->render()}}
-            </div>
-            <!-- /.box-body -->
-        </div>
-        {{--End box--}}
-
-        {{--Box Doanh nghiệp--}}
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Banner Doanh nghiệp</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <table class="table table-bordered table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Tên</th>
-                        <th>Banner</th>
-                        <th>Thứ tự</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($banner as $bn)
-                        @if ($bn->vitri == 3)
-                            <tr>
-                                <td>{{$bn->id}}</td>
-                                <td>{{($bn->name)}}</td>
-                                <td><img src="{{$bn->banner}}" alt="{{$bn->name}}" width="120"></td>
-                                <td>{{$bn->thutu}}</td>
-                                <td class="col-sm-3">
-                                    {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
-                                    <div class="pull-left">
-                                        <a href="{{route('edit-banner-trang-chu', $bn->id)}}" class="btn btn-primary btn-xs">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </a>
-                                    </div>
-                                    <div class="pull-left gap-left gap-10">
-                                        <confirm-modal
-                                                btn-text='<i class="fa fa-trash"></i> Delete'
-                                                btn-class="btn-danger"
-                                                url="{{url('api/v1/delete-banner-trang-chu')}}"
-                                                :post-data="{{json_encode(['id' => $bn->id])}}"
-                                                :refresh="true"
-                                                message="Bạn chắc chắn muốn xoá banner {{$bn->name}}?">
-                                        </confirm-modal>
-                                    </div>
-                                    {{-- @endif --}}
-                                </td>
-                            </tr>
-                        @endif
                     @endforeach
                     </tbody>
                 </table>
