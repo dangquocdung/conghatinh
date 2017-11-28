@@ -40,7 +40,11 @@
                 @if ($bn->vitri == 0)
               <tr>
                 <td>{{$bn->id}}</td>
-                <td>{{($bn->name)}}</td>
+                <td>
+                    {{($bn->name)}}
+                    <br>
+                    {{ $bn->lienket }}
+                </td>
                 <td><img src="{{$bn->banner}}" alt="{{$bn->name}}" width="120"></td>
                 <td>{{$bn->thutu}}</td>
                 <td class="col-sm-3">

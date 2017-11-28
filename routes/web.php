@@ -8,7 +8,6 @@ Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
 
 Route::get('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','GuestController@getDoanhNghiepHoi');
-
 Route::post('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
 
 
@@ -16,10 +15,14 @@ Route::get('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','GuestController@getHo
 Route::post('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
 
 Route::get('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','GuestController@getNguoiPhatNgon');
-
 Route::post('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
 
 Route::get('/loai-tin/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
+Route::get('/loai-tin/gop-y-du-thao-van-ban','GuestController@getGopYVanBan');
+Route::get('/loai-tin/duong-day-nong','GuestController@getHotLine');
+Route::get('/loai-tin/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
+Route::get('/loai-tin/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
+
 
 Route::get('/loai-tin/thu-vien-video/{id?}','GuestController@getVideo');
 
@@ -41,14 +44,11 @@ Route::get('/loai-tin/{slug}','GuestController@loaiTin');
 Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 Route::get('/so-do-cong','GuestController@getSoDoCong');
 Route::get('/gop-y','GuestController@getGopY');
-Route::get('/gop-y-du-thao-van-ban','GuestController@getGopYVanBan');
+
 Route::get('/lien-he-cong-tac','GuestController@getLienHeCongTac');
 Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
 Route::get('/ban-bien-tap','GuestController@getBBT');
-Route::get('/duong-day-nong','GuestController@getHotLine');
-Route::get('/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
-Route::get('/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
 
 
