@@ -53,5 +53,15 @@
   @yield('js')
   @yield('script')
 
+<script>
+  $(document).ready(function () {
+
+      $('.main-page').css('min-height',$('#sidebar').outerHeight());
+
+//      console.log($('#sidebar').outerHeight());
+
+  })
+</script>
+
 </body>
 </html>
