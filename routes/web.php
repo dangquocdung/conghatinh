@@ -47,7 +47,8 @@ Route::get('/van-ban/{slug?}','GuestController@vanBan');
 
 Route::get('/ban-bien-tap','GuestController@getBBT');
 Route::get('/duong-day-nong','GuestController@getHotLine');
-Route::get('lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
+Route::get('/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
+Route::get('/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
 
 

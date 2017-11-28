@@ -18,7 +18,6 @@ import BulmaModal from './components/BulmaModal'
 import FileField from './components/FileField'
 import ImportUsers from './components/UserImport/ImportUsers'
 import EditUsers from './components/UserImport/EditUsers'
-
 import FileManager from './components/FileManager/FileManager'
 //
 
@@ -49,11 +48,9 @@ Vue.component('confirm-modal', ConfirmModal)
 Vue.component('activity-graph', ActivityGraph)
 Vue.component('media-manager', MediaManager)
 Vue.component('bulma-modal', BulmaModal)
-
 Vue.component('file-field', FileField)
 Vue.component('import-users', ImportUsers)
 Vue.component('edit-users', EditUsers)
-
 Vue.component('file-manager', FileManager)
 //
 

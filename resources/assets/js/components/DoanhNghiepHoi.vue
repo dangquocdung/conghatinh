@@ -96,7 +96,7 @@
                     page: 1,
                     column: 'ngaytraloi',
                     direction: 'desc',
-                    per_page: 5,
+                    per_page: 25,
                     search_column: 'ngaytraloi',
                     search_operator: 'like',
                     search_input: ''

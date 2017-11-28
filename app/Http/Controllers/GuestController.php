@@ -253,6 +253,11 @@ class GuestController extends Controller
         return view ('guest.ho-tro-phap-ly',compact('linhvuc'));
     }
 
+    public function getHoiDap()
+    {
+        return view ('guest.hoi-dap');
+    }
+
     public function getNguoiPhatNgon()
     {
 

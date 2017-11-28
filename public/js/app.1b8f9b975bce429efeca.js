@@ -107723,7 +107723,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
 //
 
 // Adding the X-CSRF-Token to all axios request
@@ -107753,11 +107752,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('confirm-modal', __WEBPACK
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('activity-graph', __WEBPACK_IMPORTED_MODULE_11__components_ActivityGraph_ActivityGraph__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('media-manager', __WEBPACK_IMPORTED_MODULE_12__components_MediaManager_MediaManager__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('bulma-modal', __WEBPACK_IMPORTED_MODULE_13__components_BulmaModal__["a" /* default */]);
-
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('file-field', __WEBPACK_IMPORTED_MODULE_14__components_FileField__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('import-users', __WEBPACK_IMPORTED_MODULE_15__components_UserImport_ImportUsers__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('edit-users', __WEBPACK_IMPORTED_MODULE_16__components_UserImport_EditUsers__["a" /* default */]);
-
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('file-manager', __WEBPACK_IMPORTED_MODULE_17__components_FileManager_FileManager__["a" /* default */]);
 //
 
