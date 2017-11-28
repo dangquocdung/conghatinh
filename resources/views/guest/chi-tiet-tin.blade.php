@@ -98,12 +98,18 @@
 							{!! $tin->noidung !!}
 						</div>
 
+
+
 						<div class="noi-dung">
 							@foreach($tin->teptintuc as $ttt)
-								<object data="{{ $ttt->path }}" type="application/pdf" width="100%" height="640px"></object>
+
+								<iframe src="{{ $ttt->path }}" width="100%" height="640p"> </iframe>
+								{{--<div id="example1"></div>--}}
+{{--								<object data="{{ $ttt->path }}" type="application/pdf" width="100%" height="640px"></object>--}}
 								{{--<embed src= "{{ $ttt->path }}" width="100%" height="640px">--}}
 							@endforeach
 						</div>
+
 
 
 						<div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
