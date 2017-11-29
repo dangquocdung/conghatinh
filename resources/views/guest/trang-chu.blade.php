@@ -10,6 +10,7 @@
 
 @section('content-main')
     @include('guest.home.tin-noi-bat')
+
     @include('guest.home.chi-dao-dieu-hanh')
     @include('guest.home.videos')
     @include('guest.home.tin-tuc-su-kien')

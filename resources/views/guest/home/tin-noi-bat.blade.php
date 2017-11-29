@@ -77,6 +77,21 @@
     @endif
 </div>
 
+<div class="block2">
+
+
+    @foreach ($banner as $bn)
+        @if ($bn->vitri == 6)
+            <div class="col-md-3 col-sm-3 col-xs-6 box">
+                <a href="{{$bn->lienket}}" target="_blank">
+                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">
+                </a>
+            </div>
+        @endif
+    @endforeach
+
+</div>
+
 
 <div class="block2">
 
