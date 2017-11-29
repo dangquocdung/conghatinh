@@ -84,7 +84,7 @@
         @if ($bn->vitri == 6)
             <div class="col-md-3 col-sm-3 col-xs-6 box">
                 <a href="{{$bn->lienket}}" target="_blank">
-                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">
+                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
                 </a>
             </div>
         @endif
