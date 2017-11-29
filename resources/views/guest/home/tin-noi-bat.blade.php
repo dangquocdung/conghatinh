@@ -78,8 +78,8 @@
 </div>
 
 
-
-<ul style="list-style: none">
+<div class="block2">
+<ul class="lien-ket-tw">
     @foreach ($banner->where('vitri',6) as $bn)
 
 
@@ -88,7 +88,7 @@
 
 
                 <a href="{{$bn->lienket}}" target="_blank">
-                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%" height="50px">
+                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">
                 </a>
             </div>
         </li>
@@ -96,6 +96,7 @@
 
     @endforeach
 </ul>
+</div>
 
 
 <div class="clearfix"></div>
