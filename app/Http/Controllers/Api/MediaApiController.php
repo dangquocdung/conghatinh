@@ -53,7 +53,7 @@ class MediaApiController extends Controller
 
 
         $file->move(public_path($folder),$mainFileName);
-        $request->file('file')->move(public_path($folder),$thumbFileName);
+//        $request->file('file')->move(public_path($folder),$thumbFileName);
 
 
         $media = $mediaUploader->fromSource(public_path($folder) . $mainFileName)
