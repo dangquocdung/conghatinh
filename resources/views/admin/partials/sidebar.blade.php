@@ -95,6 +95,27 @@
             <a href="{{ route('hoi-dap-truc-tuyen') }}"><i class="fa fa-circle-o"></i> Hỏi - Đáp trực tuyến</a>
           </li>
 
+          <li class="{{ Request::is('toa-soan/chuyen-trang/album-manager') ? 'active' : ''  }} treeview">
+            <a href="{{route('album-manager')}}"><i class="fa fa-file-photo-o"></i><span>Album hình ảnh</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/chuyen-trang/video-manager') ? 'active' : ''  }} treeview">
+            <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Video</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/chuyen-trang/lich-lam-viec') ? 'active' : ''  }} treeview">
+            <a href="{{route('lich-lam-viec')}}"><i class="fa fa-calendar"></i><span>Lịch làm việc</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/chuyen-trang/lien-he-cong-tac') ? 'active' : ''  }} treeview">
+            <a href="{{route('lien-he-cong-tac')}}"><i class="fa fa-calendar"></i><span>Liên hệ công tác</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y') ? 'active' : ''  }} treeview">
+            <a href="{{route('gop-y')}}"><i class="fa fa-calendar"></i><span>Góp ý</span></a>
+          </li>
+
+
 
         </ul>
       </li>
@@ -118,25 +139,6 @@
         </ul>
       </li>
 
-      <li class="{{ Request::is('toa-soan/album-manager') ? 'active' : ''  }} treeview">
-        <a href="{{route('album-manager')}}"><i class="fa fa-file-photo-o"></i><span>Album hình ảnh</span></a>
-      </li>
-
-      <li class="{{ Request::is('toa-soan/video-manager') ? 'active' : ''  }} treeview">
-        <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Video</span></a>
-      </li>
-
-      <li class="{{ Request::is('toa-soan/lich-lam-viec') ? 'active' : ''  }} treeview">
-        <a href="{{route('lich-lam-viec')}}"><i class="fa fa-calendar"></i><span>Lịch làm việc</span></a>
-      </li>
-
-      <li class="{{ Request::is('toa-soan/lien-he-cong-tac') ? 'active' : ''  }} treeview">
-        <a href="{{route('lien-he-cong-tac')}}"><i class="fa fa-calendar"></i><span>Liên hệ công tác</span></a>
-      </li>
-
-      <li class="{{ Request::is('toa-soan/gop-y') ? 'active' : ''  }} treeview">
-        <a href="{{route('gop-y')}}"><i class="fa fa-calendar"></i><span>Góp ý</span></a>
-      </li>
 
 
       @role('tbt')
@@ -155,6 +157,8 @@
           <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
             <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Đặt Banner</a>
           </li>
+
+
           
           <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
             <a href="{{route('so-ban-nganh')}}"><i class="fa fa-circle-o"></i> Sở, Ban, Ngành</a>
@@ -166,6 +170,9 @@
 
 
       @role('admin')
+        <li class="{{ Request::is('toa-soan/phim-tat') ? 'active' : ''  }}">
+          <a href="{{route('phim-tat.index')}}"><i class="fa fa-link"></i> Phím tắt</a>
+        </li>
         <li class="{{ Request::is('toa-soan/config/user/*') ? 'active' : ''  }} treeview">
           <a href="javascript:void(0)">
             <i class="fa fa-user"></i> <span>Users and Roles</span>
@@ -227,6 +234,7 @@
           @endrole
         </ul>
       </li>
+
     </ul>
   </section>
   <!-- /.sidebar -->

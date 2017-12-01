@@ -91,21 +91,6 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
     Route::get('media-manager', 'MediaController@index')->name('media-manager');
     Route::get('file-manager', 'FileController@index')->name('file-manager');
-    Route::get('video-manager', 'VideoController@index')->name('video-manager');
-    Route::post('save-video', 'VideoController@store')->name('save-video');
-    Route::get('album-manager/{slug?}', 'AlbumController@index')->name('album-manager');
-    Route::post('save-album', 'AlbumController@store')->name('save-album');
-    Route::post('update-album', 'AlbumController@update')->name('update-album');
-    Route::post('update-album-cover', 'AlbumController@updateCover')->name('update-album-cover');
-    Route::post('delete-album', 'AlbumController@destroy')->name('delete-album');
-    Route::post('add-image-to-album','ImageController@store')->name('add-image-to-album');
-    Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
-    Route::get('lich-lam-viec', 'EventController@index')->name('lich-lam-viec');
-    Route::post('save-lich-lam-viec', 'EventController@store')->name('save-lich-lam-viec');
-    Route::post('update-lich-lam-viec', 'EventController@update')->name('update-lich-lam-viec');
-    Route::post('delete-lich-lam-viec', 'EventController@destroy')->name('delete-lich-lam-viec');
-    Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
-    Route::get('gop-y', 'GopYController@index')->name('gop-y');
     Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
     Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');
     Route::post('them-tin-tuc-su-kien','TinTucController@store')->name('them-tin-tuc');
@@ -145,6 +130,22 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('duyet-ho-tro-phap-ly', 'HoTroPhapLyController@postDuyet')->name('duyet-ho-tro-phap-ly');
         Route::post('update-ho-tro-phap-ly', 'HoTroPhapLyController@update')->name('update-ho-tro-phap-ly');
         Route::post('delete-ho-tro-phap-ly', 'HoTroPhapLyController@destroy')->name('delete-ho-tro-phap-ly');
+
+        Route::get('video-manager', 'VideoController@index')->name('video-manager');
+        Route::post('save-video', 'VideoController@store')->name('save-video');
+        Route::get('album-manager/{slug?}', 'AlbumController@index')->name('album-manager');
+        Route::post('save-album', 'AlbumController@store')->name('save-album');
+        Route::post('update-album', 'AlbumController@update')->name('update-album');
+        Route::post('update-album-cover', 'AlbumController@updateCover')->name('update-album-cover');
+        Route::post('delete-album', 'AlbumController@destroy')->name('delete-album');
+        Route::post('add-image-to-album','ImageController@store')->name('add-image-to-album');
+        Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
+        Route::get('lich-lam-viec', 'EventController@index')->name('lich-lam-viec');
+        Route::post('save-lich-lam-viec', 'EventController@store')->name('save-lich-lam-viec');
+        Route::post('update-lich-lam-viec', 'EventController@update')->name('update-lich-lam-viec');
+        Route::post('delete-lich-lam-viec', 'EventController@destroy')->name('delete-lich-lam-viec');
+        Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
+        Route::get('gop-y', 'GopYController@index')->name('gop-y');
 
 
 
@@ -212,7 +213,13 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('cau-hinh/lien-ket/banner-trang-chu/{id}', 'BannerController@edit')->name('edit-banner-trang-chu');
         Route::post('cau-hinh/lien-ket/banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
 
-        
+        Route::resource('phim-tat', 'PhimTatController');
+//        Route::post('cau-hinh/lien-ket/banner-trang-chu', 'BannerController@store')->name('save-banner-trang-chu');
+//        Route::get('cau-hinh/lien-ket/banner-trang-chu/{id}', 'BannerController@edit')->name('edit-banner-trang-chu');
+//        Route::post('cau-hinh/lien-ket/banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
+
+
+
     });
 });
 

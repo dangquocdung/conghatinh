@@ -29,7 +29,7 @@
 
 @section('content-right')
 
-    @include('guest.menu-right.trang-chu')
+    @include('guest.menu-right.thong-bao')
 
 @stop
 

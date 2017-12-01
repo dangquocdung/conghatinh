@@ -411,6 +411,67 @@ td{
 
 
 
+.right_1{
+
+  .right-item{
+
+    clear: both;
+
+    //padding: 10px;
+    //background: #f2faff;
+
+
+
+      a.icon {
+        background: #f2faff;
+        display: block;
+        padding: 20px 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 2px solid #ffffff;
+
+        display: flex;
+        align-items: center;
+
+        text-decoration: none;
+
+
+
+        i{
+          margin-right: 10px;
+        }
+
+        .nav-text{
+          vertical-align: middle;
+
+        }
+
+        &:hover{
+
+          background: darken(#f2faff,15%);
+
+        }
+      }
+
+
+
+
+
+
+
+    &:hover{
+      background: #00a157;
+    }
+
+
+
+  }
+
+
+}
+
+
+
 
 
 

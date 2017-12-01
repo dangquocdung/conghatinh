@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\NhomCQ;
+use App\PhimTat;
 use Illuminate\Http\Request;
 use App\TinTuc;
 use App\LoaiTin;
@@ -33,10 +34,12 @@ class GuestController extends Controller
         $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
         $nhomcq = NhomCQ::orderby('id')->get();
         $banner = Banner::orderby('thutu','asc')->get();
+        $phimtat = PhimTat::orderby('thutu','asc')->get();
 
         view()->share('chuyenmuc',$chuyenmuc);
         view()->share('nhomcq',$nhomcq);
         view()->share('banner',$banner);
+        view()->share('phimtat',$phimtat);
     }
 
     public function index()
