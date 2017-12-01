@@ -50,8 +50,7 @@ class MediaApiController extends Controller
         $thumbFileName = $uniqid . '_thumb.' . $file->getClientOriginalExtension();
 
 
-        $thumbImage = Image::make($request->file('file'))
-            ->save(public_path($folder) . $thumbFileName);
+       
 
         $request->file('file')->move(public_path($folder),$mainFileName);
 
