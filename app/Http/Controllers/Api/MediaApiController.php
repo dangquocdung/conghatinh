@@ -49,12 +49,6 @@ class MediaApiController extends Controller
         $mainFileName = $uniqid . '.' . $file->getClientOriginalExtension();
         $thumbFileName = $uniqid . '_thumb.' . $file->getClientOriginalExtension();
 
-        $request->file('file')->move(public_path($folder),$mainFileName);
-
-
-        $media = $mediaUploader->fromSource(public_path($folder) . $mainFileName)
-            ->toDirectory($folder)
-            ->upload();
 
         $thumbImage = Image::make($request->file('file'))
             ->resize(400, null, function ($constraint) {
@@ -62,6 +56,15 @@ class MediaApiController extends Controller
                 $constraint->upsize();
             })
             ->save(public_path($folder) . $thumbFileName);
+
+        $request->file('file')->move(public_path($folder),$mainFileName);
+
+
+        $media = $mediaUploader->fromSource(public_path($folder) . $mainFileName)
+            ->toDirectory($folder)
+            ->upload();
+
+
 
         return response()->json(['data' => $media], 201);
 
