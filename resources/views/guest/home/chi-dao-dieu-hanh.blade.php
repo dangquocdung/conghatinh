@@ -19,7 +19,7 @@
 
         @php
 
-            $tins = $lt->tintuc->sortByDesc('id')->take(4);
+            $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(4);
 
         @endphp
 

@@ -22,7 +22,7 @@
 
         @php
 
-          $tins = $lt->tintuc->take(5);
+          $tins = $lt->tintuc->where('daduyet','1')->take(5);
 
           $tin1= $tins->shift();
 
