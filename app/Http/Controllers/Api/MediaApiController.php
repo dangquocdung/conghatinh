@@ -34,14 +34,14 @@ class MediaApiController extends Controller
      */
     public function uploadMediaImage(Request $request, MediaUploader $mediaUploader)
     {
-        $validator = Validator::make($request->all(), [
-            'file' => 'file|image'
-        ]);
-
-        // if there are validation errors, show that
-        if ($validator->fails()) {
-            return response(['message' => $validator->errors()], 433);
-        }
+//        $validator = Validator::make($request->all(), [
+//            'file' => 'file|image'
+//        ]);
+//
+//        // if there are validation errors, show that
+//        if ($validator->fails()) {
+//            return response(['message' => $validator->errors()], 433);
+//        }
 
         $file = $request->file('file');
         $folder = 'uploads/hinh-anh/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
@@ -55,26 +55,26 @@ class MediaApiController extends Controller
             mkdir(public_path($folder), 0755, true);
         }
 
-        $mainImage = Image::make($request->file('file'))
-            ->resize(1080, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })
-            ->save(public_path($folder) . $mainFileName);
-
-        // making the media entry
-        $media = $mediaUploader->fromSource(public_path($folder) . $mainFileName)
-            ->toDirectory($folder)
-            ->upload();
-
-        $thumbImage = Image::make($request->file('file'))
-            ->resize(400, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })
-            ->save(public_path($folder) . $thumbFileName);
-
-        return response()->json(['data' => $media], 201);
+//        $mainImage = Image::make($request->file('file'))
+//            ->resize(1080, null, function ($constraint) {
+//                $constraint->aspectRatio();
+//                $constraint->upsize();
+//            })
+//            ->save(public_path($folder) . $mainFileName);
+//
+//        // making the media entry
+//        $media = $mediaUploader->fromSource(public_path($folder) . $mainFileName)
+//            ->toDirectory($folder)
+//            ->upload();
+//
+//        $thumbImage = Image::make($request->file('file'))
+//            ->resize(400, null, function ($constraint) {
+//                $constraint->aspectRatio();
+//                $constraint->upsize();
+//            })
+//            ->save(public_path($folder) . $thumbFileName);
+//
+//        return response()->json(['data' => $media], 201);
     }
 
     public function imageMetaData(Request $request)
