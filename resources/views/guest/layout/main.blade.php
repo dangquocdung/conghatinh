@@ -54,20 +54,24 @@
   @yield('script')
 
 <script>
-  $(document).ready(function () {
 
-      $('.main-page').css('min-height',$('#sidebar').outerHeight());
+    $(document).click(function(e) {
+        var target = e.target;
+        if (!$(target).is('#sidebar') && !$(target).parents().is('#sidebar')) {
+            $('.row-offcanvas').removeClass('active')
+        }
+    });
 
-//      console.log($('#sidebar').outerHeight());
 
-  })
+    $(document).ready(function () {
 
-  $(document).click(function(e) {
-      var target = e.target;
-      if (!$(target).is('#sidebar') && !$(target).parents().is('#sidebar')) {
-          $('.row-offcanvas').removeClass('active')
-      }
-  });
+        $('.main-page').css('min-height',$('#sidebar').outerHeight());
+
+  //      console.log($('#sidebar').outerHeight());
+  
+    });
+
+
 </script>
 
 </body>
