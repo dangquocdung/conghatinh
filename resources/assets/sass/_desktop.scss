@@ -470,6 +470,58 @@ td{
 
 }
 
+.box_item1 {
+
+  a{
+    text-shadow: none;
+    transition: 0.3s;
+
+    .item {
+      //height: 70px;
+      position: relative;
+      float: left;
+      width: 25%;
+      margin: 0;
+      text-align: center;
+      overflow: hidden;
+      border: 1px solid #fff;
+
+      .item_inner {
+        z-index: 5;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+      }
+    }
+  }
+
+}
+
+/*css update*/
+.item{background-size:cover;position:relative;padding:0}
+.item:hover:before{transition:transform 0.5s;}
+.item:hover:before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;width:100%;height:100%;z-index:3;background:rgba(255, 255, 255, 0.22)}
+
+.item_inner{z-index:5;position: relative;text-align: center;width: 100%;height: 100%;padding: 10px;}
+.item_inner:before,.item_inner:after{position:absolute;top:10px;left:10px;right:10px;bottom:10px;opacity:0;z-index:4;content:"";transition:transform 0.5s}
+.item_inner:before{border-top:1px solid #fff;border-bottom:1px solid #fff;transform:scale(0,1);}
+.item_inner:after{border-right:1px solid #fff;border-left:1px solid #fff;transform:scale(1,0)}
+.item:hover .item_inner:before,.item:hover .item_inner:after{transform:scale(1);opacity:1;}
+.item a{position:relative;z-index:6;display:block;font-weight:bold}
+.box_img a{position:relative;display:block;font-size:24px;font-weight:bold;text-transform:uppercase;color:#e11717;text-align:center;margin:0 0 5px;overflow:hidden}
+.box_img img{width:100%;transition:0.4s;transform:scale(1.0,1.0)}
+.box_img a:hover img{transform:scale(1.1,1.1)}
+.box_img a span{position:absolute;height:100%;width:100%;left:0;top: 0;text-shadow:2px 2px #fff;transition:0.4s}
+.box_img a:before{ transform: translate(265px, 145px) rotate(45deg); background-color: rgba(115,146,184, 0.7);  opacity: 0;
+  width:100%;height:100%; transition: all 0.2s ease-in-out;content:""
+}
+.box_img a:hover:before{opacity:1;transform:translate(-80px, -125px) rotate(45deg)}
+.box_img a:hover span{color:#FFFFFF;text-shadow:2px 2px rgba(255, 255, 255, 0.77);text-shadow:2px 2px #A95707}
+
+
+
 
 
 
