@@ -2,7 +2,7 @@
 
 <div id="top_nav" class="ddsmoothmenu">
     <ul>
-        <li class="" style="width: 19%">
+        <li class="" style="width: 18%">
             <a href="/">
                 <span>Trang chủ</span>
             </a>
@@ -12,12 +12,12 @@
                 <span>Doanh nghiệp</span>
             </a>
         </li>
-        <li class="" style="width: 19%">
+        <li class="" style="width: 18%">
             <a href="/chuyen-muc/gioi-thieu">
                 <span>Du khách</span>
             </a>
         </li>
-        <li class="" style="width: 19%">
+        <li class="" style="width: 18%">
             <a href="/lien-he-cong-tac">
                 <span>Liên hệ</span>
             </a>
@@ -27,7 +27,7 @@
                 <span>Sơ đồ cổng</span>
             </a>
         </li>
-        <li class="last" style="width:5%">
+        <li class="last" style="width:8%">
             <a data-toggle="offcanvas">
                 <i class="fa fa-level-down" aria-hidden="true"></i>
             </a>
