@@ -50,9 +50,10 @@ class MediaApiController extends Controller
         $thumbFileName = $uniqid . '_thumb.' . $file->getClientOriginalExtension();
 
 
-       
+
 
         $request->file('file')->move(public_path($folder),$mainFileName);
+        $request->file('file')->move(public_path($folder),$thumbFileName);
 
 
         $media = $mediaUploader->fromSource(public_path($folder) . $mainFileName)
