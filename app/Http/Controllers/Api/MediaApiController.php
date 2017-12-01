@@ -47,7 +47,7 @@ class MediaApiController extends Controller
         $folder = 'uploads/hinh-anh/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
         $uniqid = uniqid();
         $mainFileName = $uniqid . '.' . $file->getClientOriginalExtension();
-        $thumbFileName = $uniqid . '_thumb.' . $file->getClientOriginalExtension();
+        $thumbFileName = $uniqid . 'thumb.' . $file->getClientOriginalExtension();
 
 
 
