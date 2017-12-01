@@ -178,7 +178,7 @@ class GuestController extends Controller
 
     public function tinTuc($slug)
     {
-        $tin = TinTuc::where('slug',$slug)->first();
+        $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
 
         $ngay = $tin->ngaydang;
 
