@@ -1,41 +1,32 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Access Denied</title>
-  <link rel="stylesheet" href="{{ url('admin/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
-  <link rel="stylesheet" href="{{ mix('/guest/css/guest.css') }}">
-  <style>
-    h1 {
-      font-size: 5em;
-      color: #dd4b39;
-    }
-    p {
-      font-size: 2em;
-    }
-    .error-wrapper {
-      text-align: left;
-      width: 50%;
-      margin: 0px auto;
-      margin-top: 5em;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="error-wrapper">
-          <h1>Access Denied</h1>
-          @if($exception->getMessage())
-            <p>{{$exception->getMessage()}}</p>
-          @else
-            <p>You tried to do some action which you are not allowed.</p>
-          @endif
-        </div>
-      </div>
-    </div>
+@extends('guest.layout.main')
+@section('title')
+  <title>Không tìm thấy trang</title>
+@endsection
+
+@section('content-main')
+
+
+
+
+  <img src="https://blog.socioboard.com/wp-content/uploads/2016/02/design-error-message-240.png" alt="" width="100%" style="padding-top: 15px;">
+
+
+
+  <div class="tien-ich">
+    <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
   </div>
-</body>
-</html>
+
+
+
+
+
+@stop
+
+@section('content-right')
+
+  @include('guest.menu-right.error')
+
+@stop
+
+
+

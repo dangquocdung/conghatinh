@@ -23,6 +23,7 @@ use App\DuThao;
 use Calendar;
 
 
+
 class GuestController extends Controller
 {
 
@@ -180,13 +181,26 @@ class GuestController extends Controller
     {
         $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
 
-        $ngay = $tin->ngaydang;
+        if (empty($tin)){
 
-        $tinlq_new = TinTuc::orderBy('ngaydang','desc')->take(10)->get();
+            abort(404, 'Khong tim thay trang.');
 
-        $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
-        return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
+        }
+
+        else
+
+            {
+            $ngay = $tin->ngaydang;
+
+            $tinlq_new = TinTuc::orderBy('ngaydang','desc')->take(10)->get();
+
+            $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
+
+            return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
+
+        }
+
     }
 
     public function tepTin($slug)
