@@ -56,6 +56,13 @@ class MediaApiController extends Controller
             ->toDirectory($folder)
             ->upload();
 
+        $thumbImage = Image::make($request->file('file'))
+            ->resize(400, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })
+            ->save(public_path($folder) . $thumbFileName);
+
         return response()->json(['data' => $media], 201);
 
         // checking if the folder exist
