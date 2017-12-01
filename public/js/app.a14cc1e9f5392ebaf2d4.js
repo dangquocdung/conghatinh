@@ -58112,7 +58112,11 @@ var render = function() {
                 _c("img", {
                   attrs: {
                     src:
-                      image.directory + "/" + image.filename + image.extension,
+                      image.directory +
+                      "/" +
+                      image.filename +
+                      "." +
+                      image.extension,
                     alt: image.directory,
                     title: image.meta_data !== null ? image.meta_data.alt : ""
                   },
