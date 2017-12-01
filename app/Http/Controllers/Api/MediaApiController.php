@@ -51,10 +51,7 @@ class MediaApiController extends Controller
 
 
         $thumbImage = Image::make($request->file('file'))
-            ->resize(400, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })
+            ->resize(400, 300)
             ->save(public_path($folder) . $thumbFileName);
 
         $request->file('file')->move(public_path($folder),$mainFileName);
