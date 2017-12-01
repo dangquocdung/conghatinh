@@ -55,20 +55,12 @@
 
 <script>
 
-    $(document).click(function(e) {
-        var target = e.target;
-        if (!$(target).is('#sidebar') && !$(target).parents().is('#sidebar')) {
-            $('.row-offcanvas').removeClass('active')
-        }
-    });
-
-
     $(document).ready(function () {
 
         $('.main-page').css('min-height',$('#sidebar').outerHeight());
 
   //      console.log($('#sidebar').outerHeight());
-  
+
     });
 
 
