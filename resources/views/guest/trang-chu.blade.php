@@ -36,9 +36,5 @@
 @section('js')
 
     <script src="/guest/js/moment.min.js"></script>
-    <script src="/guest/js/fullcalendar.min.js"></script>
-    <script src="/guest/js/vi.js"></script>
-
-    {!! $calendar->script() !!}
 
 @endsection

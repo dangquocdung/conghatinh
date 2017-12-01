@@ -24,20 +24,7 @@
 
         </div>
 
-        <div class="lich" style="padding: 60px 15px">
 
-            <style>
-                .fc-day-grid-event .fc-content {
-
-                    white-space: normal !important;
-
-
-                }
-            </style>
-
-            {!! $calendar->calendar() !!}
-
-        </div>
 
 
 
@@ -48,12 +35,6 @@
     @include('guest.menu-right.chuyen-trang')
 @stop
 
-@section('script')
-    <script src="/guest/js/moment.min.js"></script>
-    <script src="/guest/js/fullcalendar.min.js"></script>
-    <script src="/guest/js/vi.js"></script>
-    {!! $calendar->script() !!}
-@endsection
 
 
 

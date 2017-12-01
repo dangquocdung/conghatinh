@@ -6,11 +6,11 @@
 
 @section('breadcrumb')
   <section class="content-header">
-    <h1>Quản lý Tin Tức<small>Các tin tức - sự kiện hiện có trên ứng dụng</small></h1>
+    <h1>Quản lý Văn bản</h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li><a href="{{route('tin-tuc-su-kien')}}">Tin tức</a></li>
+      <li><a href="{{route('tin-tuc-su-kien')}}">Văn bản</a></li>
       <li class="active">Tạo mới</li>
     </ol>
   </section>
@@ -239,7 +239,7 @@
 
 
 
-    <div class="col-md-12 clear-fix">
+    <div class="col-md-12 clearfix">
       {{--Box--}}
       <div class="box box-primary">
 

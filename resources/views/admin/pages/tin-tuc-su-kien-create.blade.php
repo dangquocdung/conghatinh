@@ -18,7 +18,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-sm-9">
+      <div class="col-md-9">
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
@@ -143,8 +143,22 @@
       </div>
       
       {{--End box--}}
+
+          {{--Box--}}
+          <div class="box box-primary">
+
+              <!-- /.box-header -->
+              <div class="box-body">
+                  <file-manager></file-manager>
+
+
+              </div>
+              <!-- /.box-body -->
+          </div>
+          {{--End box--}}
     </div>
-    <div class="col-sm-3">
+
+      <div class="col-md-3">
       {{--Box--}}
       <div class="box box-primary" id="thu-vien-hinh-anh">
         <div class="box-header with-border">
@@ -160,9 +174,9 @@
       </div>
       {{--End box--}}
 
+
+
     </div>
-
-
 
   </div>
 
