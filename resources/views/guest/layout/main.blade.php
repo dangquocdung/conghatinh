@@ -61,6 +61,13 @@
 //      console.log($('#sidebar').outerHeight());
 
   })
+
+  $(document).click(function(e) {
+      var target = e.target;
+      if (!$(target).is('#sidebar') && !$(target).parents().is('#sidebar')) {
+          $('.row-offcanvas').removeClass('active')
+      }
+  });
 </script>
 
 </body>
