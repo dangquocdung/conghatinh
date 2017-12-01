@@ -52,7 +52,7 @@ class MediaApiController extends Controller
 
 
 
-        $request->file('file')->move(public_path($folder),$mainFileName);
+        $file->move(public_path($folder),$mainFileName);
         $request->file('file')->move(public_path($folder),$thumbFileName);
 
 
