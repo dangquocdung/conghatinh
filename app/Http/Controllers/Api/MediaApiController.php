@@ -34,14 +34,14 @@ class MediaApiController extends Controller
      */
     public function uploadMediaImage(Request $request, MediaUploader $mediaUploader)
     {
-//        $validator = Validator::make($request->all(), [
-//            'file' => 'file|image'
-//        ]);
-//
-//        // if there are validation errors, show that
-//        if ($validator->fails()) {
-//            return response(['message' => $validator->errors()], 433);
-//        }
+        $validator = Validator::make($request->all(), [
+            'file' => 'file|image'
+        ]);
+
+        // if there are validation errors, show that
+        if ($validator->fails()) {
+            return response(['message' => $validator->errors()], 433);
+        }
 
         $file = $request->file('file');
         $folder = 'uploads/hinh-anh/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
@@ -52,7 +52,7 @@ class MediaApiController extends Controller
         // checking if the folder exist
         // if not, create the folder
         if (!file_exists(public_path($folder))) {
-            mkdir(public_path($folder), 0755, true);
+            mkdir(public_path($folder), 0777, true);
         }
 
         $mainImage = Image::make($request->file('file'))
