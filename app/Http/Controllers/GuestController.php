@@ -153,9 +153,9 @@ class GuestController extends Controller
             {
             $ngay = $tin->ngaydang;
 
-            $tinlq_new = TinTuc::orderBy('ngaydang','desc')->take(10)->get();
+            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
 
-            $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
+            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
             return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
 
@@ -169,9 +169,9 @@ class GuestController extends Controller
 
         $ngay = $tin->ngaydang;
 
-        $tinlq_new = TinTuc::orderBy('ngaydang','desc')->take(10)->get();
+        $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
 
-        $tinlq_old = TinTuc::where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
+        $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
         return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
     }
