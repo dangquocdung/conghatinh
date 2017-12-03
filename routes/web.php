@@ -120,6 +120,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     Route::resource('lich-cong-tac','LichCongTacController');
     Route::resource('lich-cong-tac','LichCongTacController');
+    Route::get('/json-tepdinhkem','LichCongTacController@jsonTepDinhKem');
 
     //Van ban
     Route::group(['prefix'=>'chuyen-trang'],function (){

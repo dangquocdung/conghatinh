@@ -50,6 +50,13 @@ class LichCongTacController extends Controller
         return view('admin.pages.lich-cong-tac-create',compact('pdfs'));
     }
 
+    public function jsonTepDinhKem(){
+
+        $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
+        return response()->json($pdfs);
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -60,9 +67,9 @@ class LichCongTacController extends Controller
     {
         $create = LichCongTac::create($request->all());
 
-        flash('Cảm ơn bạn đã đóng góp ý kiến');
+        flash('Tạo lịch công tác thành công!');
 
-        return redirect()->back();
+        return redirect()->route('lich-cong-tac.index');
     }
 
     /**
@@ -108,8 +115,10 @@ class LichCongTacController extends Controller
      * @param  \App\LichCongTac  $lichCongTac
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LichCongTac $lichCongTac)
+    public function destroy($id)
     {
-        //
+        LichCongTac::destroy($id);
+        flash('Xóa thành công!');
+        return redirect()->back();
     }
 }

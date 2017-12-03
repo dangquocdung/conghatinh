@@ -55,6 +55,25 @@
                 <td>{{ \Carbon\Carbon::parse($lct->created_date)->format('d-m-Y H:i:s') }}</td>
                 <td>
 
+                  <div class="pull-left">
+                    <a href="{{route('lich-cong-tac.edit', $lct->id)}}" class="btn btn-primary btn-xs">
+                      <i class="fa fa-edit"></i> Sửa
+                    </a>
+                  </div>
+                  <div class="pull-left gap-left gap-10">
+                    {!! Form::open(['method' => 'DELETE','route' => ['lich-cong-tac.destroy', $lct->id],'style'=>'display:inline']) !!}
+                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                    {!! Form::close() !!}
+                    {{--<confirm-modal--}}
+                            {{--btn-text='<i class="fa fa-trash"></i> Delete'--}}
+                            {{--btn-class="btn-danger"--}}
+                            {{--url="{{ route('lich-cong-tac.destroy', $lct->id)  }}"--}}
+                            {{--:post-data="{{json_encode(['id' => $lct->id])}}"--}}
+                            {{--:refresh="true"--}}
+                            {{--message="Bạn chắc chắn muốn xoá?">--}}
+                    {{--</confirm-modal>--}}
+                  </div>
+
                 </td>
               </tr>
             @endforeach
