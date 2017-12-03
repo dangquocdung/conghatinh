@@ -532,9 +532,11 @@ td{
     list-style: none;
     padding: 0;
     li{
-      padding: 5px;
+      padding: 0;
 
-      overflow: hidden;
+
+
+
 
       a{
 
@@ -544,9 +546,13 @@ td{
           transform: scale(1);
           -webkit-transition: .3s ease-in-out;
           transition: .3s ease-in-out;
+
+
+
           &:hover{
             -webkit-transform: scale(1.3);
             transform: scale(1.3);
+            overflow: hidden;
           }
         }
       }
