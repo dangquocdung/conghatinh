@@ -534,28 +534,41 @@ td{
     li{
       padding: 0;
 
+      .block2{
+
+        overflow: hidden;
+
+        @media screen and (max-width: 767px){
+
+          margin-right: 0 !important;
+          margin-left: 0 !important;
+        }
+
+        a{
+
+
+          img{
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
 
 
 
-
-      a{
-
-
-        img{
-          -webkit-transform: scale(1);
-          transform: scale(1);
-          -webkit-transition: .3s ease-in-out;
-          transition: .3s ease-in-out;
-
-
-
-          &:hover{
-            -webkit-transform: scale(1.3);
-            transform: scale(1.3);
-            overflow: hidden;
+            &:hover{
+              -webkit-transform: scale(1.3);
+              transform: scale(1.3);
+              overflow: hidden;
+            }
           }
         }
       }
+
+
+
+
+
+
     }
 
 

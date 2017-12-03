@@ -82,28 +82,28 @@
 
     <ul>
         <li class="col-md-3 col-xs-6">
-            <div class="block2" style="overflow: hidden">
+            <div class="block2">
                 <a href="http://csdl.thutuchanhchinh.vn/Pages/trang-chu.aspx" target="_blank">
                     <img src="/images/cchc.png" alt="" width="100%">
                 </a>
             </div>
         </li>
         <li class="col-md-3 col-xs-6">
-            <div class="block2" style="overflow: hidden">
+            <div class="block2">
                 <a href="http://dichvucong.hatinh.gov.vn/_forms/td-login.aspx" target="_blank">
                     <img src="/images/dkhsqm.png" alt="" width="100%">
                 </a>
             </div>
         </li>
         <li class="col-md-3 col-xs-6">
-            <div class="block2" style="overflow: hidden">
+            <div class="block2">
                 <a href="http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/tra-cuu.aspx" target="_blank">
                     <img src="/images/tckqhs.png" alt="" width="100%">
                 </a>
             </div>
         </li>
         <li class="col-md-3 col-xs-6">
-            <div class="block2" style="overflow: hidden">
+            <div class="block2">
                 <a href="/loai-tin/lich-cong-tac" target="_blank">
                     <img src="/images/llvUBND.png" alt="" width="100%">
                 </a>
