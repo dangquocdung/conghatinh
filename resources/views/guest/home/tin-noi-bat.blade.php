@@ -78,62 +78,33 @@
 </div>
 
 
-{{--<div class="block2">--}}
-{{--<ul class="lien-ket-tw">--}}
-    {{--@foreach ($banner->where('vitri',6) as $bn)--}}
+<div class="block2" id="hot-item" style="background-color:#ffffff">
 
+    <ul>
+        <li class="col-md-3 col-xs-6">
+            <a href="http://csdl.thutuchanhchinh.vn/Pages/trang-chu.aspx" target="_blank">
+                <img src="/images/cchc.png" alt="" width="100%">
+            </a>
 
-        {{--<li class="col-md-3 col-sm-3 col-xs-6">--}}
-            {{--<div class="row">--}}
+        </li>
+        <li class="col-md-3 col-xs-6">
+            <a href="http://dichvucong.hatinh.gov.vn/_forms/td-login.aspx" target="_blank">
+                <img src="/images/dkhsqm.png" alt="" width="100%">
+            </a>
+        </li>
+        <li class="col-md-3 col-xs-6">
+            <a href="http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/tra-cuu.aspx" target="_blank">
+                <img src="/images/tckqhs.png" alt="" width="100%">
+            </a>
+        </li>
+        <li class="col-md-3 col-xs-6">
+            <a href="/loai-tin/lich-cong-tac" target="_blank">
+                <img src="/images/llvUBND.png" alt="" width="100%">
+            </a>
+        </li>
+    </ul>
 
-
-                {{--<a href="{{$bn->lienket}}" target="_blank">--}}
-                    {{--<img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}">--}}
-                {{--</a>--}}
-            {{--</div>--}}
-        {{--</li>--}}
-
-
-    {{--@endforeach--}}
-{{--</ul>--}}
-{{--</div>--}}
-
-
-
-    <div class="box_item1">
-        <a href="http://csdl.thutuchanhchinh.vn/Pages/trang-chu.aspx" title="" target="_blank">
-            <div class="item" style="background:url('https://www.dongnai.gov.vn/Hinh anh noi bat/cchc.png') center center no-repeat; background-size: 100%">
-                <div class="item_inner">
-                    <img border="0" src="">
-                    <h3 class="title_item"></h3>
-                </div>
-            </div>
-        </a>
-        <a href="http://dichvucong.hatinh.gov.vn/_forms/td-login.aspx" title="" target="_blank">
-            <div class="item" style="background:url('https://www.dongnai.gov.vn/Hinh anh noi bat/dkhsqm.png') center center no-repeat; background-size: 100%">
-                <div class="item_inner">
-                    <img border="0" src="">
-                    <h3 class="title_item"></h3>
-                </div>
-            </div>
-        </a>
-        <a href="http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/tra-cuu.aspx" title="" target="_blank">
-            <div class="item" style="background:url('https://www.dongnai.gov.vn/Hinh anh noi bat/tckqhs.png') center center no-repeat; background-size: 100%">
-                <div class="item_inner">
-                    <img border="0" src="">
-                    <h3 class="title_item"></h3>
-                </div>
-            </div>
-        </a>
-        <a href="/loai-tin/lich-cong-tac" title="">
-            <div class="item" style="background:url('https://www.dongnai.gov.vn/Hinh anh noi bat/llvUBND.png') center center no-repeat; background-size: 100%">
-                <div class="item_inner">
-                    <img border="0" src="">
-                    <h3 class="title_item"></h3>
-                </div>
-            </div>
-        </a>
-    </div>
+</div>
 
 
 
