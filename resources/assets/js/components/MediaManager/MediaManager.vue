@@ -103,28 +103,34 @@
 
 <style lang="scss">
   .galleryWrapper {
-    li {
-      list-style: none;
-      float: left;
-      padding: 8px;
-      margin: 0;
-      .thumbnail {
-        position: relative;
-        width: 70px !important;
-          height: 60px !important;
-        overflow: hidden;
-        img {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          height: 100%;
-          width: auto;
-          -webkit-transform: translate(-50%,-50%);
-          -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
-        }
+      ul{
+          padding:0;
+          margin: 0;
+
+          li {
+              list-style: none;
+              float: left;
+              padding: 8px;
+              margin: 0;
+              .thumbnail {
+                  position: relative;
+                  width: 70px !important;
+                  height: 60px !important;
+                  overflow: hidden;
+                  img {
+                      position: absolute;
+                      left: 50%;
+                      top: 50%;
+                      height: 100%;
+                      width: auto;
+                      -webkit-transform: translate(-50%,-50%);
+                      -ms-transform: translate(-50%,-50%);
+                      transform: translate(-50%,-50%);
+                  }
+              }
+          }
       }
-    }
+
   }
   .media-manager-details {
     .modal-content {

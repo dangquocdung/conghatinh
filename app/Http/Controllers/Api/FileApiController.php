@@ -13,7 +13,7 @@ class FileApiController extends Controller
 {
     public function index()
     {
-        $files = Media::where('aggregate_type','pdf')->orderBy('created_at', 'desc')->take(20)->get();
+        $files = Media::whereIn('aggregate_type', ['pdf','document','spreadsheet'])->orderBy('created_at', 'desc')->take(20)->get();
 
         return response()->json(['data' => $files], 200);
     }

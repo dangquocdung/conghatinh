@@ -21,19 +21,28 @@
   <link rel="stylesheet" href="{{ url('admin/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/ionicons.min.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/jquery.fancybox.min.css') }}">
+  <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+
   <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="{{ url('admin/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ url('admin/css/MonthPicker.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/default.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
   <link rel="stylesheet" href="{{ mix('admin/css/admin.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/_all-skins.min.css') }}">
 
+
+
   @yield('css')
 
-  <script type="text/javascript" src="{{url('admin/js/jquery-2.2.3.min.js')}}"></script>
+  <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script type="text/javascript" src="{{url('admin/js/bootstrap.min.js')}}"></script>
-  <script type="text/javascript" src="admin/js/jquery.fancybox.min.js"></script>
+  <script type="text/javascript" src="{{ url('admin/js/jquery.fancybox.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url('admin/js/select2.full.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url('admin/js/moment.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url('admin/js/MonthPicker.js') }}"></script>
 
 
 

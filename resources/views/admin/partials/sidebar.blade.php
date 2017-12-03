@@ -103,8 +103,8 @@
             <a href="{{route('video-manager')}}"><i class="fa fa-file-video-o"></i><span>Video</span></a>
           </li>
 
-          <li class="{{ Request::is('toa-soan/chuyen-trang/lich-lam-viec') ? 'active' : ''  }} treeview">
-            <a href="{{route('lich-lam-viec')}}"><i class="fa fa-calendar"></i><span>Lịch làm việc</span></a>
+          <li class="{{ Request::is('toa-soan/chuyen-trang/lich-cong-tac') ? 'active' : ''  }} treeview">
+            <a href="{{route('lich-cong-tac.index')}}"><i class="fa fa-calendar"></i><span>Lịch công tác</span></a>
           </li>
 
           <li class="{{ Request::is('toa-soan/chuyen-trang/lien-he-cong-tac') ? 'active' : ''  }} treeview">

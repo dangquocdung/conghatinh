@@ -18891,7 +18891,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")();
-exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 30px;\n    height: 58px;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.file-manager-details .modal-content {\n  height: 100% !important;\n  padding: 0 !important;\n}\n.file-manager-details .modal-content object {\n    width: 100%;\n    height: 940px;\n}\n", ""]);
+exports.push([module.i, "\n.galleryWrapper ul {\n  padding: 0;\n  margin: 0;\n}\n.galleryWrapper ul li {\n    list-style: none;\n    float: left;\n    padding: 8px;\n    margin: 0;\n}\n.file-manager-details .modal-content {\n  height: 100% !important;\n  padding: 0 !important;\n}\n.file-manager-details .modal-content object {\n    width: 100%;\n    height: 940px;\n}\n", ""]);
 
 /***/ }),
 
@@ -18907,7 +18907,7 @@ exports.push([module.i, "\n.Image-upload .Modal {\n  border-top: 1px solid #f4f4
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")();
-exports.push([module.i, "\n.galleryWrapper li {\n  list-style: none;\n  float: left;\n  padding: 8px;\n  margin: 0;\n}\n.galleryWrapper li .thumbnail {\n    position: relative;\n    width: 70px !important;\n    height: 60px !important;\n    overflow: hidden;\n}\n.galleryWrapper li .thumbnail img {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      height: 100%;\n      width: auto;\n      -webkit-transform: translate(-50%, -50%);\n      transform: translate(-50%, -50%);\n}\n.media-manager-details .modal-content {\n  width: 80%;\n}\n.media-manager-details .modal-content .big-image img {\n    max-width: 660px;\n}\n", ""]);
+exports.push([module.i, "\n.galleryWrapper ul {\n  padding: 0;\n  margin: 0;\n}\n.galleryWrapper ul li {\n    list-style: none;\n    float: left;\n    padding: 8px;\n    margin: 0;\n}\n.galleryWrapper ul li .thumbnail {\n      position: relative;\n      width: 70px !important;\n      height: 60px !important;\n      overflow: hidden;\n}\n.galleryWrapper ul li .thumbnail img {\n        position: absolute;\n        left: 50%;\n        top: 50%;\n        height: 100%;\n        width: auto;\n        -webkit-transform: translate(-50%, -50%);\n        transform: translate(-50%, -50%);\n}\n.media-manager-details .modal-content {\n  width: 80%;\n}\n.media-manager-details .modal-content .big-image img {\n    max-width: 660px;\n}\n", ""]);
 
 /***/ }),
 
@@ -57785,7 +57785,7 @@ var render = function() {
                   headers: _vm.csrfHeaders,
                   url: _vm.fileUpload,
                   "use-font-awesome": true,
-                  "accepted-file-types": ".pdf,.doc,.docx",
+                  "accepted-file-types": ".pdf,.doc,.docx,.xls,.xlsx",
                   "max-file-size-in-m-b": 32,
                   "max-number-of-files": 10,
                   "thumbnail-height": 60,
@@ -57800,38 +57800,6 @@ var render = function() {
             1
           )
         : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "galleryWrapper clearfix" }, [
-        _c(
-          "ul",
-          _vm._l(_vm.files, function(file) {
-            return _c("li", { staticClass: "image-attachment" }, [
-              _c("img", {
-                attrs: {
-                  src: "/images/pdf-file-512.png",
-                  alt: "",
-                  width: "20px"
-                }
-              }),
-              _vm._v("  \n\n        "),
-              _c(
-                "a",
-                {
-                  attrs: { draggable: "true", ondragstart: "drag(event)" },
-                  on: {
-                    click: function($event) {
-                      _vm.handleFileDetails(file)
-                    }
-                  }
-                },
-                [_vm._v(_vm._s(file.filename))]
-              )
-            ])
-          })
-        )
-      ]),
-      _vm._v(" "),
-      _c("hr"),
       _vm._v(" "),
       _c("div", { staticClass: "Meta_row margin-bottom-10" }, [
         !_vm.showUploader
@@ -57856,6 +57824,58 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
+      _c("div", { staticClass: "galleryWrapper clearfix" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.files, function(file) {
+            return _c("li", { staticClass: "image-attachment" }, [
+              _c(
+                "a",
+                {
+                  attrs: { draggable: "true", ondragstart: "drag(event)" },
+                  on: {
+                    click: function($event) {
+                      _vm.handleFileDetails(file)
+                    }
+                  }
+                },
+                [
+                  file.aggregate_type === "pdf"
+                    ? _c("div", [
+                        _c("i", {
+                          staticClass: "fa fa-file-pdf-o",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" " + _vm._s(file.filename) + "\n              ")
+                      ])
+                    : file.aggregate_type === "document"
+                      ? _c("div", [
+                          _c("i", {
+                            staticClass: "fa fa-file-word-o",
+                            attrs: { "aria-hidden": "true" }
+                          }),
+                          _vm._v(
+                            " " + _vm._s(file.filename) + "\n              "
+                          )
+                        ])
+                      : file.aggregate_type === "spreadsheet"
+                        ? _c("div", [
+                            _c("i", {
+                              staticClass: "fa fa-file-excel-o",
+                              attrs: { "aria-hidden": "true" }
+                            }),
+                            _vm._v(
+                              " " + _vm._s(file.filename) + "\n              "
+                            )
+                          ])
+                        : _vm._e()
+                ]
+              )
+            ])
+          })
+        )
+      ]),
+      _vm._v(" "),
       _c("bulma-modal", { attrs: { "modal-class": "file-manager-details" } }, [
         _c(
           "button",
@@ -57877,7 +57897,7 @@ var render = function() {
                 _vm.currentFile.filename +
                 "." +
                 _vm.currentFile.extension,
-              type: "application/pdf"
+              type: _vm.currentFile.mime_type
             }
           },
           [
@@ -57889,7 +57909,7 @@ var render = function() {
                   _vm.currentFile.filename +
                   "." +
                   _vm.currentFile.extension,
-                type: "application/pdf"
+                type: _vm.currentFile.mime_type
               }
             })
           ]

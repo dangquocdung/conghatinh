@@ -140,12 +140,10 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('delete-album', 'AlbumController@destroy')->name('delete-album');
         Route::post('add-image-to-album','ImageController@store')->name('add-image-to-album');
         Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
-        Route::get('lich-lam-viec', 'EventController@index')->name('lich-lam-viec');
-        Route::post('save-lich-lam-viec', 'EventController@store')->name('save-lich-lam-viec');
-        Route::post('update-lich-lam-viec', 'EventController@update')->name('update-lich-lam-viec');
-        Route::post('delete-lich-lam-viec', 'EventController@destroy')->name('delete-lich-lam-viec');
         Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('gop-y');
+
+        Route::resource('lich-cong-tac','LichCongTacController');
 
 
 

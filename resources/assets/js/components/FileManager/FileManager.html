@@ -1,52 +1,44 @@
 <div class="MediaManager__Wrapper">
     <div class="Uploader__Wrapper" v-if="showUploader">
-    <p>Tải văn bản<span class="pull-right"><i class="fa fa-times" v-on:click="showUploader = false"></i></span></p>
-    <dropzone id="myVueDropzone"
-              class="margin-bottom-10"
-              :headers="csrfHeaders"
-              :url="fileUpload"
-              :use-font-awesome="true"
-              accepted-file-types=".pdf,.doc,.docx"
-              :max-file-size-in-m-b="32"
-              :max-number-of-files="10"
-              :thumbnail-height="60"
-              :thumbnail-width="80"
-              v-on:vdropzone-success="showSuccess"
-              v-on:vdropzone-error="onError">
-    </dropzone>
-  </div>
+        <p>Tải văn bản<span class="pull-right"><i class="fa fa-times" v-on:click="showUploader = false"></i></span></p>
+        <dropzone id="myVueDropzone"
+                  class="margin-bottom-10"
+                  :headers="csrfHeaders"
+                  :url="fileUpload"
+                  :use-font-awesome="true"
+                  accepted-file-types=".pdf,.doc,.docx,.xls,.xlsx"
+                  :max-file-size-in-m-b="32"
+                  :max-number-of-files="10"
+                  :thumbnail-height="60"
+                  :thumbnail-width="80"
+                  v-on:vdropzone-success="showSuccess"
+                  v-on:vdropzone-error="onError">
+        </dropzone>
+      </div>
+
+    <div class="Meta_row margin-bottom-10">
+        <button class="btn btn-warning" v-on:click="showUploader = true" v-if="!showUploader"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Thêm</button>
+    </div>
 
   <div class="galleryWrapper clearfix">
     <ul>
       <li v-for="file in files" class="image-attachment">
+          <a draggable="true" ondragstart="drag(event)" v-on:click="handleFileDetails(file)">
 
-          <img src="/images/pdf-file-512.png" alt="" width="20px"> &nbsp;
+              <div v-if="file.aggregate_type === 'pdf'">
+                  <i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;{{file.filename}}
+              </div>
 
-        <a draggable="true" ondragstart="drag(event)" v-on:click="handleFileDetails(file)">{{file.filename}}</a>
-        <!--<span v-on:click="deleteFile(file)"><i class="fa fa-times" aria-hidden="true"></i></span>-->
+              <div v-else-if="file.aggregate_type === 'document'">
+                  <i class="fa fa-file-word-o" aria-hidden="true"></i>&nbsp;{{file.filename}}
+              </div>
+
+              <div v-else-if="file.aggregate_type === 'spreadsheet'">
+                  <i class="fa fa-file-excel-o" aria-hidden="true"></i>&nbsp;{{file.filename}}
+              </div>
+          </a>
       </li>
     </ul>
-
-    <!--<table>-->
-      <!--<thead>-->
-      <!--<tr>-->
-        <!--<th>Tên tệp</th>-->
-        <!--<th>Dung lượng</th>-->
-      <!--</tr>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-      <!--<tr v-for="file in files">-->
-        <!--<td><a draggable="true" ondragstart="drag(event)" v-on:click="handleFileDetails(file)">{{file.filename + '.' + file.extension}}</a></td>-->
-        <!--<td>{{ file.size }}</td>-->
-      <!--</tr>-->
-      <!--</tbody>-->
-
-    <!--</table>-->
-  </div>
-  <hr>
-
-  <div class="Meta_row margin-bottom-10">
-    <button class="btn btn-warning" v-on:click="showUploader = true" v-if="!showUploader"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Thêm</button>
   </div>
 
     <bulma-modal modal-class="file-manager-details">
@@ -55,8 +47,10 @@
           <i class="fa fa-trash-o"></i> Xóa
         </button>
 
-        <object v-bind:data="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" type="application/pdf">
-          <embed v-bind:src="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" type="application/pdf" />
+
+
+        <object v-bind:data="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" v-bind:type="currentFile.mime_type">
+            <embed v-bind:src="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" v-bind:type="currentFile.mime_type" />
         </object>
 
     </bulma-modal>
