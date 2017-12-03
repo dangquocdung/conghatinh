@@ -115,6 +115,12 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
     });
 
+
+    //Lich cong tac
+
+    Route::resource('lich-cong-tac','LichCongTacController');
+    Route::resource('lich-cong-tac','LichCongTacController');
+
     //Van ban
     Route::group(['prefix'=>'chuyen-trang'],function (){
 
@@ -143,7 +149,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('gop-y');
 
-        Route::resource('lich-cong-tac','LichCongTacController');
+
 
 
 

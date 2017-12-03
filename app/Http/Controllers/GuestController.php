@@ -21,7 +21,7 @@ use App\Video;
 use App\Album;
 use App\Event;
 use App\DuThao;
-use Calendar;
+use App\LichCongTac;
 
 
 
@@ -132,7 +132,9 @@ class GuestController extends Controller
 
     public function getLLV()
     {
-        return view('guest.lich-cong-tac');
+        $lichct = LichCongTac::orderby('thang','desc')->get();
+
+        return view('guest.lich-cong-tac',compact('lichct'));
     }
 
 

@@ -108543,7 +108543,7 @@ var deleteFile = 'api/v1/delete-file';
 /***/ "./resources/assets/sass/guest.scss":
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \n@import \"main-menu\";\n^\n      File to import not found or unreadable: /Users/quocdungdang/git-clone/inferno/resources/assets/sass/_main-menu.scss.\nParent style sheet: stdin\n      in /Users/quocdungdang/git-clone/inferno/resources/assets/sass/guest.scss (line 13, column 1)\n    at runLoaders (/Users/quocdungdang/git-clone/inferno/node_modules/webpack/lib/NormalModule.js:192:19)\n    at /Users/quocdungdang/git-clone/inferno/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /Users/quocdungdang/git-clone/inferno/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/Users/quocdungdang/git-clone/inferno/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/Users/quocdungdang/git-clone/inferno/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.<anonymous> (/Users/quocdungdang/git-clone/inferno/node_modules/sass-loader/node_modules/async/dist/async.js:2244:31)\n    at Object.callback (/Users/quocdungdang/git-clone/inferno/node_modules/sass-loader/node_modules/async/dist/async.js:906:16)\n    at options.error (/Users/quocdungdang/git-clone/inferno/node_modules/node-sass/lib/index.js:294:32)");
 
 /***/ }),
 

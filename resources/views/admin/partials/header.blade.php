@@ -40,7 +40,8 @@
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script type="text/javascript" src="{{url('admin/js/bootstrap.min.js')}}"></script>
   <script type="text/javascript" src="{{ url('admin/js/jquery.fancybox.min.js') }}"></script>
-  <script type="text/javascript" src="{{ url('admin/js/select2.full.min.js') }}"></script>
+{{--  <script type="text/javascript" src="{{ url('admin/js/select2.full.min.js') }}"></script>--}}
+  <script type="text/javascript" src="{{ url('admin/js/select2.min.js') }}"></script>
   <script type="text/javascript" src="{{ url('admin/js/moment.min.js') }}"></script>
   <script type="text/javascript" src="{{ url('admin/js/MonthPicker.js') }}"></script>
 

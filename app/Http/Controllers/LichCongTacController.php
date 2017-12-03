@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\LichCongTac;
 use Illuminate\Http\Request;
+use App\Media;
 
 class LichCongTacController extends Controller
 {
@@ -15,7 +16,7 @@ class LichCongTacController extends Controller
     public function index()
     {
         //
-        $lichct = LichCongTac::all();
+        $lichct = LichCongTac::orderby('id','desc')->get();
 
         return view('admin.pages.lich-cong-tac',compact('lichct'));
     }
@@ -27,7 +28,8 @@ class LichCongTacController extends Controller
      */
     public function create()
     {
-        //
+        $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
+        return view('admin.pages.lich-cong-tac-create',compact('pdfs'));
     }
 
     /**

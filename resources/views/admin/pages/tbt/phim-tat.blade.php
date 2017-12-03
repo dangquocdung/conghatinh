@@ -21,34 +21,64 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-
           <table class="table table-bordered table-striped table-hover">
             <thead>
-              <tr>
-                <th>#</th>
-                <th>Tên</th>
-                <th>Biểu tượng</th>
-                <th>Liên kết</th>
-                <th>Thứ tự</th>
-                <th></th>
-              </tr>
+            <tr>
+              <th>#</th>
+              <th>Tên</th>
+              <th>Biểu tượng</th>
+              <th>Liên kết</th>
+              <th>Thứ tự</th>
+              <th></th>
+            </tr>
             </thead>
             <tbody>
-              @foreach($phimtat as $pt)
-                <tr>
-                  <td>{{$pt->id}}</td>
-                  <td>{{($pt->name)}}</td>
-                  <td>{{ $pt->icon }}</td>
-                  <td>{{$pt->link}}</td>
-                  <td>{{ $pt->thutu }}</td>
-                  <td></td>
-                </tr>
-              @endforeach
+            @foreach($phimtat as $pt)
+            <tr>
+              <td>{{$pt->id}}</td>
+              <td>{{($pt->name)}}</td>
+              <td>{{ $pt->icon }}</td>
+              <td><a href="{{ $pt->link }}" target="_blank" title="{{ $pt->link }}"><i class="fa fa-link" aria-hidden="true"></i></a></td>
+              <td>{{ $pt->thutu }}</td>
+              <td></td>
+            </tr>
+            @endforeach
+
             </tbody>
           </table>
-
         </div>
         <!-- /.box-body -->
+
+
+        {{--<div class="box-body">--}}
+
+          {{--<table class="table table-bordered table-striped table-hover">--}}
+            {{--<thead>--}}
+              {{--<tr>--}}
+                {{--<th>#</th>--}}
+                {{--<th>Tên</th>--}}
+                {{--<th>Biểu tượng</th>--}}
+                {{--<th>Liên kết</th>--}}
+                {{--<th>Thứ tự</th>--}}
+                {{--<th></th>--}}
+              {{--</tr>--}}
+            {{--</thead>--}}
+            {{--<tbody>--}}
+              {{--@foreach($phimtat as $pt)--}}
+                {{--<tr>--}}
+                  {{--<td>{{$pt->id}}</td>--}}
+                  {{--<td>{{($pt->name)}}</td>--}}
+                  {{--<td>{{ $pt->icon }}</td>--}}
+                  {{--<td>{{$pt->link}}</td>--}}
+                  {{--<td>{{ $pt->thutu }}</td>--}}
+                  {{--<td></td>--}}
+                {{--</tr>--}}
+              {{--@endforeach--}}
+            {{--</tbody>--}}
+          {{--</table>--}}
+
+        {{--</div>--}}
+        {{--<!-- /.box-body -->--}}
       </div>
       {{--End box--}}
     </div>

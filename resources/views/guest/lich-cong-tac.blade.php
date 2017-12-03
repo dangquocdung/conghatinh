@@ -24,6 +24,25 @@
 
         </div>
 
+        <div class="clearfix"></div>
+
+        <div class="lich-cong-tac">
+
+            <ul>
+                @foreach($lichct as $lct)
+
+                    <li>
+                        <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;<a href="">Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
+                    </li>
+
+                @endforeach
+            </ul>
+
+        </div>
+
+
+
+
 
 
 

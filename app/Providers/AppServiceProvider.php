@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit'],function($view){
+        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit','admin.pages.lich-cong-tac'],function($view){
 
           $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
@@ -74,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
 
           $nguoiki = NguoiKi::all();
 
-          $pdfs = Media::where('aggregate_type','pdf')->orderby('id','desc')->get();
+          $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
 
           $loaivb = LoaiVB::all();
           
