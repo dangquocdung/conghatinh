@@ -7,10 +7,10 @@
             <a href="/">Trang chủ</a>
         </li>
         <li class="">
-            <a href="ban-bien-tap">Ban Biên Tập</a>
+            <a href="{{ route('ban-bien-tap') }}">Ban Biên Tập</a>
         </li>
         <li class="">
-            <a href="gop-y">Góp ý</a>
+            <a href="{{ route('gop-y-cong') }}">Góp ý</a>
         </li>
         <li class="">
             <a href="dang-nhap">Đăng nhập</a>

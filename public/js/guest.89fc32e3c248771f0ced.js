@@ -3945,9 +3945,15 @@ var render = function() {
           _vm._l(_vm.model.data, function(row) {
             return _c("tr", [
               _c("td", [
-                _c("a", { attrs: { href: "/chi-tiet-van-ban/" + row.id } }, [
-                  _vm._v(_vm._s(row.kihieuvb))
-                ])
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "/vi/van-ban/" + row.loaitin.slug + "/" + row.id
+                    }
+                  },
+                  [_vm._v(_vm._s(row.kihieuvb))]
+                )
               ]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(row.ngaybanhanh))]),

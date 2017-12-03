@@ -1,62 +1,61 @@
 <?php
 
-Route::resource('web', 'WebController');
-
 Route::feeds();
 
 Route::get('/', 'GuestController@index');
 Route::get('/en', 'GuestController@indexEN');
 
-Route::get('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','GuestController@getDoanhNghiepHoi');
-Route::post('/loai-tin/doanh-nghiep-hoi-cqnn-tra-loi','DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
 
+Route::get('/tin-noi-bat','GuestController@tinNoiBat');
 
-Route::get('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','GuestController@getHoTroPhapLy');
-Route::post('/loai-tin/tu-van-ho-tro-phap-ly-doanh-nghiep','HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
+Route::get('/vi/chi-dao-dieu-hanh/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
+Route::get('/vi/chi-dao-dieu-hanh/lich-cong-tac/{id}','GuestController@showLLV')->name('lich-cong-tac-show');
 
-Route::get('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','GuestController@getNguoiPhatNgon');
-Route::post('/loai-tin/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
-
-Route::get('/loai-tin/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
-Route::get('/loai-tin/gop-y-du-thao-van-ban','GuestController@getGopYVanBan');
-Route::get('/loai-tin/duong-day-nong-so-ban-nganh-huyen-thi-thanh','GuestController@getHotLine');
-Route::get('/loai-tin/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
-Route::get('/loai-tin/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
-
-
-Route::get('/loai-tin/thu-vien-video/{id?}','GuestController@getVideo');
-
-Route::get('/loai-tin/album-hinh-anh/{slug?}','GuestController@getAlbum');
-
-Route::post('/lien-he-cong-tac','LienHeController@store')->name('post-lien-he-cong-tac');
-
-Route::post('/gop-y','GopYController@store')->name('post-gop-y');
-
+Route::get('/lien-he-cong-tac','GuestController@getLienHeCongTac')->name('lien-he-cong-tac');
+Route::post('lien-he-cong-tac','LienHeController@store')->name('post-lien-he-cong-tac');
+Route::get('/gop-y-cong','GuestController@getGopY')->name('gop-y-cong');
+Route::post('/gop-y-cong','GopYController@store')->name('post-gop-y-cong');
 Route::resource('gop-y-du-thao','GopYDuThaoController');
 
+Route::get('/ban-bien-tap','GuestController@getBBT')->name('ban-bien-tap');
+Route::get('/so-do-cong','GuestController@getSoDoCong')->name('so-do-cong');
+Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh','GuestController@getHotLine')->name('duong-day-nong');
+
+Route::get('/vi/tieng-noi-cong-dan/gop-y-du-thao-van-ban','GuestController@getGopYVanBan');
+Route::get('/vi/tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
+
+
+Route::get('/vi/chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi','GuestController@getDoanhNghiepHoi');
+Route::post('/vi/chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi','DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
+Route::get('/vi/chuyen-trang/tu-van-ho-tro-phap-ly-doanh-nghiep','GuestController@getHoTroPhapLy');
+Route::post('/vi/chuyen-trang/tu-van-ho-tro-phap-ly-doanh-nghiep','HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
+Route::get('/vi/chuyen-trang/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','GuestController@getNguoiPhatNgon');
+Route::post('/vi/chuyen-trang/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
+Route::get('/vi/chuyen-trang/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
 
 
 
 
-Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
-Route::get('/lich-cong-tac-{id}','GuestController@showLLV')->name('lich-cong-tac-show');
-Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
-Route::get('/loai-tin/{slug}','GuestController@loaiTin');
-Route::get('/tin-noi-bat','GuestController@tinNoiBat');
-Route::get('/so-do-cong','GuestController@getSoDoCong');
-Route::get('/gop-y','GuestController@getGopY');
 
-Route::get('/lien-he-cong-tac','GuestController@getLienHeCongTac');
-Route::get('/van-ban/{slug?}','GuestController@vanBan');
+Route::get('/vi/thu-vien-video/{id?}','GuestController@getVideo');
 
-Route::get('/ban-bien-tap','GuestController@getBBT');
+Route::get('/vi/album-hinh-anh/{slug?}','GuestController@getAlbum');
 
+
+
+Route::get('/vi/van-ban/{slug?}','GuestController@vanBan')->name('van-ban');
+
+Route::get('/vi/van-ban/{slug}/{id}','GuestController@ctVanBan')->name('chi-tiet-van-ban');
+
+
+Route::get('/vi/{cm}','GuestController@chuyenMuc')->name('chuyen-muc');
+Route::get('/vi/{cm}/{lt}','GuestController@loaiTin')->name('loai-tin');
+Route::get('/vi/{cm}/{lt}/{slug}','GuestController@tinTuc')->name('chi-tiet-tin');
 
 
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
 
 Route::get('/api/doanh-nghiep-hoi-all','GuestController@apiDoanhNghiepHoi');
-
 
 Route::get('/api/ho-tro-phap-ly','GuestController@apiHoTroPhapLy');
 
@@ -65,7 +64,7 @@ Route::get('/api/nguoi-phat-ngon','GuestController@apiNguoiPhatNgon');
 Route::get('/api/phong-vien-thuong-tru','GuestController@apiPhongVienThuongTru');
 
 
-Route::get('/chi-tiet-van-ban/{id}','GuestController@ctVanBan');
+
 
 
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
@@ -107,7 +106,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     //Van ban
     Route::group(['prefix'=>'van-ban'],function (){
-        Route::get('/tat-ca','VanBanController@index')->name('van-ban');
+        Route::get('/tat-ca','VanBanController@index')->name('index-van-ban');
         Route::get('/them-van-ban','VanBanController@create')->name('tao-van-ban');
         Route::post('/them-van-ban','VanBanController@store')->name('them-van-ban');
         Route::get('/edit-van-ban/{id}','VanBanController@edit')->name('edit-van-ban');
@@ -199,12 +198,12 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'role:tbt'], function () {
         
-        Route::get('cau-hinh/chuyen-muc', 'ChuyenMucController@index')->name('chuyen-muc');
+        Route::get('cau-hinh/chuyen-muc', 'ChuyenMucController@index')->name('index-chuyen-muc');
         Route::post('cau-hinh/chuyen-muc', 'ChuyenMucController@store')->name('save-chuyen-muc');
         Route::get('cau-hinh/chuyen-muc/{id}', 'ChuyenMucController@show')->name('edit-chuyen-muc');
         Route::post('cau-hinh/chuyen-muc/update', 'ChuyenMucController@update')->name('update-chuyen-muc');
 
-        Route::get('cau-hinh/loai-tin', 'LoaiTinController@index')->name('loai-tin');
+        Route::get('cau-hinh/loai-tin', 'LoaiTinController@index')->name('index-loai-tin');
         Route::post('cau-hinh/loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
         Route::get('cau-hinh/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
         Route::post('cau-hinh/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
@@ -306,3 +305,5 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
     
 });
+
+

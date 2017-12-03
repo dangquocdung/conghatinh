@@ -10,8 +10,9 @@
 <div class="block3">
 
     <div class="portlet-header">
-        <a href="van-ban/{{ $cm->slug }}">
-            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Văn bản QPPL</h4>
+        <img src="/images/background/lotus.ico">
+        <a href="{{ route('van-ban') }}">
+            <h4 class="portlet-header-title no-pd-top">Văn bản QPPL</h4>
         </a>
     </div>
     @foreach ($cm->loaitin as $lt)
@@ -30,13 +31,13 @@
 
                     <div class="breadcrumb" style="margin-left: 3px; margin-right: 3px">
                         <span class="breadcrumb-item active">
-                          <a href="van-ban/{{ $lt->slug }}" style="text-decoration: none;">
+                          <a href="{{ route('van-ban',$lt->slug) }}" style="text-decoration: none;">
                             <span class="glyphicon glyphicon-share-alt"></span>
                             <strong>{{ $lt->name }}</strong>
                           </a>
                         </span>
                         <span class="pull-right">
-                            <a href="van-ban/{{ $lt->slug }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
+                            <a href="{{ route('van-ban',$lt->slug) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
                         </span>
                     </div>
                     <div class="news-vanban">
@@ -45,7 +46,7 @@
 
                                 <li style="margin-top: 0; border-bottom: none;">
 
-                                    <a href="chi-tiet-van-ban/{{$vb->id}}" class="news-title bold">
+                                    <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
                                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                                         Số: {{ $vb->kihieuvb }} <span class="label label-danger">Mới</span>
                                     </a>

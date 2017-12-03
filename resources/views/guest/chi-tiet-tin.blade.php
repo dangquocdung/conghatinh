@@ -47,12 +47,12 @@
 
 								<article>
 
-									<a href="chi-tiet/{{$tinnb->slug}}" title="{{$tinnb->name}}">
+									<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">
 										<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
 									</a>
 
 									<h6>
-										<a class="title" href="chi-tiet/{{$tinnb->slug}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
+										<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
 									</h6>
 								</article>
 							@endforeach
@@ -144,7 +144,7 @@
 							@foreach($tinlq_new as $tlq)
 
 								<li>
-									<a href="/chi-tiet/{{ $tlq->slug }}">
+									<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
 
 										<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -176,7 +176,7 @@
 							@foreach($tinlq_old as $tlq)
 
 								<li>
-									<a href="/chi-tiet/{{ $tlq->slug }}">
+									<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
 
 										<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 

@@ -8,16 +8,13 @@
 
         <div class="portlet-header">
 
-            <a href="/">
-                <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
-            </a>
-
-            <a href="/van-ban/van-ban-qppl">
+            <img src="/images/background/lotus.ico">
+            <a href="{{ route('van-ban') }}">
                 <h4 class="portlet-header-title no-pd-top"> Tất cả Văn Bản </h4>
             </a>
 
 
-            @if ($lt != 'van-ban-qppl')
+            @if (count($lt) == 1)
 
                 <a href="javascript:void(0);">
                     <h4 class="portlet-header-title no-pd-top">/ {{ $lt->name }}</h4>
@@ -30,7 +27,7 @@
 
         <div id="app" style="padding: 5px;">
 
-            @if ($lt != 'van-ban-qppl')
+            @if (count($lt) == 1)
 
                 <van-ban-viewer source="/api/van-ban-all/{{$lt->id}}" title="Danh sách {{$lt->name}}" />
             @else
@@ -48,7 +45,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.van-ban.right-box')
+    @include('guest.menu-right.van-ban')
 @stop
 
 @section('js')

@@ -1,4 +1,4 @@
-<div id="menu-right">
+<div id="menu-right" class="panel-collapse collapse">
     <ul id="accordion" class="accordion">
         @foreach ($chuyenmuc as $cm)
 
@@ -7,7 +7,7 @@
                     @if (count($cm->loaitin) > 0)
                         <ul class="submenu">
                             @foreach($cm->loaitin->sortby('thutu') as $lt)
-                                <li><a href="/loai-tin/{{ $lt->slug }}"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{ $lt->name }}</a></li>
+                                <li><a href="{{ route('loai-tin',[$lt->chuyenmuc->slug,$lt->slug]) }}"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{ $lt->name }}</a></li>
                             @endforeach
                         </ul>
                     @endif

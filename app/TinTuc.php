@@ -16,6 +16,11 @@ class TinTuc extends Model implements Feedable
 	{
 	  return $this->belongsTo('App\LoaiTin','loaitin_id','id');
 	}
+
+    public function chuyenmuc()
+    {
+        return $this->belongsTo('App\LoaiTin','loaitin_id','id');
+    }
 	  
 	public function user()
 	{

@@ -8,22 +8,22 @@
             </a>
         </li>
         <li class="" style="width: 19%">
-            <a href="/chuyen-muc/doanh-nghiep">
+            <a href="{{ route('chuyen-muc','doanh-nghiep') }}">
                 <span>Doanh nghiệp</span>
             </a>
         </li>
         <li class="" style="width: 18%">
-            <a href="/chuyen-muc/gioi-thieu">
+            <a href="{{ route('chuyen-muc','gioi-thieu') }}">
                 <span>Du khách</span>
             </a>
         </li>
         <li class="" style="width: 18%">
-            <a href="/lien-he-cong-tac">
+            <a href="{{ route('lien-he-cong-tac') }}">
                 <span>Liên hệ</span>
             </a>
         </li>
         <li class="" style="width: 19%">
-            <a href="/so-do-cong">
+            <a href="{{ route('so-do-cong') }}">
                 <span>Sơ đồ cổng</span>
             </a>
         </li>

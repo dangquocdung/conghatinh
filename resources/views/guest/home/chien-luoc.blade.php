@@ -12,8 +12,9 @@
         <div class="block3">
 
             <div class="portlet-header">
-                <a href="chuyen-muc/{{ $cm->slug }}">
-                    <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
+                <img src="/images/background/lotus.ico">
+                <a href="{{ route('chuyen-muc',$cm->slug) }}">
+                    <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
                 </a>
             </div>
 
@@ -29,7 +30,7 @@
 
 
                                     <div class="news-block">
-                                        <a href="/loai-tin/{{ $lt->slug }}">
+                                        <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}">
                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $lt->name }} ({{ count($lt->tintuc) }})
                                         </a>
                                     </div>

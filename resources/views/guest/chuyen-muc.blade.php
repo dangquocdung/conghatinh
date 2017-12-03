@@ -8,8 +8,9 @@
 @section('content-main')
     <div class="block3">
         <div class="portlet-header">
+            <img src="/images/background/lotus.ico" alt="">
             <a href="chuyen-muc/{{ $cm->slug }}">
-                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
+                <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
             </a>
         </div>
 
@@ -20,7 +21,7 @@
 
                           <span class="label label-info pull-right hidden-xs" style="margin-left: 15px;">{{$tin->loaitin->name}}</span>
 
-                          <a class="tin_title_text" href="/chi-tiet/{{$tin->slug}}">
+                          <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug])}}">
 
                               @if ($cm->slug <> 'doanh-nghiep-du-an')
 

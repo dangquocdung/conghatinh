@@ -73,7 +73,7 @@
 
         <div class="lienquan-header">
 
-            <a href="van-ban/{{$vb->loaitin->slug}}">Văn bản cùng loại</a>
+            <a href="{{ route('van-ban',$vb->loaitin->slug) }}">Văn bản cùng loại</a>
 
         </div>
 
@@ -96,7 +96,7 @@
                             @if ($vbcl->id <> $vb->id)
 
                                 <li>
-                                    <a href="/chi-tiet-van-ban/{{ $vbcl->id }}">
+                                    <a href="{{ route('chi-tiet-van-ban',[$lvb->slug,$vbcl->id]) }}">
 
                                         <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -116,7 +116,7 @@
 
         <div class="lienquan-header">
 
-            <a href="van-ban/{{$vb->loaitin->chuyenmuc->slug}}">Văn bản mới đăng</a>
+            <a href="{{ route('van-ban') }}">Văn bản mới đăng</a>
 
         </div>
 
@@ -131,7 +131,7 @@
                             @if ($vbmd->id <> $vb->id)
 
                                 <li>
-                                    <a href="/chi-tiet-van-ban/{{ $vbmd->id }}">
+                                    <a href="{{ route('chi-tiet-van-ban',[$vbmd->loaitin->slug,$vbmd->id]) }}">
 
                                         <div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 

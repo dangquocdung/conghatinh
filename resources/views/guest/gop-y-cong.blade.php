@@ -33,7 +33,7 @@
 
                         </div>
 
-                        <form action="{{ route('post-gop-y') }}" method="post">
+                        <form action="{{ route('post-gop-y-cong') }}" method="post">
                             {{ csrf_field() }}
                             <div class="box-body">
 

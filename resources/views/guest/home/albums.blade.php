@@ -83,32 +83,27 @@
 <div class="block3" style="background-color: #000000 !important; ">
 
     <div class="portlet-header">
+        <img src="/images/background/lotus.ico">
         <a href="/loai-tin/album-hinh-anh">
-            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Album hình ảnh</h4>
+            <h4 class="portlet-header-title no-pd-top">Album hình ảnh</h4>
         </a>
     </div>
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="row">
-
             <div id="jssor_3" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:150px;overflow:hidden;visibility:hidden;">
                 <!-- Loading Screen -->
                 <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
                     <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
                 </div>
                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
-
                     @foreach($ab_noibat as $ab)
                         <div>
                             <a href="/loai-tin/album-hinh-anh/{{ $ab->slug }}">
-
                                 <img data-u="image" src="{{ $ab->cover_image }}" title="{{ $ab->name }}" />
-
                             </a>
-
                         </div>
                     @endforeach
-
                 </div>
                 <!-- Bullet Navigator -->
                 <div data-u="navigator" class="jssorb057" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
@@ -131,8 +126,6 @@
                 </div>
             </div>
             <script type="text/javascript">jssor_3_slider_init();</script>
-
-
         </div>
     </div>
 

@@ -8,8 +8,9 @@
 <div class="block3" id="{{ $cm->slug }}">
 
     <div class="portlet-header">
+        <img src="/images/background/lotus.ico">
         <a href="chuyen-muc/{{ $cm->slug }}">
-            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $cm->name }}</h4>
+            <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
         </a>
     </div>
 
@@ -30,13 +31,13 @@
                 <div class="row">
                     <div class="breadcrumb" style="margin-left: 3px; margin-right: 3px">
                         <span class="breadcrumb-item active">
-                          <a href="loai-tin/{{ $lt->slug }}" style="text-decoration: none;">
+                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;">
                             <span class="glyphicon glyphicon-share-alt"></span>
                             <strong>{{ $lt->name }}</strong>
                           </a>
                         </span>
                         <span class="pull-right">
-                          <a href="loai-tin/{{ $lt->slug }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
+                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
                         </span>
                     </div>
                 </div>
@@ -44,7 +45,7 @@
                     <div class="row">
                         <div class="news-main" style="margin-left: -15px">
 
-                                <a class="tin_title_text" href="/chi-tiet/{{$tin1->slug}}">
+                                <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">
                                     <div class="tin_title_text">
                                         {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                     </div>
@@ -74,7 +75,7 @@
                                         <li>
                                             <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
 
-                                            <a href="chi-tiet/{{ $tin->slug }}" class="news-title">
+                                            <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
                                                 {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                             </a>
 

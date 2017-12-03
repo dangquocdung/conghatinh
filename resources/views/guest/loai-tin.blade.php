@@ -15,9 +15,11 @@
 
                     <div class="portlet-header">
 
+                        <img src="/images/background/lotus.ico" alt="">
+
 
                         <a href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">
-                            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $lt->chuyenmuc->name }} / </h4>
+                            <h4 class="portlet-header-title no-pd-top">{{ $lt->chuyenmuc->name }} / </h4>
                         </a>
 
                         <a href="javascript:void(0);">
@@ -34,7 +36,7 @@
                                 <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
 
                                   <span class="label label-info pull-right hidden-xs" style="margin-left: 15px">{{$tin->loaitin->name}}</span>
-                                  <a class="tin_title_text" href="/chi-tiet/{{$tin->slug}}">
+                                  <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}">
 
                                       @if (strlen(trim($tin->avatar)) > 20)
 

@@ -5,8 +5,6 @@
         @include('guest.layout.menu-right')
     </div>
 
-    @include('guest.home.live-stream')
-
     @foreach ($banner as $bn)
         @if ($bn->vitri == 0)
             <div class="box">

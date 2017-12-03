@@ -146,31 +146,7 @@ class GuestController extends Controller
 
 
 
-    public function tinTuc($slug)
-    {
-        $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
 
-        if (empty($tin)){
-
-            abort(404, 'Khong tim thay trang.');
-
-
-        }
-
-        else
-
-            {
-            $ngay = $tin->ngaydang;
-
-            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
-
-            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
-
-            return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
-
-        }
-
-    }
 
     public function tepTin($slug)
     {
@@ -186,14 +162,7 @@ class GuestController extends Controller
     }
 
 
-    public function loaiTin($slug)
-    {
-        $lt = LoaiTin::where('slug',$slug)->first();
 
-        $tintuc = TinTuc::where('loaitin_id',$lt->id)->where('daduyet','1')->orderby('id','desc')->paginate(12);
-
-        return view('guest.loai-tin', compact('lt','tintuc'));
-    }
 
 
     public function chuyenMuc($slug)
@@ -207,19 +176,61 @@ class GuestController extends Controller
         return view('guest.chuyen-muc', compact('cm','tintuc'));
     }
 
-    public function vanBan($slug)
+    public function loaiTin($cm,$slug)
     {
-        if ($slug != 'van-ban-qppl'){
+        $lt = LoaiTin::where('slug',$slug)->first();
 
-            $lt = LoaiTin::where('slug',$slug)->first();
+        $tintuc = TinTuc::where('loaitin_id',$lt->id)->where('daduyet','1')->orderby('id','desc')->paginate(12);
+
+        return view('guest.loai-tin', compact('lt','tintuc'));
+    }
+
+    public function tinTuc($cm,$lt,$slug)
+    {
+        $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
+
+        if (empty($tin)){
+
+            abort(404, 'Khong tim thay trang.');
+
+
+        }
+
+        else
+
+        {
+            $ngay = $tin->ngaydang;
+
+            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
+
+            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
+
+            return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
+
+        }
+
+    }
+
+    public function vanBan($slug=null)
+    {
+        if ($slug == null){
+
+            $lt = LoaiTin::all();
 
         }else{
 
-            $lt = 'van-ban-qppl';
+            $lt = LoaiTin::where('slug',$slug)->first();
         }
 
         return view('guest.van-ban', compact('lt'));
         
+    }
+
+    public function ctVanBan($slug,$id)
+    {
+        $vb = VanBan::find($id);
+
+        return view('guest.chi-tiet-van-ban', compact('vb'));
     }
 
     public function getDoanhNghiepHoi()
@@ -277,7 +288,7 @@ class GuestController extends Controller
 
     public function getGopY()
     {
-        return view('guest.gop-y');
+        return view('guest.gop-y-cong');
     }
 
     public function getGopYVanBan()
@@ -342,10 +353,5 @@ class GuestController extends Controller
 
 
 
-    public function ctVanBan($id)
-    {
-        $vb = VanBan::find($id);
 
-        return view('guest.chi-tiet-van-ban', compact('vb'));
-    }
 }

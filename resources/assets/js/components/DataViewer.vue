@@ -92,7 +92,7 @@
                     <!--<td v-for="(value, key) in row">{{value}}</td>-->
 
 
-                    <td><a :href="'/chi-tiet-van-ban/' + row.id">{{row.kihieuvb}}</a></td>
+                    <td><a :href="'/vi/van-ban/' + row.loaitin.slug + '/' + row.id">{{row.kihieuvb}}</a></td>
                     <td>{{row.ngaybanhanh}}</td>
                     <td>{{row.loaitin.name}}</td>
                     <td>{{row.linhvuc.name}}</td>

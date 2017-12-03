@@ -21,7 +21,18 @@
 
     </div>
 
-    @include('guest.home.live-stream')
+    @if (strlen(Setting::get('video_livestream')) > 50 )
+
+        <div class="block4" id="live-stream" style="border-radius: 5px">
+
+            <div class="embed-responsive embed-responsive-16by9">
+
+                {!! Setting::get('video_livestream') !!}
+
+            </div>
+
+        </div>
+    @endif
 
     @foreach ($banner as $bn)
         @if ($bn->vitri == 1)
