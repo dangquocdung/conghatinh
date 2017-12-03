@@ -32,8 +32,16 @@
                 @foreach($lichct as $lct)
 
                     <li>
-                        <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;<a href="">Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
-                    </li>
+                        <div class="pull-left">
+                            <a href="{{ route('lich-cong-tac.show',['id'=>$lct->id]) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
+                        </div>
+
+                        <div class="pull-right">
+                            @if (!empty($lct->tepdinhkem))
+                                <a href="{{ $lct->tepdinhkem }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                            @endif
+                        </div>
+                        </li>
 
                 @endforeach
             </ul>

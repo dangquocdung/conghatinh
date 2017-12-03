@@ -6,8 +6,26 @@ use App\LichCongTac;
 use Illuminate\Http\Request;
 use App\Media;
 
+use App\NhomCQ;
+use App\PhimTat;
+use App\ChuyenMuc;
+use App\Banner;
+
 class LichCongTacController extends Controller
 {
+    public function __construct()
+    {
+
+        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+        $nhomcq = NhomCQ::orderby('id')->get();
+        $banner = Banner::orderby('thutu','asc')->get();
+        $phimtat = PhimTat::orderby('thutu','asc')->get();
+
+        view()->share('chuyenmuc',$chuyenmuc);
+        view()->share('nhomcq',$nhomcq);
+        view()->share('banner',$banner);
+        view()->share('phimtat',$phimtat);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -53,9 +71,12 @@ class LichCongTacController extends Controller
      * @param  \App\LichCongTac  $lichCongTac
      * @return \Illuminate\Http\Response
      */
-    public function show(LichCongTac $lichCongTac)
+    public function show($id)
     {
-        //
+        $lct = LichCongTac::find($id);
+
+        return view('guest.lct-chi-tiet',compact('lct'));
+
     }
 
     /**
