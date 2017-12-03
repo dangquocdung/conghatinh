@@ -78,11 +78,9 @@ class LichCongTacController extends Controller
      * @param  \App\LichCongTac  $lichCongTac
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(LichCongTac $lichCongTac)
     {
-        $lct = LichCongTac::find($id);
 
-        return view('guest.lct-chi-tiet',compact('lct'));
 
     }
 

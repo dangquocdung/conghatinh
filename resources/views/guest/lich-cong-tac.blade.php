@@ -33,7 +33,7 @@
 
                     <li>
                         <div class="pull-left">
-                            <a href="{{ route('lich-cong-tac.show',['id'=>$lct->id]) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
+                            <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
                         </div>
 
                         <div class="pull-right">

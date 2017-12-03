@@ -39,6 +39,7 @@ Route::resource('gop-y-du-thao','GopYDuThaoController');
 
 
 Route::get('/chi-tiet/{slug}','GuestController@tinTuc');
+Route::get('/lich-cong-tac-{id}','GuestController@showLLV')->name('lich-cong-tac-show');
 Route::get('/chuyen-muc/{slug}','GuestController@chuyenMuc');
 Route::get('/loai-tin/{slug}','GuestController@loaiTin');
 Route::get('/tin-noi-bat','GuestController@tinNoiBat');

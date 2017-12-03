@@ -137,6 +137,13 @@ class GuestController extends Controller
         return view('guest.lich-cong-tac',compact('lichct'));
     }
 
+    public function showLLV($id)
+    {
+        $lct = LichCongTac::find($id);
+
+        return view('guest.lct-chi-tiet',compact('lct'));
+    }
+
 
 
     public function tinTuc($slug)
