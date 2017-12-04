@@ -118,21 +118,21 @@
           </li>
 
           <li class="{{ Request::is('toa-soan/chuyen-trang/album-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('album-manager')}}"><i class="fa fa-circle-o"></i><span>Album hình ảnh</span></a>
+            <a href="{{route('album-manager')}}"><i class="fa fa-circle-o"></i><span> Album hình ảnh</span></a>
           </li>
 
           <li class="{{ Request::is('toa-soan/chuyen-trang/video-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('video-manager')}}"><i class="fa fa-circle-o"></i><span>Video</span></a>
+            <a href="{{route('video-manager')}}"><i class="fa fa-circle-o"></i><span> Video</span></a>
           </li>
 
 
 
           <li class="{{ Request::is('toa-soan/chuyen-trang/lien-he-cong-tac') ? 'active' : ''  }} treeview">
-            <a href="{{route('lien-he-cong-tac')}}"><i class="fa fa-circle-o"></i><span>Liên hệ công tác</span></a>
+            <a href="{{route('lien-he-cong-tac')}}"><i class="fa fa-circle-o"></i><span> Liên hệ công tác</span></a>
           </li>
 
           <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y') ? 'active' : ''  }} treeview">
-            <a href="{{route('gop-y')}}"><i class="fa fa-circle-o"></i><span>Góp ý</span></a>
+            <a href="{{route('gop-y')}}"><i class="fa fa-circle-o"></i><span> Góp ý</span></a>
           </li>
 
 
@@ -150,11 +150,11 @@
         </a>
         <ul class="treeview-menu">
           <li class="{{ Request::is('toa-soan/da-phuong-tien/media-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('media-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý Hình ảnh</span></a>
+            <a href="{{route('media-manager')}}"><i class="fa fa-circle-o"></i><span> Quản lý Hình ảnh</span></a>
           </li>
 
           <li class="{{ Request::is('toa-soan/da-phuong-tien/file-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('file-manager')}}"><i class="fa fa-circle-o"></i><span>Quản lý tệp văn bản</span></a>
+            <a href="{{route('file-manager')}}"><i class="fa fa-circle-o"></i><span> Quản lý tệp văn bản</span></a>
           </li>
         </ul>
       </li>
@@ -223,7 +223,7 @@
       @endrole
       <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
-          <i class="fa fa-gear"></i> <span>Cấu hình</span>
+          <i class="fa fa-gear"></i> <span> Cấu hình</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
