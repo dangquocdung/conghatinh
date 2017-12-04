@@ -1,7 +1,7 @@
 @extends('admin.html')
 
 @section('title')
-    <title>Thêm Lịch công tác</title>
+    <title>Sửa Lịch công tác</title>
 @stop
 
 @section('breadcrumb')
@@ -10,7 +10,7 @@
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">Lịch công tác</li>
+      <li class="active">Sửa lịch công tác</li>
     </ol>
   </section>
 @endsection
@@ -21,7 +21,7 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Lịch công tác</h3>
+          <h3 class="box-title">Sửa lịch công tác</h3>
             <div class="pull-right">
                 <button type="button" class="btn btn-primary btn-xs" id="btnThem">
                     <i class="fa fa-plus"></i> Thêm tệp
@@ -34,46 +34,74 @@
           </div>
 
 
+          @if (count($errors) > 0)
+              <div class="alert alert-danger">
+                  <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
 
-        <form action="{{ route('lich-cong-tac.store') }}" method="post" id="role-save-form">
-          {{csrf_field()}}
-          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="">Chọn tháng:</label>
-              {{--<input type="month" name="tuan" id="tuan" class="form-control" required>--}}
-              <input id="thang" name="thang" class="form-control" type="text" />
-            </div>
-            <div class="form-group">
-              <label>Tệp đính kèm</label>
-                <div class="pull-right">
-                    <button type="button" class="btn btn-primary btn-xs" id="btnRefresh">
-                        <i class="fa fa-refresh"></i> Nạp lại
-                    </button>
+
+
+        {{--<form action="{{ route('lich-cong-tac.update',$lct->id) }}" method="post" id="role-save-form">--}}
+
+            {{--{{csrf_field()}}--}}
+            {{--{{ method_field('PATCH') }}--}}
+
+          {!! Form::model($lct, ['method' => 'PATCH','route' => ['lich-cong-tac.update', $lct->id]]) !!}
+
+
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="">Chọn tháng:</label>
+                  {{--<input type="month" name="tuan" id="tuan" class="form-control" required>--}}
+                  <input id="thang" name="thang" class="form-control" type="text" value="{{ $lct->thang }}" />
                 </div>
-              <select id="tepdinhkem" name="media_id" class="form-control select2">
-                @foreach($pdfs as $pdf)
-                  <option value="{{ $pdf->id }}" style="width: 100%">
-                      {{ $pdf->filename.'.'.$pdf->extension }}
-                  </option>
-                @endforeach
-              </select>
+                <div class="form-group">
+                  <label>Tệp đính kèm</label>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary btn-xs" id="btnRefresh">
+                            <i class="fa fa-refresh"></i> Nạp lại
+                        </button>
+                    </div>
+                  <select id="tepdinhkem" name="media_id" class="form-control select2">
+                    @foreach($pdfs as $pdf)
+
+                          @if ($lct->media_id == $pdf->id)
+                              <option value="{{ $pdf->id }}" style="width: 100%" selected>
+                                  {{ $pdf->filename.'.'.$pdf->extension }}
+                              </option>
+
+                          @else
+
+                              <option value="{{ $pdf->id }}" style="width: 100%">
+                                  {{ $pdf->filename.'.'.$pdf->extension }}
+                              </option>
+                          @endif
+
+                    @endforeach
+                  </select>
 
 
-            </div>
+                </div>
 
 
 
-            <div class="form-group">
-              <label for="">Nội dung:</label>
-              <textarea id="noi-dung" name="noidung" required></textarea>
-              <div class="HelpText error">{{$errors->first('noidung')}}</div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Lưu</button>
-          </div>
-        </form>
+                <div class="form-group">
+                  <label for="">Nội dung:</label>
+                  <textarea id="noi-dung" name="noidung" required>{!! $lct->noidung  !!}</textarea>
+                  <div class="HelpText error">{{$errors->first('noidung')}}</div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Lưu</button>
+              </div>
+
+          {!! Form::close() !!}
 
       </div>
       {{--End box--}}

@@ -21,10 +21,13 @@ class LichCongTacController extends Controller
         $banner = Banner::orderby('thutu','asc')->get();
         $phimtat = PhimTat::orderby('thutu','asc')->get();
 
+        $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
+
         view()->share('chuyenmuc',$chuyenmuc);
         view()->share('nhomcq',$nhomcq);
         view()->share('banner',$banner);
         view()->share('phimtat',$phimtat);
+        view()->share('pdfs',$pdfs);
     }
     /**
      * Display a listing of the resource.
@@ -46,14 +49,14 @@ class LichCongTacController extends Controller
      */
     public function create()
     {
-        $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
-        return view('admin.pages.lich-cong-tac-create',compact('pdfs'));
+
+        return view('admin.pages.lich-cong-tac-create');
     }
 
     public function jsonTepDinhKem(){
 
-        $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
-        return response()->json($pdfs);
+        $pdf = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
+        return response()->json($pdf);
 
     }
 
@@ -65,7 +68,7 @@ class LichCongTacController extends Controller
      */
     public function store(Request $request)
     {
-        $create = LichCongTac::create($request->all());
+        LichCongTac::create($request->all());
 
         flash('Tạo lịch công tác thành công!');
 
@@ -90,9 +93,11 @@ class LichCongTacController extends Controller
      * @param  \App\LichCongTac  $lichCongTac
      * @return \Illuminate\Http\Response
      */
-    public function edit(LichCongTac $lichCongTac)
+    public function edit($id)
     {
-        //
+        $lct=LichCongTac::find($id);
+
+        return view('admin.pages.lich-cong-tac-edit',compact('lct'));
     }
 
     /**
@@ -102,10 +107,17 @@ class LichCongTacController extends Controller
      * @param  \App\LichCongTac  $lichCongTac
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LichCongTac $lichCongTac)
-    {
-        //
-    }
+        public function update(Request $request, $id)
+        {
+
+            LichCongTac::find($id)->update($request->all());
+
+            flash('Sửa lịch công tác thành công!');
+
+            return redirect()->route('lich-cong-tac.index');
+
+
+        }
 
     /**
      * Remove the specified resource from storage.

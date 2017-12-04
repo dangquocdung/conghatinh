@@ -46,10 +46,10 @@
                 <td>{{ $lct->id }}</td>
                 <td>{{ $lct->user->name }}</td>
                 <td>{{ $lct->thang }}</td>
-                <td><a data-toggle="modal" data-target="#lct">Lịch công tác tháng {{ $lct->thang }}</a></td>
+                <td><a href="{{ route('lich-cong-tac-show',$lct->id) }}" target="_blank">Lịch công tác tháng {{ $lct->thang }}</a></td>
                 <td>
-                  @if (!empty($lct->tepdinhkem))
-                    <a href="{{ $lct->tepdinhkem }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                  @if (!empty($lct->media_id))
+                    <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
                   @endif
                 </td>
                 <td>{{ \Carbon\Carbon::parse($lct->created_date)->format('d-m-Y H:i:s') }}</td>
@@ -64,14 +64,6 @@
                     {!! Form::open(['method' => 'DELETE','route' => ['lich-cong-tac.destroy', $lct->id],'style'=>'display:inline']) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
-                    {{--<confirm-modal--}}
-                            {{--btn-text='<i class="fa fa-trash"></i> Delete'--}}
-                            {{--btn-class="btn-danger"--}}
-                            {{--url="{{ route('lich-cong-tac.destroy', $lct->id)  }}"--}}
-                            {{--:post-data="{{json_encode(['id' => $lct->id])}}"--}}
-                            {{--:refresh="true"--}}
-                            {{--message="Bạn chắc chắn muốn xoá?">--}}
-                    {{--</confirm-modal>--}}
                   </div>
 
                 </td>
@@ -86,3 +78,5 @@
     </div>
   </div>
 @stop
+
+

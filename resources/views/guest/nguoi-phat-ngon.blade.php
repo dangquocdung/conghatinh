@@ -186,8 +186,6 @@
     <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
         $(function () {
-
-
             $('#example1').DataTable({
                 "iDisplayLength": 25,
                 "language": {
@@ -211,7 +209,6 @@
                     }
                 }
             })
-
         })
     </script>
 @stop

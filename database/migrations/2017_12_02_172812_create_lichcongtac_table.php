@@ -21,7 +21,10 @@ class CreateLichcongtacTable extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->string('thang');
             $table->text('noidung');
-            $table->string('tepdinhkem')->nullable();
+            $table->unsignedInteger('media_id')->nullable();
+            $table->foreign('media_id')
+                ->references('id')->on('media')
+                ->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
