@@ -28,8 +28,8 @@
                         </div>
 
                         <div class="pull-right">
-                            @if (!empty($lct->tepdinhkem))
-                                <a href="{{ $lct->tepdinhkem }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                            @if (!empty($lct->media_id))
+                                <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
                             @endif
                         </div>
                     </li>
