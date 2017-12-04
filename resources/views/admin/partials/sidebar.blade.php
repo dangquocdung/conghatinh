@@ -245,10 +245,10 @@
             </li>
 
             <li class="{{ Request::is('toa-soan/cau-hinh/loai-tin') ? 'active' : ''  }}">
-              <a href="{{route('loai-tin')}}"><i class="fa fa-circle-o"></i> Quản lý loại tin</a>
+              <a href="{{route('index-loai-tin')}}"><i class="fa fa-circle-o"></i> Quản lý loại tin</a>
             </li>
             <li class="{{ Request::is('toa-soan/cau-hinh/chuyen-muc') ? 'active' : ''  }}">
-              <a href="{{route('chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
+              <a href="{{route('index-chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
             </li>
 
           @endrole

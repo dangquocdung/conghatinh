@@ -3,54 +3,56 @@
 Route::feeds();
 
 Route::get('/', 'GuestController@index');
-Route::get('/en', 'GuestController@indexEN');
+
+Route::group(['prefix'=>'vi'], function ()
+{
+
+    Route::get('tin-noi-bat', 'GuestController@tinNoiBat');
+
+    Route::get('chi-dao-dieu-hanh/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
+    Route::get('chi-dao-dieu-hanh/lich-cong-tac/{id}', 'GuestController@showLLV')->name('lich-cong-tac-show');
+
+    Route::get('lien-he-cong-tac', 'GuestController@getLienHeCongTac')->name('lien-he-cong-tac');
+    Route::post('lien-he-cong-tac', 'LienHeController@store')->name('post-lien-he-cong-tac');
+    Route::get('gop-y-cong', 'GuestController@getGopY')->name('gop-y-cong');
+    Route::post('gop-y-cong', 'GopYController@store')->name('post-gop-y-cong');
 
 
-Route::get('/tin-noi-bat','GuestController@tinNoiBat');
+    Route::get('ban-bien-tap', 'GuestController@getBBT')->name('ban-bien-tap');
+    Route::get('so-do-cong', 'GuestController@getSoDoCong')->name('so-do-cong');
+    Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
 
-Route::get('/vi/chi-dao-dieu-hanh/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
-Route::get('/vi/chi-dao-dieu-hanh/lich-cong-tac/{id}','GuestController@showLLV')->name('lich-cong-tac-show');
-
-Route::get('/lien-he-cong-tac','GuestController@getLienHeCongTac')->name('lien-he-cong-tac');
-Route::post('lien-he-cong-tac','LienHeController@store')->name('post-lien-he-cong-tac');
-Route::get('/gop-y-cong','GuestController@getGopY')->name('gop-y-cong');
-Route::post('/gop-y-cong','GopYController@store')->name('post-gop-y-cong');
-Route::resource('gop-y-du-thao','GopYDuThaoController');
-
-Route::get('/ban-bien-tap','GuestController@getBBT')->name('ban-bien-tap');
-Route::get('/so-do-cong','GuestController@getSoDoCong')->name('so-do-cong');
-Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh','GuestController@getHotLine')->name('duong-day-nong');
-
-Route::get('/vi/tieng-noi-cong-dan/gop-y-du-thao-van-ban','GuestController@getGopYVanBan');
-Route::get('/vi/tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
+    Route::get('tieng-noi-cong-dan/gop-y-du-thao-van-ban', 'GuestController@getGopYVanBan');
+    Route::get('tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
 
-Route::get('/vi/chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi','GuestController@getDoanhNghiepHoi');
-Route::post('/vi/chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi','DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
-Route::get('/vi/chuyen-trang/tu-van-ho-tro-phap-ly-doanh-nghiep','GuestController@getHoTroPhapLy');
-Route::post('/vi/chuyen-trang/tu-van-ho-tro-phap-ly-doanh-nghiep','HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
-Route::get('/vi/chuyen-trang/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','GuestController@getNguoiPhatNgon');
-Route::post('/vi/chuyen-trang/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi','NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
-Route::get('/vi/chuyen-trang/danh-sach-vpdd-pvtt-dang-ky-hoat-dong','GuestController@getPhongVienThuongTru');
+    Route::get('chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
+    Route::post('chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
+    Route::get('chuyen-trang/tu-van-ho-tro-phap-ly-doanh-nghiep', 'GuestController@getHoTroPhapLy');
+    Route::post('chuyen-trang/tu-van-ho-tro-phap-ly-doanh-nghiep', 'HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
+    Route::get('chuyen-trang/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'GuestController@getNguoiPhatNgon');
+    Route::post('chuyen-trang/danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
+    Route::get('chuyen-trang/danh-sach-vpdd-pvtt-dang-ky-hoat-dong', 'GuestController@getPhongVienThuongTru');
 
 
+    Route::get('thu-vien-video/{id?}', 'GuestController@getVideo');
+
+    Route::get('album-hinh-anh/{slug?}', 'GuestController@getAlbum');
 
 
+    Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
 
-Route::get('/vi/thu-vien-video/{id?}','GuestController@getVideo');
-
-Route::get('/vi/album-hinh-anh/{slug?}','GuestController@getAlbum');
-
+    Route::get('van-ban/{slug}/{id}', 'GuestController@ctVanBan')->name('chi-tiet-van-ban');
 
 
-Route::get('/vi/van-ban/{slug?}','GuestController@vanBan')->name('van-ban');
+    Route::get('{cm}', 'GuestController@chuyenMuc')->name('chuyen-muc');
+    Route::get('{cm}/{lt}', 'GuestController@loaiTin')->name('loai-tin');
+    Route::get('{cm}/{lt}/{slug}', 'GuestController@tinTuc')->name('chi-tiet-tin');
 
-Route::get('/vi/van-ban/{slug}/{id}','GuestController@ctVanBan')->name('chi-tiet-van-ban');
+});
 
 
-Route::get('/vi/{cm}','GuestController@chuyenMuc')->name('chuyen-muc');
-Route::get('/vi/{cm}/{lt}','GuestController@loaiTin')->name('loai-tin');
-Route::get('/vi/{cm}/{lt}/{slug}','GuestController@tinTuc')->name('chi-tiet-tin');
+Route::resource('gop-y-du-thao', 'GopYDuThaoController');
 
 
 Route::get('/api/van-ban-all/{id?}','GuestController@apiVanBan');
