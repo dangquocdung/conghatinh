@@ -94,7 +94,7 @@
                      name="icon"
                      value="{{old('icon')}}"
                      class="form-control">
-              <div class="HelpText error">{{$errors->first('name')}}</div>
+              <div class="HelpText error">{{$errors->first('icon')}}</div>
             </div>
 
             <div class="form-group">
@@ -105,7 +105,7 @@
                      name="link"
                      value="{{old('link')}}"
                      class="form-control">
-              <div class="HelpText error">{{$errors->first('name')}}</div>
+              <div class="HelpText error">{{$errors->first('link')}}</div>
             </div>
 
             <div class="form-group">
@@ -180,7 +180,16 @@
 
 
 
-          })
+          });
+
+          $('button#reset').click(function (e) {
+
+              location.reload();
+
+
+          });
+
+
 
       })
   </script>
