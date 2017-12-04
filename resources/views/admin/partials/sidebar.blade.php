@@ -42,14 +42,12 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/them-tin-tuc-su-kien') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/tin-tuc/tao-tin-tuc') ? 'active' : ''  }}">
             <a href="{{route('tao-tin-tuc')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
           </li>
-          <li class="{{ Request::is('toa-soan/tin-tuc-su-kien') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/tin-tuc/tat-ca') ? 'active' : ''  }}">
             <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Danh sách tin, bài</a>
           </li>
-          
-
         </ul>
       </li>
 
@@ -65,15 +63,12 @@
             <a href="{{route('tao-van-ban')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
           </li>
           <li class="{{ Request::is('toa-soan/van-ban/tat-ca') ? 'active' : ''  }}">
-            <a href="{{route('van-ban')}}"><i class="fa fa-circle-o"></i> Tất cả Văn bản</a>
+            <a href="{{route('index-van-ban')}}"><i class="fa fa-circle-o"></i> Tất cả Văn bản</a>
           </li>
-
-
         </ul>
       </li>
 
-      <li class="{{ Request::is('toa-soan/lich-cong-tac') ? 'active' : ''  }} treeview">
-
+      <li class="{{ Request::is('toa-soan/lich/*') ? 'active' : ''  }} treeview">
 
         <a href="javascript:void(0)">
           <i class="fa fa-calendar"></i> <span> Lịch công tác</span>
@@ -83,14 +78,12 @@
         </a>
 
         <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/lich-cong-tac/create') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/lich/lich-cong-tac/create') ? 'active' : ''  }}">
             <a href="{{route('lich-cong-tac.create')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
           </li>
-          <li class="{{ Request::is('toa-soan/lich-cong-tac') ? 'active' : ''  }}">
-            <a href="{{route('lich-cong-tac.index')}}"><i class="fa fa-circle-o"></i><span>Tất cả</span></a>
+          <li class="{{ Request::is('toa-soan/lich/lich-cong-tac') ? 'active' : ''  }}">
+            <a href="{{route('lich-cong-tac.index')}}"><i class="fa fa-circle-o"></i><span> Tất cả</span></a>
           </li>
-
-
         </ul>
       </li>
 
@@ -125,8 +118,6 @@
             <a href="{{route('video-manager')}}"><i class="fa fa-circle-o"></i><span> Video</span></a>
           </li>
 
-
-
           <li class="{{ Request::is('toa-soan/chuyen-trang/lien-he-cong-tac') ? 'active' : ''  }} treeview">
             <a href="{{route('lien-he-cong-tac')}}"><i class="fa fa-circle-o"></i><span> Liên hệ công tác</span></a>
           </li>
@@ -134,8 +125,6 @@
           <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y') ? 'active' : ''  }} treeview">
             <a href="{{route('gop-y')}}"><i class="fa fa-circle-o"></i><span> Góp ý</span></a>
           </li>
-
-
 
         </ul>
       </li>
@@ -172,14 +161,10 @@
         </a>
         <ul class="treeview-menu">
 
-          
-          
           <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
             <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Đặt Banner</a>
           </li>
 
-
-          
           <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
             <a href="{{route('so-ban-nganh')}}"><i class="fa fa-circle-o"></i> Sở, Ban, Ngành</a>
           </li>

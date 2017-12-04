@@ -6,7 +6,6 @@ Route::get('/', 'GuestController@index');
 
 Route::group(['prefix'=>'vi'], function ()
 {
-
     Route::get('tin-noi-bat', 'GuestController@tinNoiBat');
 
     Route::get('chi-dao-dieu-hanh/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
@@ -17,14 +16,12 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('gop-y-cong', 'GuestController@getGopY')->name('gop-y-cong');
     Route::post('gop-y-cong', 'GopYController@store')->name('post-gop-y-cong');
 
-
     Route::get('ban-bien-tap', 'GuestController@getBBT')->name('ban-bien-tap');
     Route::get('so-do-cong', 'GuestController@getSoDoCong')->name('so-do-cong');
     Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
 
     Route::get('tieng-noi-cong-dan/gop-y-du-thao-van-ban', 'GuestController@getGopYVanBan');
     Route::get('tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
-
 
     Route::get('chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
     Route::post('chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
@@ -39,11 +36,9 @@ Route::group(['prefix'=>'vi'], function ()
 
     Route::get('album-hinh-anh/{slug?}', 'GuestController@getAlbum');
 
-
     Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
 
     Route::get('van-ban/{slug}/{id}', 'GuestController@ctVanBan')->name('chi-tiet-van-ban');
-
 
     Route::get('{cm}', 'GuestController@chuyenMuc')->name('chuyen-muc');
     Route::get('{cm}/{lt}', 'GuestController@loaiTin')->name('loai-tin');
@@ -64,10 +59,6 @@ Route::get('/api/ho-tro-phap-ly','GuestController@apiHoTroPhapLy');
 Route::get('/api/nguoi-phat-ngon','GuestController@apiNguoiPhatNgon');
 
 Route::get('/api/phong-vien-thuong-tru','GuestController@apiPhongVienThuongTru');
-
-
-
-
 
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
 Route::post('/dang-nhap', 'UserController@login')->name('login');
@@ -93,17 +84,19 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
     Route::get('media-manager', 'MediaController@index')->name('media-manager');
     Route::get('file-manager', 'FileController@index')->name('file-manager');
-    Route::get('tin-tuc-su-kien','TinTucController@index')->name('tin-tuc-su-kien');
-    Route::get('them-tin-tuc-su-kien','TinTucController@create')->name('tao-tin-tuc');
-    Route::post('them-tin-tuc-su-kien','TinTucController@store')->name('them-tin-tuc');
-    Route::get('edit-tin-tuc-su-kien/{slug}','TinTucController@edit')->name('edit-tin-tuc');
-    Route::post('update-tin-tuc-su-kien','TinTucController@update')->name('update-tin-tuc');
+
+    //Van ban
+    Route::group(['prefix'=>'tin-tuc'],function () {
+        Route::get('tat-ca', 'TinTucController@index')->name('tin-tuc-su-kien');
+        Route::get('tao-tin-tuc', 'TinTucController@create')->name('tao-tin-tuc');
+        Route::post('them-tin-tuc', 'TinTucController@store')->name('them-tin-tuc');
+        Route::get('edit-tin-tuc/{slug}', 'TinTucController@edit')->name('edit-tin-tuc');
+        Route::post('update-tin-tuc', 'TinTucController@update')->name('update-tin-tuc');
+    });
 
 
     Route::post('them-du-thao-van-ban','DuThaoController@store')->name('them-du-thao-van-ban');
     Route::post('xoa-du-thao-van-ban','DuThaoController@destroy')->name('xoa-du-thao-van-ban');
-
-
 
 
     //Van ban
@@ -120,7 +113,10 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     //Lich cong tac
 
-    Route::resource('lich-cong-tac','LichCongTacController');
+    Route::group(['prefix'=>'lich'],function () {
+        Route::resource('lich-cong-tac', 'LichCongTacController');
+    });
+
     Route::get('/json-tepdinhkem','LichCongTacController@jsonTepDinhKem');
 
     //Van ban
@@ -162,7 +158,6 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('cau-hinh/he-thong/settings', 'AdminController@postHandleSettingsPageSave')->name('settings-save');
         Route::post('cau-hinh/he-thong/settings-add', 'AdminController@postHandleSettingsPageAdd')->name('settings-add');
 
-
         Route::get('config/user/manager', 'AdminController@getUser')->name('user');
         Route::post('config/user/manager', 'AdminController@postAddUser')->name('save-user');
         
@@ -180,16 +175,11 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('config/user/permission/{id}', 'AdminController@getEditPermission')->name('edit-permission');
         Route::post('config/user/permission/update', 'AdminController@postUpdatePermission')->name('update-permission');
 
-
         Route::get('cau-hinh/he-thong/toppic', 'TopPicController@index')->name('toppic');
         Route::post('cau-hinh/he-thong/save-toppic', 'TopPicController@store')->name('save-toppic');
         Route::get('cau-hinh/he-thong/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
         Route::post('cau-hinh/he-thong/update-toppic', 'TopPicController@update')->name('update-toppic');
         
-
-
-
-
     });
 
     Route::group(['middleware' => 'role:tbt'], function () {
