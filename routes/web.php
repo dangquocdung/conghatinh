@@ -119,7 +119,6 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     //Lich cong tac
 
     Route::resource('lich-cong-tac','LichCongTacController');
-    Route::resource('lich-cong-tac','LichCongTacController');
     Route::get('/json-tepdinhkem','LichCongTacController@jsonTepDinhKem');
 
     //Van ban
