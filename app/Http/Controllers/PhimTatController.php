@@ -80,9 +80,13 @@ class PhimTatController extends Controller
      * @param  \App\PhimTat  $phimTat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PhimTat $phimTat)
+    public function update(Request $request, $id)
     {
-        //
+        PhimTat::find($id)->update($request->all());
+
+        flash('Cập nhật liên kết thành công!');
+
+        return redirect()->back();
     }
 
     /**

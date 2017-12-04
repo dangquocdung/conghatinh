@@ -20,7 +20,7 @@
         <button class="btn btn-warning" v-on:click="showUploader = true" v-if="!showUploader"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Thêm</button>
     </div>
 
-  <div class="galleryWrapper clearfix">
+    <div class="galleryWrapper clearfix">
     <ul>
       <li v-for="file in files" class="image-attachment">
           <a draggable="true" ondragstart="drag(event)" v-on:click="handleFileDetails(file)">
@@ -39,13 +39,25 @@
           </a>
       </li>
     </ul>
-  </div>
+    </div>
 
     <bulma-modal modal-class="file-manager-details">
 
-        <button class="btn btn-danger pull-right" v-on:click="deleteFile" style="margin: 5px;">
-          <i class="fa fa-trash-o"></i> Xóa
-        </button>
+        <div class="header">
+
+            <h5 style="float:left; padding-left: 15px;">
+                <a v-bind:href="currentFile.directory + '/' + currentFile.filename + '.' + currentFile.extension" class="btn btn-info">
+
+                    Đường dẫn
+
+                </a>
+            </h5>
+
+            <button class="btn btn-danger pull-right" v-on:click="deleteFile" style="margin: 5px;">
+                <i class="fa fa-trash-o"></i> Xóa
+            </button>
+
+        </div>
 
 
 

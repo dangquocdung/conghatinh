@@ -167,8 +167,6 @@
         <!-- /.box-header -->
         <div class="box-body">
           <media-manager></media-manager>
-
-          
         </div>
         <!-- /.box-body -->
       </div>
@@ -232,35 +230,8 @@
     // CKEDITOR.replace( 'gioi-thieu' );
     CKEDITOR.replace( 'noi-dung' );
 
-    // $("input:file, input:checkbox").uniform();
 
     $(document).ready(function() {
-        // document.getElementById("jimage").onchange = function () {
-        //     var reader = new FileReader();
-
-        //     reader.onload = function (e) {
-        //         if (e.total > 250000) {
-        //             $('#imageerror').text('Image too large');
-        //             $jimage = $("#jimage");
-        //             $jimage.val("");
-        //             $jimage.wrap('<form>').closest('form').get(0).reset();
-        //             $jimage.unwrap();
-        //             $('#uploadedimage').removeAttr('src');
-        //             return;
-        //         }
-        //         $('#imageerror').text('');
-        //         document.getElementById("dropbox").src = e.target.result;
-        //     };
-        //     reader.readAsDataURL(this.files[0]);
-        // };
-
-        // document.getElementById("loaitin").onchange = function(){
-        //     alert($(this).val());
-        // }
-
-        // $('#ngaydang').datetimepicker({
-        //   format: "DD-MM-YYYY H:m"
-        // });
 
         $('.select2').select2({
           width: '100%'
