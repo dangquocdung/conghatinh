@@ -105,7 +105,7 @@
         </li>
         <li class="col-md-3 col-xs-6">
             <div class="block2">
-                <a href="/loai-tin/lich-cong-tac" target="_blank">
+                <a href="/vi/chi-dao-dieu-hanh/lich-cong-tac">
                     <img src="/images/llvUBND.png" alt="" width="100%">
                 </a>
             </div>
