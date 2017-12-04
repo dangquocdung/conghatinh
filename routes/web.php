@@ -150,11 +150,6 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
         Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('gop-y');
-
-
-
-
-
     });
 
 
