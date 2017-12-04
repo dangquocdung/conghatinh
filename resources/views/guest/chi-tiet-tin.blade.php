@@ -130,7 +130,7 @@
 
 			<div class="lienquan-header">
 
-				<a href="/loai-tin/{{$tin->loaitin->slug}}">Các tin mới hơn</a>
+				<a href="{{ route('loai-tin',$tin->loaitin->slug)  }}">Các tin mới hơn</a>
 
 			</div>
 
@@ -162,7 +162,7 @@
 
 			<div class="lienquan-header">
 
-				<a href="/loai-tin/{{$tin->loaitin->slug}}">Các tin cũ hơn</a>
+				<a href="{{ route('loai-tin',$tin->loaitin->slug) }}">Các tin cũ hơn</a>
 
 			</div>
 
