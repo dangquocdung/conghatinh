@@ -6,7 +6,7 @@
 @section('content-main')
     @if (!empty($video))
         <div class="block3">
-            <div class="portlet-header" style="padding-left: 10px">
+            <div class="portlet-header">
                 <img src="/images/background/lotus.ico" alt="">
                 <a href="javascript:void (0);">
                     <h4 class="portlet-header-title no-pd-top"> {{ $video->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($video->ngayphat)->format('d-m-Y') }}</h4>

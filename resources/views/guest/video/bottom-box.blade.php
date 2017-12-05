@@ -7,7 +7,7 @@
     {{--</div>--}}
 
 
-    <div class="portlet-header" style="padding-left: 10px">
+    <div class="portlet-header">
         <img src="/images/background/lotus.ico">
         <a href="{{ route('thu-vien-video') }}">
             <h4 class="portlet-header-title no-pd-top">Truyền hình Hà Tĩnh</h4>
