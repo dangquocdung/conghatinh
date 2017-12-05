@@ -99,7 +99,7 @@
                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
                     @foreach($vd_noibat as $vd)
                         <div class="video-thumbnail">
-                            <a href="/loai-tin/thu-vien-video/{{ $vd->id }}">
+                            <a href="{{ route('thu-vien-video',$vd->id) }}">
                                 <img data-u="image" src="{{ $vd->loaivideo->cover_image }}" title="{{ $vd->name }}" />
                                 <p style="position: absolute; bottom: 10px; right:10px; font-size: 1.5em; color: #ffffff;">
                                     {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y')}}

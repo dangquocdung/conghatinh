@@ -27,7 +27,8 @@
 
             <div class="embed-responsive embed-responsive-16by9">
 
-                {!! Setting::get('video_livestream') !!}
+{{--                {!! Setting::get('video_livestream') !!}--}}
+                <iframe src="http://27.72.47.236:8090/feed1.ffm" frameborder="0"></iframe>
 
             </div>
 
