@@ -90,13 +90,13 @@
                                             <div class="clip col-md-4 col-sm-4 col-xs-6" style="margin-bottom: 20px; padding: 0 20px">
 
                                                 <div class="video-thumbnail">
-                                                    <a href="/loai-tin/thu-vien-video/{{ $vd->id }}">
+                                                    <a href="{{ route('thu-vien-video',$vd->id) }}">
                                                         <img data-u="image" src="{{ $vd->loaivideo->cover_image }}" title="{{ $vd->name }}" width="100%" />
                                                     </a>
                                                 </div>
 
                                                 <div class="tieu-de" style="text-align: center; margin-top: 5px">
-                                                    <a href="loai-tin/thu-vien-video/{{ $vd->id }}">
+                                                    <a href="{{ route('thu-vien-video',$vd->id) }}">
                                                         {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
                                                     </a>
                                                 </div>
