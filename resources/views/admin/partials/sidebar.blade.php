@@ -110,13 +110,7 @@
             <a href="{{ route('hoi-dap-truc-tuyen') }}"><i class="fa fa-circle-o"></i> Hỏi - Đáp trực tuyến</a>
           </li>
 
-          <li class="{{ Request::is('toa-soan/chuyen-trang/album-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('album-manager')}}"><i class="fa fa-circle-o"></i><span> Album hình ảnh</span></a>
-          </li>
 
-          <li class="{{ Request::is('toa-soan/chuyen-trang/video-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('video-manager')}}"><i class="fa fa-circle-o"></i><span> Video</span></a>
-          </li>
 
           <li class="{{ Request::is('toa-soan/chuyen-trang/lien-he-cong-tac') ? 'active' : ''  }} treeview">
             <a href="{{route('lien-he-cong-tac')}}"><i class="fa fa-circle-o"></i><span> Liên hệ công tác</span></a>
@@ -138,6 +132,15 @@
             </span>
         </a>
         <ul class="treeview-menu">
+
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/album-manager') ? 'active' : ''  }} treeview">
+            <a href="{{route('album-manager')}}"><i class="fa fa-circle-o"></i><span> Album hình ảnh</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/video-manager') ? 'active' : ''  }} treeview">
+            <a href="{{route('video-manager')}}"><i class="fa fa-circle-o"></i><span> Video</span></a>
+          </li>
+
           <li class="{{ Request::is('toa-soan/da-phuong-tien/media-manager') ? 'active' : ''  }} treeview">
             <a href="{{route('media-manager')}}"><i class="fa fa-circle-o"></i><span> Quản lý Hình ảnh</span></a>
           </li>

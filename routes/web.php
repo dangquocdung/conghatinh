@@ -23,7 +23,7 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('tieng-noi-cong-dan/gop-y-du-thao-van-ban', 'GuestController@getGopYVanBan');
     Route::get('tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
-    Route::group(['prefix'=>'vi'], function () {
+    Route::group(['prefix'=>'chuyen-trang'], function () {
 
         Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
         Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
@@ -34,10 +34,15 @@ Route::group(['prefix'=>'vi'], function ()
         Route::get('danh-sach-vpdd-pvtt-dang-ky-hoat-dong', 'GuestController@getPhongVienThuongTru');
     });
 
+    Route::group(['prefix'=>'da-phuong-tien'], function () {
 
-    Route::get('thu-vien-video/{id?}', 'GuestController@getVideo')->name('thu-vien-video');
+        Route::get('thu-vien-video/{id?}', 'GuestController@getVideo')->name('thu-vien-video');
 
-    Route::get('album-hinh-anh/{slug?}', 'GuestController@getAlbum')->name('album-hinh-anh');
+        Route::get('album-hinh-anh/{slug?}', 'GuestController@getAlbum')->name('album-hinh-anh');
+    });
+
+
+
 
     Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
 
