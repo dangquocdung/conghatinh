@@ -8,24 +8,13 @@
 
 
     <div class="portlet-header" style="padding-left: 10px">
-
-        <a href="/">
-            <h4 class="portlet-header-title no-pd-top"><i class="fa fa-university" aria-hidden="true"></i> / </h4>
+        <img src="/images/background/lotus.ico">
+        <a href="{{ route('thu-vien-video') }}">
+            <h4 class="portlet-header-title no-pd-top">Truyền hình Hà Tĩnh</h4>
         </a>
-
-        <a href="javascript:void (0);">
-            <h4 class="portlet-header-title no-pd-top">Tất cả Video</h4>
-        </a>
-
-
-
     </div>
 
-
-
-
-
-        <div class="tat-ca-video"style="margin-top: 70px">
+    <div class="tat-ca-video"style="margin-top: 70px">
 
             <div class="row">
                 <div  class="col-sm-12">
