@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\NhomCQ;
 use App\PhimTat;
 use Illuminate\Http\Request;
+use App\Helper\VideoStream;
 use App\TinTuc;
 use App\LoaiTin;
 use App\ChuyenMuc;
@@ -46,15 +47,12 @@ class GuestController extends Controller
     {
 
 
-//        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(13)->get();
-//
-//        $tinvideo = TinTuc::where('daduyet','1')->where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
-//
-//        return view('guest.trang-chu', compact('tinmoi','tinslide','tinvideo','tinnoibat'));
+        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(13)->get();
 
-        $video_path = '/sftp/somefile.mp4';
-        $stream = new VideoStream($video_path);
-        $stream->start();
+        $tinvideo = TinTuc::where('daduyet','1')->where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
+
+        return view('guest.trang-chu', compact('tinmoi','tinslide','tinvideo','tinnoibat'));
+
     }
 
     public function indexEN()
