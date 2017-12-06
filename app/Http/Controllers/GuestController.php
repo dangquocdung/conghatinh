@@ -44,20 +44,17 @@ class GuestController extends Controller
 
     public function index()
     {
-//        $tinmoi = TinTuc::orderBy('id', 'decs')->take(5)->get();
-
-        
-
-        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(13)->get();
-
-//        $tinslide = TinTuc::where('daduyet','1')->where('loaitin_id','10')->orderBy('id', 'decs')->take(12)->get();
-
-        $tinvideo = TinTuc::where('daduyet','1')->where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
 
 
-        // $tintucsukien = TinTuc::where('')->orderBy('id', 'decs')->take(6)->get();
+//        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(13)->get();
+//
+//        $tinvideo = TinTuc::where('daduyet','1')->where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
+//
+//        return view('guest.trang-chu', compact('tinmoi','tinslide','tinvideo','tinnoibat'));
 
-        return view('guest.trang-chu', compact('tinmoi','tinslide','tinvideo','tinnoibat'));
+        $video_path = '/sftp/somefile.mp4';
+        $stream = new VideoStream($video_path);
+        $stream->start();
     }
 
     public function indexEN()

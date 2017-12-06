@@ -33,7 +33,7 @@
         <div class="block4" id="live-stream" style="border-radius: 5px">
             <div class="embed-responsive embed-responsive-16by9">
 {{--                {!! Setting::get('video_livestream') !!}--}}
-                <iframe src="/public/sftp/videos/TS_ThoiSuToi_051217.mp4" frameborder="0"></iframe>
+                <iframe src="/public/uploads/TS_ThoiSuToi_051217.mp4" frameborder="0"></iframe>
             </div>
         </div>
     {{--@endif--}}
