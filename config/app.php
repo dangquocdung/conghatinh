@@ -176,8 +176,6 @@ return [
         Plank\Mediable\MediableServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
-        Pbmedia\LaravelFFMpeg\FFMpegServiceProvider::class,
-        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 
 
         /*
@@ -250,7 +248,6 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'FFMpeg' => Pbmedia\LaravelFFMpeg\FFMpegFacade::class,
 
     ],
 
