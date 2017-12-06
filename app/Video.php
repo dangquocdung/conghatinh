@@ -12,4 +12,9 @@ class Video extends Model
     ];
 
     protected $guarded = [];
+
+    public function loaivideo()
+    {
+        return $this->belongsTo('App\LoaiVideo','loaivideo_id','id');
+    }
 }

@@ -177,6 +177,8 @@ return [
         Unisharp\Ckeditor\ServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Pbmedia\LaravelFFMpeg\FFMpegServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+
 
         /*
          * Application Service Providers...

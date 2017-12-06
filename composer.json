@@ -26,6 +26,7 @@
         "spatie/laravel-feed": "^2.0",
         "spatie/laravel-permission": "^1.11",
         "unisharp/laravel-ckeditor": "^4.6",
+        "unisharp/laravel-filemanager": "~1.8",
         "webpatser/laravel-uuid": "2.*"
     },
     "require-dev": {

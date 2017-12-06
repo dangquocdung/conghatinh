@@ -26,105 +26,20 @@
             <tr>
               <th>#</th>
               <th>Loại video</th>
-              <th>Tiêu đề</th>
-              <th>Ngày đăng</th>
-              <th width="20%">Video</th>
-
-              <th width="5%"></th>
+              <th>title</th>
+              <th>original_name</th>
+              <th>disk</th>
+              <th>path</th>
             </tr>
             </thead>
             <tbody>
             @foreach($video as $vd)
               <tr>
-                <td>{{$vd->id}}</td>
                 <td>{{ $vd->loaivideo->name }}</td>
-                <td>
-                  {{ $vd->loaivideo->name }} ngày {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y') }}
-
-                  <div class="clearfix"></div>
-
-                  @if ($vd->noibat == '1')
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Hủy Nổi bật'
-                              btn-class="btn-danger"
-                              url="{{url('api/v1/noi-bat-video')}}"
-                              :post-data="{{json_encode(['id' => $vd->id, 'noibat'=>'0'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn hủy nổi bật?">
-                      </confirm-modal>
-                    </div>
-
-                  @else
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Làm Nổi bật'
-                              btn-class="btn-warning"
-                              url="{{url('api/v1/noi-bat-video')}}"
-                              :post-data="{{json_encode(['id' => $vd->id, 'noibat'=>'1'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn làm nổi bật?">
-                      </confirm-modal>
-                    </div>
-
-                  @endif
-
-                  @if ($vd->daduyet == '1')
-                    {{--<span class="label label-success">Đã duyệt đăng</span>--}}
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Thôi Duyệt đăng'
-                              btn-class="btn-danger"
-                              url="{{url('api/v1/duyet-video')}}"
-                              :post-data="{{json_encode(['id' => $vd->id, 'duyetdang'=>'0'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn thôi duyệt đăng video?">
-                      </confirm-modal>
-                    </div>
-
-                  @else
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Chờ duyệt đăng'
-                              btn-class="btn-success"
-                              url="{{url('api/v1/duyet-video')}}"
-                              :post-data="{{json_encode(['id' => $vd->id, 'duyetdang'=>'1'])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn duyệt đăng video?">
-                      </confirm-modal>
-                    </div>
-
-                    {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
-                  @endif
-
-                </td>
-                <td>{{ \Carbon\Carbon::parse($vd->created_at)->format('d/m/Y H:i:s') }}</td>
-                <td>
-                  <div class="embed-responsive embed-responsive-16by9">
-                    {!! $vd->src !!}
-                  </div>
-                </td>
-
-                <td class="col-sm-3">
-                  {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
-                  {{--<div class="pull-left">--}}
-                    {{--<a href="{{route('edit-loai-tin', [$vd->id] )}}" class="btn btn-primary btn-xs">--}}
-                      {{--<i class="fa fa-edit"></i> Edit--}}
-                    {{--</a>--}}
-                  {{--</div>--}}
-
-                  <div class="pull-left gap-left gap-10">
-                    <confirm-modal
-                            btn-text='<i class="fa fa-trash"></i> Delete'
-                            btn-class="btn-danger"
-                            url="{{url('api/v1/delete-video')}}"
-                            :post-data="{{json_encode(['id' => $vd->id])}}"
-                            :refresh="true"
-                            message="Bạn chắc chắn muốn xoá video này?">
-                    </confirm-modal>
-                  </div>
-                  {{-- @endif --}}
-                </td>
+                <td>{{$vd->title}}</td>
+                <td>{{$vd->original_name}}</td>
+                <td>{{$vd->disk}}</td>
+                <td>{{$vd->path}}</td>
               </tr>
             @endforeach
             </tbody>
@@ -140,10 +55,13 @@
     <div class="col-sm-4">
       {{--Box--}}
       <div class="box box-primary">
+
         <div class="box-header with-border">
           <h3 class="box-title">Thêm Video</h3>
         </div>
-        <form action="{{route('save-video')}}" method="post" id="role-save-form">
+
+
+        <form action="{{route('video.store')}}" method="post" id="role-save-form" enctype="multipart/form-data">
           <!-- /.box-header -->
           <div class="box-body">
             {{csrf_field()}}
@@ -151,36 +69,32 @@
               <label>Nhóm video</label>
               <select class="form-control chuyenmuc" name="loaivideo_id" style="width: 100%;">
                 @foreach ($loaivideo as $lv)
-                  @if ($loaivideo_id == $lv->id)
-                    <option value={{ $lv->id }} data-id={{ count($lv->video) }} selected>{{ $lv->name }}</option>
-                  @else
                     <option value={{ $lv->id }} data-id={{ count($lv->video) }}>{{ $lv->name }}</option>
-                  @endif
                 @endforeach
               </select>
             </div>
 
-            <!-- Date -->
+
             <div class="form-group">
-              <label>Ngày phát</label>
-              <div class='input-group date' id='datetimepicker_ngayphat'>
-                <input name="ngayphat" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
-                <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-              </div>
-              <!-- /.input group -->
+              <label for="">Tiêu đề:</label>
+              <input type="text"
+                     placeholder="Tiêu đề video"
+                     name="title"
+                     value="{{old('title')}}"
+                     class="form-control"
+                     required >
+              <div class="HelpText error">{{$errors->first('title')}}</div>
             </div>
 
             <div class="form-group">
-              <label for="">Mã nhúng:</label>
-              <input type="text"
-                     placeholder="Sao chép mã nhúng"
-                     name="src"
-                     value="{{old('src')}}"
+              <label for="">Tiêu đề:</label>
+              <input type="file"
+                     placeholder="Tiêu đề video"
+                     name="video"
+                     value="{{old('video')}}"
                      class="form-control"
                      required >
-              <div class="HelpText error">{{$errors->first('name')}}</div>
+              <div class="HelpText error">{{$errors->first('video')}}</div>
             </div>
 
 
@@ -197,27 +111,3 @@
   </div>
 
 @endsection
-
-@section('js')
-  <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-  <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-
-
-
-  <script>
-    $(document).ready(function () {
-
-        $('.embed-responsive').find('iframe').addClass('embed-responsive-item').removeAttr('width').removeAttr('height');
-
-
-    })
-
-    $(function () {
-
-        $('#datetimepicker_ngayphat').datetimepicker({
-            format:'DD-MM-YYYY'
-        });
-    });
-  </script>
-
-@stop

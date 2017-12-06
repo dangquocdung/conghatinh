@@ -90,8 +90,23 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::get('user/profile', 'UserController@pageUserProfile')->name('profile');
     Route::post('user/profile', 'UserController@postUpdateProfile')->name('update-profile');
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
-    Route::get('media-manager', 'MediaController@index')->name('media-manager');
-    Route::get('file-manager', 'FileController@index')->name('file-manager');
+
+    //Da Phuong Tien
+    Route::group(['prefix'=>'da-phuong-tien'],function () {
+
+        Route::resource('video', 'VideoController');
+
+
+        Route::get('album-manager/{slug?}', 'AlbumController@index')->name('album-manager');
+        Route::post('save-album', 'AlbumController@store')->name('save-album');
+        Route::post('update-album', 'AlbumController@update')->name('update-album');
+        Route::post('update-album-cover', 'AlbumController@updateCover')->name('update-album-cover');
+        Route::post('delete-album', 'AlbumController@destroy')->name('delete-album');
+        Route::post('add-image-to-album', 'ImageController@store')->name('add-image-to-album');
+        Route::post('remove-image-to-album', 'ImageController@destroy')->name('remove-image-to-album');
+        Route::get('media-manager', 'MediaController@index')->name('media-manager');
+        Route::get('file-manager', 'FileController@index')->name('file-manager');
+    });
 
     //Van ban
     Route::group(['prefix'=>'tin-tuc'],function () {
@@ -143,15 +158,6 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('update-ho-tro-phap-ly', 'HoTroPhapLyController@update')->name('update-ho-tro-phap-ly');
         Route::post('delete-ho-tro-phap-ly', 'HoTroPhapLyController@destroy')->name('delete-ho-tro-phap-ly');
 
-        Route::get('video-manager', 'VideoController@index')->name('video-manager');
-        Route::post('save-video', 'VideoController@store')->name('save-video');
-        Route::get('album-manager/{slug?}', 'AlbumController@index')->name('album-manager');
-        Route::post('save-album', 'AlbumController@store')->name('save-album');
-        Route::post('update-album', 'AlbumController@update')->name('update-album');
-        Route::post('update-album-cover', 'AlbumController@updateCover')->name('update-album-cover');
-        Route::post('delete-album', 'AlbumController@destroy')->name('delete-album');
-        Route::post('add-image-to-album','ImageController@store')->name('add-image-to-album');
-        Route::post('remove-image-to-album','ImageController@destroy')->name('remove-image-to-album');
         Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('gop-y');
     });

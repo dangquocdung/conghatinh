@@ -137,8 +137,8 @@
             <a href="{{route('album-manager')}}"><i class="fa fa-circle-o"></i><span> Album hình ảnh</span></a>
           </li>
 
-          <li class="{{ Request::is('toa-soan/da-phuong-tien/video-manager') ? 'active' : ''  }} treeview">
-            <a href="{{route('video-manager')}}"><i class="fa fa-circle-o"></i><span> Video</span></a>
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/video') ? 'active' : ''  }} treeview">
+            <a href="{{route('video.index')}}"><i class="fa fa-circle-o"></i><span> Truyền hình Hà Tĩnh</span></a>
           </li>
 
           <li class="{{ Request::is('toa-soan/da-phuong-tien/media-manager') ? 'active' : ''  }} treeview">
