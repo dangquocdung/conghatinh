@@ -179,7 +179,7 @@
     $(document).ready(function(){
         $("#lienket").focus (function () {
 
-            var str = "/loai-tin/"+to_slug($("#name").val());
+            var str = "/vi/chuyen-trang/"+to_slug($("#name").val());
             $(this).val(str);
         })
     })
