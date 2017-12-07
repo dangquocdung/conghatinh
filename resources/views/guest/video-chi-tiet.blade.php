@@ -24,7 +24,10 @@
             <div class="video-player" style="padding: 30px">
                 <div class="embed-responsive embed-responsive-16by9">
 
-                    <iframe src="sftp/{{ $video->src }}" frameborder="0"></iframe>
+                    {{--<iframe src="sftp/{{ $video->src }}" frameborder="0"></iframe>--}}
+                    <video controls>
+                        <source src="/sftp/{{ $video->src }}" type="video/mp4">
+                    </video>
 
                 </div>
             </div>
