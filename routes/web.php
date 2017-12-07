@@ -18,12 +18,14 @@ Route::group(['prefix'=>'vi'], function ()
 
     Route::get('ban-bien-tap', 'GuestController@getBBT')->name('ban-bien-tap');
     Route::get('so-do-cong', 'GuestController@getSoDoCong')->name('so-do-cong');
-    Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
+
 
     Route::get('tieng-noi-cong-dan/gop-y-du-thao-van-ban', 'GuestController@getGopYVanBan');
     Route::get('tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
     Route::group(['prefix'=>'chuyen-trang'], function () {
+
+        Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
 
         Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
         Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
