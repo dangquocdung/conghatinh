@@ -38,7 +38,7 @@
 
         <div class="block4" id="live-stream" style="border-radius: 5px">
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="/uploads/{{ $vd_thoisu->src }}" frameborder="0"></iframe>
+                <iframe src="/uploads/{{ $vd_thoisu->src }}?rel=0" frameborder="0"></iframe>
             </div>
         </div>
     @endif
