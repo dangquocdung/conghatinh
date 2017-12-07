@@ -84,7 +84,7 @@
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
-        <a href="/loai-tin/album-hinh-anh">
+        <a href="{{ route('album-hinh-anh') }}">
             <h4 class="portlet-header-title no-pd-top">Album hình ảnh</h4>
         </a>
     </div>
@@ -99,7 +99,7 @@
                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
                     @foreach($ab_noibat as $ab)
                         <div>
-                            <a href="/loai-tin/album-hinh-anh/{{ $ab->slug }}">
+                            <a href="{{ route('album-hinh-anh', $ab->slug) }}">
                                 <img data-u="image" src="{{ $ab->cover_image }}" title="{{ $ab->name }}" />
                             </a>
                         </div>

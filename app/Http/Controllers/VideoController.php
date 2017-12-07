@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
-use App\Http\Requests\StoreVideoRequest;
-use App\Jobs\ConvertVideoForDownloading;
-use App\Jobs\ConvertVideoForStreaming;
 use App\Video;
 use App\LoaiVideo;
 use Carbon\Carbon;
+use File;
+use Session;
 
 class VideoController extends Controller
 {
@@ -18,35 +18,86 @@ class VideoController extends Controller
         $loaivideo = LoaiVideo::all();
         view()->share('loaivideo',$loaivideo);
     }
+
+
     public function index()
     {
-        $video =Video::orderby('id','desc')->paginate(12);
-        return view('admin.pages.video',compact('video'));
-    }
+        $dir = 'sftp';
 
-    public function store(StoreVideoRequest $request)
-    {
-        $folder = 'uploads/video/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
-
-        if (!file_exists(public_path($folder))) {
-            mkdir(public_path($folder), 0755, true);
+        if (!file_exists(public_path($dir))) {
+            mkdir(public_path($dir), 0755, true);
         }
 
-        $video = Video::create([
-            'disk'          => 'videos_disk',
-            'original_name' => $request->video->getClientOriginalName(),
-            'path'          => $request->video->store($folder,'videos_disk'),
-            'title'         => $request->title,
-            'loaivideo_id'  => $request->loaivideo_id,
-        ]);
+        $files = File::allFiles($dir);
 
-        $this->dispatch(new ConvertVideoForDownloading($video));
-        $this->dispatch(new ConvertVideoForStreaming($video));
+        $video =Video::orderby('id','desc')->paginate(12);
+        return view('admin.pages.video',compact('video','files'));
+    }
 
-//        return response()->json([
-//            'id' => $video->id,
-//        ], 201);
+    public function store(Request $request)
+    {
+        $vd = new Video();
+
+        $vd->loaivideo_id = $request->input('loaivideo_id');
+        $vd->ngayphat = Carbon::parse($request->input('ngayphat'));
+        $vd->src = $request->input('src');
+
+        $vd->save();
+
+        flash('Thêm video thành công');
+
+        Session::put('loaivideo_id', $request->input('loaivideo_id'));
 
         return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Video  $video
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $vd = Video::find($id);
+
+        $vd->delete();
+
+        return response(['data' => 'Video đã bị xoá'], 200);
+    }
+
+    public function postDuyet(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $vd = Video::find($id);
+
+//        $tintuc->daduyet = $request->input('daduyet');
+
+        $vd->daduyet = $request->input('duyetdang');
+
+        $vd->save();
+
+        return response(['data' => 'Done!'], 200);
+    }
+
+    public function postNoiBat(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $vd = Video::find($id);
+
+//        $tintuc->daduyet = $request->input('daduyet');
+
+        $vd->noibat = $request->input('noibat');
+
+        $vd->save();
+
+        return response(['data' => 'Done!'], 200);
     }
 }

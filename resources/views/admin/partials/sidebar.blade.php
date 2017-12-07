@@ -16,15 +16,15 @@
       </div>
     </div>
     <!-- search form -->
-    <form action="#" method="get" class="sidebar-form">
-      <div class="input-group">
-        <input type="text" name="q" class="form-control" placeholder="Search...">
-        <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-      </div>
-    </form>
+    {{--<form action="#" method="get" class="sidebar-form">--}}
+      {{--<div class="input-group">--}}
+        {{--<input type="text" name="q" class="form-control" placeholder="Search...">--}}
+        {{--<span class="input-group-btn">--}}
+                {{--<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>--}}
+                {{--</button>--}}
+              {{--</span>--}}
+      {{--</div>--}}
+    {{--</form>--}}
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
@@ -153,7 +153,7 @@
 
 
 
-      @role('tbt')
+      {{--@role('tbt')--}}
 
       <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
@@ -174,10 +174,10 @@
         </ul>
       </li>
 
-      @endrole
+      {{--@endrole--}}
 
 
-      @role('admin')
+      {{--@role('admin')--}}
         <li class="{{ Request::is('toa-soan/phim-tat') ? 'active' : ''  }}">
           <a href="{{route('phim-tat.index')}}"><i class="fa fa-folder-open-o"></i> Phím tắt</a>
         </li>
@@ -208,7 +208,8 @@
             @endif
           </ul>
         </li>
-      @endrole
+      {{--@endrole--}}
+
       <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-gear"></i> <span> Cấu hình</span>
@@ -220,7 +221,7 @@
           <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/my-activities') ? 'active' : ''  }}">
             <a href="{{route('my-activities')}}"><i class="fa fa-circle-o"></i> Tác động</a>
           </li>
-          @role('admin')
+          {{--@role('admin')--}}
             <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/activities') ? 'active' : ''  }}">
               <a href="{{route('activities')}}"><i class="fa fa-circle-o"></i> Nhật kí</a>
             </li>
@@ -239,7 +240,7 @@
               <a href="{{route('index-chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
             </li>
 
-          @endrole
+          {{--@endrole--}}
         </ul>
       </li>
 

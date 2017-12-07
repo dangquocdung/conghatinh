@@ -46,7 +46,6 @@ class GuestController extends Controller
     public function index()
     {
 
-
         $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(13)->get();
 
         $tinvideo = TinTuc::where('daduyet','1')->where('loaitin_id','11')->orderBy('id', 'decs')->take(12)->get();
@@ -55,27 +54,6 @@ class GuestController extends Controller
 
     }
 
-    public function indexEN()
-    {
-    	App::setLocale('en');
-
-     //    $tinmoi = TinTuc::orderBy('id', 'decs')->take(5)->get();
-
-     //    $tinslide = TinTuc::orderBy('id', 'decs')->take(10)->get();
-
-     //    $tinnoibat = TinTuc::orderBy('id', 'decs')->take(6)->get();
-
-     //    return view('guest.trang-chu', compact('tinmoi','tinslide','tinnoibat'));
-
-    	// $locale = App::getLocale();
-
-		if (App::isLocale('en')) {
-		    
-		    echo trans('messages.welcome', ['name' => 'dayle']);
-		}
-
-
-    }
 
     public function getVideo($id=null)
     {
@@ -188,7 +166,6 @@ class GuestController extends Controller
 
             abort(404, 'Khong tim thay trang.');
 
-
         }
 
         else
@@ -201,7 +178,6 @@ class GuestController extends Controller
             $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
             return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
-
         }
 
     }
@@ -218,7 +194,6 @@ class GuestController extends Controller
         }
 
         return view('guest.van-ban', compact('lt'));
-        
     }
 
     public function ctVanBan($slug,$id)
@@ -274,7 +249,6 @@ class GuestController extends Controller
 
         return view('guest.tin-noi-bat', compact('tintuc'));
     }
-
 
     public function getSoDoCong()
     {
@@ -344,9 +318,4 @@ class GuestController extends Controller
                 'columns' => $columns
             ]);
     }
-
-
-
-
-
 }

@@ -10,23 +10,16 @@ use App\Album;
 class AlbumController extends Controller
 {
 
-    public function index($slug=null)
+    public function index()
     {
+        $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
+        return view('admin.pages.album',compact('albums'));
+    }
 
-        if ($slug == null){
-
-            $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
-            return view('admin.pages.album',compact('albums'));
-
-
-        }else{
-
-            $ab = Album::where('slug',$slug)->first();
-
-            return view('admin.pages.album-chi-tiet',compact('ab'));
-
-        }
-
+    public function show($id)
+    {
+        $ab = Album::find($id)->first();
+        return view('admin.pages.album-chi-tiet',compact('ab'));
     }
 
 

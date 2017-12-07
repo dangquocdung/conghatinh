@@ -19,11 +19,8 @@
     @foreach ($cm->loaitin->sortby('thutu') as $lt)
 
         @php
-
             $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(4);
-
         @endphp
-
 
         <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
             <div class="row">
@@ -38,7 +35,6 @@
                       <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
                     </span>
                 </div>
-
 
                 @if (count($tins)>0)
                     <div class="col-md-12">
