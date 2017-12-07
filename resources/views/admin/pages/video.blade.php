@@ -152,7 +152,7 @@
             {{csrf_field()}}
             <div class="form-group">
               <label>Nhóm video</label>
-              <select class="form-control chuyenmuc" name="loaivideo_id" style="width: 100%;">
+              <select class="form-control select2" name="loaivideo_id" style="width: 100%;">
                 @foreach ($loaivideo as $lv)
                     <option value={{ $lv->id }} data-id={{ count($lv->video) }}>{{ $lv->name }}</option>
                 @endforeach
@@ -173,11 +173,10 @@
             </div>
 
             <div class="form-group">
-              <label>Nhóm video</label>
-              <select class="form-control chuyenmuc" name="src" style="width: 100%;">
-                <option value="" disabled> Chọn video</option>
+              <label>Chọn video</label>
+              <select class="form-control select2" name="src" style="width: 100%;">
                 @foreach ($files as $file)
-                  <option value={{ $file->getFilename() }}>{{ $file->getFilename() }}</option>
+                  <option value={{ $file->getfilename() }}>{{ $file->getfilename() }}</option>
                 @endforeach
               </select>
             </div>
@@ -208,8 +207,13 @@
 
           $('.embed-responsive').find('iframe').addClass('embed-responsive-item').removeAttr('width').removeAttr('height');
 
+          $('.select2').select2({
+              width: '100%'
+          });
 
-      })
+
+      });
+
 
       $(function () {
 

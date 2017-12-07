@@ -9,7 +9,9 @@
 <div class="video-player" style="padding: 30px">
     <div class="embed-responsive embed-responsive-16by9">
 
-        {!! $video->src !!}
+        <iframe src="{{ $video->src }}" frameborder="0"></iframe>
+
+
 
     </div>
 </div>

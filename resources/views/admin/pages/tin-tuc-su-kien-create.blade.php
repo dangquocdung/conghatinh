@@ -203,7 +203,8 @@
     dropbox.addEventListener('drop', drop, false);
 
 
-    function drop(evt) {
+    function drop(evt)
+    {
         evt.stopPropagation();
         evt.preventDefault(); 
         var imageUrl = evt.dataTransfer.getData('text/html');
@@ -217,15 +218,8 @@
         document.getElementById('dropbox').src=url[1];
 
         document.getElementById('avatar').value = url[1];
-      }
+    }
         
-
-    
-    
-    
-  
-
-    
 
     // CKEDITOR.replace( 'gioi-thieu' );
     CKEDITOR.replace( 'noi-dung' );

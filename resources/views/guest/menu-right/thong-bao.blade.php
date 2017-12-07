@@ -28,15 +28,25 @@
         @include('guest.layout.menu-right')
     </div>
 
-    {{--@if (strlen(Setting::get('video_livestream')) > 50 )--}}
+    @if (strlen(Setting::get('video_livestream')) > 50 )
 
         <div class="block4" id="live-stream" style="border-radius: 5px">
             <div class="embed-responsive embed-responsive-16by9">
-{{--                {!! Setting::get('video_livestream') !!}--}}
-                <iframe src="/uploads/TS_ThoiSuToi_051217.mp4" frameborder="0"></iframe>
+                {!! Setting::get('video_livestream') !!}
             </div>
         </div>
-    {{--@endif--}}
+
+        @else
+
+        <div class="block4" id="live-stream" style="border-radius: 5px">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="/uploads/{{ $vd_thoisu->src }}" frameborder="0"></iframe>
+            </div>
+        </div>
+
+
+
+    @endif
         <div class="right_1">
 
             @foreach($phimtat as $pt)

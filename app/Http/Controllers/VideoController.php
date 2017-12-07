@@ -31,6 +31,7 @@ class VideoController extends Controller
         $files = File::allFiles($dir);
 
         $video =Video::orderby('id','desc')->paginate(12);
+
         return view('admin.pages.video',compact('video','files'));
     }
 

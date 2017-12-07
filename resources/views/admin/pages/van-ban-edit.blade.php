@@ -32,9 +32,7 @@
           <div class="box-body">
 
               @php
-
                   $vanban = $chuyenmuc->where('slug','van-ban')->first();
-
               @endphp
               <div class="form-group">
                   <label>Chọn nhóm văn bản</label>

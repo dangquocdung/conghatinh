@@ -31,19 +31,16 @@
           <div class="box-body">
 
               @php
-
                   $vanban = $chuyenmuc->where('slug','van-ban-qppl')->first();
-
               @endphp
-              <div class="form-group">
-                  <label>Chọn nhóm văn bản</label>
 
-                    <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;">
+              <div class="form-group">
+                  <label>Chọn nhóm văn bản:</label>
+                  <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;">
                       <option value=""></option>
                       @foreach($vanban->loaitin as $nvb)
                           <option value="{{ $nvb->id }}">{{ $nvb->name }}</option>
                       @endforeach
-
                   </select>
               </div>
 
@@ -79,9 +76,6 @@
               </div>
 
               <div class="form-group">
-
-
-
                   <div class='input-group date' id='datetimepicker_ngaydang'>
                       <input name="ngaydang" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
                       <span class="input-group-addon">
