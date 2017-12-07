@@ -62,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
 
           $vd_thoisu = Video::where('loaivideo_id','1')->orderby('ngayphat','desc')->first();
 
-          $view->with(compact('toppic','chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','linhvuc','loaivb','ab_noibat','vd_noibat'));
+          $view->with(compact('toppic','chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','linhvuc','loaivb','ab_noibat','vd_noibat','vd_thoisu'));
 
         });
 
