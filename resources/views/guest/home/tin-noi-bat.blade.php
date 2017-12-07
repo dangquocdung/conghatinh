@@ -3,7 +3,7 @@
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
-        <a href="tin-noi-bat">
+        <a href="vi/tin-noi-bat">
             <h4 class="portlet-header-title no-pd-top">Tin Nổi bật</h4>
         </a>
     </div>

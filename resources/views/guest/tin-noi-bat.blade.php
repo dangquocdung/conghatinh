@@ -14,32 +14,54 @@
         </div>
 
 
-         <div class="loai-tin">
+        <div class="loai-tin">
+
+
             @foreach ($tintuc as $tin)
-              <div class="row" style="border-bottom: 1px solid #eaeaea; padding: 0 15px 10px 0">
-                <div class="news-main" style="margin-top: 10px;">
-                  <span class="label label-info">{{$tin->loaitin->name}}</span>
-                  <a class="tin_title_text" href="/chi-tiet/{{$tin->slug}}">
 
-                      <img style="display: inline-block; width: 160px; height:auto;" src="{{$tin->avatar}}" alt="" title="">
-                      <div class="tin_title_text">
-                          {{$tin->name}}
-                      </div>
+                <div class="news-main" style="padding: 0">
+                    <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
 
-                  </a>
+                        <span class="label label-info pull-right hidden-xs" style="margin-left: 15px;">{{$tin->loaitin->name}}</span>
 
-                  <div class="tin_title_abstract" style="display:;">
+                        <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug])}}">
 
-                      {{ $tin->gioithieu}}
-                  </div>
-              </div>
-            </div>
-           @endforeach
+                            <img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >
+
+                            <div class="tin_title_text">
+                                {{$tin->name}} <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                            </div>
+
+                        </a>
+
+                        <div class="tin_title_abstract" style="display:;">
+
+                            {{ $tin->gioithieu}}
+                        </div>
+
+                        <div class="pull-right" style="padding-top: 7px;">
+                            @foreach($tin->teptintuc as $ttt)
+                                <a href="{{ $ttt->path }}" target="_blank">
+                                    <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            @endforeach
         </div>
+
+        @include('guest.layout.tien-ich')
 
         <div class="text-center">
-          {{ $tintuc->render() }}
+            {{ $tintuc->render() }}
         </div>
+
 
     </div>
 @endsection
