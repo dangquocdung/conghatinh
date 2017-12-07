@@ -1,11 +1,5 @@
 
 <div class="block3">
-    {{--<div class="breadcrumb">--}}
-    {{--<a class="breadcrumb-item" href="/"><i class="glyphicon glyphicon-home"></i></a>--}}
-    {{--<a class="breadcrumb-item" href="/van-ban/van-ban-qppl">Tất cả Video</a>--}}
-    {{--<span class="breadcrumb-item active">Video</span>--}}
-    {{--</div>--}}
-
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
