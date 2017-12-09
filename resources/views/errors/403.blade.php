@@ -24,7 +24,7 @@
 
 @section('content-right')
 
-  @include('guest.menu-right.error')
+  @include('guest.menu-right.thong-bao')
 
 @stop
 
