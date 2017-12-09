@@ -36,7 +36,7 @@
 
 @section('content-right')
 
-    @include('guest.menu-right.gop-y')
+    @include('guest.menu-right.thong-bao')
 
 @endsection
 

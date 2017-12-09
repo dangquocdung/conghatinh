@@ -67,7 +67,7 @@
 
 
 @section('content-right')
-    @include('guest.menu-right.chuyen-trang')
+    @include('guest.menu-right.thong-bao')
 @stop
 
 @section('js')

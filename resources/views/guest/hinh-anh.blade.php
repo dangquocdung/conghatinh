@@ -19,7 +19,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.hinh-anh.right-box')
+    @include('guest.menu-right.thong-bao')
 @stop
 
 

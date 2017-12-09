@@ -86,7 +86,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.menu-right.loai-tin')
+    @include('guest.menu-right.thong-bao')
 @stop
 
 

@@ -153,7 +153,7 @@
 @stop
 
 @section('content-right')
-    @include('guest.menu-right.chi-tiet-van-ban')
+    @include('guest.menu-right.thong-bao')
 @stop
 
 

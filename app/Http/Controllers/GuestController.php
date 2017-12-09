@@ -270,6 +270,28 @@ class GuestController extends Controller
         return view('guest.lien-he-cong-tac');
     }
 
+    public function getTimKiem()
+    {
+        $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+        $search = str_slug($search);
+
+        $tintuc = TinTuc::where('slug','like','%'.$search.'%')
+            ->orderBy('id','desc')
+            ->paginate(20);
+
+        foreach ($tintuc as $tin){
+
+            $tin->name = str_replace($search,strtoupper ($search),$tin->name);
+
+        }
+
+        return view('guest.tim-kiem',compact('tintuc'));
+
+//        return response()->json($tintuc);
+
+    }
+
     public function apiVanBan($id=null)
     {
         if ($id != null){

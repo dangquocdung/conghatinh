@@ -200,7 +200,7 @@
 @endsection
 
 @section('content-right')
-	@include('guest.menu-right.chi-tiet-tin')
+	@include('guest.menu-right.thong-bao')
 @endsection
 
 @section('js')
