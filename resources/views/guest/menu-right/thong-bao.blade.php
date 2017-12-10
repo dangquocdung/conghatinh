@@ -16,17 +16,9 @@
 
         <script>
             $(document).ready(function () {
-
                 $('.block-header').click(function () {
-
-
                     $("#chevron").toggleClass('fa-chevron-up fa-chevron-down');
-
-
-
-
                 })
-
             })
         </script>
         @include('guest.layout.menu-right')
@@ -38,8 +30,7 @@
                 {!! Setting::get('video_livestream') !!}
             </div>
         </div>
-    @else
-
+    @elseif ($vd_thoisu)
         <div class="block4" id="live-stream" style="border-radius: 5px">
             <div class="embed-responsive embed-responsive-16by9">
                 <video controls>
