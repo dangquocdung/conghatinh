@@ -1,14 +1,5 @@
 <style>
-    #adv-search input{
 
-        border-top-left-radius: 3px;
-        border-bottom-left-radius: 3px;
-
-    }
-    .dropdown.dropdown-lg .dropdown-menu {
-        margin-top: -1px;
-        padding: 6px 20px;
-    }
     .input-group-btn .btn-group {
         display: flex !important;
     }
@@ -34,41 +25,45 @@
     }
 </style>
 {!! Form::open(['method'=>'GET','url'=>'vi/tim-kiem','role'=>'search'])  !!}
-<div class="input-group" id="adv-search">
+    <div class="input-group" id="adv-search" style="margin-bottom: 4px">
 
-    <input type="hidden" name="type" class="form-control" value="tieude"/>
-    <input type="text" name="search" class="form-control" placeholder="Tìm kiếm..." value="{{ old('search') }}"/>
+        <div class="input-group-btn search-panel">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span id="search_concept">Tiêu đề</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#gioithieu">Giới thiệu</a></li>
+                <li><a href="#ngaythang">Ngày tháng</a></li>
+                <li class="divider"></li>
+                <li><a href="#noidung">Nội dung</a></li>
+            </ul>
+        </div>
+        <input type="hidden" name="type" value="tieude" id="type" class="form-control"/>
+        <input type="text"  name="search" id="search" class="form-control" placeholder="Tìm kiếm..."/>
         <div class="input-group-btn">
             <div class="btn-group" role="group">
-                {{--<div class="dropdown dropdown-lg">--}}
-                    {{--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>--}}
-                    {{--<div class="dropdown-menu dropdown-menu-right" role="menu">--}}
-                        {{--<form class="form-horizontal" role="form">--}}
-                            {{--<div class="form-group">--}}
-                                {{--<label for="filter">Filter by</label>--}}
-                                {{--<select class="form-control">--}}
-                                    {{--<option value="0" selected>All Snippets</option>--}}
-                                    {{--<option value="1">Featured</option>--}}
-                                    {{--<option value="2">Most popular</option>--}}
-                                    {{--<option value="3">Top rated</option>--}}
-                                    {{--<option value="4">Most commented</option>--}}
-                                {{--</select>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group">--}}
-                                {{--<label for="contain">Contains the words</label>--}}
-                                {{--<input class="form-control" type="text" />--}}
-                            {{--</div>--}}
-                            {{--<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>--}}
-                        {{--</form>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </div>
         </div>
-
-
-
-
-</div>
+    </div>
 
 {!! Form::close() !!}
+
+<script>
+    $(document).ready(function(e){
+        $('.search-panel .dropdown-menu').find('a').click(function(e) {
+            e.preventDefault();
+            var param = $(this).attr("href").replace("#","");
+            var concept = $(this).text();
+            $('.search-panel span#search_concept').text(concept);
+            $('.input-group #type').val(param);
+
+            if (param == 'ngaythang'){
+                $('.input-group #search').attr('type','date');
+            }else{
+                $('.input-group #search').attr('type','text')
+            }
+
+        });
+    });
+</script>

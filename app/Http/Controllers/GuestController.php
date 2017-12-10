@@ -272,11 +272,12 @@ class GuestController extends Controller
 
     public function getTimKiem()
     {
-        $search = \Request::get('search'); //<-- we use global request to get the param of URI
+        $search1 = \Request::get('search'); //<-- we use global request to get the param of URI
 
-        $search = str_slug($search);
+        $search = str_slug($search1);
 
         $tintuc = TinTuc::where('slug','like','%'.$search.'%')
+            ->orWhere('gioithieu','like','%'.$search1.'%')
             ->orderBy('id','desc')
             ->paginate(20);
 

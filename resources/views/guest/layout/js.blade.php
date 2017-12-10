@@ -66,7 +66,7 @@
         };
         var jssor_slider1 = new $JssorSlider$(containerId, options);
 
-        var MAX_WIDTH = 980;
+        var MAX_WIDTH = 1200;
 
         function ScaleSlider() {
             var containerElement = jssor_slider1.$Elmt.parentNode;

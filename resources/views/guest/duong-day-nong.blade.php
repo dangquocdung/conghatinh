@@ -14,9 +14,7 @@
 
 
         <div class="col-md-12" style="padding: 5px">
-
             <div class="dv" style="padding: 5px">
-
                 <div class="dv-body">
                     <table id="example1" class="dv-table">
                         <thead>
@@ -54,7 +52,6 @@
                     </table>
                 </div>
             </div>
-
         </div>
 
 
