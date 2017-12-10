@@ -30,7 +30,7 @@
                 {!! Setting::get('video_livestream') !!}
             </div>
         </div>
-    @elseif ($vd_thoisu)
+    @elseif (!empty($vd_thoisu))
         <div class="block4" id="live-stream" style="border-radius: 5px">
             <div class="embed-responsive embed-responsive-16by9">
                 <video controls>
