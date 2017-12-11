@@ -100,7 +100,7 @@
               <div class="form-group">
                   <label>Ngày ban hành</label>
                   <div class='input-group date' id='datetimepicker_ngaybanhanh'>
-                      <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
+                      <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}" required/>
                       <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
