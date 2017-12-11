@@ -15,6 +15,7 @@
     $(document).ready(function () {
 
         // The Calender
+        $("#calendar").datepicker("setDate", new Date());
         $('#calendar').datepicker({
             language: 'vi'
         });
