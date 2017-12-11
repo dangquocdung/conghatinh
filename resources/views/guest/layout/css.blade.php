@@ -19,6 +19,12 @@
 <!-- Select2 -->
 <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
 
+<!-- Date Picker -->
+<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+<!-- Theme style -->
+<link rel="stylesheet" href="guest/css/AdminLTE.min.css">
+
 <link rel="stylesheet" href="{{ mix('/guest/css/guest.css') }}">
 
 

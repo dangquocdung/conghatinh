@@ -2,6 +2,8 @@
 
     @include(('guest.menu-right.tim-kiem'))
 
+    @include(('guest.menu-right.calendar'))
+
 
 
     <div class="block4">

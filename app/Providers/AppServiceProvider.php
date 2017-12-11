@@ -90,9 +90,9 @@ class AppServiceProvider extends ServiceProvider
 
             $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
+            $phimtat = PhimTat::orderby('thutu','asc')->get();
 
-
-            $view->with(compact('toppic','chuyenmuc'));
+            $view->with(compact('toppic','chuyenmuc','phimtat'));
 
         });
 

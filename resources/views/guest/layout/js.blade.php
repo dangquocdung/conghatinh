@@ -27,6 +27,10 @@
 <!-- FastClick -->
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 
+<!-- datepicker -->
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.vi.js" charset="UTF-8"></script>
+
 <!-- main js -->
 {{-- <script type="text/javascript" src="guest/js/main.js"></script> --}}
 
@@ -96,7 +100,7 @@
     // GoBack
     function goBack() {
         window.history.back();
-    }
+    };
 </script>
 
 
