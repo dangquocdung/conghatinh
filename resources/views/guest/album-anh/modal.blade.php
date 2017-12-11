@@ -39,7 +39,7 @@
             },
             $ThumbnailNavigatorOptions: {
                 $Class: $JssorThumbnailNavigator$,
-                $Cols: 5,
+                $Cols: 3,
                 $SpacingX: 5,
                 $SpacingY: 5,
                 $Align: 390
