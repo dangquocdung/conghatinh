@@ -46,6 +46,15 @@
         </script>
 
         <br>
+        <br>
+
+        <div class="lienquan-header">
+
+            <a href="javascript:void(0);">Album mới nhất</a>
+
+        </div>
+        <br>
+        <br>
 
         <div class="list-image-view">
             <ul style="padding: 0;">
