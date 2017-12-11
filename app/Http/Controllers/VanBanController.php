@@ -68,9 +68,6 @@ class VanBanController extends Controller
         $ngaybanhanh = Carbon::parse($request->input('ngaybanhanh'));
 
 
-
-
-
         $vb = VanBan::create([
 
             'user_id' => Auth::user()->id,
@@ -98,8 +95,7 @@ class VanBanController extends Controller
 
         ]);
 
-
-
+        $vb_id = $vb->id;
 
         $tvbs = $request->input('tepvanban');
 
@@ -109,14 +105,11 @@ class VanBanController extends Controller
 
 
             TepVanBan::create([
-                'vanban_id' => (int)$vb->id,
+                'vanban_id' => (int)$vb_id,
                 'media_id' => (int)$tvb,
                 'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
             ]);
         }
-
-
-
 
 
 //        event(new VanBanCreated($vb));
