@@ -20,6 +20,7 @@
 
         @php
             $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(4);
+            $vbs = $lt->vanban->where('daduyet','1')->sortByDesc('id')->take(4);
         @endphp
 
         <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
@@ -36,24 +37,58 @@
                     </span>
                 </div>
 
-                @if (count($tins)>0)
-                    <div class="col-md-12">
-                        <ul class="news-block">
-                            @foreach($tins as $tin)
-                                <li>
-                                    <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
 
-                                    <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
-                                        {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                    </a>
+                @if ($lt->type == 'tt')
+                    @if (count($tins)>0)
+                        <div class="col-md-12">
+                            <ul class="news-block">
+                                @foreach($tins as $tin)
+                                    <li>
+                                        <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
 
-                                    <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
+                                        <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
+                                            {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                        </a>
 
-                                    <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                                        <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
+
+                                        <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                @else
+                    @if (count($vbs) > 0)
+                        <div class="news-vanban">
+                            <ul class="news-block">
+                                @foreach($vbs as $vb)
+
+                                    <li style="margin-top: 0; border-bottom: none;">
+
+                                        <span class="label label-danger">Mới</span>
+
+                                        <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
+                                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                            Số: {{ $vb->kihieuvb }}
+                                        </a>
+
+                                        <small><em>(Ngày ban hành: {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}})</em></small>
+
+                                        @foreach($vb->tepvanban as $tvb)
+                                            <a href="{{ $tvb->path }}" target="_blank">
+                                                <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
+                                            </a>
+                                        @endforeach
+
+                                        <div class="gioithieu">
+                                            {{$vb->trichyeu}}
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 @endif
             </div>
 

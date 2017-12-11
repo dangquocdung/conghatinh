@@ -31,15 +31,21 @@
           <div class="box-body">
 
               @php
-                  $vanban = $chuyenmuc->where('slug','van-ban-qppl')->first();
+                  $vanban = $chuyenmuc->where('type','vb')->all();
               @endphp
 
               <div class="form-group">
                   <label>Chọn nhóm văn bản:</label>
-                  <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;">
+                  <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;" required>
                       <option value=""></option>
-                      @foreach($vanban->loaitin as $nvb)
-                          <option value="{{ $nvb->id }}">{{ $nvb->name }}</option>
+                      @foreach ($vanban as $vb)
+                          <optgroup label="{{ $vb->name}}">
+                          @foreach($vb->loaitin as $nvb)
+                                  @if ($nvb->type == 'vb')
+                                        <option value="{{ $nvb->id }}">{{ $nvb->name }}</option>
+                                  @endif
+                          @endforeach
+                          </optgroup>
                       @endforeach
                   </select>
               </div>
@@ -47,7 +53,7 @@
               <div class="form-group">
                   <label>Chọn loại văn bản</label>
 
-                    <select class="form-control select2" name="loaivb_id" data-placeholder="Chọn loại văn bản" style="width: 100%;">
+                    <select class="form-control select2" name="loaivb_id" data-placeholder="Chọn loại văn bản" style="width: 100%;" required>
 
                       <option value=""></option>
                       @foreach($loaivb as $lvb)
@@ -60,7 +66,7 @@
               <div class="form-group">
                   <label>Chọn lĩnh vực văn bản</label>
 
-                  <select class="form-control select2" name="linhvuc_id" data-placeholder="Chọn lĩnh vực văn bản" style="width: 100%;">
+                  <select class="form-control select2" name="linhvuc_id" data-placeholder="Chọn lĩnh vực văn bản" style="width: 100%;" required>
                       <option value=""></option>
                       @foreach($linhvuc as $lv)
                           <option value="{{ $lv->id }}">{{ $lv->name }}</option>

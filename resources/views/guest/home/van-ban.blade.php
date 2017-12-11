@@ -19,13 +19,13 @@
 
         @php
 
-          $tins = $lt->vanban->sortByDesc('id')->take(4);
+          $vbs = $lt->vanban->where('daduyet','1')->sortByDesc('id')->take(4);
 
 
         @endphp
 
 
-        @if ($tins)
+        @if (count($vbs) > 0)
             <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
                 <div class="row">
 
@@ -42,17 +42,22 @@
                     </div>
                     <div class="news-vanban">
                         <ul class="news-block">
-                            @foreach($tins as $vb)
+                            @foreach($vbs as $vb)
 
                                 <li style="margin-top: 0; border-bottom: none;">
 
+                                    <span class="label label-danger">Mới</span>
+
                                     <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
                                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                        Số: {{ $vb->kihieuvb }} <span class="label label-danger">Mới</span>
+                                        Số: {{ $vb->kihieuvb }}
                                     </a>
 
+                                    <small><em>(Ngày ban hành: {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}})</em></small>
 
-                                    @foreach($vb->tepvanban as $tvb)
+
+
+                                @foreach($vb->tepvanban as $tvb)
                                         <a href="{{ $tvb->path }}" target="_blank">
                                             <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
                                         </a>
