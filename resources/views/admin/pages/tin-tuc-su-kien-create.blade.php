@@ -30,20 +30,16 @@
           <input type="hidden" name="avatar" id="avatar">
           <div class="box-body">
 
-              @php
-
-                  $loaitin = $chuyenmuc->where('id','<>','4')->all();
-
-              @endphp
-
               <div class="form-group">
 
                 <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
                   <option value=""></option>
-                  @foreach ($loaitin as $cm)
+                  @foreach ($chuyenmuc as $cm)
                   <optgroup label="{{ $cm->name}}">
                     @foreach ($cm->loaitin as $lt)
-                      <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                        @if ($lt->type == 'tt')
+                            <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                          @endif
                     @endforeach
                   </optgroup>
                   @endforeach
