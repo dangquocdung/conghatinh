@@ -15,10 +15,13 @@
     $(document).ready(function () {
 
         // The Calender
-        $("#calendar").datepicker("setDate", new Date());
+
         $('#calendar').datepicker({
+//            "setDate": new Date(),
             language: 'vi'
         });
+
+        $("#calendar").datepicker("setDate", new Date());
 
     })
 
