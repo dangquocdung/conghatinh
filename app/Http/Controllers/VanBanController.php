@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\User\VanBanCreated;
 
+use App\TepTinTuc;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -68,42 +69,40 @@ class VanBanController extends Controller
 
         $vb->loaitin_id = $request->loaitin_id;
         $vb->loaivb_id = $request->loaivb_id;
-        $vb->linhvuc_id = $request->linhvuc_id;
         $vb->kihieuvb = $request->kihieuvb;
         $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
         $vb->nguoiki_id = $request->nguoiki_id;
         $vb->trichyeu = $request->trichyeu;
         $vb->ngaydang = Carbon::parse($request->ngaydang);
 
-        $vb->save;
+        $vb->save();
 
-//
-//        $tvbs = $request->input('tepvanban');
-//
-//        foreach ($tvbs as $tvb){
-//
-//            $path = Media::find($tvb);
-//
-//
-//            $tvbn= new TepVanBan;
-//
-//            $tvbn->vanban_id = $vb->id;
-//
-//            $tvbn->media_id = $tvb;
-//
-//            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
-//
-//
-//            $tvbn->save();
-//
-//        }
+        $vbid = $vb->id;
+
+
+        $tvbs = $request->input('tepvanban');
+
+        foreach ($tvbs as $tvb){
+
+            $path = Media::find($tvb);
+
+            $tvbn= new TepVanBan;
+
+            $tvbn->vanban_id = $vbid;
+
+            $tvbn->media_id = $tvb;
+
+            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+
+            $tvbn->save();
+        }
 
 
 //        event(new VanBanCreated($vb));
 
         flash('Thêm văn bản thành công!');
 
-        return route('index-van-ban');
+        return redirect()->route('index-van-ban');
     }
 
     /**
@@ -126,11 +125,11 @@ class VanBanController extends Controller
     public function edit($id)
     {
         $vbedit = VanBan::find($id);
-        $tepvanban = TepVanBan::all();
 
+        $tepvanban = TepVanBan::where('vanban_id',$vbedit->id)->get();
         return view('admin.pages.van-ban-edit',compact('vbedit','tepvanban'));
 
-//        return response()->json($id);
+//        return response()->json($tepvanban);
 
     }
 
@@ -145,50 +144,48 @@ class VanBanController extends Controller
     {
         $vb = VanBan::find($request->vbedit);
 
+        $vb->user_id = Auth::user()->id;
+
         $vb->loaitin_id = $request->loaitin_id;
         $vb->loaivb_id = $request->loaivb_id;
+        $vb->kihieuvb = $request->kihieuvb;
+        $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
+        $vb->nguoiki_id = $request->nguoiki_id;
+        $vb->trichyeu = $request->trichyeu;
+        $vb->ngaydang = Carbon::parse($request->ngaydang);
 
         $vb->save();
 
+        $vbid = $vb->id;
+
+
+        $tvbs = $request->input('tepvanban');
+
+
+        TepVanBan::where('vanban_id',$vbid)->delete();
+
+
+        foreach ($tvbs as $tvb){
+
+            $path = Media::find($tvb);
+
+            $tvbn= new TepVanBan;
+
+            $tvbn->vanban_id = $vbid;
+
+            $tvbn->media_id = $tvb;
+
+            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+
+            $tvbn->save();
+        }
+
+
+//        event(new VanBanCreated($vb));
+
+        flash('Cập nhật văn bản thành công!');
+
         return redirect()->route('index-van-ban');
-
-//            'user_id' => Auth::user()->id,
-//
-//            'loaitin_id'=> $request->input('loaitin_id'),
-//
-//            'loaivb_id'=> $request->input('loaivb_id')
-
-//            'linhvuc_id'=> $request->input('linhvuc_id'),
-//
-//            'kihieuvb' => $request->input('kihieuvb'),
-//
-//            'ngaybanhanh' => $request->input('ngaybanhanh'),
-//
-//            'nguoiki_id' => $request->input('nguoiki_id'),
-//
-//            'trichyeu' => $request->input('trichyeu'),
-//
-//            'ngaydang' => $request->input('ngaydang')
-
-
-//        ]);
-
-//        TepVanBan::where('vanban_id',$request->input('id'))->delete();
-//
-//        $tvbs = $request->input('tepvanban');
-//
-//        foreach ($tvbs as $tvb){
-//
-//            $path = Media::find($tvb);
-//
-//
-//            TepVanBan::create([
-//                'vanban_id' => $request->input('id'),
-//                'media_id' => (int)$tvb,
-//                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
-//            ]);
-//        }
-
 
 
 

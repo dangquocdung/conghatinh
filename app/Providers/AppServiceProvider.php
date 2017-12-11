@@ -76,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
 
           $nguoiki = NguoiKi::all();
 
-          $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
+          $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->take(12)->get();
 
           $loaivb = LoaiVB::all();
           

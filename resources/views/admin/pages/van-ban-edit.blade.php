@@ -126,32 +126,32 @@
                             </select>
                         </div>
 
+                        @php
+                            $items = array();
+                            foreach($tepvanban as $tvb){
+                                $items[] = $tvb->media_id;
+                            }
+                        @endphp
+
                         <div class="form-group">
                             <label>Chọn tệp văn bản</label>
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-primary btn-xs" id="btnRefresh">
-                                    <i class="fa fa-refresh"></i> Nạp lại
-                                </button>
-                            </div>
-                            <select id="tepvanban" name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">
+                            <select name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
                                 @foreach($pdfs as $pdf)
-                                    <option value="{{$pdf->id}}" style="width: 100%">{{ $pdf->filename }}</option>
+                                    @if (in_array($pdf->id,$items))
+                                        <option value="{{$pdf->id}}" selected>{{ $pdf->id.'-'.$pdf->filename }}</option>
+                                    @else
+                                        <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                                    @endif
+
                                 @endforeach
                             </select>
                         </div>
-
-
-
-
-
-
-
 
                     </div>
 
                     <div class="box-footer">
 
-                        <button type="submit" class="btn btn-success pull-right">Gởi chờ duyệt</button>
+                        <button type="submit" class="btn btn-success pull-right">Cập nhật</button>
 
                         <button type="button" class="btn btn-danger pull-left">Huỷ bài viết</button>
 
@@ -261,42 +261,74 @@
 
 @section('css')
 
-<link rel="stylesheet" href="/admin/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
 
 @stop
 
 @section('js')
 
-<script type="text/javascript" src="/admin/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 
 
-<script>
 
-    $(document).ready(function() {
-        $('.select2').select2({
-          width: '100%'
+
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+
+
+
+
+    <script>
+
+        $(document).ready(function() {
+            $('.select2').select2({
+                width: '100%'
+            });
+
+            $('#btnRefresh').click(function (e) {
+
+
+                console.log(e);
+
+
+                $.get('/toa-soan/json-tepdinhkem', function (data) {
+                    console.log(data);
+                    $('select#tepvanban').empty();
+//                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
+                    $.each(data, function(index, tdkObj){
+                        $('select#tepvanban').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+                    })
+                })
+            })
+
+
         });
-    });
 
-    //Date picker
-    $('#datepicker').datepicker({
-        format: 'yyyy-mm-dd',
-        autoclose: true
-    })
 
-    drag = function(ev) {
-        event.dataTransfer.setData("text", ev.target.innerText);
-    };
+        drag = function(ev) {
+            event.dataTransfer.setData("text", ev.target.innerText);
+        };
 
-    drop = function(ev) {
-        ev.target.innerText = ev.target.innerText +" "+ event.dataTransfer.getData("Text");
-    };
+        drop = function(ev) {
+            ev.target.innerText = ev.target.innerText +" "+ event.dataTransfer.getData("Text");
+        };
 
-    allowDrop = function(ev) {
-        ev.preventDefault();
-    };
+        allowDrop = function(ev) {
+            ev.preventDefault();
+        };
 
-</script>
+        $(function () {
+            $('#datetimepicker_ngaydang').datetimepicker({
+                format:'DD/MM/YYYY HH:mm:ss'
+            });
+
+            $('#datetimepicker_ngaybanhanh').datetimepicker({
+                format:'DD-MM-YYYY'
+            });
+        });
+
+
+    </script>
 @stop

@@ -9,7 +9,7 @@ class VanBan extends Model
 {
     protected $table = 'vanban';
 
-    protected $fillable = ['user_id','loaitin_id','linhvuc_id','kihieuvb','ngaybanhanh','nguoiki_id','cqbh_id','trichyeu','noibat','daduyet'];
+    protected $fillable = ['user_id','loaitin_id','kihieuvb','ngaybanhanh','nguoiki_id','cqbh_id','trichyeu','noibat','daduyet'];
 
     public function loaitin()
     {
