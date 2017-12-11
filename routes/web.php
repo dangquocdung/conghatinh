@@ -164,7 +164,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('update-ho-tro-phap-ly', 'HoTroPhapLyController@update')->name('update-ho-tro-phap-ly');
         Route::post('delete-ho-tro-phap-ly', 'HoTroPhapLyController@destroy')->name('delete-ho-tro-phap-ly');
 
-        Route::get('lien-he-cong-tac', 'LienHeController@index')->name('lien-he-cong-tac');
+        Route::get('lien-he-cong-tac', 'LienHeController@index')->name('index-lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('gop-y');
     });
 
