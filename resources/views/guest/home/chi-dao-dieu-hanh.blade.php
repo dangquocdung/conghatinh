@@ -63,7 +63,7 @@
 
                     <div class="breadcrumb" style="margin: 3px">
                         <span class="breadcrumb-item active">
-                          <a href="{{ route('van-ban',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;">
+                          <a href="{{ route('van-ban',$lt->slug) }}" style="text-decoration: none;">
                             <span class="glyphicon glyphicon-share-alt"></span>
                             <strong>{{ $lt->name }}</strong>
                           </a>
