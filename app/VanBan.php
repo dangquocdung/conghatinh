@@ -21,11 +21,6 @@ class VanBan extends Model
         return $this->belongsTo('App\LoaiVB','loaivb_id','id');
     }
 
-    public function linhvuc()
-    {
-        return $this->belongsTo('App\LinhVuc','linhvuc_id','id');
-    }
-
     public function user()
     {
         return $this->belongsTo('App\User','user_id','id');
@@ -43,7 +38,7 @@ class VanBan extends Model
 
     use VanBanViewer;
 
-    public static $columns = ['kihieuvb','ngaybanhanh','loaitin','linhvuc','trichyeu'
+    public static $columns = ['kihieuvb','ngaybanhanh','loaitin','trichyeu'
 //        'id','user_id','loaitin_id','sovb','kihieuvb','ngaybanhanh','nguoiki_id',
 //        'trichyeu','noibat','daduyet', 'created_at', 'updated_at'
     ];

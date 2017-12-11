@@ -1725,31 +1725,6 @@ module.exports = {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3912,8 +3887,6 @@ var render = function() {
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
             _c(
               "th",
               {
@@ -3959,8 +3932,6 @@ var render = function() {
               _c("td", [_vm._v(_vm._s(row.ngaybanhanh))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(row.loaitin.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(row.linhvuc.name))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(row.trichyeu))]),
               _vm._v(" "),
@@ -4110,12 +4081,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("th", [_c("span", [_vm._v("Loại VB")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("th", [_c("span", [_vm._v("Lĩnh vực")])])
   }
 ]
 render._withStripped = true

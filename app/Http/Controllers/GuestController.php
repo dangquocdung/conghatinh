@@ -201,7 +201,7 @@ class GuestController extends Controller
     {
         $vb = VanBan::find($id);
 
-        return view('guest.chi-tiet-van-ban', compact('vb'));
+        return view('guest.van-ban-chi-tiet', compact('vb'));
     }
 
     public function getDoanhNghiepHoi()
@@ -321,11 +321,11 @@ class GuestController extends Controller
     public function apiVanBan($id=null)
     {
         if ($id != null){
-            $model = VanBan::where('daduyet','1')->where('loaitin_id',$id)->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
+            $model = VanBan::where('daduyet','1')->where('loaitin_id',$id)->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
 
 
         }else{
-            $model = VanBan::where('daduyet','1')->with('loaitin')->with('linhvuc')->with('tepvanban')->searchPaginateAndOrder();
+            $model = VanBan::where('daduyet','1')->with('loaitin')->with('tepvanban')->searchPaginateAndOrder();
 
         }
 

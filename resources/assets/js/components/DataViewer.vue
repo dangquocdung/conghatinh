@@ -31,14 +31,6 @@
             <table class="dv-table">
                 <thead>
                 <tr>
-                    <!--<th v-for="column in columns" @click="toggleOrder(column)">-->
-                        <!--<span>{{column}}</span>-->
-                        <!--<span class="dv-table-column" v-if="column === query.column">-->
-                            <!--<span v-if="query.direction === 'desc'">&darr;</span>-->
-                            <!--<span v-else>&uarr;</span>-->
-                          <!--</span>-->
-                    <!--</th>-->
-
                     <th @click="toggleOrder('kihieuvb')">
                         <span>Số/KH</span>
 
@@ -60,9 +52,7 @@
                     <th>
                         <span>Loại VB</span>
                     </th>
-                    <th>
-                        <span>Lĩnh vực</span>
-                    </th>
+
 
                     <th @click="toggleOrder('trichyeu')">
                         <span>Trích yếu</span>
@@ -74,39 +64,24 @@
                     </th>
                     <th>Tệp văn bản</th>
 
-
-
-
-
                 </tr>
                 </thead>
 
                 <tbody>
 
-                <tr v-for="row in model.data">
+                    <tr v-for="row in model.data">
 
+                        <td><a :href="'/vi/van-ban/' + row.loaitin.slug + '/' + row.id">{{row.kihieuvb}}</a></td>
+                        <td>{{row.ngaybanhanh}}</td>
+                        <td>{{row.loaitin.name}}</td>
+                        <td>{{row.trichyeu}}</td>
+                        <td width="15%">
+                            <span v-for="tvb in row.tepvanban">
+                                <img v-on:click="handlePDFDetails(tvb)" src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" >
+                            </span>
+                        </td>
 
-
-
-
-                    <!--<td v-for="(value, key) in row">{{value}}</td>-->
-
-
-                    <td><a :href="'/vi/van-ban/' + row.loaitin.slug + '/' + row.id">{{row.kihieuvb}}</a></td>
-                    <td>{{row.ngaybanhanh}}</td>
-                    <td>{{row.loaitin.name}}</td>
-                    <td>{{row.linhvuc.name}}</td>
-                    <td>{{row.trichyeu}}</td>
-                    <td width="15%">
-                        <span v-for="tvb in row.tepvanban">
-                            <img v-on:click="handlePDFDetails(tvb)" src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" >
-                        </span>
-                    </td>
-
-
-
-
-                </tr>
+                    </tr>
 
                 </tbody>
 

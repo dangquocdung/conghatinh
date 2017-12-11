@@ -26,7 +26,6 @@
 
 
         <div id="app" style="padding: 5px;">
-
             @if (count($lt) == 1)
 
                 <van-ban-viewer source="/api/van-ban-all/{{$lt->id}}" title="Danh sách {{$lt->name}}" />
@@ -34,9 +33,6 @@
                 <van-ban-viewer source="/api/van-ban-all" title="Tất cả văn bản" />
 
             @endif
-
-
-
         </div>
 
         @include('guest.layout.tien-ich')

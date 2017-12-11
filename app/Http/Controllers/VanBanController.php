@@ -62,61 +62,48 @@ class VanBanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vb = new VanBan;
 
+        $vb->user_id = Auth::user()->id;
 
-        $ngaybanhanh = Carbon::parse($request->input('ngaybanhanh'));
+        $vb->loaitin_id = $request->loaitin_id;
+        $vb->loaivb_id = $request->loaivb_id;
+        $vb->linhvuc_id = $request->linhvuc_id;
+        $vb->kihieuvb = $request->kihieuvb;
+        $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
+        $vb->nguoiki_id = $request->nguoiki_id;
+        $vb->trichyeu = $request->trichyeu;
+        $vb->ngaydang = Carbon::parse($request->ngaydang);
 
+        $vb->save;
 
-        $vb = VanBan::create([
-
-            'user_id' => Auth::user()->id,
-
-            'loaitin_id'=> $request->input('loaitin_id'),
-
-
-            'loaivb_id'=> $request->input('loaivb_id'),
-
-            'linhvuc_id'=> $request->input('linhvuc_id'),
-
-            'kihieuvb' => $request->input('kihieuvb'),
-
-            'ngaybanhanh' => $ngaybanhanh,
-
-            'nguoiki_id' => $request->input('nguoiki_id'),
-
-            'trichyeu' => $request->input('trichyeu'),
-
-            'ngaydang' => $request->input('ngaydang'),
-
-            'noibat' => '0',
-
-            'daduyet' => '0'
-
-        ]);
-
-        $vb_id = $vb->id;
-
-        $tvbs = $request->input('tepvanban');
-
-        foreach ($tvbs as $tvb){
-
-            $path = Media::find($tvb);
-
-
-            TepVanBan::create([
-                'vanban_id' => (int)$vb_id,
-                'media_id' => (int)$tvb,
-                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
-            ]);
-        }
+//
+//        $tvbs = $request->input('tepvanban');
+//
+//        foreach ($tvbs as $tvb){
+//
+//            $path = Media::find($tvb);
+//
+//
+//            $tvbn= new TepVanBan;
+//
+//            $tvbn->vanban_id = $vb->id;
+//
+//            $tvbn->media_id = $tvb;
+//
+//            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+//
+//
+//            $tvbn->save();
+//
+//        }
 
 
 //        event(new VanBanCreated($vb));
 
         flash('Thêm văn bản thành công!');
 
-        return redirect()->back();
+        return route('index-van-ban');
     }
 
     /**
@@ -138,10 +125,12 @@ class VanBanController extends Controller
      */
     public function edit($id)
     {
-        $vb = VanBan::find($id);
+        $vbedit = VanBan::find($id);
         $tepvanban = TepVanBan::all();
 
-        return view('admin.pages.van-ban-edit',compact('vb','tepvanban'));
+        return view('admin.pages.van-ban-edit',compact('vbedit','tepvanban'));
+
+//        return response()->json($id);
 
     }
 
@@ -154,46 +143,53 @@ class VanBanController extends Controller
      */
     public function update(Request $request)
     {
-        $vb = VanBan::where('id', $request->input('id'))->update([
+        $vb = VanBan::find($request->vbedit);
 
-            'user_id' => Auth::user()->id,
+        $vb->loaitin_id = $request->loaitin_id;
+        $vb->loaivb_id = $request->loaivb_id;
 
-            'loaitin_id'=> $request->input('loaitin_id'),
+        $vb->save();
 
-            'loaivb_id'=> $request->input('loaivb_id'),
+        return redirect()->route('index-van-ban');
 
-            'linhvuc_id'=> $request->input('linhvuc_id'),
+//            'user_id' => Auth::user()->id,
+//
+//            'loaitin_id'=> $request->input('loaitin_id'),
+//
+//            'loaivb_id'=> $request->input('loaivb_id')
 
-            'kihieuvb' => $request->input('kihieuvb'),
-
-            'ngaybanhanh' => $request->input('ngaybanhanh'),
-
-            'nguoiki_id' => $request->input('nguoiki_id'),
-
-            'trichyeu' => $request->input('trichyeu'),
-
-            'ngaydang' => $request->input('ngaydang')
-
-
-        ]);
-
-        TepVanBan::where('vanban_id',$request->input('id'))->delete();
-
-        $tvbs = $request->input('tepvanban');
-
-        foreach ($tvbs as $tvb){
-
-            $path = Media::find($tvb);
+//            'linhvuc_id'=> $request->input('linhvuc_id'),
+//
+//            'kihieuvb' => $request->input('kihieuvb'),
+//
+//            'ngaybanhanh' => $request->input('ngaybanhanh'),
+//
+//            'nguoiki_id' => $request->input('nguoiki_id'),
+//
+//            'trichyeu' => $request->input('trichyeu'),
+//
+//            'ngaydang' => $request->input('ngaydang')
 
 
-            TepVanBan::create([
-                'vanban_id' => $request->input('id'),
-                'media_id' => (int)$tvb,
-                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
-            ]);
-        }
+//        ]);
 
-        return redirect()->route('van-ban');
+//        TepVanBan::where('vanban_id',$request->input('id'))->delete();
+//
+//        $tvbs = $request->input('tepvanban');
+//
+//        foreach ($tvbs as $tvb){
+//
+//            $path = Media::find($tvb);
+//
+//
+//            TepVanBan::create([
+//                'vanban_id' => $request->input('id'),
+//                'media_id' => (int)$tvb,
+//                'path' => $path->directory.'/'.$path->filename.'.'.$path->extension
+//            ]);
+//        }
+
+
 
 
 

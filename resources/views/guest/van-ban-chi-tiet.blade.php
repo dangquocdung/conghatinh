@@ -28,7 +28,7 @@
                 </tr>
                 <tr>
                     <td style="width:30%;">Ngày ban hành</td>
-                    <td>{{ $vb->ngaybanhanh}}</td>
+                    <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}</td>
                 </tr>
                 <tr>
                     <td style="width:30%;">Người kí</td>
@@ -45,10 +45,6 @@
                 <tr>
                     <td style="width:30%;">Thể loại </td>
                     <td>{{  $vb->loaivb->name }}</td>
-                </tr>
-                <tr>
-                    <td style="width:30%;">Lĩnh vực văn bản</td>
-                    <td>{{  $vb->linhvuc->name }}</td>
                 </tr>
                 <tr>
                     <td style="width:30%;">Tệp tin đính kèm</td>

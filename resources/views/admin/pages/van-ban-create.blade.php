@@ -64,19 +64,6 @@
               </div>
 
               <div class="form-group">
-                  <label>Chọn lĩnh vực văn bản</label>
-
-                  <select class="form-control select2" name="linhvuc_id" data-placeholder="Chọn lĩnh vực văn bản" style="width: 100%;" required>
-                      <option value=""></option>
-                      @foreach($linhvuc as $lv)
-                          <option value="{{ $lv->id }}">{{ $lv->name }}</option>
-                      @endforeach
-
-                  </select>
-              </div>
-
-
-              <div class="form-group">
 
                 <input name="kihieuvb" class="form-control" type="text" placeholder="Số (Kí hiệu) văn bản" style="font-weight: bold; font-size: 1.5em" required="">
               </div>
