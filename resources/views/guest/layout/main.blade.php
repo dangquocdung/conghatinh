@@ -34,13 +34,15 @@
 
     <div class="container nen-trang">
       <div class="row row-offcanvas row-offcanvas-right">
+
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-page">
           @yield('content-main')
         </div>
 
-        <div class="col-xs-6 col-md-3 col-sm-3 sidebar-offcanvas" id="sidebar" style="padding-left: 5px">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 sidebar-offcanvas" id="sidebar" style="padding-left: 5px">
           @yield('content-right')
         </div>
+
       </div>
     </div>
 {{--    @yield('content')--}}

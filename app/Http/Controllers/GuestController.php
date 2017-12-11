@@ -36,11 +36,13 @@ class GuestController extends Controller
         $nhomcq = NhomCQ::orderby('id')->get();
         $banner = Banner::orderby('thutu','asc')->get();
         $phimtat = PhimTat::orderby('thutu','asc')->get();
+        $loaivideo = LoaiVideo::orderby('thutu')->get();
 
         view()->share('chuyenmuc',$chuyenmuc);
         view()->share('nhomcq',$nhomcq);
         view()->share('banner',$banner);
         view()->share('phimtat',$phimtat);
+        view()->share('loaivideo',$loaivideo);
     }
 
     public function index()
@@ -56,13 +58,13 @@ class GuestController extends Controller
 
     public function getVideo($id=null)
     {
-        $loaivideo = LoaiVideo::orderby('thutu')->get();
+
 
         if ($id == null) {
 
 
 
-            return view('guest.video-chi-tiet',compact('loaivideo'));
+            return view('guest.video-chi-tiet');
 
         }else{
 
@@ -73,7 +75,7 @@ class GuestController extends Controller
 //                    'video' => $vd
 //                ]);
 
-            return view('guest.video-chi-tiet',compact('loaivideo','video'));
+            return view('guest.video-chi-tiet',compact('video'));
 
         }
 
@@ -272,25 +274,48 @@ class GuestController extends Controller
 
     public function getTimKiem()
     {
-        $search1 = \Request::get('search'); //<-- we use global request to get the param of URI
+        $search = \Request::get('search'); //<-- we use global request to get the param of URI
+        $type = \Request::get('type');
 
-        $search = str_slug($search1);
+        $search = str_slug($search);
 
-        $tintuc = TinTuc::where('slug','like','%'.$search.'%')
-            ->orWhere('gioithieu','like','%'.$search1.'%')
-            ->orderBy('id','desc')
-            ->paginate(20);
+        switch ($type){
 
-        foreach ($tintuc as $tin){
+            case 'all':
 
-            $tin->name = str_replace($search,strtoupper ($search),$tin->name);
+                $tintuc = TinTuc::where('slug','like','%'.$search.'%')
+                    ->orderBy('id','desc')
+                    ->paginate(20);
 
+                return view('guest.tim-kiem',compact('tintuc'));
+
+                break;
+
+            case 'vanban':
+
+                $lt = LoaiTin::all();
+                return view('guest.van-ban', compact('lt'));
+
+                break;
+
+            case 'hinhanh':
+
+                $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
+                return view('guest.album-anh',compact('albums'));
+
+                break;
+
+            case 'video':
+                return view('guest.video-chi-tiet');
+                break;
+
+            default:
+                $tintuc = TinTuc::where($type,'like','%'.$search.'%')
+                    ->orderBy('id','desc')
+                    ->paginate(20);
+
+                return view('guest.tim-kiem',compact('tintuc'));
         }
-
-        return view('guest.tim-kiem',compact('tintuc'));
-
-//        return response()->json($tintuc);
-
     }
 
     public function apiVanBan($id=null)

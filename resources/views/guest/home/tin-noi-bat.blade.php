@@ -6,6 +6,12 @@
         <a href="vi/tin-noi-bat">
             <h4 class="portlet-header-title no-pd-top">Tin Nổi bật</h4>
         </a>
+
+        {{--<a data-toggle="offcanvas" class="pull-right hidden-lg hidden-md" style="margin-right: 5px; color: #ffffff">--}}
+            {{--<i id="tin-nb" class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>--}}
+        {{--</a>--}}
+
+
     </div>
 
     @if (count($tinnoibat) > 0)

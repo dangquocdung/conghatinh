@@ -124,45 +124,34 @@
 
 </style>
 
-<div class="menu-main">
-
-<div id="top_nav" class="ddsmoothmenu">
-    <ul>
-        <li class="">
-            <a href="/">
-                <span>Trang chủ</span>
-            </a>
-        </li>
-        <li class="">
-            <a href="{{ route('chuyen-muc','doanh-nghiep') }}">
-                <span>Doanh nghiệp</span>
-            </a>
-        </li>
-        <li class="">
-            <a href="{{ route('chuyen-muc','gioi-thieu') }}">
-                <span>Du khách</span>
-            </a>
-        </li>
-        <li class="">
-            <a href="{{ route('lien-he-cong-tac') }}">
-                <span>Liên hệ</span>
-            </a>
-        </li>
-        <li class="last">
-            <a href="{{ route('so-do-cong') }}">
-                <span>Sơ đồ cổng</span>
-            </a>
-        </li>
-        {{--@foreach ($chuyenmuc as $cm)--}}
-            {{--@if ($cm->vitri == 1)--}}
-                {{--<li class="">--}}
-                    {{--<a href="chuyen-muc/{{ $cm->slug }}">--}}
-                        {{--<span>{{ $cm->name  }}</span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-            {{--@endif--}}
-        {{--@endforeach--}}
-
-    </ul>
-</div>
+<div class="menu-main hidden-sm hidden-xs">
+    <div id="top_nav" class="ddsmoothmenu">
+        <ul>
+            <li class="">
+                <a href="/">
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="{{ route('chuyen-muc','doanh-nghiep') }}">
+                    <span>Doanh nghiệp</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="{{ route('chuyen-muc','gioi-thieu') }}">
+                    <span>Du khách</span>
+                </a>
+            </li>
+            <li class="last">
+                <a href="{{ route('lien-he-cong-tac') }}">
+                    <span>Liên hệ</span>
+                </a>
+            </li>
+            <li class="last">
+                <a href="{{ route('so-do-cong') }}">
+                    <span>Sơ đồ cổng</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>

@@ -33,13 +33,16 @@
             </button>
             <ul class="dropdown-menu" role="menu">
                 <li><a href="#gioithieu">Giới thiệu</a></li>
-                <li><a href="#ngaythang">Ngày tháng</a></li>
-                <li class="divider"></li>
+                <li><a href="#ngaydang">Ngày đăng</a></li>
                 <li><a href="#noidung">Nội dung</a></li>
+                <li class="divider"></li>
+                <li><a href="#hinhanh">Hình ảnh</a></li>
+                <li><a href="#video">Video</a></li>
+
             </ul>
         </div>
         <input type="hidden" name="type" value="tieude" id="type" class="form-control"/>
-        <input type="text"  name="search" id="search" class="form-control" placeholder="Tìm kiếm..."/>
+        <input type="text"  name="search" id="search" class="form-control" placeholder="Tìm kiếm..." required/>
         <div class="input-group-btn">
             <div class="btn-group" role="group">
                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
@@ -57,13 +60,6 @@
             var concept = $(this).text();
             $('.search-panel span#search_concept').text(concept);
             $('.input-group #type').val(param);
-
-            if (param == 'ngaythang'){
-                $('.input-group #search').attr('type','date');
-            }else{
-                $('.input-group #search').attr('type','text')
-            }
-
         });
     });
 </script>

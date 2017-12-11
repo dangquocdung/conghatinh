@@ -76,7 +76,7 @@
 
                 var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
 
-                jssor_1_slider.$ScaleWidth(expectedWidth);
+                jssor_slider1.$ScaleWidth(expectedWidth);
             }
             else {
                 window.setTimeout(ScaleSlider, 30);
@@ -90,37 +90,6 @@
         $(window).bind("orientationchange", ScaleSlider);
     };
 
-    jssor_slider2_init = function (containerId) {
-        //Define an array of slideshow transition code
-        var _SlideshowTransitions = [
-
-            {$Duration:1200,y:-1,$Cols:10,$Rows:5,$Opacity:2,$Clip:15,$During:{$Top:[0.5,0.5],$Clip:[0,0.5]},$Formation:$JssorSlideshowFormations$.$FormationStraight,$ChessMode:{$Column:12},$ScaleClip:0.5}
-
-        ];
-        var options = {
-            $AutoPlay: 1,
-            $SlideshowOptions: {
-                $Class: $JssorSlideshowRunner$,
-                $Transitions: _SlideshowTransitions,
-                $TransitionsOrder: 1,
-                $ShowLink: true
-            }
-        };
-        var jssor_slider2 = new $JssorSlider$(containerId, options);
-
-        function ScaleSlider() {
-            var bodyWidth = document.body.clientWidth;
-            if (bodyWidth)
-                jssor_slider2.$ScaleWidth(Math.min(bodyWidth, 1920));
-            else
-                window.setTimeout(ScaleSlider, 30);
-        }
-        ScaleSlider();
-
-        $(window).bind("load", ScaleSlider);
-        $(window).bind("resize", ScaleSlider);
-        $(window).bind("orientationchange", ScaleSlider);
-    };
 </script>
 
 <script type="text/javascript">

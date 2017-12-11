@@ -1,4 +1,4 @@
-<div class="menu-main">
+<div class="menu-main hidden-lg hidden-md">
 
 <div id="top_nav" class="ddsmoothmenu">
     <ul>
