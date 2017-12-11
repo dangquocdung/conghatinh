@@ -9,7 +9,7 @@
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
-        <a href="chuyen-muc/{{ $cm->slug }}">
+        <a href="{{ route('chuyen-muc',$cm->slug) }}">
             <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
         </a>
     </div>
