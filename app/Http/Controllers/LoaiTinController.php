@@ -107,7 +107,7 @@ class LoaiTinController extends Controller
 
         flash('Loại tin đã được cập nhật');
 
-        return redirect( route('loai-tin'));
+        return redirect( route('index-loai-tin'));
 
 //        return redirect()->back();
     }
