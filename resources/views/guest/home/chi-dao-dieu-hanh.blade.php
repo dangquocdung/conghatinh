@@ -25,20 +25,21 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
             <div class="row">
-                <div class="breadcrumb" style="margin: 3px">
-                    <span class="breadcrumb-item active">
-                      <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;">
-                        <span class="glyphicon glyphicon-share-alt"></span>
-                        <strong>{{ $lt->name }}</strong>
-                      </a>
-                    </span>
-                    <span class="pull-right">
-                      <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
-                    </span>
-                </div>
-
-
                 @if ($lt->type == 'tt')
+                    <div class="breadcrumb" style="margin: 3px">
+                        <span class="breadcrumb-item active">
+                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;">
+                            <span class="glyphicon glyphicon-share-alt"></span>
+                            <strong>{{ $lt->name }}</strong>
+                          </a>
+                        </span>
+                        <span class="pull-right">
+                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
+                        </span>
+                    </div>
+
+
+
                     @if (count($tins)>0)
                         <div class="col-md-12">
                             <ul class="news-block">
@@ -59,6 +60,19 @@
                         </div>
                     @endif
                 @else
+
+                    <div class="breadcrumb" style="margin: 3px">
+                        <span class="breadcrumb-item active">
+                          <a href="{{ route('van-ban',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;">
+                            <span class="glyphicon glyphicon-share-alt"></span>
+                            <strong>{{ $lt->name }}</strong>
+                          </a>
+                        </span>
+                        <span class="pull-right">
+                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
+                        </span>
+                    </div>
+
                     @if (count($vbs) > 0)
                         <div class="news-vanban">
                             <ul class="news-block">
