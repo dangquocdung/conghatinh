@@ -19,7 +19,7 @@
                     <li class="col-md-6 col-sm-6 col-xs-6">
                         <div class="album-item">
                             <a href="{{ Request::path().'/'.$ab->slug }}">
-                                <img src="{{ $ab->cover_image }}" alt="{{ $ab->name }}" title="{{ $ab->name }}">
+                                <img src="{{ $ab->cover_image }}" alt="{{ $ab->name }}" title="{{ $ab->name }}" style="height: 100%">
                                 <h5>{{ $ab->name }}</h5>
                             </a>
                         </div>
