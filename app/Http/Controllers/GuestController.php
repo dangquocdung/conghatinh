@@ -90,8 +90,10 @@ class GuestController extends Controller
 
         }else{
 
+            $albums = Album::with('Photos')->orderby('id','desc')->take(12)->get();
+
             $album = Album::where('slug',$slug)->with('Photos')->first();
-            return view('guest.album-chi-tiet',compact('album'));
+            return view('guest.album-chi-tiet',compact('album','albums'));
 
         }
     }
