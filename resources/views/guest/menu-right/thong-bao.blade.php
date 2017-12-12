@@ -2,6 +2,8 @@
 
     @include(('guest.menu-right.tim-kiem'))
 
+    @include(('guest.menu-right.calendar'))
+
 
 
     <div class="block4">
@@ -54,6 +56,81 @@
             </a>
         </div>
         @endforeach
+
+
+    </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+
+
+            <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Liên kết</h4>
+
+
+        </div>
+
+        @foreach ($banner as $bn)
+            @if ($bn->vitri == 2)
+                <div class="box-banner">
+                    <a href="{{$bn->lienket}}" target="_blank">
+                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                    </a>
+                </div>
+            @endif
+        @endforeach
+
+
+
+
+    </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+
+
+            <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Sự kiện</h4>
+
+
+        </div>
+
+        @foreach ($banner as $bn)
+            @if ($bn->vitri == 3)
+                <div class="box-banner">
+                    <a href="{{$bn->lienket}}" target="_blank">
+                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                    </a>
+                </div>
+            @endif
+        @endforeach
+
+
+
+
+    </div>
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0">
+
+
+            <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Doanh nghiệp</h4>
+
+
+        </div>
+
+        @foreach ($banner as $bn)
+            @if ($bn->vitri == 4)
+                <div class="box-banner">
+                    <a href="{{$bn->lienket}}" target="_blank">
+                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                    </a>
+                </div>
+            @endif
+        @endforeach
+
+
 
 
     </div>
