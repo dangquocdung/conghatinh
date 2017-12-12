@@ -27,7 +27,7 @@
                         </thead>
 
                         <tbody>
-                        @foreach($nhomcq as $ncq)
+                        @foreach($nhomcq->where('id','<','3') as $ncq)
                             @foreach($ncq->coquan as $cq)
                             <tr>
                                 <td>{{ $cq->id }}</td>
