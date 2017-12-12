@@ -27,7 +27,7 @@
                         </thead>
 
                         <tbody>
-                        @foreach($nhomcq->where('id','<','3')->all() as $ncq)
+                        @foreach($nhomcq as $ncq)
                             @foreach($ncq->coquan as $cq)
                             <tr>
                                 <td>{{ $cq->id }}</td>
@@ -62,8 +62,6 @@
     <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
         $(function () {
-
-
             $('#example1').DataTable({
 
                 "iDisplayLength": 25,
@@ -71,16 +69,11 @@
                 "language": {
                     "sProcessing": "Đang xử lý...",
                     "sLengthMenu": "Hiển thị _MENU_ mục",
-//                    "sZeroRecords": "No se encontraron resultados",
-//                    "sEmptyTable": "Ningún dato disponible en esta tabla",
                     "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
-//                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-//                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
                     "sInfoPostFix": "",
                     "sSearch": "Tìm kiếm:",
                     "sUrl": "",
                     "sInfoThousands": ",",
-//                    "sLoadingRecords": "Cargando...",
                     "oPaginate": {
                         "sFirst": "Đầu tiên",
                         "sLast": "Cuối cùng",
@@ -89,7 +82,6 @@
                     }
                 }
             })
-
         })
     </script>
 @stop
