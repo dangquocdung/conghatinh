@@ -103,14 +103,12 @@
           <li class="{{ Request::is('toa-soan/chuyen-trang/ho-tro-phap-ly') ? 'active' : ''  }}">
             <a href="{{route('index-ho-tro-phap-ly')}}"><i class="fa fa-circle-o"></i> Hỗ trợ pháp lý</a>
           </li>
-          <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y-du-thao') ? 'active' : ''  }}">
+          <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y-du-thao-van-ban') ? 'active' : ''  }}">
             <a href="{{ route('index-du-thao-van-ban') }}"><i class="fa fa-circle-o"></i> Góp ý dự thảo văn bản</a>
           </li>
           <li class="{{ Request::is('toa-soan/chuyen-trang/hoi-dap-truc-tuyen') ? 'active' : ''  }}">
             <a href="{{ route('index-hoi-dap-truc-tuyen') }}"><i class="fa fa-circle-o"></i> Hỏi - Đáp trực tuyến</a>
           </li>
-
-
 
           <li class="{{ Request::is('toa-soan/chuyen-trang/lien-he-cong-tac') ? 'active' : ''  }} treeview">
             <a href="{{route('index-lien-he-cong-tac')}}"><i class="fa fa-circle-o"></i><span> Liên hệ công tác</span></a>

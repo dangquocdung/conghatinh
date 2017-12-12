@@ -153,7 +153,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
         Route::get('doanh-nghiep-hoi','DoanhNghiepHoiController@index')->name('index-doanh-nghiep-hoi');
         Route::get('ho-tro-phap-ly','HoTroPhapLyController@index')->name('index-ho-tro-phap-ly');
-        Route::get('du-thao-van-ban','DuThaoController@index')->name('index-du-thao-van-ban');
+        Route::get('gop-y-du-thao-van-ban','DuThaoController@index')->name('index-du-thao-van-ban');
         Route::get('hoi-dap-truc-tuyen','HoiDapController@index')->name('index-hoi-dap-truc-tuyen');
         Route::get('lien-he-cong-tac', 'LienHeController@index')->name('index-lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('index-gop-y');
