@@ -6,7 +6,7 @@
 
 @foreach($chuyenmuc as $cm)
 
-    @if (count($cm->tintuc) >0)
+{{--    @if (count($cm->tintuc) >0)--}}
 
 
         <div class="block3">
@@ -61,7 +61,7 @@
                 @endforeach
             </div>
         @endif
-    @endif
+    {{--@endif--}}
 
 @endforeach
 
