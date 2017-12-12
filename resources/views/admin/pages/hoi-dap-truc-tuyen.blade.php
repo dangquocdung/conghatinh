@@ -34,7 +34,36 @@
             </thead>
             <tbody>
                 @foreach($hoidaptructuyen as $hdtt )
-                    <td>{{ $hdtt->id }}</td>
+                    <td>
+                        {{ $hdtt->id }}
+
+                        @if ($hdtt->daduyet == '1')
+                            <div class="pull-left gap-left gap-10">
+                                <confirm-modal
+                                    btn-text='Hủy duyệt'
+                                    btn-class="btn-danger"
+                                    url="{{ route('duyet-hoi-dap-truc-tuyen') }}"
+                                    :post-data="{{json_encode(['id' => $hdtt->id, 'duyetdang'=>'0'])}}"
+                                    :refresh="true"
+                                    message="Bạn chắc chắn muốn thôi duyệt đăng câu hỏi?">
+                                </confirm-modal>
+                            </div>
+
+                        @else
+                            <div class="pull-left gap-left gap-10">
+                                <confirm-modal
+                                    btn-text='Chờ duyệt'
+                                    btn-class="btn-success"
+                                    url="{{ route('duyet-hoi-dap-truc-tuyen') }}"
+                                    :post-data="{{json_encode(['id' => $hdtt->id, 'duyetdang'=>'1'])}}"
+                                    :refresh="true"
+                                    message="Bạn chắc chắn muốn duyệt đăng câu hỏi?">
+                                </confirm-modal>
+                            </div>
+                        @endif
+
+
+                    </td>
                     <td>{{ $hdtt->hoten }}</td>
                     <td>{{ $hdtt->sodt }}</td>
                     <td>{{ $hdtt->cauhoi }}</td>

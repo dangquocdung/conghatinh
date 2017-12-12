@@ -97,4 +97,18 @@ class HoiDapTrucTuyenController extends Controller
 
         return response(['data' => 'Câu hỏi đã bị xoá'], 200);
     }
+
+    public function postDuyet(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $htpl = HoiDapTrucTuyen::find($id);
+
+        $htpl->daduyet = $request->input('duyetdang');
+
+        $htpl->save();
+
+        return response(['data' => 'Done'], 200);
+    }
 }
