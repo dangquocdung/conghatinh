@@ -20,7 +20,7 @@ use App\PVTT;
 use App\LoaiVideo;
 use App\Video;
 use App\Album;
-use App\Event;
+use App\HoiDapTrucTuyen;
 use App\DuThao;
 use App\LichCongTac;
 
@@ -222,7 +222,8 @@ class GuestController extends Controller
 
     public function getHoiDap()
     {
-        return view ('guest.hoi-dap');
+        $hoidaptt = HoiDapTrucTuyen::where('daduyet','1')->orderby('id','desc')->get();
+        return view ('guest.hoi-dap',compact('hoidaptt'));
     }
 
     public function getNguoiPhatNgon()

@@ -93,11 +93,40 @@
                         }else{
                             $(".input-box").css("display","block");
                         }
-
-
-
                     })
                 </script>
+
+
+        <div class="col-sm-12" style="padding: 5px">
+
+            <div class="dv" style="padding: 5px">
+
+                <div class="dv-body">
+                    <table id="example1" class="dv-table">
+                        <thead>
+                        <tr>
+                            <th>TT</th>
+                            <th>Họ Tên</th>
+                            <th>Số ĐT</th>
+                            <th>Câu hỏi</th>
+                            <th>Câu Trả lời</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($hoidaptt as $hdtt )
+                            <td>{{ $hdtt->id }}</td>
+                            <td>{{ $hdtt->hoten }}</td>
+                            <td>{{ $hdtt->sodt }}</td>
+                            <td>{{ $hdtt->cauhoi }}</td>
+                            <td>{!! $hdtt->cautraloi !!}</td>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
 
 
 
@@ -105,21 +134,54 @@
 @endsection
 
 @section('content-right')
-    @include('guest.menu-right.thong-bao')
+    @include('guest.menu-right.chuyen-trang')
 @stop
 
-
-
 @section('js')
-    <script type="text/javascript" src="{{mix('/js/guest.js')}}"></script>
 
     <!-- Bootstrap WYSIHTML5 -->
     <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     <script>
         $(function () {
-
             $('.textarea').wysihtml5()
         })
     </script>
 
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                "iDisplayLength": 25,
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Hiển thị _MENU_ mục",
+//                    "sZeroRecords": "No se encontraron resultados",
+//                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+//                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+//                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm kiếm:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+//                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Đầu tiên",
+                        "sLast": "Cuối cùng",
+                        "sNext": "Sau",
+                        "sPrevious": "Trước"
+                    }
+                }
+            })
+        })
+    </script>
+
+
+
+
 @stop
+
+
+
