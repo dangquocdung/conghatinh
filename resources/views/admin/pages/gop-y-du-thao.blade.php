@@ -39,6 +39,12 @@
                         <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
                         <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                         <td>
+                            <div class="pull-left">
+                                <a data-toggle="modal" data-target="#chinh-sua" dt-id="{{ $dt->id }}" class="btn btn-primary btn-xs chinh-sua">
+                                    <i class="fa fa-edit"></i> Trả lời
+                                </a>
+                            </div>
+
                             <confirm-modal
                                 btn-text='<i class="fa fa-trash"></i> Xóa'
                                 btn-class="btn-danger"
@@ -114,6 +120,59 @@
       {{--End box--}}
 
   </div>
+
+
+  <!-- Modal Edit Album-->
+  <div class="modal modal-default fade" id="chinh-sua">
+      <div class="modal-dialog">
+          <div class="modal-content" style="padding: 0">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" style="padding-bottom: 0">Trả lời câu hỏi</h4>
+              </div>
+              <form action="{{ route('edit-du-thao-van-ban') }}" method="post">
+                  {{csrf_field()}}
+
+                  <div class="modal-body">
+
+                      <input type="hidden" name="id" id="hdtt-id">
+
+                      <div class="form-group">
+                          <label>Người trả lời </label>
+                          <input type="text" class="form-control" name="nguoitraloi" placeholder="Người trả lời">
+                          @if ($errors->has('cautraloi'))
+                              <div class="error">{{ $errors->first('cautraloi') }}</div>
+                          @endif
+                      </div>
+                      <div class="form-group">
+                          <label>Chức vụ </label>
+                          <input type="text" class="form-control" name="chucvu" placeholder="Chức vụ">
+                          @if ($errors->has('cautraloi'))
+                              <div class="error">{{ $errors->first('cautraloi') }}</div>
+                          @endif
+                      </div>
+                      <div class="form-group">
+                          <label>Câu trả lời </label>
+                          <textarea class="form-control textarea" name="cautraloi" id="cautraloi" placeholder="Nhập câu trả lời ở đây"
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                          @if ($errors->has('cautraloi'))
+                              <div class="error">{{ $errors->first('cautraloi') }}</div>
+                          @endif
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+              </form>
+
+          </div>
+          <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
 
   </div>
 

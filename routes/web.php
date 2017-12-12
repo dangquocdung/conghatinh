@@ -123,8 +123,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     });
 
 
-    Route::post('them-du-thao-van-ban','DuThaoController@store')->name('them-du-thao-van-ban');
-    Route::post('xoa-du-thao-van-ban','DuThaoController@destroy')->name('xoa-du-thao-van-ban');
+
 
 
     //Van ban
@@ -153,6 +152,9 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('doanh-nghiep-hoi','DoanhNghiepHoiController@index')->name('index-doanh-nghiep-hoi');
         Route::get('ho-tro-phap-ly','HoTroPhapLyController@index')->name('index-ho-tro-phap-ly');
         Route::get('gop-y-du-thao-van-ban','DuThaoController@index')->name('index-du-thao-van-ban');
+        Route::post('them-du-thao-van-ban','DuThaoController@store')->name('them-du-thao-van-ban');
+        Route::post('xoa-du-thao-van-ban','DuThaoController@destroy')->name('xoa-du-thao-van-ban');
+        Route::post('edit-du-thao-van-ban','DuThaoController@update')->name('edit-du-thao-van-ban');
 
         Route::resource('hoi-dap-truc-tuyen','HoiDapTrucTuyenController');
 
