@@ -40,7 +40,7 @@
                         <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                         <td>
                             <div class="pull-left">
-                                <a data-toggle="modal" data-target="#chinh-sua" dt-id="{{ $dt->id }}" dt-name="{{ $dt->name }}" class="btn btn-primary btn-xs chinh-sua">
+                                <a data-toggle="modal" data-target="#chinh-sua" dt-id="{{ $dt->id }}" dt-name="{{ $dt->name }} dt-thoihan="{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}" class="btn btn-primary btn-xs chinh-sua">
                                     <i class="fa fa-edit"></i> Chỉnh sửa
                                 </a>
                             </div>
@@ -101,7 +101,7 @@
                   </div>
                   <div class="form-group">
                       <label for="">Ngày hết hạn:</label>
-                      <div class='input-group date' id='ngayhethan'>
+                      <div class="input-group date ngayhethan">
                           <input name="thoihan" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
                           <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
@@ -149,8 +149,8 @@
                       </div>
                       <div class="form-group">
                           <label for="">Sửa Ngày hết hạn:</label>
-                          <div class='input-group date' id='ngayhethan'>
-                              <input name="thoihan" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
+                          <div class="input-group date ngayhethan">
+                              <input id="thoihan" name="thoihan" type="text" class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
                               <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -199,6 +199,7 @@
             $('.chinh-sua').click(function(){
                 $("#chinh-sua").find("input#dt-id").val($(this).attr('dt-id'));
                 $("#chinh-sua").find("input#dt-name").val($(this).attr('dt-name'));
+                $("#chinh-sua").find("input#thoihan").val($(this).attr('dt-thoihan'));
             });
 
 
@@ -209,7 +210,7 @@
 
         $(function () {
 
-            $('#ngayhethan').datetimepicker({
+            $('.ngayhethan').datetimepicker({
                 format:'DD-MM-YYYY'
             });
         });
