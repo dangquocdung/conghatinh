@@ -124,7 +124,7 @@
 
 </style>
 
-<div class="menu-main hidden-sm hidden-xs">
+<div class="menu-main hidden-sm hidden-xs" style="margin-bottom: 5px;">
     <div id="top_nav" class="ddsmoothmenu">
         <ul>
             <li class="">

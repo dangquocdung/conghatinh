@@ -1,10 +1,7 @@
+<div class="clearfix"></div>
 <div class="right-box">
 
     @include(('guest.menu-right.tim-kiem'))
-
-    @include(('guest.menu-right.calendar'))
-
-
 
     <div class="block4">
         <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right">
@@ -49,7 +46,6 @@
         @foreach($phimtat as $pt)
             <div class="right-item">
                 <a href="{{ $pt->link }}" class="icon" title="">
-                    {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
                     <i class="fa {{$pt->icon}} fa-3x" aria-hidden="true"></i>
 
                     <span class="nav-text">{{ $pt->name }} </span>
@@ -59,6 +55,23 @@
 
 
     </div>
+
+    {{--<div class="block4">--}}
+
+        {{--@foreach ($banner as $bn)--}}
+            {{--@if ($bn->vitri == 1)--}}
+                {{--<div class="box-banner">--}}
+                    {{--<a href="{{$bn->lienket}}" target="_blank">--}}
+                        {{--<img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--@endif--}}
+        {{--@endforeach--}}
+
+
+
+
+    {{--</div>--}}
 
 
     <div class="block4">
@@ -77,6 +90,8 @@
 
 
     </div>
+
+
 
     <div class="block4">
 
