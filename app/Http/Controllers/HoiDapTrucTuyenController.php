@@ -39,7 +39,12 @@ class HoiDapTrucTuyenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        HoiDapTrucTuyen::create($request->all());
+
+        flash('Cảm ơn bạn đã đặt câu hỏi');
+
+        return redirect()->back();
+
     }
 
     /**
@@ -82,8 +87,14 @@ class HoiDapTrucTuyenController extends Controller
      * @param  \App\HoiDapTrucTuyen  $hoiDapTrucTuyen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HoiDapTrucTuyen $hoiDapTrucTuyen)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+
+
+        HoiDapTrucTuyen::find($id)->delete();
+
+
+        return response(['data' => 'Câu hỏi đã bị xoá'], 200);
     }
 }

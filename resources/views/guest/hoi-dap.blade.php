@@ -33,20 +33,20 @@
 
                         </div>
 
-                        <form action="{{ route('post-ho-tro-phap-ly') }}" method="post">
+                        <form action="{{ route('hoi-dap-truc-tuyen.store') }}" method="post">
                             {{ csrf_field() }}
                             <div class="box-body">
 
                                 <div class="form-group">
                                     <label>Họ và tên </label>
-                                    <input type="text" class="form-control" name="daidien" required>
+                                    <input type="text" class="form-control" name="hoten" required>
                                     @if ($errors->has('daidien'))
                                         <div class="error">{{ $errors->first('daidien') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Điện thoại </label>
-                                    <input type="number" class="form-control" name="dienthoai" required>
+                                    <input type="number" class="form-control" name="sodt" required>
                                     @if ($errors->has('dienthoai'))
                                         <div class="error">{{ $errors->first('dienthoai') }}</div>
                                     @endif
@@ -99,9 +99,7 @@
                     })
                 </script>
 
-                <div id="app" style="padding: 5px;">
-                    <ho-tro-phap-ly source="/api/ho-tro-phap-ly" title="Tất cả câu hỏi" />
-                </div>
+
 
             </div>
 @endsection

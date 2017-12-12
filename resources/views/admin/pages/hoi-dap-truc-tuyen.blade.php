@@ -29,11 +29,36 @@
               <th>Số ĐT</th>
               <th>Câu hỏi</th>
               <th>Câu Trả lời</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
-
-
+                @foreach($hoidaptructuyen as $hdtt )
+                    <td>{{ $hdtt->id }}</td>
+                    <td>{{ $hdtt->hoten }}</td>
+                    <td>{{ $hdtt->sodt }}</td>
+                    <td>{{ $hdtt->cauhoi }}</td>
+                    <td>{!! $hdtt->cautraloi !!}</td>
+                    <td class="col-sm-2">
+                        {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
+                        <div class="pull-left">
+                            <a href="{{route('hoi-dap-truc-tuyen.edit', $hdtt->id)}}" class="btn btn-primary btn-xs">
+                                <i class="fa fa-edit"></i> Trả lời
+                            </a>
+                        </div>
+                        <div class="pull-left gap-left gap-10" style="padding-left: 5px">
+                            <confirm-modal
+                                    btn-text='<i class="fa fa-trash"></i> Xóa'
+                                    btn-class="btn-danger"
+                                    url="{{url('api/v1/delete-hoi-dap-truc-tuyen')}}"
+                                    :post-data="{{json_encode(['id' => $hdtt->id])}}"
+                                    :refresh="true"
+                                    message="Bạn chắc chắn muốn xoá câu hỏi?">
+                            </confirm-modal>
+                        </div>
+                        {{-- @endif --}}
+                    </td>
+                @endforeach
             </tbody>
           </table>
 

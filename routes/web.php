@@ -26,7 +26,6 @@ Route::group(['prefix'=>'vi'], function ()
     Route::group(['prefix'=>'chuyen-trang'], function () {
 
         Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
-
         Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
         Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
         Route::get('tu-van-ho-tro-phap-ly-doanh-nghiep', 'GuestController@getHoTroPhapLy');
@@ -309,6 +308,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('noi-bat-video', 'VideoController@postNoiBat');
 
         Route::post('delete-video', 'VideoController@destroy');
+
+        Route::post('delete-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@destroy');
 
     });
 
