@@ -41,7 +41,7 @@
                         <td>
                             <div class="pull-left">
                                 <a data-toggle="modal" data-target="#chinh-sua" dt-id="{{ $dt->id }}" class="btn btn-primary btn-xs chinh-sua">
-                                    <i class="fa fa-edit"></i> Trả lời
+                                    <i class="fa fa-edit"></i> Chỉnh sửa
                                 </a>
                             </div>
 
@@ -136,29 +136,24 @@
 
                   <div class="modal-body">
 
-                      <input type="hidden" name="id" id="hdtt-id">
+                      <input type="hidden" name="id" id="dt-id">
 
                       <div class="form-group">
-                          <label>Người trả lời </label>
-                          <input type="text" class="form-control" name="nguoitraloi" placeholder="Người trả lời">
-                          @if ($errors->has('cautraloi'))
-                              <div class="error">{{ $errors->first('cautraloi') }}</div>
-                          @endif
+                          <label for="">Sửa tên văn bản dự thảo:</label>
+                          <input type="text"
+                                 name="name"
+                                 value="{{old('name')}}"
+                                 class="form-control">
+                          <div class="HelpText error">{{$errors->first('name')}}</div>
                       </div>
                       <div class="form-group">
-                          <label>Chức vụ </label>
-                          <input type="text" class="form-control" name="chucvu" placeholder="Chức vụ">
-                          @if ($errors->has('cautraloi'))
-                              <div class="error">{{ $errors->first('cautraloi') }}</div>
-                          @endif
-                      </div>
-                      <div class="form-group">
-                          <label>Câu trả lời </label>
-                          <textarea class="form-control textarea" name="cautraloi" id="cautraloi" placeholder="Nhập câu trả lời ở đây"
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
-                          @if ($errors->has('cautraloi'))
-                              <div class="error">{{ $errors->first('cautraloi') }}</div>
-                          @endif
+                          <label for="">Sửa Ngày hết hạn:</label>
+                          <div class='input-group date' id='ngayhethan'>
+                              <input name="thoihan" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
+                              <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                          </div>
                       </div>
                   </div>
                   <div class="modal-footer">
