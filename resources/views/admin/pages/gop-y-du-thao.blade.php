@@ -44,7 +44,6 @@
                                     <i class="fa fa-edit"></i> Chỉnh sửa
                                 </a>
                             </div>
-
                             <confirm-modal
                                 btn-text='<i class="fa fa-trash"></i> Xóa'
                                 btn-class="btn-danger"
@@ -54,7 +53,6 @@
                                 message="Bạn chắc chắn muốn xoá văn bản này?">
                             </confirm-modal>
                         </td>
-
                     </tr>
                 @endforeach
 

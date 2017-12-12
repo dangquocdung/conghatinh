@@ -105,9 +105,19 @@ class DuThaoController extends Controller
      * @param  \App\DuThao  $duThao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DuThao $duThao)
+    public function update(Request $req)
     {
-        //
+        $dt = DuThao::find($req->id);
+        $dt->user_id = Auth::user()->id;
+        $dt->name = $req->name;
+        $dt->slug = str_slug($req->name);
+        $dt->thoihan = Carbon::parse($req->thoihan)->format('Y-m-d');
+        $dt->save();
+
+        flash('Thanh cong');
+
+        return redirect()->back();
+
     }
 
     /**

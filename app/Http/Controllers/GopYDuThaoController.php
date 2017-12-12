@@ -80,7 +80,7 @@ class GopYDuThaoController extends Controller
      * @param  \App\GopYDuThao  $gopYDuThao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GopYDuThao $gopYDuThao)
+    public function update(Request $request)
     {
         //
     }
