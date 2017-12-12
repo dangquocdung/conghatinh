@@ -19,26 +19,15 @@
                     <table id="example1" class="dv-table">
                         <thead>
                         <tr>
-                            <th>
-                                <span>TT</span>
-                            </th>
-                            <th>
-                                <span>Cơ quan</span>
-                            </th>
-
-                            <th>
-                                <span>Website</span>
-                            </th>
-
-                            <th>
-                                <span>Điện thoại</span>
-                            </th>
-
+                            <th>TT</th>
+                            <th>Cơ quan</th>
+                            <th>Website></th>
+                            <th>Điện thoại</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($nhomcq->where('id','<','3') as $ncq)
+                        @foreach($nhomcq->where('id','<','3')->all() as $ncq)
                             @foreach($ncq->coquan as $cq)
                             <tr>
                                 <td>{{ $cq->id }}</td>
