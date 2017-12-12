@@ -71,7 +71,7 @@
                     <td class="col-sm-2">
                         {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                         <div class="pull-left">
-                            <a href="{{route('hoi-dap-truc-tuyen.edit', $hdtt->id)}}" class="btn btn-primary btn-xs">
+                            <a data-toggle="modal" data-target="#tra-loi" hdtt-id="{{ $hdtt->id }}" class="btn btn-primary btn-xs tra-loi">
                                 <i class="fa fa-edit"></i> Trả lời
                             </a>
                         </div>
@@ -110,22 +110,35 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" style="padding-bottom: 0">Trả lời câu hỏi</h4>
           </div>
-          <form action="{{ route('update-ho-tro-phap-ly') }}" method="post" id="role-save-form">
+          <form action="{{ route('tra-loi-hoi-dap-truc-tuyen') }}" method="post">
             {{csrf_field()}}
 
             <div class="modal-body">
 
+                <input type="hidden" name="id" id="hdtt-id">
 
-              <input type="hidden" name="id" id="dnh-id">
-
-              <div class="form-group">
-                <label>Câu trả lời </label>
-                <textarea class="form-control textarea" name="cautraloi" id="cautraloi" placeholder="Nhập câu trả lời ở đây"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
-                @if ($errors->has('cautraloi'))
-                  <div class="error">{{ $errors->first('cautraloi') }}</div>
-                @endif
-              </div>
+                <div class="form-group">
+                    <label>Người trả lời </label>
+                    <input type="text" class="form-control" name="nguoitraloi" placeholder="Người trả lời">
+                    @if ($errors->has('cautraloi'))
+                        <div class="error">{{ $errors->first('cautraloi') }}</div>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label>Chức vụ </label>
+                    <input type="text" class="form-control" name="chucvu" placeholder="Chức vụ">
+                    @if ($errors->has('cautraloi'))
+                        <div class="error">{{ $errors->first('cautraloi') }}</div>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label>Câu trả lời </label>
+                    <textarea class="form-control textarea" name="cautraloi" id="cautraloi" placeholder="Nhập câu trả lời ở đây"
+                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                    @if ($errors->has('cautraloi'))
+                        <div class="error">{{ $errors->first('cautraloi') }}</div>
+                    @endif
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -190,8 +203,7 @@
           });
 
           $('.tra-loi').click(function(){
-              $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
-              $("#tra-loi").find("select").val($(this).attr('cq-id'));
+              $("#tra-loi").find("input#hdtt-id").val($(this).attr('hdtt-id'));
           });
 
           $('.chinh-sua').click(function(){

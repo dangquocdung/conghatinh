@@ -111,4 +111,22 @@ class HoiDapTrucTuyenController extends Controller
 
         return response(['data' => 'Done'], 200);
     }
+
+    public function postTraLoi(Request $request)
+    {
+        $id = $request->id;
+
+
+        $htpl = HoiDapTrucTuyen::find($id);
+
+        $htpl->nguoitraloi = $request->nguoitraloi;
+        $htpl->chucvu = $request->chucvu;
+        $htpl->cautraloi = $request->cautraloi;
+
+        $htpl->save();
+
+//        return response(['data' => 'Done'], 200);
+        flash('Cảm ơn bạn đã trả lời câu hỏi');
+        return redirect()->back();
+    }
 }
