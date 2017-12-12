@@ -77,7 +77,7 @@
                 <span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" style="padding-bottom: 0">Chỉnh sửa</h4>
             </div>
-            <form action="{{ route('update-lich-lam-viec') }}" method="post" id="role-save-form">
+            <form action="#" method="post" id="role-save-form">
               {{csrf_field()}}
               <div class="modal-body">
 
