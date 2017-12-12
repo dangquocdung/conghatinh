@@ -151,10 +151,12 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     //Van ban
     Route::group(['prefix'=>'chuyen-trang'],function (){
 
-        Route::get('doanh-nghiep-hoi','DoanhNghiepHoiController@index')->name('doanh-nghiep-hoi');
-        Route::get('ho-tro-phap-ly','HoTroPhapLyController@index')->name('ho-tro-phap-ly');
-        Route::get('du-thao-van-ban','DuThaoController@index')->name('du-thao-van-ban');
-        Route::get('hoi-dap-truc-tuyen','HoiDapController@index')->name('hoi-dap-truc-tuyen');
+        Route::get('doanh-nghiep-hoi','DoanhNghiepHoiController@index')->name('index-doanh-nghiep-hoi');
+        Route::get('ho-tro-phap-ly','HoTroPhapLyController@index')->name('index-ho-tro-phap-ly');
+        Route::get('du-thao-van-ban','DuThaoController@index')->name('index-du-thao-van-ban');
+        Route::get('hoi-dap-truc-tuyen','HoiDapController@index')->name('index-hoi-dap-truc-tuyen');
+        Route::get('lien-he-cong-tac', 'LienHeController@index')->name('index-lien-he-cong-tac');
+        Route::get('gop-y', 'GopYController@index')->name('index-gop-y');
 
         Route::post('duyet-doanh-nghiep-hoi', 'DoanhNghiepHoiController@postDuyet')->name('duyet-doanh-nghiep-hoi');
         Route::post('update-doanh-nghiep-hoi', 'DoanhNghiepHoiController@update')->name('update-doanh-nghiep-hoi');
@@ -164,8 +166,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('update-ho-tro-phap-ly', 'HoTroPhapLyController@update')->name('update-ho-tro-phap-ly');
         Route::post('delete-ho-tro-phap-ly', 'HoTroPhapLyController@destroy')->name('delete-ho-tro-phap-ly');
 
-        Route::get('lien-he-cong-tac', 'LienHeController@index')->name('index-lien-he-cong-tac');
-        Route::get('gop-y', 'GopYController@index')->name('gop-y');
+
     });
 
 
