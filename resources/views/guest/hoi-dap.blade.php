@@ -117,7 +117,7 @@
                             <td>{{ $hdtt->id }}</td>
                             <td>{{ $hdtt->hoten }}</td>
                             <td>{{ $hdtt->sodt }}</td>
-                            <td>{{ $hdtt->cauhoi }}</td>
+                            <td>{!! $hdtt->cauhoi !!}</td>
                             <td>{!! $hdtt->cautraloi !!}</td>
                         @endforeach
                         </tbody>

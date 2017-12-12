@@ -66,7 +66,7 @@
                     </td>
                     <td>{{ $hdtt->hoten }}</td>
                     <td>{{ $hdtt->sodt }}</td>
-                    <td>{{ $hdtt->cauhoi }}</td>
+                    <td>{!! $hdtt->cauhoi !!}</td>
                     <td>{!! $hdtt->cautraloi !!}</td>
                     <td class="col-sm-2">
                         {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
