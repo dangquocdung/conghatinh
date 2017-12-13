@@ -787,18 +787,48 @@ td{
       padding-left: 0px;
       padding-right: 0px;
 
-      &:nth-child(2n+1){
+      @media screen and(min-width: 992px) {
 
-        padding-right: 5px;
+        &:nth-child(2n+1) {
 
-      }
+          padding-right: 5px;
 
-      &:nth-child(2n){
+        }
 
-        padding-left: 5px;
+        &:nth-child(2n) {
 
+          padding-left: 5px;
+
+        }
       }
     }
+
+    .box{
+
+      margin-bottom: 0 !important;
+
+      .box-header {
+
+        padding: 0px !important;
+
+        .box-title {
+
+          font-size: 1em;
+
+          a{
+            text-decoration: none;
+          }
+
+        }
+
+      }
+
+      .box-body{
+        padding: 0 10px 5px 10px !important;
+      }
+    }
+
+
   }
 
 }

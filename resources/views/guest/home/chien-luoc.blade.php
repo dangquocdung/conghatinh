@@ -16,8 +16,15 @@
 
                     <div class="block3">
                         <div class="box box-solid">
-                            <div class="box-header with-border">
-                                <h3 class="box-title"><i class="fa  fa-safari" aria-hidden="true"></i> &nbsp;{{ $cm->name }}</h3>
+                            <div class="box-header">
+
+                                <div class="portlet-header">
+                                    <img src="/images/background/lotus.ico">
+                                    <a href="{{ route('chuyen-muc',$cm->slug) }}">
+                                        <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
+                                    </a>
+                                </div>
+                                {{--<h3 class="box-title"><i class="fa  fa-safari" aria-hidden="true"></i> &nbsp;{{ $cm->name }}</h3>--}}
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -25,7 +32,7 @@
                                     <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
                                     @foreach($cm->loaitin as $lt)
                                         <div class="panel box box-primary">
-                                            <div class="box-header with-border">
+                                            <div class="box-header">
                                                 <h4 class="box-title">
                                                     <a data-toggle="collapse" data-parent="#accordion" href="#{{$lt->slug}}">
                                                         {{$lt->name}}
