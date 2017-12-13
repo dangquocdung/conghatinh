@@ -114,6 +114,10 @@
 
     function UnionSwitchMode2() {
 
+        var isMobile = $(window).width() < 768;
+        console.log("isMobile");
+        console.log(isMobile);
+
         var idUnion_image_thumb = "tin-noi-bat"
 
 
