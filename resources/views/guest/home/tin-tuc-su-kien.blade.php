@@ -13,9 +13,9 @@
         </a>
     </div>
 
-    <div style="min-height:300px;">
+    <div class="tab-doc">
 
-        <div class="col-xs-1">
+        <div class="col-xs-1 tieu-de">
             <!-- required for floating -->
             <!-- Nav tabs -->
             <ul class="nav nav-tabs tabs-left vertical-text">
@@ -37,7 +37,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="col-xs-11">
+        <div class="col-xs-11 noi-dung">
             <!-- Tab panes -->
             <div class="tab-content">
                 @foreach($cm->loaitin as $lt)
@@ -71,11 +71,9 @@
                                                 <div class="tin_title_text">
                                                     {{$tin1->name}} <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                 </div>
-
                                             </a>
 
                                             <div class="tin_title_abstract" style="display:;">
-
                                                 {{ $tin1->gioithieu}}
                                             </div>
 
@@ -97,7 +95,6 @@
                 @endforeach
             </div>
         </div>
-
     </div>
 </div>
 
