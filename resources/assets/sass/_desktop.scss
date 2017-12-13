@@ -547,7 +547,7 @@ td{
 .box_img a:hover span{color:#FFFFFF;text-shadow:2px 2px rgba(255, 255, 255, 0.77);text-shadow:2px 2px #A95707}
 
 
-.lich-cong-tac{
+.lich-cong-tac, .chidao-dieuhanh{
 
   ul{
     padding: 0;
@@ -756,6 +756,27 @@ td{
   }
 
 }
+
+.chidao-dieuhanh{
+  ul{
+    list-style-type: none;
+    padding: 0;
+
+    li{
+      padding-bottom: 10px;
+      padding-left: 0;
+      margin-left: 0;
+
+
+      &:not(:last-child){
+        border-bottom: 1px solid #eaeaea;
+      }
+    }
+  }
+
+}
+
+
 
 
 

@@ -8,8 +8,8 @@ Route::group(['prefix'=>'vi'], function ()
 {
     Route::get('tin-noi-bat', 'GuestController@tinNoiBat');
 
-    Route::get('chi-dao-dieu-hanh/lich-cong-tac', 'GuestController@getLLV')->name('get-lich-cong-tac');
-    Route::get('chi-dao-dieu-hanh/lich-cong-tac/{id}', 'GuestController@showLLV')->name('lich-cong-tac-show');
+    Route::get('chi-dao-dieu-hanh/lich-cong-tac-lanh-dao-ubnd-tinh', 'GuestController@getLLV')->name('get-lich-cong-tac');
+    Route::get('chi-dao-dieu-hanh/lich-cong-tac-lanh-dao-ubnd-tinh/{id}', 'GuestController@showLLV')->name('lich-cong-tac-show');
 
     Route::get('lien-he-cong-tac', 'GuestController@getLienHeCongTac')->name('lien-he-cong-tac');
     Route::post('lien-he-cong-tac', 'LienHeController@store')->name('post-lien-he-cong-tac');

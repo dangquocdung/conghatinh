@@ -5,7 +5,7 @@
 @endphp
 
 
-<div class="block3" id="{{ $cm->slug }}">
+<div class="block3">
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
@@ -14,71 +14,59 @@
         </a>
     </div>
 
-    @php $i=0 @endphp
+    <div class="tab-doc">
 
-    @foreach ($cm->loaitin->sortby('thutu') as $lt)
+        <div class="col-xs-1 tieu-de">
+            <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-left vertical-text">
+                @foreach($cm->loaitin->sortBy('thutu')->take(3) as $lt)
+                    @if ($lt->thutu == 1)
+                        <li class="active">
+                            <a href="#{{$lt->slug}}" data-toggle="tab">
+                                {{$lt->name}}
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="#{{$lt->slug}}" data-toggle="tab">
+                                {{$lt->name}}
+                            </a>
+                        </li>
+                    @endif
 
-        @php
-            $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(4);
-            $vbs = $lt->vanban->where('daduyet','1')->sortByDesc('id')->take(4);
-        @endphp
+                @endforeach
+            </ul>
+        </div>
+        <div class="col-xs-11 noi-dung">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                @foreach($cm->loaitin as $lt)
+                    <div class="chidao-dieuhanh tab-pane
+                            @if ($lt->thutu == 1)
+                            active " id="{{$lt->slug}}">
 
-        <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
-            <div class="row">
-                @if ($lt->type == 'tt')
-                    <div class="breadcrumb" style="margin: 3px">
-                        <span class="breadcrumb-item active">
-                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            <strong>{{ $lt->name }}</strong>
-                          </a>
-                        </span>
-                        <span class="pull-right">
-                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
-                        </span>
-                    </div>
+                        @else
+                            " id="{{$lt->slug}}">
 
+                        @endif
 
+                        <ul>
 
-                    @if (count($tins)>0)
-                        <div class="col-md-12">
-                            <ul class="news-block">
-                                @foreach($tins as $tin)
+                            @if ($lt->thutu == 1)
+
+                                @foreach($lt->lichct->sortByDesc('thang') as $lct)
                                     <li>
-                                        <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
 
-                                        <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
-                                            {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                        </a>
+                                        <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
 
-                                        <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
-
-                                        <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
                                     </li>
                                 @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                @else
 
-                    <div class="breadcrumb" style="margin: 3px">
-                        <span class="breadcrumb-item active">
-                          <a href="{{ route('van-ban',$lt->slug) }}" style="text-decoration: none;">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            <strong>{{ $lt->name }}</strong>
-                          </a>
-                        </span>
-                        <span class="pull-right">
-                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
-                        </span>
-                    </div>
+                            @else
 
-                    @if (count($vbs) > 0)
-                        <div class="news-vanban">
-                            <ul class="news-block">
-                                @foreach($vbs as $vb)
-
-                                    <li style="margin-top: 0; border-bottom: none;">
+                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(8) as $vb)
+                                    <li>
 
                                         <span class="label label-danger">Mới</span>
 
@@ -89,6 +77,8 @@
 
                                         <small><em>(Ngày ban hành: {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}})</em></small>
 
+
+
                                         @foreach($vb->tepvanban as $tvb)
                                             <a href="{{ $tvb->path }}" target="_blank">
                                                 <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
@@ -98,19 +88,17 @@
                                         <div class="gioithieu">
                                             {{$vb->trichyeu}}
                                         </div>
-                                    </li>
                                 @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                @endif
-            </div>
 
+                            @endif
+
+                        </ul>
+                    </div>
+                @endforeach
+            </div>
         </div>
 
-
-    @endforeach
-
+    </div>
 </div>
 
 

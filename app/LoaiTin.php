@@ -20,6 +20,11 @@ class LoaiTin extends Model
         return $this->hasMany('App\VanBan','loaitin_id','id');
     }
 
+    public function lichct()
+    {
+        return $this->hasMany('App\LichCongTac','loaitin_id','id');
+    }
+
 	public function chuyenmuc()
 	{
 	return $this->belongsTo('App\ChuyenMuc','chuyenmuc_id','id');
