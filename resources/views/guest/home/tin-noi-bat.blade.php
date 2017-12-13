@@ -6,51 +6,39 @@
         <a href="vi/tin-noi-bat">
             <h4 class="portlet-header-title no-pd-top">Tin Nổi bật</h4>
         </a>
-
-        {{--<a data-toggle="offcanvas" class="pull-right hidden-lg hidden-md" style="margin-right: 5px; color: #ffffff">--}}
-            {{--<i id="tin-nb" class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>--}}
-        {{--</a>--}}
-
-
     </div>
 
     @if (count($tinnoibat) > 0)
 
 
-    <div id="tinNoiBatChinh" class="col-md-8 w3-animate-left">
+        <div id="tinNoiBatChinh" class="col-md-8 col-xs-12 w3-animate-left">
 
-        @php
-            $tin1 = $tinnoibat->first();
-        @endphp
+            @php
+                $tin1 = $tinnoibat->first();
+            @endphp
 
-        <div class="hot-news">
+            <div class="hot-news">
 
-            <a href="#" class="hot-news-thumb-nail">
-                <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
-            </a>
+                <a href="#" class="hot-news-thumb-nail">
+                    <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
+                </a>
 
-            <div class="hot-news-title" style="display: block; text-align: center">
-                <h3>
-                    <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">{{ $tin1->name }}</a>
-                </h3>
-            </div>
-            <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
-                {{ $tin1->gioithieu }}
+                <div class="hot-news-title" style="display: block; text-align: center">
+                    <h3>
+                        <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">{{ $tin1->name }}</a>
+                    </h3>
+                </div>
+                <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
+                    {{ $tin1->gioithieu }}
 
+                </div>
             </div>
         </div>
 
-
-
-    </div>
-    <div class="col-md-4">
-
-
-                <div id="tin-noi-bat" class="scroll">
-
+        <div class="col-md-4 hidden-xs">
+            <div id="tin-noi-bat">
                 <ul>
                     @foreach ($tinnoibat as $tnb)
-
                         <li>
                             <div class="hot-news-block">
 
@@ -65,28 +53,19 @@
 
                             </div>
                         </li>
-
                     @endforeach
-
                 </ul>
-                    <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
-                        <a href="/tin-noi-bat" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
-                    </div>
+                <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
+                    <a href="/tin-noi-bat" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
                 </div>
-
-
-
-
-
-
-    </div>
+            </div>
+        </div>
 
     @endif
 </div>
 
 
 <div id="hot-item" style="background-color:#ffffff">
-
     <ul>
         <li class="col-md-3 col-xs-6">
             <div class="block2">
@@ -117,7 +96,6 @@
             </div>
         </li>
     </ul>
-
 </div>
 
 
@@ -125,12 +103,9 @@
 <div class="clearfix"></div>
 
 <div class="block2">
-
-
-            <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
-                <img src="/uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
-            </a>
-
+    <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
+        <img src="/uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
+    </a>
 </div>
 
 
@@ -174,10 +149,6 @@
 
                 jQueryNext.addClass('active');
 
-
-
-
-
                 $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
 
                 $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
@@ -185,9 +156,6 @@
                 $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
 
                 $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
-
-
-
 
             });
         }

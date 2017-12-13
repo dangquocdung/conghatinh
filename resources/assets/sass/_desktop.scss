@@ -189,8 +189,6 @@ body {
         }
 
         .hot-news-block{
-
-          border-bottom: 1px solid #e1e8ee;
           padding: 5px;
           text-align: justify;
         }
@@ -201,6 +199,16 @@ body {
           a{
             color: lighten(#0079c5,20%) !important;
           }
+        }
+
+        &:not(:last-child){
+
+          .hot-news-block{
+
+            border-bottom: 1px solid #e1e8ee;
+
+          }
+
         }
       }
       li.active {
