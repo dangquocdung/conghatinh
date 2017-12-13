@@ -16,12 +16,9 @@
     @include('guest.home.tin-tuc-su-kien')
     @include('guest.home.albums')
     @include('guest.home.van-ban')
+    <div class="clearfix"></div>
     @include('guest.home.chien-luoc')
-    <div class="block2">
-        <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
-            <img src="uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
-        </a>
-    </div>
+    <div class="clearfix"></div>
     @include('guest.home.to-chuc')
 @endsection
 

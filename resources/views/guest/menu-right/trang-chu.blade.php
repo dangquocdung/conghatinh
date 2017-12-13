@@ -1,8 +1,4 @@
-<div class="clearfix"></div>
 <div class="right-box">
-
-    @include(('guest.menu-right.tim-kiem'))
-
     <div class="block4">
         <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right">
             <h4>

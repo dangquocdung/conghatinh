@@ -1,10 +1,96 @@
+<style>
+    .tabs-left, .tabs-right {
+        border-bottom: none;
+        padding-top: 2px;
+    }
+    .tabs-left {
+        border-right: 1px solid #ddd;
+    }
+    .tabs-right {
+        border-left: 1px solid #ddd;
+    }
+    .tabs-left>li, .tabs-right>li {
+        float: none;
+        margin-bottom: 2px;
+    }
+    .tabs-left>li {
+        margin-right: -1px;
+    }
+    .tabs-right>li {
+        margin-left: -1px;
+    }
+    .tabs-left>li.active>a,
+    .tabs-left>li.active>a:hover,
+    .tabs-left>li.active>a:focus {
+        border-bottom-color: #ddd;
+        border-right-color: transparent;
+    }
+
+    .tabs-right>li.active>a,
+    .tabs-right>li.active>a:hover,
+    .tabs-right>li.active>a:focus {
+        border-bottom: 1px solid #ddd;
+        border-left-color: transparent;
+    }
+    .tabs-left>li>a {
+        border-radius: 4px 0 0 4px;
+        margin-right: 0;
+        display:block;
+    }
+    .tabs-right>li>a {
+        border-radius: 0 4px 4px 0;
+        margin-right: 0;
+    }
+    .vertical-text {
+        margin-top:50px;
+        border: none;
+        position: relative;
+    }
+    .vertical-text>li {
+        height: 20px;
+        width: 120px;
+        margin-bottom: 100px;
+    }
+    .vertical-text>li>a {
+        border-bottom: 1px solid #ddd;
+        border-right-color: transparent;
+        text-align: center;
+        border-radius: 4px 4px 0px 0px;
+    }
+    .vertical-text>li.active>a,
+    .vertical-text>li.active>a:hover,
+    .vertical-text>li.active>a:focus {
+        border-bottom-color: transparent;
+        border-right-color: #ddd;
+        border-left-color: #ddd;
+    }
+    .vertical-text.tabs-left {
+        left: -50px;
+    }
+    .vertical-text.tabs-right {
+        right: -50px;
+    }
+    .vertical-text.tabs-right>li {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    .vertical-text.tabs-left>li {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+</style>
+
 @php
 
     $cm = $chuyenmuc->where('id','4')->first();
 
 @endphp
-
-
 
 
 <div class="block3">
@@ -15,40 +101,51 @@
             <h4 class="portlet-header-title no-pd-top">Văn bản QPPL</h4>
         </a>
     </div>
-    @foreach ($cm->loaitin as $lt)
 
-        @php
+    <div style="min-height:300px;">
 
-          $vbs = $lt->vanban->where('daduyet','1')->sortByDesc('id')->take(4);
+        <div class="col-xs-1">
+            <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-left vertical-text">
+                @foreach($cm->loaitin as $lvb)
+                    @if ($lvb->id == 9)
+                        <li class="active">
+                            <a href="#{{$lvb->slug}}" data-toggle="tab">
+                                {{$lvb->name}}
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="#{{$lvb->slug}}" data-toggle="tab">
+                                {{$lvb->name}}
+                            </a>
+                        </li>
+                    @endif
 
+                @endforeach
+            </ul>
+        </div>
+        <div class="col-xs-11">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                @foreach($cm->loaitin as $lvb)
+                    <div class="to-chuc tab-pane
+                            @if ($lvb->id == 9)
+                            active " id="{{$lvb->slug}}">
 
-        @endphp
+                        @else
+                            " id="{{$lvb->slug}}">
 
+                        @endif
 
-        @if (count($vbs) > 0)
-            <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
-                <div class="row">
-
-                    <div class="breadcrumb" style="margin-left: 3px; margin-right: 3px">
-                        <span class="breadcrumb-item active">
-                          <a href="{{ route('van-ban',$lt->slug) }}" style="text-decoration: none;">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            <strong>{{ $lt->name }}</strong>
-                          </a>
-                        </span>
-                        <span class="pull-right">
-                            <a href="{{ route('van-ban',$lt->slug) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
-                        </span>
-                    </div>
-                    <div class="news-vanban">
-                        <ul class="news-block">
-                            @foreach($vbs as $vb)
-
+                        <ul>
+                            @foreach($lvb->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
                                 <li style="margin-top: 0; border-bottom: none;">
 
                                     <span class="label label-danger">Mới</span>
 
-                                    <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
+                                    <a href="{{ route('chi-tiet-van-ban',[$lvb->slug,$vb->id]) }}" class="news-title bold">
                                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                                         Số: {{ $vb->kihieuvb }}
                                     </a>
@@ -57,7 +154,7 @@
 
 
 
-                                @foreach($vb->tepvanban as $tvb)
+                                    @foreach($vb->tepvanban as $tvb)
                                         <a href="{{ $tvb->path }}" target="_blank">
                                             <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
                                         </a>
@@ -66,35 +163,12 @@
                                     <div class="gioithieu">
                                         {{$vb->trichyeu}}
                                     </div>
-                                </li>
                             @endforeach
-                         </ul>
+                        </ul>
                     </div>
-                </div>
+                @endforeach
             </div>
-        @endif
+        </div>
 
-    
-    @endforeach
-
-
-</div>
-
-@if ($cm->banner_id != null)
-
-    <div class="block2">
-
-        @foreach($banner as $bn)
-            @if ($bn->id == $cm->banner_id)
-                <a href="{{$bn->lienket}}">
-                    <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
-                </a>
-            @endif
-        @endforeach
     </div>
-@endif
-
-
-
-
-
+</div>

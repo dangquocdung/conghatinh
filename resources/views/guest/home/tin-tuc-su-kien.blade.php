@@ -4,8 +4,7 @@
 
 @endphp
 
-
-<div class="block3" id="{{ $cm->slug }}">
+<div class="block3">
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
@@ -14,135 +13,91 @@
         </a>
     </div>
 
-    @php $i=0 @endphp
+    <div style="min-height:300px;">
 
-    @foreach ($cm->loaitin as $lt)
+        <div class="col-xs-1">
+            <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-left vertical-text">
+                @foreach($cm->loaitin as $lt)
+                    @if ($lt->id == 1)
+                        <li class="active">
+                            <a href="#{{$lt->slug}}" data-toggle="tab">
+                                {{$lt->name}}
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="#{{$lt->slug}}" data-toggle="tab">
+                                {{$lt->name}}
+                            </a>
+                        </li>
+                    @endif
 
-        @php
+                @endforeach
+            </ul>
+        </div>
+        <div class="col-xs-11">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                @foreach($cm->loaitin as $lt)
 
-            $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(5);
+                    @php
+                        $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(3);
+                    @endphp
 
-            $tin1= $tins->shift();
+                    <div class="tintuc-sukien tab-pane
+                            @if ($lt->id == 1)
+                            active " id="{{$lt->slug}}">
 
-        @endphp
+                        @else
+                            " id="{{$lt->slug}}">
 
-        @if ($tin1)
-            <div class="col-md-12" style="float:left">
-                <div class="row">
-                    <div class="breadcrumb" style="margin-left: 3px; margin-right: 3px">
-                        <span class="breadcrumb-item active">
-                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;">
-                            <span class="glyphicon glyphicon-share-alt"></span>
-                            <strong>{{ $lt->name }}</strong>
-                          </a>
-                        </span>
-                        <span class="pull-right">
-                          <a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}" style="text-decoration: none;"><em><small><i class="fa fa-angle-double-right" aria-hidden="true"></i>Xem tiếp...</small></em></a>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-7 col-sm-7 col-xs-12" >
-                    <div class="row">
-                        <div class="news-main" style="margin-left: -15px">
+                        @endif
 
-                                <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">
-                                    <div class="tin_title_text">
-                                        {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                    </div>
+                        <ul>
+                            @foreach($tins as $tin1)
+                                <li>
+                                    <div class="news-main" style="padding: 0; margin-bottom: 0">
+                                        <div class="row tin-tuc" style="padding: 0 15px 10px 15px;">
 
-                                    <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
-                                </a>
-                                <div class="thumb">
+                                            <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug])}}">
+                                                @if (strlen(trim($tin1->avatar)) > 20)
+                                                    <img src="{{$tin1->avatar}}" alt="{{$tin1->name}}" title="{{$tin1->name}}" style="display: inline-block; width: 160px; height:auto;" >
+                                                @else
+                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpS3UrDgKd7jcT3BkbPkU4d0mzV7c6PRQ5JmNQIv2Mu2eQ_UpMA" alt="{{$tin1->name}}" title="{{$tin1->name}}" style="display: inline-block; width: 80px; height:auto;" >
+                                                @endif
 
-                                </div>
+                                                <div class="tin_title_text">
+                                                    {{$tin1->name}} <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                </div>
 
-                                <div class="tin_title_abstract" style="display:;">
-                                    {{ $tin1->gioithieu }}
-                                </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                @if (count($tins)>0)
-
-                    <div class="col-md-5 col-sm-5 col-xs-12">
-                        <div class="row">
-
-                            <div class="news-five">
-                                <ul class="news-block">
-                                    @foreach($tins as $tin)
-                                        <li>
-                                            <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
-
-                                            <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
-                                                {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                             </a>
 
-                                            <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
+                                            <div class="tin_title_abstract" style="display:;">
 
-                                            <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
+                                                {{ $tin1->gioithieu}}
+                                            </div>
+
+                                            <div class="pull-right" style="padding-top: 7px;">
+                                                @foreach($tin1->teptintuc as $ttt)
+                                                    <a href="{{ $ttt->path }}" target="_blank">
+                                                        <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
+                                                    </a>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                            @endforeach
+                        </ul>
+
                     </div>
-
-                @endif
-
+                @endforeach
             </div>
-        @endif
+        </div>
 
-    @endforeach
-
-</div>
-
-
-@if ($cm->banner_id != null)
-
-    <div class="block2">
-
-        @foreach($banner as $bn)
-            @if ($bn->id == $cm->banner_id)
-                <a href="{{$bn->lienket}}">
-                    <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
-                </a>
-            @endif
-        @endforeach
     </div>
-@endif
-
-
-<script>
-    $(document).ready(function () {
-
-        var isMobile = $(window).width() < 768;
-        console.log("isMobile");
-        console.log(isMobile);
-
-        if(!isMobile) {
-
-
-
-            $('#{{ $cm->slug }} .news-block').hover(function () {
-
-                $('#{{ $cm->slug }} .cms-container-tintuc a').attr({href: $(this).find('a').attr('href')});
-
-                $('#{{ $cm->slug }} .cms-container-tintuc a .tin_title_text').html($(this).find('a').html());
-
-                $('#{{ $cm->slug }} .cms-container-tintuc a img').attr({src: $(this).find('img').attr('src')});
-
-                $('#{{ $cm->slug }} .cms-container-tintuc tin_title_abstract').html($(this).find('.gioithieu').html());
-
-            })
-
-
-        }
-
-
-
-
-    })
-</script>
+</div>
 

@@ -29,7 +29,7 @@
                 <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
             </a>
 
-            <div class="hot-news-title" style="display: block;">
+            <div class="hot-news-title" style="display: block; text-align: center">
                 <h3>
                     <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">{{ $tin1->name }}</a>
                 </h3>
