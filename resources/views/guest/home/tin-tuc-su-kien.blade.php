@@ -43,7 +43,7 @@
                 @foreach($cm->loaitin as $lt)
 
                     @php
-                        $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(3);
+                        $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(4);
                     @endphp
 
                     <div class="tintuc-sukien tab-pane
