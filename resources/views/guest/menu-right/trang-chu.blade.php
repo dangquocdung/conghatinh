@@ -1,12 +1,17 @@
 <div class="right-box">
+
+    {{--    @include(('guest.menu-right.tim-kiem'))--}}
+
+    {{--    @include(('guest.menu-right.calendar'))--}}
+
     <div class="block4">
 
-        <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#ban-do-dia-gioi" id="block-header-bando">
+        <div id="block-header-bd" class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#ban-do-dia-gioi" >
 
             <h4>
                 <img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới
 
-                <i id="chevron-bd" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
+                <i id="menu-bd" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
             </h4>
 
 
@@ -19,19 +24,37 @@
             </a>
         </div>
 
+        <script>
+
+            $(document).ready(function () {
+                $('#block-header-bd').click(function () {
+                    $("#menu-bd").toggleClass('fa-chevron-up fa-chevron-down');
+                })
+            })
+        </script>
+
 
     </div>
 
 
-    <div class="block4">
 
-        <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right" id="block-header-mn">
+    <div class="block4">
+        <div id="block-header-mn" class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right">
             <h4>
                 <img src="/images/background/lotus.ico" alt="" width="26px"> Menu
 
-                <i id="chevron-mn" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
+                <i id="menu-cm" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
+
             </h4>
         </div>
+
+        <script>
+            $(document).ready(function () {
+                $('#block-header-mn').click(function () {
+                    $("#menu-cm").toggleClass('fa-chevron-up fa-chevron-down');
+                })
+            })
+        </script>
         @include('guest.layout.menu-right')
     </div>
 
@@ -53,25 +76,12 @@
     @endif
 
 
-    {{--<div class="right_1">--}}
-
-        {{--@foreach ($banner->where('vitri','1') as $bn)--}}
-            {{--<div class="right-item">--}}
-                {{--<a href="{{$bn->lienket}}" target="_blank">--}}
-                    {{--<img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">--}}
-                {{--</a>--}}
-            {{--</div>--}}
-        {{--@endforeach--}}
-
-
-    {{--</div>--}}
-
-
     <div class="right_1">
 
         @foreach($phimtat as $pt)
             <div class="right-item">
                 <a href="{{ $pt->link }}" class="icon" title="">
+                    {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
                     <i class="fa {{$pt->icon}} fa-3x" aria-hidden="true"></i>
 
                     <span class="nav-text">{{ $pt->name }} </span>
@@ -81,24 +91,6 @@
 
 
     </div>
-
-    {{--<div class="block4">--}}
-
-        {{--@foreach ($banner as $bn)--}}
-            {{--@if ($bn->vitri == 1)--}}
-                {{--<div class="box-banner">--}}
-                    {{--<a href="{{$bn->lienket}}" target="_blank">--}}
-                        {{--<img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-            {{--@endif--}}
-        {{--@endforeach--}}
-
-
-
-
-    {{--</div>--}}
-
 
     <div class="block4" style="margin-bottom: 0; border-bottom: none">
         <div class="block-header" style="margin-bottom: 0">
@@ -113,12 +105,6 @@
     </a>
     <div id="awcc1513238895520" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="vi" data-useip="false" data-uid="awcc1513238895520"></div>
     <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
-
-
-
-
-
-
 
 
 
@@ -146,8 +132,6 @@
 
 
     </div>
-
-
 
     <div class="block4">
 
@@ -199,17 +183,5 @@
 
     </div>
 
+
 </div>
-
-<script>
-    $(document).ready(function () {
-
-        $('#block-header-bd').click(function () {
-            $("#chevron-bd").toggleClass('fa-chevron-up fa-chevron-down');
-        });
-
-        $('#block-header-mn').click(function () {
-            $("#chevron-mn").toggleClass('fa-chevron-up fa-chevron-down');
-        })
-    })
-</script>
