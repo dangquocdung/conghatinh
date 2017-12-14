@@ -101,6 +101,25 @@
     </div>
 </div>
 
+<div id="hot-item" style="background-color:#ffffff">
+    <ul>
+        @foreach ($banner->where('vitri','6') as $bn)
+            <li class="col-md-3 col-xs-6">
+                <div class="block2">
+                    <a href="{{$bn->lienket}}" target="_blank">
+                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                    </a>
+                </div>
+            </li>
+        @endforeach
+
+    </ul>
+</div>
+
+
+
+<div class="clearfix"></div>
+
 
 @if ($cm->banner_id != null)
 

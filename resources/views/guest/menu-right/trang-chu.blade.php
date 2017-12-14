@@ -53,6 +53,20 @@
     @endif
 
 
+    {{--<div class="right_1">--}}
+
+        {{--@foreach ($banner->where('vitri','1') as $bn)--}}
+            {{--<div class="right-item">--}}
+                {{--<a href="{{$bn->lienket}}" target="_blank">--}}
+                    {{--<img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">--}}
+                {{--</a>--}}
+            {{--</div>--}}
+        {{--@endforeach--}}
+
+
+    {{--</div>--}}
+
+
     <div class="right_1">
 
         @foreach($phimtat as $pt)
@@ -86,6 +100,24 @@
     {{--</div>--}}
 
 
+    <div class="block4" style="margin-bottom: 0; border-bottom: none">
+        <div class="block-header" style="margin-bottom: 0">
+            <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Thời tiết</h4>
+        </div>
+    </div>
+
+    <a href="https://www.accuweather.com/vi/vn/ha-tinh/353418/weather-forecast/353418" class="aw-widget-legal">
+        <!--
+        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+        -->
+    </a>
+    <div id="awcc1513238895520" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="vi" data-useip="false" data-uid="awcc1513238895520"></div>
+    <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+
+
+
+
+
 
 
 
@@ -114,6 +146,8 @@
 
 
     </div>
+
+
 
     <div class="block4">
 

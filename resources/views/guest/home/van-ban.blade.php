@@ -52,43 +52,43 @@
                         @endif
 
                         <ul>
-                            @if ($lvb->id == 9)
+                            {{--@if ($lvb->id == 9)--}}
 
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="http://congbao.hatinh.gov.vn/" allowfullscreen></iframe>
-                                </div>
+                                {{--<div class="embed-responsive embed-responsive-16by9">--}}
+                                    {{--<iframe class="embed-responsive-item" src="http://congbao.hatinh.gov.vn/" allowfullscreen></iframe>--}}
+                                {{--</div>--}}
 
-                            @else
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item" src="http://congbao.chinhphu.vn/" allowfullscreen></iframe>
-                                </div>
+                            {{--@else--}}
+                                {{--<div class="embed-responsive embed-responsive-16by9">--}}
+                                    {{--<iframe class="embed-responsive-item" src="http://congbao.chinhphu.vn/" allowfullscreen></iframe>--}}
+                                {{--</div>--}}
 
-                            @endif
+                            {{--@endif--}}
 
-                            {{--@foreach($lvb->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)--}}
-                                {{--<li>--}}
+                            @foreach($lvb->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
+                                <li>
 
-                                    {{--<span class="label label-danger">Mới</span>--}}
+                                    <span class="label label-danger">Mới</span>
 
-                                    {{--<a href="{{ route('chi-tiet-van-ban',[$lvb->slug,$vb->id]) }}" class="news-title bold">--}}
-                                        {{--<i class="fa fa-file-pdf-o" aria-hidden="true"></i>--}}
-                                        {{--Số: {{ $vb->kihieuvb }}--}}
-                                    {{--</a>--}}
+                                    <a href="{{ route('chi-tiet-van-ban',[$lvb->slug,$vb->id]) }}" class="news-title bold">
+                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                        Số: {{ $vb->kihieuvb }}
+                                    </a>
 
-                                    {{--<small><em>(Ngày ban hành: {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}})</em></small>--}}
+                                    <small><em>(Ngày ban hành: {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}})</em></small>
 
 
 
-                                    {{--@foreach($vb->tepvanban as $tvb)--}}
-                                        {{--<a href="{{ $tvb->path }}" target="_blank">--}}
-                                            {{--<img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">--}}
-                                        {{--</a>--}}
-                                    {{--@endforeach--}}
+                                    @foreach($vb->tepvanban as $tvb)
+                                        <a href="{{ $tvb->path }}" target="_blank">
+                                            <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
+                                        </a>
+                                    @endforeach
 
-                                    {{--<div class="gioithieu">--}}
-                                        {{--{{$vb->trichyeu}}--}}
-                                    {{--</div>--}}
-                            {{--@endforeach--}}
+                                    <div class="gioithieu">
+                                        {{$vb->trichyeu}}
+                                    </div>
+                            @endforeach
                         </ul>
                     </div>
                 @endforeach

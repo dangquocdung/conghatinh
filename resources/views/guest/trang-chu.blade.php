@@ -14,7 +14,7 @@
     @include('guest.home.videos')
     @include('guest.home.chi-dao-dieu-hanh')
     @include('guest.home.albums')
-    @include('guest.home.van-ban')
+{{--    @include('guest.home.van-ban')--}}
     <div class="clearfix"></div>
     @include('guest.home.chien-luoc')
     <div class="clearfix"></div>
