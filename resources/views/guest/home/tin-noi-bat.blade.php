@@ -67,34 +67,15 @@
 
 <div id="hot-item" style="background-color:#ffffff">
     <ul>
-        <li class="col-md-3 col-xs-6">
-            <div class="block2">
-                <a href="http://csdl.thutuchanhchinh.vn/Pages/trang-chu.aspx" target="_blank">
-                    <img src="/images/cchc.png" alt="" width="100%">
-                </a>
-            </div>
-        </li>
-        <li class="col-md-3 col-xs-6">
-            <div class="block2">
-                <a href="http://dichvucong.hatinh.gov.vn/_forms/td-login.aspx" target="_blank">
-                    <img src="/images/dkhsqm.png" alt="" width="100%">
-                </a>
-            </div>
-        </li>
-        <li class="col-md-3 col-xs-6">
-            <div class="block2">
-                <a href="http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/tra-cuu.aspx" target="_blank">
-                    <img src="/images/tckqhs.png" alt="" width="100%">
-                </a>
-            </div>
-        </li>
-        <li class="col-md-3 col-xs-6">
-            <div class="block2">
-                <a href="{{ route('get-lich-cong-tac') }}">
-                    <img src="/images/llvUBND.png" alt="" width="100%">
-                </a>
-            </div>
-        </li>
+        @foreach ($banner->where('vitri','7') as $bn)
+            <li class="col-md-3 col-xs-6">
+                <div class="block2">
+                    <a href="{{$bn->lienket}}" target="_blank">
+                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                    </a>
+                </div>
+            </li>
+        @endforeach
     </ul>
 </div>
 
