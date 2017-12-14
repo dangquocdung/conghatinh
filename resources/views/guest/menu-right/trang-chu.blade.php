@@ -1,21 +1,37 @@
 <div class="right-box">
     <div class="block4">
-        <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right">
+
+        <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#ban-do-dia-gioi" id="block-header-bando">
+
+            <h4>
+                <img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới
+
+                <i id="chevron-bd" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
+            </h4>
+
+
+        </div>
+
+        <div id="ban-do-dia-gioi" class="panel-collapse collapse in">
+            <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
+
+                <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
+            </a>
+        </div>
+
+
+    </div>
+
+
+    <div class="block4">
+
+        <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right" id="block-header-mn">
             <h4>
                 <img src="/images/background/lotus.ico" alt="" width="26px"> Menu
 
-                <i id="chevron" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
-
+                <i id="chevron-mn" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
             </h4>
         </div>
-
-        <script>
-            $(document).ready(function () {
-                $('.block-header').click(function () {
-                    $("#chevron").toggleClass('fa-chevron-up fa-chevron-down');
-                })
-            })
-        </script>
         @include('guest.layout.menu-right')
     </div>
 
@@ -70,22 +86,7 @@
     {{--</div>--}}
 
 
-    <div class="block4">
 
-        <div class="block-header" style="margin-bottom: 0">
-
-
-            <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới</h4>
-
-
-        </div>
-        <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
-
-            <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
-        </a>
-
-
-    </div>
 
 
 
@@ -165,3 +166,16 @@
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#block-header-bd').click(function () {
+            $("#chevron-bd").toggleClass('fa-chevron-up fa-chevron-down');
+        });
+
+        $('#block-header-mn').click(function () {
+            $("#chevron-mn").toggleClass('fa-chevron-up fa-chevron-down');
+        })
+    })
+</script>
