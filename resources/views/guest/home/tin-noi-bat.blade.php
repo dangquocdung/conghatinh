@@ -65,7 +65,7 @@
 </div>
 
 
-<div id="hot-item" style="background-color:#ffffff">
+<div class="hot-item" style="background-color:#ffffff">
     <ul>
         @foreach ($banner->where('vitri','7') as $bn)
             <li class="col-md-3 col-xs-6">
