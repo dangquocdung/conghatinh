@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    {!! Form::close() !!}}
+    {!! Form::close() !!}
 
 
     <!-- Trigger -->

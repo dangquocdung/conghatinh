@@ -20,7 +20,7 @@
             <!-- required for floating -->
             <!-- Nav tabs -->
             <ul class="nav nav-tabs tabs-left vertical-text">
-                @foreach($cm->loaitin->sortBy('thutu')->take(3) as $lt)
+                @foreach($cm->loaitin->sortBy('thutu')->take(4) as $lt)
                     @if ($lt->thutu == 1)
                         <li class="active">
                             <a href="#{{$lt->slug}}" data-toggle="tab">
@@ -53,7 +53,7 @@
 
                         <ul>
 
-                            @if ($lt->thutu == 1)
+                            @if ($lt->thutu == 2)
 
                                 @foreach($lt->lichct->sortByDesc('thang') as $lct)
                                     <li>

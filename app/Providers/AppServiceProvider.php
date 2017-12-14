@@ -25,6 +25,7 @@ use App\LoaiVB;
 use App\Album;
 use App\Video;
 use App\CoQuan;
+use App\PhimTat;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -92,7 +93,9 @@ class AppServiceProvider extends ServiceProvider
 
             $phimtat = PhimTat::orderby('thutu','asc')->get();
 
-            $view->with(compact('toppic','chuyenmuc','phimtat'));
+            $banner = Banner::orderby('thutu','asc')->get();
+
+            $view->with(compact('toppic','chuyenmuc','phimtat','banner'));
 
         });
 

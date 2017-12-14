@@ -1,6 +1,6 @@
 @php
 
-    $chuyenmuc = \App\ChuyenMuc::where('id', '>','4')->where('id', '<','7')->where('vitri','<>','0')->get();
+    $chuyenmuc = \App\ChuyenMuc::where('id', '>','4')->where('id', '<','14')->where('vitri','<>','0')->get();
 
 @endphp
 
