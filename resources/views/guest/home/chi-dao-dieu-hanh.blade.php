@@ -38,7 +38,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="col-xs-11 noi-dung">
+        <div class="col-xs-11 noi-dung-chi-dao">
             <!-- Tab panes -->
             <div class="tab-content">
                 @foreach($cm->loaitin as $lt)

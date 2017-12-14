@@ -716,6 +716,14 @@ td{
       padding-left: 30px;
     }
   }
+
+  .noi-dung-chi-dao{
+
+    padding-left: 25px;
+    @media screen and(max-width: 767px) {
+      padding-left: 50px;
+    }
+  }
 }
 
 .tintuc-sukien{
@@ -760,6 +768,7 @@ td{
 }
 
 .chidao-dieuhanh{
+
   ul{
     list-style-type: none;
     padding: 0;
@@ -787,7 +796,7 @@ td{
       padding-left: 0px;
       padding-right: 0px;
 
-      @media screen and(min-width: 992px) {
+      @media screen and(min-width: 768px) {
 
         &:nth-child(2n+1) {
 
@@ -801,36 +810,24 @@ td{
 
         }
       }
-    }
 
-    .box{
+      .panel-group {
+        margin-bottom: 0 !important;
 
-      margin-bottom: 0 !important;
+        .panel-heading{
+          padding-bottom: 5px !important;
+          .panel-title{
+            font-size: 1.1em;
+            line-height: 1.5em;
 
-      .box-header {
-
-        padding: 0px !important;
-
-        .box-title {
-
-          font-size: 1em;
-
-          a{
-            text-decoration: none;
+            a{
+              text-decoration: none;
+            }
           }
-
         }
-
-      }
-
-      .box-body{
-        padding: 0 10px 5px 10px !important;
       }
     }
-
-
   }
-
 }
 
 .to-chuc{
