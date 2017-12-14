@@ -7,7 +7,11 @@
                     @if (count($cm->loaitin) > 0)
                         <ul class="submenu">
                             @foreach($cm->loaitin->sortby('thutu') as $lt)
-                                <li><a href="{{ route('loai-tin',[$lt->chuyenmuc->slug,$lt->slug]) }}"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{ $lt->name }}</a></li>
+                                <li>
+                                    <a href="{{ route('loai-tin',[$lt->chuyenmuc->slug,$lt->slug]) }}">
+                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{ $lt->name }}
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     @endif

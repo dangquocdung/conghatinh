@@ -51,7 +51,7 @@
 										<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
 									</a>
 
-									<h6>
+									<h6 style="text-align: center">
 										<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
 									</h6>
 								</article>

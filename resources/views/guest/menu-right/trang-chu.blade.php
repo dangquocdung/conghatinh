@@ -11,7 +11,7 @@
             <h4>
                 <img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới
 
-                <i id="menu-bd" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
+                <i id="menu-bd" class="fa fa-chevron-up" style="position: absolute; top: 5px; right:12px;left: auto"></i>
             </h4>
 
 
@@ -28,7 +28,7 @@
 
             $(document).ready(function () {
                 $('#block-header-bd').click(function () {
-                    $("#menu-bd").toggleClass('fa-chevron-up fa-chevron-down');
+                    $("#menu-bd").toggleClass('rotated')
                 })
             })
         </script>
@@ -51,7 +51,7 @@
         <script>
             $(document).ready(function () {
                 $('#block-header-mn').click(function () {
-                    $("#menu-cm").toggleClass('fa-chevron-up fa-chevron-down');
+                    $("#menu-cm").toggleClass('rotated');
                 })
             })
         </script>
