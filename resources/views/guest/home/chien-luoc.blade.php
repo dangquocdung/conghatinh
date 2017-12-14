@@ -24,12 +24,12 @@
                             </a>
                         </div>
 
-                        <div class="panel-group" id="accordion-cl" role="tablist" aria-multiselectable="true">
+                        <div class="panel-group" id="{{ $cm->slug }}" role="tablist" aria-multiselectable="true">
                             @foreach($cm->loaitin as $lt)
                                 <div class="panel panel-default">
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion-cl" href="#{{$lt->slug}}" aria-expanded="true" aria-controls="{{$lt->slug}}">
+                                            <a data-toggle="collapse" data-parent="#{{ $cm->slug }}" href="#{{$lt->slug}}" aria-expanded="true" aria-controls="{{$lt->slug}}">
                                                 {{ $lt->name }}
                                             </a>
                                         </h4>
