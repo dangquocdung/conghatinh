@@ -1,52 +1,31 @@
-<div id="menu-right" class="panel-collapse collapse">
-    <ul id="accordion" class="accordion">
-        @foreach ($chuyenmuc as $cm)
+<div class="panel-group" id="menu-right-accordion">
 
-                <li>
-                    <div class="link"><i class="fa fa-plus"></i>{{ $cm->name }}<i class="fa fa-chevron-down"></i></div>
-                    @if (count($cm->loaitin) > 0)
-                        <ul class="submenu">
-                            @foreach($cm->loaitin->sortby('thutu') as $lt)
-                                <li>
-                                    <a href="{{ route('loai-tin',[$lt->chuyenmuc->slug,$lt->slug]) }}">
-                                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{ $lt->name }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </li>
+    @foreach ($chuyenmuc->where('vitri','1') as $cm)
+        <div class="panel panel-default">
 
 
-        @endforeach
-    </ul>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#{{$cm->slug}}"><span class="glyphicon glyphicon-folder-close">
+                                </span>{{ $cm->name }}</a>
+                </h4>
+            </div>
+
+
+            <div id="{{ $cm->slug }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table">
+                        @foreach($cm->loaitin->sortby('thutu') as $lt)
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-pencil text-primary"></span><a href="{{ route('loai-tin',[$lt->chuyenmuc->slug,$lt->slug]) }}">{{ $lt->name }}</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    @endforeach
 </div>
-
-<script>
-    $(function() {
-        var Accordion = function(el, multiple) {
-            this.el = el || {};
-            this.multiple = multiple || false;
-
-            // Variables privadas
-            var links = this.el.find('.link');
-            // Evento
-            links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-        }
-
-        Accordion.prototype.dropdown = function(e) {
-            var $el = e.data.el;
-            $this = $(this),
-                $next = $this.next();
-
-            $next.slideToggle();
-            $this.parent().toggleClass('open');
-
-            if (!e.data.multiple) {
-                $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-            };
-        }
-
-        var accordion = new Accordion($('#accordion'), false);
-    });
-</script>

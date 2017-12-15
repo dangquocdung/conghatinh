@@ -17,7 +17,7 @@
 
         </div>
 
-        <div id="ban-do-dia-gioi" class="panel-collapse collapse">
+        <div id="ban-do-dia-gioi" class="panel-collapse collapse in">
             <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
 
                 <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
@@ -38,25 +38,9 @@
 
 
 
-    <div class="block4">
-        <div id="block-header-mn" class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right">
-            <h4>
-                <img src="/images/background/lotus.ico" alt="" width="26px"> Menu
 
-                <i id="menu-cm" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
+    @include('guest.layout.menu-right')
 
-            </h4>
-        </div>
-
-        <script>
-            $(document).ready(function () {
-                $('#block-header-mn').click(function () {
-                    $("#menu-cm").toggleClass('rotated');
-                })
-            })
-        </script>
-        @include('guest.layout.menu-right')
-    </div>
 
     @if (strlen(Setting::get('video_livestream')) > 50 )
         <div class="block4" id="live-stream" style="border-radius: 5px">

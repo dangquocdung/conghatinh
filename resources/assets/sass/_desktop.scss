@@ -451,6 +451,33 @@ td{
 
   }
 }
+#menu-right-accordion{
+
+  .glyphicon {
+    margin-right:10px;
+  }
+
+  a{
+    text-decoration: none !important;
+  }
+
+  .panel-body {
+    padding:0px;
+
+    a{
+
+    }
+
+    .table {
+      margin-bottom: 0px;
+      tr td {
+        padding-left: 15px
+      }
+
+    }
+    table tr td { padding-left: 15px }
+  }
+}
 
 
 
