@@ -7,7 +7,7 @@
 <script type="text/javascript" src="{{url('admin/js/jquery-scrolltofixed-min.js')}}"></script>
 <script type="text/javascript" src="{{url('admin/js/jquery.jscroll.js')}}"></script>
 
-<script type="text/javascript" src="{{mix('/js/app.js')}}"></script>
+<script type="text/javascript" src="{{mix('/admin/js/app.js')}}"></script>
 @yield('js')
 
 <script>

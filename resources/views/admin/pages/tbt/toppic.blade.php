@@ -102,31 +102,6 @@
 
             </div>
 
-            <script>
-
-                //Drag & drop
-
-                var dropbox = document.getElementById('dropbox');
-                dropbox.addEventListener('drop', drop, false);
-
-
-                function drop(evt) {
-                    evt.stopPropagation();
-                    evt.preventDefault();
-                    var imageUrl = evt.dataTransfer.getData('text/html');
-
-                    var rex = /src="?([^"\s]+)"?\s*/;
-                    var url, res;
-
-                    url = rex.exec(imageUrl);
-                    // alert(url[1]);
-
-                    document.getElementById('dropbox').src=url[1];
-
-                    document.getElementById('hinhanh').value = url[1];
-                }
-            </script>
-
 
             
 
@@ -160,7 +135,29 @@
 @endsection
 
 @section('js')
+  <script>
+
+      //Drag & drop
+
+      var dropbox = document.getElementById('dropbox');
+      dropbox.addEventListener('drop', drop, false);
 
 
+      function drop(evt) {
+          evt.stopPropagation();
+          evt.preventDefault();
+          var imageUrl = evt.dataTransfer.getData('text/html');
+
+          var rex = /src="?([^"\s]+)"?\s*/;
+          var url, res;
+
+          url = rex.exec(imageUrl);
+          // alert(url[1]);
+
+          document.getElementById('dropbox').src=url[1];
+
+          document.getElementById('hinhanh').value = url[1];
+        }
+  </script>
 
 @stop
