@@ -4,60 +4,69 @@
 
     {{--    @include(('guest.menu-right.calendar'))--}}
 
+    {{--<div class="block4">--}}
+
+        {{--<div id="block-header-bd" class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#ban-do-dia-gioi" >--}}
+
+            {{--<h4>--}}
+                {{--<img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới--}}
+
+                {{--<i id="menu-bd" class="fa fa-chevron-up" style="position: absolute; top: 5px; right:12px;left: auto"></i>--}}
+            {{--</h4>--}}
+
+
+        {{--</div>--}}
+
+        {{--<div id="ban-do-dia-gioi" class="panel-collapse collapse in">--}}
+            {{--<a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">--}}
+
+                {{--<img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">--}}
+            {{--</a>--}}
+        {{--</div>--}}
+
+        {{--<script>--}}
+
+            {{--$(document).ready(function () {--}}
+                {{--$('#block-header-bd').click(function () {--}}
+                    {{--$("#menu-bd").toggleClass('rotated')--}}
+                {{--})--}}
+            {{--})--}}
+        {{--</script>--}}
+
+
+    {{--</div>--}}
+
+
+
     <div class="block4">
-
-        <div id="block-header-bd" class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#ban-do-dia-gioi" >
-
-            <h4>
-                <img src="/images/background/lotus.ico" alt="" width="26px"> Bản đồ địa giới
-
-                <i id="menu-bd" class="fa fa-chevron-up" style="position: absolute; top: 5px; right:12px;left: auto"></i>
-            </h4>
-
-
-        </div>
-
-        <div id="ban-do-dia-gioi" class="panel-collapse collapse in">
-            <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
-
-                <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
-            </a>
-        </div>
-
-        <script>
-
-            $(document).ready(function () {
-                $('#block-header-bd').click(function () {
-                    $("#menu-bd").toggleClass('rotated')
-                })
-            })
-        </script>
-
-
-    </div>
-
-
-
-    <div class="block4">
-        <div id="block-header-mn" class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right">
+        <div class="block-header" style="margin-bottom: 0" data-toggle="collapse" href="#menu-right">
             <h4>
                 <img src="/images/background/lotus.ico" alt="" width="26px"> Menu
 
-                <i id="menu-cm" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
+                <i id="chevron" class="fa fa-chevron-down" style="position: absolute; top: 5px; right:12px;left: auto"></i>
 
             </h4>
         </div>
 
         <script>
             $(document).ready(function () {
-                $('#block-header-mn').click(function () {
-                    $("#menu-cm").toggleClass('rotated');
+
+                $('.block-header').click(function () {
+
+
+                    $("#chevron").toggleClass('fa-chevron-up fa-chevron-down');
+
+
+
+
                 })
+
             })
         </script>
         @include('guest.layout.menu-right')
     </div>
 
+    
     @if (strlen(Setting::get('video_livestream')) > 50 )
         <div class="block4" id="live-stream" style="border-radius: 5px">
             <div class="embed-responsive embed-responsive-16by9">
