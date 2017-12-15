@@ -92,24 +92,24 @@
             </div>
             
 
-            <div class="form-group">
+            {{--<div class="form-group">--}}
 
-              <label for="">Kéo thả Banner:</label>
+              {{--<label for="">Kéo thả Banner:</label>--}}
 
-              <img id="dropbox" class="img-responsive" src="https://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
+              {{--<img id="dropbox" class="img-responsive" src="https://placehold.it/200x120" width="500px" style="margin: 0 auto;" />--}}
 
               {{--<input type="hhinhanhidden" name="hinhanh" id="hinhanh">--}}
 
-            </div>
+            {{--</div>--}}
 
             <div class="form-group">
               <label>Chọn hình ảnh</label>
-              <div class="pull-right">
-                <button type="button" class="btn btn-primary btn-xs" id="btnRefresh">
-                  <i class="fa fa-refresh"></i> Nạp lại
-                </button>
-              </div>
-              <select id="hinhanh" name="hinhanh" class="form-control" data-placeholder="Chọn hình ảnh">
+              {{--<div class="pull-right">--}}
+                {{--<button type="button" class="btn btn-primary btn-xs" id="btnRefresh">--}}
+                  {{--<i class="fa fa-refresh"></i> Nạp lại--}}
+                {{--</button>--}}
+              {{--</div>--}}
+              <select id="hinhanh" name="hinhanh" class="form-control select2" data-placeholder="Chọn hình ảnh">
                 @foreach($hinhanh as $ha)
                   <option value="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" style="background: url({{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}) left no-repeat; width: 32px">
 {{--                    <img src="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" alt="" width="24px">--}}
@@ -161,32 +161,32 @@
             width: '100%'
         });
 
-        $('#btnRefresh').click(function (e) {
-
-
-            console.log(e);
-
-
-            $.get('/toa-soan/json-hinhanh', function (data) {
-                console.log(data);
-                $('select#hinhanh').empty();
+//        $('#btnRefresh').click(function (e) {
+//
+//
+//            console.log(e);
+//
+//
+//            $.get('/toa-soan/json-hinhanh', function (data) {
+//                console.log(data);
+//                $('select#hinhanh').empty();
 //                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
-                $.each(data, function(index, tdkObj){
-                    $('select#hinhanh').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
-                })
-            })
-        });
-
-        $('select#hinhanh').click(function (e) {
-
-            console.log(e);
-
-            $('#dropbox').attr('src',$(this).val());
-
-//            alert('123');
-
-
-        });
+//                $.each(data, function(index, tdkObj){
+//                    $('select#hinhanh').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+//                })
+//            })
+//        });
+//
+//        $('select#hinhanh').click(function (e) {
+//
+//            console.log(e);
+//
+//            $('#dropbox').attr('src',$(this).val());
+//
+//            alert($(this).val());
+//
+//
+//        });
 
 
     });
