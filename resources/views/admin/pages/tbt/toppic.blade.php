@@ -109,10 +109,10 @@
                   <i class="fa fa-refresh"></i> Nạp lại
                 </button>
               </div>
-              <select id="hinhanh" name="hinhanh" class="form-control select2" data-placeholder="Chọn hình ảnh">
+              <select id="hinhanh" name="hinhanh" class="form-control" data-placeholder="Chọn hình ảnh">
                 @foreach($hinhanh as $ha)
-                  <option value="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" style="width: 100%">
-                    <img src="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" alt="" width="24px">
+                  <option value="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" style="background: url({{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}) left no-repeat; width: 32px">
+{{--                    <img src="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" alt="" width="24px">--}}
                     {{ $ha->filename.'.'.$ha->extension }}
                   </option>
                 @endforeach
@@ -156,6 +156,7 @@
 <script>
 
     $(document).ready(function() {
+
         $('.select2').select2({
             width: '100%'
         });
@@ -176,13 +177,13 @@
             })
         });
 
-        $('#hinhanh').click(function (e) {
+        $('select#hinhanh').click(function (e) {
 
             console.log(e);
 
-//            $('#dropbox').attr('src',$(this).val());
+            $('#dropbox').attr('src',$(this).val());
 
-            alert('123');
+//            alert('123');
 
 
         });
