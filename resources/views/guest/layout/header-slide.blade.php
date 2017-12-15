@@ -12,7 +12,7 @@
 
     {!! Form::open(['method'=>'GET','url'=>'vi/tim-kiem','role'=>'search'])  !!}
 
-    <div class="col-xs-3 pull-right hidden-sm hidden-xs" style="margin-top: 20px">
+    <div class="col-xs-3 pull-right hidden-sm hidden-xs" style="margin-top: 10px">
         <div class="input-group">
             <div class="input-group-btn search-panel">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px">

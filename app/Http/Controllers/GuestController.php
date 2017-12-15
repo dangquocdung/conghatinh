@@ -126,6 +126,13 @@ class GuestController extends Controller
         return view('guest.lct-chi-tiet',compact('lct'));
     }
 
+    public function getVBCDDH()
+    {
+        $lt = LoaiTin::where('id','38')->first();
+
+        return view('guest.van-ban',compact('lt'));
+    }
+
 
 
 
@@ -298,9 +305,39 @@ class GuestController extends Controller
 
         switch ($type){
 
-            case 'all':
+            case 'tieude':
 
                 $tintuc = TinTuc::where('slug','like','%'.$search.'%')
+                    ->orderBy('id','desc')
+                    ->paginate(20);
+
+                return view('guest.tim-kiem',compact('tintuc'));
+
+                break;
+
+            case 'gioithieu':
+
+                $tintuc = TinTuc::where('gioithieu','like','%'.$search.'%')
+                    ->orderBy('id','desc')
+                    ->paginate(20);
+
+                return view('guest.tim-kiem',compact('tintuc'));
+
+                break;
+
+            case 'ngaydang':
+
+                $tintuc = TinTuc::where('ngaydang','like','%'.$search.'%')
+                    ->orderBy('id','desc')
+                    ->paginate(20);
+
+                return view('guest.tim-kiem',compact('tintuc'));
+
+                break;
+
+            case 'noidung':
+
+                $tintuc = TinTuc::where('noidung','like','%'.$search.'%')
                     ->orderBy('id','desc')
                     ->paginate(20);
 
