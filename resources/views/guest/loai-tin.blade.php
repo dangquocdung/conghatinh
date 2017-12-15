@@ -86,7 +86,7 @@
 @endsection
 
 @section('content-right')
-    @include('guest.menu-right.thong-bao')
+    @include('guest.menu-right.trang-chu')
 @stop
 
 

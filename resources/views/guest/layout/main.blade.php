@@ -40,7 +40,8 @@
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 sidebar-offcanvas" id="sidebar" style="padding-left: 5px">
-          @yield('content-right')
+{{--          @yield('content-right')--}}
+          @include('guest.menu-right.thong-bao')
         </div>
 
       </div>
