@@ -8,41 +8,6 @@
             </a>
         </div>
         @endforeach
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img u="image" src="./images/banner/002.png" />--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img u="image" src="./images/banner/003.png" />--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img u="image" src="./images/banner/004.png" />--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img u="image" src="./images/banner/005.png" />--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img u="image" src="./images/banner/006.png" />--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img u="image" src="./images/banner/007.png" />--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div>--}}
-            {{--<a href="/">--}}
-                {{--<img u="image" src="./images/banner/008.png" />--}}
-            {{--</a>--}}
-        {{--</div>--}}
     </div>
 
     {!! Form::open(['method'=>'GET','url'=>'vi/tim-kiem','role'=>'search'])  !!}
