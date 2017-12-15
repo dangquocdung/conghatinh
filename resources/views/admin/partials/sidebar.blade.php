@@ -153,7 +153,7 @@
 
       {{--@role('tbt')--}}
 
-      <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/*') ? 'active' : ''  }} treeview">
+      <li class="{{ Request::is('toa-soan/lien-ket/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-link"></i> <span>Liên kết</span>
           <span class="pull-right-container">
@@ -162,50 +162,23 @@
         </a>
         <ul class="treeview-menu">
 
-          <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
-            <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Đặt Banner</a>
+          <li class="{{ Request::is('toa-soan/lien-ket/banner-trang-chu') ? 'active' : ''  }}">
+            <a href="{{route('banner-trang-chu')}}"><i class="fa fa-circle-o"></i> Banner liên kết</a>
           </li>
 
-          <li class="{{ Request::is('toa-soan/cau-hinh/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
+          <li class="divider"></li>
+          <li class="{{ Request::is('toa-soan/lien-ket/phim-tat') ? 'active' : ''  }}">
+            <a href="{{route('phim-tat.index')}}"><i class="fa fa-circle-o"></i> Liên kết</a>
+          </li>
+          <li class="divider"></li>
+
+          <li class="{{ Request::is('toa-soan/lien-ket/so-ban-nganh') ? 'active' : ''  }}">
             <a href="{{route('so-ban-nganh')}}"><i class="fa fa-circle-o"></i> Sở, Ban, Ngành</a>
           </li>
+
         </ul>
       </li>
 
-      {{--@endrole--}}
-
-
-      {{--@role('admin')--}}
-        <li class="{{ Request::is('toa-soan/phim-tat') ? 'active' : ''  }}">
-          <a href="{{route('phim-tat.index')}}"><i class="fa fa-folder-open-o"></i> Phím tắt</a>
-        </li>
-        <li class="{{ Request::is('toa-soan/config/user/*') ? 'active' : ''  }} treeview">
-          <a href="javascript:void(0)">
-            <i class="fa fa-user"></i> <span>Users and Roles</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="{{ Request::is('toa-soan/config/user/manager') ? 'active' : ''  }}">
-              <a href="{{route('user')}}"><i class="fa fa-circle-o"></i> Người dùng</a>
-            </li>
-            {{-- <li class="{{ Request::is('toa-soan/config/user/import') ? 'active' : ''  }}">
-              <a href="{{route('import-user')}}"><i class="fa fa-circle-o"></i> Import Users</a>
-            </li> --}}
-            <li class="{{ Request::is('toa-soan/config/user/roles') ? 'active' : ''  }}">
-              <a href="{{route('manage-roles')}}"><i class="fa fa-circle-o"></i> Nhóm quyền</a>
-            </li>
-            <li class="{{ Request::is('toa-soan/config/user/permissions') ? 'active' : ''  }}">
-              <a href="{{route('manage-permissions')}}"><i class="fa fa-circle-o"></i> Quyền hạn</a>
-            </li>
-            @if(\Setting::get('user_can_register'))
-              <li class="{{ Request::is('toa-soan/config/user/activation-pending') ? 'active' : ''  }}">
-                <a href="{{route('user-activation-pending')}}"><i class="fa fa-circle-o"></i> Kích hoạt users</a>
-              </li>
-            @endif
-          </ul>
-        </li>
       {{--@endrole--}}
 
       <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
@@ -227,8 +200,8 @@
               <a href="{{route('settings')}}"><i class="fa fa-circle-o"></i> Cài đặt</a>
             </li>
 
-            <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/toppic') ? 'active' : ''  }}">
-              <a href="{{route('toppic')}}"><i class="fa fa-circle-o"></i> Hình chạy</a>
+            <li class="{{ Request::is('toa-soan/cau-hinh/toppic') ? 'active' : ''  }}">
+              <a href="{{route('index-toppic')}}"><i class="fa fa-circle-o"></i> Banner chính</a>
             </li>
 
             <li class="{{ Request::is('toa-soan/cau-hinh/loai-tin') ? 'active' : ''  }}">
@@ -241,6 +214,37 @@
           {{--@endrole--}}
         </ul>
       </li>
+
+      {{--@role('admin')--}}
+
+      <li class="{{ Request::is('toa-soan/config/user/*') ? 'active' : ''  }} treeview">
+        <a href="javascript:void(0)">
+          <i class="fa fa-user"></i> <span>Users and Roles</span>
+          <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ Request::is('toa-soan/config/user/manager') ? 'active' : ''  }}">
+            <a href="{{route('user')}}"><i class="fa fa-circle-o"></i> Người dùng</a>
+          </li>
+          {{-- <li class="{{ Request::is('toa-soan/config/user/import') ? 'active' : ''  }}">
+            <a href="{{route('import-user')}}"><i class="fa fa-circle-o"></i> Import Users</a>
+          </li> --}}
+          <li class="{{ Request::is('toa-soan/config/user/roles') ? 'active' : ''  }}">
+            <a href="{{route('manage-roles')}}"><i class="fa fa-circle-o"></i> Nhóm quyền</a>
+          </li>
+          <li class="{{ Request::is('toa-soan/config/user/permissions') ? 'active' : ''  }}">
+            <a href="{{route('manage-permissions')}}"><i class="fa fa-circle-o"></i> Quyền hạn</a>
+          </li>
+          @if(\Setting::get('user_can_register'))
+            <li class="{{ Request::is('toa-soan/config/user/activation-pending') ? 'active' : ''  }}">
+              <a href="{{route('user-activation-pending')}}"><i class="fa fa-circle-o"></i> Kích hoạt users</a>
+            </li>
+          @endif
+        </ul>
+      </li>
+      {{--@endrole--}}
 
     </ul>
   </section>

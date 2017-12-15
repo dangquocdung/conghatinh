@@ -15,6 +15,7 @@ use App\Events\User\LoaiTinDeleted;
 use App\Http\Controllers\Controller;
 use App\Services\User\UserImport;
 use App\TempTable;
+use App\TopPic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -62,6 +63,26 @@ class TbtApiController extends Controller
         event(new LoaiTinDeleted($loaitin));
         
         return response(['data' => 'Loại tin đã bị xoá'], 200);
+    }
+
+    public function postDeleteTopPic(Request $request)
+    {
+        $loaiTinId = $request->input('id');
+
+        // if ($roleId == 1 || $roleId == 2) {
+        //     abort(403, 'You cannot edit this role.');
+        // }
+
+        // this is only done to get the role name
+        $loaitin = TopPic::find($loaiTinId);
+
+
+
+        DB::table('toppic')->where('id', $loaiTinId)->delete();
+
+//        event(new LoaiTinDeleted($loaitin));
+
+        return response(['data' => 'Banner đã bị xoá'], 200);
     }
     
 }

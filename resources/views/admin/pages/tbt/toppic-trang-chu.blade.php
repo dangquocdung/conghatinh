@@ -80,7 +80,7 @@
           <!-- /.box-header -->
           <div class="box-body">
             {{csrf_field()}}
-            
+
 
             <div class="form-group">
               <label for="">Tên Banner:</label>
@@ -139,7 +139,7 @@
         <div class="box-body">
           <media-manager></media-manager>
 
-          
+
         </div>
         <!-- /.box-body -->
       </div>
@@ -161,9 +161,9 @@
 
     function drop(evt) {
         evt.stopPropagation();
-        evt.preventDefault(); 
+        evt.preventDefault();
         var imageUrl = evt.dataTransfer.getData('text/html');
-      
+
         var rex = /src="?([^"\s]+)"?\s*/;
         var url, res;
 

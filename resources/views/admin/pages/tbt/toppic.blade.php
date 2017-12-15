@@ -40,14 +40,14 @@
                 <td>{{$bn->thutu}}</td>
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
-                    <div class="pull-left">
-                      <a href="{{route('edit-toppic', $bn->id)}}" class="btn btn-primary btn-xs">
-                        <i class="fa fa-edit"></i> Edit
-                      </a>
-                    </div>
+                    {{--<div class="pull-left">--}}
+                      {{--<a href="{{route('edit-toppic', $bn->id)}}" class="btn btn-primary btn-xs">--}}
+                        {{--<i class="fa fa-edit"></i> Edit--}}
+                      {{--</a>--}}
+                    {{--</div>--}}
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
-                        btn-text='<i class="fa fa-trash"></i> Delete'
+                        btn-text='<i class="fa fa-trash"></i> Xoá'
                         btn-class="btn-danger"
                         url="{{url('api/v1/delete-toppic')}}"
                         :post-data="{{json_encode(['id' => $bn->id])}}"

@@ -17,7 +17,7 @@ class TopPicController extends Controller
     public function index()
     {
         $toppic = TopPic::orderBy('id', 'desc')->paginate(20);
-        return view('admin.pages.admin.toppic',compact('toppic'));
+        return view('admin.pages.tbt.toppic',compact('toppic'));
     }
 
     /**
@@ -93,8 +93,8 @@ class TopPicController extends Controller
      * @param  \App\TopPic  $topPic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TopPic $topPic)
+    public function destroy($id)
     {
-        //
+
     }
 }

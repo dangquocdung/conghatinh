@@ -84,7 +84,7 @@ class PhimTatController extends Controller
     {
         PhimTat::find($id)->update($request->all());
 
-        flash('Cập nhật liên kết thành công!');
+        flash('Cập nhật liên  thành công!');
 
         return redirect()->back();
     }
@@ -95,8 +95,12 @@ class PhimTatController extends Controller
      * @param  \App\PhimTat  $phimTat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PhimTat $phimTat)
+    public function destroy($id)
     {
-        //
+        PhimTat::destroy($id);
+        flash('Xoá liên kết thành công!');
+
+        return redirect()->back();
+
     }
 }

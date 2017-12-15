@@ -2,11 +2,11 @@
 
 @section('breadcrumb')
   <section class="content-header">
-    <h1>Quản lý Liên kết<small>Các liên kết hiện có</small></h1>
+    <h1>Quản lý liên kết<small>Các liên kết hiện có</small></h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">Liên kết</li>
+      <li class="active">Liên kết </li>
     </ol>
   </section>
 @endsection
@@ -125,19 +125,6 @@
             <button type="submit" id="submit" class="btn btn-success pull-right">Gửi thông tin</button>
           </div>
         </form>
-      </div>
-      {{--End box--}}
-
-      {{--Box--}}
-      <div class="box box-primary">
-
-        <!-- /.box-header -->
-        <div class="box-body">
-          <file-manager></file-manager>
-
-
-        </div>
-        <!-- /.box-body -->
       </div>
       {{--End box--}}
     </div>

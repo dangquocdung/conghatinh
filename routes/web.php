@@ -126,6 +126,8 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
 
 
+
+
     //Van ban
     Route::group(['prefix'=>'van-ban'],function (){
         Route::get('/tat-ca','VanBanController@index')->name('index-van-ban');
@@ -204,43 +206,55 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('config/user/permission/{id}', 'AdminController@getEditPermission')->name('edit-permission');
         Route::post('config/user/permission/update', 'AdminController@postUpdatePermission')->name('update-permission');
 
-        Route::get('cau-hinh/he-thong/toppic', 'TopPicController@index')->name('toppic');
+        Route::get('cau-hinh/he-thong/toppic', 'TopPicController@index')->name('index-toppic');
         Route::post('cau-hinh/he-thong/save-toppic', 'TopPicController@store')->name('save-toppic');
         Route::get('cau-hinh/he-thong/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
         Route::post('cau-hinh/he-thong/update-toppic', 'TopPicController@update')->name('update-toppic');
         
     });
 
-    Route::group(['middleware' => 'role:tbt'], function () {
-        
-        Route::get('cau-hinh/chuyen-muc', 'ChuyenMucController@index')->name('index-chuyen-muc');
-        Route::post('cau-hinh/chuyen-muc', 'ChuyenMucController@store')->name('save-chuyen-muc');
-        Route::get('cau-hinh/chuyen-muc/{id}', 'ChuyenMucController@show')->name('edit-chuyen-muc');
-        Route::post('cau-hinh/chuyen-muc/update', 'ChuyenMucController@update')->name('update-chuyen-muc');
+    Route::group(['prefix'=>'cau-hinh','middleware' => 'role:tbt'], function () {
 
-        Route::get('cau-hinh/loai-tin', 'LoaiTinController@index')->name('index-loai-tin');
-        Route::post('cau-hinh/loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
-        Route::get('cau-hinh/loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
-        Route::post('cau-hinh/loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
+        Route::get('chuyen-muc', 'ChuyenMucController@index')->name('index-chuyen-muc');
+        Route::post('chuyen-muc', 'ChuyenMucController@store')->name('save-chuyen-muc');
+        Route::get('chuyen-muc/{id}', 'ChuyenMucController@show')->name('edit-chuyen-muc');
+        Route::post('chuyen-muc/update', 'ChuyenMucController@update')->name('update-chuyen-muc');
 
-        Route::get('cau-hinh/lien-ket/so-ban-nganh', 'CoQuanController@index')->name('so-ban-nganh');
-        Route::post('cau-hinh/lien-ket/so-ban-nganh', 'CoQuanController@store')->name('save-so-ban-nganh');
-        Route::get('cau-hinh/lien-ket/so-ban-nganh/{id}', 'CoQuanController@show')->name('edit-so-ban-nganh');
-        Route::post('cau-hinh/lien-ket/so-ban-nganh/update', 'CoQuanController@update')->name('update-so-ban-nganh');
+        Route::get('loai-tin', 'LoaiTinController@index')->name('index-loai-tin');
+        Route::post('loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
+        Route::get('loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
+        Route::post('loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
 
-        Route::get('cau-hinh/lien-ket/banner-trang-chu', 'BannerController@index')->name('banner-trang-chu');
-        Route::post('cau-hinh/lien-ket/banner-trang-chu', 'BannerController@store')->name('save-banner-trang-chu');
-        Route::get('cau-hinh/lien-ket/banner-trang-chu/{id}', 'BannerController@edit')->name('edit-banner-trang-chu');
-        Route::post('cau-hinh/lien-ket/banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
+
+    });
+
+    Route::group(['prefix' => 'lien-ket', 'middleware' => 'role:tbt'], function () {
+
+        Route::get('banner-trang-chu', 'BannerController@index')->name('banner-trang-chu');
+        Route::post('banner-trang-chu', 'BannerController@store')->name('save-banner-trang-chu');
+        Route::get('banner-trang-chu/{id}', 'BannerController@edit')->name('edit-banner-trang-chu');
+        Route::post('banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
+
+        //Phim tat
 
         Route::resource('phim-tat', 'PhimTatController');
+
+        Route::get('so-ban-nganh', 'CoQuanController@index')->name('so-ban-nganh');
+        Route::post('so-ban-nganh', 'CoQuanController@store')->name('save-so-ban-nganh');
+        Route::get('so-ban-nganh/{id}', 'CoQuanController@show')->name('edit-so-ban-nganh');
+        Route::post('so-ban-nganh/update', 'CoQuanController@update')->name('update-so-ban-nganh');
+
+
+    });
+
+
+
 //        Route::post('cau-hinh/lien-ket/banner-trang-chu', 'BannerController@store')->name('save-banner-trang-chu');
 //        Route::get('cau-hinh/lien-ket/banner-trang-chu/{id}', 'BannerController@edit')->name('edit-banner-trang-chu');
 //        Route::post('cau-hinh/lien-ket/banner-trang-chu/update', 'BannerController@update')->name('update-banner-trang-chu');
 
 
 
-    });
 });
 
 
@@ -275,6 +289,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
     Route::post('delete-file', 'Api\FileApiController@deleteFile');
 
     Route::post('delete-banner-trang-chu', 'BannerController@destroy');
+
+
     
 
 
@@ -306,6 +322,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         
         Route::post('delete-loai-tin', 'Api\TbtApiController@postDeleteLoaiTin');
 
+        Route::post('delete-toppic', 'Api\TbtApiController@postDeleteTopPic');
+
         Route::post('delete-van-ban', 'VanBanController@destroy');
 
         Route::post('duyet-van-ban', 'VanBanController@postDuyetVanBan');
@@ -317,6 +335,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('delete-video', 'VideoController@destroy');
 
         Route::post('delete-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@destroy');
+
+
 
     });
 
