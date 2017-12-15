@@ -151,7 +151,7 @@
 
 
 
-      {{--@role('tbt')--}}
+      @role('tbt')
 
       <li class="{{ Request::is('toa-soan/lien-ket/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
@@ -179,7 +179,7 @@
         </ul>
       </li>
 
-      {{--@endrole--}}
+      @endrole
 
       <li class="{{ Request::is('toa-soan/cau-hinh/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
@@ -192,7 +192,7 @@
           <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/my-activities') ? 'active' : ''  }}">
             <a href="{{route('my-activities')}}"><i class="fa fa-circle-o"></i> Tác động</a>
           </li>
-          {{--@role('admin')--}}
+          @role('admin')
             <li class="{{ Request::is('toa-soan/cau-hinh/he-thong/activities') ? 'active' : ''  }}">
               <a href="{{route('activities')}}"><i class="fa fa-circle-o"></i> Nhật kí</a>
             </li>
@@ -211,11 +211,11 @@
               <a href="{{route('index-chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
             </li>
 
-          {{--@endrole--}}
+          @endrole
         </ul>
       </li>
 
-      {{--@role('admin')--}}
+      @role('admin')
 
       <li class="{{ Request::is('toa-soan/config/user/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
@@ -244,7 +244,7 @@
           @endif
         </ul>
       </li>
-      {{--@endrole--}}
+      @endrole
 
     </ul>
   </section>

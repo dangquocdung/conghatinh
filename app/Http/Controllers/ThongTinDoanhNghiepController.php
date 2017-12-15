@@ -35,7 +35,11 @@ class ThongTinDoanhNghiepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ThongTinDoanhNghiep::create($request->all());
+
+        flash('Tạo doanh nghiệp thành công!');
+
+        return redirect()->back();
     }
 
     /**

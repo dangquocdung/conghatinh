@@ -23,6 +23,8 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('tieng-noi-cong-dan/gop-y-du-thao-van-ban', 'GuestController@getGopYVanBan');
     Route::get('tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
+    Route::get('doanh-nghiep/thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep')->name('get-thong-tin-doanh-nghiep');
+
     Route::group(['prefix'=>'chuyen-trang'], function () {
 
         Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
@@ -41,8 +43,6 @@ Route::group(['prefix'=>'vi'], function ()
 
         Route::get('album-hinh-anh/{slug?}', 'GuestController@getAlbum')->name('album-hinh-anh');
     });
-
-
 
 
     Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
@@ -123,9 +123,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     });
 
 
-
-
-
+    Route::resource('thong-tin-doanh-nghiep', 'ThongTinDoanhNghiepController');
 
 
     //Van ban

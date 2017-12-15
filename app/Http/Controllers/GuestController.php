@@ -23,6 +23,7 @@ use App\Album;
 use App\HoiDapTrucTuyen;
 use App\DuThao;
 use App\LichCongTac;
+use App\ThongTinDoanhNghiep;
 
 
 
@@ -278,6 +279,14 @@ class GuestController extends Controller
     public function getLienHeCongTac()
     {
         return view('guest.lien-he-cong-tac');
+    }
+
+    public function getThongTinDoanhNghiep()
+    {
+
+        $ttdns = ThongTinDoanhNghiep::orderby('id','asc')->with('coquan')->get();
+
+        return view ('guest.thong-tin-doanh-nghiep',compact('ttdns'));
     }
 
     public function getTimKiem()
