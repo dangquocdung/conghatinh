@@ -93,12 +93,39 @@
             
 
             <div class="form-group">
+
               <label for="">Kéo thả Banner:</label>
 
               <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="http://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
 
               <input type="hidden" name="hinhanh" id="hinhanh">
+
             </div>
+
+            <script>
+
+                //Drag & drop
+
+                var dropbox = document.getElementById('dropbox');
+                dropbox.addEventListener('drop', drop, false);
+
+
+                function drop(evt) {
+                    evt.stopPropagation();
+                    evt.preventDefault();
+                    var imageUrl = evt.dataTransfer.getData('text/html');
+
+                    var rex = /src="?([^"\s]+)"?\s*/;
+                    var url, res;
+
+                    url = rex.exec(imageUrl);
+                    // alert(url[1]);
+
+                    document.getElementById('dropbox').src=url[1];
+
+                    document.getElementById('hinhanh').value = url[1];
+                }
+            </script>
 
 
             
@@ -134,29 +161,6 @@
 
 @section('js')
 
-<script>
 
-    //Drag & drop
-
-    var dropbox = document.getElementById('dropbox');
-    dropbox.addEventListener('drop', drop, false);
-
-
-    function drop(evt) {
-        evt.stopPropagation();
-        evt.preventDefault(); 
-        var imageUrl = evt.dataTransfer.getData('text/html');
-      
-        var rex = /src="?([^"\s]+)"?\s*/;
-        var url, res;
-
-        url = rex.exec(imageUrl);
-        // alert(url[1]);
-
-        document.getElementById('dropbox').src=url[1];
-
-        document.getElementById('hinhanh').value = url[1];
-      }
-</script>
 
 @stop
