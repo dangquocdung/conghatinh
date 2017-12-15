@@ -147,6 +147,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     });
 
     Route::get('/json-tepdinhkem','LichCongTacController@jsonTepDinhKem');
+    Route::get('/json-hinhanh','LichCongTacController@jsonHinhAnh');
 
     //Van ban
     Route::group(['prefix'=>'chuyen-trang'],function (){

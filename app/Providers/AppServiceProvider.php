@@ -39,11 +39,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['errors::404','guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.van-ban','guest.van-ban-chi-tiet','guest.tin-noi-bat','guest.so-do-cong','guest.video-chi-tiet','guest.album-anh','guest.album-chi-tiet','guest.lich-lam-viec','guest.tim-kiem'],function($view){
+        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.van-ban','guest.van-ban-chi-tiet','guest.tin-noi-bat','guest.so-do-cong','guest.video-chi-tiet','guest.album-anh','guest.album-chi-tiet','guest.lich-lam-viec','guest.tim-kiem'],function($view){
 
-          $toppic = TopPic::orderby('thutu','asc')->get();
-
-          $loaitin = LoaiTin::all();
+            $loaitin = LoaiTin::all();
 
           $tinnoibat4 = TinTuc::where('daduyet','1')->where('noibat','1')->orderby('id','desc')->take(4)->get();
 
@@ -63,13 +61,13 @@ class AppServiceProvider extends ServiceProvider
 
           $vd_thoisu = Video::where('loaivideo_id','1')->orderby('ngayphat','desc')->first();
 
-          $view->with(compact('toppic','chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','linhvuc','loaivb','ab_noibat','vd_noibat','vd_thoisu'));
+          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','linhvuc','loaivb','ab_noibat','vd_noibat','vd_thoisu'));
 
         });
 
 
 
-        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit','admin.pages.lich-cong-tac'],function($view){
+        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit','admin.pages.lich-cong-tac','admin.pages.tbt.toppic'],function($view){
 
           $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
@@ -79,9 +77,11 @@ class AppServiceProvider extends ServiceProvider
 
           $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->take(12)->get();
 
+          $hinhanh = Media::where('aggregate_type','image')->orderby('id','desc')->take(12)->get();
+
           $loaivb = LoaiVB::all();
           
-          $view->with(compact('chuyenmuc','loaivb','cqbh', 'nguoiki','pdfs'));
+          $view->with(compact('chuyenmuc','loaivb','cqbh', 'nguoiki','pdfs','hinhanh'));
 
         });
 

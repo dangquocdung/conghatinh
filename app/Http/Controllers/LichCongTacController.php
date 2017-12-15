@@ -55,8 +55,15 @@ class LichCongTacController extends Controller
 
     public function jsonTepDinhKem(){
 
-        $pdf = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->get();
+        $pdf = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->take(12)->get();
         return response()->json($pdf);
+
+    }
+
+    public function jsonHinhAnh(){
+
+        $ha = Media::where('aggregate_type','image')->orderby('id','desc')->take(12)->get();
+        return response()->json($ha);
 
     }
 

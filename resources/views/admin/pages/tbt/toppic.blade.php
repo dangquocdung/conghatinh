@@ -96,10 +96,27 @@
 
               <label for="">Kéo thả Banner:</label>
 
-              <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="http://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
+              <img id="dropbox" class="img-responsive" src="https://placehold.it/200x120" width="500px" style="margin: 0 auto;" />
 
-              <input type="hidden" name="hinhanh" id="hinhanh">
+              {{--<input type="hhinhanhidden" name="hinhanh" id="hinhanh">--}}
 
+            </div>
+
+            <div class="form-group">
+              <label>Chọn hình ảnh</label>
+              <div class="pull-right">
+                <button type="button" class="btn btn-primary btn-xs" id="btnRefresh">
+                  <i class="fa fa-refresh"></i> Nạp lại
+                </button>
+              </div>
+              <select id="hinhanh" name="hinhanh" class="form-control select2" data-placeholder="Chọn hình ảnh">
+                @foreach($hinhanh as $ha)
+                  <option value="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" style="width: 100%">
+                    <img src="{{$ha->directory.'/'.$ha->filename.'.'.$ha->extension}}" alt="" width="24px">
+                    {{ $ha->filename.'.'.$ha->extension }}
+                  </option>
+                @endforeach
+              </select>
             </div>
 
 
@@ -135,29 +152,75 @@
 @endsection
 
 @section('js')
-  <script>
 
-      //Drag & drop
+<script>
 
-      var dropbox = document.getElementById('dropbox');
-      dropbox.addEventListener('drop', drop, false);
+    $(document).ready(function() {
+        $('.select2').select2({
+            width: '100%'
+        });
+
+        $('#btnRefresh').click(function (e) {
 
 
-      function drop(evt) {
-          evt.stopPropagation();
-          evt.preventDefault();
-          var imageUrl = evt.dataTransfer.getData('text/html');
+            console.log(e);
 
-          var rex = /src="?([^"\s]+)"?\s*/;
-          var url, res;
 
-          url = rex.exec(imageUrl);
-          // alert(url[1]);
+            $.get('/toa-soan/json-hinhanh', function (data) {
+                console.log(data);
+                $('select#hinhanh').empty();
+//                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
+                $.each(data, function(index, tdkObj){
+                    $('select#hinhanh').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+                })
+            })
+        });
 
-          document.getElementById('dropbox').src=url[1];
+        $('#hinhanh').click(function (e) {
 
-          document.getElementById('hinhanh').value = url[1];
-        }
-  </script>
+            console.log(e);
 
+//            $('#dropbox').attr('src',$(this).val());
+
+            alert('123');
+
+
+        });
+
+
+    });
+
+
+</script>
 @stop
+
+{{--@section('js')--}}
+  {{--<script>--}}
+
+      {{--//Drag & drop--}}
+
+      {{--var dropbox = document.getElementById('dropbox');--}}
+      {{--dropbox.addEventListener('drop', drop, false);--}}
+
+
+      {{--function drop(evt) {--}}
+          {{--evt.stopPropagation();--}}
+
+          {{--evt.preventDefault();--}}
+
+          {{--var imageUrl = evt.dataTransfer.getData('text/html');--}}
+
+          {{--var rex = /src="?([^"\s]+)"?\s*/;--}}
+
+          {{--var url, res;--}}
+
+          {{--url = rex.exec(imageUrl);--}}
+          {{--// alert(url[1]);--}}
+
+          {{--document.getElementById('dropbox').src=url[1];--}}
+
+          {{--document.getElementById('hinhanh').value = url[1];--}}
+        {{--}--}}
+  {{--</script>--}}
+
+{{--@stop--}}

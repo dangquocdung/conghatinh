@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\TopPic;
 use App\NhomCQ;
 use App\PhimTat;
 use Illuminate\Http\Request;
@@ -32,12 +32,17 @@ class GuestController extends Controller
     public function __construct()
     {
 
+        $toppic = TopPic::orderby('thutu','asc')->get();
+
         $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
         $nhomcq = NhomCQ::orderby('id')->get();
         $banner = Banner::orderby('thutu','asc')->get();
         $phimtat = PhimTat::orderby('thutu','asc')->get();
         $loaivideo = LoaiVideo::orderby('thutu')->get();
 
+
+
+        view()->share('toppic',$toppic);
         view()->share('chuyenmuc',$chuyenmuc);
         view()->share('nhomcq',$nhomcq);
         view()->share('banner',$banner);

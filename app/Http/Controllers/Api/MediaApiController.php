@@ -45,9 +45,13 @@ class MediaApiController extends Controller
 
         $file = $request->file('file');
         $folder = 'uploads/hinh-anh/' . Carbon::now()->year . '/' . Carbon::now()->month . '/';
-        $uniqid = uniqid();
-        $mainFileName = $uniqid . '.' . $file->getClientOriginalExtension();
-        $thumbFileName = $uniqid . '_thumb.' . $file->getClientOriginalExtension();
+
+        $uniqid =strtolower(str_random(3));
+
+        $nameonly = preg_replace('/\..+$/', '', $file->getClientOriginalName());
+//        $uniqid = uniqid();
+        $mainFileName = $nameonly.'_'.$uniqid . '.' . $file->getClientOriginalExtension();
+        $thumbFileName = $nameonly.'_'.$uniqid . '_thumb.' . $file->getClientOriginalExtension();
 
         // checking if the folder exist
         // if not, create the folder

@@ -28,7 +28,8 @@
         <form action="{{ route('them-tin-tuc') }}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <input type="hidden" name="avatar" id="avatar">
-          <div class="box-body">
+
+            <div class="box-body">
 
               <div class="form-group">
 
