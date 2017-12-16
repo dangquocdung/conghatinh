@@ -10,15 +10,17 @@
 
 @section('content-main')
     @include('guest.home.tin-noi-bat')
-    @include('guest.home.tin-tuc-su-kien')
-    @include('guest.home.videos')
+
     @include('guest.home.chi-dao-dieu-hanh')
-    @include('guest.home.albums')
+
 {{--    @include('guest.home.van-ban')--}}
     <div class="clearfix"></div>
     @include('guest.home.chien-luoc')
+    @include('guest.home.tin-tuc-su-kien')
+    @include('guest.home.videos')
     <div class="clearfix"></div>
     @include('guest.home.to-chuc')
+    @include('guest.home.albums')
 @endsection
 
 

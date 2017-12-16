@@ -28,7 +28,7 @@
             </a>
         </li>
         <li class="last" style="width:8%">
-            <a data-toggle="offcanvas">
+            <a data-toggle="offcanvas-mb">
                 <i class="fa fa-level-down" aria-hidden="true"></i>
             </a>
         </li>

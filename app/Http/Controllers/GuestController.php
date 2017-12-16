@@ -54,7 +54,7 @@ class GuestController extends Controller
     public function index()
     {
 
-        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(9)->get();
+        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(5)->get();
 
 
         return view('guest.trang-chu', compact('tinnoibat'));
@@ -135,8 +135,6 @@ class GuestController extends Controller
 
 
 
-
-
     public function tepTin($slug)
     {
         $tin = TinTuc::where('slug',$slug)->first();
@@ -149,9 +147,6 @@ class GuestController extends Controller
 
         return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
     }
-
-
-
 
 
     public function chuyenMuc($slug)

@@ -1,10 +1,10 @@
-<div class="panel-group" id="menu-right-accordion">
+<div class="panel-group" id="menu-right-accordion" style="margin-bottom: 5px">
 
     @foreach ($chuyenmuc->where('vitri','1') as $cm)
         <div class="panel panel-default">
 
 
-            <div class="panel-heading">
+            <div class="panel-heading" style="border-radius: 3px">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#{{$cm->slug}}"><span class="glyphicon glyphicon-folder-close">
                                 </span>{{ $cm->name }}</a>

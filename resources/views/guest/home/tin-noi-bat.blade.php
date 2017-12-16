@@ -1,93 +1,101 @@
 
-<div class="block3">
-
-    <div class="portlet-header">
-        <img src="/images/background/lotus.ico">
-        <a href="vi/tin-noi-bat">
-            <h4 class="portlet-header-title no-pd-top">Tin Nổi bật</h4>
-        </a>
-    </div>
-
-    @if (count($tinnoibat) > 0)
 
 
-        <div id="tinNoiBatChinh" class="col-md-8 col-xs-12 w3-animate-left">
+            <div class="block3">
 
-            @php
-                $tin1 = $tinnoibat->first();
-            @endphp
-
-            <div class="hot-news">
-
-                <a href="#" class="hot-news-thumb-nail">
-                    <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
-                </a>
-
-                <div class="hot-news-title" style="display: block; text-align: center">
-                    <h3>
-                        <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">{{ $tin1->name }}</a>
-                    </h3>
-                </div>
-                <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
-                    {{ $tin1->gioithieu }}
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 hidden-xs">
-            <div id="tin-noi-bat">
-                <ul>
-                    @foreach ($tinnoibat as $tnb)
-                        <li>
-                            <div class="hot-news-block">
-
-                                <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->slug]) }}" class="news-title">
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
-                                    <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                </a>
-
-                                <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
-
-                                <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
-
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-                <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
-                    <a href="/tin-noi-bat" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
-                </div>
-            </div>
-        </div>
-
-    @endif
-</div>
-
-
-<div class="hot-item" style="background-color:#ffffff">
-    <ul>
-        @foreach ($banner->where('vitri','7') as $bn)
-            <li class="col-md-3 col-sm-3 col-xs-6">
-                <div class="block2">
-                    <a href="{{$bn->lienket}}" target="_blank">
-                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                <div class="portlet-header">
+                    <img src="/images/background/lotus.ico">
+                    <a href="vi/tin-noi-bat">
+                        <h4 class="portlet-header-title no-pd-top">Tin Nổi bật</h4>
                     </a>
                 </div>
-            </li>
-        @endforeach
-    </ul>
-</div>
+
+                @if (count($tinnoibat) > 0)
+
+
+                    <div id="tinNoiBatChinh" class="col-md-8 col-xs-12 w3-animate-left">
+
+                        @php
+                            $tin1 = $tinnoibat->first();
+                        @endphp
+
+                        <div class="hot-news">
+
+                            <a href="#" class="hot-news-thumb-nail">
+                                <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
+                            </a>
+
+                            <div class="hot-news-title" style="display: block; text-align: center">
+                                <h3>
+                                    <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">{{ $tin1->name }}</a>
+                                </h3>
+                            </div>
+                            <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
+                                {{ $tin1->gioithieu }}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 hidden-xs">
+                        <div id="tin-noi-bat">
+                            <ul>
+                                @foreach ($tinnoibat as $tnb)
+                                    <li>
+                                        <div class="hot-news-block">
+
+                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->slug]) }}" class="news-title">
+                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
+                                                <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                            </a>
+
+                                            <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
+
+                                            <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
+
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
+                                <a href="/tin-noi-bat" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
+                            </div>
+                        </div>
+                    </div>
+
+                @endif
+            </div>
 
 
 
-<div class="clearfix"></div>
+        <div class="clearfix"></div>
 
-<div class="block2">
-    <a href="http://dichvucong.hatinh.gov.vn" target="_blank">
-        <img src="/uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">
-    </a>
-</div>
+        <div class="hot-item" style="background-color:#ffffff">
+            <ul>
+                @foreach ($banner->where('vitri','7') as $bn)
+                    <li class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="block2">
+                            <a href="{{$bn->lienket}}" target="_blank">
+                                <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                            </a>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+
+
+
+
+
+
+
+{{--<div class="block2">--}}
+    {{--<a href="http://dichvucong.hatinh.gov.vn" target="_blank">--}}
+        {{--<img src="/uploads/2017/10/59ee9c1a4637d.png" alt="Dịch vụ công trực tuyến" width="100%">--}}
+    {{--</a>--}}
+{{--</div>--}}
 
 
 

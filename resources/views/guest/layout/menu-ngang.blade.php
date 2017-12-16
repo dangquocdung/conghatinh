@@ -2,20 +2,21 @@
     .menu-main, .menu-bottom {
         width: 100%;
         position: inherit;
-        background: #b74841;
+        /*background: #b74841;*/
         /* Old browsers */
-        background: -moz-linear-gradient(top, #b74841 30%, #bd1208 100%);
+        /*background: -moz-linear-gradient(top, #b74841 30%, #bd1208 100%);*/
         /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #b74841), color-stop(100%, #bd1208));
+        /*background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #b74841), color-stop(100%, #bd1208));*/
         /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top, #b74841 30%, #bd1208 100%);
+        /*background: -webkit-linear-gradient(top, #b74841 30%, #bd1208 100%);*/
         /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top, #b74841 30%, #bd1208 100%);
+        /*background: -o-linear-gradient(top, #b74841 30%, #bd1208 100%);*/
         /* Opera 11.10+ */
-        background: -ms-linear-gradient(top, #b74841 30%, #bd1208 100%);
+        /*background: -ms-linear-gradient(top, #b74841 30%, #bd1208 100%);*/
         /* IE10+ */
-        background: linear-gradient(to bottom, #b74841 30%, #bd1208 100%);
+        /*background: linear-gradient(to bottom, #b74841 30%, #bd1208 100%);*/
         /* W3C */
+        background: linear-gradient(to bottom, #0494da 0, #095b8c 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b74841', endColorstr='#bd1208',GradientType=0 ); }
 
     .ddsmoothmenu {
@@ -42,10 +43,15 @@
         padding: 0;
         width: 20%;
         text-align: center;
-        background: url(/images/menu/border.png) no-repeat right; }
+        background: url(/images/menu/border.png) no-repeat right;
+    }
 
-    .ddsmoothmenu ul li:first-child {
-        background: url(/images/menu/border.png) no-repeat left, url(/images/menu/border.png) no-repeat right; }
+    .ddsmoothmenu ul li:last-child {
+        /*background: url(/images/menu/border.png) no-repeat left, url(/images/menu/border.png) no-repeat right; */
+        background: none;
+    }
+        /*background: none }*/
+
 
     /*Top level menu link items style*/
     .ddsmoothmenu ul li a {
@@ -133,23 +139,23 @@
                 </a>
             </li>
             <li class="">
-                <a href="{{ route('chuyen-muc','doanh-nghiep') }}">
-                    <span>Doanh nghiệp</span>
+                <a href="{{ route('chuyen-muc','gioi-thieu') }}">
+                    <span>Giới thiệu </span>
                 </a>
             </li>
             <li class="">
-                <a href="{{ route('chuyen-muc','gioi-thieu') }}">
-                    <span>Du khách</span>
+                <a href="{{ route('chuyen-muc','thiệu') }}">
+                    <span>Văn bản QPPL</span>
                 </a>
             </li>
-            <li class="last">
+            <li class="">
                 <a href="{{ route('lien-he-cong-tac') }}">
-                    <span>Liên hệ</span>
+                    <span>DVC trực tuyến</span>
                 </a>
             </li>
             <li class="last">
                 <a href="{{ route('so-do-cong') }}">
-                    <span>Sơ đồ cổng</span>
+                    <span>Đầu tư Phát triển</span>
                 </a>
             </li>
         </ul>

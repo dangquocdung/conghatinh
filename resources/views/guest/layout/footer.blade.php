@@ -102,7 +102,7 @@
 //
 //    });
 
-    $('[data-toggle="offcanvas"]').click(function () {
+    $('[data-toggle="offcanvas-mb"]').click(function () {
       $('.row-offcanvas').toggleClass('active')
     });
 

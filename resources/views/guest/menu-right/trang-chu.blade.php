@@ -9,7 +9,7 @@
 
 
 
-    @include('guest.layout.menu-right')
+    {{--@include('guest.layout.menu-right')--}}
 
     <div class="block4">
 
@@ -24,10 +24,10 @@
 
         </div>
 
-        <div id="ban-do-dia-gioi" class="panel-collapse collapse">
+        <div id="ban-do-dia-gioi" class="panel-collapse collapse in">
             <a href="http://gis.chinhphu.vn/?r=ytZEOqw8fEiSQeRsfea4w" target="_blank">
 
-                <img src="/images/bandohatinh.gif" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
+                <img src="/images/ban-do.jpg" alt="Bản đồ Hà Tĩnh" title="Bản đồ Hà Tĩnh" width="100%">
             </a>
         </div>
 
@@ -78,19 +78,6 @@
 
     </div>
 
-    <div class="block4" style="margin-bottom: 0; border-bottom: none">
-        <div class="block-header" style="margin-bottom: 0">
-            <h4><img src="/images/background/lotus.ico" alt="" width="26px"> Thời tiết</h4>
-        </div>
-    </div>
-
-    <a href="https://www.accuweather.com/vi/vn/ha-tinh/353418/weather-forecast/353418" class="aw-widget-legal">
-        <!--
-        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-        -->
-    </a>
-    <div id="awcc1513238895520" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="vi" data-useip="false" data-uid="awcc1513238895520"></div>
-    <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
 
 
 
