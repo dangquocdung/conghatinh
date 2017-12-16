@@ -8,7 +8,7 @@ Route::group(['prefix'=>'vi'], function ()
 {
     Route::get('tin-noi-bat', 'GuestController@tinNoiBat');
 
-    Route::group(['prefix'=>'chuyen-trang'], function () {
+    Route::group(['prefix'=>'chi-dao-dieu-hanh'], function () {
 
         Route::get('lich-cong-tac-lanh-dao-ubnd-tinh', 'GuestController@getLLV')->name('get-lich-cong-tac');
         Route::get('lich-cong-tac-lanh-dao-ubnd-tinh/{id}', 'GuestController@showLLV')->name('lich-cong-tac-show');
