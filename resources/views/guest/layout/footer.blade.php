@@ -87,7 +87,7 @@
       });
     });
 
-    $('.menu-main').scrollToFixed();
+//    $('.menu-main').scrollToFixed();
 
 
 //      $('#live-stream').scrollToFixed({
