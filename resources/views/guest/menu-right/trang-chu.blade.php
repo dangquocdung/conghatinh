@@ -68,7 +68,7 @@
             <div class="right-item">
                 <a href="{{ $pt->link }}" class="icon" title="">
                     {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
-                    <i class="fa {{$pt->icon}} fa-3x" aria-hidden="true"></i>
+                    <i class="fa {{$pt->icon}} fa-2x" aria-hidden="true"></i>
 
                     <span class="nav-text">{{ $pt->name }} </span>
                 </a>
