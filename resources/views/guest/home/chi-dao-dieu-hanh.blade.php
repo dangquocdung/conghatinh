@@ -51,9 +51,61 @@
 
                         @endif
 
-                        <ul>
+                        @if ($lt->thutu == 1 or $lt->thutu == 3)
+                                <table id="example1" class="table table-striped table-bordered table-responsive">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        Số/Kí hiệu
+                                    </th>
+                                    <th>
+                                        Ngày ban hành
+                                    </th>
 
-                            @if ($lt->thutu == 2)
+                                    <th>
+                                        Nơi ban hành
+                                    </th>
+
+                                    <th>
+                                        Trích yếu
+                                    </th>
+                                    <th>
+                                        Đính kèm
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(8) as $vb)
+                                        <tr>
+
+
+                                            <td>
+                                                <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
+                                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                                    Số: {{ $vb->kihieuvb }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                {{$vb->trichyeu}}
+                                            </td>
+                                            <td>
+                                                @foreach($vb->tepvanban as $tvb)
+                                                    <a href="{{ $tvb->path }}" target="_blank">
+                                                        <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
+                                                    </a>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <ul>
 
                                 @foreach($lt->lichct->sortByDesc('thang') as $lct)
                                     <li>
@@ -62,37 +114,8 @@
 
                                     </li>
                                 @endforeach
-
-                            @else
-
-                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(8) as $vb)
-                                    <li>
-
-                                        <span class="label label-danger">Mới</span>
-
-                                        <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
-                                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                            Số: {{ $vb->kihieuvb }}
-                                        </a>
-
-                                        <small><em>(Ngày ban hành: {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}})</em></small>
-
-
-
-                                        @foreach($vb->tepvanban as $tvb)
-                                            <a href="{{ $tvb->path }}" target="_blank">
-                                                <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
-                                            </a>
-                                        @endforeach
-
-                                        <div class="gioithieu">
-                                            {{$vb->trichyeu}}
-                                        </div>
-                                @endforeach
-
+                            </ul>
                             @endif
-
-                        </ul>
                     </div>
                 @endforeach
             </div>

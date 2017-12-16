@@ -66,7 +66,8 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-weight: 550; }
+        font-weight: 600;
+    }
 
     * html .ddsmoothmenu ul li a {
         /*IE6 hack to get sub menu links to behave correctly*/
