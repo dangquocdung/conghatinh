@@ -52,7 +52,7 @@
                         @endif
 
                         @if ($lt->thutu == 1 or $lt->thutu == 3)
-                                <table id="example1" class="table table-striped table-bordered table-responsive">
+                                <table id="example1" class="table table-striped table-bordered table-responsive table-sm">
                                 <thead>
                                 <tr>
                                     <th>
@@ -66,10 +66,10 @@
                                         Nơi ban hành
                                     </th>
 
-                                    <th>
+                                    <th class="col-md-6">
                                         Trích yếu
                                     </th>
-                                    <th>
+                                    <th class="col-md-1">
                                         Đính kèm
                                     </th>
                                 </tr>
@@ -82,8 +82,7 @@
 
                                             <td>
                                                 <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
-                                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                                    Số: {{ $vb->kihieuvb }}
+                                                    {{ $vb->kihieuvb }}
                                                 </a>
                                             </td>
                                             <td>
@@ -96,7 +95,7 @@
                                             <td>
                                                 @foreach($vb->tepvanban as $tvb)
                                                     <a href="{{ $tvb->path }}" target="_blank">
-                                                        <img src="/images/pdf-file-512.png" alt="" width="30px" style="float: right" title="{{ $vb->kihieuvb }}">
+                                                        <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">
                                                     </a>
                                                 @endforeach
                                             </td>

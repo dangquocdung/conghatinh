@@ -145,17 +145,17 @@
                 </a>
             </li>
             <li class="">
-                <a href="{{ route('chuyen-muc','thiệu') }}">
+                <a href="{{ url('http://congbao.hatinh.gov.vn') }}">
                     <span>Văn bản QPPL</span>
                 </a>
             </li>
             <li class="">
-                <a href="{{ route('lien-he-cong-tac') }}">
+                <a href="{{ url('http://dichvucong.hatinh.gov.vn') }}">
                     <span>DVC trực tuyến</span>
                 </a>
             </li>
             <li class="last">
-                <a href="{{ route('so-do-cong') }}">
+                <a href="{{ route('chuyen-muc','dau-tu-phat-trien') }}">
                     <span>Đầu tư Phát triển</span>
                 </a>
             </li>
