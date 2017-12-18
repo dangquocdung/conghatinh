@@ -16,6 +16,7 @@
 {{--    @include('guest.home.van-ban')--}}
     <div class="clearfix"></div>
     @include('guest.home.chien-luoc')
+    <div class="clearfix"></div>
     @include('guest.home.tin-tuc-su-kien')
     @include('guest.home.videos')
     <div class="clearfix"></div>
