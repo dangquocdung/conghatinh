@@ -173,12 +173,11 @@
     .hamburger {
         position: fixed;
         top: 15px;
-        right: 15px;
         z-index: 999;
         display: block;
         width: 32px;
         height: 32px;
-        /*margin-top: 15px;*/
+        margin-left: 15px;
         background: transparent;
         border: none;
     }
@@ -318,7 +317,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header">Vui lòng chọn</li>
                         @foreach($cm->loaitin->sortby('thutu') as $lt)
-                            <li><a href="#">{{ $lt->name }}</a></li>
+                            <li><a href="{{ route('loai-tin',[$cm->slug,$lt->slug]) }}">{{ $lt->name }}</a></li>
                         @endforeach
                     </ul>
                 </li>
