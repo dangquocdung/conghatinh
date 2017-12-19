@@ -51,7 +51,7 @@
                       @endif
                   </td>
                   <td>
-                      <sup><span class="label label-info">{{ $lt->chuyenmuc->name }}</span></sup>
+                      <span class="label label-info">{{ $lt->chuyenmuc->name }}</span>
                     {{($lt->name)}}
                     </td>
                   <td>{{ $lt->ghichu }}</td>
