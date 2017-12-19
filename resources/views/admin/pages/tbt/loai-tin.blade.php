@@ -257,35 +257,6 @@
     <!-- DataTables -->
     <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script>
-        $(function () {
-            $('#tblLoaiTin').DataTable({
-
-                "iDisplayLength": 25,
-
-                "order": [[ 1, "asc" ],[ 6, "asc" ]],
-
-                "sType": "numeric",
-
-                "language": {
-                    "sProcessing": "Đang xử lý...",
-                    "sLengthMenu": "Hiển thị _MENU_ mục",
-                    "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
-                    "sInfoPostFix": "",
-                    "sSearch": "Tìm kiếm:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "oPaginate": {
-                        "sFirst": "Đầu tiên",
-                        "sLast": "Cuối cùng",
-                        "sNext": "Sau",
-                        "sPrevious": "Trước"
-                    }
-                }
-            })
-        })
-    </script>
-
   <script>
     $(document).ready(function () {
         $(function () {
@@ -337,7 +308,6 @@
 
         $('.btnSua').click(function () {
 
-//            alert($(this).attr('lt-name'));
             $('#suaLoaiTin').find('input#lt-id').val($(this).attr('lt-id'));
             $('#suaLoaiTin').find('select#lt-cm').val($(this).attr('lt-cm'));
             $('#suaLoaiTin').find('input#lt-name').val($(this).attr('lt-name'));
@@ -346,14 +316,34 @@
 
         });
 
-//        $('.chinh-sua').click(function(){
-//            $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
-//            $("#tra-loi").find("select").val($(this).attr('cq-id'));
-//            $("#tra-loi").find("input#nguoitraloi").val($(this).attr('ntl'));
-//            $("#tra-loi").find("input#chucvu").val($(this).attr('cv'));
-//            $("#tra-loi").find("textarea#cautraloi").html($(this).attr('ctl'));
-//        });
     });
+
+    $(function () {
+        $('#tblLoaiTin').DataTable({
+
+            "iDisplayLength": 25,
+
+            "order": [[ 1, "asc" ],[ 5, "asc" ]],
+
+            "sType": "numeric",
+
+            "language": {
+                "sProcessing": "Đang xử lý...",
+                "sLengthMenu": "Hiển thị _MENU_ mục",
+                "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+                "sInfoPostFix": "",
+                "sSearch": "Tìm kiếm:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "Đầu tiên",
+                    "sLast": "Cuối cùng",
+                    "sNext": "Sau",
+                    "sPrevious": "Trước"
+                }
+            }
+        })
+    })
 
 
   </script>
