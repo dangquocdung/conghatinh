@@ -28,7 +28,7 @@
             <input type="hidden" name="id" value="{{$loaitin->id}}">
 
             <div class="form-group">
-              <label>Chuyên mục</label>
+              <label>Chuyên mục: </label>
               <select class="form-control" name="chuyenmuc_id" style="width: 100%;">
                 @foreach ($chuyenmuc as $cm)
                   @if ($loaitin->chuyenmuc_id == $cm->id)
@@ -41,8 +41,9 @@
             </div>
 
 
+
             <div class="form-group">
-              <label for="">Name</label>
+              <label for="">Tên: </label>
               <input type="text"
                      name="name"
                      class="form-control"
@@ -50,8 +51,19 @@
                      placeholder="Enter role name">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>
+
             <div class="form-group">
-              <label>Thứ tự hiện thị</label>
+              <label for="">Ghi chú: </label>
+              <input type="text"
+                     placeholder="Nhập ghi chú "
+                     name="ghichu"
+                     value="{{old('ghichu')}}"
+                     class="form-control">
+              <div class="HelpText error">{{$errors->first('ghichu ')}}</div>
+            </div>
+
+            <div class="form-group">
+              <label>Thứ tự hiện thị: </label>
               <select class="form-control" name="thutu" style="width: 100%;">
                 @for ($i = 1; $i < 10; $i++)
 

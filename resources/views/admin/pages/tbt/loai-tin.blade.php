@@ -27,8 +27,10 @@
               <th>#</th>
                 <th>Chuyên mục</th>
               <th>Loại tin</th>
+                <th>Ghi chú </th>
 
               <th>Thứ tự</th>
+                <th>TB</th>
               <th></th>
             </tr>
             </thead>
@@ -37,9 +39,13 @@
               <tr>
                 <td>{{$lt->id}}</td>
                   <td>{{ $lt->chuyenmuc->name }}</td>
-                <td>{{($lt->name)}}</td>
+                <td>
+                    <input type="checkbox" value="{{ $lt->show }}">&nbsp;{{($lt->name)}}
+                </td>
+                  <td>{{ $lt->ghichu }}</td>
 
                 <td>{{$lt->thutu}}</td>
+                  <td>{{ count($lt->tintuc->where('daduyet','1')) }}</td>
                 <td class="col-sm-3">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
                     <div class="pull-left">
@@ -103,7 +109,7 @@
             </div>
 
             <div class="form-group">
-              <label for="">Name:</label>
+              <label for="">Loại tin: </label>
               <input type="text"
                      placeholder="Nhập tên Loại tin"
                      name="name"
@@ -111,14 +117,24 @@
                      class="form-control">
               <div class="HelpText error">{{$errors->first('name')}}</div>
             </div>
-            <div class="form-group">
-              <label>Thứ tự hiện thị</label>
-              <select class="form-control loaitin" name="thutu" style="width: 100%;">
-                @for ($i = 1; $i < 13; $i++)
-                  <option value={{ $i }}>{{ $i }}</option>
-                @endfor
-              </select>
-            </div>
+
+              <div class="form-group">
+                  <label for="">Ghi chú: </label>
+                  <input type="text"
+                         placeholder="Nhập ghi chú "
+                         name="ghichu"
+                         value="{{old('ghichu')}}"
+                         class="form-control">
+                  <div class="HelpText error">{{$errors->first('ghichu ')}}</div>
+              </div>
+              <div class="form-group">
+                  <label>Thứ tự hiện thị</label>
+                  <select class="form-control loaitin" name="thutu" style="width: 100%;">
+                      @for ($i = 1; $i < 13; $i++)
+                          <option value={{ $i }}>{{ $i }}</option>
+                      @endfor
+                  </select>
+              </div>
           </div>
           <!-- /.box-body -->
 
