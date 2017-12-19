@@ -43,7 +43,7 @@
             @foreach($cm->loaitin as $lt)
               <tr>
                   <td>{{$lt->id}}</td>
-                  <td>{{ $lt->chuyenmuc->id}}</td>
+                  <td>{{ $lt->chuyenmuc->thutu}}</td>
                   <td>
                       {{--<sup style="color:red">{{ $lt->chuyenmuc->id }}</sup>--}}
                       {{ $lt->chuyenmuc->name }}
