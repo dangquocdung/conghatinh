@@ -227,7 +227,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
         Route::get('loai-tin', 'LoaiTinController@index')->name('index-loai-tin');
         Route::post('loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
-        Route::get('loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
+//        Route::get('loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
         Route::post('loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
 
 

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\ChuyenMuc;
 use App\Events\User\LoaiTinCreated;
 use Illuminate\Http\Request;
 
 use Session;
 
 use App\LoaiTin;
-
 
 class LoaiTinController extends Controller
 {
@@ -19,15 +19,13 @@ class LoaiTinController extends Controller
      */
     public function index()
     {
-        $loaitin = LoaiTin::orderBy('chuyenmuc_id', 'asc')->orderby('thutu','asc')->paginate(20);
-
         if (Session::has('chuyenmuc_id')){
             $chuyenmuc_id = Session::get('chuyenmuc_id');
         }else{
             $chuyenmuc_id = 1;
         }
 
-        return view('admin.pages.tbt.loai-tin', compact('loaitin','chuyenmuc_id'));
+        return view('admin.pages.tbt.loai-tin', compact('chuyenmuc_id'));
     }
 
     /**

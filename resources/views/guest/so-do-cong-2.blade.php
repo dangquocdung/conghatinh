@@ -1,41 +1,49 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Sơ đồ cổng</title>
+  <title>Sơ đồ cổng</title>
 @endsection
 @section('header-menu-item')
-    active
+  active
 @endsection
 @section('content-main')
     <div class="block3">
-        <div class="portlet-header">
-            <a href="/">
-                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/hierarchy.png" alt="" width="20px"> Sơ đồ cổng thông tin</h4>
-            </a>
-        </div>
-        <div class="so-do">
-            <ul id="tree1">
-                <li><i class="fa fa-university" aria-hidden="true"></i> Trang chủ</li>
-                @foreach($chuyenmuc as $cm)
-                    <li>
-                        <a href="{{ route('chuyen-muc',$cm->slug) }}">
-                            <i class="fa fa-folder-open-o" aria-hidden="true"></i> {{ $cm->name }} ({{ count($cm->loaitin) }})
-                        </a>
-                        <ul>
-                            @foreach($cm->loaitin as $lt)
-                                <li>
-                                    <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}">
 
-                                        <i class="fa fa-folder-o" aria-hidden="true"></i>
-                                        {{ $lt->name }}
+                    <div class="portlet-header">
+
+                        <a href="/">
+                            <h4 class="portlet-header-title no-pd-top"><img src="/images/background/hierarchy.png" alt="" width="20px"> Sơ đồ cổng thông tin</h4>
+                        </a>
+
+                    </div>
+                    {{--<div class="breadcrumb">--}}
+                        {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
+                        {{--<span class="breadcrumb-item active">Sơ đồ cổng</span>--}}
+                    {{--</div>--}}
+                    <div class="so-do">
+                        <ul id="tree1">
+                            <li><i class="fa fa-university" aria-hidden="true"></i> Trang chủ</li>
+                            @foreach($chuyenmuc as $cm)
+                                <li>
+                                    <a href="{{ route('chuyen-muc',$cm->slug) }}">
+                                        <i class="fa fa-folder-open-o" aria-hidden="true"></i> {{ $cm->name }} ({{ count($cm->loaitin) }})
                                     </a>
+
+                                    <ul>
+                                        @foreach($cm->loaitin as $lt)
+                                            <li>
+                                                <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}">
+
+                                                <i class="fa fa-folder-o" aria-hidden="true"></i>
+                                                {{ $lt->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </li>
                             @endforeach
                         </ul>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
+                    </div>
+                </div>
 @endsection
 
 @section('content-right')
