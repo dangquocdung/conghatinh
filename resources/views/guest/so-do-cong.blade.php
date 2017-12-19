@@ -18,7 +18,7 @@
                 @foreach($chuyenmuc as $cm)
                     <li>
                         <a href="{{ route('chuyen-muc',$cm->slug) }}">
-                            <i class="fa fa-folder-open-o" aria-hidden="true"></i> {{ $cm->name }} ({{ count($cm->loaitin) }})
+                            <i class="fa fa-folder-open-o" aria-hidden="true"></i> {{ $cm->name }}
                         </a>
                         <ul>
                             @foreach($cm->loaitin as $lt)
