@@ -26,7 +26,6 @@
             <tr>
               <th>#</th>
                 <th>#</th>
-                <th>Chuyên mục</th>
                 <th></th>
               <th>Loại tin</th>
                 <th>Ghi chú </th>
@@ -45,10 +44,6 @@
                   <td>{{$lt->id}}</td>
                   <td>{{ $lt->chuyenmuc->thutu}}</td>
                   <td>
-                      {{--<sup style="color:red">{{ $lt->chuyenmuc->id }}</sup>--}}
-                      {{ $lt->chuyenmuc->name }}
-                  </td>
-                  <td>
                       @if ($lt->show == true)
                           <input type="checkbox" checked disabled>
                       @else
@@ -56,6 +51,7 @@
                       @endif
                   </td>
                   <td>
+                      <sup><span class="label label-info">{{ $lt->chuyenmuc->name }}</span></sup>
                     {{($lt->name)}}
                     </td>
                   <td>{{ $lt->ghichu }}</td>
