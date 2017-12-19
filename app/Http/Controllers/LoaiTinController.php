@@ -102,6 +102,7 @@ class LoaiTinController extends Controller
         $lt->name = $request->input('name');
         $lt->slug = str_slug($request->input('name'));
         $lt->ghichu = $request->ghichu;
+        $lt->show = $request->show;
         $lt->thutu = $request->input('thutu');
         $lt->save();
 

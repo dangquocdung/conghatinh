@@ -31,7 +31,7 @@
                 <th>Ghi chú </th>
 
               <th>Thứ tự</th>
-                <th>TB</th>
+                <th>SL</th>
               <th>
                   <a class="btn btn-warning btn-xs" data-toggle="modal" data-target="#themLoaiTin"><i class="fa fa-plus "></i> Thêm </a>
               </th>
@@ -72,6 +72,7 @@
                             lt-cm="{{$lt->chuyenmuc->id}}"
                             lt-name="{{$lt->name}}"
                             lt-ghichu="{{$lt->ghichu}}"
+                           lt-show = "{{$lt->show}}"
                             lt-thutu="{{$lt->thutu}}">
                             <i class="fa fa-edit"></i> Sửa
                         </a>
@@ -229,6 +230,12 @@
                                  class="form-control">
                           <div class="HelpText error">{{$errors->first('ghichu ')}}</div>
                       </div>
+
+                      <div class="form-group">
+                          <input type="checkbox" id="lt-show" name="show" onclick="$(this).val(this.checked ? 1 : 0)"><label>&nbsp;Cho phép hiển thị </label>
+
+                      </div>
+
                       <div class="form-group">
                           <label>Thứ tự hiện thị</label>
                           <select id="lt-thutu" class="form-control loaitin" name="thutu" style="width: 100%;">
@@ -237,6 +244,8 @@
                               @endfor
                           </select>
                       </div>
+
+
                   </div>
                   <!-- /.box-body -->
 
@@ -312,9 +321,18 @@
             $('#suaLoaiTin').find('select#lt-cm').val($(this).attr('lt-cm'));
             $('#suaLoaiTin').find('input#lt-name').val($(this).attr('lt-name'));
             $('#suaLoaiTin').find('input#lt-ghichu').val($(this).attr('lt-ghichu'));
+            $('#suaLoaiTin').find('input#lt-show').val($(this).attr('lt-show'));
             $('#suaLoaiTin').find('select#lt-thutu').val($(this).attr('lt-thutu'));
 
+            if ($('#suaLoaiTin').find('input#lt-show').val() == 1){
+
+                $('#suaLoaiTin').find('input#lt-show').attr('checked','checked');
+
+            }
+
         });
+
+
 
     });
 
