@@ -1,5 +1,5 @@
 @php
-    $cm = $chuyenmuc->where('slug','chi-dao-dieu-hanh')->first();
+    $cm = $chuyenmuc->where('id','3')->first();
 
 
 @endphp
@@ -34,7 +34,6 @@
                             </a>
                         </li>
                     @endif
-
                 @endforeach
             </ul>
         </div>
@@ -78,8 +77,6 @@
                                 <tbody>
                                     @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(8) as $vb)
                                         <tr>
-
-
                                             <td>
                                                 <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
                                                     {{ $vb->kihieuvb }}
@@ -105,12 +102,9 @@
                             </table>
                         @else
                             <ul>
-
                                 @foreach($lt->lichct->sortByDesc('thang') as $lct)
                                     <li>
-
                                         <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
-
                                     </li>
                                 @endforeach
                             </ul>
@@ -166,9 +160,6 @@
         console.log(isMobile);
 
         if(!isMobile) {
-
-
-
             $('#{{ $cm->slug }} .news-block').hover(function () {
 
                 $('#{{ $cm->slug }} .cms-container-tintuc a').attr({href: $(this).find('a').attr('href')});
@@ -178,15 +169,8 @@
                 $('#{{ $cm->slug }} .cms-container-tintuc a img').attr({src: $(this).find('img').attr('src')});
 
                 $('#{{ $cm->slug }} .cms-container-tintuc tin_title_abstract').html($(this).find('.gioithieu').html());
-
             })
-
-
         }
-
-
-
-
     })
 </script>
 
