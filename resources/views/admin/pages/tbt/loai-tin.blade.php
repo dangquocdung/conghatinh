@@ -1,5 +1,9 @@
 @extends('admin.html')
 
+@section('title')
+    <title>Quản lý Loại tin</title>
+@stop
+
 @section('breadcrumb')
   <section class="content-header">
     <h1>Quản lý Loại tin<small>Các loại tin (chuyên mục con) hiện có trên ứng dụng</small></h1>
@@ -24,7 +28,7 @@
           <table class="table table-bordered table-striped table-hover" id="tblLoaiTin">
             <thead>
             <tr>
-              <th>#</th>
+
                 <th>#</th>
                 <th></th>
               <th>Loại tin</th>
@@ -41,7 +45,6 @@
             @foreach($chuyenmuc as $cm)
             @foreach($cm->loaitin as $lt)
               <tr>
-                  <td>{{$lt->id}}</td>
                   <td>{{ $lt->chuyenmuc->thutu}}</td>
                   <td>
                       @if ($lt->show == true)
@@ -341,7 +344,7 @@
 
             "iDisplayLength": 25,
 
-            "order": [[ 1, "asc" ],[ 5, "asc" ]],
+            "order": [[ 0, "asc" ],[ 4, "asc" ]],
 
             "sType": "numeric",
 
