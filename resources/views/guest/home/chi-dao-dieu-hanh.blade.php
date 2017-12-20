@@ -1,176 +1,82 @@
-@php
-    $cm = $chuyenmuc->where('id','3')->first();
+<!-- SELECT2 EXAMPLE -->
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title">Select2</h3>
 
-
-@endphp
-
-
-<div class="block3">
-
-    <div class="portlet-header">
-        <img src="/images/background/lotus.ico">
-        <a href="{{ route('chuyen-muc',$cm->slug) }}">
-            <h4 class="portlet-header-title no-pd-top">{{ $cm->name }}</h4>
-        </a>
-    </div>
-
-    <div class="tab-doc">
-
-        <div class="col-xs-1 tieu-de">
-            <!-- required for floating -->
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs tabs-left vertical-text">
-                @foreach($cm->loaitin->sortBy('thutu')->take(4) as $lt)
-                    @if ($lt->thutu == 1)
-                        <li class="active">
-                            <a href="#{{$lt->slug}}" data-toggle="tab">
-                                {{$lt->name}}
-                            </a>
-                        </li>
-                    @else
-                        <li>
-                            <a href="#{{$lt->slug}}" data-toggle="tab">
-                                {{$lt->name}}
-                            </a>
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
         </div>
-        <div class="col-xs-11 noi-dung-chi-dao">
-            <!-- Tab panes -->
-            <div class="tab-content">
-                @foreach($cm->loaitin as $lt)
-                    <div class="chidao-dieuhanh tab-pane
-                            @if ($lt->thutu == 1)
-                            active " id="{{$lt->slug}}">
-
-                        @else
-                            " id="{{$lt->slug}}">
-
-                        @endif
-
-                        @if ($lt->thutu == 1 or $lt->thutu == 3)
-                                <table id="example1" class="table table-striped table-bordered table-responsive table-sm">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        Số/Kí hiệu
-                                    </th>
-                                    <th>
-                                        Ngày ban hành
-                                    </th>
-
-                                    <th>
-                                        Nơi ban hành
-                                    </th>
-
-                                    <th class="col-md-6">
-                                        Trích yếu
-                                    </th>
-                                    <th class="col-md-1">
-                                        Đính kèm
-                                    </th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                    @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(8) as $vb)
-                                        <tr>
-                                            <td>
-                                                <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
-                                                    {{ $vb->kihieuvb }}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
-                                            </td>
-                                            <td></td>
-                                            <td>
-                                                {{$vb->trichyeu}}
-                                            </td>
-                                            <td>
-                                                @foreach($vb->tepvanban as $tvb)
-                                                    <a href="{{ $tvb->path }}" target="_blank">
-                                                        <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">
-                                                    </a>
-                                                @endforeach
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @else
-                            <ul>
-                                @foreach($lt->lichct->sortByDesc('thang') as $lct)
-                                    <li>
-                                        <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            @endif
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
     </div>
-</div>
-
-<div class="hot-item" style="background-color:#ffffff">
-    <ul>
-        @foreach ($banner->where('vitri','6') as $bn)
-            <li class="col-md-3 col-xs-6">
-                <div class="block2">
-                    <a href="{{$bn->lienket}}" target="_blank">
-                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
-                    </a>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Minimal</label>
+                    <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Alabama</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
                 </div>
-            </li>
-        @endforeach
-
-    </ul>
-</div>
-
-
-
-<div class="clearfix"></div>
-
-
-@if ($cm->banner_id != null)
-
-    <div class="block2">
-
-        @foreach($banner as $bn)
-            @if ($bn->id == $cm->banner_id)
-                <a href="{{$bn->lienket}}">
-                    <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
-                </a>
-            @endif
-        @endforeach
+                <!-- /.form-group -->
+                <div class="form-group">
+                    <label>Disabled</label>
+                    <select class="form-control select2" disabled="disabled" style="width: 100%;">
+                        <option selected="selected">Alabama</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Multiple</label>
+                    <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                            style="width: 100%;">
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    <label>Disabled Result</label>
+                    <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Alabama</option>
+                        <option>Alaska</option>
+                        <option disabled="disabled">California (disabled)</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                    </select>
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </div>
-@endif
-
-
-<script>
-    $(document).ready(function () {
-
-        var isMobile = $(window).width() < 768;
-        console.log("isMobile");
-        console.log(isMobile);
-
-        if(!isMobile) {
-            $('#{{ $cm->slug }} .news-block').hover(function () {
-
-                $('#{{ $cm->slug }} .cms-container-tintuc a').attr({href: $(this).find('a').attr('href')});
-
-                $('#{{ $cm->slug }} .cms-container-tintuc a .tin_title_text').html($(this).find('a').html());
-
-                $('#{{ $cm->slug }} .cms-container-tintuc a img').attr({src: $(this).find('img').attr('src')});
-
-                $('#{{ $cm->slug }} .cms-container-tintuc tin_title_abstract').html($(this).find('.gioithieu').html());
-            })
-        }
-    })
-</script>
-
+    <!-- /.box-body -->
+    <div class="box-footer">
+        Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
+        the plugin.
+    </div>
+</div>
+<!-- /.box -->

@@ -148,7 +148,11 @@
           </li>
 
           <li class="{{ Request::is('toa-soan/da-phuong-tien/icons') ? 'active' : ''  }} treeview">
-            <a href="{{route('get-icons')}}"><i class="fa fa-circle-o"></i><span> Quản lý icon</span></a>
+            <a href="{{route('get-icons')}}"><i class="fa fa-circle-o"></i><span> Icons</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/calendar') ? 'active' : ''  }} treeview">
+            <a href="{{route('get-calendar')}}"><i class="fa fa-circle-o"></i><span> Lịch </span></a>
           </li>
         </ul>
       </li>

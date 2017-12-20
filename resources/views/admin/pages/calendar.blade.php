@@ -1,256 +1,272 @@
 @extends('admin.html')
 
+@section('title')
+    <title>Icons </title>
+@stop
+
+@section('css')
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css">
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+@stop
+
 @section('breadcrumb')
-  <section class="content-header">
-    <h1>Lịch làm việc</h1>
-    <ol class="breadcrumb">
-      <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">Lịch làm việc</li>
-    </ol>
-  </section>
+    <section class="content-header">
+        <h1>
+            Calendar
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="{{route('config')}}">Configurations</a></li>
+            <li class="active">Calendar</li>
+        </ol>
+    </section>
 @endsection
 
 @section('content')
-  <div class="row">
-    <div class="col-sm-8">
-      {{--Box--}}
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Lịch làm việc</h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body table-responsive">
-          <table class="table table-bordered table-striped table-hover">
-            <thead>
-            <tr>
-              <th>#</th>
-              <th>Nội dung</th>
-              <th>Ngày bắt đầu</th>
-              <th>Ngày kết thúc</th>
-              <th>Ngày tạo</th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-
-            @foreach($events as $ev)
-              <tr>
-                <td>{{ $ev->id }}</td>
-                <td>{{ $ev->title }}</td>
-                <td>{{ \Carbon\Carbon::parse($ev->start_date)->format('d-m-Y') }}</td>
-                <td>{{ \Carbon\Carbon::parse($ev->end_date)->format('d-m-Y') }}</td>
-                <td>{{ $ev->created_at }}</td>
-                <td>
-
-                  <div class="pull-left">
-                    <a data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs editLLV" llv-id="{{ $ev->id }}" title="{{ $ev->title }}" start_date="{{ \Carbon\Carbon::parse($ev->start_date)->format('d-m-Y') }}" end_date="{{ \Carbon\Carbon::parse($ev->end_date)->format('d-m-Y') }}">
-                      <i class="fa fa-edit"></i> Chỉnh sửa
-                    </a>
-                  </div>
-
-
-
-
-
-                  <div class="pull-left gap-left gap-10" style="padding-left: 5px">
-                    <confirm-modal
-                            btn-text='<i class="fa fa-trash"></i> Xóa'
-                            btn-class="btn-danger"
-                            url="{{ route ('delete-lich-lam-viec')}}"
-                            :post-data="{{json_encode(['id' => $ev->id])}}"
-                            :refresh="true"
-                            message="Bạn chắc chắn muốn xoá mục này?">
-                    </confirm-modal>
-                  </div>
-
-
-                </td>
-
-              </tr>
-
-
-
-              @endforeach
-
-
-
-            </tbody>
-          </table>
-
-          {{$events->render()}}
-        </div>
-        <!-- /.box-body -->
-      </div>
-      {{--End box--}}
-    <!-- Modal Edit Album-->
-      <div class="modal modal-default fade" id="modal-default">
-        <div class="modal-dialog">
-          <div class="modal-content" style="padding: 0">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" style="padding-bottom: 0">Chỉnh sửa</h4>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Draggable Events</h4>
+                </div>
+                <div class="box-body">
+                    <!-- the events -->
+                    <div id="external-events">
+                        <div class="external-event bg-green">Lunch</div>
+                        <div class="external-event bg-yellow">Go home</div>
+                        <div class="external-event bg-aqua">Do homework</div>
+                        <div class="external-event bg-light-blue">Work on UI design</div>
+                        <div class="external-event bg-red">Sleep tight</div>
+                        <div class="checkbox">
+                            <label for="drop-remove">
+                                <input type="checkbox" id="drop-remove">
+                                remove after drop
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
             </div>
-            <form action="{{ route('update-lich-lam-viec') }}" method="post" id="role-save-form">
-              {{csrf_field()}}
-              <div class="modal-body">
-
-                <input type="hidden" name="id" id="llv-id">
-
-                <div class="form-group">
-                  <label for="">Nội dung:</label>
-                  <input type="text"
-                         placeholder="Nội dung làm việc"
-                         id="title"
-                         name="title"
-                         class="form-control"
-                         required >
-                  <div class="HelpText error">{{$errors->first('title')}}</div>
+            <!-- /. box -->
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Create Event</h3>
                 </div>
+                <div class="box-body">
+                    <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                        <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                        <ul class="fc-color-picker" id="color-chooser">
+                            <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+                            <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- /btn-group -->
+                    <div class="input-group">
+                        <input id="new-event" type="text" class="form-control" placeholder="Event Title">
 
-
-                <!-- Date -->
-                <div class="form-group">
-                  <label>Ngày bắt đầu</label>
-                  <div class='input-group date datetimepicker'>
-                    <input id="start_date" name="start_date" type='text' class="form-control"/>
-                    <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                  </div>
-                  <!-- /.input group -->
+                        <div class="input-group-btn">
+                            <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Add</button>
+                        </div>
+                        <!-- /btn-group -->
+                    </div>
+                    <!-- /input-group -->
                 </div>
-
-                <!-- Date -->
-                <div class="form-group">
-                  <label>Ngày kết thúc</label>
-                  <div class='input-group date datetimepicker'>
-                    <input id="end_date" name="end_date" type='text' class="form-control"/>
-                    <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-              </div>
-            </form>
-
-          </div>
-          <!-- /.modal-content -->
+            </div>
         </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="box box-primary">
+                <div class="box-body no-padding">
+                    <!-- THE CALENDAR -->
+                    <div id="calendar"></div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /. box -->
+        </div>
+        <!-- /.col -->
     </div>
-
-    <div class="col-sm-4">
-
-      {{--Box--}}
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Thêm Lịch làm việc</h3>
-        </div>
-        <form action="{{route('save-lich-lam-viec')}}" method="post" id="role-save-form">
-          {{csrf_field()}}
-          <!-- /.box-header -->
-          <div class="box-body">
-            {{csrf_field()}}
-
-            <div class="form-group">
-              <label for="">Nội dung:</label>
-              <input type="text"
-                     placeholder="Nội dung làm việc"
-                     name="title"
-                     value="{{old('title')}}"
-                     class="form-control"
-                     required >
-              <div class="HelpText error">{{$errors->first('title')}}</div>
-            </div>
-
-
-            <!-- Date -->
-            <div class="form-group">
-              <label>Ngày bắt đầu</label>
-              <div class='input-group date datetimepicker'>
-                <input name="start_date" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
-                <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-              </div>
-              <!-- /.input group -->
-            </div>
-
-            <!-- Date -->
-            <div class="form-group">
-              <label>Ngày kết thúc</label>
-              <div class='input-group date datetimepicker'>
-                <input name="end_date" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}"/>
-                <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-              </div>
-              <!-- /.input group -->
-            </div>
-
-
-
-
-          </div>
-          <!-- /.box-body -->
-
-          <div class="box-footer">
-            <button type="submit" class="btn btn-success">Gửi thông tin</button>
-          </div>
-        </form>
-      </div>
-      {{--End box--}}
-
-    </div>
-  </div>
-
 @endsection
 
 @section('js')
-  <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-  <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
+    <!-- fullCalendar -->
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
 
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+            function init_events(ele) {
+                ele.each(function () {
 
-  <script>
+                    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                    // it doesn't need to have a start or end
+                    var eventObject = {
+                        title: $.trim($(this).text()) // use the element's text as the event title
+                    }
 
-      $(document).ready(function() {
+                    // store the Event Object in the DOM element so we can get to it later
+                    $(this).data('eventObject', eventObject)
 
-        /* This is basic - uses default settings */
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex        : 1070,
+                        revert        : true, // will cause the event to go back to its
+                        revertDuration: 0  //  original position after the drag
+                    })
 
+                })
+            }
 
-          $(".editLLV").click(function () {
+            init_events($('#external-events div.external-event'))
 
-//              alert($(this).attr('title'));
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            //Date for the calendar events (dummy data)
+            var date = new Date()
+            var d    = date.getDate(),
+                m    = date.getMonth(),
+                y    = date.getFullYear()
+            $('#calendar').fullCalendar({
+                header    : {
+                    left  : 'prev,next today',
+                    center: 'title',
+                    right : 'month,agendaWeek,agendaDay'
+                },
+                buttonText: {
+                    today: 'today',
+                    month: 'month',
+                    week : 'week',
+                    day  : 'day'
+                },
+                //Random default events
+                events    : [
+                    {
+                        title          : 'All Day Event',
+                        start          : new Date(y, m, 1),
+                        backgroundColor: '#f56954', //red
+                        borderColor    : '#f56954' //red
+                    },
+                    {
+                        title          : 'Long Event',
+                        start          : new Date(y, m, d - 5),
+                        end            : new Date(y, m, d - 2),
+                        backgroundColor: '#f39c12', //yellow
+                        borderColor    : '#f39c12' //yellow
+                    },
+                    {
+                        title          : 'Meeting',
+                        start          : new Date(y, m, d, 10, 30),
+                        allDay         : false,
+                        backgroundColor: '#0073b7', //Blue
+                        borderColor    : '#0073b7' //Blue
+                    },
+                    {
+                        title          : 'Lunch',
+                        start          : new Date(y, m, d, 12, 0),
+                        end            : new Date(y, m, d, 14, 0),
+                        allDay         : false,
+                        backgroundColor: '#00c0ef', //Info (aqua)
+                        borderColor    : '#00c0ef' //Info (aqua)
+                    },
+                    {
+                        title          : 'Birthday Party',
+                        start          : new Date(y, m, d + 1, 19, 0),
+                        end            : new Date(y, m, d + 1, 22, 30),
+                        allDay         : false,
+                        backgroundColor: '#00a65a', //Success (green)
+                        borderColor    : '#00a65a' //Success (green)
+                    },
+                    {
+                        title          : 'Click for Google',
+                        start          : new Date(y, m, 28),
+                        end            : new Date(y, m, 29),
+                        url            : 'http://google.com/',
+                        backgroundColor: '#3c8dbc', //Primary (light-blue)
+                        borderColor    : '#3c8dbc' //Primary (light-blue)
+                    }
+                ],
+                editable  : true,
+                droppable : true, // this allows things to be dropped onto the calendar !!!
+                drop      : function (date, allDay) { // this function is called when something is dropped
 
-              $("#modal-default").find("input#llv-id").val($(this).attr('llv-id'));
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject')
 
-              $("#modal-default").find("input#title").val($(this).attr('title'));
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject)
 
-              $("#modal-default").find("input#start_date").val($(this).attr('start_date'));
+                    // assign it the date that was reported
+                    copiedEventObject.start           = date
+                    copiedEventObject.allDay          = allDay
+                    copiedEventObject.backgroundColor = $(this).css('background-color')
+                    copiedEventObject.borderColor     = $(this).css('border-color')
 
-              $("#modal-default").find("input#end_date").val($(this).attr('end_date'));
+                    // render the event on the calendar
+                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true)
 
-          })
-      });
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove()
+                    }
 
-      $(function () {
+                }
+            })
 
-          $('.datetimepicker').datetimepicker({
-              format:'DD-MM-YYYY'
-          });
-      });
-  </script>
+            /* ADDING EVENTS */
+            var currColor = '#3c8dbc' //Red by default
+            //Color chooser button
+            var colorChooser = $('#color-chooser-btn')
+            $('#color-chooser > li > a').click(function (e) {
+                e.preventDefault()
+                //Save color
+                currColor = $(this).css('color')
+                //Add color effect to button
+                $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
+            })
+            $('#add-new-event').click(function (e) {
+                e.preventDefault()
+                //Get value and make sure it is not null
+                var val = $('#new-event').val()
+                if (val.length == 0) {
+                    return
+                }
 
-@stop
+                //Create events
+                var event = $('<div />')
+                event.css({
+                    'background-color': currColor,
+                    'border-color'    : currColor,
+                    'color'           : '#fff'
+                }).addClass('external-event')
+                event.html(val)
+                $('#external-events').prepend(event)
+
+                //Add draggable funtionality
+                init_events(event)
+
+                //Remove event from text input
+                $('#new-event').val('')
+            })
+        })
+    </script>
+
+    @stop

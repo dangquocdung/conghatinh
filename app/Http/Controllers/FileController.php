@@ -15,4 +15,9 @@ class FileController extends Controller
     {
         return view('admin.pages.icons');
     }
+
+    public function getCalendar()
+    {
+        return view('admin.pages.calendar');
+    }
 }

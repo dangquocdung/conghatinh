@@ -118,6 +118,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('media-manager', 'MediaController@index')->name('media-manager');
         Route::get('file-manager', 'FileController@index')->name('file-manager');
         Route::get('icons', 'FileController@getIcons')->name('get-icons');
+        Route::get('calendar', 'FileController@getCalendar')->name('get-calendar');
     });
 
     //Van ban
