@@ -47,6 +47,9 @@
 
 <script src="guest/js/jssor.slider-26.7.0.min.js" type="text/javascript"></script>
 
+<!-- AdminLTE App -->
+<script src="guest/js/adminlte.min.js"></script>
+
 
 
 <script>
@@ -106,6 +109,15 @@
     function goBack() {
         window.history.back();
     };
+
+    //Zoom text
+
+    function resizeText(multiplier) {
+        if (document.body.style.fontSize == "") {
+            document.body.style.fontSize = "1.3em";
+        }
+        document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (multiplier * 0.15) + "em";
+    }
 </script>
 
 <script>
