@@ -136,7 +136,7 @@
           </li>
 
           <li class="{{ Request::is('toa-soan/da-phuong-tien/video') ? 'active' : ''  }} treeview">
-            <a href="{{route('video.index')}}"><i class="fa fa-circle-o"></i><span> Truyền hình Hà Tĩnh</span></a>
+            <a href="{{route('video.index')}}"><i class="fa fa-circle-o"></i><span> Video Hà Tĩnh</span></a>
           </li>
 
           <li class="{{ Request::is('toa-soan/da-phuong-tien/media-manager') ? 'active' : ''  }} treeview">
@@ -145,6 +145,14 @@
 
           <li class="{{ Request::is('toa-soan/da-phuong-tien/file-manager') ? 'active' : ''  }} treeview">
             <a href="{{route('file-manager')}}"><i class="fa fa-circle-o"></i><span> Quản lý tệp văn bản</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/icons') ? 'active' : ''  }} treeview">
+            <a href="{{route('get-icons')}}"><i class="fa fa-circle-o"></i><span> Icons</span></a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/da-phuong-tien/calendar') ? 'active' : ''  }} treeview">
+            <a href="{{route('get-calendar')}}"><i class="fa fa-circle-o"></i><span> Lịch </span></a>
           </li>
         </ul>
       </li>
