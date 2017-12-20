@@ -117,6 +117,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('remove-image-to-album', 'ImageController@destroy')->name('remove-image-to-album');
         Route::get('media-manager', 'MediaController@index')->name('media-manager');
         Route::get('file-manager', 'FileController@index')->name('file-manager');
+        Route::get('icons', 'FileController@getIcons')->name('get-icons');
     });
 
     //Van ban

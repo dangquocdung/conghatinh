@@ -10,4 +10,9 @@ class FileController extends Controller
     {
         return view('admin.pages.file-manager');
     }
+
+    public function getIcons()
+    {
+        return view('admin.pages.icons');
+    }
 }
