@@ -32,7 +32,7 @@
 
     @include('guest.layout.header-banner')
 
-{{--    @include('guest.layout.menu-overlay')--}}
+    @include('guest.layout.menu-overlay')
 
     <div class="container nen-trang">
       <div class="row row-offcanvas row-offcanvas-right">
