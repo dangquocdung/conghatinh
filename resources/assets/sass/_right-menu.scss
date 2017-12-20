@@ -129,15 +129,15 @@
     position: fixed;
     margin: 0px;
     padding: 0px;
-    bottom: 10px;
+    bottom: 20px;
     left: 0px;
     list-style: none;
     z-index:9999;
   }
   span{font-size:1.3em !important;}
   span i{
-    font-size:1.5em !important;
-    padding-top:15px !important ;
+    font-size:1.4em !important;
+    padding-top:10px !important ;
     padding-right: 10px;
   }
   ul#navigation li {
@@ -149,7 +149,7 @@
     text-decoration: none;
     margin-left: -2px;
     width: 100px;
-    height: 70px;
+    height: 50px;
     background-color:#CFCFCF;
     background-repeat:no-repeat;
     background-position:center center;
