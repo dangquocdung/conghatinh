@@ -64,19 +64,37 @@
 
     <div class="right_1">
 
-        @foreach($phimtat as $pt)
+        @foreach($chuyenmuc as $cm)
+            @if (count($cm->loaitin) == 0)
             <div class="right-item">
-                <a href="{{ $pt->link }}" class="icon" title="">
+                <a href="{{ $cm->path }}" class="icon" title="">
                     {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
-                    <i class="fa {{$pt->icon}} fa-2x" aria-hidden="true"></i>
+                    <i class="glyphicon {{$cm->icon}} gi-2x" aria-hidden="true"></i>
 
-                    <span class="nav-text">{{ $pt->name }} </span>
+                    <span class="nav-text">{{ $cm->name }} </span>
                 </a>
             </div>
+            @endif
         @endforeach
 
 
     </div>
+
+    {{--<div class="right_1">--}}
+
+        {{--@foreach($phimtat as $pt)--}}
+            {{--<div class="right-item">--}}
+                {{--<a href="{{ $pt->link }}" class="icon" title="">--}}
+                    {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
+                    {{--<i class="fa {{$pt->icon}} fa-2x" aria-hidden="true"></i>--}}
+
+                    {{--<span class="nav-text">{{ $pt->name }} </span>--}}
+                {{--</a>--}}
+            {{--</div>--}}
+        {{--@endforeach--}}
+
+
+    {{--</div>--}}
 
 
 

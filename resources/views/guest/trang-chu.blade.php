@@ -11,7 +11,9 @@
 @section('content-main')
     @include('guest.home.tin-noi-bat')
 
-{{--    @include('guest.home.chi-dao-dieu-hanh')--}}
+    <div class="clearfix"></div>
+
+    @include('guest.home.chi-dao-dieu-hanh')
 
 {{--    @include('guest.home.van-ban')--}}
     {{--<div class="clearfix"></div>--}}
