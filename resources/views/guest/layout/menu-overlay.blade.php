@@ -1,20 +1,19 @@
-<div id="left-side-menu">
-<!-- Navigation -->
-<nav class="animate">
-    <ul>
-        @foreach ($chuyenmuc->where('vitri','1') as $cm)
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $cm->name }}</a>
-            </li>
-        @endforeach
-    </ul>
-</nav>
-
-<div class="nav-controller">
-    <span class="[ glyphicon glyphicon-chevron-down ] controller-open"></span>
-    <span class="[ glyphicon glyphicon-remove ] controller-close"></span>
-</div>
-</div>
+{{--<div id="left-side-menu">--}}
+    {{--<nav class="animate">--}}
+        {{--<ul>--}}
+            {{--@foreach ($chuyenmuc->where('vitri','1') as $cm)--}}
+                {{--<li>--}}
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $cm->name }}</a>--}}
+                {{--</li>--}}
+            {{--@endforeach--}}
+        {{--</ul>--}}
+    {{--</nav>--}}
+    {{----}}
+    {{--<div class="nav-controller">--}}
+        {{--<span class="[ glyphicon glyphicon-chevron-down ] controller-open"></span>--}}
+        {{--<span class="[ glyphicon glyphicon-remove ] controller-close"></span>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 <div id="side-menu">
     <ul id="navigation">
@@ -26,14 +25,14 @@
 
 <script>
     $(function() {
-        $('#navigation a').stop().animate({'marginLeft':'-55px'},1000);
+        $('#navigation a').stop().animate({'marginLeft':'-60px'},1000);
 
         $('#navigation > li').hover(
             function () {
-                $('a',$(this)).stop().animate({'marginLeft':'-2px'},200);
+                $('a',$(this)).stop().animate({'marginLeft':'-40px'},200);
             },
             function () {
-                $('a',$(this)).stop().animate({'marginLeft':'-55px'},200);
+                $('a',$(this)).stop().animate({'marginLeft':'-60px'},200);
             }
         );
     });
