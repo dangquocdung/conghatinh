@@ -2,27 +2,22 @@
 
 <div id="top_nav" class="ddsmoothmenu">
     <ul>
-        <li class="" style="width: 16%">
-            <a href="/">
-                <span>Trang chủ</span>
-            </a>
-        </li>
-        <li class="" style="width: 16%">
+        <li class="" style="width: 17%">
             <a href="{{ route('chuyen-muc','gioi-thieu') }}">
                 <span>Giới thiệu </span>
             </a>
         </li>
-        <li class="" style="width: 20%">
+        <li class="" style="width: 25%">
             <a href="{{ url('http://congbao.hatinh.gov.vn') }}">
-                <span>VB QPPL</span>
+                <span>Văn Bản QPPL</span>
             </a>
         </li>
-        <li class="" style="width: 20%">
+        <li class="" style="width: 25%">
             <a href="{{ url('http://dichvucong.hatinh.gov.vn') }}">
-                <span>DVC TT</span>
+                <span>Dịch vụ công</span>
             </a>
         </li>
-        <li class="" style="width: 20%">
+        <li class="" style="width: 25%">
             <a href="{{ route('chuyen-muc','quy-hoach-chien-luoc') }}">
                 <span>Đầu tư Phát triển</span>
             </a>
