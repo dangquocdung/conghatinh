@@ -10,32 +10,30 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        <div class="tab-doc">
 
-            <div class="col-xs-1 tieu-de">
-                <!-- required for floating -->
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs tabs-left vertical-text">
-                    @foreach($nhomcq as $ncq)
-                        @if ($ncq->id == 1)
-                            <li class="active">
-                                <a href="#{{$ncq->slug}}" data-toggle="tab">
-                                    {{$ncq->name}}
-                                </a>
-                            </li>
-                        @else
-                            <li>
-                                <a href="#{{$ncq->slug}}" data-toggle="tab">
-                                    {{$ncq->name}}
-                                </a>
-                            </li>
-                        @endif
+        <div class="card">
+            <ul class="nav nav-tabs" role="tablist">
+                @foreach($nhomcq as $ncq)
+                    @if ($ncq->id == 1)
+                        <li class="active">
+                            <a href="#{{$ncq->slug}}" data-toggle="tab">
+                                {{$ncq->name}}
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="#{{$ncq->slug}}" data-toggle="tab">
+                                {{$ncq->name}}
+                            </a>
+                        </li>
+                    @endif
 
-                    @endforeach
-                </ul>
-            </div>
-            <div class="col-xs-11 noi-dung">
-                <!-- Tab panes -->
+                @endforeach
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
                 <div class="tab-content">
                     @foreach($nhomcq as $ncq)
                         <div class="to-chuc tab-pane
@@ -49,9 +47,9 @@
 
                             <ul>
                                 @foreach($ncq->coquan as $cq)
-                                    <li class="col-md-4 col-xs-6">
+                                    <li class="col-md-3 col-sm-4 col-xs-6">
                                         <a href="{{ $cq->lienket }}" target="_blank">
-                                            <div class="news-block"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
+                                            <div class="news-block"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
                                         </a>
                                     </li>
                                 @endforeach
@@ -60,14 +58,6 @@
                     @endforeach
                 </div>
             </div>
-
         </div>
-    </div>
-    <!-- /.box-body -->
-    <div class="box-footer">
-        <div class="pull-right">
-            <a href="">Xem tiếp...</a>
-        </div>
-
     </div>
 </div>
