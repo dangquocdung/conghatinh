@@ -35,7 +35,7 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-content">
-                                @foreach($cm->loaitin->where('show','1') as $lt)
+                                @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                     <div class="to-chuc tab-pane
                                     @if ($lt->thutu == 1)
                                             active " id="{{$lt->slug}}">
@@ -189,13 +189,13 @@
 
                                         @endif
                                         <!-- /.box-body -->
-                                            <div class="box-footer">
-                                                <div class="pull-right">
+                                        <div class="box-footer">
+                                            <div class="pull-right">
 
-                                                        <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}">Xem tiếp...</a>
+                                                    <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}"><em>Xem tiếp...</em></a>
 
-                                                </div>
                                             </div>
+                                        </div>
 
 
 
