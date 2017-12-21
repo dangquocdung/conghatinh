@@ -67,7 +67,12 @@
         @foreach($chuyenmuc as $cm)
             @if (count($cm->loaitin) == 0)
             <div class="right-item">
-                <a href="{{ $cm->path }}" class="icon" title="">
+
+                @if (!empty($cm->path))
+                    <a href="{{ $cm->path }}" class="icon" title="">
+                        @else
+                    <a href="/vi/{{ $cm->slug }}" class="icon" title="">
+                        @endif
                     {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
                     <i class="glyphicon {{$cm->icon}} gi-2x" aria-hidden="true"></i>
 

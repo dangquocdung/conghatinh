@@ -155,7 +155,7 @@
                 </a>
             </li>
             <li class="last">
-                <a href="{{ route('chuyen-muc','dau-tu-phat-trien') }}">
+                <a href="{{ route('chuyen-muc','quy-hoach-chien-luoc') }}">
                     <span>Đầu tư Phát triển</span>
                 </a>
             </li>
