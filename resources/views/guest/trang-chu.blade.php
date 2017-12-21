@@ -10,20 +10,18 @@
 
 @section('content-main')
     @include('guest.home.tin-noi-bat')
-
     <div class="clearfix"></div>
-
     @include('guest.home.chi-dao-dieu-hanh')
-
-{{--    @include('guest.home.van-ban')--}}
+    {{--@include('guest.home.van-ban')--}}
     {{--<div class="clearfix"></div>--}}
-{{--    @include('guest.home.chien-luoc')--}}
+    {{--@include('guest.home.chien-luoc')--}}
     {{--<div class="clearfix"></div>--}}
-{{--    @include('guest.home.tin-tuc-su-kien')--}}
+    {{--@include('guest.home.tin-tuc-su-kien')--}}
     {{--@include('guest.home.videos')--}}
     {{--<div class="clearfix"></div>--}}
-    {{--@include('guest.home.to-chuc')--}}
     {{--@include('guest.home.albums')--}}
+    <div class="clearfix"></div>
+    @include('guest.home.to-chuc')
 @endsection
 
 
