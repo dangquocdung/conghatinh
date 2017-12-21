@@ -29,15 +29,17 @@ body {
 
 .gi-2x{font-size: 2em;}
 
-.box.box-default{
+.box {
+  margin-bottom: 0 !important;
 
-  .box-header {
-    padding: 5px !important;
+  .box-default{
+
+    .box-header {
+      padding: 5px !important;
+    }
+
   }
-
 }
-
-
 
 
 .breadcrumb{
