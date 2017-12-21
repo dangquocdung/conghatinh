@@ -24,7 +24,7 @@
         </li>
         <li class="" style="width: 20%">
             <a href="{{ route('chuyen-muc','quy-hoach-chien-luoc') }}">
-                <span>ĐT-PT</span>
+                <span>Đầu tư Phát triển</span>
             </a>
         </li>
         <li class="last" style="width:8%">
