@@ -164,8 +164,14 @@ class GuestController extends Controller
     {
         $lt = LoaiTin::where('slug',$slug)->first();
 
-        $tintuc = TinTuc::where('loaitin_id',$lt->id)->where('daduyet','1')->orderby('id','desc')->paginate(12);
-
+        if (count($lt->vanban)>0){
+            $tintuc = VanBan::where('loaitin_id',$lt->id)->where('daduyet','1')->orderby('id','desc')->paginate(12);
+        }
+        elseif (count($lt->lichct)>0){
+            $tintuc = LichCongTac::where('loaitin_id',$lt->id)->orderby('id','desc')->paginate(12);
+        }else{
+            $tintuc = TinTuc::where('loaitin_id',$lt->id)->where('daduyet','1')->orderby('id','desc')->paginate(12);
+        }
         return view('guest.loai-tin', compact('lt','tintuc'));
     }
 
