@@ -41,6 +41,12 @@ body {
 
 }
 
+.box-body{
+  .tab-content{
+    padding-top: 10px;
+  }
+}
+
 
 
 
@@ -250,7 +256,7 @@ body {
 
     img{
       float:left;
-      margin: 10px 10px 5px 0;
+      margin: 0 10px 5px 0;
       width: 160px;
       border: 1px solid #cbccce!important;
       border-radius: 3px;
@@ -904,6 +910,40 @@ td{
           }
         }
       }
+    }
+  }
+}
+
+
+.bs-glyphicons {
+  padding-left: 0;
+  padding-bottom: 1px;
+  margin-bottom: 20px;
+  list-style: none;
+  overflow: hidden;
+
+  li {
+    float: left;
+    width: 25%;
+    height: 115px;
+    padding: 10px;
+    margin: 0 -1px -1px 0;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin-bottom: 0 !important;
+
+    .glyphicon {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .glyphicon-class {
+      display: block;
+      text-align: center;
+      word-wrap: break-word;
     }
   }
 }
