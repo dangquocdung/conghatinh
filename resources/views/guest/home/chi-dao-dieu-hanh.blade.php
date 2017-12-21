@@ -36,7 +36,7 @@
                             <div class="tab-content">
                                 @foreach($cm->loaitin->where('show','1') as $lt)
                                     <div class="to-chuc tab-pane
-                                @if ($lt->thutu == 1)
+                                    @if ($lt->thutu == 1)
                                             active " id="{{$lt->slug}}">
 
                                         @else
@@ -185,7 +185,16 @@
                                                 </div>
 
 
+
                                         @endif
+                                        <!-- /.box-body -->
+                                            <div class="box-footer">
+                                                <div class="pull-right">
+
+                                                        <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}">Xem tiếp...</a>
+
+                                                </div>
+                                            </div>
 
 
 
@@ -195,16 +204,6 @@
                         </div>
                     </div>
                     <!-- /.row -->
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <div class="pull-right">
-                        @if (!empty($cm->path))
-                            <a href="{{ $cm->path }}" target="_blank">Xem tiếp...</a>
-                        @else
-                            <a href="/vi/{{ $cm->slug }}">Xem tiếp...</a>
-                        @endif
-                    </div>
                 </div>
             </div>
         </div>
