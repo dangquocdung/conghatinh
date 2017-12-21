@@ -7,17 +7,17 @@
                 <span>Giới thiệu </span>
             </a>
         </li>
-        <li class="" style="width: 25%">
+        <li class="" style="width: 22%">
             <a href="{{ url('http://congbao.hatinh.gov.vn') }}">
                 <span>Văn Bản QPPL</span>
             </a>
         </li>
-        <li class="" style="width: 25%">
+        <li class="" style="width: 23%">
             <a href="{{ url('http://dichvucong.hatinh.gov.vn') }}">
                 <span>Dịch vụ công</span>
             </a>
         </li>
-        <li class="" style="width: 25%">
+        <li class="" style="width: 30%">
             <a href="{{ route('chuyen-muc','quy-hoach-chien-luoc') }}">
                 <span>Đầu tư Phát triển</span>
             </a>
