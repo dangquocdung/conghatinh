@@ -31,7 +31,6 @@
               <th>#</th>
               <th>Chuyên mục</th>
               <th>Url</th>
-              <th>Đường dẫn</th>
               <th>Vị trí</th>
               <th>Thứ tự</th>
 
@@ -46,7 +45,7 @@
 
                 </td>
                 <td>
-                  {{($chuyenmuc->name)}}
+                  <i class="fa {{$chuyenmuc->icon}}"></i> &nbsp;{{($chuyenmuc->name)}}
                   <br>
                   
                   @foreach($banner as $bn)
@@ -56,7 +55,6 @@
                     @endforeach
                 </td>
                 <td>{{ $chuyenmuc->path}} </td>
-                <td><span class="label label-success">{{$chuyenmuc->slug}}</span></td>
                 <td>
                   @if ($chuyenmuc->vitri == 0 )
                     <span class="label label-danger">Ẩn</span>
@@ -69,12 +67,34 @@
                 </td>
                 <td>{{$chuyenmuc->thutu}}</td>
 
-                <td class="col-sm-3">
+                <td class="col-md-2">
                   {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
-                    <div class="pull-left">
-                      <a href="{{route('edit-chuyen-muc', $chuyenmuc->id)}}" class="btn btn-primary btn-xs">
-                        <i class="fa fa-edit"></i> Edit
+                    {{--<div class="pull-left">--}}
+                      {{--<a href="{{route('edit-chuyen-muc', $chuyenmuc->id)}}" class="btn btn-primary btn-xs">--}}
+                        {{--<i class="fa fa-edit"></i> Edit--}}
+                      {{--</a>--}}
+                    {{--</div>--}}
+                    <div class="pull-left" style="margin-right: 5px;">
+                      {{--<a href="{{route('edit-loai-tin', [$lt->id] )}}" class="btn btn-primary btn-xs">--}}
+                      {{--<i class="fa fa-edit"></i> Sửa--}}
+                      {{--</a>--}}
+
+                      <a class="btn btn-primary btn-xs btnSua"
+                         data-toggle="modal"
+                         data-target="#suaChuyenMuc"
+
+                         cm-id="{{ $chuyenmuc->id }}"
+                         cm-name="{{ $chuyenmuc->name }}"
+                         cm-icon="{{ $chuyenmuc->icon }}"
+                         cm-path="{{ $chuyenmuc->path }}"
+                         cm-vitri="{{ $chuyenmuc->vitri }}"
+                         cm-thutu="{{ $chuyenmuc->thutu }}"
+                         cm-banner="{{ $chuyenmuc->banner_id }}"
+
+                      />
+                        <i class="fa fa-edit"></i> Sửa
                       </a>
+
                     </div>
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
@@ -178,6 +198,99 @@
       {{--End box--}}
     </div>
   </div>
+
+  <!-- Modal  loại tin-->
+  <div class="modal modal-default fade" id="suaChuyenMuc">
+    <div class="modal-dialog">
+      <div class="modal-content" style="padding: 0">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" style="padding-bottom: 0">Sửa Chuyên mục </h4>
+        </div>
+
+        <form action="{{route('update-chuyen-muc')}}" method="post" id="role-save-form">
+          <!-- /.box-header -->
+          <div class="modal-body">
+            {{csrf_field()}}
+
+            <input type="hidden" name="id" id="cm-id">
+            <div class="form-group">
+              <label for="">Chuyên mục: </label>
+              <input type="text"
+                     placeholder="Nhập tên Chuyên mục"
+                     id="cm-name"
+                     name="name"
+                     value="{{old('name')}}"
+                     class="form-control">
+              <div class="HelpText error">{{$errors->first('name')}}</div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Icon: </label>
+              <input type="text"
+                     placeholder="Biểu tượng (tuỳ chọn) "
+                     id="cm-icon"
+                     name="icon"
+                     value="{{old('icon')}}"
+                     class="form-control">
+              <div class="HelpText error">{{$errors->first('icon')}}</div>
+            </div>
+
+            <div class="form-group">
+              <label for="">Đường dẫn: </label>
+              <input type="text"
+                     placeholder="Đường dẫn (tuỳ chọn) "
+                     id="cm-path"
+                     name="path"
+                     value="{{old('path')}}"
+                     class="form-control">
+              <div class="HelpText error">{{$errors->first('path')}}</div>
+            </div>
+
+            <div class="form-group">
+              <label>Vị trí</label>
+              <select class="form-control" id="cm-vitri" name="vitri" style="width: 100%;">
+                <option value='1' selected>Menu Trên</option>
+                <option value='2'>Menu Dưới</option>
+                <option value='0'>Ẩn</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Thứ tự hiện thị</label>
+              <select class="form-control" id="cm-thutu" name="thutu" style="width: 100%;">
+                @for ($i = 1; $i <= count($chuyenmucs); $i++)
+                  <option value={{ $i }}>{{ $i }}</option>
+                @endfor
+                <option value={{ $i }} selected>{{ $i }}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Banner ngang</label>
+              <select class="form-control" id="cm-banner" name="banner" style="width: 100%;">
+                <option value="" >Không Chọn Banner</option>
+                @foreach ($banner as $bn)
+                  <option value={{ $bn->id }} path="{{$bn->banner}}">{{ $bn->name }}</option>
+                @endforeach
+              </select>
+            </div>
+
+            <div class="form-group">
+              <img id="preview-edit" src="http://placehold.it/200x30" width="100%" style="margin: 0 auto;" />
+            </div>
+          </div>
+          <!-- /.box-body -->
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Gửi thông tin</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /.modal -->
 @endsection
 
 @section('js')
@@ -188,9 +301,30 @@
           $("#banner").change(function () {
               var element = $(this).find('option:selected');
               var path = element.attr("path");
-
               $("#preview").attr('src',path);
-          })
+          });
+
+          $("#cm-banner").change(function () {
+              var element = $(this).find('option:selected');
+              var path = element.attr("path");
+              $("#preview-edit").attr('src',path);
+          });
+
+
+          $('.select2').select2({
+              width: '100%'
+          });
+
+          $('.btnSua').click(function () {
+              $('#suaChuyenMuc').find('input#cm-id').val($(this).attr('cm-id'));
+              $('#suaChuyenMuc').find('input#cm-name').val($(this).attr('cm-name'));
+              $('#suaChuyenMuc').find('input#cm-icon').val($(this).attr('cm-icon'));
+              $('#suaChuyenMuc').find('input#cm-path').val($(this).attr('cm-path'));
+              $('#suaChuyenMuc').find('select#cm-vitri').val($(this).attr('cm-vitri'));
+              $('#suaChuyenMuc').find('select#cm-thutu').val($(this).attr('cm-thutu'));
+              $('#suaChuyenMuc').find('select#cm-banner').val($(this).attr('cm-banner'));
+              $('#suaChuyenMuc').find('select#preview-edit').val($(this).attr('cm-banner'));
+          });
 
       })
 

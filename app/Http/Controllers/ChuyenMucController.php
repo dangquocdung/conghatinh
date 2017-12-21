@@ -101,6 +101,7 @@ class ChuyenMucController extends Controller
         $cm = ChuyenMuc::find($request->input('id'));
         $cm->name = $request->input('name');
         $cm->slug = str_slug($request->input('name'));
+        $cm->icon = $request->icon;
         $cm->path = $request->input('path');
         $cm->vitri = $request->input('vitri');
         $cm->thutu = $request->input('thutu');

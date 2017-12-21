@@ -2,6 +2,7 @@
     @if (count($cm->loaitin) > 0)
     <div class="box box-default">
         <div class="box-header with-border">
+            <img src="/images/background/lotus.ico" width="30px">
             <h4 class="box-title">{{ $cm->name }}</h4>
 
             <div class="box-tools pull-right">

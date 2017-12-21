@@ -42,9 +42,9 @@
                         <a href="#tinnoibat" aria-controls="tinnoibat" role="tab" data-toggle="tab"><i class="fa fa-bars"></i>  <span>Nổi bật </span></a>
                     </li>
 
-                    <li role="presentation">
-                        <a href="#tinmoi" aria-controls="tinmoi" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  <span>Tin mới </span></a>
-                    </li>
+                    {{--<li role="presentation">--}}
+                        {{--<a href="#tinmoi" aria-controls="tinmoi" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  <span>Tin mới </span></a>--}}
+                    {{--</li>--}}
                     <li role="presentation">
                         <a href="#tindocnhieu" aria-controls="tindocnhieu" role="tab" data-toggle="tab"><i class="fa fa-group"></i>  <span>Đọc nhiều</span></a>
                     </li>
