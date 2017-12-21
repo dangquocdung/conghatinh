@@ -16,7 +16,7 @@
                 <div class="box-body">
                     <div class="card">
                         <ul class="nav nav-tabs" role="tablist">
-                            @foreach($cm->loaitin->where('show','1') as $lt)
+                            @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                 @if ($lt->thutu == 1)
                                     <li class="active">
                                         <a href="#{{$lt->slug}}" data-toggle="tab">
@@ -135,7 +135,7 @@
                                                     </thead>
 
                                                     <tbody>
-                                                    @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(8) as $vb)
+                                                    @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
                                                         <tr>
                                                             <td>
                                                                 <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
@@ -170,7 +170,7 @@
                                                         @foreach($lt->lichct->sortByDesc('thang') as $lct)
                                                             <li style="padding: 0; border-bottom: none">
 
-                                                                    <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;Lịch công tác UBND tỉnh tháng {{ $lct->thang }}</a>
+                                                                    <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> {{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
 
 
                                                                 <div class="pull-right">
@@ -182,9 +182,6 @@
                                                         @endforeach
                                                     </ul>
                                                 </div>
-
-
-
                                         @endif
                                         <!-- /.box-body -->
                                         <div class="box-footer">
@@ -194,9 +191,6 @@
 
                                             </div>
                                         </div>
-
-
-
                                     </div>
                                 @endforeach
                             </div>

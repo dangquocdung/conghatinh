@@ -30,50 +30,123 @@
                     </div>
 
                      <div class="loai-tin">
-                        @foreach ($tintuc as $tin)
 
-                            <div class="news-main" style="padding: 0;">
-                                <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
+                         @if (count($lt->tintuc) > 0)
+                            @foreach ($tintuc as $tin)
+                                 <div class="news-main" style="padding: 0;">
+                                    <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
 
-                                  <span class="label label-info pull-right hidden-xs" style="margin-left: 15px">{{$tin->loaitin->name}}</span>
-                                  <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}">
+                                      <span class="label label-info pull-right hidden-xs" style="margin-left: 15px">{{$tin->loaitin->name}}</span>
+                                      <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}">
 
-                                      @if (strlen(trim($tin->avatar)) > 20)
+                                          @if (strlen(trim($tin->avatar)) > 20)
 
-                                        <img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >
+                                            <img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >
 
-                                      @else
+                                          @else
 
-                                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpS3UrDgKd7jcT3BkbPkU4d0mzV7c6PRQ5JmNQIv2Mu2eQ_UpMA" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 80px; height:auto;" >
+                                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpS3UrDgKd7jcT3BkbPkU4d0mzV7c6PRQ5JmNQIv2Mu2eQ_UpMA" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 80px; height:auto;" >
 
 
-                                      @endif
+                                          @endif
 
-                                      <div class="tin_title_text">
-                                          {{$tin->name}} <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                          <div class="tin_title_text">
+                                              {{$tin->name}} <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                          </div>
+
+                                      </a>
+
+
+
+                                      <div class="tin_title_abstract" style="display:;">
+
+                                          {{ $tin->gioithieu}}
                                       </div>
 
-                                  </a>
-
-
-                              
-                                  <div class="tin_title_abstract" style="display:;">
-
-                                      {{ $tin->gioithieu}}
-                                  </div>
-
-                                    <div class="pull-right" style="padding-top: 7px;">
-                                        @foreach($tin->teptintuc as $ttt)
-                                            <a href="{{ $ttt->path }}" target="_blank">
-                                                <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
-                                            </a>
-                                        @endforeach
+                                        <div class="pull-right" style="padding-top: 7px;">
+                                            @foreach($tin->teptintuc as $ttt)
+                                                <a href="{{ $ttt->path }}" target="_blank">
+                                                    <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true" style="color:red"></i>
+                                                </a>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
 
-                          </div>
+                              </div>
+                             @endforeach
+                         @elseif (count($lt->vanban) > 0)
 
-                       @endforeach
+                             <table id="example1" class="table table-striped table-bordered table-responsive table-sm">
+                                 <thead>
+                                 <tr>
+                                     <th>
+                                         Số/Kí hiệu
+                                     </th>
+                                     <th>
+                                         Ngày ban hành
+                                     </th>
+
+                                     <th>
+                                         Nơi ban hành
+                                     </th>
+
+                                     <th class="col-md-6">
+                                         Trích yếu
+                                     </th>
+                                     <th class="col-md-1">
+                                         Đính kèm
+                                     </th>
+                                 </tr>
+                                 </thead>
+
+                                 <tbody>
+                                 @foreach($tintuc as $vb)
+                                     <tr>
+                                         <td>
+                                             <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
+                                                 {{ $vb->kihieuvb }}
+                                             </a>
+                                         </td>
+                                         <td>
+                                             {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
+                                         </td>
+                                         <td>
+                                             {{$vb->nguoiki->cqbh->name}}
+                                         </td>
+                                         <td>
+                                             {{$vb->trichyeu}}
+                                         </td>
+                                         <td>
+                                             @foreach($vb->tepvanban as $tvb)
+                                                 <a href="{{ $tvb->path }}" target="_blank">
+                                                     <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">
+                                                 </a>
+                                             @endforeach
+                                         </td>
+                                     </tr>
+                                 @endforeach
+                                 </tbody>
+                             </table>
+
+                         @elseif (count($lt->lichct) >0)
+                             <div class="lich-cong-tac">
+                                 <ul>
+                                     @foreach($tintuc as $lct)
+                                         <li>
+                                             <div class="pull-left">
+                                                 <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;{{$lct->name}}&nbsp;{{ $lct->thang }}</a>
+                                             </div>
+
+                                             <div class="pull-right">
+                                                 @if (!empty($lct->media_id))
+                                                     <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                                                 @endif
+                                             </div>
+                                         </li>
+                                     @endforeach
+                                 </ul>
+                             </div>
+                         @endif
                     </div>
 
                     @include('guest.layout.tien-ich')
