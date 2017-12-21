@@ -1,4 +1,4 @@
-<div class="menu-main hidden-lg hidden-md">
+<div class="menu-main visible-xs">
 
 <div id="top_nav" class="ddsmoothmenu">
     <ul>
@@ -14,17 +14,17 @@
         </li>
         <li class="" style="width: 20%">
             <a href="{{ url('http://congbao.hatinh.gov.vn') }}">
-                <span>Văn bản QPPL</span>
+                <span>VB QPPL</span>
             </a>
         </li>
         <li class="" style="width: 20%">
             <a href="{{ url('http://dichvucong.hatinh.gov.vn') }}">
-                <span>DVC trực tuyến</span>
+                <span>DVC TT</span>
             </a>
         </li>
         <li class="" style="width: 20%">
-            <a href="{{ route('chuyen-muc','dau-tu-phat-trien') }}">
-                <span>Đầu tư Phát triển</span>
+            <a href="{{ route('chuyen-muc','quy-hoach-chien-luoc') }}">
+                <span>ĐT-PT</span>
             </a>
         </li>
         <li class="last" style="width:8%">

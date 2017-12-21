@@ -17,11 +17,13 @@
     {{--@include('guest.home.chien-luoc')--}}
     {{--<div class="clearfix"></div>--}}
     {{--@include('guest.home.tin-tuc-su-kien')--}}
-    {{--@include('guest.home.videos')--}}
-    {{--<div class="clearfix"></div>--}}
-    {{--@include('guest.home.albums')--}}
+
+    <div class="clearfix"></div>
+    @include('guest.home.albums')
     <div class="clearfix"></div>
     @include('guest.home.to-chuc')
+    <div class="clearfix"></div>
+    @include('guest.home.videos')
 @endsection
 
 

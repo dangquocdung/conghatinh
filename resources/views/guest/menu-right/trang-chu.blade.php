@@ -74,7 +74,7 @@
                     <a href="/vi/{{ $cm->slug }}" class="icon" title="">
                         @endif
                     {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
-                    <i class="glyphicon {{$cm->icon}} gi-2x" aria-hidden="true"></i>
+                    <i class="fa {{$cm->icon}} fa-2x" aria-hidden="true"></i>
 
                     <span class="nav-text">{{ $cm->name }} </span>
                 </a>
