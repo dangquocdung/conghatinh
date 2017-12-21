@@ -31,15 +31,17 @@ body {
 
 .box {
   margin-bottom: 0 !important;
-
-  .box-default{
-
-    .box-header {
-      padding: 5px !important;
-    }
-
-  }
 }
+
+.box.box-default{
+
+  .box-header {
+    padding: 5px !important;
+  }
+
+}
+
+
 
 
 .breadcrumb{
