@@ -58,7 +58,7 @@
                                                 @if ($tin1)
                                                     <div class="col-md-12" style="float:left">
 
-                                                        <div class="col-md-7 col-sm-7 col-xs-12" >
+                                                        <div class="col-md-7 col-sm-7 col-xs-12" style="margin-bottom: 15px">
                                                             <div class="row">
                                                                 <div class="news-main" style="margin-left: -15px">
 
@@ -90,10 +90,8 @@
                                                                         <ul class="news-block">
                                                                             @foreach($tins as $tin)
                                                                                 <li>
-                                                                                    <i class="fa fa-dot-circle-o" aria-hidden="true" style="color: #ce663f"></i>
-
                                                                                     <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
-                                                                                        {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                                                        <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                                                     </a>
 
                                                                                     <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
