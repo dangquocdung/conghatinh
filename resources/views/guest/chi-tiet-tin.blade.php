@@ -133,7 +133,7 @@
 
 				<div class="lienquan-header">
 
-					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug])  }}">Các tin mới hơn</a>
+					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug])  }}">Tin mới đăng</a>
 
 				</div>
 
@@ -144,17 +144,17 @@
 							<ul>
 
 
-								{{--@foreach($tinlq_new as $tlq)--}}
+								@foreach($tin->loaitin->chuyenmuc->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tlq)
 
-									{{--<li>--}}
-										{{--<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">--}}
+									<li>
+										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
 
-											{{--<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>--}}
+											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
-										{{--</a>--}}
-									{{--</li>--}}
+										</a>
+									</li>
 
-								{{--@endforeach--}}
+								@endforeach
 
 							</ul>
 						</div>
@@ -165,7 +165,7 @@
 
 				<div class="lienquan-header">
 
-					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">Các tin cũ hơn</a>
+					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">Tin cùng loại</a>
 
 				</div>
 
@@ -176,17 +176,17 @@
 							<ul>
 
 
-								{{--@foreach($tinlq_old as $tlq)--}}
+								@foreach($tin->loaitin->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tlq)
 
-									{{--<li>--}}
-										{{--<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">--}}
+									<li>
+										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
 
-											{{--<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>--}}
+											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
-										{{--</a>--}}
-									{{--</li>--}}
+										</a>
+									</li>
 
-								{{--@endforeach--}}
+								@endforeach
 
 							</ul>
 						</div>
