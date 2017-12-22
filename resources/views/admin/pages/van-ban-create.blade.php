@@ -30,21 +30,37 @@
           <input type="hidden" name="avatar" id="avatar">
           <div class="box-body">
 
-              @php
-                  $vanban = $chuyenmuc->where('type','vb')->all();
-              @endphp
+              {{--@php--}}
+                  {{--$vanban = $chuyenmuc->where('type','vb')->all();--}}
+              {{--@endphp--}}
+
+              {{--<div class="form-group">--}}
+                  {{--<label>Chọn nhóm văn bản:</label>--}}
+                  {{--<select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;" required>--}}
+                      {{--<option value=""></option>--}}
+                      {{--@foreach ($vanban as $vb)--}}
+                          {{--<optgroup label="{{ $vb->name}}">--}}
+                          {{--@foreach($vb->loaitin as $nvb)--}}
+                                  {{--@if ($nvb->type == 'vb')--}}
+                                        {{--<option value="{{ $nvb->id }}">{{ $nvb->name }}</option>--}}
+                                  {{--@endif--}}
+                          {{--@endforeach--}}
+                          {{--</optgroup>--}}
+                      {{--@endforeach--}}
+                  {{--</select>--}}
+              {{--</div>--}}
 
               <div class="form-group">
-                  <label>Chọn nhóm văn bản:</label>
-                  <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;" required>
+
+                  <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
                       <option value=""></option>
-                      @foreach ($vanban as $vb)
-                          <optgroup label="{{ $vb->name}}">
-                          @foreach($vb->loaitin as $nvb)
-                                  @if ($nvb->type == 'vb')
-                                        <option value="{{ $nvb->id }}">{{ $nvb->name }}</option>
+                      @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
+                          <optgroup label="{{ $cm->name}}">
+                              @foreach ($cm->loaitin as $lt)
+                                  @if ($lt->type == 'tt')
+                                      <option value={{ $lt->id }}>{{ $lt->name}}</option>
                                   @endif
-                          @endforeach
+                              @endforeach
                           </optgroup>
                       @endforeach
                   </select>

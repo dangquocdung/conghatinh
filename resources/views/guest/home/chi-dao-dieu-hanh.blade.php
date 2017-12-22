@@ -424,7 +424,7 @@
 
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> {{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                            <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> {{ $lct->name }}</a>
                                                         </td>
                                                         <td>
                                                             {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}

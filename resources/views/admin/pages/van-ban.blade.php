@@ -42,7 +42,9 @@
             </thead>
             <tbody>
 
-              @foreach ($vanban as $vb)
+            @foreach ($chuyenmuc as $cm)
+
+              @foreach ($cm->vanban->sortbydesc('id') as $vb)
 
               <tr>
                 <td>{{$vb->id}}</td>
@@ -108,13 +110,14 @@
                   
                 </td>
               </tr>
+                  @endforeach
 
               @endforeach
             
             </tbody>
           </table>
 
-            {{$vanban->render()}}
+{{--            {{$vanban->render()}}--}}
         </div>
         <!-- /.box-body -->
       </div>

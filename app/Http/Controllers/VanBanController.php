@@ -17,6 +17,7 @@ use Auth;
 use App\VanBan;
 use App\TepVanBan;
 use App\LinhVuc;
+use App\ChuyenMuc;
 class VanBanController extends Controller
 {
     /**
@@ -30,18 +31,17 @@ class VanBanController extends Controller
         $this->middleware('auth');
 
         $linhvuc = LinhVuc::all();
-
-//        $banner = Banner::where('vitri','1')->orderby('thutu','asc')->get();
-
         view()->share('linhvuc',$linhvuc);
+
+        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+        view()->share('chuyenmuc',$chuyenmuc);
     }
 
 
     public function index()
     {
-        $vanban = VanBan::orderby('id','desc')->paginate(10);
         $tepvanban = TepVanBan::all();
-        return view('admin.pages.van-ban',compact('vanban','tepvanban'));
+        return view('admin.pages.van-ban',compact('tepvanban'));
     }
 
     /**

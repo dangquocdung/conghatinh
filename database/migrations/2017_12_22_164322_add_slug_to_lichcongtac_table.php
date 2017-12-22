@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddLoaitinIdToLichCongTacsTable extends Migration
+class AddSlugToLichcongtacTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,7 @@ class AddLoaitinIdToLichCongTacsTable extends Migration
     public function up()
     {
         Schema::table('lich_cong_tacs', function (Blueprint $table) {
-            $table->unsignedInteger('loaitin_id');
-            $table->foreign('loaitin_id')
-                ->references('id')->on('loaitin')
-                ->onUpdate('cascade')->onDelete('cascade');
+            $table->string('slug')->nullable();
         });
     }
 
@@ -29,8 +26,7 @@ class AddLoaitinIdToLichCongTacsTable extends Migration
     public function down()
     {
         Schema::table('lich_cong_tacs', function (Blueprint $table) {
-            $table->dropForeign('loaitin_id');
-            $table->dropColumn('loaitin_id');
+            $table->dropColumn('slug');
         });
     }
 }
