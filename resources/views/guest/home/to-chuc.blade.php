@@ -47,10 +47,10 @@
                                 @endif
 
                                 <ul>
-                                    @foreach($ncq->coquan as $cq)
+                                    @foreach($ncq->coquan->sortby('name') as $cq)
                                         <li class="col-md-3 col-sm-4 col-xs-6">
                                             <a href="{{ $cq->lienket }}" target="_blank">
-                                                <div class="news-block"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;{{ $cq->name }}</div>
+                                                <div class="news-block">{{ $loop->iteration }}.&nbsp;{{ $cq->name }}</div>
                                             </a>
                                         </li>
                                     @endforeach
