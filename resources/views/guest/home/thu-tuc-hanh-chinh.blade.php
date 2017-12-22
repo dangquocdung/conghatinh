@@ -44,7 +44,7 @@
                                             " id="{{$lt->slug}}">
 
                                         @endif
-                                        
+
                                         <!-- /.box-body -->
                                         <div class="box-footer">
                                             <div class="pull-right">

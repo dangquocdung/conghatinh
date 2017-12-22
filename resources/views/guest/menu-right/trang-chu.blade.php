@@ -64,7 +64,7 @@
 
     <div class="right_1">
 
-        @foreach($chuyenmuc as $cm)
+        @foreach($chuyenmuc->where('vitri','>','0') as $cm)
             @if (count($cm->loaitin) == 0)
             <div class="right-item">
 
