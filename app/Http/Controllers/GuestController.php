@@ -175,9 +175,11 @@ class GuestController extends Controller
         return view('guest.loai-tin', compact('lt','tintuc'));
     }
 
-    public function tinTuc($cm,$lt,$slug)
+    public function getTinTuc($cm,$lt,$slug)
     {
+
         $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
+        $type = 'tintuc';
 
         if (empty($tin)){
 
@@ -185,19 +187,60 @@ class GuestController extends Controller
 
         }
 
-        else
+        else {
 
-        {
-            $ngay = $tin->ngaydang;
+//            $ngay = $tin->ngaydang;
+//
+//            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
+//
+//            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
 
-            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
-
-            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
-
-            return view('guest.chi-tiet-tin', compact('tin','tinlq_new','tinlq_old'));
+            return view('guest.chi-tiet-tin', compact('tin','type'));
         }
 
     }
+
+
+    public function getVanBan($cm,$lt,$id,$slug)
+    {
+//
+
+//        $vb = VanBan::where('loaitin_id',$lt)->count();
+//
+//        if ($vb == 0 ){
+//
+//
+//            $tin = LichCongTac::find($id);
+//            $type = 'lichct';
+//
+//        }
+//        else {
+
+            $tin = VanBan::find($id);
+            $type = 'vanban';
+
+//        }
+
+//        return response()->json($tin);
+        if (empty($tin)){
+
+            abort(404, 'Khong tim thay trang.');
+
+        }
+//
+        else {
+
+//            $ngay = $tin->ngaydang;
+//
+//            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
+//
+//            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
+
+            return view('guest.chi-tiet-tin', compact('tin','type'));
+        }
+
+    }
+
 
     public function vanBan($slug=null)
     {

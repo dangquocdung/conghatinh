@@ -20,179 +20,334 @@
 
 		</div>
 
+		@if ($type == 'tintuc')
 
-		<div class="col-md-12">
 
-			<div class="row">
+			<div class="col-md-12">
 
-				<div class="tieu-de-tin">
+				<div class="row">
 
-					<h1 class="main-title cms-title">{{ $tin->name }}</h1>
-					<div class="meta clearfix">
-						<em>
-							<time><i class="fa fa-clock-o"></i> Đăng ngày {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s') }}</time>
-						</em>
+					<div class="tieu-de-tin">
+
+						<h1 class="main-title cms-title">{{ $tin->name }}</h1>
+						<div class="meta clearfix">
+							<em>
+								<time><i class="fa fa-clock-o"></i> Đăng ngày {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s') }}</time>
+							</em>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+
+						<div class="row">
+
+							<div id="tin-noi-bat-left" class="hidden-xs hidden-sm">
+
+								<h4 class="label">Tin nổi bật</h4>
+
+								@foreach ($tinnoibat4 as $tinnb)
+
+									<article>
+
+										<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">
+											<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
+										</a>
+
+										<h6 style="text-align: center">
+											<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
+										</h6>
+									</article>
+								@endforeach
+
+							</div>
+
+
+							<script>
+
+								$(document).ready(function () {
+
+									$('#tin-noi-bat-left').scrollToFixed({
+										marginTop: 50,
+										// neither of these fixes the problem:
+										// removeOffset, offsets
+										limit: function() {
+											var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
+											return limit;
+										},
+										removeOffsets: true,
+										zIndex: 999
+									});
+								});
+
+
+							</script>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-9">
+
+
+						<div class="chi-tiet-tin">
+
+							<div class="gioi-thieu">
+								<strong><em>{{ $tin->gioithieu }}</em></strong>
+							</div>
+
+
+							<div class="noi-dung">
+								{!! $tin->noidung !!}
+							</div>
+
+
+							@if (count($tin->teptintuc) > 0)
+								<div class="noi-dung">
+									@foreach($tin->teptintuc as $ttt)
+										<iframe src="{{ $ttt->path }}" width="100%" height="640px"> </iframe>
+									@endforeach
+								</div>
+							@endif
+
+
+
+							<div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
+								<strong>{{ $tin->tacgia  }}</strong>
+								<br>
+								@if ($tin->nguon)
+									<em><small>Nguồn: {{ $tin->nguon }}</small></em>
+								@endif
+							</div>
+						</div>
+
+						<div id="tag">
+							<ul class="tags">
+
+							</ul>
+						</div>
 					</div>
 				</div>
+				<hr>
 
-				<div class="col-md-3">
+				@include('guest.layout.tien-ich')
 
+				<div class="lienquan-header">
+
+					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug])  }}">Các tin mới hơn</a>
+
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="row">
 
-						<div id="tin-noi-bat-left" class="hidden-xs hidden-sm">
+						<div class="tin-lien-quan" style="margin-top: 10px">
+							<ul>
 
-							<h4 class="label">Tin nổi bật</h4>
 
-							@foreach ($tinnoibat4 as $tinnb)
+								{{--@foreach($tinlq_new as $tlq)--}}
 
-								<article>
+									{{--<li>--}}
+										{{--<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">--}}
 
-									<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">
-										<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
+											{{--<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>--}}
+
+										{{--</a>--}}
+									{{--</li>--}}
+
+								{{--@endforeach--}}
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="lienquan-header">
+
+					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">Các tin cũ hơn</a>
+
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+
+						<div class="tin-lien-quan" style="margin-top: 10px">
+							<ul>
+
+
+								{{--@foreach($tinlq_old as $tlq)--}}
+
+									{{--<li>--}}
+										{{--<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">--}}
+
+											{{--<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>--}}
+
+										{{--</a>--}}
+									{{--</li>--}}
+
+								{{--@endforeach--}}
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+		@elseif ($type=='vanban')
+			<div class="col-md-12">
+				<div class="dv-body">
+					<table class="dv-table">
+						<tbody>
+						<tr>
+							<td style="width:30%;">Kí hiệu văn bản</td>
+							<td>{{ $tin->kihieuvb }}</td>
+						</tr>
+						<tr>
+							<td style="width:30%;">Ngày ban hành</td>
+							<td>{{ \Carbon\Carbon::parse($tin->ngaybanhanh)->format('d-m-Y')}}</td>
+						</tr>
+						<tr>
+							<td style="width:30%;">Người kí</td>
+							<td>{{ $tin->nguoiki->name }}</td>
+						</tr>
+						<tr>
+							<td style="width:30%;">Trích yếu</td>
+							<td>{{  $tin->trichyeu}}</td>
+						</tr>
+						<tr>
+							<td style="width:30%;">Cơ quan</td>
+							<td>{{  $tin->nguoiki->cqbh->name }}</td>
+						</tr>
+						<tr>
+							<td style="width:30%;">Thể loại </td>
+							<td>{{  $tin->loaivb->name }}</td>
+						</tr>
+						<tr>
+							<td style="width:30%;">Tệp tin đính kèm</td>
+							<td>
+								@foreach($tin->tepvanban as $tvb)
+
+									<a href="{{ $tvb->path }}" target="_blank">
+
+										<img src="/images/pdf-file-512.png" alt="" width="30px" title="{{ $tin->kihieuvb }}">
+
 									</a>
+								@endforeach
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 
-									<h6 style="text-align: center">
-										<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
-									</h6>
-								</article>
-							@endforeach
-
-						</div>
-
-
-						<script>
-
-                            $(document).ready(function () {
-
-                                $('#tin-noi-bat-left').scrollToFixed({
-                                    marginTop: 50,
-                                    // neither of these fixes the problem:
-                                    // removeOffset, offsets
-                                    limit: function() {
-                                        var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
-                                        return limit;
-                                    },
-                                    removeOffsets: true,
-                                    zIndex: 999
-                                });
-                            });
+				@include('guest.layout.tien-ich')
 
 
-						</script>
 
-					</div>
+				<div class="lienquan-header">
+
+					<a href="{{ route('van-ban',$tin->loaitin->slug) }}">Văn bản cùng loại</a>
 
 				</div>
 
-				<div class="col-md-9">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+
+						<div class="tin-lien-quan" style="margin-top: 10px">
+							<ul>
+
+								@php
+
+									$lvb = $tin->loaitin;
+
+								@endphp
 
 
-					<div class="chi-tiet-tin">
 
-						<div class="gioi-thieu">
-							<strong><em>{{ $tin->gioithieu }}</em></strong>
+								@foreach($lvb->vanban as $vbcl)
+
+									@if ($vbcl->id <> $tin->id)
+
+										<li>
+											<a href="{{ route('chi-tiet-van-ban',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
+
+												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+											</a>
+										</li>
+
+									@endif
+
+								@endforeach
+
+							</ul>
 						</div>
-
-
-						<div class="noi-dung">
-							{!! $tin->noidung !!}
-						</div>
-
-
-
-						<div class="noi-dung">
-							@foreach($tin->teptintuc as $ttt)
-								<iframe src="{{ $ttt->path }}" width="100%" height="640px"> </iframe>
-							@endforeach
-						</div>
-
-
-
-						<div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
-							<strong>{{ $tin->tacgia  }}</strong>
-							<br>
-							@if ($tin->nguon)
-								<em><small>Nguồn: {{ $tin->nguon }}</small></em>
-							@endif
-						</div>
-					</div>
-
-					<div id="tag">
-						<ul class="tags">
-
-						</ul>
 					</div>
 				</div>
-			</div>
-			<hr>
 
-			@include('guest.layout.tien-ich')
+				<br>
 
-			<div class="lienquan-header">
+				<div class="lienquan-header">
 
-				<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug])  }}">Các tin mới hơn</a>
+					<a href="{{ route('van-ban') }}">Văn bản mới đăng</a>
 
-			</div>
+				</div>
 
-			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="row">
 
 					<div class="tin-lien-quan" style="margin-top: 10px">
 						<ul>
 
+							@foreach($vanban as $vbmd)
 
-							@foreach($tinlq_new as $tlq)
+								@if ($vbmd->id <> $tin->id)
 
-								<li>
-									<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
+									<li>
+										<a href="{{ route('chi-tiet-van-ban',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,$vbmd->id,$vbmd->slug]) }}">
 
-										<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
-									</a>
-								</li>
+										</a>
+									</li>
+
+								@endif
 
 							@endforeach
+
+
+
 
 						</ul>
 					</div>
 				</div>
 			</div>
-
-			<br>
-
-			<div class="lienquan-header">
-
-				<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">Các tin cũ hơn</a>
-
 			</div>
 
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="row">
+		@elseif ($type=='lichct')
+			<div class="col-md-12">
+				<div class="dv-body table-responsive" style="padding: 10px">
 
-					<div class="tin-lien-quan" style="margin-top: 10px">
-						<ul>
+					{!! $tin->noidung !!}
 
 
-							@foreach($tinlq_old as $tlq)
-
-								<li>
-									<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
-
-										<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
-
-									</a>
-								</li>
-
-							@endforeach
-
-						</ul>
-					</div>
 				</div>
+
+				<script>
+                    $(document).ready(function () {
+
+                        $('table').addClass('table table-bordered table-striped table-hover');
+                        $('table').removeAttr('style');
+
+                    })
+				</script>
+
+				@include('guest.layout.tien-ich')
 			</div>
 
-
-		</div>
-
+		@endif
 
 
 	</div>

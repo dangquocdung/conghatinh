@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Lịch công tác tháng {{$lct->thang}}</title>
+    <title>{{$lct->name}}</title>
 @endsection
 
 @section('content-main')
@@ -9,7 +9,7 @@
         <div class="portlet-header">
 
             <a href="/loai-tin/lich-cong-tac">
-                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Lịch công tác</h4>
+                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $lct->name }}</h4>
             </a>
 
 

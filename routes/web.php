@@ -59,7 +59,12 @@ Route::group(['prefix'=>'vi'], function ()
 
     Route::get('{cm}', 'GuestController@chuyenMuc')->name('chuyen-muc');
     Route::get('{cm}/{lt}', 'GuestController@loaiTin')->name('loai-tin');
-    Route::get('{cm}/{lt}/{slug}', 'GuestController@tinTuc')->name('chi-tiet-tin');
+
+    Route::get('{cm}/{lt}/{slug}', 'GuestController@getTinTuc')->name('chi-tiet-tin');
+
+    Route::get('{cm}/{lt}/{id}/{slug}', 'GuestController@getVanBan')->name('chi-tiet-van-ban');
+
+
 
 
 
