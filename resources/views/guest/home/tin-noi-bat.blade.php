@@ -42,12 +42,10 @@
                         <a href="#tinnoibat" aria-controls="tinnoibat" role="tab" data-toggle="tab"><i class="fa fa-bars"></i>  <span>Nổi bật </span></a>
                     </li>
 
-                    {{--<li role="presentation">--}}
-                        {{--<a href="#tinmoi" aria-controls="tinmoi" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  <span>Tin mới </span></a>--}}
-                    {{--</li>--}}
                     <li role="presentation">
-                        <a href="#tindocnhieu" aria-controls="tindocnhieu" role="tab" data-toggle="tab"><i class="fa fa-group"></i>  <span>Đọc nhiều</span></a>
+                        <a href="#tinmoi" aria-controls="tinmoi" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  <span>Tin mới </span></a>
                     </li>
+
                 </ul>
 
                 <!-- Tab panes -->
@@ -80,9 +78,9 @@
                     </div>
                     <div role="tabpanel" class="tab-pane" id="tinmoi">
 
-                        <div id="tin-doc-nhieu">
+                        <div id="tin-moi-nhat">
                             <ul>
-                                @foreach ($tinnoibat as $tnb)
+                                @foreach ($tin1->loaitin->chuyenmuc->tintuc->where('daduyet','1')->sortbydesc('id')->take(8) as $tnb)
                                     <li>
                                         <div class="hot-news-block">
 
@@ -105,34 +103,6 @@
                         </div>
 
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="tindocnhieu">
-
-                        <div id="tin-doc-nhieu">
-                            <ul>
-                                @foreach ($tinnoibat as $tnb)
-                                    <li>
-                                        <div class="hot-news-block">
-
-                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->slug]) }}" class="news-title">
-                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
-                                                <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                            </a>
-
-                                            <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
-
-                                            <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
-
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
-                                <a href="/vi/tin-noi-bat" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
         </div>
