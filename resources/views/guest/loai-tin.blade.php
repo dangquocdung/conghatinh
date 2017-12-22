@@ -129,23 +129,36 @@
                              </table>
 
                          @elseif (count($lt->lichct) >0)
-                             <div class="lich-cong-tac">
-                                 <ul>
-                                     @foreach($tintuc as $lct)
-                                         <li>
-                                             <div class="pull-left">
-                                                 <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> &nbsp;{{$lct->name}}&nbsp;{{ $lct->thang }}</a>
-                                             </div>
+                             <table class="table table-striped table-bordered table-responsive table-sm">
+                                 <thead>
+                                     <th>TT</th>
+                                     <th>Chương trình công tác </th>
+                                     <th>Ngày đăng </th>
+                                     <th>Tệp đính kèm</th>
+                                 </thead>
+                                 <tbody>
+                                 @foreach($tintuc as $lct)
+                                     <tr>
+                                         <td>
+                                             {{ $loop->iteration }}
 
-                                             <div class="pull-right">
-                                                 @if (!empty($lct->media_id))
-                                                     <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
-                                                 @endif
-                                             </div>
-                                         </li>
-                                     @endforeach
-                                 </ul>
-                             </div>
+                                         </td>
+                                         <td>
+                                             <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> {{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                         </td>
+                                         <td>
+                                             {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
+                                         </td>
+                                         <td>
+                                             @if (!empty($lct->media_id))
+                                                 <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-file-word-o" aria-hidden="true"></i></a>
+                                             @endif
+                                         </td>
+
+                                     </tr>
+                                 @endforeach
+                                 </tbody>
+                             </table>
                          @endif
                     </div>
 

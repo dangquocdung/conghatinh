@@ -1,4 +1,4 @@
-@foreach ($chuyenmuc->where('vitri','>','0') as $cm)
+@foreach ($chuyenmuc->where('vitri','1') as $cm)
     @if (count($cm->loaitin) > 0)
         <div class="block3">
             <div class="box box-default">
@@ -111,9 +111,10 @@
 
                                             @elseif (count($lt->vanban) >0 )
 
-                                                <table id="example1" class="table table-striped table-bordered table-responsive table-sm">
+                                                <table class="table table-striped table-bordered table-responsive table-sm">
                                                     <thead>
                                                     <tr>
+                                                        <th>TT</th>
                                                         <th>
                                                             Số/Kí hiệu
                                                         </th>
@@ -137,6 +138,10 @@
                                                     <tbody>
                                                     @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
                                                         <tr>
+                                                            <td>
+                                                                {{ $loop->iteration }}
+
+                                                            </td>
                                                             <td>
                                                                 <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
                                                                     {{ $vb->kihieuvb }}
@@ -165,23 +170,36 @@
 
                                             @elseif (count($lt->lichct) > 0)
 
-                                                <div class="lich-cong-tac">
-                                                    <ul>
-                                                        @foreach($lt->lichct->sortByDesc('thang') as $lct)
-                                                            <li style="padding: 0; border-bottom: none">
+                                                <table class="table table-striped table-bordered table-responsive table-sm">
+                                                    <thead>
+                                                        <th>TT</th>
+                                                        <th>Chương trình công tác </th>
+                                                    <th>Ngày đăng </th>
+                                                        <th>Tệp đính kèm</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($lt->lichct->sortByDesc('thang')->take(5) as $lct)
+                                                        <tr>
+                                                            <td>
+                                                                {{ $loop->iteration }}
 
-                                                                    <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> {{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> {{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                            </td>
+                                                            <td>
+                                                                {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
+                                                            </td>
+                                                            <td>
+                                                                @if (!empty($lct->media_id))
+                                                                    <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-file-word-o" aria-hidden="true"></i></a>
+                                                                @endif
+                                                            </td>
 
-
-                                                                <div class="pull-right">
-                                                                    @if (!empty($lct->media_id))
-                                                                        <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
-                                                                    @endif
-                                                                </div>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
                                         @endif
                                         <!-- /.box-body -->
                                         <div class="box-footer">
