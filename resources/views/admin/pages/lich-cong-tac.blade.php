@@ -25,11 +25,11 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive">
-          <table class="table table-bordered table-striped table-hover">
+          <table class="table table-bordered table-striped table-hover" id="tblLCT">
             <thead>
             <tr>
               <th>#</th>
-              <th>Người tạo</th>
+              <th>Loại </th>
               <th>Tháng/Năm</th>
               <th>Nội dung</th>
               <th>Tệp đính kèm</th>
@@ -41,10 +41,12 @@
             </thead>
             <tbody>
 
-            @foreach($lichct as $lct)
+            @foreach ($chuyenmuc as $cm)
+
+              @foreach ($cm->lichct->sortbydesc('id') as $lct)
               <tr>
                 <td>{{ $lct->id }}</td>
-                <td>{{ $lct->user->name }}</td>
+                <td>{{ $lct->loaitin->name }}</td>
                 <td>{{ $lct->thang }}</td>
                 <td><a href="{{ route('lich-cong-tac-show',$lct->id) }}" target="_blank">Lịch công tác tháng {{ $lct->thang }}</a></td>
                 <td>
@@ -68,6 +70,7 @@
 
                 </td>
               </tr>
+                @endforeach
             @endforeach
             </tbody>
           </table>
@@ -77,6 +80,44 @@
       {{--End box--}}
     </div>
   </div>
+@stop
+
+@section('js')
+
+  <!-- DataTables -->
+  <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script>
+      $(function () {
+          $('#tblLCT').DataTable({
+
+              "iDisplayLength": 25,
+
+              "order": [[ 0, "desc" ]],
+
+              "sType": "numeric",
+
+              "language": {
+                  "sProcessing": "Đang xử lý...",
+                  "sLengthMenu": "Hiển thị _MENU_ mục",
+                  "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+                  "sInfoPostFix": "",
+                  "sSearch": "Tìm kiếm:",
+                  "sUrl": "",
+                  "sInfoThousands": ",",
+                  "oPaginate": {
+                      "sFirst": "Đầu tiên",
+                      "sLast": "Cuối cùng",
+                      "sNext": "Sau",
+                      "sPrevious": "Trước"
+                  }
+              }
+          })
+      })
+
+
+  </script>
+
 @stop
 
 

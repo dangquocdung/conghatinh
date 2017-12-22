@@ -37,9 +37,9 @@ class LichCongTacController extends Controller
     public function index()
     {
         //
-        $lichct = LichCongTac::orderby('id','desc')->get();
+//        $lichct = LichCongTac::orderby('id','desc')->get();
 
-        return view('admin.pages.lich-cong-tac',compact('lichct'));
+        return view('admin.pages.lich-cong-tac');
     }
 
     /**

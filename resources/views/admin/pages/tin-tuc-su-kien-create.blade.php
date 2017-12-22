@@ -35,7 +35,7 @@
 
                 <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
                   <option value=""></option>
-                  @foreach ($chuyenmuc as $cm)
+                  @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
                   <optgroup label="{{ $cm->name}}">
                     @foreach ($cm->loaitin as $lt)
                         @if ($lt->type == 'tt')
@@ -50,7 +50,7 @@
               <div class="form-group">
            
 
-                <input name="name" class="form-control input-lg" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
+                <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
               </div>
 
               <div class="form-group">

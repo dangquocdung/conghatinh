@@ -19,7 +19,7 @@ class CreateLichcongtacTable extends Migration
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->string('thang');
+//            $table->string('thang');
             $table->text('noidung');
             $table->unsignedInteger('media_id')->nullable();
 

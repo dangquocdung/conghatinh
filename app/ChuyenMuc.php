@@ -27,4 +27,9 @@ class ChuyenMuc extends Model
         return $this->hasManyThrough('App\VanBan','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
     }
 
+    public function lichct()
+    {
+        return $this->hasManyThrough('App\LichCongTac','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
+    }
+
 }

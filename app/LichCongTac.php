@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LichCongTac extends Model
 {
-    protected $fillable=['user_id','thang','noidung','media_id'];
+    protected $fillable=['user_id','name','slug','noidung','media_id','loaitin_id'];
 
     public function user()
     {
@@ -16,5 +16,10 @@ class LichCongTac extends Model
     public function media()
     {
         return $this->belongsTo('App\Media','media_id','id');
+    }
+
+    public function loaitin()
+    {
+        return $this->belongsTo('App\LoaiTin','loaitin_id','id');
     }
 }
