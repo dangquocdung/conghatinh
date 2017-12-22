@@ -28,7 +28,7 @@
 
           <div class="table-responsive">
 
-            <table class="table table-bordered table-striped table-hover">
+            <table class="table table-bordered table-striped table-hover" id="tblTinTuc">
               <thead>
               <tr>
                 <th>TT</th>
@@ -50,7 +50,10 @@
               </thead>
               <tbody>
 
-              @foreach ($tintuc as $tin)
+              @foreach ($chuyenmuc as $cm)
+
+              @foreach ($cm->tintuc->sortbydesc('id') as $tin)
+
 
                 <tr>
                   <td>{{$tin->id}}</td>
@@ -156,13 +159,14 @@
                     {{-- @endif --}}
                   </td>
                 </tr>
+                @endforeach
 
               @endforeach
 
               </tbody>
             </table>
 
-            {{$tintuc->render()}}
+
           </div>
 
 
@@ -175,3 +179,41 @@
 
   </div>
 @endsection
+
+@section('js')
+
+  <!-- DataTables -->
+  <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script>
+      $(function () {
+          $('#tblTinTuc').DataTable({
+
+              "iDisplayLength": 25,
+
+              "order": [[ 0, "desc" ]],
+
+              "sType": "numeric",
+
+              "language": {
+                  "sProcessing": "Đang xử lý...",
+                  "sLengthMenu": "Hiển thị _MENU_ mục",
+                  "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+                  "sInfoPostFix": "",
+                  "sSearch": "Tìm kiếm:",
+                  "sUrl": "",
+                  "sInfoThousands": ",",
+                  "oPaginate": {
+                      "sFirst": "Đầu tiên",
+                      "sLast": "Cuối cùng",
+                      "sNext": "Sau",
+                      "sPrevious": "Trước"
+                  }
+              }
+          })
+      })
+
+
+  </script>
+
+@stop

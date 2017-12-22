@@ -13,11 +13,28 @@ use Intervention\Image\Facades\Image;
 use Plank\Mediable\Media;
 use Plank\Mediable\MediaUploader;
 use Auth;
+use App\ChuyenMuc;
 
 use App\TinTuc;
 
 class TinTucController extends Controller
 {
+
+    public function __construct()
+    {
+
+
+
+        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+
+
+
+
+
+        view()->share('chuyenmuc',$chuyenmuc);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +42,14 @@ class TinTucController extends Controller
      */
     public function index()
     {
-        $tintuc = TinTuc::orderby('id','desc')->paginate(10);
+//        $tintuc = TinTuc::orderby('id','desc')->paginate(10);
+//
+//        return view('admin.pages.tin-tuc-su-kien',compact('tintuc'));
 
-        return view('admin.pages.tin-tuc-su-kien',compact('tintuc'));
+
+
+        return view('admin.pages.tin-tuc-su-kien');
+
 
     }
 
