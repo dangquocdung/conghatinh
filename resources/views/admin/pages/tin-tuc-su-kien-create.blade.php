@@ -99,7 +99,7 @@
 
               <div class="form-group">
                   <label>Tệp đính kèm</label>
-                  <select id="tepvanban" name="teptintuc[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)" required>
+                  <select id="tepvanban" name="teptintuc[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">
                       @foreach($pdfs as $pdf)
                           <option value="{{$pdf->id}}" style="width: 100%">{{ $pdf->filename }}</option>
                       @endforeach
