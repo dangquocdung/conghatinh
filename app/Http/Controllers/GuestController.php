@@ -41,6 +41,9 @@ class GuestController extends Controller
         $phimtat = PhimTat::orderby('thutu','asc')->get();
         $loaivideo = LoaiVideo::orderby('thutu')->get();
 
+        $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
+
+
 
 
         view()->share('toppic',$toppic);
@@ -49,6 +52,7 @@ class GuestController extends Controller
         view()->share('banner',$banner);
         view()->share('phimtat',$phimtat);
         view()->share('loaivideo',$loaivideo);
+        view()->share('json_tinnoibat',$json_tinnoibat);
     }
 
     public function index()
@@ -56,10 +60,9 @@ class GuestController extends Controller
 
         $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->get();
 
-        $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
 
-        return view('guest.trang-chu', compact('tinnoibat','json_tinnoibat'));
+        return view('guest.trang-chu', compact('tinnoibat'));
 
     }
 

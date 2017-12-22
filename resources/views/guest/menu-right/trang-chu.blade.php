@@ -7,7 +7,7 @@
     <div class="block4">
 
 
-       
+
             @include(('guest.menu-right.scrollingtext'))
 
 
