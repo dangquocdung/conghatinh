@@ -156,7 +156,7 @@ class TinTucController extends Controller
 
         flash('Thêm bản tin thành công');
 
-        return redirect()->back();
+        return redirect()->route('tin-tuc-su-kien');
     }
 
     /**
