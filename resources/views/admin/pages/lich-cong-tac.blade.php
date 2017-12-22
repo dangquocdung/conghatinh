@@ -48,7 +48,7 @@
                 <td>{{ $lct->id }}</td>
                 <td>{{ $lct->loaitin->name }}</td>
                 <td>{{ $lct->thang }}</td>
-                <td><a href="{{ route('lich-cong-tac-show',$lct->id) }}" target="_blank">Lịch công tác tháng {{ $lct->thang }}</a></td>
+                <td><a href="{{ route('lich-cong-tac-show',$lct->id) }}" target="_blank">{{ $lct->name }}</a></td>
                 <td>
                   @if (!empty($lct->media_id))
                     <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
