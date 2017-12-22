@@ -33,17 +33,6 @@
 
                                   <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug])}}">
 
-                                      {{--@if ($cm->slug <> 'doanh-nghiep-du-an')--}}
-
-                                          {{--<img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >--}}
-
-                                      {{--@else--}}
-
-                                          {{--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWpS3UrDgKd7jcT3BkbPkU4d0mzV7c6PRQ5JmNQIv2Mu2eQ_UpMA" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 80px; height:auto;" >--}}
-
-
-                                      {{--@endif--}}
-
                                       @if (strlen(trim($tin->avatar)) > 20)
                                           <img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >
                                       @else
@@ -57,7 +46,6 @@
                                   </a>
 
                                   <div class="tin_title_abstract" style="display:;">
-
                                       {{ $tin->gioithieu}}
                                   </div>
 
@@ -69,12 +57,29 @@
                                     @endforeach
                                 </div>
                             </div>
+                        </div>
+                    @endforeach
+                    <div class="clearfix"></div>
+                @elseif (count($lt->vanban) > 0)
+                    <div class="lienquan-header" style="margin-bottom: 10px">
+                        <a href="{{ route('loai-tin',[$cm->slug, $lt->slug])  }}">{{ $lt->name }}</a>
+                    </div>
+                    <br>
+                @elseif (count($lt->lichct) > 0)
+                    <div class="lienquan-header" style="margin-bottom: 10px">
+                        <a href="{{ route('loai-tin',[$cm->slug, $lt->slug])  }}">{{ $lt->name }}</a>
+                    </div>
+                    <br>
+                    @foreach($lt->lichct as $lct)
+                        <div class="pull-left">
+                            <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug, $lct->id, $lct->slug]) }}">{{ $lct->name }}</a>
+                        </div>
 
-
-
-                      </div>
-
-
+                        <div class="pull-right">
+                            @if (!empty($lct->media_id))
+                                <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                            @endif
+                        </div>
                     @endforeach
                     <div class="clearfix"></div>
                 @endif

@@ -143,7 +143,7 @@
 
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
+                                                                <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug,$vb->id,$vb->slug]) }}" class="news-title bold">
                                                                     {{ $vb->kihieuvb }}
                                                                 </a>
                                                             </td>
@@ -382,7 +382,7 @@
 
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
+                                                            <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug,$vb->id,$vb->slug]) }}" class="news-title bold">
                                                                 {{ $vb->kihieuvb }}
                                                             </a>
                                                         </td>
