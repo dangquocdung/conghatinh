@@ -203,7 +203,7 @@ class GuestController extends Controller
         }
         elseif ($vb > 0){
 
-            $tin = TinTuc::find($slug)->where('daduyet','1')->first();
+            $tin = VanBan::find($slug)->where('daduyet','1')->first();
             $type = 'vanban';
 
         }elseif ($vbk > 0 ){
@@ -214,16 +214,11 @@ class GuestController extends Controller
         }
 
 
-
-
-
         if (empty($tin)){
 
             abort(404, 'Khong tim thay trang.');
 
-        }
-
-        else {
+        } else {
 
             return view('guest.chi-tiet-tin', compact('tin','type'));
         }

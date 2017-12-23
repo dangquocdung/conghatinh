@@ -4,22 +4,36 @@
 @endsection
 
 @section('content-main')
+    <!-- Main content -->
+    <section class="content">
+        <div class="error-page">
+            <h2 class="headline text-yellow"> 404</h2>
 
+            <div class="error-content">
+                <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
 
+                <p>
+                    We could not find the page you were looking for.
+                    Meanwhile, you may <a href="/">return to dashboard</a> or try using the search form.
+                </p>
 
+                <form class="search-form">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search">
 
-                <img src="https://blog.socioboard.com/wp-content/uploads/2016/02/design-error-message-240.png" alt="" width="100%" style="padding-top: 15px;">
-
-
-
-                    <div class="tien-ich">
-                        <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
+                        <div class="input-group-btn">
+                            <button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-
-
-
-
-
+                    <!-- /.input-group -->
+                </form>
+            </div>
+            <!-- /.error-content -->
+        </div>
+        <!-- /.error-page -->
+    </section>
+    <!-- /.content -->
 @stop
 
 @section('content-right')
