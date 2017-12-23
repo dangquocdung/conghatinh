@@ -71,6 +71,28 @@
                   <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
               </div>
 
+              <div class="checkbox">
+                  <label>
+                      <input type="checkbox" name="tinanh" onclick="$(this).val(this.checked ? 1 : 0)"
+
+                             @if ($tintuc->tinanh == 1)
+                                checked
+                             @endif
+
+                      > Tin ảnh
+                  </label>
+                  &nbsp;&nbsp;
+                  <label>
+                      <input type="checkbox" name="tinvideo" onclick="$(this).val(this.checked ? 1 : 0)"
+
+                             @if ($tintuc->tinvideo == 1)
+                             checked
+                              @endif
+
+                      > Tin video
+                  </label>
+              </div>
+
               <div class="form-group">
                   <textarea class="form-control" name="gioithieu" rows="3" cols="80" required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;">{{ $tintuc->gioithieu }}</textarea>
               </div>
