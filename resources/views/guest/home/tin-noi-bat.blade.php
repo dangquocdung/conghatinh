@@ -24,7 +24,7 @@
 
                 <div class="hot-news-title" style="display: block; text-align: center">
                     <h3>
-                        <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">{{ $tin1->name }}</a>
+                        <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->id,$tin1->slug]) }}">{{ $tin1->name }}</a>
                     </h3>
                 </div>
                 <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
@@ -57,7 +57,7 @@
                                     <li>
                                         <div class="hot-news-block">
 
-                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->slug]) }}" class="news-title">
+                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->id,$tnb->slug]) }}" class="news-title">
                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
                                                 <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                 @if ($tnb->tinanh == '1')
@@ -94,7 +94,7 @@
                                     <li>
                                         <div class="hot-news-block">
 
-                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->slug]) }}" class="news-title">
+                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->id,$tnb->slug]) }}" class="news-title">
                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
                                                 <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                             </a>
