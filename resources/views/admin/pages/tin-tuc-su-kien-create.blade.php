@@ -219,7 +219,7 @@
         
 
     // CKEDITOR.replace( 'gioi-thieu' );
-    CKEDITOR.replace( 'noi-dung' );
+    CKEDITOR.replace('noi-dung');
 
 
     $(document).ready(function() {

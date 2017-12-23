@@ -44,4 +44,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.language = 'vi';
 
 	config.uiColor = '#AADC6E';
+
+    //html5 video
+    config.extraPlugins = 'html5video';
 };
