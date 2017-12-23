@@ -183,7 +183,7 @@ class GuestController extends Controller
         return view('guest.loai-tin', compact('lt','tintuc'));
     }
 
-    public function getTinTuc($cm,$lt,$slug)
+    public function getTinTuc($cm,$lt,$id,$slug)
     {
 
         $loaitin = LoaiTin::where('slug',$lt)->first();

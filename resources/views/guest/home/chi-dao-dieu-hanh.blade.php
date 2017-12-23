@@ -79,7 +79,7 @@
 
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,$vb->id]) }}" class="news-title bold">
+                                                                <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,$vb->id,$vb->slug]) }}" class="news-title bold">
                                                                     {{ $vb->kihieuvb }}
                                                                 </a>
                                                             </td>
@@ -120,7 +120,7 @@
 
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,$lct->id]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                                <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
                                                             </td>
                                                             <td>
                                                                 {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
@@ -236,7 +236,7 @@
                                                     <div class="row">
                                                         <div class="news-main" style="margin-left: -15px">
 
-                                                            <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">
+                                                            <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->id,$tin1->slug]) }}">
                                                                 <div class="tin_title_text">
                                                                     {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                                 </div>
@@ -264,7 +264,7 @@
                                                                 <ul class="news-block">
                                                                     @foreach($tins as $tin)
                                                                         <li>
-                                                                            <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
+                                                                            <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->id,$tin->slug]) }}" class="news-title">
                                                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                                             </a>
 
