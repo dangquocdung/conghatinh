@@ -51,15 +51,12 @@
               {{--</div>--}}
 
               <div class="form-group">
-
                   <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
                       <option value=""></option>
                       @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
                           <optgroup label="{{ $cm->name}}">
                               @foreach ($cm->loaitin as $lt)
-                                  @if ($lt->type == 'tt')
-                                      <option value={{ $lt->id }}>{{ $lt->name}}</option>
-                                  @endif
+                                  <option value={{ $lt->id }}>{{ $lt->name}}</option>
                               @endforeach
                           </optgroup>
                       @endforeach
@@ -67,41 +64,25 @@
               </div>
 
               <div class="form-group">
-                  <label>Chọn loại văn bản</label>
-
-                    <select class="form-control select2" name="loaivb_id" data-placeholder="Chọn loại văn bản" style="width: 100%;" required>
-
-                      <option value=""></option>
-                      @foreach($loaivb as $lvb)
-                          <option value="{{ $lvb->id }}">{{ $lvb->name }}</option>
-                      @endforeach
-
-                  </select>
+                  <input name="kihieuvb" class="form-control" type="text" placeholder="Số (Kí hiệu) văn bản" required>
               </div>
 
-              <div class="form-group">
-
-                <input name="kihieuvb" class="form-control" type="text" placeholder="Số (Kí hiệu) văn bản" style="font-weight: bold; font-size: 1.5em" required="">
-              </div>
-
-              <div class="form-group">
-                  <div class='input-group date' id='datetimepicker_ngaydang'>
-                      <input name="ngaydang" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
-                      <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                  </div>
-              </div>
+              {{--<div class="form-group">--}}
+                  {{--<div class='input-group date' id='datetimepicker_ngaydang'>--}}
+                      {{--<input name="ngaydang" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>--}}
+                      {{--<span class="input-group-addon">--}}
+                            {{--<span class="glyphicon glyphicon-calendar"></span>--}}
+                        {{--</span>--}}
+                  {{--</div>--}}
+              {{--</div>--}}
 
 
               <div class="form-group">
-
-                <textarea class="form-control" name="trichyeu" rows="3" cols="80" placeholder="Trích yếu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
+                  <textarea class="form-control" name="trichyeu" rows="3" cols="80" placeholder="Trích yếu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
               </div>
 
               <!-- Date -->
               <div class="form-group">
-                  <label>Ngày ban hành</label>
                   <div class='input-group date' id='datetimepicker_ngaybanhanh'>
                       <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}" required/>
                       <span class="input-group-addon">
@@ -112,8 +93,6 @@
               </div>
 
               <div class="form-group">
-                  <label>Người kí</label>
-
                   <select name="nguoiki_id" id="nguoiki" class="form-control select2" data-placeholder="Chọn người kí" data-rel="chosen" required="">
                       <option value=""></option>
 

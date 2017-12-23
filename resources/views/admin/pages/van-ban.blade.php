@@ -30,10 +30,8 @@
               <tr>
                 <th>#</th>
                 <th>Số văn bản</th>
-                <th>Nhóm</th>
                 <th>Loại văn bản</th>
                 <th>Ngày ban hành</th>
-                <th>Ngày đăng</th>
                 <th>Trích yếu</th>
                 <th>Người kí</th>
                 <th>Tệp văn bản</th>
@@ -71,9 +69,7 @@
                   @endif
                 </td>
                 <td>{{$vb->loaitin->name}}</td>
-                <td>{{$vb->loaivb->name}}</td>
                 <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y') }}</td>
-                <td>{{ \Carbon\Carbon::parse($vb->ngaydang)->format('d-m-Y H:i:s') }}</td>
                 
                 <td>{{$vb->trichyeu}}</td>
                 <td>{{ $vb->nguoiki->name }}</td>

@@ -62,7 +62,7 @@ Route::group(['prefix'=>'vi'], function ()
 
     Route::get('{cm}/{lt}/{slug}', 'GuestController@getTinTuc')->name('chi-tiet-tin');
 
-    Route::get('{cm}/{lt}/{id}/{slug}', 'GuestController@getVanBan')->name('chi-tiet-van-ban');
+//    Route::get('{cm}/{lt}/{id}/{slug}', 'GuestController@getVanBan')->name('chi-tiet-van-ban');
 
 });
 
@@ -149,8 +149,15 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     //Lich cong tac
 
-    Route::group(['prefix'=>'lich'],function () {
-        Route::resource('lich-cong-tac', 'LichCongTacController');
+    //Van ban
+    Route::group(['prefix'=>'van-ban-khac'],function (){
+        Route::get('/tat-ca','VanBanKhacController@index')->name('index-van-ban-khac');
+        Route::get('/them-van-ban-khac','VanBanKhacController@create')->name('tao-van-ban-khac');
+        Route::post('/them-van-ban-khac','VanBanKhacController@store')->name('them-van-ban-khac');
+        Route::get('/edit-van-ban-khac/{id}','VanBanKhacController@edit')->name('edit-van-ban-khac');
+//        Route::post('/update-van-ban','VanBanController@update')->name('update-van-ban');
+//        Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
+//        Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
     });
 
     Route::get('/json-tepdinhkem','LichCongTacController@jsonTepDinhKem');

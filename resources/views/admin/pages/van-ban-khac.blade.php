@@ -56,14 +56,14 @@
                 <td>
 
                   <div class="pull-left">
-                    <a href="{{route('lich-cong-tac.edit', $lct->id)}}" class="btn btn-primary btn-xs">
+                    <a href="{{route('edit-van-ban-khac', $lct->id)}}" class="btn btn-primary btn-xs">
                       <i class="fa fa-edit"></i> Sửa
                     </a>
                   </div>
                   <div class="pull-left gap-left gap-10">
-                    {!! Form::open(['method' => 'DELETE','route' => ['lich-cong-tac.destroy', $lct->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
-                    {!! Form::close() !!}
+                    {{--{!! Form::open(['method' => 'DELETE','route' => ['van-ban-khac.destroy', $lct->id],'style'=>'display:inline']) !!}--}}
+                    {{--{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}--}}
+                    {{--{!! Form::close() !!}--}}
                   </div>
 
                 </td>

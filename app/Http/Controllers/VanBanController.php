@@ -68,12 +68,11 @@ class VanBanController extends Controller
         $vb->user_id = Auth::user()->id;
 
         $vb->loaitin_id = $request->loaitin_id;
-        $vb->loaivb_id = $request->loaivb_id;
         $vb->kihieuvb = $request->kihieuvb;
         $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
         $vb->nguoiki_id = $request->nguoiki_id;
         $vb->trichyeu = $request->trichyeu;
-        $vb->ngaydang = Carbon::parse($request->ngaydang);
+        $vb->slug = str_slug($request->kihieuvb);
 
         $vb->save();
 
@@ -152,6 +151,7 @@ class VanBanController extends Controller
         $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
         $vb->nguoiki_id = $request->nguoiki_id;
         $vb->trichyeu = $request->trichyeu;
+        $vb->slug = str_slug($request->kihieuvb);
         $vb->ngaydang = Carbon::parse($request->ngaydang);
 
         $vb->save();

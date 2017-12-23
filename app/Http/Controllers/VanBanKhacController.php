@@ -11,7 +11,7 @@ use App\PhimTat;
 use App\ChuyenMuc;
 use App\Banner;
 
-class LichCongTacController extends Controller
+class VanBanKhacController extends Controller
 {
     public function __construct()
     {
@@ -39,7 +39,7 @@ class LichCongTacController extends Controller
         //
 //        $lichct = LichCongTac::orderby('id','desc')->get();
 
-        return view('admin.pages.lich-cong-tac');
+        return view('admin.pages.van-ban-khac');
     }
 
     /**
@@ -50,7 +50,7 @@ class LichCongTacController extends Controller
     public function create()
     {
 
-        return view('admin.pages.lich-cong-tac-create');
+        return view('admin.pages.van-ban-khac-create');
     }
 
     public function jsonTepDinhKem(){
@@ -75,11 +75,13 @@ class LichCongTacController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->slug = str_slug($request->name);
         LichCongTac::create($request->all());
 
         flash('Tạo lịch công tác thành công!');
 
-        return redirect()->route('lich-cong-tac.index');
+        return redirect()->route('index-van-ban-khac');
     }
 
     /**
@@ -104,7 +106,7 @@ class LichCongTacController extends Controller
     {
         $lct=LichCongTac::find($id);
 
-        return view('admin.pages.lich-cong-tac-edit',compact('lct'));
+        return view('admin.pages.van-ban-khac-edit',compact('lct'));
     }
 
     /**
@@ -121,7 +123,7 @@ class LichCongTacController extends Controller
 
             flash('Sửa lịch công tác thành công!');
 
-            return redirect()->route('lich-cong-tac.index');
+            return redirect()->route('van-ban-khac.index');
 
 
         }

@@ -68,21 +68,21 @@
         </ul>
       </li>
 
-      <li class="{{ Request::is('toa-soan/lich/*') ? 'active' : ''  }} treeview">
+      <li class="{{ Request::is('toa-soan/van-ban-khac/*') ? 'active' : ''  }} treeview">
 
         <a href="javascript:void(0)">
-          <i class="fa fa-calendar"></i> <span> Lịch công tác</span>
+          <i class="fa fa-calendar"></i> <span> Văn bản khác </span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>
 
         <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/lich/lich-cong-tac/create') ? 'active' : ''  }}">
-            <a href="{{route('lich-cong-tac.create')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
+          <li class="{{ Request::is('toa-soan/van-ban-khac/them-van-ban-khac') ? 'active' : ''  }}">
+            <a href="{{route('tao-van-ban-khac')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
           </li>
-          <li class="{{ Request::is('toa-soan/lich/lich-cong-tac') ? 'active' : ''  }}">
-            <a href="{{route('lich-cong-tac.index')}}"><i class="fa fa-circle-o"></i><span> Tất cả</span></a>
+          <li class="{{ Request::is('toa-soan/van-ban-khac/tat-ca') ? 'active' : ''  }}">
+            <a href="{{route('index-van-ban-khac')}}"><i class="fa fa-circle-o"></i><span> Tất cả</span></a>
           </li>
         </ul>
       </li>
