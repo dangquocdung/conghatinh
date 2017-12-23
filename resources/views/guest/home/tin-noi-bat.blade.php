@@ -60,12 +60,12 @@
                                             <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,'tin-tuc',$tnb->id,$tnb->slug]) }}" class="news-title">
                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
                                                 <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                                @if ($tnb->tinanh == '1')
-                                                    &nbsp;<i class="fa fa-picture-o"></i>
+                                                @if ($tin->tinanh == '1')
+                                                    &nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
 
-                                                    @endif
-                                                @if ($tnb->tinvideo == '1')
-                                                    &nbsp;<i class="fa fa-film"></i>
+                                                @endif
+                                                @if ($tin->tinvideo == '1')
+                                                    &nbsp;<i class="fa fa-film" title="Tin Video "></i>
 
                                                 @endif
 

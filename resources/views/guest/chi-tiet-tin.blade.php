@@ -51,12 +51,12 @@
 
 										<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">
 											<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
-											@if ($tinnb->tinanh == '1')
-												&nbsp;<i class="fa fa-picture-o"></i>
+											@if ($tin->tinanh == '1')
+												&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
 
 											@endif
-											@if ($tinnb->tinvideo == '1')
-												&nbsp;<i class="fa fa-film"></i>
+											@if ($tin->tinvideo == '1')
+												&nbsp;<i class="fa fa-film" title="Tin Video "></i>
 
 											@endif
 										</a>
@@ -157,7 +157,18 @@
 									<li>
 										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,'tin-tuc',$tlq->id,$tlq->slug])}}">
 
-											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+											<div class="news-block" style="line-height: 25px">
+												<i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small>
+												@if ($tin->tinanh == '1')
+													&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
+
+												@endif
+												@if ($tin->tinvideo == '1')
+													&nbsp;<i class="fa fa-film" title="Tin Video "></i>
+
+												@endif
+											</div>
+
 
 										</a>
 									</li>
@@ -189,7 +200,17 @@
 									<li>
 										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,'tin-tuc',$tlq->id,$tlq->slug])}}">
 
-											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+											<div class="news-block" style="line-height: 25px">
+												<i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small>
+												@if ($tin->tinanh == '1')
+													&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
+
+												@endif
+												@if ($tin->tinvideo == '1')
+													&nbsp;<i class="fa fa-film" title="Tin Video "></i>
+
+												@endif
+											</div>
 
 										</a>
 									</li>
