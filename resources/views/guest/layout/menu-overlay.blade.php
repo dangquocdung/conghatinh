@@ -18,12 +18,41 @@
 <div id="side-menu">
     <ul id="navigation">
         <li class="home"><a href="/" title="Trang chủ"><span><i class="glyphicon glyphicon-home"></i></span></a></li>
+
+        <li class="search"><a href="javascript:void(0);" title="Tìm kiếm" data-toggle="modal" data-target="#mdlTimKiem">
+                <span><i class="glyphicon glyphicon-search"></i></span></a>
+        </li>
+
         <li class="search"><a href="javascript:void(0);" title="Phóng to " onclick="resizeText(1)"><span><i class="glyphicon glyphicon-zoom-in"></i></span></a></li>
         <li class="search"><a href="javascript:void(0);" title="Thu nhỏ " onclick="resizeText(-1)"><span><i class="glyphicon glyphicon-zoom-out"></i></span></a></li>
         {{--<li class="home"><a href="javascript:void(0);" title="Tải lại trang " onclick="location.reload();"><span><i class="glyphicon glyphicon-refresh"></i></span></a></li>--}}
         <li class="contact"><a href="/vi/so-do-cong" title="Sơ đồ cổng "><span><i class="fa fa-sitemap" aria-hidden="true"></i></span></a></li>
     </ul>
 </div>
+
+<div class="modal fade" id="mdlTimKiem">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tìm kiếm thông tin </h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    <input type="email" class="form-control" placeholder="Nội dung tìm kiếm ">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Tìm kiếm </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <script>
     $(function() {
