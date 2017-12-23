@@ -24,14 +24,14 @@
 
                     <br>
 
-                    @foreach ($lt->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tin)
+                    @foreach ($lt->tintuc->where('daduyet','1')->sortbydesc('id') as $tin)
 
                         <div class="news-main" style="padding: 0">
                             <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
 
                                   <span class="label label-info pull-right hidden-xs" style="margin-left: 15px;">{{$tin->loaitin->name}}</span>
 
-                                  <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug])}}">
+                                  <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug])}}">
 
                                       @if (strlen(trim($tin->avatar)) > 20)
                                           <img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >
@@ -64,23 +64,101 @@
                     <div class="lienquan-header" style="margin-bottom: 10px">
                         <a href="{{ route('loai-tin',[$cm->slug, $lt->slug])  }}">{{ $lt->name }}</a>
                     </div>
+
+                    <table class="table table-striped table-bordered table-responsive table-sm">
+                        <thead>
+                        <tr>
+                            <th>TT</th>
+                            <th>
+                                Số/Kí hiệu
+                            </th>
+                            <th>
+                                Ngày ban hành
+                            </th>
+
+                            <th>
+                                Nơi ban hành
+                            </th>
+
+                            <th class="col-md-6">
+                                Trích yếu
+                            </th>
+                            <th class="col-md-1">
+                                Đính kèm
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
+                            <tr>
+                                <td>
+                                    {{ $loop->iteration }}
+
+                                </td>
+                                <td>
+                                    <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban',$vb->id,$vb->slug]) }}" class="news-title bold">
+                                        {{ $vb->kihieuvb }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
+                                </td>
+                                <td>
+                                    {{$vb->nguoiki->cqbh->name}}
+                                </td>
+                                <td>
+                                    {{$vb->trichyeu}}
+                                </td>
+                                <td>
+                                    @foreach($vb->tepvanban as $tvb)
+                                        <a href="{{ $tvb->path }}" target="_blank">
+                                            <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">
+                                        </a>
+                                    @endforeach
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+
                     <br>
                 @elseif (count($lt->lichct) > 0)
                     <div class="lienquan-header" style="margin-bottom: 10px">
                         <a href="{{ route('loai-tin',[$cm->slug, $lt->slug])  }}">{{ $lt->name }}</a>
                     </div>
                     <br>
-                    @foreach($lt->lichct as $lct)
-                        <div class="pull-left">
-                            <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug, $lct->id, $lct->slug]) }}">{{ $lct->name }}</a>
-                        </div>
+                    <table class="table table-striped table-bordered table-responsive table-sm">
+                        <thead>
+                        <th>TT</th>
+                        <th>Chương trình công tác </th>
+                        <th>Ngày đăng </th>
+                        <th>Tệp đính kèm</th>
+                        </thead>
+                        <tbody>
+                        @foreach($lt->lichct->sortByDesc('id') as $lct)
+                            <tr>
+                                <td>
+                                    {{ $loop->iteration }}
 
-                        <div class="pull-right">
-                            @if (!empty($lct->media_id))
-                                <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
-                            @endif
-                        </div>
-                    @endforeach
+                                </td>
+                                <td>
+                                    <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                </td>
+                                <td>
+                                    {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
+                                </td>
+                                <td>
+                                    @if (!empty($lct->media_id))
+                                        <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-file-word-o" aria-hidden="true"></i></a>
+                                    @endif
+                                </td>
+
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                     <div class="clearfix"></div>
                 @endif
             @endforeach
