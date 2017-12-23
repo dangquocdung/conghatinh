@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="col-md-5 hidden-xs">
+        <div class="col-md-5 col-xs-12">
 
             <div class="card">
                 <ul class="nav nav-tabs" role="tablist">
