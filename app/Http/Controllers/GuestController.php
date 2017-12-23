@@ -189,15 +189,15 @@ class GuestController extends Controller
         switch ($type){
 
             case 'tin-tuc':
-                $tin = TinTuc::find($id)->where('daduyet','1')->first();
+                $tin = TinTuc::where('daduyet','1')->find($id);
                 break;
 
             case 'van-ban':
-                $tin = VanBan::find($id)->where('daduyet','1')->first();
+                $tin = VanBan::where('daduyet','1')->find($id);
                 break;
 
             case 'van-ban-khac':
-                $tin = LichCongTac::find($id)->where('daduyet','1')->first();
+                $tin = LichCongTac::where('daduyet','1')->find($id);
                 break;
         }
 
@@ -210,7 +210,7 @@ class GuestController extends Controller
 
 //            return view('guest.chi-tiet-tin', compact('tin','type'));
 
-            return json($tin);
+            return response()->json($tin);
         }
 
     }
