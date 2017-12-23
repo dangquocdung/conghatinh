@@ -248,7 +248,7 @@
 
 				<div class="lienquan-header">
 
-					<a href="{{ route('van-ban',$tin->loaitin->slug) }}">Văn bản cùng loại</a>
+					<a href="#">Văn bản cùng loại</a>
 
 				</div>
 
@@ -291,7 +291,7 @@
 
 				<div class="lienquan-header">
 
-					<a href="{{ route('van-ban') }}">Văn bản mới đăng</a>
+					<a href="#">Văn bản mới đăng</a>
 
 				</div>
 
@@ -328,12 +328,17 @@
 
 		@elseif ($type=='lichct')
 			<div class="col-md-12">
+
 				<div class="dv-body table-responsive" style="padding: 10px">
+
+
 
 					{!! $tin->noidung !!}
 
 
 				</div>
+
+
 
 				<script>
                     $(document).ready(function () {

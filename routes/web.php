@@ -8,14 +8,14 @@ Route::group(['prefix'=>'vi'], function ()
 {
     Route::get('tin-noi-bat', 'GuestController@tinNoiBat');
 
-    Route::group(['prefix'=>'chi-dao-dieu-hanh'], function () {
-
-        Route::get('lich-cong-tac-lanh-dao-ubnd-tinh', 'GuestController@getLLV')->name('get-lich-cong-tac');
-        Route::get('lich-cong-tac-lanh-dao-ubnd-tinh/{id}', 'GuestController@showLLV')->name('lich-cong-tac-show');
-
-        Route::get('van-ban-cd-dh', 'GuestController@getVBCDDH')->name('get-van-ban-chi-dao-dieu-hanh');
-
-    });
+//    Route::group(['prefix'=>'chi-dao-dieu-hanh'], function () {
+//
+//        Route::get('lich-cong-tac-lanh-dao-ubnd-tinh', 'GuestController@getLLV')->name('get-lich-cong-tac');
+//        Route::get('lich-cong-tac-lanh-dao-ubnd-tinh/{id}', 'GuestController@showLLV')->name('lich-cong-tac-show');
+//
+//        Route::get('van-ban-cd-dh', 'GuestController@getVBCDDH')->name('get-van-ban-chi-dao-dieu-hanh');
+//
+//    });
 
     Route::get('lien-he-cong-tac', 'GuestController@getLienHeCongTac')->name('lien-he-cong-tac');
     Route::post('lien-he-cong-tac', 'LienHeController@store')->name('post-lien-he-cong-tac');
@@ -51,9 +51,9 @@ Route::group(['prefix'=>'vi'], function ()
     });
 
 
-    Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
-
-    Route::get('van-ban/{slug}/{id}', 'GuestController@ctVanBan')->name('chi-tiet-van-ban');
+//    Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
+//
+//    Route::get('van-ban/{slug}/{id}', 'GuestController@ctVanBan')->name('chi-tiet-van-ban');
 
     Route::get('tim-kiem', 'GuestController@getTimKiem')->name('tim-kiem');
 
@@ -63,10 +63,6 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('{cm}/{lt}/{slug}', 'GuestController@getTinTuc')->name('chi-tiet-tin');
 
     Route::get('{cm}/{lt}/{id}/{slug}', 'GuestController@getVanBan')->name('chi-tiet-van-ban');
-
-
-
-
 
 });
 

@@ -103,7 +103,7 @@
                                  @foreach($tintuc as $vb)
                                      <tr>
                                          <td>
-                                             <a href="{{ route('chi-tiet-van-ban',[$lt->slug,$vb->id]) }}" class="news-title bold">
+                                             <a href="{{ route('chi-tiet-van-ban',[$lt->chuyenmuc->slug,$lt->slug,$vb->id,$vb->slug]) }}" class="news-title bold">
                                                  {{ $vb->kihieuvb }}
                                              </a>
                                          </td>
