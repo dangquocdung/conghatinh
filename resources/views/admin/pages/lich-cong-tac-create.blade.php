@@ -34,37 +34,30 @@
           </div>
 
 
-
-        <form action="{{ route('lich-cong-tac.store') }}" method="post" id="role-save-form">
+          <form action="{{ route('lich-cong-tac.store') }}" method="post" id="role-save-form">
           {{csrf_field()}}
-          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+              
           <div class="modal-body">
-
               <div class="form-group">
-
-                  <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
-                      <option value=""></option>
-                      @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
-                          <optgroup label="{{ $cm->name}}">
-                              @foreach ($cm->loaitin as $lt)
-                                  @if ($lt->type == 'tt')
-                                      <option value={{ $lt->id }}>{{ $lt->name}}</option>
-                                  @endif
-                              @endforeach
-                          </optgroup>
-                      @endforeach
-                  </select>
+                <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+                  <option value=""></option>
+                  @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
+                      <optgroup label="{{ $cm->name}}">
+                          @foreach ($cm->loaitin as $lt)
+                              @if ($lt->type == 'tt')
+                                  <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                              @endif
+                          @endforeach
+                      </optgroup>
+                  @endforeach
+                </select>
               </div>
 
-              <div class="form-group">
-                  <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
-              </div>
+            <div class="form-group">
+              <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
+            </div>
 
-            {{--<div class="form-group">--}}
-              {{--<label for="">Chọn tháng:</label>--}}
-              {{--<input type="month" name="tuan" id="tuan" class="form-control" required>--}}
-              {{--<input id="thang" name="thang" class="form-control" type="text" />--}}
-            {{--</div>--}}
             <div class="form-group">
               <label>Tệp đính kèm</label>
                 <div class="pull-right">
@@ -79,18 +72,16 @@
                   </option>
                 @endforeach
               </select>
-
-
             </div>
-
-
 
             <div class="form-group">
               <label for="">Nội dung:</label>
               <textarea id="noi-dung" name="noidung" required></textarea>
               <div class="HelpText error">{{$errors->first('noidung')}}</div>
             </div>
+
           </div>
+
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Lưu</button>
           </div>
@@ -118,8 +109,6 @@
       // CKEDITOR.replace( 'gioi-thieu' );
       CKEDITOR.replace( 'noi-dung' );
 
-      // $("input:file, input:checkbox").uniform();
-
       $(document).ready(function() {
 
           $('.select2').select2({
@@ -130,13 +119,6 @@
       });
 
       $(document).ready(function() {
-          // Default functionality.
-    //              $('#thang').MonthPicker({
-    //                  i18n: {
-    //                      year: 'năm',
-    //                      months: ['Th. 1','Th. 2','Th. 3','Th. 4','Th. 5','Th. 6','Th. 7','Th. 8','Th. 9','Th. 10','Th. 11','Th. 12']
-    //                  }
-    //              });
 
           $('#btnThem').click(function () {
 
@@ -149,33 +131,25 @@
                   $('#tai-tep').css('display','none');
 
               }
-
-
-
           })
 
           $('#btnRefresh').click(function (e) {
-
 
               console.log(e);
 
 
               $.get('/toa-soan/json-tepdinhkem', function (data) {
+
                   console.log(data);
+
                   $('select#tepdinhkem').empty();
-    //                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
-    //
+
                   $.each(data, function(index, tdkObj){
                       $('select#tepdinhkem').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
                   })
               })
           })
-
-
-
-
       })
-
 
     </script>
 @stop
