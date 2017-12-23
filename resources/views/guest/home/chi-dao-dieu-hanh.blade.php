@@ -305,10 +305,10 @@
                                                                     <div class="tin_title_text">
                                                                         {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                                         @if ($tin1->tinanh == '1')
-                                                                            <i class="fa fa-picture-o"></i>&nbsp;
+                                                                            &nbsp;<i class="fa fa-picture-o"></i>
                                                                         @endif
                                                                         @if ($tin1->tinvideo == '1')
-                                                                            <i class="fa fa-film"></i>
+                                                                            &nbsp;<i class="fa fa-film"></i>
                                                                         @endif
                                                                     </div>
 
@@ -338,10 +338,10 @@
                                                                                 <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
                                                                                     <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                                                     @if ($tin->tinanh == '1')
-                                                                                        <i class="fa fa-picture-o"></i>&nbsp;
+                                                                                        &nbsp;<i class="fa fa-picture-o"></i>
                                                                                     @endif
                                                                                     @if ($tin->tinvideo == '1')
-                                                                                        <i class="fa fa-film"></i>
+                                                                                        &nbsp;<i class="fa fa-film"></i>
                                                                                     @endif
                                                                                 </a>
                                                                             </li>

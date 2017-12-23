@@ -61,11 +61,11 @@
                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
                                                 <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                 @if ($tnb->tinanh == '1')
-                                                    <i class="fa fa-picture-o"></i>
+                                                    &nbsp;<i class="fa fa-picture-o"></i>
 
                                                     @endif
                                                 @if ($tnb->tinvideo == '1')
-                                                    <i class="fa fa-film"></i>
+                                                    &nbsp;<i class="fa fa-film"></i>
 
                                                 @endif
 
