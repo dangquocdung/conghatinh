@@ -183,35 +183,21 @@ class GuestController extends Controller
         return view('guest.loai-tin', compact('lt','tintuc'));
     }
 
-    public function getTinTuc($cm,$lt,$id,$slug)
+    public function getTinTuc($cm,$lt,$type,$id,$slug)
     {
 
-        $loaitin = LoaiTin::where('slug',$lt)->first();
+        switch ($type){
 
+            case 'van-ban':
+                $tin = VanBan::find($id)->where('daduyet','1')->first();
+                break;
 
+            case 'van-ban-khac':
+                $tin = LichCongTac::find($id)->where('daduyet','1')->first();
+                break;
 
-        $tt = TinTuc::where('loaitin_id',$loaitin->id)->count();
-
-        $vb = VanBan::where('loaitin_id',$loaitin->id)->count();
-
-        $vbk = LichCongTac::where('loaitin_id',$loaitin->id)->count();
-
-
-        if ($tt > 0){
-
-            $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
-            $type = 'tintuc';
-
-        }
-        elseif ($vb > 0){
-
-            $tin = VanBan::find($slug)->where('daduyet','1')->first();
-            $type = 'vanban';
-
-        }elseif ($vbk > 0 ){
-
-            $tin = LichCongTac::find($slug)->where('daduyet','1')->first();
-            $type = 'vanbankhac';
+            default:
+                $tin = TinTuc::find($id)->where('daduyet','1')->first();
 
         }
 
