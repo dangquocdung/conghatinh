@@ -36,8 +36,7 @@
 
           <form action="{{ route('lich-cong-tac.store') }}" method="post" id="role-save-form">
           {{csrf_field()}}
-
-
+          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
           <div class="modal-body">
               <div class="form-group">
                 <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
