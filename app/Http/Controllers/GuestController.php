@@ -40,10 +40,7 @@ class GuestController extends Controller
         $banner = Banner::orderby('thutu','asc')->get();
         $phimtat = PhimTat::orderby('thutu','asc')->get();
         $loaivideo = LoaiVideo::orderby('thutu')->get();
-
         $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
-
-
 
 
         view()->share('toppic',$toppic);
@@ -210,21 +207,21 @@ class GuestController extends Controller
     {
 //
 
-//        $vb = VanBan::where('loaitin_id',$lt)->count();
-//
-//        if ($vb == 0 ){
-//
-//
-//            $tin = LichCongTac::find($id);
-//            $type = 'lichct';
-//
-//        }
-//        else {
+        $vb = VanBan::where('loaitin_id',$lt)->count();
+
+        if ($vb == 0 ){
+
+
+            $tin = LichCongTac::find($id);
+            $type = 'lichct';
+
+        }
+        else {
 
             $tin = VanBan::find($id);
             $type = 'vanban';
 
-//        }
+        }
 
 //        return response()->json($tin);
         if (empty($tin)){

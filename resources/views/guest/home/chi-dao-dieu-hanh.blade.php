@@ -185,7 +185,7 @@
 
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('lich-cong-tac-show',$lct->id) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                                <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug,$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
                                                             </td>
                                                             <td>
                                                                 {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
