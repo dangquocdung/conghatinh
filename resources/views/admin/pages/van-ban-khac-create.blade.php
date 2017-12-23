@@ -43,10 +43,8 @@
                   <option value=""></option>
                   @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
                       <optgroup label="{{ $cm->name}}">
-                          @foreach ($cm->loaitin as $lt)
-                              @if ($lt->type == 'tt')
-                                  <option value={{ $lt->id }}>{{ $lt->name}}</option>
-                              @endif
+                          @foreach ($cm->loaitin->where('show','1') as $lt)
+                              <option value={{ $lt->id }}>{{ $lt->name}}</option>
                           @endforeach
                       </optgroup>
                   @endforeach
