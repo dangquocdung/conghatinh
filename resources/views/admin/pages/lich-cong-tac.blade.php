@@ -52,7 +52,7 @@
                     <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
                   @endif
                 </td>
-                <td>{{ \Carbon\Carbon::parse($lct->created_date)->format('d-m-Y H:i:s') }}</td>
+                <td>{{ \Carbon\Carbon::parse($lct->created_at)->format('d-m-Y H:i:s') }}</td>
                 <td>
 
                   <div class="pull-left">
