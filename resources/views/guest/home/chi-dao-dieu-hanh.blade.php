@@ -109,11 +109,11 @@
                                                     <thead>
                                                         <th>TT</th>
                                                         <th>Chương trình công tác </th>
-                                                    <th>Ngày đăng </th>
+                                                        <th>Ngày đăng </th>
                                                         <th>Tệp đính kèm</th>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach($lt->lichct->sortByDesc('thang')->take(5) as $lct)
+                                                    @foreach($lt->lichct->sortByDesc('id')->take(5) as $lct)
                                                         <tr>
                                                             <td>
                                                                 {{ $loop->iteration }}
