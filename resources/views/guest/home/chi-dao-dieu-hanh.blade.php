@@ -304,6 +304,12 @@
                                                                 <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">
                                                                     <div class="tin_title_text">
                                                                         {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                                        @if ($tin1->tinanh == '1')
+                                                                            <i class="fa fa-picture-o"></i>&nbsp;
+                                                                        @endif
+                                                                        @if ($tin1->tinvideo == '1')
+                                                                            <i class="fa fa-video-o"></i>
+                                                                        @endif
                                                                     </div>
 
                                                                     <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
@@ -331,11 +337,13 @@
                                                                             <li>
                                                                                 <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
                                                                                     <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                                                    @if ($tin->tinanh == '1')
+                                                                                        <i class="fa fa-picture-o"></i>&nbsp;
+                                                                                    @endif
+                                                                                    @if ($tin->tinvideo == '1')
+                                                                                        <i class="fa fa-video-o"></i>
+                                                                                    @endif
                                                                                 </a>
-
-                                                                                <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
-
-                                                                                <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
                                                                             </li>
                                                                         @endforeach
                                                                     </ul>

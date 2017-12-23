@@ -60,6 +60,16 @@
                                             <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,$tnb->slug]) }}" class="news-title">
                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
                                                 <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                @if ($tnb->tinanh == '1')
+                                                    <i class="fa fa-picture-o"></i>
+
+                                                    @endif
+                                                @if ($tnb->tinvideo == '1')
+                                                    <i class="fa fa-video-o"></i>
+
+                                                @endif
+
+
                                             </a>
 
                                             <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
