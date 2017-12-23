@@ -208,7 +208,9 @@ class GuestController extends Controller
 
         } else {
 
-            return view('guest.chi-tiet-tin', compact('tin','type'));
+//            return view('guest.chi-tiet-tin', compact('tin','type'));
+
+            return json($tin);
         }
 
     }
