@@ -10,19 +10,19 @@
 
 		<div class="portlet-header">
 
-			<a href="chuyen-muc/{{ $tin->loaitin->chuyenmuc->slug }}">
-				<h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> {{ $tin->loaitin->chuyenmuc->name }} / </h4>
+			<a href="{{  route('chuyen-muc', $tin->loaitin->chuyenmuc->slug) }}">
+				<h4 class="portlet-header-title no-pd-top">
+					<img src="/images/background/lotus.ico" alt="" width="26px"> {{ $tin->loaitin->chuyenmuc->name }} /
+				</h4>
 			</a>
 
-			<a href="loai-tin/{{ $tin->loaitin->slug }}">
+			<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">
 				<h4 class="portlet-header-title no-pd-top">{{ $tin->loaitin->name }}</h4>
 			</a>
 
 		</div>
 
 		@if ($type == 'tintuc')
-
-
 			<div class="col-md-12">
 
 				<div class="row">
@@ -322,7 +322,7 @@
 			</div>
 			</div>
 
-		@elseif ($type=='lichct')
+		@elseif ($type=='vanbankhac')
 			<div class="col-md-12">
 
 				<div class="dv-body table-responsive" style="padding: 10px">
@@ -370,7 +370,7 @@
 									@if ($vbcl->id <> $tin->id)
 
 										<li>
-											<a href="{{ route('chi-tiet-van-ban',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
+											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id]) }}">
 
 												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -404,7 +404,7 @@
 									@if ($vbcl->id <> $tin->id)
 
 										<li>
-											<a href="{{ route('chi-tiet-van-ban',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
+											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id]) }}">
 
 												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
