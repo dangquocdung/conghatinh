@@ -50,6 +50,12 @@ class GuestController extends Controller
         view()->share('phimtat',$phimtat);
         view()->share('loaivideo',$loaivideo);
         view()->share('json_tinnoibat',$json_tinnoibat);
+
+        $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
+        $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
+        view()->share('vbmoinhat',$vbmoinhat);
+        view()->share('lctmoinhat',$lctmoinhat);
+
     }
 
     public function index()
@@ -116,7 +122,7 @@ class GuestController extends Controller
 
     public function getLLV()
     {
-        $lichct = LichCongTac::orderby('thang','desc')->get();
+        $lichct = LichCongTac::orderby('id','desc')->get();
 
         return view('guest.lich-cong-tac',compact('lichct'));
     }

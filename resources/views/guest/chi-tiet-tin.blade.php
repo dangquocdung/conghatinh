@@ -266,7 +266,7 @@
 
 
 
-								@foreach($lvb->vanban as $vbcl)
+								@foreach($lvb->vanban->sortbydesc('id')->take(5) as $vbcl)
 
 									@if ($vbcl->id <> $tin->id)
 
@@ -301,14 +301,14 @@
 					<div class="tin-lien-quan" style="margin-top: 10px">
 						<ul>
 
-							@foreach($vanban as $vbmd)
+							@foreach($vbmoinhat as $vbmd)
 
 								@if ($vbmd->id <> $tin->id)
 
 									<li>
 										<a href="{{ route('chi-tiet-van-ban',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,$vbmd->id,$vbmd->slug]) }}">
 
-											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
 
 										</a>
 									</li>
@@ -348,6 +348,80 @@
 
 
 				@include('guest.layout.tien-ich')
+
+				<div class="lienquan-header">
+
+					<a href="#">Tin cùng loại</a>
+
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+
+						<div class="tin-lien-quan" style="margin-top: 10px">
+							<ul>
+
+								@php
+
+									$lvb = $tin->loaitin;
+
+								@endphp
+
+
+
+								@foreach($lvb->lichct->sortbydesc('id')->take(5) as $vbcl)
+
+									@if ($vbcl->id <> $tin->id)
+
+										<li>
+											<a href="{{ route('chi-tiet-van-ban',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
+
+												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
+
+											</a>
+										</li>
+
+									@endif
+
+								@endforeach
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="lienquan-header">
+
+					<a href="#">Tin mới đăng</a>
+
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+						<div class="tin-lien-quan" style="margin-top: 10px">
+							<ul>
+
+								@foreach($lctmoinhat as $vbcl)
+
+									@if ($vbcl->id <> $tin->id)
+
+										<li>
+											<a href="{{ route('chi-tiet-van-ban',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
+
+												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+											</a>
+										</li>
+
+									@endif
+
+								@endforeach
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		@endif
