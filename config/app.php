@@ -175,7 +175,9 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Plank\Mediable\MediableServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
 
 
         /*
