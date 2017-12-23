@@ -49,12 +49,12 @@
 
 									<article>
 
-										<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">
+										<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">
 											<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
 										</a>
 
 										<h6 style="text-align: center">
-											<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
+											<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
 										</h6>
 									</article>
 								@endforeach
@@ -147,7 +147,7 @@
 								@foreach($tin->loaitin->chuyenmuc->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tlq)
 
 									<li>
-										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
+										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->id,$tlq->slug])}}">
 
 											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -179,7 +179,7 @@
 								@foreach($tin->loaitin->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tlq)
 
 									<li>
-										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->slug])}}">
+										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,$tlq->id,$tlq->slug])}}">
 
 											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -267,7 +267,7 @@
 									@if ($vbcl->id <> $tin->id)
 
 										<li>
-											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id]) }}">
+											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
 
 												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -302,7 +302,7 @@
 								@if ($vbmd->id <> $tin->id)
 
 									<li>
-										<a href="{{ route('chi-tiet-tin',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,$vbmd->id]) }}">
+										<a href="{{ route('chi-tiet-tin',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,$vbmd->id,$vbmd->slug]) }}">
 
 											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -310,12 +310,7 @@
 									</li>
 
 								@endif
-
 							@endforeach
-
-
-
-
 						</ul>
 					</div>
 				</div>
@@ -324,14 +319,8 @@
 
 		@elseif ($type=='vanbankhac')
 			<div class="col-md-12">
-
 				<div class="dv-body table-responsive" style="padding: 10px">
-
-
-
 					{!! $tin->noidung !!}
-
-
 				</div>
 
 				<script>
@@ -370,7 +359,7 @@
 									@if ($vbcl->id <> $tin->id)
 
 										<li>
-											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id]) }}">
+											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
 
 												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -404,7 +393,7 @@
 									@if ($vbcl->id <> $tin->id)
 
 										<li>
-											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id]) }}">
+											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
 
 												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
