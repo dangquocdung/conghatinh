@@ -22,17 +22,8 @@ class TinTucController extends Controller
 
     public function __construct()
     {
-
-
-
         $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-
-
-
-
-
         view()->share('chuyenmuc',$chuyenmuc);
-
     }
 
     /**
@@ -142,6 +133,9 @@ class TinTucController extends Controller
 
         }
 
+        $tintuc->tinanh = $request->tinanh;
+        $tintuc->tinvideo = $request->tinvideo;
+
         $tintuc->gioithieu = $request->input('gioithieu');
 
         $tintuc->noidung = $request->input('noidung');
@@ -226,6 +220,8 @@ class TinTucController extends Controller
 
         $tintuc->avatar = substr($request->input('avatar'), strpos($request->input('avatar'),'u'));
 
+        $tintuc->tinanh = $request->tinanh;
+        $tintuc->tinvideo = $request->tinvideo;
         $tintuc->gioithieu = $request->input('gioithieu');
 
         $tintuc->noidung = $request->input('noidung');
