@@ -308,7 +308,7 @@
                                                                             <i class="fa fa-picture-o"></i>&nbsp;
                                                                         @endif
                                                                         @if ($tin1->tinvideo == '1')
-                                                                            <i class="fa fa-video-o"></i>
+                                                                            <i class="fa fa-film"></i>
                                                                         @endif
                                                                     </div>
 
@@ -341,7 +341,7 @@
                                                                                         <i class="fa fa-picture-o"></i>&nbsp;
                                                                                     @endif
                                                                                     @if ($tin->tinvideo == '1')
-                                                                                        <i class="fa fa-video-o"></i>
+                                                                                        <i class="fa fa-film"></i>
                                                                                     @endif
                                                                                 </a>
                                                                             </li>
