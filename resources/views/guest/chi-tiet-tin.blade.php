@@ -359,9 +359,12 @@
 				</div>
 
 				@if (!empty($tin->media_id))
-					<object data="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}" type="application/pdf" width="100%" height="640px">
-						<p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}">Download PDF</a>.</p>
-					</object>
+
+					@if ($tin->media->extension == 'pdf')
+						<object data="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}" type="application/pdf" width="100%" height="640px">
+							<p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}">Download PDF</a>.</p>
+						</object>
+					@endif
 
 				@endif
 
