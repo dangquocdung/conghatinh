@@ -207,7 +207,9 @@ class GuestController extends Controller
     {
 //
 
-        $vb = VanBan::where('loaitin_id',$lt)->count();
+        $loaitin = LoaiTin::where('slug',$lt)->first();
+
+        $vb = VanBan::where('loaitin_id',$loaitin->id)->count();
 
         if ($vb == 0 ){
 
@@ -223,22 +225,17 @@ class GuestController extends Controller
 
         }
 
-//        return response()->json($tin);
+//        return response()->json($vb);
+
         if (empty($tin)){
 
             abort(404, 'Khong tim thay trang.');
 
         }
-//
         else {
 
-//            $ngay = $tin->ngaydang;
-//
-//            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
-//
-//            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
-
             return view('guest.chi-tiet-tin', compact('tin','type'));
+
         }
 
     }
