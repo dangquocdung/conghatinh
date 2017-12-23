@@ -188,6 +188,10 @@ class GuestController extends Controller
 
         switch ($type){
 
+            case 'tin-tuc':
+                $tin = TinTuc::find($id)->where('daduyet','1')->first();
+                break;
+
             case 'van-ban':
                 $tin = VanBan::find($id)->where('daduyet','1')->first();
                 break;
@@ -195,10 +199,6 @@ class GuestController extends Controller
             case 'van-ban-khac':
                 $tin = LichCongTac::find($id)->where('daduyet','1')->first();
                 break;
-
-            default:
-                $tin = TinTuc::find($id)->where('daduyet','1')->first();
-
         }
 
 
