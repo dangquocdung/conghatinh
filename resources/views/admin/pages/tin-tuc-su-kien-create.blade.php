@@ -74,6 +74,16 @@
                   <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
               </div>
 
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="tinanh" onclick="$(this).val(this.checked ? 1 : 0)"> Tin ảnh
+                    </label>
+                    &nbsp;&nbsp;
+                    <label>
+                        <input type="checkbox" name="tinvideo" onclick="$(this).val(this.checked ? 1 : 0)"> Tin video
+                    </label>
+                </div>
+
 
           
 
