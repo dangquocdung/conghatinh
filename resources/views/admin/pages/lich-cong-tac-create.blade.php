@@ -1,16 +1,16 @@
 @extends('admin.html')
 
 @section('title')
-    <title>Thêm Lịch công tác</title>
+    <title>Thêm Văn bản khác</title>
 @stop
 
 @section('breadcrumb')
   <section class="content-header">
-    <h1>Lịch công tác</h1>
+    <h1>Văn bản khác</h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">Lịch công tác</li>
+      <li class="active">Văn bản khác</li>
     </ol>
   </section>
 @endsection
@@ -21,7 +21,7 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Lịch công tác</h3>
+          <h3 class="box-title">Văn bản khác</h3>
             <div class="pull-right">
                 <button type="button" class="btn btn-primary btn-xs" id="btnThem">
                     <i class="fa fa-plus"></i> Thêm tệp
@@ -106,77 +106,77 @@
 @stop
 
 
-      @section('js')
 
-      <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+@section('js')
+
+          <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+
+          <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 
 
-      <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+      // CKEDITOR.replace( 'gioi-thieu' );
+      CKEDITOR.replace( 'noi-dung' );
 
+      // $("input:file, input:checkbox").uniform();
 
-      <script>
-          // CKEDITOR.replace( 'gioi-thieu' );
-          CKEDITOR.replace( 'noi-dung' );
+      $(document).ready(function() {
 
-          // $("input:file, input:checkbox").uniform();
-
-          $(document).ready(function() {
-
-              $('.select2').select2({
-                  width: '100%'
-              });
-
-              $('#tuan').val(moment().format('W'));
+          $('.select2').select2({
+              width: '100%'
           });
 
-          $(document).ready(function() {
-              // Default functionality.
-//              $('#thang').MonthPicker({
-//                  i18n: {
-//                      year: 'năm',
-//                      months: ['Th. 1','Th. 2','Th. 3','Th. 4','Th. 5','Th. 6','Th. 7','Th. 8','Th. 9','Th. 10','Th. 11','Th. 12']
-//                  }
-//              });
+          $('#tuan').val(moment().format('W'));
+      });
 
-              $('#btnThem').click(function () {
+      $(document).ready(function() {
+          // Default functionality.
+    //              $('#thang').MonthPicker({
+    //                  i18n: {
+    //                      year: 'năm',
+    //                      months: ['Th. 1','Th. 2','Th. 3','Th. 4','Th. 5','Th. 6','Th. 7','Th. 8','Th. 9','Th. 10','Th. 11','Th. 12']
+    //                  }
+    //              });
 
-                  if ($('#tai-tep').css('display')=='none'){
+          $('#btnThem').click(function () {
 
-                      $('#tai-tep').css('display','inline-block');
+              if ($('#tai-tep').css('display')=='none'){
 
-                  }else{
+                  $('#tai-tep').css('display','inline-block');
 
-                      $('#tai-tep').css('display','none');
+              }else{
 
-                  }
+                  $('#tai-tep').css('display','none');
 
-
-
-              })
-
-              $('#btnRefresh').click(function (e) {
-
-
-                  console.log(e);
-
-
-                  $.get('/toa-soan/json-tepdinhkem', function (data) {
-                      console.log(data);
-                      $('select#tepdinhkem').empty();
-//                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
-//
-                      $.each(data, function(index, tdkObj){
-                          $('select#tepdinhkem').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
-                      })
-                  })
-              })
-
+              }
 
 
 
           })
 
+          $('#btnRefresh').click(function (e) {
 
-      </script>
+
+              console.log(e);
+
+
+              $.get('/toa-soan/json-tepdinhkem', function (data) {
+                  console.log(data);
+                  $('select#tepdinhkem').empty();
+    //                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
+    //
+                  $.each(data, function(index, tdkObj){
+                      $('select#tepdinhkem').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+                  })
+              })
+          })
+
+
+
+
+      })
+
+
+    </script>
 @stop
 

@@ -1,16 +1,16 @@
 @extends('admin.html')
 
 @section('title')
-    <title>Sửa Lịch công tác</title>
+    <title>Sửa Văn bản khác</title>
 @stop
 
 @section('breadcrumb')
   <section class="content-header">
-    <h1>Lịch công tác</h1>
+    <h1>Văn bản khác</h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">Sửa lịch công tác</li>
+      <li class="active">Sửa Văn bản khác</li>
     </ol>
   </section>
 @endsection

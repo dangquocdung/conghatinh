@@ -84,6 +84,7 @@ class LichCongTacController extends Controller
         $lct->loaitin_id = $request->loaitin_id;
         $lct->name = $request->name;
         $lct->slug = str_slug($request->name);
+
         $lct->save;
 
         flash('Tạo lịch công tác thành công!');
