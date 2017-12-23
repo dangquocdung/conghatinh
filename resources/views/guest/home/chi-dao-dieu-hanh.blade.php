@@ -45,71 +45,7 @@
 
                                         @endif
 
-                                        @if (count($lt->tintuc) > 0)
-
-                                                @php
-
-                                                    $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(5);
-
-                                                    $tin1= $tins->shift();
-
-                                                @endphp
-
-                                                @if ($tin1)
-                                                    <div class="col-md-12" style="float:left">
-
-                                                        <div class="col-md-7 col-sm-7 col-xs-12" style="margin-bottom: 15px">
-                                                            <div class="row">
-                                                                <div class="news-main" style="margin-left: -15px">
-
-                                                                    <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">
-                                                                        <div class="tin_title_text">
-                                                                            {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                                                        </div>
-
-                                                                        <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
-                                                                    </a>
-                                                                    <div class="thumb">
-
-                                                                    </div>
-
-                                                                    <div class="tin_title_abstract" style="display:;">
-                                                                        {{ $tin1->gioithieu }}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        @if (count($tins)>0)
-
-                                                            <div class="col-md-5 col-sm-5 col-xs-12">
-                                                                <div class="row">
-
-                                                                    <div class="news-five">
-                                                                        <ul class="news-block">
-                                                                            @foreach($tins as $tin)
-                                                                                <li>
-                                                                                    <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
-                                                                                        <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                                                                    </a>
-
-                                                                                    <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
-
-                                                                                    <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
-                                                                                </li>
-                                                                            @endforeach
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        @endif
-
-                                                    </div>
-                                                @endif
-
-                                            @elseif (count($lt->vanban) >0 )
+                                        @if (count($lt->vanban) >0 )
 
                                                 <table class="table table-striped table-bordered table-responsive table-sm">
                                                     <thead>
@@ -143,7 +79,7 @@
 
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug,$vb->id,$vb->slug]) }}" class="news-title bold">
+                                                                <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,$vb->id]) }}" class="news-title bold">
                                                                     {{ $vb->kihieuvb }}
                                                                 </a>
                                                             </td>
@@ -167,7 +103,6 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
-
                                             @elseif (count($lt->lichct) > 0)
 
                                                 <table class="table table-striped table-bordered table-responsive table-sm">
@@ -185,7 +120,7 @@
 
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug,$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                                <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,$lct->id]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
                                                             </td>
                                                             <td>
                                                                 {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
@@ -277,177 +212,79 @@
                                 @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                     <div class="to-chuc tab-pane
                                     @if ($lt->thutu == 1)
-                                            active " id="{{$lt->slug}}">
+                                        active " id="{{$lt->slug}}">
 
-                                        @else
-                                            " id="{{$lt->slug}}">
+                                    @else
+                                        " id="{{$lt->slug}}">
 
-                                        @endif
+                                    @endif
 
-                                        @if (count($lt->tintuc) > 0)
+                                    @if (count($lt->tintuc) > 0)
 
-                                            @php
+                                        @php
 
-                                                $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(5);
+                                            $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(5);
 
-                                                $tin1= $tins->shift();
+                                            $tin1= $tins->shift();
 
-                                            @endphp
+                                        @endphp
 
-                                            @if ($tin1)
-                                                <div class="col-md-12" style="float:left">
+                                        @if ($tin1)
+                                            <div class="col-md-12" style="float:left">
 
-                                                    <div class="col-md-7 col-sm-7 col-xs-12" style="margin-bottom: 15px">
-                                                        <div class="row">
-                                                            <div class="news-main" style="margin-left: -15px">
+                                                <div class="col-md-7 col-sm-7 col-xs-12" style="margin-bottom: 15px">
+                                                    <div class="row">
+                                                        <div class="news-main" style="margin-left: -15px">
 
-                                                                <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">
-                                                                    <div class="tin_title_text">
-                                                                        {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                                                        @if ($tin1->tinanh == '1')
-                                                                            &nbsp;<i class="fa fa-picture-o"></i>
-                                                                        @endif
-                                                                        @if ($tin1->tinvideo == '1')
-                                                                            &nbsp;<i class="fa fa-film"></i>
-                                                                        @endif
-                                                                    </div>
-
-                                                                    <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
-                                                                </a>
-                                                                <div class="thumb">
-
+                                                            <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,$tin1->slug]) }}">
+                                                                <div class="tin_title_text">
+                                                                    {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                                 </div>
 
-                                                                <div class="tin_title_abstract" style="display:;">
-                                                                    {{ $tin1->gioithieu }}
-                                                                </div>
+                                                                <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
+                                                            </a>
+                                                            <div class="thumb">
+
+                                                            </div>
+
+                                                            <div class="tin_title_abstract" style="display:;">
+                                                                {{ $tin1->gioithieu }}
                                                             </div>
                                                         </div>
-
                                                     </div>
 
-                                                    @if (count($tins)>0)
+                                                </div>
 
-                                                        <div class="col-md-5 col-sm-5 col-xs-12">
-                                                            <div class="row">
+                                                @if (count($tins)>0)
 
-                                                                <div class="news-five">
-                                                                    <ul class="news-block">
-                                                                        @foreach($tins as $tin)
-                                                                            <li>
-                                                                                <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
-                                                                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                                                                    @if ($tin->tinanh == '1')
-                                                                                        &nbsp;<i class="fa fa-picture-o"></i>
-                                                                                    @endif
-                                                                                    @if ($tin->tinvideo == '1')
-                                                                                        &nbsp;<i class="fa fa-film"></i>
-                                                                                    @endif
-                                                                                </a>
-                                                                            </li>
-                                                                        @endforeach
-                                                                    </ul>
-                                                                </div>
+                                                    <div class="col-md-5 col-sm-5 col-xs-12">
+                                                        <div class="row">
+
+                                                            <div class="news-five">
+                                                                <ul class="news-block">
+                                                                    @foreach($tins as $tin)
+                                                                        <li>
+                                                                            <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug]) }}" class="news-title">
+                                                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                                            </a>
+
+                                                                            <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
+
+                                                                            <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
                                                             </div>
                                                         </div>
+                                                    </div>
 
-                                                    @endif
+                                                @endif
 
-                                                </div>
-                                            @endif
-
-                                        @elseif (count($lt->vanban) >0 )
-
-                                            <table class="table table-striped table-bordered table-responsive table-sm">
-                                                <thead>
-                                                <tr>
-                                                    <th>TT</th>
-                                                    <th>
-                                                        Số/Kí hiệu
-                                                    </th>
-                                                    <th>
-                                                        Ngày ban hành
-                                                    </th>
-
-                                                    <th>
-                                                        Nơi ban hành
-                                                    </th>
-
-                                                    <th class="col-md-6">
-                                                        Trích yếu
-                                                    </th>
-                                                    <th class="col-md-1">
-                                                        Đính kèm
-                                                    </th>
-                                                </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
-                                                    <tr>
-                                                        <td>
-                                                            {{ $loop->iteration }}
-
-                                                        </td>
-                                                        <td>
-                                                            <a href="{{ route('chi-tiet-van-ban',[$cm->slug,$lt->slug,$vb->id,$vb->slug]) }}" class="news-title bold">
-                                                                {{ $vb->kihieuvb }}
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
-                                                        </td>
-                                                        <td>
-                                                            {{$vb->nguoiki->cqbh->name}}
-                                                        </td>
-                                                        <td>
-                                                            {{$vb->trichyeu}}
-                                                        </td>
-                                                        <td>
-                                                            @foreach($vb->tepvanban as $tvb)
-                                                                <a href="{{ $tvb->path }}" target="_blank">
-                                                                    <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">
-                                                                </a>
-                                                            @endforeach
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-
-                                        @elseif (count($lt->lichct) > 0)
-
-                                            <table class="table table-striped table-bordered table-responsive table-sm">
-                                                <thead>
-                                                <th>TT</th>
-                                                <th>Chương trình công tác </th>
-                                                <th>Ngày đăng </th>
-                                                <th>Tệp đính kèm</th>
-                                                </thead>
-                                                <tbody>
-                                                @foreach($lt->lichct->sortByDesc('thang')->take(5) as $lct)
-                                                    <tr>
-                                                        <td>
-                                                            {{ $loop->iteration }}
-
-                                                        </td>
-                                                        <td>
-                                                            <a href="{{ route('lich-cong-tac-show',$lct->id) }}"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i> {{ $lct->name }}</a>
-                                                        </td>
-                                                        <td>
-                                                            {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
-                                                        </td>
-                                                        <td>
-                                                            @if (!empty($lct->media_id))
-                                                                <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-file-word-o" aria-hidden="true"></i></a>
-                                                            @endif
-                                                        </td>
-
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
+                                            </div>
                                     @endif
+
+                                    @endif
+
                                     <!-- /.box-body -->
                                         <div class="box-footer">
                                             <div class="pull-right">

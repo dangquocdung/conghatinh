@@ -34,7 +34,7 @@
           </div>
 
 
-          <form action="{{ route('lich-cong-tac.store') }}" method="post" id="role-save-form">
+          <form action="{{ route('them-van-ban-khac') }}" method="post" id="role-save-form">
           {{csrf_field()}}
           <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
           <div class="modal-body">

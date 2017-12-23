@@ -186,66 +186,49 @@ class GuestController extends Controller
     public function getTinTuc($cm,$lt,$slug)
     {
 
-        $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
-        $type = 'tintuc';
-
-        if (empty($tin)){
-
-            abort(404, 'Khong tim thay trang.');
-
-        }
-
-        else {
-
-//            $ngay = $tin->ngaydang;
-//
-//            $tinlq_new = TinTuc::where('daduyet','1')->orderBy('ngaydang','desc')->take(10)->get();
-//
-//            $tinlq_old = TinTuc::where('daduyet','1')->where('ngaydang','<=', $ngay)->orderBy('ngaydang','desc')->take(10)->get();
-
-            return view('guest.chi-tiet-tin', compact('tin','type'));
-        }
-
-    }
-
-
-    public function getVanBan($cm,$lt,$id,$slug)
-    {
-//
-
         $loaitin = LoaiTin::where('slug',$lt)->first();
 
         $vb = VanBan::where('loaitin_id',$loaitin->id)->count();
 
-        if ($vb == 0 ){
+        $tt = TinTuc::where('loaitin_id',$loaitin->id)->count();
+
+        $vbk = LichCongTac::where('loaitin_id',$loaitin->id)->count();
 
 
-            $tin = LichCongTac::find($id);
-            $type = 'lichct';
+        if ($tt > 0){
+
+            $tin = TinTuc::where('slug',$slug)->where('daduyet','1')->first();
+            $type = 'tintuc';
 
         }
-        else {
+        elseif ($vb > 0){
 
-            $tin = VanBan::find($id);
+            $tin = TinTuc::find($slug)->where('daduyet','1')->first();
             $type = 'vanban';
 
+        }elseif ($vbk > 0 ){
+
+            $tin = LichCongTac::find($slug)->where('daduyet','1')->first();
+            $type = 'vanbankhac';
+
         }
 
-//        return response()->json($vb);
+
+
+
 
         if (empty($tin)){
 
             abort(404, 'Khong tim thay trang.');
 
         }
+
         else {
 
             return view('guest.chi-tiet-tin', compact('tin','type'));
-
         }
 
     }
-
 
     public function vanBan($slug=null)
     {
