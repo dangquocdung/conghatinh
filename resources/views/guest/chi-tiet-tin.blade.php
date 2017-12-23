@@ -338,6 +338,14 @@
 
 				</div>
 
+				<script>
+                    $(document).ready(function () {
+                        $('table').addClass('table table-bordered table-striped table-hover');
+                        $('table').removeAttr('style');
+					})
+
+				</script>
+
 
 				@include('guest.layout.tien-ich')
 			</div>
@@ -382,16 +390,9 @@
 		}
 
         $(document).ready(function () {
-            $('table').addClass('table table-bordered table-striped table-hover');
-            $('table').removeAttr('style');
-
-
-            $('.ckeditor-html5-video').addClass('embed-responsive embed-responsive-16by9');
-
-            $('video').addClass('embed-responsive-item');
-
-
-        })
+			$('.ckeditor-html5-video').addClass('embed-responsive embed-responsive-16by9');
+			$('video').addClass('embed-responsive-item');
+		})
 
 
 	</script>
