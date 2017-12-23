@@ -158,8 +158,8 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 //        Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
     });
 
-    Route::get('/json-tepdinhkem','LichCongTacController@jsonTepDinhKem');
-    Route::get('/json-hinhanh','LichCongTacController@jsonHinhAnh');
+    Route::get('/json-tepdinhkem','VanBanKhacController@jsonTepDinhKem');
+    Route::get('/json-hinhanh','VanBanKhacController@jsonHinhAnh');
 
     //Van ban
     Route::group(['prefix'=>'chuyen-trang'],function (){
