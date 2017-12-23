@@ -65,7 +65,7 @@
 
                                                     @endif
                                                 @if ($tnb->tinvideo == '1')
-                                                    <i class="fa fa-video-o"></i>
+                                                    <i class="fa fa-film"></i>
 
                                                 @endif
 
