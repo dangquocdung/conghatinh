@@ -267,11 +267,11 @@
                                                                             <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug]) }}" class="news-title">
                                                                                 <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
                                                                                 @if ($tin->tinanh == '1')
-                                                                                    &nbsp;<i class="fa fa-picture-o"></i>
+                                                                                    &nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
 
                                                                                 @endif
                                                                                 @if ($tin->tinvideo == '1')
-                                                                                    &nbsp;<i class="fa fa-film"></i>
+                                                                                    &nbsp;<i class="fa fa-film" title="Tin Video "></i>
 
                                                                                 @endif
                                                                             </a>
