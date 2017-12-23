@@ -10,6 +10,7 @@ use App\NhomCQ;
 use App\PhimTat;
 use App\ChuyenMuc;
 use App\Banner;
+use Illuminate\Support\Facades\Auth;
 
 class LichCongTacController extends Controller
 {
@@ -75,7 +76,15 @@ class LichCongTacController extends Controller
      */
     public function store(Request $request)
     {
-        LichCongTac::create($request->all());
+        $lct = new LichCongTac;
+
+        $lct->user_id = Auth::user()->id;
+        $lct->noidung = $request->noidung;
+        $lct->media_id = $request->media_id;
+        $lct->loaitin_id = $request->loaitin_id;
+        $lct->name = $request->name;
+        $lct->slug = str_slug($request->name);
+        $lct->save;
 
         flash('Tạo lịch công tác thành công!');
 
