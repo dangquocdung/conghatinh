@@ -188,9 +188,11 @@ class GuestController extends Controller
 
         $loaitin = LoaiTin::where('slug',$lt)->first();
 
-        $vb = VanBan::where('loaitin_id',$loaitin->id)->count();
+
 
         $tt = TinTuc::where('loaitin_id',$loaitin->id)->count();
+
+        $vb = VanBan::where('loaitin_id',$loaitin->id)->count();
 
         $vbk = LichCongTac::where('loaitin_id',$loaitin->id)->count();
 
