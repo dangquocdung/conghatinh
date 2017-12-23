@@ -222,10 +222,6 @@
 							<td>{{  $tin->nguoiki->cqbh->name }}</td>
 						</tr>
 						<tr>
-							<td style="width:30%;">Thể loại </td>
-							<td>{{  $tin->loaivb->name }}</td>
-						</tr>
-						<tr>
 							<td style="width:30%;">Tệp tin đính kèm</td>
 							<td>
 								@foreach($tin->tepvanban as $tvb)
@@ -271,7 +267,7 @@
 									@if ($vbcl->id <> $tin->id)
 
 										<li>
-											<a href="{{ route('chi-tiet-van-ban',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id,$vbcl->slug]) }}">
+											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,$vbcl->id]) }}">
 
 												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
@@ -306,7 +302,7 @@
 								@if ($vbmd->id <> $tin->id)
 
 									<li>
-										<a href="{{ route('chi-tiet-van-ban',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,$vbmd->id,$vbmd->slug]) }}">
+										<a href="{{ route('chi-tiet-tin',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,$vbmd->id]) }}">
 
 											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
 
