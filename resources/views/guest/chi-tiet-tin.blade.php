@@ -267,6 +267,8 @@
 					</table>
 				</div>
 
+				<hr>
+
 				@include('guest.layout.tien-ich')
 
 
@@ -359,6 +361,7 @@
 					})
 
 				</script>
+				<hr>
 
 
 				@include('guest.layout.tien-ich')
