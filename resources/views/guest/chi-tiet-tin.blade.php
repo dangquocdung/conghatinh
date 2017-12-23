@@ -358,6 +358,15 @@
 					{!! $tin->noidung !!}
 				</div>
 
+				@if (!empty($lct->media_id))
+					<object data="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}" type="application/pdf" width="100%" height="640px">
+						<p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}">Download PDF</a>.</p>
+					</object>
+
+				@endif
+
+
+
 				<script>
                     $(document).ready(function () {
                         $('table').addClass('table table-bordered table-striped table-hover');
