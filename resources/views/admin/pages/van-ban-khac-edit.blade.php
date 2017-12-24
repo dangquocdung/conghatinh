@@ -58,7 +58,6 @@
 
               <input type="hidden" name="vbedit" value="{{$lct->id}}">
 
-
               <div class="modal-body">
                   <div class="form-group">
                       <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
