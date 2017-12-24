@@ -33,19 +33,9 @@
 <div class="modal fade" id="mdlTimKiem">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tìm kiếm thông tin </h4>
-            </div>
-            <div class="modal-body">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                    <input type="email" class="form-control" placeholder="Nội dung tìm kiếm ">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Tìm kiếm </button>
+            <div class="input-group-btn">
+                <button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i>
+                </button>
             </div>
         </div>
         <!-- /.modal-content -->

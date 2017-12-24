@@ -58,10 +58,11 @@
               <!-- Date -->
               <div class="form-group">
                   <div class='input-group date' id='datetimepicker_ngaybanhanh'>
-                      <input name="ngaybanhanh" type='text' class="form-control" required/>
                       <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                      </span>
+                      <input name="ngaybanhanh" type='text' class="form-control" required/>
+
                   </div>
                   <!-- /.input group -->
               </div>
