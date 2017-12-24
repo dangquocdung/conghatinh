@@ -185,7 +185,7 @@ class VanBanKhacController extends Controller
 
                     $tvbn = new TepVanBanKhac;
 
-                    $tvbn->vanban_id = $vbid;
+                    $tvbn->vanbankhac_id = $vbid;
 
                     $tvbn->media_id = $tvb;
 
