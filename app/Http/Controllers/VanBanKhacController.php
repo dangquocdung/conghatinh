@@ -129,14 +129,20 @@ class VanBanKhacController extends Controller
      */
         public function update(Request $request, $id)
         {
+            $vb = LichCongTac::find($id);
 
-            LichCongTac::find($id)->update($request->all());
+            $vb->loaitin_id = $request->loaitin_id;
+            $vb->name = $request->name;
+            $vb->slug = str_slug($request->name);
+            $vb->media_id = $request->media_id;
+            $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
+            $vb->noidung = $request->noidung;
 
-            flash('Sửa lịch công tác thành công!');
+            $vb->save();
 
-            return redirect()->route('van-ban-khac.index');
+            flash('Sửa văn bản thành công!');
 
-
+            return redirect()->route('index-van-ban-khac');
         }
 
     /**
@@ -145,10 +151,30 @@ class VanBanKhacController extends Controller
      * @param  \App\LichCongTac  $lichCongTac
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        LichCongTac::destroy($id);
-        flash('Xóa thành công!');
-        return redirect()->back();
+
+        // this is only done to get the role name
+        $vbk = LichCongTac::find($request->input('id'));
+
+        $vbk->delete();
+
+//        event(new TinTucDeleted($tintuc));
+
+        return response(['data' => 'Văn bản đã bị xoá'], 200);
+    }
+
+    public function postDuyetVanBan(Request $request)
+    {
+
+
+
+        $vbk = LichCongTac::find($request->input('id'));
+
+        $vbk->daduyet = '1';
+
+        $vbk->save();
+
+        return response(['data' => 'Văn bản đã được duyệt đăng'], 200);
     }
 }

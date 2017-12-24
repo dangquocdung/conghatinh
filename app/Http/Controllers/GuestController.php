@@ -316,6 +316,7 @@ class GuestController extends Controller
     public function getTimKiem()
     {
         $search = \Request::get('search'); //<-- we use global request to get the param of URI
+
         $type = \Request::get('type');
 
         $search = str_slug($search);
