@@ -47,4 +47,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     //html5 video
     config.extraPlugins = 'html5video';
+
+    //iframe
+    config.extraPlugins = 'iframe';
 };
