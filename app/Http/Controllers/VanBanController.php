@@ -126,6 +126,7 @@ class VanBanController extends Controller
         $vbedit = VanBan::find($id);
 
         $tepvanban = TepVanBan::where('vanban_id',$vbedit->id)->get();
+
         return view('admin.pages.van-ban-edit',compact('vbedit','tepvanban'));
 
 //        return response()->json($tepvanban);

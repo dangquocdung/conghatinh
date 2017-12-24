@@ -127,9 +127,9 @@ class VanBanKhacController extends Controller
      * @param  \App\LichCongTac  $lichCongTac
      * @return \Illuminate\Http\Response
      */
-        public function update(Request $request, $id)
+        public function update(Request $request)
         {
-            $vb = LichCongTac::find($id);
+            $vb = LichCongTac::find($request->vbedit);
 
             $vb->loaitin_id = $request->loaitin_id;
             $vb->name = $request->name;
