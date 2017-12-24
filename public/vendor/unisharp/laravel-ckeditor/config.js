@@ -43,16 +43,12 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.language = 'vi';
 
-	config.uiColor = '#487EA5';
-
-    //preview
-    config.extraPlugins = 'preview';
+	config.uiColor = '#AADC6E';
 
     //html5 video
     config.extraPlugins = 'html5video';
 
     //iframe
     config.extraPlugins = 'iframe';
-
 
 };
