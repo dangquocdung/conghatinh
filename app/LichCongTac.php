@@ -22,4 +22,9 @@ class LichCongTac extends Model
     {
         return $this->belongsTo('App\LoaiTin','loaitin_id','id');
     }
+
+    public function tepvanbankhac()
+    {
+        return $this->hasMany('App\TepVanBanKhac','vanbankhac_id','id');
+    }
 }

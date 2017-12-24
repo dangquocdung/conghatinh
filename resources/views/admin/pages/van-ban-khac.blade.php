@@ -69,9 +69,11 @@
 
                 </td>
                 <td>
-                  @if (!empty($vbk->media_id))
-                    <a href="{{ $vbk->media->directory.'/'.$vbk->media->filename.'.'.$vbk->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
-                  @endif
+                    @foreach($vbk->tepvanbankhac as $tvb)
+                        <a href="{{ $tvb->path }}" target="_blank">
+                            <img src="/images/pdf-file-512.png" alt="{{ $vbk->name }}" title="{{ $vbk->name }}" width="20px">
+                        </a>
+                    @endforeach
                 </td>
                 <td>{{ \Carbon\Carbon::parse($vbk->ngaybanhanh)->format('d-m-Y') }}</td>
                 <td>
