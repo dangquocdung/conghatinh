@@ -42,29 +42,35 @@
 
             @foreach ($chuyenmuc as $cm)
 
-              @foreach ($cm->lichct->sortbydesc('id') as $lct)
+              @foreach ($cm->lichct->sortbydesc('id') as $vbk)
               <tr>
-                <td>{{ $lct->id }}</td>
-                <td>{{ $lct->loaitin->name }}</td>
-                <td>{{ $lct->name }}</td>
+                <td>{{ $vbk->id }}</td>
+                <td>{{ $vbk->loaitin->name }}</td>
+                <td>{{ $vbk->name }}</td>
                 <td>
-                  @if (!empty($lct->media_id))
-                    <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                  @if (!empty($vbk->media_id))
+                    <a href="{{ $vbk->media->directory.'/'.$vbk->media->filename.'.'.$vbk->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
                   @endif
                 </td>
-                <td>{{ \Carbon\Carbon::parse($lct->created_at)->format('d-m-Y H:i:s') }}</td>
+                <td>{{ \Carbon\Carbon::parse($vbk->created_at)->format('d-m-Y H:i:s') }}</td>
                 <td>
 
-                  <div class="pull-left">
-                    <a href="{{route('edit-van-ban-khac', $lct->id)}}" class="btn btn-primary btn-xs">
-                      <i class="fa fa-edit"></i> Sửa
-                    </a>
-                  </div>
-                  <div class="pull-left gap-left gap-10">
-                    {{--{!! Form::open(['method' => 'DELETE','route' => ['van-ban-khac.destroy', $lct->id],'style'=>'display:inline']) !!}--}}
-                    {{--{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}--}}
-                    {{--{!! Form::close() !!}--}}
-                  </div>
+                    <div class="pull-left">
+                        <a href="{{route('edit-van-ban-khac', $vbk->id)}}" class="btn btn-primary btn-xs">
+                            <i class="fa fa-edit"></i> Sửa
+                        </a>
+                    </div>
+
+                    <div class="pull-left gap-left gap-10" style="padding-left: 5px">
+                        <confirm-modal
+                                btn-text='<i class="fa fa-trash"></i> Xoá'
+                                btn-class="btn-danger"
+                                url="{{url('api/v1/delete-van-ban-khac')}}"
+                                :post-data="{{json_encode(['id' => $vbk->id])}}"
+                                :refresh="true"
+                                message="Bạn chắc chắn muốn xoá văn bản {{$vbk->kihieuvb}}?">
+                        </confirm-modal>
+                    </div>
 
                 </td>
               </tr>
