@@ -97,16 +97,17 @@
                     <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
                 </div>
                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
-                    @foreach($vd_noibat as $vd)
-                        <div class="video-thumbnail">
-                            <a href="{{ route('thu-vien-video',$vd->id) }}">
-                                <img data-u="image" src="{{ $vd->loaivideo->cover_image }}" title="{{ $vd->name }}" />
-                                <p style="position: absolute; bottom: 10px; right:10px; font-size: 1.5em; color: #ffffff;">
-                                    {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y')}}
+                    @foreach ($chuyenmuc as $cm)
+                        @foreach ($cm->tintuc->where('daduyet','1')->where('tinvideo','1') as $tv)
+                            <div>
+                                <a href="{{route('chi-tiet-tin',[$tv->loaitin->chuyenmuc->slug,$tv->loaitin->slug,'tin-tuc',$tv->id,$tv->slug])}}">
+                                    <img data-u="image" src="{{ $tv->avatar }}" title="{{ $tv->name }}" />
+                                </a>
+                                <p style="position: absolute; bottom: 10px; left:5px; right:5px; font-size: 1.3em; color: #ffffff; text-align: center;">
+                                    {{ $tv->name }}
                                 </p>
-                            </a>
-
-                        </div>
+                            </div>
+                        @endforeach
                     @endforeach
                 </div>
                 <!-- Bullet Navigator -->
