@@ -308,10 +308,6 @@
     };
 
     $(function () {
-        $('#datetimepicker_ngaydang').datetimepicker({
-            format:'DD/MM/YYYY HH:mm:ss'
-        });
-
         $('#datetimepicker_ngaybanhanh').datetimepicker({
             format:'DD-MM-YYYY'
         });

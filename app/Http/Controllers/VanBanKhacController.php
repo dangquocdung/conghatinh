@@ -11,6 +11,9 @@ use App\PhimTat;
 use App\ChuyenMuc;
 use App\Banner;
 
+use Auth;
+use Carbon\Carbon;
+
 class VanBanKhacController extends Controller
 {
     public function __construct()
@@ -76,10 +79,18 @@ class VanBanKhacController extends Controller
     public function store(Request $request)
     {
 
-        $request->slug = str_slug($request->name);
-        LichCongTac::create($request->all());
+        $vb = new LichCongTac;
 
-        flash('Tạo lịch công tác thành công!');
+        $vb->user_id = Auth::user()->id;
+        $vb->loaitin_id = $request->loaitin_id;
+        $vb->name = $request->name;
+        $vb->slug = $request->slug;
+        $vb->media_id = $request->media_id;
+        $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
+        $vb->noidung = $request->trichyeu;
+        $vb->save();
+
+        flash('Tạo văn bản thành công!');
 
         return redirect()->route('index-van-ban-khac');
     }

@@ -55,6 +55,17 @@
               <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
             </div>
 
+              <!-- Date -->
+              <div class="form-group">
+                  <div class='input-group date' id='datetimepicker_ngaybanhanh'>
+                      <input name="ngaybanhanh" type='text' class="form-control" required/>
+                      <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                  </div>
+                  <!-- /.input group -->
+              </div>
+
             <div class="form-group">
               <label>Tệp đính kèm</label>
                 <div class="pull-right">
@@ -63,7 +74,6 @@
                     </button>
                 </div>
               <select id="tepdinhkem" name="media_id" class="form-control select2">
-                  <option value="">Không chọn tệp đính kèm </option>
                 @foreach($pdfs as $pdf)
                   <option value="{{ $pdf->id }}" style="width: 100%">
                       {{ $pdf->filename.'.'.$pdf->extension }}
@@ -98,14 +108,20 @@
 
 @section('js')
 
-          <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
 
+          <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+          <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
           <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 
 
     <script>
       // CKEDITOR.replace( 'gioi-thieu' );
-      CKEDITOR.replace( 'noi-dung' );
+      CKEDITOR.replace('noi-dung',{
+          filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+          filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+          filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+          filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+      });
 
       $(document).ready(function() {
 
@@ -113,10 +129,6 @@
               width: '100%'
           });
 
-          $('#tuan').val(moment().format('W'));
-      });
-
-      $(document).ready(function() {
 
           $('#btnThem').click(function () {
 
@@ -147,7 +159,13 @@
                   })
               })
           })
-      })
+      });
+
+      $(function () {
+          $('#datetimepicker_ngaybanhanh').datetimepicker({
+              format:'DD-MM-YYYY'
+          });
+      });
 
     </script>
 @stop
