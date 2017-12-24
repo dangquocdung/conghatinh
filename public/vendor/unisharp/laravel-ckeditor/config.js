@@ -36,7 +36,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
-	config.extraPlugins = 'justify';
+	config.extraPlugins = 'justify,html5video,iframe,preview';
+
 
 	//height
 	config.height = 500; 
@@ -45,10 +46,6 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.uiColor = '#AADC6E';
 
-    //html5 video
-    config.extraPlugins = 'html5video';
 
-    //iframe
-    config.extraPlugins = 'iframe';
 
 };
