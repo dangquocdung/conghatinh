@@ -46,7 +46,28 @@
               <tr>
                 <td>{{ $vbk->id }}</td>
                 <td>{{ $vbk->loaitin->name }}</td>
-                <td>{{ $vbk->name }}</td>
+                <td>
+                    {{ $vbk->name }}
+                    <br>
+
+                    @if ($vbk->daduyet == '1')
+                        <span class="label label-success">Đã duyệt đăng</span>
+                    @else
+                        <div class="pull-left gap-left gap-10">
+                            <confirm-modal
+                                    btn-text='Chờ duyệt'
+                                    btn-class="btn-warning"
+                                    url="{{url('api/v1/duyet-van-ban-khac')}}"
+                                    :post-data="{{json_encode(['id' => $vbk->id])}}"
+                                    :refresh="true"
+                                    message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vbk->name}}?">
+                            </confirm-modal>
+                        </div>
+
+                        {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                    @endif
+
+                </td>
                 <td>
                   @if (!empty($vbk->media_id))
                     <a href="{{ $vbk->media->directory.'/'.$vbk->media->filename.'.'.$vbk->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>

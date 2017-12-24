@@ -56,7 +56,7 @@
                   @else
                     <div class="pull-left gap-left gap-10">
                       <confirm-modal
-                              btn-text='Chờ duyệt đăng...'
+                              btn-text='Chờ duyệt'
                               btn-class="btn-warning"
                               url="{{url('api/v1/duyet-van-ban')}}"
                               :post-data="{{json_encode(['id' => $vb->id])}}"

@@ -113,7 +113,7 @@
                                                         <th>Tệp đính kèm</th>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach($lt->lichct->sortByDesc('id')->take(5) as $lct)
+                                                    @foreach($lt->lichct->where('daduyet','1')->sortByDesc('id')->take(5) as $lct)
                                                         <tr>
                                                             <td>
                                                                 {{ $loop->iteration }}
