@@ -19,11 +19,11 @@
     {{--@include('guest.home.tin-tuc-su-kien')--}}
 
     <div class="clearfix"></div>
-    @include('guest.home.albums')
+    @include('guest.home.tin-anh')
     <div class="clearfix"></div>
     @include('guest.home.to-chuc')
     <div class="clearfix"></div>
-    @include('guest.home.videos')
+    @include('guest.home.tin-video')
 @endsection
 
 

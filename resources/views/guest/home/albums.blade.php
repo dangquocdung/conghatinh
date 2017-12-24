@@ -85,7 +85,7 @@
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
         <a href="{{ route('album-hinh-anh') }}">
-            <h4 class="portlet-header-title no-pd-top">Album hình ảnh</h4>
+            <h4 class="portlet-header-title no-pd-top">Tin ảnh</h4>
         </a>
     </div>
 
@@ -97,12 +97,14 @@
                     <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
                 </div>
                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:150px;overflow:hidden;">
-                    @foreach($ab_noibat as $ab)
-                        <div>
-                            <a href="{{ route('album-hinh-anh', $ab->slug) }}">
-                                <img data-u="image" src="{{ $ab->cover_image }}" title="{{ $ab->name }}" />
-                            </a>
-                        </div>
+                    @foreach ($chuyenmuc as $cm)
+                        @foreach ($cm->tintuc->where('daduyet','1')->where('tinanh','1') as $ta)
+                            <div>
+                                <a href="#">
+                                    <img data-u="image" src="{{ $ta->avatar }}" title="{{ $ta->name }}" />
+                                </a>
+                            </div>
+                        @endforeach
                     @endforeach
                 </div>
                 <!-- Bullet Navigator -->
