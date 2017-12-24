@@ -95,34 +95,26 @@
                       <!-- /.input group -->
                   </div>
 
-                <div class="form-group">
-                  <label>Tệp đính kèm</label>
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-primary btn-xs" id="btnRefresh">
-                            <i class="fa fa-refresh"></i> Nạp lại
-                        </button>
-                    </div>
-                  <select id="tepdinhkem" name="media_id" class="form-control select2">
-                    @foreach($pdfs as $pdf)
+                  @php
+                      $items = array();
+                      foreach($tepvanban as $tvb){
+                          $items[] = $lct->media_id;
+                      }
+                  @endphp
 
-                          @if ($lct->media_id == $pdf->id)
-                              <option value="{{ $pdf->id }}" style="width: 100%" selected>
-                                  {{ $pdf->filename.'.'.$pdf->extension }}
-                              </option>
+                  <div class="form-group">
+                      <label>Chọn tệp văn bản</label>
+                      <select name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+                          @foreach($pdfs as $pdf)
+                              @if (in_array($pdf->id,$items))
+                                  <option value="{{$pdf->id}}" selected>{{ $pdf->id.'-'.$pdf->filename }}</option>
+                              @else
+                                  <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                              @endif
 
-                          @else
-
-                              <option value="{{ $pdf->id }}" style="width: 100%">
-                                  {{ $pdf->filename.'.'.$pdf->extension }}
-                              </option>
-                          @endif
-
-                    @endforeach
-                  </select>
-
-
-                </div>
-
+                          @endforeach
+                      </select>
+                  </div>
 
 
                 <div class="form-group">

@@ -85,10 +85,34 @@ class VanBanKhacController extends Controller
         $vb->loaitin_id = $request->loaitin_id;
         $vb->name = $request->name;
         $vb->slug = str_slug($request->name);
-        $vb->media_id = $request->media_id;
         $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
         $vb->noidung = $request->noidung;
         $vb->save();
+
+        $vbid = $vb->id;
+
+
+        $tvbs = $request->input('tepvanban');
+
+
+        TepVanBan::where('vanban_id',$vbid)->delete();
+
+
+        foreach ($tvbs as $tvb){
+
+            $path = Media::find($tvb);
+
+            $tvbn= new TepVanBanKhac;
+
+            $tvbn->vanbankhac_id = $vbid;
+
+            $tvbn->media_id = $tvb;
+
+            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+
+            $tvbn->save();
+        }
+
 
         flash('Tạo văn bản thành công!');
 
@@ -134,11 +158,31 @@ class VanBanKhacController extends Controller
             $vb->loaitin_id = $request->loaitin_id;
             $vb->name = $request->name;
             $vb->slug = str_slug($request->name);
-            $vb->media_id = $request->media_id;
             $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
             $vb->noidung = $request->noidung;
 
             $vb->save();
+
+            $vbid = $vb->id;
+
+
+            $tvbs = $request->input('tepvanban');
+
+            foreach ($tvbs as $tvb){
+
+                $path = Media::find($tvb);
+
+                $tvbn= new TepVanBanKhac;
+
+                $tvbn->vanban_id = $vbid;
+
+                $tvbn->media_id = $tvb;
+
+                $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+
+                $tvbn->save();
+            }
+
 
             flash('Sửa văn bản thành công!');
 
