@@ -84,10 +84,10 @@ class VanBanKhacController extends Controller
         $vb->user_id = Auth::user()->id;
         $vb->loaitin_id = $request->loaitin_id;
         $vb->name = $request->name;
-        $vb->slug = $request->slug;
+        $vb->slug = str_slug($request->name);
         $vb->media_id = $request->media_id;
         $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
-        $vb->noidung = $request->trichyeu;
+        $vb->noidung = $request->noidung;
         $vb->save();
 
         flash('Tạo văn bản thành công!');
