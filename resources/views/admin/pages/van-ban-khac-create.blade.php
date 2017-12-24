@@ -63,7 +63,7 @@
                     </button>
                 </div>
               <select id="tepdinhkem" name="media_id" class="form-control select2">
-                  <option value="">Chọn văn bản</option>
+                  <option value="">Không chọn tệp đính kèm </option>
                 @foreach($pdfs as $pdf)
                   <option value="{{ $pdf->id }}" style="width: 100%">
                       {{ $pdf->filename.'.'.$pdf->extension }}
