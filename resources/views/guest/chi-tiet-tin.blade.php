@@ -499,6 +499,8 @@
         $(document).ready(function () {
 			$('.ckeditor-html5-video').addClass('embed-responsive embed-responsive-16by9');
 			$('video').addClass('embed-responsive-item');
+			$('iframe').addClass('embed-responsive-item');
+			$('iframe').parent().addClass('embed-responsive embed-responsive-16by9');
 		})
 
 
