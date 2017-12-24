@@ -268,7 +268,7 @@
 				</div>
 
 				<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
-					<p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="{{ $tvb->path }}">Download PDF</a>.</p>
+					<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
 				</object>
 
 				<hr>
@@ -358,15 +358,15 @@
 					{!! $tin->noidung !!}
 				</div>
 
-				@if (!empty($tin->media_id))
+				{{--@if (!empty($tin->media_id))--}}
 
-					@if ($tin->media->extension == 'pdf')
-						<object data="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}" type="application/pdf" width="100%" height="640px">
-							<p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}">Download PDF</a>.</p>
-						</object>
-					@endif
+					{{--@if ($tin->media->extension == 'pdf')--}}
+						{{--<object data="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}" type="application/pdf" width="100%" height="640px">--}}
+							{{--<p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="{{ $tin->media->directory.'/'.$tin->media->filename.'.'.$tin->media->extension }}">Download PDF</a>.</p>--}}
+						{{--</object>--}}
+					{{--@endif--}}
 
-				@endif
+				{{--@endif--}}
 
 
 
