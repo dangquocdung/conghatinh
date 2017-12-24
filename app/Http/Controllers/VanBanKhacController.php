@@ -14,6 +14,8 @@ use App\Banner;
 use Auth;
 use Carbon\Carbon;
 
+use App\TepVanBanKhac;
+
 class VanBanKhacController extends Controller
 {
     public function __construct()
@@ -94,23 +96,26 @@ class VanBanKhacController extends Controller
 
         $tvbs = $request->input('tepvanban');
 
+        if ($tvbs) {
 
-        TepVanBan::where('vanban_id',$vbid)->delete();
+
+            TepVanBan::where('vanban_id', $vbid)->delete();
 
 
-        foreach ($tvbs as $tvb){
+            foreach ($tvbs as $tvb) {
 
-            $path = Media::find($tvb);
+                $path = Media::find($tvb);
 
-            $tvbn= new TepVanBanKhac;
+                $tvbn = new TepVanBanKhac;
 
-            $tvbn->vanbankhac_id = $vbid;
+                $tvbn->vanbankhac_id = $vbid;
 
-            $tvbn->media_id = $tvb;
+                $tvbn->media_id = $tvb;
 
-            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+                $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
 
-            $tvbn->save();
+                $tvbn->save();
+            }
         }
 
 
@@ -141,7 +146,10 @@ class VanBanKhacController extends Controller
     {
         $lct=LichCongTac::find($id);
 
-        return view('admin.pages.van-ban-khac-edit',compact('lct'));
+        $tepvanbankhac = TepVanBanKhac::where('vanbankhac_id',$lct->id)->get();
+
+
+        return view('admin.pages.van-ban-khac-edit',compact('lct','tepvanbankhac'));
     }
 
     /**
@@ -168,19 +176,23 @@ class VanBanKhacController extends Controller
 
             $tvbs = $request->input('tepvanban');
 
-            foreach ($tvbs as $tvb){
+            if ($tvbs) {
 
-                $path = Media::find($tvb);
 
-                $tvbn= new TepVanBanKhac;
+                foreach ($tvbs as $tvb) {
 
-                $tvbn->vanban_id = $vbid;
+                    $path = Media::find($tvb);
 
-                $tvbn->media_id = $tvb;
+                    $tvbn = new TepVanBanKhac;
 
-                $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+                    $tvbn->vanban_id = $vbid;
 
-                $tvbn->save();
+                    $tvbn->media_id = $tvb;
+
+                    $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
+
+                    $tvbn->save();
+                }
             }
 
 
