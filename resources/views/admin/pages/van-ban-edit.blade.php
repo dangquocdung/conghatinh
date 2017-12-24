@@ -55,22 +55,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <label>Chọn loại văn bản</label>
-
-                            <select class="form-control select2" name="loaivb_id" data-placeholder="Chọn loại văn bản" style="width: 100%;" required>
-
-                                <option value=""></option>
-                                @foreach($loaivb as $lvb)
-                                    @if ($lvb->id == $vbedit->loaivb_id)
-                                        <option value="{{ $lvb->id }}" selected>{{ $lvb->name }}</option>
-                                    @else
-                                        <option value="{{ $lvb->id }}">{{ $lvb->name }}</option>
-                                    @endif
-                                @endforeach
-
-                            </select>
-                        </div>
+                        
 
 
                         <div class="form-group">
