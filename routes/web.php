@@ -153,6 +153,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('/them-van-ban-khac','VanBanKhacController@create')->name('tao-van-ban-khac');
         Route::post('/them-van-ban-khac','VanBanKhacController@store')->name('them-van-ban-khac');
         Route::get('/edit-van-ban-khac/{id}','VanBanKhacController@edit')->name('edit-van-ban-khac');
+        Route::post('/update-van-ban-khac','VanBanKhacController@update')->name('update-van-ban-khac');
 //        Route::post('/update-van-ban','VanBanController@update')->name('update-van-ban');
 //        Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
 //        Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');

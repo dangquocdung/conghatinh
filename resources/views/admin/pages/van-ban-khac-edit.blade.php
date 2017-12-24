@@ -52,15 +52,50 @@
             {{--{{csrf_field()}}--}}
             {{--{{ method_field('PATCH') }}--}}
 
-          {!! Form::model($lct, ['method' => 'PATCH','route' => ['lich-cong-tac.update', $lct->id]]) !!}
+
+          <form action="{{ route('update-van-ban-khac') }}" method="post">
+              {{ csrf_field() }}
+
+              <input type="hidden" name="vbedit" value="{{$lct->id}}">
 
 
               <div class="modal-body">
-                <div class="form-group">
-                  <label for="">Chọn tháng:</label>
-                  {{--<input type="month" name="tuan" id="tuan" class="form-control" required>--}}
-                  <input id="thang" name="thang" class="form-control" type="text" value="{{ $lct->thang }}" />
-                </div>
+                  <div class="form-group">
+                      <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+                          <option value=""></option>
+                          @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
+                              <optgroup label="{{ $cm->name}}">
+                                  @foreach ($cm->loaitin->where('show','1') as $lt)
+
+                                      @if ($lct->loaitin_id == $lt->id)
+
+                                          <option value={{ $lt->id }} selected>{{ $lt->name}}</option>
+
+                                          @else
+                                        <option value={{ $lt->id }}>{{ $lt->name}}</option>
+
+                                      @endif
+                                  @endforeach
+                              </optgroup>
+                          @endforeach
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ $lct->name }}" required>
+                  </div>
+
+                  <!-- Date -->
+                  <div class="form-group">
+                      <div class='input-group date' id='datetimepicker_ngaybanhanh'>
+                      <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                          <input name="ngaybanhanh" type='text' class="form-control" value="{{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}" required/>
+                      </div>
+                      <!-- /.input group -->
+                  </div>
+
                 <div class="form-group">
                   <label>Tệp đính kèm</label>
                     <div class="pull-right">
@@ -115,15 +150,19 @@
 
       @section('js')
 
-      <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-
-
-      <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+          <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+          <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+          <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 
 
       <script>
           // CKEDITOR.replace( 'gioi-thieu' );
-          CKEDITOR.replace( 'noi-dung' );
+          CKEDITOR.replace( 'noi-dung',{
+              filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+              filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+              filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+              filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+          } );
 
           // $("input:file, input:checkbox").uniform();
 
@@ -138,12 +177,6 @@
 
           $(document).ready(function() {
               // Default functionality.
-              $('#thang').MonthPicker({
-                  i18n: {
-                      year: 'năm',
-                      months: ['Th. 1','Th. 2','Th. 3','Th. 4','Th. 5','Th. 6','Th. 7','Th. 8','Th. 9','Th. 10','Th. 11','Th. 12']
-                  }
-              });
 
               $('#btnThem').click(function () {
 
@@ -182,6 +215,12 @@
 
 
           })
+
+          $(function () {
+              $('#datetimepicker_ngaybanhanh').datetimepicker({
+                  format:'DD-MM-YYYY'
+              });
+          });
 
 
       </script>

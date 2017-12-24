@@ -32,7 +32,7 @@
               <th>Loại </th>
               <th>Nội dung</th>
               <th>Tệp đính kèm</th>
-              <th>Ngày tạo</th>
+              <th>Ngày ban hành </th>
               <th>
 
               </th>
@@ -73,7 +73,7 @@
                     <a href="{{ $vbk->media->directory.'/'.$vbk->media->filename.'.'.$vbk->media->extension }}"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
                   @endif
                 </td>
-                <td>{{ \Carbon\Carbon::parse($vbk->created_at)->format('d-m-Y H:i:s') }}</td>
+                <td>{{ \Carbon\Carbon::parse($vbk->ngaybanhanh)->format('d-m-Y') }}</td>
                 <td>
 
                     <div class="pull-left">
