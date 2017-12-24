@@ -50,4 +50,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     //iframe
     config.extraPlugins = 'iframe';
+
+    //preview
+    config.extraPlugins = 'preview';
 };
