@@ -94,12 +94,12 @@ class VanBanKhacController extends Controller
         $vbid = $vb->id;
 
 
-        $tvbs = $request->input('tepvanban');
+        $tvbs = $request->input('tepvanbankhac');
 
         if ($tvbs) {
 
 
-            TepVanBan::where('vanban_id', $vbid)->delete();
+            TepVanBanKhac::where('vanbankhac_id', $vbid)->delete();
 
 
             foreach ($tvbs as $tvb) {
@@ -174,7 +174,7 @@ class VanBanKhacController extends Controller
             $vbid = $vb->id;
 
 
-            $tvbs = $request->input('tepvanban');
+            $tvbs = $request->input('tepvanbankhac');
 
             if ($tvbs) {
 
