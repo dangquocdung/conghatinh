@@ -27,7 +27,7 @@
 
                         <div class="breadcrumb">
                             <span class="breadcrumb-item active">
-                                <i class="fa fa-question-circle" aria-hidden="true"></i> Thêm phản ánh, kiến nghị
+                                <i class="fa fa-question-circle" aria-hidden="true"></i> Thêm ý kiến
                             </span>
                         </div>
 
@@ -64,15 +64,15 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Câu hỏi </label>
-                                    <textarea class="form-control textarea" name="cauhoi" placeholder="Nhập câu hỏi ở đây"
+                                    <label>Ý kiến  </label>
+                                    <textarea class="form-control textarea" name="cauhoi" placeholder="Nhập ý kiến ở đây"
                                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                                     @if ($errors->has('cauhoi'))
                                         <div class="error">{{ $errors->first('cauhoi') }}</div>
                                     @endif
                                 </div>
 
-                                <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi phản ánh, kiến nghị</button>
+                                <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi ý kiến </button>
                                 <br>
                             </div>
                         </form>
