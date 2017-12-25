@@ -31,7 +31,7 @@
               <th>#</th>
               <th>Chuyên mục</th>
               <th>Url</th>
-              <th>Ẩn/Hiện</th>
+              <th></th>
               <th>Thứ tự</th>
 
               <th></th>
