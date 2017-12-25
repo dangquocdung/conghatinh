@@ -219,7 +219,7 @@ class GuestController extends Controller
     public function getPhanAnhKienNghi()
     {
         $hoidaptt = HoiDapTrucTuyen::where('daduyet','1')->orderby('id','desc')->get();
-        return view ('guest.trao-doi-hoi-dap',compact('hoidaptt'));
+        return view ('guest.phan-anh-kien-nghi',compact('hoidaptt'));
     }
 
     public function getTraoDoiHoiDap()
