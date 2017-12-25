@@ -342,10 +342,10 @@
               $('#suaChuyenMuc').find('select#preview-edit').val($(this).attr('cm-banner'));
 
               if ($(this).attr('cm-icon') == '0'){
-                  $('#suaChuyenMuc').find('input#cm-anhien').setAttribute("checked", "checked");
+                  $('#suaChuyenMuc').find('input#cm-anhien').addAttr('checked', 'checked');
               }else{
 
-                  $('#suaChuyenMuc').find('input#cm-anhien').setAttribute("checked", "");
+                  $('#suaChuyenMuc').find('input#cm-anhien').addAttr('checked', '');
               };
           });
 
