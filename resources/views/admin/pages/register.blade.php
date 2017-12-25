@@ -2,10 +2,8 @@
 
 @section('content')
 <div class="login-box">
-  <div class="login-logo">
-    <a href="{{url('/')}}"><b>Hà Tĩnh Web Portal</b></a>
-  </div>
-@include('flash::message')
+
+  @include('flash::message')
 <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Đăng kí tài khoản</p>
