@@ -13,10 +13,10 @@
         <li class="" style="width: 20%">
             <a href="{{ route('so-do-cong') }}">Sơ đồ cổng</a>
         </li>
-        <li class="" style="width: 15%">
+        <li class="" style="width: 16%">
             <a href="{{ route('gop-y-cong') }}">Góp ý</a>
         </li>
-        <li class="" style="width: 18%">
+        <li class="" style="width: 17%">
             <a href="/dang-nhap">Đăng nhập</a>
         </li>
         {{--<li class="">--}}
