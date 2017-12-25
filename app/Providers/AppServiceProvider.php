@@ -62,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
-        view()->composer(['guest.gop-y-van-ban','guest.phan-anh-kien-nghi','guest.trao-doi-hoi-dap','guest.thu-vien','guest.thong-tin-doanh-nghiep','guest.nguoi-phat-ngon','guest.phong-vien-thuong-tru'],function($view){
+        view()->composer(['guest.gop-y-van-ban','guest.phan-anh-kien-nghi','guest.trao-doi-hoi-dap','guest.thu-vien','guest.thong-tin-doanh-nghiep','guest.nguoi-phat-ngon','guest.phong-vien-thuong-tru','guest.lien-he-cong-tac'],function($view){
 
             $toppic = TopPic::all()->last();
 
