@@ -14,7 +14,7 @@ class AddAnhienToChuyenmuc extends Migration
     public function up()
     {
         Schema::table('chuyenmuc', function (Blueprint $table) {
-            $table->boolean('anhien')->default(true);
+            $table->boolean('show')->default(true);
         });
     }
 
@@ -26,7 +26,7 @@ class AddAnhienToChuyenmuc extends Migration
     public function down()
     {
         Schema::table('chuyenmuc', function (Blueprint $table) {
-            $table->dropColumn('anhien');
+            $table->dropColumn('show');
         });
     }
 }

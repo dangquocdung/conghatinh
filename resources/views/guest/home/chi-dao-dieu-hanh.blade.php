@@ -1,4 +1,4 @@
-@foreach ($chuyenmuc as $cm)
+@foreach ($chuyenmuc->where('show','1') as $cm)
     @if (count($cm->loaitin) > 0)
         <div class="block3">
             <div class="box box-default">
