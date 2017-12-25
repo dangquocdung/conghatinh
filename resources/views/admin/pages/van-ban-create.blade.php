@@ -84,10 +84,11 @@
               <!-- Date -->
               <div class="form-group">
                   <div class='input-group date' id='datetimepicker_ngaybanhanh'>
-                      <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}" required/>
                       <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                      <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}" required/>
+
                   </div>
                   <!-- /.input group -->
               </div>
