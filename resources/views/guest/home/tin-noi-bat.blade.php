@@ -92,21 +92,23 @@
 
                         <div id="tin-moi-nhat">
                             <ul>
-                                @foreach ($tinmoinhat as $tnb)
-                                    <li>
-                                        <div class="hot-news-block">
+                                @foreach($chuyenmuc->whereIn('id',['2','16']) as $cm)
+                                    @foreach ($cm->tintuc->sortbydesc('id')->take(8) as $tnb)
+                                        <li>
+                                            <div class="hot-news-block">
 
-                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,'tin-tuc',$tnb->id,$tnb->slug]) }}" class="news-title">
-                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
-                                                <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                            </a>
+                                                <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,'tin-tuc',$tnb->id,$tnb->slug]) }}" class="news-title">
+                                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
+                                                    <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                </a>
 
-                                            <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
+                                                <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
 
-                                            <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
+                                                <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
 
-                                        </div>
-                                    </li>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 @endforeach
                             </ul>
                             <div class="xem-tiep" style="float:right; padding-bottom: 8px;">

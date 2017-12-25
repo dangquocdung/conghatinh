@@ -57,11 +57,12 @@ class GuestController extends Controller
     {
 
         $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->get();
-        $tinmoinhat = TinTuc::where('daduyet','1')->orderBy('id', 'decs')->take(8)->get();
+
+//        $tinmoinhat = TinTuc::where('loaitin_id','')->where('daduyet','1')->orderBy('id', 'decs')->take(8)->get();
 
 
 
-        return view('guest.trang-chu', compact('tinnoibat','tinmoinhat'));
+        return view('guest.trang-chu', compact('tinnoibat'));
 
     }
 
