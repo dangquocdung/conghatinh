@@ -61,15 +61,6 @@
                 {!! Setting::get('video_livestream') !!}
             </div>
         </div>
-    @elseif (!empty($vd_thoisu))
-        <div class="block4" id="live-stream" style="border-radius: 5px">
-            <div class="embed-responsive embed-responsive-16by9">
-                <video controls>
-                    <source src="/sftp/{{ $vd_thoisu->src }}" type="video/mp4">
-                </video>
-                {{--<iframe src="/uploads/{{ $vd_thoisu->src }}?rel=0" frameborder="0"></iframe>--}}
-            </div>
-        </div>
     @endif
 
 

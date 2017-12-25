@@ -92,7 +92,7 @@
 
                         <div id="tin-moi-nhat">
                             <ul>
-                                @foreach ($tin1->loaitin->chuyenmuc->tintuc->where('daduyet','1')->sortbydesc('id')->take(8) as $tnb)
+                                @foreach ($tinmoidang as $tnb)
                                     <li>
                                         <div class="hot-news-block">
 
