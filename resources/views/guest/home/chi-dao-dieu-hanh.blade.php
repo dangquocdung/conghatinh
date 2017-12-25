@@ -126,9 +126,11 @@
                                                                 {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
                                                             </td>
                                                             <td>
-                                                                @if (!empty($lct->media_id))
-                                                                    <a href="{{ $lct->media->directory.'/'.$lct->media->filename.'.'.$lct->media->extension }}"><i class="fa fa-file-word-o" aria-hidden="true"></i></a>
-                                                                @endif
+                                                                @foreach($lct->tepvanbankhac as $tvb)
+                                                                    <a href="{{ $tvb->path }}" target="_blank">
+                                                                        <img src="/images/pdf-file-512.png" alt="{{ $vb->kihieuvb }}" title="{{ $vb->kihieuvb }}" width="20px">
+                                                                    </a>
+                                                                @endforeach
                                                             </td>
 
                                                         </tr>
