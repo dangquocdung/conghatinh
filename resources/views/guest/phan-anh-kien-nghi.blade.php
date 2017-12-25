@@ -11,11 +11,11 @@
                 <div class="portlet-header">
 
                     <a href="javascript:void(0);">
-                        <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Hỏi - Đáp trực tuyến</h4>
+                        <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Phản ánh - Kiến nghị </h4>
                     </a>
 
                     <button class="pull-right btn btn-info btn-sm" id="themCauHoi" style="margin-right: 7px">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i> Đặt câu hỏi
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm phản ánh, kiến nghị
                     </button>
 
                 </div>
@@ -27,7 +27,7 @@
 
                         <div class="breadcrumb">
                             <span class="breadcrumb-item active">
-                                <i class="fa fa-question-circle" aria-hidden="true"></i> Đặt câu hỏi
+                                <i class="fa fa-question-circle" aria-hidden="true"></i> Thêm phản ánh, kiến nghị
                             </span>
                         </div>
 
@@ -72,7 +72,7 @@
                                     @endif
                                 </div>
 
-                                <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi câu hỏi</button>
+                                <button class="btn btn-success btn-sm pull-right" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Gửi phản ánh, kiến nghị</button>
                                 <br>
                             </div>
                         </form>
