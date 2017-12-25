@@ -40,7 +40,6 @@ class GuestController extends Controller
         $banner = Banner::orderby('thutu','asc')->get();
         $phimtat = PhimTat::orderby('thutu','asc')->get();
         $loaivideo = LoaiVideo::orderby('thutu')->get();
-        $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
 
         view()->share('toppic',$toppic);

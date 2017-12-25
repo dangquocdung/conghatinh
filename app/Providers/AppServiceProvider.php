@@ -39,32 +39,19 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.van-ban','guest.van-ban-chi-tiet','guest.tin-noi-bat','guest.so-do-cong','guest.video-chi-tiet','guest.album-anh','guest.album-chi-tiet','guest.lich-lam-viec','guest.tim-kiem'],function($view){
+        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.so-do-cong','guest.tim-kiem','errors::403','errors::404','errors::500'],function($view){
 
-            $loaitin = LoaiTin::all();
+            $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
-          $tinnoibat4 = TinTuc::where('daduyet','1')->where('noibat','1')->orderby('id','desc')->take(4)->get();
+            $cqbh = CQBH::all();
 
-          $tinmoi5 = TinTuc::where('daduyet','1')->orderby('id','desc')->take(5)->get();
+            $loaivb = LoaiVB::all();
 
-          $vanban = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
+            $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
-          $cqbh = CQBH::all();
-
-          $linhvuc = LinhVuc::all();
-
-          $loaivb = LoaiVB::all();
-
-          $ab_noibat = Album::with('Photos')->where('daduyet','1')->where('noibat','1')->orderby('id','desc')->take(12)->get();
-
-          $vd_noibat = Video::where('daduyet','1')->where('noibat','1')->take(12)->get();
-
-          $vd_thoisu = Video::where('loaivideo_id','1')->orderby('ngayphat','desc')->first();
-
-          $view->with(compact('chuyenmuc','loaitin','tinnoibat4', 'tinmoi5','vanban','cqbh','linhvuc','loaivb','ab_noibat','vd_noibat','vd_thoisu'));
+          $view->with(compact('chuyenmuc','cqbh','loaivb','json_tinnoibat'));
 
         });
-
 
 
         view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit','admin.pages.lich-cong-tac','admin.pages.tbt.toppic'],function($view){
@@ -82,20 +69,6 @@ class AppServiceProvider extends ServiceProvider
           $loaivb = LoaiVB::all();
           
           $view->with(compact('chuyenmuc','loaivb','cqbh', 'nguoiki','pdfs','hinhanh'));
-
-        });
-
-        view()->composer(['errors::403','errors::404','errors::500'],function($view){
-
-            $toppic = TopPic::orderby('thutu','asc')->get();
-
-            $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-
-            $phimtat = PhimTat::orderby('thutu','asc')->get();
-
-            $banner = Banner::orderby('thutu','asc')->get();
-
-            $view->with(compact('toppic','chuyenmuc','phimtat','banner'));
 
         });
 
