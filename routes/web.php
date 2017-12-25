@@ -22,8 +22,21 @@ Route::group(['prefix'=>'vi'], function ()
 
     Route::get('thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep')->name('get-thong-tin-doanh-nghiep');
 
-    Route::group(['prefix'=>'chuyen-trang'], function () {
 
+
+//    Route::group(['prefix'=>'da-phuong-tien'], function () {
+//
+//        Route::get('thu-vien-video/{id?}', 'GuestController@getVideo')->name('thu-vien-video');
+//
+//        Route::get('album-hinh-anh/{slug?}', 'GuestController@getAlbum')->name('album-hinh-anh');
+//    });
+
+
+//    Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
+//
+//    Route::get('van-ban/{slug}/{id}', 'GuestController@ctVanBan')->name('chi-tiet-van-ban');
+
+    Route::group(['prefix'=>'chuyen-trang'], function () {
         Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
         Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
         Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
@@ -34,24 +47,14 @@ Route::group(['prefix'=>'vi'], function ()
         Route::get('danh-sach-vpdd-pvtt-dang-ky-hoat-dong', 'GuestController@getPhongVienThuongTru');
     });
 
-    Route::group(['prefix'=>'da-phuong-tien'], function () {
-
-        Route::get('thu-vien-video/{id?}', 'GuestController@getVideo')->name('thu-vien-video');
-
-        Route::get('album-hinh-anh/{slug?}', 'GuestController@getAlbum')->name('album-hinh-anh');
-    });
-
-
-//    Route::get('van-ban/{slug?}', 'GuestController@vanBan')->name('van-ban');
-//
-//    Route::get('van-ban/{slug}/{id}', 'GuestController@ctVanBan')->name('chi-tiet-van-ban');
-
     Route::get('tim-kiem', 'GuestController@getTimKiem')->name('tim-kiem');
 
     Route::get('{cm}', 'GuestController@chuyenMuc')->name('chuyen-muc');
     Route::get('{cm}/{lt}', 'GuestController@loaiTin')->name('loai-tin');
 
     Route::get('{cm}/{lt}/{type}/{id}-{slug}', 'GuestController@getTinTuc')->name('chi-tiet-tin');
+
+
 
 });
 
