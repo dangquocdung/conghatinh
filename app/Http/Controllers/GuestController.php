@@ -45,10 +45,14 @@ class GuestController extends Controller
 //        view()->share('phimtat',$phimtat);
 //        view()->share('loaivideo',$loaivideo);
 
+        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+
         $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
+
         view()->share('vbmoinhat',$vbmoinhat);
         view()->share('lctmoinhat',$lctmoinhat);
+        view()->share('chuyenmuc',$chuyenmuc);
 
     }
 
@@ -110,8 +114,8 @@ class GuestController extends Controller
     public function getBBT()
     {
 
-        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-        return view('guest.ban-bien-tap',compact('chuyenmuc'));
+
+        return view('guest.ban-bien-tap');
     }
 
     public function getLLV()

@@ -8,15 +8,6 @@ Route::group(['prefix'=>'vi'], function ()
 {
     Route::get('tin-noi-bat', 'GuestController@tinNoiBat');
 
-//    Route::group(['prefix'=>'chi-dao-dieu-hanh'], function () {
-//
-//        Route::get('lich-cong-tac-lanh-dao-ubnd-tinh', 'GuestController@getLLV')->name('get-lich-cong-tac');
-//        Route::get('lich-cong-tac-lanh-dao-ubnd-tinh/{id}', 'GuestController@showLLV')->name('lich-cong-tac-show');
-//
-//        Route::get('van-ban-cd-dh', 'GuestController@getVBCDDH')->name('get-van-ban-chi-dao-dieu-hanh');
-//
-//    });
-
     Route::get('lien-he-cong-tac', 'GuestController@getLienHeCongTac')->name('lien-he-cong-tac');
     Route::post('lien-he-cong-tac', 'LienHeController@store')->name('post-lien-he-cong-tac');
     Route::get('gop-y-cong', 'GuestController@getGopY')->name('gop-y-cong');
@@ -27,7 +18,7 @@ Route::group(['prefix'=>'vi'], function ()
 
 
     Route::get('gop-y-van-ban-qppl', 'GuestController@getGopYVanBan');
-    Route::get('trao-doi-hoi-dap', 'GuestController@getHoiDap')->name('get-hoi-dap');
+    Route::get('trao-doi-hoi-dap', 'GuestController@getHoiDap');
 
     Route::get('thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep')->name('get-thong-tin-doanh-nghiep');
 
