@@ -235,4 +235,15 @@ class VanBanController extends Controller
 
         return response(['data' => 'Văn bản đã được duyệt đăng'], 200);
     }
+
+    public function updateSlug(){
+        $vanban = VanBan::all();
+
+        foreach ($vanban as $vb){
+            $vb->slug = str_slug($vb->kihieuvb.'-'.$vb->ngaybanhanh);
+            $vb->save();
+        }
+
+        return response(['data' => 'Văn bản đã được cập nhật slug'], 200);
+    }
 }

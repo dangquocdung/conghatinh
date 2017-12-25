@@ -4,6 +4,9 @@ Route::feeds();
 
 Route::get('/', 'GuestController@index');
 
+Route::get('/update-slug-van-ban', 'VanBanController@updateSlug');
+
+
 Route::group(['prefix'=>'vi'], function ()
 {
     Route::get('tin-noi-bat', 'GuestController@tinNoiBat');
