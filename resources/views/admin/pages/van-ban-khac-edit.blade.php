@@ -97,7 +97,7 @@
 
                   @php
                       $items = array();
-                      foreach($tepvanbankhac as $tvb){
+                      foreach($tepvanbankhac as $lct){
                           $items[] = $lct->media_id;
                       }
                   @endphp
