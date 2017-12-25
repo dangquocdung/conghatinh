@@ -31,7 +31,7 @@
               <th>#</th>
               <th>Chuyên mục</th>
               <th>Url</th>
-              <th>Vị trí</th>
+              <th>Ẩn/Hiện</th>
               <th>Thứ tự</th>
 
               <th></th>
@@ -56,12 +56,8 @@
                 </td>
                 <td>{{ $chuyenmuc->path}} </td>
                 <td>
-                  @if ($chuyenmuc->vitri == 0 )
+                  @if ($chuyenmuc->anhien == 0 )
                     <span class="label label-danger">Ẩn</span>
-                  @elseif ($chuyenmuc->vitri == 1)
-                    <span class="label label-info">Trên</span>
-                  @else
-                    <span class="label label-warning">Dưới</span>
                   @endif
 
                 </td>
