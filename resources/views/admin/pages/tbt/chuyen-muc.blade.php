@@ -343,7 +343,7 @@
 
               "iDisplayLength": 25,
 
-              "order": ([ 0, "asc" ],[4,"asc"]),
+              "order": ([4,"asc"]),
 
               "sType": "numeric",
 
