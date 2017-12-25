@@ -7,22 +7,22 @@
             <a href="{{ route('lien-he-cong-tac') }}">Liên hệ</a>
         </li>
 
-        <li class="" style="width: 17%">
+        <li class="" style="width: 20%">
             <a href="{{ route('ban-bien-tap') }}">Ban Biên Tập</a>
         </li>
-        <li class="" style="width: 17%">
+        <li class="" style="width: 20%">
             <a href="{{ route('so-do-cong') }}">Sơ đồ cổng</a>
         </li>
-        <li class="" style="width: 17%">
+        <li class="" style="width: 15%">
             <a href="{{ route('gop-y-cong') }}">Góp ý</a>
         </li>
-        <li class="" style="width: 17%">
+        <li class="" style="width: 18%">
             <a href="/dang-nhap">Đăng nhập</a>
         </li>
         {{--<li class="">--}}
             {{--<a href="dang-nhap">Đăng nhập</a>--}}
         {{--</li>--}}
-        <li class="last" style="width: 15%">
+        <li class="last" style="width: 10%">
             <a href="/rss-feed" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
         </li>
         {{--@foreach ($chuyenmuc as $cm)--}}
