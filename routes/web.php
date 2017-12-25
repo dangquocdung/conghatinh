@@ -20,7 +20,7 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('gop-y-van-ban-qppl', 'GuestController@getGopYVanBan');
     Route::get('phan-anh-kien-nghi', 'GuestController@getPhanAnhKienNghi');
     Route::get('trao-doi-hoi-dap', 'GuestController@getTraoDoiHoiDap');
-    Route::get('thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep')->name('get-thong-tin-doanh-nghiep');
+    Route::get('thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep');
 
     Route::get('thu-vien/{slug}', 'GuestController@getThuVien')->name('thu-vien');
 
