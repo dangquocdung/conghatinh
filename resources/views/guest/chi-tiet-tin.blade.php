@@ -53,11 +53,11 @@
 
 											<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">
 												<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
-												@if ($tin->tinanh == '1')
+												@if ($tinnb->tinanh == '1')
 													&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
 
 												@endif
-												@if ($tin->tinvideo == '1')
+												@if ($tinnb->tinvideo == '1')
 													&nbsp;<i class="fa fa-film" title="Tin Video "></i>
 
 												@endif
