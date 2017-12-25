@@ -222,7 +222,7 @@
         </ul>
       </li>
 
-      @role('tbt')
+      @role('admin')
         <li class="{{ Request::is('toa-soan/config/user/*') ? 'active' : ''  }} treeview">
           <a href="javascript:void(0)">
             <i class="fa fa-user"></i> <span>Users and Roles</span>
