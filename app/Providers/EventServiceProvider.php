@@ -37,6 +37,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        Event::listen('chi-tiet-tin.view', 'App\Events\User\TinTucView');
+
         //
     }
 }

@@ -187,6 +187,8 @@ class GuestController extends Controller
 
             case 'tin-tuc':
                 $tin = TinTuc::where('daduyet','1')->find($id);
+
+                Event::fire('chi-tiet-tin.view', $tin);
                 break;
 
             case 'van-ban':
