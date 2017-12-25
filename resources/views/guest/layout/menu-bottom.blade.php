@@ -16,6 +16,9 @@
         <li class="">
             <a href="{{ route('gop-y-cong') }}">Góp ý</a>
         </li>
+        <li class="">
+            <a href="/dang-nhap">Đăng nhập</a>
+        </li>
         {{--<li class="">--}}
             {{--<a href="dang-nhap">Đăng nhập</a>--}}
         {{--</li>--}}
