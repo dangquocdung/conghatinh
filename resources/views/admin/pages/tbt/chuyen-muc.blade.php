@@ -141,6 +141,16 @@
             </div>
 
             <div class="form-group">
+              <label for="">Icon: </label>
+              <input type="text"
+                     placeholder="Biểu tượng (tuỳ chọn) "
+                     name="icon"
+                     value="{{old('icon')}}"
+                     class="form-control">
+              <div class="HelpText error">{{$errors->first('icon')}}</div>
+            </div>
+
+            <div class="form-group">
               <label>Vị trí</label>
               <select class="form-control" name="vitri" style="width: 100%;">                  
                   <option value='1' selected>Menu Trên</option>
