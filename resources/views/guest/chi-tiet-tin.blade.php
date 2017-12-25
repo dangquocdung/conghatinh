@@ -53,6 +53,11 @@
 
 											<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">
 												<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
+
+											</a>
+
+											<h6 style="text-align: center">
+												<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
 												@if ($tinnb->tinanh == '1')
 													&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
 
@@ -61,10 +66,6 @@
 													&nbsp;<i class="fa fa-film" title="Tin Video "></i>
 
 												@endif
-											</a>
-
-											<h6 style="text-align: center">
-												<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
 											</h6>
 										</article>
 									@endforeach
