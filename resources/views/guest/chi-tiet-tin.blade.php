@@ -131,67 +131,66 @@
 							</div>
 						</div>
 
-						<div id="tag">
-							<ul class="tags">
 
-							</ul>
-						</div>
+
 					</div>
 				</div>
 				<hr>
 
 				@include('guest.layout.tien-ich')
 
-				<div class="lienquan-header">
+				<div class="nhom-tin-lien-quan">
 
-					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug])  }}">Tin mới đăng</a>
+					<div class="lienquan-header">
 
-				</div>
+						<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug])  }}">Tin mới đăng</a>
 
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="row">
+					</div>
 
-						<div class="tin-lien-quan" style="margin-top: 10px">
-							<ul>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
 
-
-								@foreach($tin->loaitin->chuyenmuc->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tlq)
-
-									<li>
-										<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,'tin-tuc',$tlq->id,$tlq->slug])}}">
-
-											<div class="news-block" style="line-height: 25px">
-												<i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small>
-												@if ($tlq->tinanh == '1')
-													&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
-
-												@endif
-												@if ($tlq->tinvideo == '1')
-													&nbsp;<i class="fa fa-film" title="Tin Video "></i>
-
-												@endif
-											</div>
+							<div class="tin-lien-quan" style="margin-top: 10px">
+								<ul>
 
 
-										</a>
-									</li>
+									@foreach($tin->loaitin->chuyenmuc->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tlq)
 
-								@endforeach
+										<li>
+											<a href="{{route('chi-tiet-tin',[$tlq->loaitin->chuyenmuc->slug,$tlq->loaitin->slug,'tin-tuc',$tlq->id,$tlq->slug])}}">
 
-							</ul>
+												<div class="news-block" style="line-height: 25px">
+													<i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $tlq->name }} <small><em>({{ \Carbon\Carbon::parse($tlq->ngaydang)->format('d/m/Y H:i:s') }})</em></small>
+													@if ($tlq->tinanh == '1')
+														&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
+
+													@endif
+													@if ($tlq->tinvideo == '1')
+														&nbsp;<i class="fa fa-film" title="Tin Video "></i>
+
+													@endif
+												</div>
+
+
+											</a>
+										</li>
+
+									@endforeach
+
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<br>
+					<br>
 
-				<div class="lienquan-header">
+					<div class="lienquan-header">
 
-					<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">Tin cùng loại</a>
+						<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">Tin cùng loại</a>
 
-				</div>
+					</div>
 
-				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="row">
 
 						<div class="tin-lien-quan" style="margin-top: 10px">
@@ -223,6 +222,7 @@
 							</ul>
 						</div>
 					</div>
+				</div>
 				</div>
 
 
@@ -270,89 +270,97 @@
 					</table>
 				</div>
 
-				<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
-					<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
-				</object>
+				@foreach($tin->tepvanban as $tvb)
 
-				<hr>
+					<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
+						<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
+					</object>
+
+					<hr>
+
+				@endforeach
 
 				@include('guest.layout.tien-ich')
 
-
-
-				<div class="lienquan-header">
-
-					<a href="#">Văn bản cùng loại</a>
-
-				</div>
-
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="row">
-
-						<div class="tin-lien-quan" style="margin-top: 10px">
-							<ul>
-
-								@php
-
-									$lvb = $tin->loaitin;
-
-								@endphp
+				<div class="nhom-tin-lien-quan">
 
 
 
-								@foreach($lvb->vanban->sortbydesc('id')->take(5) as $vbcl)
+					<div class="lienquan-header">
 
-									@if ($vbcl->id <> $tin->id)
+						<a href="#">Văn bản cùng loại</a>
 
-										<li>
-											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,'van-ban',$vbcl->id,$vbcl->slug]) }}">
+					</div>
 
-												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
 
-											</a>
-										</li>
+							<div class="tin-lien-quan" style="margin-top: 10px">
+								<ul>
 
-									@endif
+									@php
 
-								@endforeach
+										$lvb = $tin->loaitin;
 
-							</ul>
+									@endphp
+
+
+
+									@foreach($lvb->vanban->sortbydesc('id')->take(5) as $vbcl)
+
+										@if ($vbcl->id <> $tin->id)
+
+											<li>
+												<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,'van-ban',$vbcl->id,$vbcl->slug]) }}">
+
+													<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->kihieuvb }} - {{ $vbcl->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+
+												</a>
+											</li>
+
+										@endif
+
+									@endforeach
+
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<br>
+					<br>
 
-				<div class="lienquan-header">
+					<div class="lienquan-header">
 
-					<a href="#">Văn bản mới đăng</a>
+						<a href="#">Văn bản mới đăng</a>
 
-				</div>
-
-				<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="row">
-
-					<div class="tin-lien-quan" style="margin-top: 10px">
-						<ul>
-
-							@foreach($vbmoinhat as $vbmd)
-
-								@if ($vbmd->id <> $tin->id)
-
-									<li>
-										<a href="{{ route('chi-tiet-tin',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,'van-ban',$vbmd->id,$vbmd->slug]) }}">
-
-											<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
-
-										</a>
-									</li>
-
-								@endif
-							@endforeach
-						</ul>
 					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
+
+							<div class="tin-lien-quan" style="margin-top: 10px">
+								<ul>
+
+									@foreach($vbmoinhat as $vbmd)
+
+										@if ($vbmd->id <> $tin->id)
+
+											<li>
+												<a href="{{ route('chi-tiet-tin',[$vbmd->loaitin->chuyenmuc->slug,$vbmd->loaitin->slug,'van-ban',$vbmd->id,$vbmd->slug]) }}">
+
+													<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbmd->kihieuvb }} - {{ $vbmd->trichyeu }} <small><em>({{ \Carbon\Carbon::parse($vbmd->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
+
+												</a>
+											</li>
+
+										@endif
+									@endforeach
+								</ul>
+							</div>
+						</div>
+					</div>
+
 				</div>
-			</div>
 			</div>
 
 		@elseif ($type=='van-ban-khac')
@@ -380,84 +388,99 @@
 					})
 
 				</script>
-				<hr>
+
+				@foreach($tin->tepvanbankhac as $tvb)
+
+					<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
+						<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
+					</object>
+
+					<hr>
+
+				@endforeach
 
 
 				@include('guest.layout.tien-ich')
 
-				<div class="lienquan-header">
+				<div class="nhom-tin-lien-quan">
 
-					<a href="#">Tin cùng loại</a>
+					<div class="lienquan-header">
 
-				</div>
+						<a href="#">Tin cùng loại</a>
 
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="row">
+					</div>
 
-						<div class="tin-lien-quan" style="margin-top: 10px">
-							<ul>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
 
-								@php
+							<div class="tin-lien-quan" style="margin-top: 10px">
+								<ul>
 
-									$lvb = $tin->loaitin;
+									@php
 
-								@endphp
+										$lvb = $tin->loaitin;
+
+									@endphp
 
 
 
-								@foreach($lvb->lichct->sortbydesc('id')->take(5) as $vbcl)
+									@foreach($lvb->lichct->sortbydesc('id')->take(5) as $vbcl)
 
-									@if ($vbcl->id <> $tin->id)
+										@if ($vbcl->id <> $tin->id)
 
-										<li>
-											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,'van-ban-khac',$vbcl->id,$vbcl->slug]) }}">
+											<li>
+												<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,'van-ban-khac',$vbcl->id,$vbcl->slug]) }}">
 
-												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
+													<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->created_at)->format('d/m/Y H:i:s') }})</em></small></div>
 
-											</a>
-										</li>
+												</a>
+											</li>
 
-									@endif
+										@endif
 
-								@endforeach
+									@endforeach
 
-							</ul>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<br>
+					<br>
 
-				<div class="lienquan-header">
+					<div class="lienquan-header">
 
-					<a href="#">Tin mới đăng</a>
+						<a href="#">Tin mới đăng</a>
 
-				</div>
+					</div>
 
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<div class="row">
-						<div class="tin-lien-quan" style="margin-top: 10px">
-							<ul>
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="row">
+							<div class="tin-lien-quan" style="margin-top: 10px">
+								<ul>
 
-								@foreach($lctmoinhat as $vbcl)
+									@foreach($lctmoinhat as $vbcl)
 
-									@if ($vbcl->id <> $tin->id)
+										@if ($vbcl->id <> $tin->id)
 
-										<li>
-											<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,'van-ban-khac',$vbcl->id,$vbcl->slug]) }}">
+											<li>
+												<a href="{{ route('chi-tiet-tin',[$lvb->chuyenmuc->slug,$lvb->slug,'van-ban-khac',$vbcl->id,$vbcl->slug]) }}">
 
-												<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
+													<div class="news-block" style="line-height: 25px"><i class="fa fa-angle-double-right" aria-hidden="true"></i> &nbsp;{{ $vbcl->name }} <small><em>({{ \Carbon\Carbon::parse($vbcl->ngaydang)->format('d/m/Y H:i:s') }})</em></small></div>
 
-											</a>
-										</li>
+												</a>
+											</li>
 
-									@endif
+										@endif
 
-								@endforeach
-							</ul>
+									@endforeach
+								</ul>
+							</div>
 						</div>
 					</div>
+
 				</div>
+
+
 			</div>
 
 		@endif
