@@ -52,7 +52,7 @@ class ChuyenMucController extends Controller
             'name' => $request->input('name'),
             'slug' => str_slug($request->input('name')),
             'path' => $request->input('path'),
-            'vitri' => $request->input('vitri'),
+            'anhien' => $request->anhien,
             'thutu'=> $request->input('thutu'),
             'banner_id' => $request->input('banner')
             ]);
@@ -103,7 +103,7 @@ class ChuyenMucController extends Controller
         $cm->slug = str_slug($request->input('name'));
         $cm->icon = $request->icon;
         $cm->path = $request->input('path');
-        $cm->vitri = $request->input('vitri');
+        $cm->anhien = $request->anhien;
         $cm->thutu = $request->input('thutu');
         $cm->banner_id = $request->input('banner');
         $cm->save();
