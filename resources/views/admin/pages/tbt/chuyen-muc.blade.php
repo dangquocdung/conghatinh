@@ -141,14 +141,6 @@
             </div>
 
             <div class="form-group">
-              <label>Loại url</label>
-              <select class="form-control" name="path" style="width: 100%;">                  
-                  <option value='chuyen-muc' selected>chuyen-muc</option>
-                  <option value='van-ban'>van-ban</option>
-              </select>
-            </div>
-
-            <div class="form-group">
               <label>Vị trí</label>
               <select class="form-control" name="vitri" style="width: 100%;">                  
                   <option value='1' selected>Menu Trên</option>
