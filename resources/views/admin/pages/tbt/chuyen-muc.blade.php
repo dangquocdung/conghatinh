@@ -246,7 +246,7 @@
               <div class="HelpText error">{{$errors->first('icon')}}</div>
             </div>
 
-            <div class="checkbox">
+            <div class="form-group">
               <label>
                 <input type="checkbox" id="cm-anhien" name="anhien" onclick="$(this).val(this.checked ? 0 : 1)"> Ẩn
               </label>
@@ -261,15 +261,6 @@
                      value="{{old('path')}}"
                      class="form-control">
               <div class="HelpText error">{{$errors->first('path')}}</div>
-            </div>
-
-            <div class="form-group">
-              <label>Vị trí</label>
-              <select class="form-control" id="cm-vitri" name="vitri" style="width: 100%;">
-                <option value='1' selected>Menu Trên</option>
-                <option value='2'>Menu Dưới</option>
-                <option value='0'>Ẩn</option>
-              </select>
             </div>
 
             <div class="form-group">
@@ -343,10 +334,7 @@
 
               if ($(this).attr('cm-icon') == '0'){
                   $('#suaChuyenMuc').find('input#cm-anhien').addAttr('checked', 'checked');
-              }else{
-
-                  $('#suaChuyenMuc').find('input#cm-anhien').addAttr('checked', '');
-              };
+              }
           });
 
       })
