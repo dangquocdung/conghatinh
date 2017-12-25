@@ -24,7 +24,7 @@
 
                     <br>
 
-                    @foreach ($lt->tintuc->where('daduyet','1')->sortbydesc('id') as $tin)
+                    @foreach ($lt->tintuc->where('daduyet','1')->sortbydesc('id')->take(5) as $tin)
 
                         <div class="news-main" style="padding: 0">
                             <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
@@ -137,7 +137,7 @@
                         <th>Tệp đính kèm</th>
                         </thead>
                         <tbody>
-                        @foreach($lt->lichct->sortByDesc('id') as $lct)
+                        @foreach($lt->lichct->sortByDesc('id')->take(5) as $lct)
                             <tr>
                                 <td>
                                     {{ $loop->iteration }}
