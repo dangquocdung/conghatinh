@@ -181,7 +181,7 @@
 
     </div>
 
-    @include('guest.menu-right.counter')
+{{--    @include('guest.menu-right.counter')--}}
 
 
 </div>
