@@ -52,7 +52,6 @@ class AppServiceProvider extends ServiceProvider
             $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
 
-
             $view->with(compact('chuyenmuc','cqbh','loaivb','phimtat','json_tinnoibat'));
 
         });

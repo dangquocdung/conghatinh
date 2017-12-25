@@ -48,7 +48,6 @@ class GuestController extends Controller
         view()->share('banner',$banner);
         view()->share('phimtat',$phimtat);
         view()->share('loaivideo',$loaivideo);
-        view()->share('json_tinnoibat',$json_tinnoibat);
 
         $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
