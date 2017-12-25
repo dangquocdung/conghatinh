@@ -3,26 +3,26 @@
 
 <div id="top_nav" class="ddsmoothmenu">
     <ul>
-        <li class="">
+        <li class="" style="width: 17%">
             <a href="{{ route('lien-he-cong-tac') }}">Liên hệ</a>
         </li>
 
-        <li class="">
+        <li class="" style="width: 17%">
             <a href="{{ route('ban-bien-tap') }}">Ban Biên Tập</a>
         </li>
-        <li class="">
+        <li class="" style="width: 17%">
             <a href="{{ route('so-do-cong') }}">Sơ đồ cổng</a>
         </li>
-        <li class="">
+        <li class="" style="width: 17%">
             <a href="{{ route('gop-y-cong') }}">Góp ý</a>
         </li>
-        <li class="">
+        <li class="" style="width: 17%">
             <a href="/dang-nhap">Đăng nhập</a>
         </li>
         {{--<li class="">--}}
             {{--<a href="dang-nhap">Đăng nhập</a>--}}
         {{--</li>--}}
-        <li class="last">
+        <li class="last" style="width: 15%">
             <a href="/rss-feed" target="_blank"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp;RSS</a>
         </li>
         {{--@foreach ($chuyenmuc as $cm)--}}
