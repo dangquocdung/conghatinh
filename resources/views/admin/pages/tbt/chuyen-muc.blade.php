@@ -31,7 +31,6 @@
               <th>#</th>
               <th>Chuyên mục</th>
               <th>Url</th>
-              <th></th>
               <th>Thứ tự</th>
 
               <th></th>
@@ -46,6 +45,10 @@
                 </td>
                 <td>
                   <i class="fa {{$chuyenmuc->icon}}"></i> &nbsp;{{($chuyenmuc->name)}}
+                  &nbsp;
+                  @if ($chuyenmuc->anhien == 0 )
+                    <span class="label label-danger">Ẩn</span>
+                  @endif
                   <br>
                   
                   @foreach($banner as $bn)
@@ -55,12 +58,6 @@
                     @endforeach
                 </td>
                 <td>{{ $chuyenmuc->path}} </td>
-                <td>
-                  @if ($chuyenmuc->anhien == 0 )
-                    <span class="label label-danger">Ẩn</span>
-                  @endif
-
-                </td>
                 <td>{{$chuyenmuc->thutu}}</td>
 
                 <td class="col-md-2">
