@@ -65,47 +65,47 @@ class GuestController extends Controller
     }
 
 
-    public function getVideo($id=null)
-    {
-
-
-        if ($id == null) {
-
-
-
-            return view('guest.video-chi-tiet');
-
-        }else{
-
-            $video = Video::find($id);
+//    public function getVideo($id=null)
+//    {
+//
+//
+//        if ($id == null) {
+//
+//
+//
+//            return view('guest.video-chi-tiet');
+//
+//        }else{
+//
+//            $video = Video::find($id);
 
 //            return response()
 //                ->json([
 //                    'video' => $vd
 //                ]);
 
-            return view('guest.video-chi-tiet',compact('video'));
-
-        }
-
-    }
-
-    public function getAlbum($slug=null)
-    {
-        if ($slug == null){
-
-            $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
-            return view('guest.album-anh',compact('albums'));
-
-        }else{
-
-            $albums = Album::with('Photos')->orderby('id','desc')->take(12)->get();
-
-            $album = Album::where('slug',$slug)->with('Photos')->first();
-            return view('guest.album-chi-tiet',compact('album','albums'));
-
-        }
-    }
+//            return view('guest.video-chi-tiet',compact('video'));
+//
+//        }
+//
+//    }
+//
+//    public function getAlbum($slug=null)
+//    {
+//        if ($slug == null){
+//
+//            $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
+//            return view('guest.album-anh',compact('albums'));
+//
+//        }else{
+//
+//            $albums = Album::with('Photos')->orderby('id','desc')->take(12)->get();
+//
+//            $album = Album::where('slug',$slug)->with('Photos')->first();
+//            return view('guest.album-chi-tiet',compact('album','albums'));
+//
+//        }
+//    }
 
 
     public function getBBT()
@@ -210,6 +210,24 @@ class GuestController extends Controller
 
     }
 
+    public function getGopYVanBan()
+    {
+        $duthao = DuThao::orderby('id','desc')->paginate(12);
+        return view('guest.gop-y-van-ban',compact('duthao'));
+    }
+
+    public function getPhanAnhKienNghi()
+    {
+        $hoidaptt = HoiDapTrucTuyen::where('daduyet','1')->orderby('id','desc')->get();
+        return view ('guest.trao-doi-hoi-dap',compact('hoidaptt'));
+    }
+
+    public function getTraoDoiHoiDap()
+    {
+        $hoidaptt = HoiDapTrucTuyen::where('daduyet','1')->orderby('id','desc')->get();
+        return view ('guest.trao-doi-hoi-dap',compact('hoidaptt'));
+    }
+
 //    public function vanBan($slug=null)
 //    {
 //        if ($slug == null){
@@ -245,11 +263,7 @@ class GuestController extends Controller
         return view ('guest.ho-tro-phap-ly',compact('linhvuc'));
     }
 
-    public function getHoiDap()
-    {
-        $hoidaptt = HoiDapTrucTuyen::where('daduyet','1')->orderby('id','desc')->get();
-        return view ('guest.hoi-dap',compact('hoidaptt'));
-    }
+
 
     public function getNguoiPhatNgon()
     {
@@ -289,11 +303,7 @@ class GuestController extends Controller
         return view('guest.gop-y-cong');
     }
 
-    public function getGopYVanBan()
-    {
-        $duthao = DuThao::orderby('id','desc')->paginate(12);
-        return view('guest.gop-y-van-ban',compact('duthao'));
-    }
+
 
     public function getLienHeCongTac()
     {
