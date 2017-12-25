@@ -231,162 +231,25 @@
         </div>
 
     <div class="clear-fix"></div>
-    @endif
-@endforeach
 
-<div class="hot-item" style="background-color:#ffffff">
-    <ul>
-        @foreach ($banner->where('vitri','6') as $bn)
-            <li class="col-md-3 col-sm-3 col-xs-6">
-                <div class="block2">
-                    <a href="{{$bn->lienket}}" target="_blank">
-                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
-                    </a>
-                </div>
-            </li>
-        @endforeach
-    </ul>
-</div>
-
-@foreach ($chuyenmuc->where('vitri','2') as $cm)
-    @if (count($cm->loaitin) > 0)
-        <div class="block3">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <img src="/images/background/lotus.ico" width="30px" style="padding: 3px">
-                    <h4 class="box-title">{{ $cm->name }}</h4>
-
-                    <div class="box-tools pull-right">
-                        <a class="btn btn-box-tool" href="{{ route('chuyen-muc',$cm->slug) }}"><i class="fa  fa-folder-open"></i></a>
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-                    </div>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <div class="card">
-                        <ul class="nav nav-tabs" role="tablist">
-                            @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
-                                @if ($lt->thutu == 1)
-                                    <li class="active">
-                                        <a href="#{{$lt->slug}}" data-toggle="tab">
-                                            {{$lt->name}}
-                                        </a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="#{{$lt->slug}}" data-toggle="tab">
-                                            {{$lt->name}}
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div class="tab-content">
-                                @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
-                                    <div class="to-chuc tab-pane
-                                    @if ($lt->thutu == 1)
-                                        active " id="{{$lt->slug}}">
-
-                                    @else
-                                        " id="{{$lt->slug}}">
-
-                                    @endif
-
-                                    @if (count($lt->tintuc) > 0)
-
-                                        @php
-
-                                            $tins = $lt->tintuc->where('daduyet','1')->sortByDesc('id')->take(5);
-
-                                            $tin1= $tins->shift();
-
-                                        @endphp
-
-                                        @if ($tin1)
-                                            <div class="col-md-12" style="float:left">
-
-                                                <div class="col-md-7 col-sm-7 col-xs-12" style="margin-bottom: 15px">
-                                                    <div class="row">
-                                                        <div class="news-main" style="margin-left: -15px">
-
-                                                            <a class="tin_title_text" href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,'tin-tuc',$tin1->id,$tin1->slug]) }}">
-                                                                <div class="tin_title_text">
-                                                                    {{ $tin1->name }} &nbsp;<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tin1->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                                                </div>
-
-                                                                <img style="display: inline-block; width: 160px; height:auto;" src="{{ $tin1->avatar }}" alt="" title="">
-                                                            </a>
-                                                            <div class="thumb">
-
-                                                            </div>
-
-                                                            <div class="tin_title_abstract" style="display:;">
-                                                                {{ $tin1->gioithieu }}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                @if (count($tins)>0)
-
-                                                    <div class="col-md-5 col-sm-5 col-xs-12">
-                                                        <div class="row">
-
-                                                            <div class="news-five">
-                                                                <ul class="news-block">
-                                                                    @foreach($tins as $tin)
-                                                                        <li>
-                                                                            <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug]) }}" class="news-title">
-                                                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
-                                                                                @if ($tin->tinanh == '1')
-                                                                                    &nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
-
-                                                                                @endif
-                                                                                @if ($tin->tinvideo == '1')
-                                                                                    &nbsp;<i class="fa fa-film" title="Tin Video "></i>
-
-                                                                                @endif
-                                                                            </a>
-
-                                                                            <img src="{{$tin->avatar}}" alt="{{ $tin->name }}" style="display:none;">
-
-                                                                            <div class="gioithieu" style="display:none;">{{$tin->gioithieu}}</div>
-                                                                        </li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                @endif
-
-                                            </div>
-                                    @endif
-
-                                    @endif
-
-                                    <!-- /.box-body -->
-                                        <div class="box-footer">
-                                            <div class="pull-right">
-
-                                                <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}"><em>Xem tiếp...</em></a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+        @if ($cm->thutu == 1)
+            <div class="hot-item" style="background-color:#ffffff">
+                <ul>
+                    @foreach ($banner->where('vitri','6') as $bn)
+                        <li class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="block2">
+                                <a href="{{$bn->lienket}}" target="_blank">
+                                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-                </div>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-        </div>
+        @endif
 
-        <div class="clear-fix"></div>
+        <div class="clearfix"></div>
     @endif
 @endforeach
+
+
