@@ -167,7 +167,7 @@ class VanBanController extends Controller
 
         TepVanBan::where('vanban_id',$vbid)->delete();
 
-        if ($tvb){
+        if ($tvbs){
 
 
 
