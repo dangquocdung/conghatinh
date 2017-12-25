@@ -51,10 +51,12 @@ class AppServiceProvider extends ServiceProvider
 
             $banner = Banner::orderby('thutu','asc')->get();
 
+            $nhomcq = NhomCQ::orderby('id')->get();
+
             $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
 
-            $view->with(compact('chuyenmuc','cqbh','loaivb','phimtat','banner','json_tinnoibat'));
+            $view->with(compact('chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
 
         });
 
