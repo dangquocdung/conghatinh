@@ -101,6 +101,7 @@ class ChuyenMucController extends Controller
         $cm->name = $request->input('name');
         $cm->slug = str_slug($request->input('name'));
         $cm->icon = $request->icon;
+        $cm->show = $request->show;
         $cm->path = $request->input('path');
         $cm->thutu = $request->input('thutu');
         $cm->banner_id = $request->input('banner');
