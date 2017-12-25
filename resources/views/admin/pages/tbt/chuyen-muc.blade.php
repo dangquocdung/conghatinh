@@ -323,6 +323,8 @@
               $('#suaChuyenMuc').find('input#cm-name').val($(this).attr('cm-name'));
               $('#suaChuyenMuc').find('input#cm-icon').val($(this).attr('cm-icon'));
 
+              $('#suaChuyenMuc').find('input#cm-show').val($(this).attr('cm-show'));
+
               $('#suaChuyenMuc').find('input#cm-path').val($(this).attr('cm-path'));
               $('#suaChuyenMuc').find('select#cm-vitri').val($(this).attr('cm-vitri'));
               $('#suaChuyenMuc').find('select#cm-thutu').val($(this).attr('cm-thutu'));
