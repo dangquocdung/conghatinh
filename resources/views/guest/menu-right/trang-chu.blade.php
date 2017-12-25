@@ -77,19 +77,19 @@
 
         @foreach($chuyenmuc->where('vitri','>','0') as $cm)
             @if (count($cm->loaitin) == 0)
-            <div class="right-item">
+                <div class="right-item">
 
-                @if (!empty($cm->path))
-                    <a href="{{ $cm->path }}" class="icon" title="">
-                        @else
-                    <a href="/vi/{{ $cm->slug }}" class="icon" title="">
-                        @endif
-                    {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
-                    <i class="fa {{$cm->icon}} fa-2x" aria-hidden="true"></i>
+                    @if (!empty($cm->path))
+                        <a href="{{ $cm->path }}" class="icon" title="">
+                            @else
+                        <a href="/vi/{{ $cm->slug }}" class="icon" title="">
+                            @endif
+                        {{--<img border="0" alt="" src="/images/pcthamnhung.png">--}}
+                        <i class="fa {{$cm->icon}} fa-2x" aria-hidden="true"></i>
 
-                    <span class="nav-text">{{ $cm->name }} </span>
-                </a>
-            </div>
+                        <span class="nav-text">{{ $cm->name }} </span>
+                    </a>
+                </div>
             @endif
         @endforeach
 
