@@ -153,7 +153,6 @@ class VanBanController extends Controller
         $vb->nguoiki_id = $request->nguoiki_id;
         $vb->trichyeu = $request->trichyeu;
         $vb->slug = str_slug($request->kihieuvb);
-        $vb->ngaydang = Carbon::parse($request->ngaydang);
 
         $vb->save();
 

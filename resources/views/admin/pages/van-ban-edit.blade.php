@@ -55,21 +55,10 @@
                             </select>
                         </div>
 
-                        
-
 
                         <div class="form-group">
 
                             <input name="kihieuvb" class="form-control" type="text" placeholder="Số (Kí hiệu) văn bản" style="font-weight: bold; font-size: 1.5em" required value="{{$vbedit->kihieuvb}}">
-                        </div>
-
-                        <div class="form-group">
-                            <div class='input-group date' id='datetimepicker_ngaydang'>
-                                <input name="ngaydang" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
-                                <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                            </div>
                         </div>
 
 
@@ -82,10 +71,11 @@
                         <div class="form-group">
                             <label>Ngày ban hành</label>
                             <div class='input-group date' id='datetimepicker_ngaybanhanh'>
-                                <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}" required/>
                                 <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                                <input name="ngaybanhanh" type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y') }}" required/>
+
                             </div>
                             <!-- /.input group -->
                         </div>
