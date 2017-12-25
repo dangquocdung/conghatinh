@@ -181,5 +181,7 @@
 
     </div>
 
+    @include('guest.menu-right.counter')
+
 
 </div>
