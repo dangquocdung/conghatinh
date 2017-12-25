@@ -230,7 +230,7 @@
             </div>
         </div>
 
-    <div class="clear-fix"></div>
+        <div class="clear-fix"></div>
 
         @if ($cm->thutu == 1)
             <div class="hot-item" style="background-color:#ffffff">
@@ -246,9 +246,26 @@
                     @endforeach
                 </ul>
             </div>
+
+            <div class="clearfix"></div>
         @endif
 
-        <div class="clearfix"></div>
+
+
+        @if ($cm->banner_id != null)
+
+            <div class="block2">
+
+                @foreach($banner as $bn)
+                    @if ($bn->id == $cm->banner_id)
+                        <a href="{{$bn->lienket}}">
+                            <img src="{{$bn->banner}}" alt="{{$bn->name}}" width="100%">
+                        </a>
+                    @endif
+                @endforeach
+            </div>
+            <div class="clearfix"></div>
+        @endif
     @endif
 @endforeach
 

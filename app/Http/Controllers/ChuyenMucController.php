@@ -48,6 +48,18 @@ class ChuyenMucController extends Controller
      */
     public function store(Request $request)
     {
+
+        $v = Validator::make($request->all(),
+            [
+                'name' => 'required|min:10|max:191|unique:chuyenmuc',
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
         $chuyenmuc = ChuyenMuc::create([
             'name' => $request->input('name'),
             'slug' => str_slug($request->input('name')),

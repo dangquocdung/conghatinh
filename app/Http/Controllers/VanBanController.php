@@ -63,6 +63,8 @@ class VanBanController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $vb = new VanBan;
 
         $vb->user_id = Auth::user()->id;
