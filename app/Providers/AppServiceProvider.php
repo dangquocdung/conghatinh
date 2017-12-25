@@ -41,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.so-do-cong','guest.tim-kiem','errors::403','errors::404','errors::500'],function($view){
 
+            $toppic = TopPic::all()->last();
+
             $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
             $cqbh = CQBH::all();
@@ -56,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
             $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
 
-            $view->with(compact('chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
+            $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
 
         });
 

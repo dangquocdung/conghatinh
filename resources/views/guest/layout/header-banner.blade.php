@@ -3,7 +3,7 @@
 {{--        @include('guest.layout.header-slide')--}}
         <div>
             <a href="/">
-                <img u="image" src="{{$toppic->last()->hinhanh}}" width="100%"/>
+                <img u="image" src="{{$toppic->hinhanh}}" width="100%"/>
             </a>
         </div>
         @include('guest.layout.menu-ngang')
