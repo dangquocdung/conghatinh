@@ -324,10 +324,6 @@
               $('#suaChuyenMuc').find('select#cm-thutu').val($(this).attr('cm-thutu'));
               $('#suaChuyenMuc').find('select#cm-banner').val($(this).attr('cm-banner'));
               $('#suaChuyenMuc').find('select#preview-edit').val($(this).attr('cm-banner'));
-
-              if ($(this).attr('cm-icon') == '0'){
-                  $('#suaChuyenMuc').find('input#cm-anhien').addAttr('checked', 'checked');
-              }
           });
 
       })
