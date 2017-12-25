@@ -235,4 +235,15 @@ class VanBanKhacController extends Controller
 
         return response(['data' => 'Văn bản đã được duyệt đăng'], 200);
     }
+
+    public function updateSlug(){
+        $vanban = LichCongTac::all();
+
+        foreach ($vanban as $vb){
+            $vb->slug = str_slug($vb->name);
+            $vb->save();
+        }
+
+        return response(['data' => 'Văn bản đã được cập nhật slug'], 200);
+    }
 }
