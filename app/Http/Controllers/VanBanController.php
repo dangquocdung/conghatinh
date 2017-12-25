@@ -81,19 +81,23 @@ class VanBanController extends Controller
 
         $tvbs = $request->input('tepvanban');
 
-        foreach ($tvbs as $tvb){
+        if ($tvbs) {
 
-            $path = Media::find($tvb);
 
-            $tvbn= new TepVanBan;
+            foreach ($tvbs as $tvb) {
 
-            $tvbn->vanban_id = $vbid;
+                $path = Media::find($tvb);
 
-            $tvbn->media_id = $tvb;
+                $tvbn = new TepVanBan;
 
-            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+                $tvbn->vanban_id = $vbid;
 
-            $tvbn->save();
+                $tvbn->media_id = $tvb;
+
+                $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
+
+                $tvbn->save();
+            }
         }
 
 
@@ -163,20 +167,26 @@ class VanBanController extends Controller
 
         TepVanBan::where('vanban_id',$vbid)->delete();
 
+        if ($tvb){
 
-        foreach ($tvbs as $tvb){
 
-            $path = Media::find($tvb);
 
-            $tvbn= new TepVanBan;
 
-            $tvbn->vanban_id = $vbid;
+            foreach ($tvbs as $tvb){
 
-            $tvbn->media_id = $tvb;
+                $path = Media::find($tvb);
 
-            $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+                $tvbn= new TepVanBan;
 
-            $tvbn->save();
+                $tvbn->vanban_id = $vbid;
+
+                $tvbn->media_id = $tvb;
+
+                $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
+
+                $tvbn->save();
+            }
+
         }
 
 

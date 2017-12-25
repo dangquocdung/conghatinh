@@ -176,6 +176,8 @@ class VanBanKhacController extends Controller
 
             $tvbs = $request->input('tepvanbankhac');
 
+            TepVanBanKhac::where('vanbankhac_id',$vbid)->delete();
+
             if ($tvbs) {
 
 
