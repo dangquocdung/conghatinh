@@ -92,7 +92,7 @@
 
                         <div id="tin-moi-nhat">
                             <ul>
-                                @foreach ($tinmoidang as $tnb)
+                                @foreach ($tinmoinhat as $tnb)
                                     <li>
                                         <div class="hot-news-block">
 
