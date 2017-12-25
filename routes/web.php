@@ -26,10 +26,10 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('so-do-cong', 'GuestController@getSoDoCong')->name('so-do-cong');
 
 
-    Route::get('tieng-noi-cong-dan/gop-y-du-thao-van-ban', 'GuestController@getGopYVanBan');
-    Route::get('tieng-noi-cong-dan/hoi-dap-truc-tuyen', 'GuestController@getHoiDap')->name('get-hoi-dap');
+    Route::get('gop-y-van-ban-qppl', 'GuestController@getGopYVanBan');
+    Route::get('trao-doi-hoi-dap', 'GuestController@getHoiDap')->name('get-hoi-dap');
 
-    Route::get('doanh-nghiep/thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep')->name('get-thong-tin-doanh-nghiep');
+    Route::get('thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep')->name('get-thong-tin-doanh-nghiep');
 
     Route::group(['prefix'=>'chuyen-trang'], function () {
 
