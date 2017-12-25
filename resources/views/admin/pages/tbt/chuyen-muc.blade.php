@@ -86,6 +86,7 @@
                          cm-id="{{ $chuyenmuc->id }}"
                          cm-name="{{ $chuyenmuc->name }}"
                          cm-icon="{{ $chuyenmuc->icon }}"
+                         cm-anhien="{{ $chuyenmuc->anhien }}"
                          cm-path="{{ $chuyenmuc->path }}"
                          cm-vitri="{{ $chuyenmuc->vitri }}"
                          cm-thutu="{{ $chuyenmuc->thutu }}"
@@ -333,11 +334,19 @@
               $('#suaChuyenMuc').find('input#cm-id').val($(this).attr('cm-id'));
               $('#suaChuyenMuc').find('input#cm-name').val($(this).attr('cm-name'));
               $('#suaChuyenMuc').find('input#cm-icon').val($(this).attr('cm-icon'));
+
               $('#suaChuyenMuc').find('input#cm-path').val($(this).attr('cm-path'));
               $('#suaChuyenMuc').find('select#cm-vitri').val($(this).attr('cm-vitri'));
               $('#suaChuyenMuc').find('select#cm-thutu').val($(this).attr('cm-thutu'));
               $('#suaChuyenMuc').find('select#cm-banner').val($(this).attr('cm-banner'));
               $('#suaChuyenMuc').find('select#preview-edit').val($(this).attr('cm-banner'));
+
+              if ($(this).attr('cm-icon') == 0){
+                  $('#suaChuyenMuc').find('input#cm-anhien').addAttr('checked');
+              }else{
+
+                  $('#suaChuyenMuc').find('input#cm-anhien').removeAttr('checked');
+              };
           });
 
       })
