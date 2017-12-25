@@ -147,7 +147,6 @@ class VanBanController extends Controller
         $vb->user_id = Auth::user()->id;
 
         $vb->loaitin_id = $request->loaitin_id;
-        $vb->loaivb_id = $request->loaivb_id;
         $vb->kihieuvb = $request->kihieuvb;
         $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
         $vb->nguoiki_id = $request->nguoiki_id;
