@@ -25,10 +25,11 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table class="table table-bordered table-striped table-hover">
+          <table class="table table-bordered table-striped table-hover" id="tblChuyenMuc">
             <thead>
             <tr>
               <th>#</th>
+              <th></th>
               <th>Chuyên mục</th>
               <th>Url</th>
               <th>Thứ tự</th>
@@ -42,6 +43,15 @@
                 <td>
                   {{$chuyenmuc->id}}
 
+                </td>
+                <td>
+                <td>
+                  @if ($chuyenmuc->show == true)
+                    <input type="checkbox" checked disabled>
+                  @else
+                    <input type="checkbox" disabled>
+                  @endif
+                </td>
                 </td>
                 <td>
                   <i class="fa {{$chuyenmuc->icon}}"></i> &nbsp;{{($chuyenmuc->name)}}
@@ -75,7 +85,7 @@
                          cm-id="{{ $chuyenmuc->id }}"
                          cm-name="{{ $chuyenmuc->name }}"
                          cm-icon="{{ $chuyenmuc->icon }}"
-                         cm-anhien="{{ $chuyenmuc->anhien }}"
+                         cm-show = "{{$chuyenmuc->show}}"
                          cm-path="{{ $chuyenmuc->path }}"
                          cm-vitri="{{ $chuyenmuc->vitri }}"
                          cm-thutu="{{ $chuyenmuc->thutu }}"
@@ -242,6 +252,11 @@
             </div>
 
             <div class="form-group">
+              <input type="checkbox" id="cm-show" name="show" onclick="$(this).val(this.checked ? 1 : 0)"><label>&nbsp;Cho phép hiển thị </label>
+
+            </div>
+
+            <div class="form-group">
               <label>Thứ tự hiện thị</label>
               <select class="form-control" id="cm-thutu" name="thutu" style="width: 100%;">
                 @for ($i = 1; $i <= count($chuyenmucs); $i++)
@@ -309,9 +324,44 @@
               $('#suaChuyenMuc').find('select#cm-thutu').val($(this).attr('cm-thutu'));
               $('#suaChuyenMuc').find('select#cm-banner').val($(this).attr('cm-banner'));
               $('#suaChuyenMuc').find('select#preview-edit').val($(this).attr('cm-banner'));
+
+              if ($('#suaChuyenMuc').find('input#cm-show').val() == 1){
+
+                  $('#suaChuyenMuc').find('input#cm-show').attr('checked','checked');
+
+              }
           });
 
+      });
+
+      $(function () {
+          $('#tblChuyenMuc').DataTable({
+
+              "iDisplayLength": 25,
+
+              "order": [[ 0, "asc" ],[ 4, "asc" ]],
+
+              "sType": "numeric",
+
+              "language": {
+                  "sProcessing": "Đang xử lý...",
+                  "sLengthMenu": "Hiển thị _MENU_ mục",
+                  "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+                  "sInfoPostFix": "",
+                  "sSearch": "Tìm kiếm:",
+                  "sUrl": "",
+                  "sInfoThousands": ",",
+                  "oPaginate": {
+                      "sFirst": "Đầu tiên",
+                      "sLast": "Cuối cùng",
+                      "sNext": "Sau",
+                      "sPrevious": "Trước"
+                  }
+              }
+          })
       })
+
+
 
   </script>
 
