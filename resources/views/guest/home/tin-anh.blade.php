@@ -84,7 +84,7 @@
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
-        <a href="{{ route('album-hinh-anh') }}">
+        <a href="#">
             <h4 class="portlet-header-title no-pd-top">Tin ảnh</h4>
         </a>
     </div>
