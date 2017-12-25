@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.so-do-cong','guest.tim-kiem','errors::403','errors::404','errors::500'],function($view){
+        view()->composer(['guest.gop-y-van-ban','guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.so-do-cong','guest.tim-kiem','errors::403','errors::404','errors::500'],function($view){
 
             $toppic = TopPic::all()->last();
 
