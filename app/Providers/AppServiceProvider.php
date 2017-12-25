@@ -47,11 +47,16 @@ class AppServiceProvider extends ServiceProvider
 
             $loaivb = LoaiVB::all();
 
+            $phimtat = PhimTat::orderby('thutu','asc')->get();
+
             $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
-          $view->with(compact('chuyenmuc','cqbh','loaivb','json_tinnoibat'));
+
+
+            $view->with(compact('chuyenmuc','cqbh','loaivb','phimtat','json_tinnoibat'));
 
         });
+
 
 
         view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit','admin.pages.lich-cong-tac','admin.pages.tbt.toppic'],function($view){
@@ -71,6 +76,20 @@ class AppServiceProvider extends ServiceProvider
           $view->with(compact('chuyenmuc','loaivb','cqbh', 'nguoiki','pdfs','hinhanh'));
 
         });
+
+//        view()->composer(['errors::403','errors::404','errors::500'],function($view){
+//
+//            $toppic = TopPic::orderby('thutu','asc')->get();
+//
+//            $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+//
+//
+//
+//            $banner = Banner::orderby('thutu','asc')->get();
+//
+//            $view->with(compact('toppic','chuyenmuc','phimtat','banner'));
+//
+//        });
 
     }
 
