@@ -23,6 +23,7 @@ use App\Events\User\LoaiTinCreated;
 use App\Events\User\LoaiTinDeleted;
 use App\Events\User\TinTucCreated;
 use App\Events\User\TinTucDeleted;
+use App\Events\User\TinTucCounter;
 use App\Services\Logger;
 use Illuminate\Support\Facades\Auth;
 
@@ -141,6 +142,13 @@ class UserEventListeners
         $this->logger->log("Bản tin {$name} đã bị xoá.");
     }
 
+    public function tinTucCounter(TinTucCounter $event)
+    {
+        $event->increCounter();
+
+//        $this->logger->log("Bản tin {$name} đã bị xoá.");
+    }
+
     //Event
 
     public function subscribe($events)
@@ -168,5 +176,7 @@ class UserEventListeners
 
         $events->listen(TinTucCreated::class, "{$class}@tinTucCreated");
         $events->listen(TinTucDeleted::class, "{$class}@tinTucDeleted");
+
+        $events->listen(TinTucCounter::class, "{$class}@tinTucCounter");
     }
 }

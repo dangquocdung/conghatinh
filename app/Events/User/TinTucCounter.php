@@ -11,16 +11,24 @@ namespace App\Events\User;
 use App\TinTuc;
 
 
-class TinTucView {
+class TinTucCounter {
+
 
     private $tintuc;
 
     /**
      * RoleCreated constructor.
      */
-    public function handle(TinTuc $tin)
+    public function __construct(TinTuc $tintuc)
     {
-        $tin->increment('counter');
+        $this->tintuc = $tintuc;
+    }
+
+
+
+    public function increCounter()
+    {
+        return $this->tintuc->increment('counter');
     }
 
 }

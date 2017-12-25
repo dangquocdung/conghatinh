@@ -24,6 +24,7 @@ use App\HoiDapTrucTuyen;
 use App\DuThao;
 use App\LichCongTac;
 use App\ThongTinDoanhNghiep;
+use App\Events\User\TinTucCounter;
 
 
 
@@ -187,8 +188,7 @@ class GuestController extends Controller
 
             case 'tin-tuc':
                 $tin = TinTuc::where('daduyet','1')->find($id);
-
-                Event::fire('chi-tiet-tin.view', $tin);
+                event(new TinTucCounter($tin));
                 break;
 
             case 'van-ban':
