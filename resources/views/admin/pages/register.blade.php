@@ -1,9 +1,7 @@
 @extends('admin.guest-html')
 
 @section('content')
-<div class="login-box">
 
-  @include('flash::message')
 <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Đăng kí tài khoản</p>
@@ -62,7 +60,6 @@
 
   </div>
   <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
+
 
 @stop
