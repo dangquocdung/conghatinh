@@ -45,26 +45,29 @@
 
 								<h4 class="label">Tin nổi bật</h4>
 
-								@foreach ($tinnoibat4 as $tinnb)
+								@foreach($chuyenmuc as $cm)
 
-									<article>
+									@foreach ($cm->tintuc->where('daduyet','1')->where('noibat','1')->sortbydesc('id')->take(4) as $tinnb)
 
-										<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">
-											<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
-											@if ($tin->tinanh == '1')
-												&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
+										<article>
 
-											@endif
-											@if ($tin->tinvideo == '1')
-												&nbsp;<i class="fa fa-film" title="Tin Video "></i>
+											<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">
+												<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
+												@if ($tin->tinanh == '1')
+													&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
 
-											@endif
-										</a>
+												@endif
+												@if ($tin->tinvideo == '1')
+													&nbsp;<i class="fa fa-film" title="Tin Video "></i>
 
-										<h6 style="text-align: center">
-											<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
-										</h6>
-									</article>
+												@endif
+											</a>
+
+											<h6 style="text-align: center">
+												<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
+											</h6>
+										</article>
+									@endforeach
 								@endforeach
 
 							</div>
