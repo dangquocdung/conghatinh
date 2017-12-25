@@ -8,7 +8,7 @@ class ChuyenMuc extends Model
 {
     protected $table = 'chuyenmuc';
 
-    protected $fillable = ['name','slug','thutu','anhien','ghichu','banner_id'];
+    protected $fillable = ['name','slug','thutu','ghichu','banner_id'];
 
     public function loaitin()
 	{

@@ -45,10 +45,6 @@
                 </td>
                 <td>
                   <i class="fa {{$chuyenmuc->icon}}"></i> &nbsp;{{($chuyenmuc->name)}}
-                  &nbsp;
-                  @if ($chuyenmuc->anhien == 0 )
-                    <span class="label label-danger">Ẩn</span>
-                  @endif
                   <br>
                   
                   @foreach($banner as $bn)
@@ -144,11 +140,6 @@
               <div class="HelpText error">{{$errors->first('icon')}}</div>
             </div>
 
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="anhien" onclick="$(this).val(this.checked ? 0 : 1)"> Ẩn
-              </label>
-            </div>
 
             {{--<div class="form-group">--}}
               {{--<label>Vị trí</label>--}}
@@ -237,12 +228,6 @@
                      value="{{old('icon')}}"
                      class="form-control">
               <div class="HelpText error">{{$errors->first('icon')}}</div>
-            </div>
-
-            <div class="form-group">
-              <label>
-                <input type="checkbox" id="cm-anhien" name="anhien" onclick="$(this).val(this.checked ? 0 : 1)"> Ẩn
-              </label>
             </div>
 
             <div class="form-group">
