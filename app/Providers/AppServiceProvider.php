@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.gop-y-van-ban','guest.phan-anh-kien-nghi','guest.trao-doi-hoi-dap','guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.so-do-cong','guest.tim-kiem','errors::403','errors::404','errors::500'],function($view){
+        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.so-do-cong','guest.tim-kiem','errors::403','errors::404','errors::500'],function($view){
 
             $toppic = TopPic::all()->last();
 
@@ -61,6 +61,30 @@ class AppServiceProvider extends ServiceProvider
             $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
 
         });
+
+        view()->composer(['guest.gop-y-van-ban','guest.phan-anh-kien-nghi','guest.trao-doi-hoi-dap','guest.thu-vien-hinh-anh','guest.thu-vien-video'],function($view){
+
+            $toppic = TopPic::all()->last();
+
+            $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
+
+            $cqbh = CQBH::all();
+
+            $loaivb = LoaiVB::all();
+
+            $phimtat = PhimTat::orderby('thutu','asc')->get();
+
+            $banner = Banner::orderby('thutu','asc')->get();
+
+            $nhomcq = NhomCQ::orderby('id')->get();
+
+            $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
+
+
+            $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
+
+        });
+
 
 
 

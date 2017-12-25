@@ -228,6 +228,22 @@ class GuestController extends Controller
         return view ('guest.trao-doi-hoi-dap',compact('hoidaptt'));
     }
 
+    public function getThuVien($slug)
+    {
+
+        if ($slug == 'hinh-anh'){
+
+            $tintuc = TinTuc::where('daduyet','1')->where('tinanh','1')->orderby('id','desc')->paginate(12);
+        }
+        else{
+
+            $tintuc = TinTuc::where('daduyet','1')->where('tinvideo','1')->orderby('id','desc')->paginate(12);
+
+        }
+        return view ('guest.thu-vien',compact('tintuc'));
+    }
+
+
 //    public function vanBan($slug=null)
 //    {
 //        if ($slug == null){

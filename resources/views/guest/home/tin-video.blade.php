@@ -84,7 +84,7 @@
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
-        <a href="#">
+        <a href="{{ route('thu-vien','video') }}">
             <h4 class="portlet-header-title no-pd-top">Tin Video </h4>
         </a>
     </div>
