@@ -33,21 +33,17 @@ class GuestController extends Controller
     public function __construct()
     {
 
-        $toppic = TopPic::orderby('thutu','asc')->get();
 
-        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-        $nhomcq = NhomCQ::orderby('id')->get();
-        $banner = Banner::orderby('thutu','asc')->get();
-        $phimtat = PhimTat::orderby('thutu','asc')->get();
-        $loaivideo = LoaiVideo::orderby('thutu')->get();
-
-
-        view()->share('toppic',$toppic);
-        view()->share('chuyenmuc',$chuyenmuc);
-        view()->share('nhomcq',$nhomcq);
-        view()->share('banner',$banner);
-        view()->share('phimtat',$phimtat);
-        view()->share('loaivideo',$loaivideo);
+//        $nhomcq = NhomCQ::orderby('id')->get();
+//        $banner = Banner::orderby('thutu','asc')->get();
+//        $phimtat = PhimTat::orderby('thutu','asc')->get();
+//        $loaivideo = LoaiVideo::orderby('thutu')->get();
+//
+//
+//        view()->share('nhomcq',$nhomcq);
+//        view()->share('banner',$banner);
+//        view()->share('phimtat',$phimtat);
+//        view()->share('loaivideo',$loaivideo);
 
         $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
