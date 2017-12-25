@@ -45,13 +45,11 @@
 
                 </td>
                 <td>
-                <td>
                   @if ($chuyenmuc->show == true)
                     <input type="checkbox" checked disabled>
                   @else
                     <input type="checkbox" disabled>
                   @endif
-                </td>
                 </td>
                 <td>
                   <i class="fa {{$chuyenmuc->icon}}"></i> &nbsp;{{($chuyenmuc->name)}}
@@ -345,7 +343,7 @@
 
               "iDisplayLength": 25,
 
-              "order": [[ 0, "asc" ],[ 4, "asc" ]],
+              "order": ([ 0, "asc" ]),
 
               "sType": "numeric",
 
@@ -365,9 +363,7 @@
                   }
               }
           })
-      })
-
-
+      });
 
   </script>
 
