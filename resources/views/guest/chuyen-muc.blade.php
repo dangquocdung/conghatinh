@@ -137,7 +137,7 @@
                         <th>Tệp đính kèm</th>
                         </thead>
                         <tbody>
-                        @foreach($lt->lichct->sortByDesc('id')->take(5) as $lct)
+                        @foreach($lt->lichct->where('daduyet','1')->sortByDesc('ngaybanhanh')->take(5) as $lct)
                             <tr>
                                 <td>
                                     {{ $loop->iteration }}
@@ -147,7 +147,7 @@
                                     <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
                                 </td>
                                 <td>
-                                    {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
+                                    {{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}
                                 </td>
                                 <td>
                                     @if (!empty($lct->media_id))
