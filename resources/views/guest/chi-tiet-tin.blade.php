@@ -29,15 +29,16 @@
 
 					<div class="tieu-de-tin">
 
-						<h1 class="main-title cms-title">{{ $tin->name }} &nbsp;
+						<h1 class="main-title cms-title">
 							@if ($tin->tinanh == '1')
-								&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
+								&nbsp;<i class="fa fa-camera" title="Tin ảnh "></i>
 
 							@endif
 							@if ($tin->tinvideo == '1')
-								&nbsp;<i class="fa fa-film" title="Tin Video "></i>
+								&nbsp;<i class="fa fa-video-camera" title="Tin Video "></i>
 
 							@endif
+								&nbsp;{{ $tin->name }}
 						</h1>
 						<div class="meta clearfix">
 							<em>
