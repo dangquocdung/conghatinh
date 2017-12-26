@@ -29,7 +29,16 @@
 
 					<div class="tieu-de-tin">
 
-						<h1 class="main-title cms-title">{{ $tin->name }}</h1>
+						<h1 class="main-title cms-title">{{ $tin->name }} &nbsp;
+							@if ($tin->tinanh == '1')
+								&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
+
+							@endif
+							@if ($tin->tinvideo == '1')
+								&nbsp;<i class="fa fa-film" title="Tin Video "></i>
+
+							@endif
+						</h1>
 						<div class="meta clearfix">
 							<em>
 								<time><i class="fa fa-clock-o"></i> Đăng ngày {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s') }}</time>
