@@ -5,15 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   @yield('title')
-
-
-{{--  <title>{{Setting::get('app_name', 'admin')}} | Dashboard</title>--}}
+  {{--  <title>{{Setting::get('app_name', 'admin')}} | Dashboard</title>--}}
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta name=”keywords” content="ha-tinh, hà tĩnh, cong-thong-tin-dien-tu-ha-tinh, Cổng thông tin điện tử Hà Tĩnh">
+  <meta name="author" content="dang-quoc-dung, Đặng Quốc Dũng">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="icon" href="./images/favicon.ico">
-
-
 
   <base href="{{asset('')}}">
 
@@ -31,8 +29,6 @@
   <link rel="stylesheet" href="{{ url('admin/css/admin.min.css') }}">
   <link rel="stylesheet" href="{{ mix('admin/css/admin.css') }}">
   <link rel="stylesheet" href="{{ url('admin/css/_all-skins.min.css') }}">
-
-
 
   @yield('css')
 

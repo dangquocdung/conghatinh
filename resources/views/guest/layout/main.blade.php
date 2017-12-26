@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="@yield('desc')">
   <meta name=”keywords” content="ha-tinh, hà tĩnh, cong-thong-tin-dien-tu-ha-tinh, Cổng thông tin điện tử Hà Tĩnh">
-  <meta name="author" content="dang-quoc-dung, đặng quốc dũng">
+  <meta name="author" content="dang-quoc-dung, Đặng Quốc Dũng">
   <meta itemprop="name" content="@yield('title')">
   <meta itemprop="description" content="@yield('desc')">
   <meta itemprop="image" content="/uploads/hinh-anh/2017/12/banner-webtinh-edit_vzl.jpg">
