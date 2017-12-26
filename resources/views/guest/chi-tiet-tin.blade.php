@@ -1,7 +1,10 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>{{ $tin->name }}</title>
+  {{ $tin->name }}
 @endsection
+@section('desc')
+	{{ $tin->gioithieu }}
+@stop
 @section('header-menu-item')
   active
 @endsection

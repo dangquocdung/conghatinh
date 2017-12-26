@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  Cổng thông tin điện tử tỉnh Hà Tĩnh
+    Cổng thông tin điện tử tỉnh Hà Tĩnh
 @endsection
 
 @section('style')
