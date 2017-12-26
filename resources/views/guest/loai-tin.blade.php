@@ -103,7 +103,7 @@
                                  @foreach($tintuc as $vb)
                                      <tr>
                                          <td>
-                                             <a href="{{ route('chi-tiet-van-ban',[$lt->chuyenmuc->slug,$lt->slug,$vb->id,$vb->slug]) }}" class="news-title bold">
+                                             <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban',$vb->id,$vb->slug])) }}" class="news-title bold">
                                                  {{ $vb->kihieuvb }}
                                              </a>
                                          </td>
@@ -144,7 +144,7 @@
 
                                          </td>
                                          <td>
-                                             <a href="{{ route('lich-cong-tac-show',$lct->id) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                             <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug])) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
                                          </td>
                                          <td>
                                              {{\Carbon\Carbon::parse($lct->created_at)->format('d-m-Y')}}
