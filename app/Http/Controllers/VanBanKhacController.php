@@ -96,34 +96,34 @@ class VanBanKhacController extends Controller
 
         $tvbs = $request->input('tepvanbankhac');
 
-//        if ($tvbs) {
-//
-//
-//            TepVanBanKhac::where('vanbankhac_id', $vbid)->delete();
-//
-//
-//            foreach ($tvbs as $tvb) {
-//
-//                $path = Media::find($tvb);
-//
-//                $tvbn = new TepVanBanKhac;
-//
-//                $tvbn->vanbankhac_id = $vbid;
-//
-//                $tvbn->media_id = $tvb;
-//
-//                $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
-//
-//                $tvbn->save();
-//            }
-//        }
+        if ($tvbs) {
 
-        return response()->json($tvbs);
+
+            TepVanBanKhac::where('vanbankhac_id', $vbid)->delete();
+
+
+            foreach ($tvbs as $tvb) {
+
+                $path = Media::find($tvb);
+
+                $tvbn = new TepVanBanKhac;
+
+                $tvbn->vanbankhac_id = $vbid;
+
+                $tvbn->media_id = $tvb;
+
+                $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
+
+                $tvbn->save();
+            }
+        }
+
+//        return response()->json($tvbs);
 
 
         flash('Tạo văn bản thành công!');
 
-//        return redirect()->route('index-van-ban-khac');
+        return redirect()->route('index-van-ban-khac');
     }
 
     /**

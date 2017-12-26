@@ -197,7 +197,7 @@
 //                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
 //
                       $.each(data, function(index, tdkObj){
-                          $('select#tepvanbankhac').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+                          $('select#tepvanbankhac').append('<option value="'+ tdkObj.id +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
                       })
                   })
               })
