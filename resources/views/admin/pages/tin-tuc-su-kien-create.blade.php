@@ -35,7 +35,7 @@
 
                 <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
                   <option value=""></option>
-                  @foreach ($chuyenmuc as $cm)
+                    @foreach ($chuyenmuc->where('show','1') as $cm)
                   <optgroup label="{{ $cm->name}}">
                     @foreach ($cm->loaitin as $lt)
                         @if ($lt->type == 'tt')

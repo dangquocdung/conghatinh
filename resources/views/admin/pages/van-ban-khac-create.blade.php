@@ -41,7 +41,7 @@
               <div class="form-group">
                 <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
                   <option value=""></option>
-                  @foreach ($chuyenmuc->where('vitri','>','0') as $cm)
+                  @foreach ($chuyenmuc->where('show','1') as $cm)
                       <optgroup label="{{ $cm->name}}">
                           @foreach ($cm->loaitin->where('show','1') as $lt)
                               <option value={{ $lt->id }}>{{ $lt->name}}</option>

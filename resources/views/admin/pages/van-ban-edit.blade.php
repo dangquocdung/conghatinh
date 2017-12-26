@@ -31,23 +31,17 @@
 
                     <div class="box-body">
 
-                        @php
-                            $vanban = $chuyenmuc->where('type','vb')->all();
-                        @endphp
-
                         <div class="form-group">
                             <label>Chọn nhóm văn bản:</label>
                             <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;" required>
                                 <option value=""></option>
-                                @foreach ($vanban as $vb)
+                                @foreach ($chuyenmuc->where('show','1') as $cm)
                                     <optgroup label="{{ $vb->name}}">
-                                        @foreach($vb->loaitin as $nvb)
-                                            @if ($nvb->type == 'vb')
-                                                @if ($nvb->id == $vbedit->loaitin_id)
-                                                    <option value="{{ $nvb->id }}" selected>{{ $nvb->name }}</option>
-                                                @else
-                                                    <option value="{{ $nvb->id }}">{{ $nvb->name }}</option>
-                                                @endif
+                                        @foreach($cm->loaitin as $nvb)
+                                            @if ($nvb->id == $vbedit->loaitin_id)
+                                                <option value="{{ $nvb->id }}" selected>{{ $nvb->name }}</option>
+                                            @else
+                                                <option value="{{ $nvb->id }}">{{ $nvb->name }}</option>
                                             @endif
                                         @endforeach
                                     </optgroup>

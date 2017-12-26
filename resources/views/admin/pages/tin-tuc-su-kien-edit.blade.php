@@ -38,7 +38,7 @@
 
                   <option value=""></option>
 
-                  @foreach ($chuyenmuc as $cm)
+                    @foreach ($chuyenmuc->where('show','1') as $cm)
 
                   <optgroup label="{{ $cm->name}}">
 
