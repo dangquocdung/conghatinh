@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  @yield('title')
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta itemprop="name" content=@yield('title')>
+  <meta itemprop="description" content=@yield('desc')>
+  <meta itemprop="image" content="/uploads/hinh-anh/2017/12/banner-webtinh-edit_vzl.jpg">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <link rel="icon" href="./images/favicon.ico">
-  @yield('title')
   <base href="{{asset('')}}">
   @include('guest.layout.css')
   @yield(('style'))
