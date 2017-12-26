@@ -104,7 +104,7 @@
 
                   <div class="form-group">
                       <label>Chọn tệp văn bản</label>
-                      <select name="tepvanbankhac[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+                      <select id="tepvanbankhac" name="tepvanbankhac[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
                           @foreach($pdfs as $pdf)
                               @if (in_array($pdf->id,$items))
                                   <option value="{{$pdf->id}}" selected>{{ $pdf->id.'-'.$pdf->filename }}</option>
@@ -193,11 +193,11 @@
 
                   $.get('/toa-soan/json-tepdinhkem', function (data) {
                       console.log(data);
-                      $('select#tepdinhkem').empty();
+                      $('select#tepvanbankhac').empty();
 //                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
 //
                       $.each(data, function(index, tdkObj){
-                          $('select#tepdinhkem').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+                          $('select#tepvanbankhac').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
                       })
                   })
               })

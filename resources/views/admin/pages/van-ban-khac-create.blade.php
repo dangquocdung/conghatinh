@@ -74,7 +74,7 @@
                           <i class="fa fa-refresh"></i> Nạp lại
                       </button>
                   </div>
-                  <select id="tepvanban" name="tepvanbankhac[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">
+                  <select id="tepvanbankhac" name="tepvanbankhac[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" ondragover="allowDrop(event)" ondrop="drop(event)">
                       @foreach($pdfs as $pdf)
                           <option value="{{$pdf->id}}" style="width: 100%">{{ $pdf->filename }}</option>
                       @endforeach
@@ -149,12 +149,12 @@
 
               $.get('/toa-soan/json-tepdinhkem', function (data) {
 
-                  console.log(data);
+//                  console.log(data);
 
-                  $('select#tepdinhkem').empty();
+                  $('select#tepvanbankhac').empty();
 
                   $.each(data, function(index, tdkObj){
-                      $('select#tepdinhkem').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+                      $('select#tepvanbankhac').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
                   })
               })
           })
