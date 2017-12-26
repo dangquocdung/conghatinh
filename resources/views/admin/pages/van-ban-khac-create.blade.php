@@ -154,7 +154,10 @@
                   $('select#tepvanbankhac').empty();
 
                   $.each(data, function(index, tdkObj){
-                      $('select#tepvanbankhac').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+//                      $('select#tepvanbankhac').append('<option value="'+ tdkObj.directory + '/' + tdkObj.filename + '.' + tdkObj.extension +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+
+                      $('select#tepvanbankhac').append('<option value="'+ tdkObj.id +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+
                   })
               })
           })
