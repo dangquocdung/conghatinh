@@ -20,7 +20,11 @@
 			</a>
 
 			<a href="{{ route('loai-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug]) }}">
-				<h4 class="portlet-header-title no-pd-top">{{ $tin->loaitin->name }}</h4>
+				<h4 class="portlet-header-title no-pd-top">{{ $tin->loaitin->name }} /</h4>
+			</a>
+
+			<a href="javascript:void(0);">
+				<h4 class="portlet-header-title no-pd-top">{{ $tin->name }} /</h4>
 			</a>
 
 		</div>
