@@ -183,7 +183,7 @@
                                                 <thead>
                                                     <th>TT</th>
                                                     <th>Nội dung </th>
-                                                    <th class="md-col-2">Ngày đăng </th>
+                                                    <th class="col-md-2">Ngày đăng </th>
                                                     <th>Tệp đính kèm</th>
                                                 </thead>
                                                 <tbody>
