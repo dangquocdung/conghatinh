@@ -199,15 +199,7 @@
                           <label>Chuyên mục</label>
                           <select id="lt-cm" class="form-control chuyenmuc" name="chuyenmuc_id" style="width: 100%;">
                               @foreach ($chuyenmuc as $cm)
-
-                                  @if ($chuyenmuc_id == $cm->id)
-
-                                      <option value={{ $cm->id }} data-id={{ count($cm->loaitin) }} selected>{{ $cm->name }}</option>
-
-                                  @else
-                                      <option value={{ $cm->id }} data-id={{ count($cm->loaitin) }}>{{ $cm->name }}</option>
-
-                                  @endif
+                                  <option value={{ $cm->id }} data-id={{ count($cm->loaitin) }}>{{ $cm->name }}</option>
                               @endforeach
                           </select>
                       </div>

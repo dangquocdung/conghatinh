@@ -4,7 +4,7 @@
             <div class="box box-default">
                 <div class="box-header with-border">
                     <img src="/images/background/lotus.ico" width="30px" style="padding: 3px">
-                    <h4 class="box-title">{{ $cm->name }}</h4>
+                    <h4 class="box-title" title="{{$cm->ghichu}}">{{ $cm->name }}</h4>
 
                     <div class="box-tools pull-right">
                         <a class="btn btn-box-tool" href="{{ route('chuyen-muc',$cm->slug) }}"><i class="fa  fa-folder-open"></i></a>
@@ -19,7 +19,7 @@
                             @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                 @if ($lt->thutu == 1)
                                     <li class="active">
-                                        <a href="#{{$lt->slug}}" data-toggle="tab">
+                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
                                             {{$lt->name}}
                                         </a>
                                     </li>
