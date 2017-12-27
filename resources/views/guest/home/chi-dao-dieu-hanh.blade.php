@@ -202,7 +202,7 @@
                                                         <td>
                                                             @foreach($lct->tepvanbankhac as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
-                                                                    <i class="fa fa-paperclip" title="{{ $lct->name }}"></i>
+                                                                    <i class="fa fa-paperclip" title="{{ $lct->name }}" style="float: right"></i>
                                                                     {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
                                                                 </a>
                                                             @endforeach
