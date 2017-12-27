@@ -106,7 +106,6 @@
                   <div class="HelpText error">{{$errors->first('noidung')}}</div>
                 </div>
 
-
                   @php
                       $items = array();
                       foreach($tepvanbankhac as $lct){
@@ -116,6 +115,11 @@
 
                   <div class="form-group">
                       <label>Chọn tệp văn bản</label>
+                      <div class="pull-right">
+                          <button type="button" class="btn btn-primary btn-xs" id="btnRefresh">
+                              <i class="fa fa-refresh"></i> Nạp lại
+                          </button>
+                      </div>
                       <select id="tepvanbankhac" name="tepvanbankhac[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
                           @foreach($pdfs as $pdf)
                               @if (in_array($pdf->id,$items))
@@ -127,8 +131,8 @@
                           @endforeach
                       </select>
                   </div>
+                  
               </div>
-
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Lưu</button>
               </div>
