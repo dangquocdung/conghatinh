@@ -183,7 +183,7 @@
                                                 <thead>
                                                     <th>TT</th>
                                                     <th>Nội dung </th>
-                                                    <th class="col-md-2">Ngày đăng </th>
+                                                    <th class="col-md-2" style="text-align: center">Ngày đăng </th>
                                                     <th>Tệp đính kèm</th>
                                                 </thead>
                                                 <tbody>
@@ -196,7 +196,7 @@
                                                         <td>
                                                             <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-file-word-o" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
                                                         </td>
-                                                        <td>
+                                                        <td style="text-align: center">
                                                             {{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}
                                                         </td>
                                                         <td>
