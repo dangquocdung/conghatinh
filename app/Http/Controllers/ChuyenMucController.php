@@ -65,6 +65,7 @@ class ChuyenMucController extends Controller
         $chuyenmuc = ChuyenMuc::create([
             'name' => $request->input('name'),
             'slug' => str_slug($request->input('name')),
+            'icon' => $request->icon,
             'path' => $request->input('path'),
             'thutu'=> $request->input('thutu'),
             'banner_id' => $request->input('banner')
