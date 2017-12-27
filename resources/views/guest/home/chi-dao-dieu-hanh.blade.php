@@ -122,8 +122,8 @@
                                     @elseif (count($lt->vanban) >0 )
 
                                             <table class="table table-striped table-bordered table-responsive table-sm">
-                                                <thead style="text-align: center">
-                                                <tr>
+                                                <thead>
+                                                <tr style="text-align: center">
                                                     <th>TT</th>
                                                     <th>
                                                         Số/Kí hiệu
@@ -180,11 +180,13 @@
                                         @elseif (count($lt->lichct) > 0)
 
                                             <table class="table table-striped table-bordered table-responsive table-sm">
-                                                <thead style="text-align: center">
-                                                    <th>TT</th>
-                                                    <th>Nội dung </th>
-                                                    <th class="col-md-2" style="text-align: center">Ngày đăng </th>
-                                                    <th>Tệp đính kèm</th>
+                                                <thead>
+                                                    <tr style="text-align: center">
+                                                        <th>TT</th>
+                                                        <th>Nội dung </th>
+                                                        <th class="col-md-2" style="text-align: center">Ngày đăng </th>
+                                                        <th>Tệp đính kèm</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
                                                 @foreach($lt->lichct->where('daduyet','1')->sortByDesc('ngaybanhanh')->take(5) as $lct)
