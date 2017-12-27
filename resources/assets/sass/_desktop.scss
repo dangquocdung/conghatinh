@@ -112,6 +112,10 @@ body {
 
     margin-bottom: 5px;
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     img{
       width: 30px;
       padding-left: 7px;
@@ -131,9 +135,7 @@ body {
         display: inline-block;
         text-transform: uppercase;
 
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+
 
 
       }
