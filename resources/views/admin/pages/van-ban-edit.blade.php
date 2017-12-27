@@ -36,6 +36,7 @@
                             <select class="form-control select2" name="loaitin_id" data-placeholder="Chọn nhóm văn bản" style="width: 100%;" required>
                                 <option value=""></option>
                                 @foreach ($chuyenmuc->where('show','1') as $cm)
+                                    @if (count($cm->loaitin)>0)
                                     <optgroup label="{{ $vb->name}}">
                                         @foreach($cm->loaitin as $nvb)
                                             @if ($nvb->id == $vbedit->loaitin_id)
@@ -45,6 +46,7 @@
                                             @endif
                                         @endforeach
                                     </optgroup>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

@@ -40,23 +40,26 @@
 
                     @foreach ($chuyenmuc->where('show','1') as $cm)
 
-                  <optgroup label="{{ $cm->name}}">
+                        @if (count($cm->loaitin)>0)
 
-                    @foreach ($cm->loaitin as $lt)
+                          <optgroup label="{{ $cm->name}}">
 
-                      @if ($tintuc->loaitin_id == $lt->id )
+                            @foreach ($cm->loaitin as $lt)
 
-                        <option value={{ $lt->id }} selected="">{{ $lt->name}}</option>
+                              @if ($tintuc->loaitin_id == $lt->id )
 
-                      @else
+                                <option value={{ $lt->id }} selected="">{{ $lt->name}}</option>
 
-                        <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                              @else
 
-                      @endif
+                                <option value={{ $lt->id }}>{{ $lt->name}}</option>
 
-                    @endforeach
+                              @endif
 
-                  </optgroup>
+                            @endforeach
+
+                          </optgroup>
+                        @endif
 
                   @endforeach
 

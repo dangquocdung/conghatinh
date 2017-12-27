@@ -54,11 +54,13 @@
                   <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
                       <option value=""></option>
                       @foreach ($chuyenmuc->where('show','1') as $cm)
+                          @if (count($cm->loaitin)>0)
                           <optgroup label="{{ $cm->name}}">
                               @foreach ($cm->loaitin as $lt)
                                   <option value={{ $lt->id }}>{{ $lt->name}}</option>
                               @endforeach
                           </optgroup>
+                          @endif
                       @endforeach
                   </select>
               </div>
