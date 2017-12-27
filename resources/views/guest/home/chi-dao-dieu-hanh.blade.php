@@ -25,7 +25,7 @@
                                     </li>
                                 @else
                                     <li>
-                                        <a href="#{{$lt->slug}}" data-toggle="tab">
+                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}>
                                             {{$lt->name}}
                                         </a>
                                     </li>
