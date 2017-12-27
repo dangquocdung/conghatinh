@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
+
 use App\Events\User\ChuyenMucCreated;
 use Illuminate\Http\Request;
 use App\ChuyenMuc;
