@@ -166,10 +166,10 @@
                                                         <td>
                                                             {{$vb->trichyeu}}
                                                         </td>
-                                                        <td>
+                                                        <td style="text-align: center">
                                                             @foreach($vb->tepvanban as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
-                                                                    <i class="fa fa-paperclip" title="{{ $vb->kihieuvb }}" style="text-align: center"></i>
+                                                                    <i class="fa fa-paperclip" title="{{ $vb->kihieuvb }}"></i>
                                                                     {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">--}}
                                                                 </a>
                                                             @endforeach
