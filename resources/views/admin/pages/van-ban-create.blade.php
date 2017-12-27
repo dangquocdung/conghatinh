@@ -55,11 +55,11 @@
                       <option value=""></option>
                       @foreach ($chuyenmuc->where('show','1') as $cm)
                           @if (count($cm->loaitin)>0)
-                          <optgroup label="{{ $cm->name}}">
-                              @foreach ($cm->loaitin as $lt)
-                                  <option value={{ $lt->id }}>{{ $lt->name}}</option>
-                              @endforeach
-                          </optgroup>
+                              <optgroup label="{{ $cm->name}}">
+                                  @foreach ($cm->loaitin as $lt)
+                                      <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                                  @endforeach
+                              </optgroup>
                           @endif
                       @endforeach
                   </select>

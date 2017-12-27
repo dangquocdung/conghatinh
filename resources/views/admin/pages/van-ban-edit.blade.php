@@ -37,7 +37,7 @@
                                 <option value=""></option>
                                 @foreach ($chuyenmuc->where('show','1') as $cm)
                                     @if (count($cm->loaitin)>0)
-                                    <optgroup label="{{ $vb->name}}">
+                                    <optgroup label="{{ $cm->name}}">
                                         @foreach($cm->loaitin as $nvb)
                                             @if ($nvb->id == $vbedit->loaitin_id)
                                                 <option value="{{ $nvb->id }}" selected>{{ $nvb->name }}</option>
@@ -109,9 +109,9 @@
                             <select id="tepvanban" name="tepvanban[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
                                 @foreach($pdfs as $pdf)
                                     @if (in_array($pdf->id,$items))
-                                        <option value="{{$pdf->id}}" selected>{{ $pdf->id.'-'.$pdf->filename }}</option>
+                                        <option value="{{$pdf->id}}" selected>{{ $pdf->filename }}</option>
                                     @else
-                                        <option value="{{$pdf->id}}">{{ $pdf->id.'-'.$pdf->filename }}</option>
+                                        <option value="{{$pdf->id}}">{{ $pdf->filename }}</option>
                                     @endif
 
                                 @endforeach

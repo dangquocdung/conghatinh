@@ -69,6 +69,14 @@
                   <!-- /.input group -->
               </div>
 
+
+
+                <div class="form-group">
+                  <label for="">Nội dung:</label>
+                  <textarea id="noi-dung" name="noidung" required></textarea>
+                  <div class="HelpText error">{{$errors->first('noidung')}}</div>
+                </div>
+
               <div class="form-group">
                   <label>Chọn tệp văn bản</label>
                   <div class="pull-right">
@@ -83,11 +91,6 @@
                   </select>
               </div>
 
-            <div class="form-group">
-              <label for="">Nội dung:</label>
-              <textarea id="noi-dung" name="noidung" required></textarea>
-              <div class="HelpText error">{{$errors->first('noidung')}}</div>
-            </div>
 
           </div>
 
