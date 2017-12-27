@@ -24,7 +24,7 @@
 			</a>
 
 			<a href="javascript:void(0);">
-				<h4 class="portlet-header-title no-pd-top">{{ $tin->name }} /</h4>
+				<h4 class="portlet-header-title no-pd-top">{{ $tin->name }}</h4>
 			</a>
 
 		</div>
