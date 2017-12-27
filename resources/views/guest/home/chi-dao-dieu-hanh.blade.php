@@ -122,7 +122,7 @@
                                     @elseif (count($lt->vanban) >0 )
 
                                             <table class="table table-striped table-bordered table-responsive table-sm">
-                                                <thead>
+                                                <thead style="text-align: center">
                                                 <tr>
                                                     <th>TT</th>
                                                     <th>
@@ -157,7 +157,7 @@
                                                                 {{ $vb->kihieuvb }}
                                                             </a>
                                                         </td>
-                                                        <td>
+                                                        <td style="text-align: center">
                                                             {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
                                                         </td>
                                                         <td>
@@ -166,7 +166,7 @@
                                                         <td>
                                                             {{$vb->trichyeu}}
                                                         </td>
-                                                        <td>
+                                                        <td style="text-align: center">
                                                             @foreach($vb->tepvanban as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
                                                                     <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">
@@ -180,7 +180,7 @@
                                         @elseif (count($lt->lichct) > 0)
 
                                             <table class="table table-striped table-bordered table-responsive table-sm">
-                                                <thead>
+                                                <thead style="text-align: center">
                                                     <th>TT</th>
                                                     <th>Nội dung </th>
                                                     <th class="col-md-2" style="text-align: center">Ngày đăng </th>
@@ -199,7 +199,7 @@
                                                         <td style="text-align: center">
                                                             {{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}
                                                         </td>
-                                                        <td>
+                                                        <td style="text-align: center">
                                                             @foreach($lct->tepvanbankhac as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
                                                                     <i class="fa fa-paperclip" title="{{ $lct->name }}" style="float: right"></i>
