@@ -18,7 +18,7 @@
                         <img src="/images/background/lotus.ico" alt="">
 
 
-                        <a href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">
+                        <a href="{{ route('loai-tin',$lt->chuyenmuc->slug) }}">
                             <h4 class="portlet-header-title no-pd-top">{{ $lt->chuyenmuc->name }} / </h4>
                         </a>
 
