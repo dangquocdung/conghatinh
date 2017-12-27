@@ -105,27 +105,28 @@
                   <textarea id="noi-dung" name="noidung" required>{!! $lct->noidung  !!}</textarea>
                   <div class="HelpText error">{{$errors->first('noidung')}}</div>
                 </div>
-              </div>
 
-              @php
-                  $items = array();
-                  foreach($tepvanbankhac as $lct){
-                      $items[] = $lct->media_id;
-                  }
-              @endphp
 
-              <div class="form-group">
-                  <label>Chọn tệp văn bản</label>
-                  <select id="tepvanbankhac" name="tepvanbankhac[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
-                      @foreach($pdfs as $pdf)
-                          @if (in_array($pdf->id,$items))
-                              <option value="{{$pdf->id}}" selected>{{ $pdf->filename }}</option>
-                          @else
-                              <option value="{{$pdf->id}}">{{ $pdf->filename }}</option>
-                          @endif
+                  @php
+                      $items = array();
+                      foreach($tepvanbankhac as $lct){
+                          $items[] = $lct->media_id;
+                      }
+                  @endphp
 
-                      @endforeach
-                  </select>
+                  <div class="form-group">
+                      <label>Chọn tệp văn bản</label>
+                      <select id="tepvanbankhac" name="tepvanbankhac[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp văn bản" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+                          @foreach($pdfs as $pdf)
+                              @if (in_array($pdf->id,$items))
+                                  <option value="{{$pdf->id}}" selected>{{ $pdf->filename }}</option>
+                              @else
+                                  <option value="{{$pdf->id}}">{{ $pdf->filename }}</option>
+                              @endif
+
+                          @endforeach
+                      </select>
+                  </div>
               </div>
 
               <div class="modal-footer">
