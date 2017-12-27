@@ -194,7 +194,7 @@
 
                                                         </td>
                                                         <td>
-                                                            <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                            <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-file-word-o" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
                                                         </td>
                                                         <td>
                                                             {{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}
@@ -202,7 +202,8 @@
                                                         <td>
                                                             @foreach($lct->tepvanbankhac as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
-                                                                    <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">
+                                                                    <i class="fa fa-paperclip" title="{{ $lct->name }}></i>
+                                                                    {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
                                                                 </a>
                                                             @endforeach
                                                         </td>
