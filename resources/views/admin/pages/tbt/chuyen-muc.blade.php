@@ -260,7 +260,7 @@
                 @for ($i = 1; $i <= count($chuyenmucs); $i++)
                   <option value={{ $i }}>{{ $i }}</option>
                 @endfor
-                <option value={{ $i }} selected>{{ $i }}</option>
+                {{--<option value={{ $i }} selected>{{ $i }}</option>--}}
               </select>
             </div>
 
