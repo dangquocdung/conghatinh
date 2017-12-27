@@ -123,7 +123,7 @@
 
                                             <table class="table table-striped table-bordered table-responsive table-sm">
                                                 <thead>
-                                                <tr style="text-align: center">
+                                                <tr>
                                                     <th>TT</th>
                                                     <th>
                                                         Số/Kí hiệu
@@ -166,10 +166,11 @@
                                                         <td>
                                                             {{$vb->trichyeu}}
                                                         </td>
-                                                        <td style="text-align: center">
+                                                        <td>
                                                             @foreach($vb->tepvanban as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
-                                                                    <img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">
+                                                                    <i class="fa fa-paperclip" title="{{ $vb->kihieuvb }}" style="text-align: center"></i>
+                                                                    {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">--}}
                                                                 </a>
                                                             @endforeach
                                                         </td>
@@ -181,7 +182,7 @@
 
                                             <table class="table table-striped table-bordered table-responsive table-sm">
                                                 <thead>
-                                                    <tr style="text-align: center">
+                                                    <tr>
                                                         <th>TT</th>
                                                         <th>Nội dung </th>
                                                         <th class="col-md-2" style="text-align: center">Ngày đăng </th>
@@ -204,7 +205,7 @@
                                                         <td style="text-align: center">
                                                             @foreach($lct->tepvanbankhac as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
-                                                                    <i class="fa fa-paperclip" title="{{ $lct->name }}" style="float: right"></i>
+                                                                    <i class="fa fa-paperclip" title="{{ $lct->name }}" style="text-align: center"></i>
                                                                     {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
                                                                 </a>
                                                             @endforeach
