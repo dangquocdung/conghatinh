@@ -72,7 +72,7 @@
                 {!! Form::close() !!}
             </div>
             <div class="modal-footer">
-                
+
             </div>
         </div>
         <!-- /.modal-content -->

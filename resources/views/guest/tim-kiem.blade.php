@@ -25,7 +25,7 @@
 
                                 <span class="label label-info pull-right hidden-xs" style="margin-left: 15px;">{{$tin->loaitin->name}}</span>
 
-                                <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,$tin->slug])}}">
+                                <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug])}}">
 
                                     <img src="{{$tin->avatar}}" alt="{{$tin->name}}" title="{{$tin->name}}" style="display: inline-block; width: 160px; height:auto;" >
 
