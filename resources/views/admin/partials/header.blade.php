@@ -32,6 +32,9 @@
 
   @yield('css')
 
+  <link href="bower_components/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+
   <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script type="text/javascript" src="{{url('admin/js/bootstrap.min.js')}}"></script>
@@ -40,6 +43,7 @@
   <script type="text/javascript" src="{{ url('admin/js/select2.min.js') }}"></script>
   <script type="text/javascript" src="{{ url('admin/js/moment.min.js') }}"></script>
   <script type="text/javascript" src="{{ url('admin/js/MonthPicker.js') }}"></script>
+  <script src="bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
 
 
 

@@ -78,11 +78,11 @@
 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="tinanh" onclick="$(this).val(this.checked ? 1 : 0)"> Tin ảnh
+                        <input type="checkbox" name="tinanh" onclick="$(this).val(this.checked ? 1 : 0)" data-toggle="toggle"> Tin ảnh
                     </label>
                     &nbsp;&nbsp;
                     <label>
-                        <input type="checkbox" name="tinvideo" onclick="$(this).val(this.checked ? 1 : 0)"> Tin video
+                        <input type="checkbox" name="tinvideo" onclick="$(this).val(this.checked ? 1 : 0)" data-toggle="toggle"> Tin video
                     </label>
                 </div>
 

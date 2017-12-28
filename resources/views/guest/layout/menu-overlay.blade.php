@@ -43,7 +43,7 @@
 
 
                     <div class="input-group">
-                        <input type="hidden" name="type" value="tieude" id="type" class="form-control"/>
+                        {{--<input type="hidden" name="type" value="tieude" id="type" class="form-control"/>--}}
                         <input type="text"  name="search" id="search" class="form-control" placeholder="Tìm kiếm..." required/>
                         <div class="input-group-btn">
                             <div class="btn-group" role="group">
