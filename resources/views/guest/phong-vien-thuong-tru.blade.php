@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Danh sách VPĐD, PVTT đăng ký hoạt động</title>
+    Danh sách VPĐD, PVTT đăng ký hoạt động
 @endsection
 
 @section('content-main')

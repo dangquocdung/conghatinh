@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Góp ý</title>
+  Góp ý
 @endsection
 @section('header-menu-item')
   active

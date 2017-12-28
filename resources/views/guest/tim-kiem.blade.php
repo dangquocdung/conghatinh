@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Kết quả tìm kiếm</title>
+    Kết quả tìm kiếm
 @endsection
 @section('header-menu-item')
     active

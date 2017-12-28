@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Góp ý dự thảo văn bản</title>
+  Góp ý dự thảo văn bản
 @endsection
 @section('header-menu-item')
   active

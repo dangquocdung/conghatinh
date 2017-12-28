@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Liên hệ công tác</title>
+    Liên hệ công tác
 @endsection
 @section('header-menu-item')
     active

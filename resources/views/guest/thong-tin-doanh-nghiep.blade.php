@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Thông tin doanh nghiệp</title>
+    Thông tin doanh nghiệp
 @endsection
 
 @section('content-main')

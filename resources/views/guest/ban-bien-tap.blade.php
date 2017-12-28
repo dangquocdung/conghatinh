@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Ban Biên Tập</title>
+  Ban Biên Tập
 @endsection
 
 

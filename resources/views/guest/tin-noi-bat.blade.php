@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Tin nổi bật</title>
+  Tin nổi bật
 @endsection
 @section('header-menu-item')
   active

@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>Tư vấn, hỗ trợ pháp lý doanh nghiệp</title>
+  Tư vấn, hỗ trợ pháp lý doanh nghiệp
 @endsection
 @section('header-menu-item')
   active

@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-  <title>{{ $cm->name }}</title>
+  {{ $cm->name }}
 @endsection
 @section('header-menu-item')
   active

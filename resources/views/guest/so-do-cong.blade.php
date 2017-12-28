@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Sơ đồ cổng</title>
+    Sơ đồ cổng
 @endsection
 @section('header-menu-item')
     active

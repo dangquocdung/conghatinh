@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Đường dây nóng</title>
+    Đường dây nóng
 @endsection
 
 @section('content-main')

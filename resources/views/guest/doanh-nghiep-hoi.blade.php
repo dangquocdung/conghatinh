@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Doanh nghiệp hỏi, CQNN trả lời</title>
+    Doanh nghiệp hỏi, CQNN trả lời
 @endsection
 
 @section('content-main')
