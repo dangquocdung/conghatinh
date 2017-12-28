@@ -48,13 +48,8 @@
                                 <span id="search_concept">Tin tức</span> <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#gioithieu">Giới thiệu</a></li>
-                                <li><a href="#ngaydang">Ngày đăng</a></li>
-                                <li><a href="#noidung">Nội dung</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#hinhanh">Hình ảnh</a></li>
-                                <li><a href="#video">Video</a></li>
-
+                                <li><a href="#vanban">VB Chỉ đạo, Điều hành </a></li>
+                                <li><a href="#vanbankhac">Văn bản </a></li>
                             </ul>
                         </div>
                         <input type="hidden" name="type" value="tieude" id="type" class="form-control"/>

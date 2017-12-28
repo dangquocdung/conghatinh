@@ -305,13 +305,6 @@ class GuestController extends Controller
         return view ('guest.duong-day-nong');
     }
 
-    public function tinNoiBat()
-    {
-
-        $tintuc = TinTuc::where('daduyet','1')->where('noibat','1')->orderby('id','desc')->paginate(12);
-
-        return view('guest.tin-noi-bat', compact('tintuc'));
-    }
 
     public function getSoDoCong()
     {
@@ -344,70 +337,33 @@ class GuestController extends Controller
 
         $type = \Request::get('type');
 
-        $search = str_slug($search);
+//        $search = str_slug($search);
 
         switch ($type){
 
-            case 'tieude':
-
-                $tintuc = TinTuc::where('slug','like','%'.$search.'%')
-                    ->orderBy('id','desc')
-                    ->paginate(20);
-
-                return view('guest.tim-kiem',compact('tintuc'));
-
-                break;
-
-            case 'gioithieu':
-
-                $tintuc = TinTuc::where('gioithieu','like','%'.$search.'%')
-                    ->orderBy('id','desc')
-                    ->paginate(20);
-
-                return view('guest.tim-kiem',compact('tintuc'));
-
-                break;
-
-            case 'ngaydang':
-
-                $tintuc = TinTuc::where('ngaydang','like','%'.$search.'%')
-                    ->orderBy('id','desc')
-                    ->paginate(20);
-
-                return view('guest.tim-kiem',compact('tintuc'));
-
-                break;
-
-            case 'noidung':
-
-                $tintuc = TinTuc::where('noidung','like','%'.$search.'%')
-                    ->orderBy('id','desc')
-                    ->paginate(20);
-
-                return view('guest.tim-kiem',compact('tintuc'));
-
-                break;
-
             case 'vanban':
 
-                $lt = LoaiTin::all();
-                return view('guest.van-ban', compact('lt'));
+                $tintuc = VanBan::where('kihieuvb','like','%'.$search.'%')
+                    ->orderBy('id','desc')
+                    ->paginate(20);
+
+                return view('guest.tim-kiem',compact('tintuc'));
 
                 break;
 
-            case 'hinhanh':
+            case 'vanbankhac':
 
-                $albums = Album::with('Photos')->orderby('id','desc')->paginate(12);
-                return view('guest.album-anh',compact('albums'));
+                $tintuc = VanBanKhac::where('name','like','%'.$search.'%')
+                    ->orderBy('id','desc')
+                    ->paginate(20);
+
+                return view('guest.tim-kiem',compact('tintuc'));
 
                 break;
 
-            case 'video':
-                return view('guest.video-chi-tiet');
-                break;
 
             default:
-                $tintuc = TinTuc::where($type,'like','%'.$search.'%')
+                $tintuc = TinTuc::where('name','like','%'.$search.'%')
                     ->orderBy('id','desc')
                     ->paginate(20);
 
