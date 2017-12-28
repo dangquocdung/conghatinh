@@ -82,7 +82,7 @@
                                 checked
                              @endif
 
-                      > Tin ảnh
+                             data-toggle="toggle"> Tin ảnh
                   </label>
                   &nbsp;&nbsp;
                   <label>
@@ -92,7 +92,7 @@
                              checked
                               @endif
 
-                      > Tin video
+                             data-toggle="toggle"> Tin video
                   </label>
               </div>
 

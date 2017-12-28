@@ -60,10 +60,11 @@
 
 
                   <div class='input-group date' id='datetimepicker1'>
-                      <input type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
                       <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
+                      <input type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
+
                   </div>
               </div>
 
