@@ -43,15 +43,6 @@
 
 
                     <div class="input-group">
-                        <div class="input-group-btn search-panel">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px">
-                                <span id="search_concept">Tin tức</span> <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#vanban">VB Chỉ đạo, Điều hành </a></li>
-                                <li><a href="#vanbankhac">Văn bản </a></li>
-                            </ul>
-                        </div>
                         <input type="hidden" name="type" value="tieude" id="type" class="form-control"/>
                         <input type="text"  name="search" id="search" class="form-control" placeholder="Tìm kiếm..." required/>
                         <div class="input-group-btn">
