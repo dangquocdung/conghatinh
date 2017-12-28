@@ -39,17 +39,37 @@
                 <h4 class="modal-title">Tìm kiếm thông tin </h4>
             </div>
             <div class="modal-body">
-                <form class="search-form">
-                    <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search">
+                {!! Form::open(['method'=>'GET','url'=>'vi/tim-kiem','role'=>'search'])  !!}
 
-                        <div class="input-group-btn">
-                            <button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i>
+                <div class="col-xs-3 pull-right hidden-sm hidden-xs" style="margin-top: 10px">
+                    <div class="input-group">
+                        <div class="input-group-btn search-panel">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px">
+                                <span id="search_concept">Tin tức</span> <span class="caret"></span>
                             </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#gioithieu">Giới thiệu</a></li>
+                                <li><a href="#ngaydang">Ngày đăng</a></li>
+                                <li><a href="#noidung">Nội dung</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#hinhanh">Hình ảnh</a></li>
+                                <li><a href="#video">Video</a></li>
+
+                            </ul>
+                        </div>
+                        <input type="hidden" name="type" value="tieude" id="type" class="form-control"/>
+                        <input type="text"  name="search" id="search" class="form-control" placeholder="Tìm kiếm..." required/>
+                        <div class="input-group-btn">
+                            <div class="btn-group" role="group">
+                                <button type="submit" class="btn btn-primary" style="border-top-right-radius: 5px; border-bottom-right-radius:5px ">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.input-group -->
-                </form>
+                </div>
+
+                {!! Form::close() !!}
             </div>
         </div>
         <!-- /.modal-content -->

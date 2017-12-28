@@ -18,9 +18,7 @@
 
             <div class="loai-tin">
 
-
-
-                    @foreach ($tintuc as $tin)
+                @foreach ($tintuc as $tin)
 
                         <div class="news-main" style="padding: 0">
                             <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
@@ -55,8 +53,7 @@
 
                         </div>
 
-
-                    @endforeach
+                @endforeach
 
 
             </div>
