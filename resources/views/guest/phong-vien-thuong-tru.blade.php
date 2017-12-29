@@ -102,6 +102,7 @@
                     "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
 //                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
 //                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoFiltered": "(lọc trong tổng _MAX_ bản ghi)",
                     "sInfoPostFix": "",
                     "sSearch": "Tìm kiếm:",
                     "sUrl": "",

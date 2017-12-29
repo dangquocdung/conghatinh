@@ -334,8 +334,9 @@ class GuestController extends Controller
 
     public function tracuuDVC()
     {
-        $dvc = DichVuCong::all();
-        return view ('guest.dvc-m3',compact('dvc'));
+        $dvc2 = DichVuCong::where('capdo','2')->get();
+        $dvc3 = DichVuCong::where('capdo','3')->get();
+        return view ('guest.dvc-m3',compact('dvc2','dvc3'));
     }
 
     public function getTimKiem()
