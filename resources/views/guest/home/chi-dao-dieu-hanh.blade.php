@@ -116,12 +116,9 @@
 
                                             </div>
                                         @endif
+                                        @elseif (count($lt->vanban) >0 )
 
-
-
-                                    @elseif (count($lt->vanban) >0 )
-
-                                            <table class="table table-striped table-bordered table-responsive table-sm">
+                                            <table class="table table-striped table-bordered table-responsive table-sm" style="margin-bottom: 5px">
                                                 <thead>
                                                 <tr>
                                                     <th>TT</th>
@@ -180,7 +177,7 @@
                                             </table>
                                         @elseif (count($lt->lichct) > 0)
 
-                                            <table class="table table-striped table-bordered table-responsive table-sm">
+                                            <table class="table table-striped table-bordered table-responsive table-sm" style="margin-bottom: 5px">
                                                 <thead>
                                                     <tr>
                                                         <th>TT</th>
@@ -217,13 +214,13 @@
                                             </table>
                                     @endif
                                         <!-- /.box-body -->
-                                    <div class="box-footer">
-                                        <div class="pull-right">
 
-                                                <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}"><em>Xem tiếp...</em></a>
+                                    <div class="pull-right">
 
-                                        </div>
+                                            <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}"><em>Xem tiếp...</em></a>
+
                                     </div>
+
                                 </div>
                                 @endforeach
                             </div>
