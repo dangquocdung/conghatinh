@@ -76,22 +76,22 @@
 
               <div class="checkbox">
                   <label>
-                      <input type="checkbox" name="tinanh" id="tin-anh" data-toggle="toggle" data-on="Tin ảnh " @if ($tintuc->tinanh == 1) checked @endif>
+                      <input type="checkbox" name="tinanh" id="tin-anh" onclick="$(this).val(this.prop('checked') ? 1 : 0)" data-toggle="toggle" data-on="Tin ảnh " @if ($tintuc->tinanh == 1) checked @endif>
                   </label>
                   &nbsp;&nbsp;
                   <label>
-                      <input type="checkbox" name="tinvideo" id="tin-video" data-toggle="toggle" data-on="Tin video " @if ($tintuc->tinvideo == 1) checked @endif>
+                      <input type="checkbox" name="tinvideo" id="tin-video" onclick="$(this).val(this.checked ? 1 : 0)" data-toggle="toggle" data-on="Tin video " @if ($tintuc->tinvideo == 1) checked @endif>
                   </label>
               </div>
 
               <script>
-                  $(function () {
-
-                      $('#tin-anh').change(function() {
-                          alert($(this).prop('checked'));
-                      })
-                      
-                  })
+//                  $(function () {
+//
+//                      $('#tin-anh').change(function() {
+//                          $(this).val($(this).prop('checked'));
+//                      })
+//
+//                  })
               </script>
 
               <div class="form-group">
