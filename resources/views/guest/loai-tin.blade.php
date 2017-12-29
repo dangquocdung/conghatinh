@@ -80,7 +80,7 @@
                              @endforeach
                          @elseif (count($lt->vanban) > 0)
 
-                             <table id="example1" class="table table-striped table-bordered table-responsive table-sm">
+                             <table id="tblVanBan" class="table table-striped table-bordered table-responsive table-sm">
                                  <thead>
                                  <tr>
                                      <th>
@@ -133,7 +133,7 @@
                              </table>
 
                          @elseif (count($lt->lichct) >0)
-                             <table class="table table-striped table-bordered table-responsive table-sm">
+                             <table id="tblVanBan" class="table table-striped table-bordered table-responsive table-sm">
                                  <thead>
                                      <th>TT</th>
                                      <th>Chương trình công tác </th>
@@ -177,6 +177,42 @@
 
 @section('content-right')
     @include('guest.menu-right.trang-chu')
+@stop
+
+@section('js')
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+
+
+            $('#tblVanBan').DataTable({
+                "iDisplayLength": 25,
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Hiển thị _MENU_ mục",
+//                    "sZeroRecords": "No se encontraron resultados",
+//                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+//                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+//                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm kiếm:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+//                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Đầu tiên",
+                        "sLast": "Cuối cùng",
+                        "sNext": "Sau",
+                        "sPrevious": "Trước"
+                    }
+                }
+            })
+
+        })
+    </script>
 @stop
 
 
