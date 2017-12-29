@@ -76,7 +76,7 @@
 
               <div class="checkbox">
                   <label>
-                      <input type="checkbox" name="tinanh" id="tin-anh" data-toggle="toggle" @if ($tintuc->tinanh == 1) checked @endif> Tin ảnh
+                      <input type="checkbox" name="tinanh" id="tin-anh" data-toggle="toggle" data-on="Tin ảnh " @if ($tintuc->tinanh == 1) checked @endif> Tin ảnh
                   </label>
                   &nbsp;&nbsp;
                   <label>
