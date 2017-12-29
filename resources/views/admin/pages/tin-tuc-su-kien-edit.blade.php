@@ -80,7 +80,7 @@
                   </label>
                   &nbsp;&nbsp;
                   <label>
-                      <input type="checkbox" name="tinvideo" id="tin-video" onclick="$(this).val(this.checked ? 1 : 0)" data-toggle="toggle" data-on="Tin video " @if ($tintuc->tinvideo == 1) checked @endif>
+                      <input type="checkbox" name="tinvideo" id="tin-video" data-toggle="toggle" data-on="Tin video " @if ($tintuc->tinvideo == 1) checked @endif>
                   </label>
               </div>
 
@@ -88,6 +88,15 @@
                   $(function () {
 
                       $('#tin-anh').change(function() {
+                          if ($(this).prop('checked')){
+                              $(this).val('1')
+                          }
+                          else{
+                              $(this).val('0');
+                          };
+                      });
+
+                      $('#tin-video').change(function() {
                           if ($(this).prop('checked')){
                               $(this).val('1')
                           }

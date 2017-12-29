@@ -79,13 +79,37 @@
 
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="tinanh" onclick="$(this).val(this.checked ? 1 : 0)" data-toggle="toggle"> Tin ảnh
+                        <input type="checkbox" name="tinanh" id="tin-anh" data-toggle="toggle" data-on="Tin ảnh ">
                     </label>
                     &nbsp;&nbsp;
                     <label>
-                        <input type="checkbox" name="tinvideo" onclick="$(this).val(this.checked ? 1 : 0)" data-toggle="toggle"> Tin video
+                        <input type="checkbox" name="tinvideo" id="tin-video" data-toggle="toggle" data-on="Tin video ">
                     </label>
                 </div>
+
+                <script>
+                    $(function () {
+
+                        $('#tin-anh').change(function() {
+                            if ($(this).prop('checked')){
+                                $(this).val('1')
+                            }
+                            else{
+                                $(this).val('0');
+                            };
+                        });
+
+                        $('#tin-video').change(function() {
+                            if ($(this).prop('checked')){
+                                $(this).val('1')
+                            }
+                            else{
+                                $(this).val('0');
+                            };
+                        })
+
+                    })
+                </script>
 
 
           
