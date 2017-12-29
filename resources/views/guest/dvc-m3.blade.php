@@ -65,7 +65,7 @@
                         </div>
 
 
-                        <div class="to-chuc tab-pane active " id="mucdo3">
+                        <div class="to-chuc tab-pane" id="mucdo3">
 
                             <div class="loai-tin">
                                 <table id="tblDVC3" class="table table-striped table-bordered table-responsive table-sm">
