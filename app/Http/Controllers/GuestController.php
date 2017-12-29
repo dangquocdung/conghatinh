@@ -25,6 +25,7 @@ use App\DuThao;
 use App\LichCongTac;
 use App\ThongTinDoanhNghiep;
 use App\Events\User\TinTucCounter;
+use App\DichVuCong;
 
 
 
@@ -333,7 +334,8 @@ class GuestController extends Controller
 
     public function tracuuDVC()
     {
-        return view ('guest.dvc-m3');
+        $dvc = DichVuCong::all();
+        return view ('guest.dvc-m3',compact('dvc'));
     }
 
     public function getTimKiem()

@@ -19,22 +19,24 @@ class DichVuCongController extends Controller
 
 //        DichVuCong::truncate();
 
-        $crawler = $client->request('GET', 'http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/thu-tuc-hanh-chinh.aspx');
+//        $crawler = $client->request('GET', 'http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/thu-tuc-hanh-chinh.aspx');
 
-//        $crawler = $client->request('GET', 'http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/dich-vu-cong-truc-tuyen.aspx');
+        $crawler = $client->request('GET', 'https://hatinh.top/tra-cuu-dich-vu-cong');
 
 
         $crawler->filter('table > tbody > tr')->each(function ($node) {
 
-            $dvc = new DichVuCong;
+            print $node->text()."/n";
 
-            $dvc->name = $node->filter('td>a')->text();
-            $dvc->slug = str_slug($node->filter('td>a')->text());
-            $dvc->linhvuc = $node->filter('td')->eq(2)->text();
-            $dvc->donvicungcap = $node->filter('td')->eq(3)->text();
-            $dvc->capdo = '2';
-
-            $dvc->save();
+//            $dvc = new DichVuCong;
+//
+//            $dvc->name = $node->filter('td>a')->text();
+//            $dvc->slug = str_slug($node->filter('td>a')->text());
+//            $dvc->linhvuc = $node->filter('td')->eq(2)->text();
+//            $dvc->donvicungcap = $node->filter('td')->eq(2)->text();
+//            $dvc->capdo = '3';
+//
+//            $dvc->save();
 
         });
     }
