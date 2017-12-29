@@ -215,7 +215,7 @@
                                     @endif
                                         <!-- /.box-body -->
 
-                                    <div class="pull-right">
+                                    <div class="pull-right" style="text-decoration: none">
 
                                             <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}"><em>Xem tiếp...</em></a>
 
