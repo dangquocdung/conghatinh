@@ -76,25 +76,23 @@
 
               <div class="checkbox">
                   <label>
-                      <input type="checkbox" name="tinanh" onclick="$(this).val(this.checked ? 1 : 0)"
-
-                             @if ($tintuc->tinanh == 1)
-                                checked
-                             @endif
-
-                             data-toggle="toggle"> Tin ảnh
+                      <input type="checkbox" name="tinanh" id="tin-anh" data-toggle="toggle" @if ($tintuc->tinanh == 1) checked @endif> Tin ảnh
                   </label>
                   &nbsp;&nbsp;
                   <label>
-                      <input type="checkbox" name="tinvideo" onclick="$(this).val(this.checked ? 1 : 0)"
-
-                             @if ($tintuc->tinvideo == 1)
-                             checked
-                              @endif
-
-                             data-toggle="toggle"> Tin video
+                      <input type="checkbox" name="tinvideo" id="tin-video" data-toggle="toggle" @if ($tintuc->tinvideo == 1) checked @endif> Tin video
                   </label>
               </div>
+
+              <script>
+                  $(function () {
+
+                      $('#tin-anh').change(function() {
+                          alert($(this).val());
+                      })
+                      
+                  })
+              </script>
 
               <div class="form-group">
                   <textarea class="form-control" name="gioithieu" rows="3" cols="80" required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;">{{ $tintuc->gioithieu }}</textarea>
