@@ -331,6 +331,11 @@ class GuestController extends Controller
         return view ('guest.thong-tin-doanh-nghiep',compact('ttdns'));
     }
 
+    public function tracuuDVC()
+    {
+        return view ('guest.dvc-m3');
+    }
+
     public function getTimKiem()
     {
         $search = \Request::get('search'); //<-- we use global request to get the param of URI

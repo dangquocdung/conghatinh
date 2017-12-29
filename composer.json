@@ -9,6 +9,7 @@
         "anhskohbo/no-captcha": "^2.4",
         "anlutro/l4-settings": "^0.4.9",
         "barryvdh/laravel-dompdf": "^0.8.1",
+        "fabpot/goutte": "^3.2",
         "hisorange/browser-detect": "^3.0",
         "htmlmin/htmlmin": "^5.0",
         "intervention/image": "^2.3",

@@ -1,6 +1,6 @@
 @extends('guest.layout.main')
 @section('title')
-    <title>Không tìm thấy trang</title>
+    Không tìm thấy trang
 @endsection
 
 @section('content-main')
