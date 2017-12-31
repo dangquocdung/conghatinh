@@ -43,6 +43,7 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'GuestController@getNguoiPhatNgon');
     Route::post('danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
     Route::get('danh-sach-vpdd-pvtt-dang-ky-hoat-dong', 'GuestController@getPhongVienThuongTru');
+    Route::get('/dich-vu-cong-truc-tuyen', 'GuestController@tracuuDVC');
 
 
 
