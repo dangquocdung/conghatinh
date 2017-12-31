@@ -17,9 +17,12 @@ class DichVuCongController extends Controller
      */
     public function index()
     {
+
+//        LichCongTac::where('loaitin_id','74')->delete();
+
         $client = new Client();
 
-        $crawler = $client->request('GET', 'http://dhtn.hatinh.gov.vn/dhtn/portal/folder/chuong-trinh-cong-tac');
+        $crawler = $client->request('GET', 'http://dhtn.hatinh.gov.vn/dhtn/portal/folder/chuong-trinh-cong-tac/3.htm');
 
         $crawler->filter('table>tbody>tr')->each(function ($node) {
 
@@ -30,9 +33,9 @@ class DichVuCongController extends Controller
                 $vb->loaitin_id = '74';
                 $vb->name = trim($node->filter('td')->eq(1)->text());
                 $vb->slug = str_slug($node->filter('td')->eq(1)->text());
+                $vb->noidung = 'http://dhtn.hatinh.gov.vn'.trim($node->filter('td>a')->attr('href'));
+                $vb->daduyet = '1';
                 $vb->save();
-
-//                print $node->filter('td')->eq(1)->text();
 
             }
         });

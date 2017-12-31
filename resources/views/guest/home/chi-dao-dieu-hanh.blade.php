@@ -187,7 +187,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($lt->lichct->where('daduyet','1')->sortByDesc('ngaybanhanh')->take(5) as $lct)
+                                                @foreach($lt->lichct->where('daduyet','1')->sortByDesc('ngaybanhanh')->sortByDesc('id')->take(5) as $lct)
                                                     <tr>
                                                         <td>
                                                             {{ $loop->iteration }}
@@ -200,12 +200,22 @@
                                                             {{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}
                                                         </td>
                                                         <td style="text-align: center">
-                                                            @foreach($lct->tepvanbankhac as $tvb)
-                                                                <a href="{{ $tvb->path }}" target="_blank">
+
+                                                            @if ($lct->tepvanbankhac->count() >0 )
+                                                                @foreach($lct->tepvanbankhac as $tvb)
+                                                                    <a href="{{ $tvb->path }}" target="_blank">
+                                                                        <i class="fa fa-paperclip" title="{{ $lct->name }}" style="text-align: center"></i>
+                                                                        {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
+                                                                    </a>
+                                                                @endforeach
+                                                            @else
+
+                                                                <a href="{{ $lct->noidung }}" target="_blank">
                                                                     <i class="fa fa-paperclip" title="{{ $lct->name }}" style="text-align: center"></i>
                                                                     {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
                                                                 </a>
-                                                            @endforeach
+
+                                                            @endif
                                                         </td>
 
                                                     </tr>
