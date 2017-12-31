@@ -11,7 +11,7 @@ Route::get('/tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
 //Route::get('/update-slug-van-ban', 'VanBanController@updateSlug');
 //Route::get('/update-slug-van-ban-khac', 'VanBanKhacController@updateSlug');
 
-//Route::resource('load-dvc','DichVuCongController');
+Route::resource('load-dhtn','DichVuCongController');
 
 
 Route::group(['prefix'=>'vi'], function ()

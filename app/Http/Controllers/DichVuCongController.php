@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\DichVuCong;
 use Illuminate\Http\Request;
 use Goutte\Client;
+use App\LichCongTac;
+use Illuminate\Support\Facades\Auth;
 
 class DichVuCongController extends Controller
 {
@@ -17,27 +19,22 @@ class DichVuCongController extends Controller
     {
         $client = new Client();
 
-//        DichVuCong::truncate();
+        $crawler = $client->request('GET', 'http://dhtn.hatinh.gov.vn/dhtn/portal/folder/chuong-trinh-cong-tac');
 
-//        $crawler = $client->request('GET', 'http://dichvucong.hatinh.gov.vn/portaldvc/KenhTin/thu-tuc-hanh-chinh.aspx');
+        $crawler->filter('table>tbody>tr')->each(function ($node) {
 
-        $crawler = $client->request('GET', 'https://hatinh.top/tra-cuu-dich-vu-cong');
+            if ($node->filter('td')->count() >0){
 
+                $vb = new LichCongTac;
+                $vb->user_id = Auth::user()->id;
+                $vb->loaitin_id = '74';
+                $vb->name = trim($node->filter('td')->eq(1)->text());
+                $vb->slug = str_slug($node->filter('td')->eq(1)->text());
+                $vb->save();
 
-        $crawler->filter('table > tbody > tr')->each(function ($node) {
+//                print $node->filter('td')->eq(1)->text();
 
-            print $node->text()."/n";
-
-//            $dvc = new DichVuCong;
-//
-//            $dvc->name = $node->filter('td>a')->text();
-//            $dvc->slug = str_slug($node->filter('td>a')->text());
-//            $dvc->linhvuc = $node->filter('td')->eq(2)->text();
-//            $dvc->donvicungcap = $node->filter('td')->eq(2)->text();
-//            $dvc->capdo = '3';
-//
-//            $dvc->save();
-
+            }
         });
     }
 
