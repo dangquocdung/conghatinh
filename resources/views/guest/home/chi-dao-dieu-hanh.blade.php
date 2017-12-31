@@ -129,10 +129,6 @@
                                                         Ngày ban hành
                                                     </th>
 
-                                                    <th>
-                                                        Nơi ban hành
-                                                    </th>
-
                                                     <th class="col-md-6">
                                                         Trích yếu
                                                     </th>
@@ -156,9 +152,6 @@
                                                         </td>
                                                         <td style="text-align: center">
                                                             {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
-                                                        </td>
-                                                        <td>
-                                                            {{$vb->nguoiki->cqbh->name}}
                                                         </td>
                                                         <td>
                                                             {{$vb->trichyeu}}

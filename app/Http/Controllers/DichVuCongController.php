@@ -15,7 +15,7 @@ class DichVuCongController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getLLV()
     {
 
 //        LichCongTac::where('loaitin_id','74')->delete();
@@ -38,6 +38,43 @@ class DichVuCongController extends Controller
                 $vb->save();
 
             }
+        });
+    }
+
+    public function getVBM()
+    {
+
+        $client = new Client();
+
+        $crawler = $client->request('GET', 'http://congbao.hatinh.gov.vn/vbpq_hatinh.nsf/VwAllDocNew');
+
+        $crawler->filter('td > table > tr')->each(function ($node) {
+
+            if ($node->filter('td')->count() >0){
+
+                print trim($node->filter('td')->eq(1)->text())."<br>";
+                print trim($node->filter('a')->attr('href'))."<br>";
+                print trim($node->filter('td')->eq(2)->text())."<br>";
+                print trim($node->filter('td')->eq(3)->text())."<br>";
+                print trim($node->filter('td')->eq(4)->text())."<br><br>";
+//                print trim($node->filter('td')->eq(5)->text())."<br><br>";
+
+//                $vb = new VanBan;
+//
+//                $vb->user_id = Auth::user()->id;
+//
+//                $vb->loaitin_id = '90';
+//                $vb->kihieuvb = trim($node->filter('td')->eq(1)->text());
+//                $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
+//                $vb->nguoiki_id = $request->nguoiki_id;
+//                $vb->trichyeu = $request->trichyeu;
+//                $vb->slug = str_slug($request->kihieuvb."-".$request->ngaybanhanh);
+//
+//                $vb->save();
+
+
+            }
+
         });
     }
 

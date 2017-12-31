@@ -11,7 +11,6 @@ Route::get('/tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
 //Route::get('/update-slug-van-ban', 'VanBanController@updateSlug');
 //Route::get('/update-slug-van-ban-khac', 'VanBanKhacController@updateSlug');
 
-Route::resource('load-dhtn','DichVuCongController');
 
 
 Route::group(['prefix'=>'vi'], function ()
@@ -236,7 +235,13 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('cau-hinh/he-thong/save-toppic', 'TopPicController@store')->name('save-toppic');
         Route::get('cau-hinh/he-thong/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
         Route::post('cau-hinh/he-thong/update-toppic', 'TopPicController@update')->name('update-toppic');
-        
+
+
+        //Load
+        Route::get('load-llv','DichVuCongController@getLLV');
+        Route::get('load-vbm','DichVuCongController@getVBM');
+
+
     });
 
     Route::group(['prefix'=>'cau-hinh','middleware' => 'role:tbt'], function () {
