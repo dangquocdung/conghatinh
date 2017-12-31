@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Goutte\Client;
 use App\LichCongTac;
 use Illuminate\Support\Facades\Auth;
+use App\VanBan;
+use App\TepVanBan;
+use Carbon\Carbon;
 
 class DichVuCongController extends Controller
 {
@@ -52,26 +55,35 @@ class DichVuCongController extends Controller
 
             if ($node->filter('td')->count() >0){
 
-                print trim($node->filter('td')->eq(1)->text())."<br>";
-                print trim($node->filter('a')->attr('href'))."<br>";
-                print trim($node->filter('td')->eq(2)->text())."<br>";
-                print trim($node->filter('td')->eq(3)->text())."<br>";
-                print trim($node->filter('td')->eq(4)->text())."<br><br>";
-//                print trim($node->filter('td')->eq(5)->text())."<br><br>";
+//                print trim($node->filter('td')->eq(1)->text())."<br>";
+//                print trim($node->filter('a')->attr('href'))."<br>";
+//                print trim($node->filter('td')->eq(2)->text())."<br>";
+//                print trim($node->filter('td')->eq(3)->text())."<br>";
+//                print trim($node->filter('td')->eq(4)->text())."<br><br>";
 
-//                $vb = new VanBan;
-//
-//                $vb->user_id = Auth::user()->id;
-//
-//                $vb->loaitin_id = '90';
-//                $vb->kihieuvb = trim($node->filter('td')->eq(1)->text());
-//                $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
-//                $vb->nguoiki_id = $request->nguoiki_id;
-//                $vb->trichyeu = $request->trichyeu;
-//                $vb->slug = str_slug($request->kihieuvb."-".$request->ngaybanhanh);
-//
-//                $vb->save();
 
+                $vb = new VanBan;
+
+                $vb->user_id = Auth::user()->id;
+
+                $vb->loaitin_id = '90';
+                $vb->kihieuvb = trim($node->filter('td')->eq(1)->text());
+
+                $vb->ngaybanhanh = Carbon::parse(trim( str_replace("/","-", $node->filter('td')->eq(2)->text())  )  );
+
+                $vb->trichyeu = trim($node->filter('td')->eq(4)->text());
+                $vb->slug = str_slug(trim($node->filter('td')->eq(3)->text()));
+                $vb->save();
+
+                $vbid = $vb->id;
+
+                $tvbn = new TepVanBan;
+
+                $tvbn->vanban_id = $vbid;
+
+                $tvbn->path = 'http://qppl.hatinh.gov.vn'.trim($node->filter('a')->attr('href'));
+
+                $tvbn->save();
 
             }
 

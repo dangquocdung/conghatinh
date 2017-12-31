@@ -33,7 +33,6 @@
                 <th>Loại văn bản</th>
                 <th>Ngày ban hành</th>
                 <th>Trích yếu</th>
-                <th>Người kí</th>
                 <th>Tệp văn bản</th>
                 <th></th>
               </tr>
@@ -72,7 +71,6 @@
                 <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y') }}</td>
                 
                 <td>{{$vb->trichyeu}}</td>
-                <td>{{ $vb->nguoiki->name }}</td>
                 <td>
 
 
