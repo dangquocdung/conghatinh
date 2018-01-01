@@ -129,10 +129,6 @@
                                                         Ngày ban hành
                                                     </th>
 
-                                                    <th>
-                                                        Nơi ban hành
-                                                    </th>
-
                                                     <th class="col-md-6">
                                                         Trích yếu
                                                     </th>
