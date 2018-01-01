@@ -56,7 +56,7 @@
 
 
                 <tr>
-                  <td>{{$tin->id}}</td>
+                  <td>{{$loop->iteration}}</td>
                   <td>
                     {{ \Carbon\Carbon::parse($tin->ngaydang)->format('Y/m/d') }}
 
@@ -191,7 +191,7 @@
 
               "iDisplayLength": 25,
 
-              "order": [[ 0, "desc" ]],
+              "order": [[ 1, "desc" ]],
 
               "sType": "numeric",
 
