@@ -18,7 +18,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             {{--Box--}}
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -76,27 +76,6 @@
                             <!-- /.input group -->
                         </div>
 
-                        <div class="form-group">
-                            <label>Người kí</label>
-
-                            <select name="nguoiki_id" id="nguoiki" class="form-control select2" data-placeholder="Chọn người kí" data-rel="chosen" required="">
-                                <option value=""></option>
-
-                                @foreach ($cqbh as $cq)
-                                    <optgroup label="{{ $cq->name}}">
-                                        @foreach ($cq->nguoiki as $nk)
-
-                                            @if ($nk->id == $vbedit->nguoiki_id)
-                                                <option value="{{ $nk->id }}" selected>{{ $nk->name}}</option>
-                                            @else
-                                                <option value="{{ $nk->id }}">{{ $nk->name}}</option>
-                                            @endif
-                                        @endforeach
-                                    </optgroup>
-                                @endforeach
-                            </select>
-                        </div>
-
                         @php
                             $items = array();
                             foreach($tepvanban as $tvb){
@@ -133,97 +112,6 @@
 
             {{--End box--}}
         </div>
-
-        <div class="col-md-4 hidden-xs">
-            {{--Box--}}
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Thêm người kí</h3>
-                </div>
-                <form action="{{route('save-nguoi-ki')}}" method="post" id="role-save-form">
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <label for="">Name:</label>
-                            <input type="text"
-                                   placeholder="Nhập tên người kí"
-                                   name="name"
-                                   value="{{old('name')}}"
-                                   class="form-control">
-                            <div class="HelpText error">{{$errors->first('name')}}</div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Cơ quan</label>
-                            <select class="form-control select2" name="cqbh_id" data-placeholder="Chọn cơ quan" style="width: 100%;">
-                                <option value=""></option>
-                                @foreach($cqbh as $cq)
-                                    <option value="{{ $cq->id }}">{{ $cq->name }}</option>
-                                @endforeach
-
-                            </select>
-                        </div>
-
-                    </div>
-                    <!-- /.box-body -->
-
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-success">Gửi thông tin</button>
-                    </div>
-                </form>
-            </div>
-            {{--End box--}}
-        </div>
-
-        <div class="col-md-4 hidden-xs">
-            {{--Box--}}
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Thêm Cơ quan ban hành</h3>
-                </div>
-                <form action="{{route('save-cqbh')}}" method="post" id="role-save-form">
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <label for="">Name:</label>
-                            <input type="text"
-                                   placeholder="Nhập tên Cơ quan ban hành"
-                                   name="name"
-                                   value="{{old('name')}}"
-                                   class="form-control">
-                            <div class="HelpText error">{{$errors->first('name')}}</div>
-                        </div>
-
-                    </div>
-                    <!-- /.box-body -->
-
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-success">Gửi thông tin</button>
-                    </div>
-                </form>
-            </div>
-            {{--End box--}}
-        </div>
-
-
-
-        <div class="col-md-12 clearfix">
-            {{--Box--}}
-            <div class="box box-primary">
-
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <file-manager></file-manager>
-
-
-                </div>
-                <!-- /.box-body -->
-            </div>
-            {{--End box--}}
-        </div>
-
 
     </div>
 

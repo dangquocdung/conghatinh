@@ -34,7 +34,7 @@
         <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i><span>Hoạt động</span></a>
       </li>
 
-      <li class="{{ Request::is('toa-soan/tin-bai/*') ? 'active' : ''  }} treeview">
+      <li class="{{ Request::is('toa-soan/tin-tuc/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-newspaper-o"></i> <span> Tin, Bài</span>
           <span class="pull-right-container">
@@ -42,16 +42,89 @@
             </span>
         </a>
         <ul class="treeview-menu">
+          {{--<li class="{{ Request::is('toa-soan/tin-tuc/tat-ca') ? 'active' : ''  }}">--}}
+            {{--<a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Danh sách tin, bài</a>--}}
+          {{--</li>--}}
+          @foreach ($chuyenmuc as $cm)
 
-          <li class="{{ Request::is('toa-soan/tin-bai/tin-tuc') ? 'active' : ''  }}">
-          <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Tin tức, sự kiện </a>
-          </li>
-          <li class="{{ Request::is('toa-soan/tin-bai/van-ban') ? 'active' : ''  }}">
-            <a href="{{route('index-van-ban')}}"><i class="fa fa-circle-o"></i> Văn bản CĐ, ĐH </a>
-          </li>
-          <li class="{{ Request::is('toa-soan/tin-bai/van-ban-khac') ? 'active' : ''  }}">
-            <a href="{{route('index-van-ban-khac')}}"><i class="fa fa-circle-o"></i> Văn bản khác </a>
-          </li>
+            @foreach($cm->loaitin as $lt)
+
+              @if (count($lt->tintuc) > 0)
+
+                <li class="{{ Request::is('toa-soan/tin-tuc/'.$lt->slug) ? 'active' : ''  }}">
+                  <a href="{{route('tin-tuc-su-kien',$lt->slug)}}"><i class="fa fa-circle-o"></i> {{ $lt->name }}</a>
+                </li>
+              @endif
+
+              @endforeach
+
+            @endforeach
+        </ul>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/van-ban/*') ? 'active' : ''  }} treeview">
+        <a href="javascript:void(0)">
+          <i class="fa fa-file-pdf-o"></i> <span> Văn bản</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          {{--<li class="{{ Request::is('toa-soan/van-ban/them-van-ban') ? 'active' : ''  }}">--}}
+            {{--<a href="{{route('tao-van-ban')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>--}}
+          {{--</li>--}}
+          {{--<li class="{{ Request::is('toa-soan/van-ban/tat-ca') ? 'active' : ''  }}">--}}
+            {{--<a href="{{route('index-van-ban')}}"><i class="fa fa-circle-o"></i> Tất cả Văn bản</a>--}}
+          {{--</li>--}}
+
+          @foreach ($chuyenmuc as $cm)
+
+            @foreach($cm->loaitin as $lt)
+
+              @if (count($lt->vanban) > 0)
+
+                <li class="{{ Request::is('toa-soan/van-ban/'.$lt->slug) ? 'active' : ''  }}">
+                  <a href="{{route('index-van-ban',$lt->slug)}}"><i class="fa fa-circle-o"></i> {{ $lt->name }}</a>
+                </li>
+              @endif
+
+            @endforeach
+
+          @endforeach
+        </ul>
+      </li>
+
+      <li class="{{ Request::is('toa-soan/van-ban-khac/*') ? 'active' : ''  }} treeview">
+
+        <a href="javascript:void(0)">
+          <i class="fa fa-calendar"></i> <span> Văn bản khác </span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+
+        <ul class="treeview-menu">
+          {{--<li class="{{ Request::is('toa-soan/van-ban-khac/them-van-ban-khac') ? 'active' : ''  }}">--}}
+            {{--<a href="{{route('tao-van-ban-khac')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>--}}
+          {{--</li>--}}
+          {{--<li class="{{ Request::is('toa-soan/van-ban-khac/tat-ca') ? 'active' : ''  }}">--}}
+            {{--<a href="{{route('index-van-ban-khac')}}"><i class="fa fa-circle-o"></i><span> Tất cả</span></a>--}}
+          {{--</li>--}}
+
+          @foreach ($chuyenmuc as $cm)
+
+            @foreach($cm->loaitin as $lt)
+
+              @if (count($lt->vanbankhac) > 0)
+
+                <li class="{{ Request::is('toa-soan/van-ban-khac/'.$lt->slug) ? 'active' : ''  }}">
+                  <a href="{{route('index-van-ban-khac',$lt->slug)}}"><i class="fa fa-circle-o"></i> {{ $lt->name }}</a>
+                </li>
+              @endif
+
+            @endforeach
+
+          @endforeach
 
         </ul>
       </li>

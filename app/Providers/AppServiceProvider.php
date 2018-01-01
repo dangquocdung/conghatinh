@@ -55,9 +55,6 @@ class AppServiceProvider extends ServiceProvider
 
             $nhomcq = NhomCQ::orderby('id')->get();
 
-            $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
-
-
             $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
 
         });
@@ -78,9 +75,6 @@ class AppServiceProvider extends ServiceProvider
 
             $nhomcq = NhomCQ::orderby('id')->get();
 
-            $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
-
-
             $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
 
         });
@@ -88,21 +82,20 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-        view()->composer(['admin.pages.tbt.loai-tin','admin.pages.tbt.loai-tin-edit','admin.pages.tin-tuc-su-kien-create','admin.pages.tin-tuc-su-kien-edit','admin.pages.van-ban-create','admin.pages.van-ban-edit','admin.pages.lich-cong-tac','admin.pages.tbt.toppic'],function($view){
+        view()->composer([
+            'admin.pages.tbt.loai-tin', 'admin.pages.tbt.loai-tin-edit',
+            'admin.pages.tin-tuc-su-kien-create', 'admin.pages.tin-tuc-su-kien-edit',
+            'admin.pages.van-ban-create', 'admin.pages.van-ban-edit',
+            'admin.pages.lich-cong-tac', 'admin.pages.tbt.toppic'
+        ],function($view){
 
           $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-
-          $cqbh = CQBH::all();
-
-          $nguoiki = NguoiKi::all();
 
           $pdfs = Media::whereIn('aggregate_type',['pdf','document','spreadsheet'])->orderby('id','desc')->take(12)->get();
 
           $hinhanh = Media::where('aggregate_type','image')->orderby('id','desc')->take(12)->get();
-
-          $loaivb = LoaiVB::all();
           
-          $view->with(compact('chuyenmuc','loaivb','cqbh', 'nguoiki','pdfs','hinhanh'));
+          $view->with(compact('chuyenmuc','pdfs','hinhanh'));
 
         });
 

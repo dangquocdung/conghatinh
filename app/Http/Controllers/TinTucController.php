@@ -31,7 +31,7 @@ class TinTucController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
+    public function index($slug=null)
     {
 //        $tintuc = TinTuc::orderby('id','desc')->paginate(10);
 //

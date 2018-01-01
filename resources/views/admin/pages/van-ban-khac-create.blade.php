@@ -30,7 +30,7 @@
             </div>
         </div>
 
-          <div id="tai-tep" style="display:none; border: solid 1px #f0ad4e; padding: 5px">
+          <div id="tai-tep" style="display:none; border: solid 1px #f0ad4e; padding: 5px; margin: 10px 15px">
               <file-manager></file-manager>
           </div>
 

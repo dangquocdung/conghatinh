@@ -39,7 +39,7 @@ class VanBanKhacController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
+    public function index($slug=null)
     {
         //
 //        $lichct = LichCongTac::orderby('id','desc')->get();

@@ -1,5 +1,5 @@
 <div class="panel-body">
-    <div id="type"></div>
+    <div id="scrolling-text"></div>
 </div>
 
 <script>
@@ -45,9 +45,8 @@
         })(0);
     };
 
-    $('#type').typer({!! json_encode($json_tinnoibat) !!}  );
+    $('#scrolling-text').typer({!! json_encode($json_tinnoibat) !!}  );
 
-
-
+//    $('#type').typer('dang quoc dung');
 
 </script>

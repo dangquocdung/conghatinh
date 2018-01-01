@@ -38,7 +38,7 @@ class VanBanController extends Controller
     }
 
 
-    public function index($slug)
+    public function index($slug=null)
     {
         $tepvanban = TepVanBan::all();
         return view('admin.pages.van-ban',compact('tepvanban','slug'));
