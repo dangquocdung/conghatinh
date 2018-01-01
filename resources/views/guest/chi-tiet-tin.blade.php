@@ -261,18 +261,18 @@
 							<td style="width:30%;">Ngày ban hành</td>
 							<td>{{ \Carbon\Carbon::parse($tin->ngaybanhanh)->format('d-m-Y')}}</td>
 						</tr>
-						<tr>
-							<td style="width:30%;">Người kí</td>
-							<td>{{ $tin->nguoiki->name }}</td>
-						</tr>
+						{{--<tr>--}}
+							{{--<td style="width:30%;">Người kí</td>--}}
+							{{--<td>{{ $tin->nguoiki->name }}</td>--}}
+						{{--</tr>--}}
 						<tr>
 							<td style="width:30%;">Trích yếu</td>
 							<td>{{  $tin->trichyeu}}</td>
 						</tr>
-						<tr>
-							<td style="width:30%;">Cơ quan</td>
-							<td>{{  $tin->nguoiki->cqbh->name }}</td>
-						</tr>
+						{{--<tr>--}}
+							{{--<td style="width:30%;">Cơ quan</td>--}}
+							{{--<td>{{  $tin->nguoiki->cqbh->name }}</td>--}}
+						{{--</tr>--}}
 						<tr>
 							<td style="width:30%;">Tệp tin đính kèm</td>
 							<td>
