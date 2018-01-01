@@ -52,11 +52,11 @@
 
               @foreach ($chuyenmuc as $cm)
 
-              @foreach ($cm->tintuc->sortbydesc('id') as $tin)
+              @foreach ($cm->tintuc->sortbydesc('id') as $key=>$tin)
 
 
                 <tr>
-                  <td>{{$loop->iteration}}</td>
+                  <td>{{++$key}}</td>
                   <td>
                     {{ \Carbon\Carbon::parse($tin->ngaydang)->format('Y/m/d') }}
 
