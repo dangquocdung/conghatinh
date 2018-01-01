@@ -58,7 +58,7 @@
                 <tr>
                   <td>{{$tin->id}}</td>
                   <td>
-                    {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d/m/Y') }}
+                    {{ \Carbon\Carbon::parse($tin->ngaydang)->format('Y/m/d') }}
 
                     @if ($tin->noibat == '1')
                       <div class="pull-left gap-left gap-10">
