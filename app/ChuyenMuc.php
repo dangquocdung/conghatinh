@@ -15,9 +15,7 @@ class ChuyenMuc extends Model
 		return $this->hasMany('App\LoaiTin','chuyenmuc_id','id');
 	}
 
-
-
-	public function tintuc()
+    public function tintuc()
 	{
 		return $this->hasManyThrough('App\TinTuc','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
   	}
@@ -27,7 +25,7 @@ class ChuyenMuc extends Model
         return $this->hasManyThrough('App\VanBan','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
     }
 
-    public function lichct()
+    public function vanbankhac()
     {
         return $this->hasManyThrough('App\LichCongTac','App\LoaiTin','chuyenmuc_id','loaitin_id','id');
     }

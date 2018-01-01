@@ -34,79 +34,87 @@
                 <th>Ngày ban hành</th>
                 <th>Trích yếu</th>
                 <th>Tệp văn bản</th>
-                <th></th>
+                  <th>
+                      <a class="btn btn-warning btn-xs" href="{{route('tao-van-ban')}}"><i class="fa fa-plus "></i> Thêm </a>
+                  </th>
               </tr>
             </thead>
             <tbody>
 
             @foreach ($chuyenmuc as $cm)
 
-              @foreach ($cm->vanban->sortbydesc('id') as $vb)
+                @foreach($cm->loaitin as $lt)
 
-              <tr>
-                <td>{{$vb->id}}</td>
-                
-                <td>
-                  {{ $vb->kihieuvb }}
-                  <br>
+                    @if ($lt->slug == $slug)
 
-                  @if ($vb->daduyet == '1')
-                    <span class="label label-success">Đã duyệt đăng</span>
-                  @else
-                    <div class="pull-left gap-left gap-10">
-                      <confirm-modal
-                              btn-text='Chờ duyệt'
-                              btn-class="btn-warning"
-                              url="{{url('api/v1/duyet-van-ban')}}"
-                              :post-data="{{json_encode(['id' => $vb->id])}}"
-                              :refresh="true"
-                              message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vb->kihieuvb}}?">
-                      </confirm-modal>
-                    </div>
+                        @foreach ($lt->vanban->sortbydesc('id') as $vb)
 
-                    {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
-                  @endif
-                </td>
-                <td>{{$vb->loaitin->name}}</td>
-                <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y') }}</td>
-                
-                <td>{{$vb->trichyeu}}</td>
-                <td>
+                          <tr>
+                            <td>{{$vb->id}}</td>
+
+                            <td>
+                              {{ $vb->kihieuvb }}
+                              <br>
+
+                              @if ($vb->daduyet == '1')
+                                <span class="label label-success">Đã duyệt đăng</span>
+                              @else
+                                <div class="pull-left gap-left gap-10">
+                                  <confirm-modal
+                                          btn-text='Chờ duyệt'
+                                          btn-class="btn-warning"
+                                          url="{{url('api/v1/duyet-van-ban')}}"
+                                          :post-data="{{json_encode(['id' => $vb->id])}}"
+                                          :refresh="true"
+                                          message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vb->kihieuvb}}?">
+                                  </confirm-modal>
+                                </div>
+
+                                {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                              @endif
+                            </td>
+                            <td>{{$vb->loaitin->name}}</td>
+                            <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y') }}</td>
+
+                            <td>{{$vb->trichyeu}}</td>
+                            <td>
 
 
 
-                  @foreach($vb->tepvanban as $tvb)
-                      <a href="{{ $tvb->path }}" target="_blank">
-                        <img src="/images/pdf-file-512.png" alt="{{ $vb->kihieuvb }}" title="{{ $vb->kihieuvb }}" width="20px">
-                      </a>
-                  @endforeach
+                              @foreach($vb->tepvanban as $tvb)
+                                  <a href="{{ $tvb->path }}" target="_blank">
+                                    <img src="/images/pdf-file-512.png" alt="{{ $vb->kihieuvb }}" title="{{ $vb->kihieuvb }}" width="20px">
+                                  </a>
+                              @endforeach
 
-                </td>
-                
-                <td class="col-sm-3">
-                  
-                    <div class="pull-left">
-                      <a href="{{route('edit-van-ban', $vb->id)}}" class="btn btn-primary btn-xs">
-                        <i class="fa fa-edit"></i> Edit
-                      </a>
-                    </div>
+                            </td>
 
-                    <div class="pull-left gap-left gap-10" style="padding-left: 5px">
-                      <confirm-modal
-                        btn-text='<i class="fa fa-trash"></i> Delete'
-                        btn-class="btn-danger"
-                        url="{{url('api/v1/delete-van-ban')}}"
-                        :post-data="{{json_encode(['id' => $vb->id])}}"
-                        :refresh="true"
-                        message="Bạn chắc chắn muốn xoá văn bản {{$vb->kihieuvb}}?">
-                      </confirm-modal>
-                    </div>
-                  
-                </td>
-              </tr>
-                  @endforeach
+                            <td class="col-sm-3">
 
-              @endforeach
+                                <div class="pull-left">
+                                  <a href="{{route('edit-van-ban', $vb->id)}}" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-edit"></i> Edit
+                                  </a>
+                                </div>
+
+                                <div class="pull-left gap-left gap-10" style="padding-left: 5px">
+                                  <confirm-modal
+                                    btn-text='<i class="fa fa-trash"></i> Delete'
+                                    btn-class="btn-danger"
+                                    url="{{url('api/v1/delete-van-ban')}}"
+                                    :post-data="{{json_encode(['id' => $vb->id])}}"
+                                    :refresh="true"
+                                    message="Bạn chắc chắn muốn xoá văn bản {{$vb->kihieuvb}}?">
+                                  </confirm-modal>
+                                </div>
+
+                            </td>
+                          </tr>
+                        @endforeach
+
+                    @endif
+                @endforeach
+            @endforeach
             
             </tbody>
           </table>

@@ -20,7 +20,7 @@ class LoaiTin extends Model
         return $this->hasMany('App\VanBan','loaitin_id','id');
     }
 
-    public function lichct()
+    public function vanbankhac()
     {
         return $this->hasMany('App\LichCongTac','loaitin_id','id');
     }

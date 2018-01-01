@@ -148,13 +148,15 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     //Van ban
     Route::group(['prefix'=>'van-ban'],function (){
-        Route::get('/tat-ca','VanBanController@index')->name('index-van-ban');
+
         Route::get('/them-van-ban','VanBanController@create')->name('tao-van-ban');
         Route::post('/them-van-ban','VanBanController@store')->name('them-van-ban');
         Route::get('/edit-van-ban/{id}','VanBanController@edit')->name('edit-van-ban');
         Route::post('/update-van-ban','VanBanController@update')->name('update-van-ban');
         Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
         Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
+
+        Route::get('/{slug}','VanBanController@index')->name('index-van-ban');
     });
 
 
@@ -162,11 +164,13 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     //Van ban
     Route::group(['prefix'=>'van-ban-khac'],function (){
-        Route::get('/tat-ca','VanBanKhacController@index')->name('index-van-ban-khac');
+
         Route::get('/them-van-ban-khac','VanBanKhacController@create')->name('tao-van-ban-khac');
         Route::post('/them-van-ban-khac','VanBanKhacController@store')->name('them-van-ban-khac');
         Route::get('/edit-van-ban-khac/{id}','VanBanKhacController@edit')->name('edit-van-ban-khac');
         Route::post('/update-van-ban-khac','VanBanKhacController@update')->name('update-van-ban-khac');
+
+        Route::get('/{slug}','VanBanKhacController@index')->name('index-van-ban-khac');
 //        Route::post('/update-van-ban','VanBanController@update')->name('update-van-ban');
 //        Route::post('/them-nguoi-ki','NguoiKiController@store')->name('save-nguoi-ki');
 //        Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');

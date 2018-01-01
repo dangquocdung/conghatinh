@@ -39,12 +39,12 @@ class VanBanKhacController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
         //
 //        $lichct = LichCongTac::orderby('id','desc')->get();
 
-        return view('admin.pages.van-ban-khac');
+        return view('admin.pages.van-ban-khac',compact('slug'));
     }
 
     /**
