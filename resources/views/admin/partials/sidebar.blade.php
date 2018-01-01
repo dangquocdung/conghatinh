@@ -42,12 +42,23 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/tin-tuc/tao-tin-tuc') ? 'active' : ''  }}">
-            <a href="{{route('tao-tin-tuc')}}"><i class="fa fa-circle-o"></i> Tạo mới</a>
-          </li>
-          <li class="{{ Request::is('toa-soan/tin-tuc/tat-ca') ? 'active' : ''  }}">
-            <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Danh sách tin, bài</a>
-          </li>
+          {{--<li class="{{ Request::is('toa-soan/tin-tuc/tat-ca') ? 'active' : ''  }}">--}}
+            {{--<a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Danh sách tin, bài</a>--}}
+          {{--</li>--}}
+          @foreach ($chuyenmuc as $cm)
+
+            @foreach($cm->loaitin as $lt)
+
+              @if (count($lt->tintuc) > 0)
+
+                <li class="{{ Request::is('toa-soan/tin-tuc/'.$lt->slug) ? 'active' : ''  }}">
+                  <a href="{{route('tin-tuc-su-kien',$lt->slug)}}"><i class="fa fa-circle-o"></i> {{ $lt->name }}</a>
+                </li>
+              @endif
+
+              @endforeach
+
+            @endforeach
         </ul>
       </li>
 

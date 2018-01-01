@@ -133,11 +133,13 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
     //Van ban
     Route::group(['prefix'=>'tin-tuc'],function () {
-        Route::get('tat-ca', 'TinTucController@index')->name('tin-tuc-su-kien');
+
         Route::get('tao-tin-tuc', 'TinTucController@create')->name('tao-tin-tuc');
         Route::post('them-tin-tuc', 'TinTucController@store')->name('them-tin-tuc');
         Route::get('edit-tin-tuc/{slug}', 'TinTucController@edit')->name('edit-tin-tuc');
         Route::post('update-tin-tuc', 'TinTucController@update')->name('update-tin-tuc');
+
+        Route::get('{slug}', 'TinTucController@index')->name('tin-tuc-su-kien');
     });
 
 

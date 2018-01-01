@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ChuyenMuc;
 use App\Events\User\LoggedIn;
 use App\Events\User\LoggedOut;
 use App\Events\User\ProfileEdited;
@@ -112,7 +113,9 @@ class UserController extends Controller
             'my_recent_activities' => DB::table('watchdogs')->where('user_id', request()->user()->id)->count(),
         ];
 
-        return view('admin.pages.dashboard', compact('dashboardData'));
+        $chuyenmuc = ChuyenMuc::all();
+
+        return view('admin.pages.dashboard', compact('dashboardData','chuyenmuc'));
     }
 
     /**

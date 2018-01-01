@@ -31,7 +31,7 @@ class TinTucController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
 //        $tintuc = TinTuc::orderby('id','desc')->paginate(10);
 //
@@ -39,7 +39,7 @@ class TinTucController extends Controller
 
 
 
-        return view('admin.pages.tin-tuc-su-kien');
+        return view('admin.pages.tin-tuc-su-kien',compact('slug'));
 
 
     }

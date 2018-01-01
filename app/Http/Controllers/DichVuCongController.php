@@ -86,7 +86,7 @@ class DichVuCongController extends Controller
 
     public function getTinTT()
     {
-        for ($i=1;$i++;$i<6) {
+        for ($i=1;$i<6;$i++) {
 
             $url = "http://dhtn.hatinh.gov.vn/dhtn/portal/folder/tin-trong-tinh/" . $i . ".html";
 
