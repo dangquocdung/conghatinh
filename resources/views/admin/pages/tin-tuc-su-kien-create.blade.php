@@ -10,7 +10,7 @@
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li><a href="{{route('tin-tuc-su-kien')}}">Tin tức</a></li>
+      <li><a href="javascript:void(0);">Tin tức</a></li>
       <li class="active">Tạo mới</li>
     </ol>
   </section>

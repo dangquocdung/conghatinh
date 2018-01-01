@@ -10,7 +10,8 @@
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">Văn bản khác</li>
+        <li><a href="javascript:void(0);">Văn bản khác </a></li>
+        <li class="active">Tạo mới</li>
     </ol>
   </section>
 @endsection
