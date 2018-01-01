@@ -19,6 +19,54 @@ class DichVuCongController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function getCDDH()
+    {
+
+        VanBan::where('loaitin_id','38')->delete();
+
+        for ($i=1;$i<10;$i++) {
+
+            $url = "http://dhtn.hatinh.gov.vn/dhtn/portal/folder/cong-van/" . $i . ".html";;
+
+            $client = new Client();
+
+            $crawler = $client->request('GET', $url);
+
+            $crawler->filter('table>tbody>tr')->each(function ($node) {
+
+
+
+                if ($node->filter('td')->count() > 0) {
+
+                    $vb = new VanBan();
+                    $vb->user_id = Auth::user()->id;
+                    $vb->loaitin_id = '38';
+                    $vb->kihieuvb = trim($node->filter('td')->eq(0)->text());
+                    $vb->ngaybanhanh = Carbon::parse('1-1-2011');
+                    $vb->trichyeu = trim($node->filter('td')->eq(1)->text());
+                    $vb->slug = str_slug(trim($node->filter('td')->eq(1)->text()));
+                    $vb->daduyet = '1';
+                    $vb->save();
+
+                    $vbid = $vb->id;
+
+                    $tvbn = new TepVanBan;
+
+                    $tvbn->vanban_id = $vbid;
+
+                    $tvbn->path = 'http://dhtn.hatinh.gov.vn'.trim($node->filter('a.icon_preview')->attr('href'));
+
+                    $tvbn->save();
+
+//                    print $node->filter('a.icon_preview')->attr('href')."<br>";
+
+                }
+            });
+        }
+    }
+
+
     public function getLLV()
     {
 

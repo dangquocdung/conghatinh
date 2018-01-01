@@ -244,6 +244,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
 
         //Load
+        Route::get('load-cddh','DichVuCongController@getCDDH');
         Route::get('load-llv','DichVuCongController@getLLV');
         Route::get('load-vbm','DichVuCongController@getVBM');
         Route::get('load-tintt','DichVuCongController@getTinTT');
