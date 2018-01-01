@@ -129,6 +129,10 @@
                                                         Ngày ban hành
                                                     </th>
 
+                                                    <th>
+                                                        Nơi ban hành
+                                                    </th>
+
                                                     <th class="col-md-6">
                                                         Trích yếu
                                                     </th>
@@ -168,7 +172,7 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
-                                        @elseif (count($lt->lichct) > 0)
+                                        @elseif (count($lt->vanbankhac) > 0)
 
                                             <table class="table table-striped table-bordered table-responsive table-sm" style="margin-bottom: 5px">
                                                 <thead>
@@ -180,7 +184,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($lt->lichct->where('daduyet','1')->sortByDesc('ngaybanhanh')->sortByDesc('id')->take(5) as $lct)
+                                                @foreach($lt->vanbankhac->where('daduyet','1')->sortByDesc('ngaybanhanh')->sortByDesc('id')->take(5) as $lct)
                                                     <tr>
                                                         <td>
                                                             {{ $loop->iteration }}
