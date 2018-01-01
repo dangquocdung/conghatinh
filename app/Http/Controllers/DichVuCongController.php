@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DichVuCong;
+use App\TinTuc;
 use Illuminate\Http\Request;
 use Goutte\Client;
 use App\LichCongTac;
@@ -55,13 +56,6 @@ class DichVuCongController extends Controller
 
             if ($node->filter('td')->count() >0){
 
-//                print trim($node->filter('td')->eq(1)->text())."<br>";
-//                print trim($node->filter('a')->attr('href'))."<br>";
-//                print trim($node->filter('td')->eq(2)->text())."<br>";
-//                print trim($node->filter('td')->eq(3)->text())."<br>";
-//                print trim($node->filter('td')->eq(4)->text())."<br><br>";
-
-
                 $vb = new VanBan;
 
                 $vb->user_id = Auth::user()->id;
@@ -88,6 +82,75 @@ class DichVuCongController extends Controller
             }
 
         });
+    }
+
+    public function getTinTT()
+    {
+        for ($i=1;$i++;$i<6) {
+
+            $url = "http://dhtn.hatinh.gov.vn/dhtn/portal/folder/tin-trong-tinh/" . $i . ".html";
+
+            $client = new Client();
+
+            $crawler = $client->request('GET', $url);
+
+            $links_count = $crawler->filter('.page_news > div')->count();
+
+            if ($links_count > 0) {
+
+
+                $crawler->filter('.page_news > div')->each(function ($node) {
+
+//                print $node->filter('img')->attr('src')."<br>";
+//                print $node->filter('.news_title>a')->text()."<br>";
+//                print $node->filter('.news_title>a')->attr('href')."<br>";
+//                print $node->filter('p>em')->text()."<br>";
+//                print $node->filter('p.news_summary')->text()."<br><br>";
+
+                    $exist = TinTuc::where('slug', str_slug(trim($node->filter('.news_title>a')->text())))->first();
+
+                    if (empty($exist)) {
+
+
+                        $tintuc = new TinTuc;
+
+                        $tintuc->user_id = Auth::user()->id;
+
+                        $tintuc->loaitin_id = '1';
+
+                        $tintuc->name = trim($node->filter('.news_title>a')->text());
+
+                        $tintuc->slug = str_slug(trim($node->filter('.news_title>a')->text()));
+
+                        $tintuc->avatar = trim($node->filter('img')->attr('src'));
+
+                        $tintuc->gioithieu = trim($node->filter('p.news_summary')->text());
+
+                        $tintuc->noidung = trim($node->filter('p.news_summary')->text());
+
+                        $tintuc->nguon = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('.news_title>a')->attr('href'));
+
+                        $tintuc->ngaydang = Carbon::parse(str_replace('/', '-', $node->filter('p>em')->text()));
+
+                        $tintuc->save();
+
+                    }
+
+                });
+
+
+            } else {
+
+
+                echo "No Links Found ".$i;
+
+
+            }
+
+        }
+
+//        print $links_count;
+
     }
 
     /**

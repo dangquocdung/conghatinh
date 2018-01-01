@@ -240,6 +240,9 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         //Load
         Route::get('load-llv','DichVuCongController@getLLV');
         Route::get('load-vbm','DichVuCongController@getVBM');
+        Route::get('load-tintt','DichVuCongController@getTinTT');
+        Route::get('load-tintn','DichVuCongController@getTinTN');
+        Route::get('load-tinqt','DichVuCongController@getTinQT');
 
 
     });
