@@ -45,15 +45,17 @@
 
         <div class="chao-mung">
 
+
+
+            <a href="{{$banner->where('vitri','8')->last()->lienket}}" target="_blank">
+                <img src="{{ $banner->where('vitri','8')->last()->banner}}" alt="{{ $banner->where('vitri','8')->last()->name}}" title="{{ $banner->where('vitri','8')->last()->name}}" width="100%">
+            </a>
+
             <marquee class="hot-tip" behavior="scroll" direction="left" scrollamount="3">
                 <a href="http://baochinhphu.vn/Dong-luc-tang-truong/489.vgp" target="_blank">Động lực tăng trưởng</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                 <a href="http://baochinhphu.vn/Dua-Nghi-quyet-Dai-hoi-XII-cua-Dang-vao-cuoc-song/411.vgp" target="_blank">Đưa Nghị quyết Đại hội XII của Đảng vào cuộc sống</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                 <a href="http://baochinhphu.vn/Phat-quang-rung-thu-tuc/485.vgp" target="_blank">Phát quang 'rừng' thủ tục</a>
             </marquee>
-
-            <a href="{{$banner->where('vitri','8')->last()->lienket}}" target="_blank">
-                <img src="{{ $banner->where('vitri','8')->last()->banner}}" alt="{{ $banner->where('vitri','8')->last()->name}}" title="{{ $banner->where('vitri','8')->last()->name}}" width="100%">
-            </a>
 
         </div>
 
