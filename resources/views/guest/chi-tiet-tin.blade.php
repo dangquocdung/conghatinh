@@ -290,7 +290,7 @@
 					</table>
 				</div>
 
-				@if (!empty($tin->tepvanban))
+				@if (count($tin->tepvanban) > 0)
 
 					@foreach($tin->tepvanban as $tvb)
 
@@ -412,7 +412,7 @@
 
 				</script>
 
-				@if (!empty($tin->tepvanbankhac))
+				@if (count($tin->tepvanbankhac) > 0)
 
 					@foreach($tin->tepvanbankhac as $tvb)
 
