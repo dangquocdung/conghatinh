@@ -15,6 +15,10 @@
 
         </div>
 
+        <a href="{{$banner->where('vitri','8')->last()->lienket}}" target="_blank">
+            <img src="{{ $banner->where('vitri','8')->last()->banner}}" alt="{{ $banner->where('vitri','8')->last()->name}}" title="{{ $banner->where('vitri','8')->last()->name}}" width="100%">
+        </a>
+
         @include('guest.layout.menu-ngang')
         @include('guest.layout.menu-ngang-mb')
     </div>
