@@ -64,6 +64,11 @@
                 {!! Form::close() !!}
 
                 <br>
+                <style>
+                    .gsc-control-cse{
+                        padding: 0;
+                    }
+                </style>
                 <script>
                     (function() {
                         var cx = '005628412053968692793:ay0mxc5zoym';
