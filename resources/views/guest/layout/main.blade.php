@@ -43,24 +43,27 @@
 
     <div class="container nen-trang">
 
+        <marquee class="hot-tip" behavior="scroll" direction="left" scrollamount="3">
+            <a href="http://baochinhphu.vn/Dong-luc-tang-truong/489.vgp" target="_blank">Động lực tăng trưởng</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <a href="http://baochinhphu.vn/Dua-Nghi-quyet-Dai-hoi-XII-cua-Dang-vao-cuoc-song/411.vgp" target="_blank">Đưa Nghị quyết Đại hội XII của Đảng vào cuộc sống</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <a href="http://baochinhphu.vn/Phat-quang-rung-thu-tuc/485.vgp" target="_blank">Phát quang 'rừng' thủ tục</a>
+        </marquee>
 
         <a href="{{$banner->where('vitri','8')->last()->lienket}}" target="_blank">
           <img src="{{ $banner->where('vitri','8')->last()->banner}}" alt="{{ $banner->where('vitri','8')->last()->name}}" title="{{ $banner->where('vitri','8')->last()->name}}" width="100%">
         </a>
-      
 
-      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="row row-offcanvas row-offcanvas-right">
 
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-page">
-          @yield('content-main')
-        </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-page">
+              @yield('content-main')
+            </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 sidebar-offcanvas" id="sidebar" style="padding-left: 5px">
-{{--          @yield('content-right')--}}
-          @include('guest.menu-right.trang-chu')
-        </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 sidebar-offcanvas" id="sidebar" style="padding-left: 5px">
+              @include('guest.menu-right.trang-chu')
+            </div>
 
-      </div>
+          </div>
     </div>
 {{--    @yield('content')--}}
 {{--    @include('guest.layout.lienketwebsite')--}}
