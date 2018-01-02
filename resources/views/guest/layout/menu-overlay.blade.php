@@ -62,6 +62,20 @@
 
 
                 {!! Form::close() !!}
+
+                <br>
+                <script>
+                    (function() {
+                        var cx = '005628412053968692793:ay0mxc5zoym';
+                        var gcse = document.createElement('script');
+                        gcse.type = 'text/javascript';
+                        gcse.async = true;
+                        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(gcse, s);
+                    })();
+                </script>
+                <gcse:search></gcse:search>
             </div>
             <div class="modal-footer">
 
