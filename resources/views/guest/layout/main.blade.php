@@ -39,7 +39,16 @@
 
     @include('guest.layout.menu-overlay')
 
+
+
     <div class="container nen-trang">
+      @foreach ($banner->where('vitri','8') as $bn)
+
+        <a href="{{$bn->lienket}}" target="_blank">
+          <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+        </a>
+      @endforeach
+      
       <div class="row row-offcanvas row-offcanvas-right">
 
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-page">
