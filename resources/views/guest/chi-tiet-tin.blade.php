@@ -290,15 +290,18 @@
 					</table>
 				</div>
 
-				@foreach($tin->tepvanban as $tvb)
+				@if (!empty($tin->tepvanban))
 
-					<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
-						<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
-					</object>
+					@foreach($tin->tepvanban as $tvb)
 
-					<hr>
+						<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
+							<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
+						</object>
 
-				@endforeach
+						<hr>
+
+					@endforeach
+				@endif
 
 				@include('guest.layout.tien-ich')
 
@@ -409,15 +412,18 @@
 
 				</script>
 
-				@foreach($tin->tepvanbankhac as $tvb)
+				@if (!empty($tin->tepvanbankhac))
 
-					<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
-						<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
-					</object>
+					@foreach($tin->tepvanbankhac as $tvb)
 
-					<hr>
+						<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
+							<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
+						</object>
 
-				@endforeach
+						<hr>
+
+					@endforeach
+				@endif
 
 
 				@include('guest.layout.tien-ich')
