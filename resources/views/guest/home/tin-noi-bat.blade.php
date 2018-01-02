@@ -54,33 +54,35 @@
                     <div role="tabpanel" class="tab-pane active" id="tinoibat">
                         <div id="tin-noi-bat">
                             <ul>
-                                @foreach ($tinnoibat as $tnb)
-                                    <li>
-                                        <div class="hot-news-block">
+                                @foreach($chuyenmuc->whereIn('id',['2','16']) as $cm)
+                                    @foreach ($cm->tintuc->where('daduyet','1')->where('noibat','1')->sortbydesc('id')->take(4) as $tnb)
+                                        <li>
+                                            <div class="hot-news-block">
 
-                                            <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,'tin-tuc',$tnb->id,$tnb->slug]) }}" class="news-title">
-                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
-                                                <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,'tin-tuc',$tnb->id,$tnb->slug]) }}" class="news-title">
+                                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
+                                                    <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
 
-                                                @if ($tnb->tinanh == '1')
-                                                    &nbsp;<i class="fa fa-picture-o" title="Tin ảnh"></i>
+                                                    @if ($tnb->tinanh == '1')
+                                                        &nbsp;<i class="fa fa-picture-o" title="Tin ảnh"></i>
 
-                                                @endif
+                                                    @endif
 
-                                                @if ($tnb->tinvideo == '1')
-                                                    &nbsp;<i class="fa fa-film" title="Tin Video"></i>
+                                                    @if ($tnb->tinvideo == '1')
+                                                        &nbsp;<i class="fa fa-film" title="Tin Video"></i>
 
-                                                @endif
+                                                    @endif
 
 
-                                            </a>
+                                                </a>
 
-                                            <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
+                                                <img src="{{$tnb->avatar}}" alt="{{ $tnb->name }}" title="{{ $tnb->name }}" style="display: none;">
 
-                                            <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
+                                                <div class="item-desc" style="display: none;">{{ $tnb->gioithieu }}</div>
 
-                                        </div>
-                                    </li>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 @endforeach
                             </ul>
                             <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
