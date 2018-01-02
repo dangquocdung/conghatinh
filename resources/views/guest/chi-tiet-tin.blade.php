@@ -450,7 +450,7 @@
 
 
 
-									@foreach($lvb->lichct->sortbydesc('id')->take(5) as $vbcl)
+									@foreach($lvb->vanbankhac->sortbydesc('id')->take(5) as $vbcl)
 
 										@if ($vbcl->id <> $tin->id)
 
