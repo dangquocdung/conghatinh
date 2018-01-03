@@ -23,6 +23,17 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Chỉnh sửa văn bản {{ $vbedit->kihieuvb }} </h3>
+
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary btn-xs" id="btnThem">
+                            <i class="fa fa-plus"></i> Thêm tệp
+                        </button>
+                    </div>
+
+                </div>
+
+                <div id="tai-tep" style="display:none; border: solid 1px #f0ad4e; padding: 5px; margin: 10px 15px">
+                    <file-manager></file-manager>
                 </div>
                 <!-- /.box-header -->
                 <form action="{{ route('update-van-ban') }}" method="post">
@@ -144,6 +155,19 @@
         $(document).ready(function() {
             $('.select2').select2({
                 width: '100%'
+            });
+
+            $('#btnThem').click(function () {
+
+                if ($('#tai-tep').css('display')=='none'){
+
+                    $('#tai-tep').css('display','inline-block');
+
+                }else{
+
+                    $('#tai-tep').css('display','none');
+
+                }
             });
 
             $('#btnRefresh').click(function (e) {
