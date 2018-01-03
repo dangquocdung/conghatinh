@@ -104,28 +104,33 @@ class DichVuCongController extends Controller
 
             if ($node->filter('td')->count() >0){
 
-                $vb = new VanBan;
+                $exist = VanBan::where('kihieuvb',trim($node->filter('td')->eq(1)->text()))->where('slug',str_slug(trim($node->filter('td')->eq(3)->text())))->first();
 
-                $vb->user_id = Auth::user()->id;
+                if (empty($exist)){
 
-                $vb->loaitin_id = '90';
-                $vb->kihieuvb = trim($node->filter('td')->eq(1)->text());
+                    $vb = new VanBan;
 
-                $vb->ngaybanhanh = Carbon::parse(trim( str_replace("/","-", $node->filter('td')->eq(2)->text())  )  );
+                    $vb->user_id = Auth::user()->id;
 
-                $vb->trichyeu = trim($node->filter('td')->eq(4)->text());
-                $vb->slug = str_slug(trim($node->filter('td')->eq(3)->text()));
-                $vb->save();
+                    $vb->loaitin_id = '90';
+                    $vb->kihieuvb = trim($node->filter('td')->eq(1)->text());
 
-                $vbid = $vb->id;
+                    $vb->ngaybanhanh = Carbon::parse(trim( str_replace("/","-", $node->filter('td')->eq(2)->text())  )  );
 
-                $tvbn = new TepVanBan;
+                    $vb->trichyeu = trim($node->filter('td')->eq(4)->text());
+                    $vb->slug = str_slug(trim($node->filter('td')->eq(3)->text()));
+                    $vb->save();
 
-                $tvbn->vanban_id = $vbid;
+                    $vbid = $vb->id;
 
-                $tvbn->path = 'http://qppl.hatinh.gov.vn'.trim($node->filter('a')->attr('href'));
+                    $tvbn = new TepVanBan;
 
-                $tvbn->save();
+                    $tvbn->vanban_id = $vbid;
+
+                    $tvbn->path = 'http://qppl.hatinh.gov.vn'.trim($node->filter('a')->attr('href'));
+
+                    $tvbn->save();
+                }
 
             }
 
