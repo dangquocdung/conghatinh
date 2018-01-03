@@ -171,27 +171,28 @@ class VanBanKhacController extends Controller
 
             $vb->save();
 
-            $vbid = $vb->id;
+            if ($request->input('tepvanbankhac')) {
 
+                $vbid = $vb->id;
 
-            $tvbs = $request->input('tepvanbankhac');
+                $tvbs = $request->input('tepvanbankhac');
 
-            TepVanBanKhac::where('vanbankhac_id',$vbid)->delete();
+                TepVanBanKhac::where('vanbankhac_id', $vbid)->delete();
 
-            if ($tvbs) {
+                if ($tvbs) {
 
+                    foreach ($tvbs as $tvb) {
 
-                foreach ($tvbs as $tvb) {
+                        $path = Media::find($tvb);
 
-                    $path = Media::find($tvb);
+                        $tvbn = new TepVanBanKhac;
 
-                    $tvbn = new TepVanBanKhac;
+                        $tvbn->vanbankhac_id = $vbid;
 
-                    $tvbn->vanbankhac_id = $vbid;
+                        $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
 
-                    $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
-
-                    $tvbn->save();
+                        $tvbn->save();
+                    }
                 }
             }
 

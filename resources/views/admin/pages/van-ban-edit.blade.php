@@ -87,6 +87,15 @@
                             <!-- /.input group -->
                         </div>
 
+                        <div class="form-group">
+                            <label>Tệp văn bản</label>
+                            @foreach($vbedit->tepvanban as $tvb)
+                                <a href="{{ $tvb->path }}" target="_blank">
+                                    <img src="/images/pdf-file-512.png" alt="{{ $vbedit->kihieuvb }}" title="{{ $vbedit->kihieuvb }}" width="20px">
+                                </a>
+                            @endforeach
+                        </div>
+
                         @php
                             $items = array();
                             foreach($tepvanban as $tvb){

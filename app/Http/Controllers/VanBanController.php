@@ -195,8 +195,6 @@ class VanBanController extends Controller
         return redirect()->route('index-van-ban');
 
 
-
-
     }
 
     /**
