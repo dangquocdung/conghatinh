@@ -9,7 +9,7 @@
     <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
 
     @role('admin')
-        @if ($type)
+        @if (! empty($type))
             &nbsp;&nbsp;&nbsp;
             <a style="color: red"
 
