@@ -162,28 +162,27 @@ class VanBanController extends Controller
 
         $vbid = $vb->id;
 
+        if ($request->input('tepvanban')){
 
-        $tvbs = $request->input('tepvanban');
+            $tvbs = $request->input('tepvanban');
 
+            TepVanBan::where('vanban_id',$vbid)->delete();
 
-        TepVanBan::where('vanban_id',$vbid)->delete();
+            if ($tvbs){
 
-        if ($tvbs){
+                foreach ($tvbs as $tvb){
 
+                    $path = Media::find($tvb);
 
+                    $tvbn= new TepVanBan;
 
+                    $tvbn->vanban_id = $vbid;
 
-            foreach ($tvbs as $tvb){
+                    $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
 
-                $path = Media::find($tvb);
+                    $tvbn->save();
+                }
 
-                $tvbn= new TepVanBan;
-
-                $tvbn->vanban_id = $vbid;
-
-                $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
-
-                $tvbn->save();
             }
 
         }
