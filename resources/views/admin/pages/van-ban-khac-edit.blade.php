@@ -106,6 +106,16 @@
                   <div class="HelpText error">{{$errors->first('noidung')}}</div>
                 </div>
 
+                  <div class="form-group">
+                      <label>Tệp văn bản:</label>
+                      <br>
+                      @foreach($lct->tepvanbankhac as $tvb)
+                          <a href="{{ $tvb->path }}" target="_blank">
+                              <img src="/images/pdf-file-512.png" alt="{{ $lct->kihieuvb }}" title="{{ $lct->kihieuvb }}" width="20px">
+                          </a>
+                      @endforeach
+                  </div>
+
                   @php
                       $items = array();
                       foreach($tepvanbankhac as $lct){
