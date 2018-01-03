@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DichVuCong;
+use App\TepVanBanKhac;
 use App\TinTuc;
 use Illuminate\Http\Request;
 use Goutte\Client;
@@ -99,6 +100,16 @@ class DichVuCongController extends Controller
                     $vb->noidung = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
                     $vb->daduyet = '1';
                     $vb->save();
+
+                    $vbkid = $vb->id;
+
+                    $tvbk = new TepVanBanKhac();
+
+                    $tvbk->vanbankhac_id = $vbkid;
+
+                    $tvbk->path = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
+
+                    $tvbk->save();
                 }
 
             }
