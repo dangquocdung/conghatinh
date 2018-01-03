@@ -155,7 +155,6 @@ class VanBanController extends Controller
         $vb->loaitin_id = $request->loaitin_id;
         $vb->kihieuvb = $request->kihieuvb;
         $vb->ngaybanhanh = Carbon::parse($request->ngaybanhanh);
-        $vb->nguoiki_id = $request->nguoiki_id;
         $vb->trichyeu = $request->trichyeu;
         $vb->slug = str_slug($request->kihieuvb);
 
@@ -181,8 +180,6 @@ class VanBanController extends Controller
                 $tvbn= new TepVanBan;
 
                 $tvbn->vanban_id = $vbid;
-
-                $tvbn->media_id = $tvb;
 
                 $tvbn->path = $path->directory.'/'.$path->filename.'.'.$path->extension;
 

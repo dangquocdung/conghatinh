@@ -110,8 +110,6 @@ class VanBanKhacController extends Controller
 
                 $tvbn->vanbankhac_id = $vbid;
 
-                $tvbn->media_id = $tvb;
-
                 $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
 
                 $tvbn->save();
@@ -190,8 +188,6 @@ class VanBanKhacController extends Controller
                     $tvbn = new TepVanBanKhac;
 
                     $tvbn->vanbankhac_id = $vbid;
-
-                    $tvbn->media_id = $tvb;
 
                     $tvbn->path = $path->directory . '/' . $path->filename . '.' . $path->extension;
 
