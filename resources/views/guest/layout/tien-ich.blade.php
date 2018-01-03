@@ -9,22 +9,21 @@
     <a class="quaylai" href="javascript:goBack();"><i class="fa fa-reply" aria-hidden="true"></i> Quay lại</a>
 
     @role('admin')
-        &nbsp;&nbsp;&nbsp;
-        <a style="color: red"
+        @if ($type)
+            &nbsp;&nbsp;&nbsp;
+            <a style="color: red"
 
-           @if ($type == 'tin-tuc')
+               @if ($type == 'tin-tuc')
                 href="{{route('edit-tin-tuc', $tin->slug)}}"
-
-           @elseif ($type == 'van-ban')
+               @elseif ($type == 'van-ban')
                 href="{{route('edit-van-ban', $tin->id)}}"
-
-           @elseif($type == 'van-ban-khac')
+               @elseif($type == 'van-ban-khac')
                 href="{{route('edit-van-ban-khac', $tin->id)}}"
-           @endif
+               @endif
 
            target="_blank"><i class="fa fa-edit " aria-hidden="true"></i> Chỉnh sửa </a>
 
-
+        @endif
     @endrole
 
 

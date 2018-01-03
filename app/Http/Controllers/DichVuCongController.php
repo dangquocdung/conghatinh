@@ -135,6 +135,8 @@ class DichVuCongController extends Controller
             }
 
         });
+
+        return redirect()->back();
     }
 
     public function getTinTT()
