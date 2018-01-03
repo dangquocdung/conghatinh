@@ -39,25 +39,30 @@ class DichVuCongController extends Controller
 
                 if ($node->filter('td')->count() > 0) {
 
-                    $vb = new VanBan();
-                    $vb->user_id = Auth::user()->id;
-                    $vb->loaitin_id = '38';
-                    $vb->kihieuvb = trim($node->filter('td')->eq(0)->text());
-                    $vb->ngaybanhanh = Carbon::parse('1-1-2011');
-                    $vb->trichyeu = trim($node->filter('td')->eq(1)->text());
-                    $vb->slug = str_slug(trim($node->filter('td')->eq(1)->text()));
-                    $vb->daduyet = '1';
-                    $vb->save();
+                    $exist = VanBan::where('kihieuvb',trim($node->filter('td')->eq(0)->text()))->where('slug',str_slug(trim($node->filter('td')->eq(1)->text())))->first();
 
-                    $vbid = $vb->id;
+                    if (empty($exist)) {
 
-                    $tvbn = new TepVanBan;
+                        $vb = new VanBan();
+                        $vb->user_id = Auth::user()->id;
+                        $vb->loaitin_id = '38';
+                        $vb->kihieuvb = trim($node->filter('td')->eq(0)->text());
+                        $vb->ngaybanhanh = Carbon::parse('1-1-2011');
+                        $vb->trichyeu = trim($node->filter('td')->eq(1)->text());
+                        $vb->slug = str_slug(trim($node->filter('td')->eq(1)->text()));
+                        $vb->daduyet = '1';
+                        $vb->save();
 
-                    $tvbn->vanban_id = $vbid;
+                        $vbid = $vb->id;
 
-                    $tvbn->path = 'http://dhtn.hatinh.gov.vn'.trim($node->filter('a.icon_preview')->attr('href'));
+                        $tvbn = new TepVanBan;
 
-                    $tvbn->save();
+                        $tvbn->vanban_id = $vbid;
+
+                        $tvbn->path = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('a.icon_preview')->attr('href'));
+
+                        $tvbn->save();
+                    }
 
 //                    print $node->filter('a.icon_preview')->attr('href')."<br>";
 
@@ -80,14 +85,19 @@ class DichVuCongController extends Controller
 
             if ($node->filter('td')->count() >0){
 
-                $vb = new LichCongTac;
-                $vb->user_id = Auth::user()->id;
-                $vb->loaitin_id = '74';
-                $vb->name = trim($node->filter('td')->eq(1)->text());
-                $vb->slug = str_slug($node->filter('td')->eq(1)->text());
-                $vb->noidung = 'http://dhtn.hatinh.gov.vn'.trim($node->filter('td>a')->attr('href'));
-                $vb->daduyet = '1';
-                $vb->save();
+                $exist = LichCongTac::where('slug',str_slug($node->filter('td')->eq(1)->text()))->first();
+
+                if (empty($exist)) {
+
+                    $vb = new LichCongTac;
+                    $vb->user_id = Auth::user()->id;
+                    $vb->loaitin_id = '74';
+                    $vb->name = trim($node->filter('td')->eq(1)->text());
+                    $vb->slug = str_slug($node->filter('td')->eq(1)->text());
+                    $vb->noidung = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
+                    $vb->daduyet = '1';
+                    $vb->save();
+                }
 
             }
         });
