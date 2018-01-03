@@ -69,6 +69,8 @@ class DichVuCongController extends Controller
                 }
             });
         }
+
+        return redirect()->back();
     }
 
 
@@ -101,6 +103,8 @@ class DichVuCongController extends Controller
 
             }
         });
+
+        return redirect()->back();
     }
 
     public function getVBM()
@@ -203,6 +207,8 @@ class DichVuCongController extends Controller
                 echo "No Links Found ".$i;
             }
         }
+
+        return redirect()->back();
     }
 
     public function getTinTN()
@@ -259,6 +265,8 @@ class DichVuCongController extends Controller
                 echo "No Links Found ".$i;
             }
         }
+
+        return redirect()->back();
     }
 
     public function getTinQT()
@@ -315,6 +323,8 @@ class DichVuCongController extends Controller
                 echo "No Links Found ".$i;
             }
         }
+
+        return redirect()->back();
     }
 
     /**
