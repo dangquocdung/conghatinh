@@ -19,111 +19,151 @@
   <div class="row">
     <div class="col-sm-12">
       {{--Box--}}
+        @foreach($chuyenmuc->sortbydesc('thutu') as $cm)
+            @if (count($cm->vanban) > 0)
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Văn bản Chỉ đạo, Điều hành</h3>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body table-responsive">
-          <table class="table table-bordered table-striped table-hover" id="tblVanBan">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Số văn bản</th>
-                <th>Loại văn bản</th>
-                <th>Ngày ban hành</th>
-                <th>Trích yếu</th>
-                <th>Tệp văn bản</th>
-                  <th>
-                      <a class="btn btn-warning btn-xs" href="{{route('tao-van-ban')}}"><i class="fa fa-plus "></i> Thêm </a>
-                  </th>
-              </tr>
-            </thead>
-            <tbody>
+          <div class="box-body">
+              <div class="card">
+                  <ul class="nav nav-tabs" role="tablist">
 
-            @foreach ($chuyenmuc as $cm)
+                      @foreach($cm->loaitin as $lt)
 
-                @foreach($cm->loaitin as $lt)
-
-                    @if ($lt->slug == $slug)
-
-                        @foreach ($lt->vanban->sortbydesc('id') as $vb)
-
-                          <tr>
-                            <td>{{$vb->id}}</td>
-
-                            <td>
-                              {{ $vb->kihieuvb }}
-                              <br>
-
-                              @if ($vb->daduyet == '1')
-                                <span class="label label-success">Đã duyệt đăng</span>
+                          @if (count($lt->vanban) > 0)
+                              @if ($loop->iteration == 1)
+                                  <li class="active">
+                                      <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
+                                          {{$lt->name}}
+                                      </a>
+                                  </li>
                               @else
-                                <div class="pull-left gap-left gap-10">
-                                  <confirm-modal
-                                          btn-text='Chờ duyệt'
-                                          btn-class="btn-warning"
-                                          url="{{url('api/v1/duyet-van-ban')}}"
-                                          :post-data="{{json_encode(['id' => $vb->id])}}"
-                                          :refresh="true"
-                                          message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vb->kihieuvb}}?">
-                                  </confirm-modal>
-                                </div>
-
-                                {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                                  <li>
+                                      <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
+                                          {{$lt->name}}
+                                      </a>
+                                  </li>
                               @endif
-                            </td>
-                            <td>{{$vb->loaitin->name}}</td>
-                            <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y') }}</td>
+                          @endif
 
-                            <td>{{$vb->trichyeu}}</td>
-                            <td>
+                      @endforeach
+
+                  </ul>
+
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                      <div class="tab-content">
+                          @foreach($cm->loaitin as $lt)
+                              <div class="to-chuc tab-pane
+
+                                      @if ($loop->iteration == 1)
+                                      active " id="{{$lt->slug}}">
+
+                                  @else
+                                      " id="{{$lt->slug}}">
+
+                              @endif
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                          <table class="table table-bordered table-striped table-hover tblVanBan">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Số văn bản</th>
+                                <th>Loại văn bản</th>
+                                <th>Ngày ban hành</th>
+                                <th>Trích yếu</th>
+                                <th>Tệp văn bản</th>
+                                  <th>
+                                      <a class="btn btn-warning btn-xs" href="{{route('tao-van-ban')}}"><i class="fa fa-plus "></i> Thêm </a>
+                                  </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach ($lt->vanban->sortbydesc('id') as $key=>$vb)
+
+                                          <tr>
+                                            <td>{{++$key}}</td>
+
+                                            <td>
+                                              {{ $vb->kihieuvb }}
+                                              <br>
+
+                                              @if ($vb->daduyet == '1')
+                                                <span class="label label-success">Đã duyệt đăng</span>
+                                              @else
+                                                <div class="pull-left gap-left gap-10">
+                                                  <confirm-modal
+                                                          btn-text='Chờ duyệt'
+                                                          btn-class="btn-warning"
+                                                          url="{{url('api/v1/duyet-van-ban')}}"
+                                                          :post-data="{{json_encode(['id' => $vb->id])}}"
+                                                          :refresh="true"
+                                                          message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vb->kihieuvb}}?">
+                                                  </confirm-modal>
+                                                </div>
+
+                                                {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                                              @endif
+                                            </td>
+                                            <td>{{$vb->loaitin->name}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y') }}</td>
+
+                                            <td>{{$vb->trichyeu}}</td>
+                                            <td>
 
 
 
-                              @foreach($vb->tepvanban as $tvb)
-                                  <a href="{{ $tvb->path }}" target="_blank">
-                                    <img src="/images/pdf-file-512.png" alt="{{ $vb->kihieuvb }}" title="{{ $vb->kihieuvb }}" width="20px">
-                                  </a>
-                              @endforeach
+                                              @foreach($vb->tepvanban as $tvb)
+                                                  <a href="{{ $tvb->path }}" target="_blank">
+                                                    <img src="/images/pdf-file-512.png" alt="{{ $vb->kihieuvb }}" title="{{ $vb->kihieuvb }}" width="20px">
+                                                  </a>
+                                              @endforeach
 
-                            </td>
+                                            </td>
 
-                            <td class="col-sm-3">
+                                            <td class="col-sm-3">
 
-                                <div class="pull-left">
-                                  <a href="{{route('edit-van-ban', $vb->id)}}" class="btn btn-primary btn-xs">
-                                    <i class="fa fa-edit"></i> Edit
-                                  </a>
-                                </div>
+                                                <div class="pull-left">
+                                                  <a href="{{route('edit-van-ban', $vb->id)}}" class="btn btn-primary btn-xs">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                  </a>
+                                                </div>
 
-                                <div class="pull-left gap-left gap-10" style="padding-left: 5px">
-                                  <confirm-modal
-                                    btn-text='<i class="fa fa-trash"></i> Delete'
-                                    btn-class="btn-danger"
-                                    url="{{url('api/v1/delete-van-ban')}}"
-                                    :post-data="{{json_encode(['id' => $vb->id])}}"
-                                    :refresh="true"
-                                    message="Bạn chắc chắn muốn xoá văn bản {{$vb->kihieuvb}}?">
-                                  </confirm-modal>
-                                </div>
+                                                <div class="pull-left gap-left gap-10" style="padding-left: 5px">
+                                                  <confirm-modal
+                                                    btn-text='<i class="fa fa-trash"></i> Delete'
+                                                    btn-class="btn-danger"
+                                                    url="{{url('api/v1/delete-van-ban')}}"
+                                                    :post-data="{{json_encode(['id' => $vb->id])}}"
+                                                    :refresh="true"
+                                                    message="Bạn chắc chắn muốn xoá văn bản {{$vb->kihieuvb}}?">
+                                                  </confirm-modal>
+                                                </div>
 
-                            </td>
-                          </tr>
-                        @endforeach
+                                            </td>
+                                          </tr>
+                                        @endforeach
 
-                    @endif
-                @endforeach
-            @endforeach
-            
-            </tbody>
-          </table>
+                            </tbody>
+                          </table>
 
-{{--            {{$vanban->render()}}--}}
-        </div>
-        <!-- /.box-body -->
+                {{--            {{$vanban->render()}}--}}
+                        </div>
+                        <!-- /.box-body -->
+
+                              </div>
+                          @endforeach
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
       {{--End box--}}
+            @endif
+        @endforeach
     </div>
 
 
@@ -137,7 +177,7 @@
   <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
   <script>
       $(function () {
-          $('#tblVanBan').DataTable({
+          $('.tblVanBan').DataTable({
 
               "iDisplayLength": 25,
 
