@@ -88,12 +88,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Tệp văn bản</label>
-                            @foreach($vbedit->tepvanban as $tvb)
-                                <a href="{{ $tvb->path }}" target="_blank">
-                                    <img src="/images/pdf-file-512.png" alt="{{ $vbedit->kihieuvb }}" title="{{ $vbedit->kihieuvb }}" width="20px">
-                                </a>
-                            @endforeach
+                            <label>Tệp văn bản:</label>
+                            <div class="form-control">
+                                @foreach($vbedit->tepvanban as $tvb)
+                                    <a href="{{ $tvb->path }}" target="_blank">
+                                        <img src="/images/pdf-file-512.png" alt="{{ $vbedit->kihieuvb }}" title="{{ $vbedit->kihieuvb }}" width="20px">
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
 
                         @php
