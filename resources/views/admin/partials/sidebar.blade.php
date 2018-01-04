@@ -34,6 +34,10 @@
         <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i><span>Hoạt động</span></a>
       </li>
 
+      <li class="treeview">
+        <a href="{{route('trang-chu')}}"><i class="fa fa-dashboard"></i><span>Trang tin </span></a>
+      </li>
+
       <li class="{{ Request::is('toa-soan/tin-bai/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-newspaper-o"></i> <span> Tin, Bài</span>

@@ -2,7 +2,7 @@
 
 Route::feeds();
 
-Route::get('/', 'GuestController@index');
+Route::get('/', 'GuestController@index')->name('trang-chu');
 
 
 Route::get('/tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
