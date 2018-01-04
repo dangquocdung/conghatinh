@@ -30,16 +30,31 @@ class AdminController extends Controller
     public function getUser()
     {
         $users = User::orderBy('id', 'asc')->paginate(10);
-        return view('admin.pages.admin.user',compact('users'));
+        $roles = Role::get();
+        return view('admin.pages.admin.user',compact('users','roles'));
     }
 
-    public function postAddUser()
+    public function postAddUser(Request $request)
     {
-        $user = User::create(['name' => $request->input('name'),'slug'=>str_slug($request->input('name'))]);
+//        $this->validate($request, [
+//            'name' => 'required',
+//            'email' => 'required|email|unique:users',
+//            'password' => 'required|min:6|confirmed',
+//            'roles' => 'required'
+//        ]);
+//
+//        $user = User::create($request->except('roles'));
+//
+//        if($request->roles <> ''){
+//            $user->roles()->attach($request->roles);
+//        }
 
-        event(new ChuyenMucCreated($chuyenmuc));
-
-        flash('Thêm chuyên mục thành công');
+//
+//        $user = User::create(['name' => $request->input('name'),'slug'=>str_slug($request->input('name'))]);
+//
+//        event(new ChuyenMucCreated($chuyenmuc));
+//
+//        flash('Thêm chuyên mục thành công');
         
         return redirect()->back();
     }

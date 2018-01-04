@@ -203,9 +203,9 @@
             <li class="{{ Request::is('toa-soan/config/user/manager') ? 'active' : ''  }}">
               <a href="{{route('user')}}"><i class="fa fa-circle-o"></i> Người dùng</a>
             </li>
-            {{-- <li class="{{ Request::is('toa-soan/config/user/import') ? 'active' : ''  }}">
-              <a href="{{route('import-user')}}"><i class="fa fa-circle-o"></i> Import Users</a>
-            </li> --}}
+             {{--<li class="{{ Request::is('toa-soan/config/user/import') ? 'active' : ''  }}">--}}
+              {{--<a href="{{route('import-user')}}"><i class="fa fa-circle-o"></i> Import Users</a>--}}
+            {{--</li> --}}
             <li class="{{ Request::is('toa-soan/config/user/roles') ? 'active' : ''  }}">
               <a href="{{route('manage-roles')}}"><i class="fa fa-circle-o"></i> Nhóm quyền</a>
             </li>

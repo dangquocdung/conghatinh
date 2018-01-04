@@ -54,6 +54,7 @@ class UserController extends Controller
             }
             abort(500, 'Data was not saved. ' . $message);
         }
+
     }
 
     /**

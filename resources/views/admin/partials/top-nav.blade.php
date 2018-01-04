@@ -33,7 +33,7 @@
               </user-image>
               <p>
                 {{Auth::user()->name}} - {{Auth::user()->profile->designation}}
-                {{--<small>Member since Nov. 2017</small>--}}
+                <small>Ngày đăng kí {{Carbon\Carbon::parse(Auth::user()->created_at)->format('d-m-Y')}}</small>
               </p>
             </li>
 
