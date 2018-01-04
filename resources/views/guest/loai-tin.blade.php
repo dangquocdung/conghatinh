@@ -129,7 +129,7 @@
                              <table id="tblVanBan" class="table table-striped table-bordered table-responsive table-sm">
                                  <thead>
                                      <th>TT</th>
-                                     <th>Chương trình công tác </th>
+                                     <th>Nội dung </th>
                                      <th>Ngày đăng </th>
                                      <th>Tệp đính kèm</th>
                                  </thead>
@@ -138,7 +138,6 @@
                                      <tr>
                                          <td>
                                              {{ $loop->iteration }}
-
                                          </td>
                                          <td>
                                              <a href="{{ route('chi-tiet-tin',[$lt->chuyenmuc->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
