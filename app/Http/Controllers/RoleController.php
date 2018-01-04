@@ -27,12 +27,12 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $permissions = Permission::all();//Get all permissions
-
-        return view('admin.pages.users.roles.create', compact('permissions'));
-    }
+//    public function create()
+//    {
+//        $permissions = Permission::all();//Get all permissions
+//
+//        return view('admin.pages.users.roles.create', compact('permissions'));
+//    }
 
     /**
      * Store a newly created resource in storage.

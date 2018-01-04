@@ -2,7 +2,7 @@
 
 @section('breadcrumb')
     <section class="content-header">
-        <h1><i class="fa fa-users"></i> Users<small> Quản lý người dùng.</small></h1>
+        <h1><i class="fa fa-users"></i> Users<small> Quản lý phân quyền.</small></h1>
         <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Users</li>
@@ -19,49 +19,40 @@
         <div class="col-sm-8">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Người dùng </h3>
+                    <h3 class="box-title">Phân quyền  </h3>
                 </div>
                 <!-- /.box-header -->
 
                 <div class="box-body table-responsive">
-                    <table class="table table-bordered table-striped table-hover">
+                    <table class="table table-bordered table-striped">
 
                         <thead>
                         <tr>
-                            <th>Họ tên </th>
-                            <th>Email</th>
-
-                            <th>Nhóm quyền </th>
-                            <th>Ngày đăng kí </th>
-                            <th>
-                                <a href="{{ route('users.create') }}" class="btn btn-success pull-left btn-xs" style="margin-right: 3px;">Thêm </a>
-                            </th>
+                            <th>Permissions</th>
+                            <th>Operation</th>
                         </tr>
                         </thead>
-
                         <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($permissions as $permission)
                             <tr>
-
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-
-                                <td>{{  $user->roles()->pluck('name')->implode(' ') }}</td>
-                                <td>{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y h:i:s') }}</td>
+                                <td>{{ $permission->name }}</td>
                                 <td>
-                                    @if ($user->id > 2)
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info pull-left btn-xs" style="margin-right: 3px;">Sửa </a>
+                                    {{--<a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info pull-left btn-xs" style="margin-right: 3px;">Edit</a>--}}
 
-                                        {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id] ]) !!}
-                                        {!! Form::submit('Xoá ', ['class' => 'btn btn-danger btn-xs']) !!}
-                                        {!! Form::close() !!}
-                                    @endif
+                                    {{--{!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id] ]) !!}--}}
+                                    {{--{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}--}}
+                                    {{--{!! Form::close() !!}--}}
+
+                                    <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-info pull-left btn-xs" style="margin-right: 3px;">Sửa </a>
+
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id] ]) !!}
+                                    {!! Form::submit('Xoá ', ['class' => 'btn btn-danger btn-xs']) !!}
+                                    {!! Form::close() !!}
 
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
-
                     </table>
                 </div>
             </div>
@@ -75,45 +66,30 @@
             {{--Box--}}
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Thêm mới User</h3>
+                    <h3 class="box-title">Thêm quyền </h3>
                 </div>
 
                 <div style="padding: 5px">
 
-                    {!! Form::open(['method' => 'POST', 'route' => ['users.store'] ]) !!}
+                    {!! Form::open(['method' => 'POST', 'route' => ['permissions.store'] ]) !!}
 
-                    <div class="form-group @if ($errors->has('name')) has-error @endif">
-                        {!! Form::label('name', 'Name') !!}
-                        {!! Form::text('name', '', array('class' => 'form-control')) !!}
-                    </div>
+                    <div class="form-group">
+                        {{ Form::label('name', 'Name') }}
+                        {{ Form::text('name', '', array('class' => 'form-control')) }}
+                    </div><br>
+                    @if(!$roles->isEmpty())
+                        <h4>Assign Permission to Roles</h4>
 
-                    <div class="form-group @if ($errors->has('email')) has-error @endif">
-                        {!! Form::label('email', 'Email') !!}
-                        {!! Form::email('email', '', array('class' => 'form-control')) !!}
-                    </div>
-
-                    <div class="form-group @if ($errors->has('roles')) has-error @endif">
                         @foreach ($roles as $role)
-                            {!! Form::checkbox('roles[]',  $role->id ) !!}
-                            {!! Form::label($role->name, ucfirst($role->name)) !!}&nbsp;&nbsp;&nbsp;
+                            {{ Form::checkbox('roles[]',  $role->id ) }}
+                            {{ Form::label($role->name, ucfirst($role->name)) }}<br>
 
                         @endforeach
-                    </div>
+                    @endif
+                    <br>
+                    {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
 
-                    <div class="form-group @if ($errors->has('password')) has-error @endif">
-                        {!! Form::label('password', 'Password') !!}<br>
-                        {!! Form::password('password', array('class' => 'form-control')) !!}
-
-                    </div>
-
-                    <div class="form-group @if ($errors->has('password')) has-error @endif">
-                        {!! Form::label('password', 'Confirm Password') !!}<br>
-                        {!! Form::password('password_confirmation', array('class' => 'form-control')) !!}
-
-                    </div>
-
-                    {!! Form::submit('Add', array('class' => 'btn btn-primary')) !!}
-                    {!! Form::close() !!}
+                    {{ Form::close() }}
 
                 </div>
             </div>

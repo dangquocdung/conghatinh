@@ -18,7 +18,8 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::all();
-        return view('admin.pages.users.permissions.index',compact('permissions'));
+        $roles = Role::get(); //Get all roles
+        return view('admin.pages.users.permissions.index',compact('permissions','roles'));
     }
 
     /**
@@ -26,11 +27,11 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $roles = Role::get(); //Get all roles
-        return view('admin.pages.users.permissions.create',compact('roles'));
-    }
+//    public function create()
+//    {
+//        $roles = Role::get(); //Get all roles
+//        return view('admin.pages.users.permissions.create',compact('roles'));
+//    }
 
     /**
      * Store a newly created resource in storage.

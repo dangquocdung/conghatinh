@@ -50,7 +50,12 @@
                                 <td>{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y h:i:s') }}</td>
                                 <td>
                                     @if ($user->id > 2)
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info pull-left btn-xs" style="margin-right: 3px;">Sửa </a>
+                                        @if ($user->active == '0')
+                                            <a href="javascript:void(0);" class="btn btn-success pull-left btn-xs" style="margin-right: 3px">Kích hoạt </a>
+                                            @else
+                                            <a href="javascript:void(0);" class="btn btn-default pull-left btn-xs" style="margin-right: 3px">Dừng </a>
+                                        @endif
+                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info pull-left btn-xs" style="margin-right: 3px">Sửa </a>
 
                                         {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id] ]) !!}
                                         {!! Form::submit('Xoá ', ['class' => 'btn btn-danger btn-xs']) !!}
