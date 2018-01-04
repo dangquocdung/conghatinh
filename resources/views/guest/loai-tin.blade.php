@@ -125,7 +125,7 @@
                                  </tbody>
                              </table>
 
-                         @elseif (count($lt->lichct) >0)
+                         @elseif (count($lt->vanbankhac) >0)
                              <table id="tblVanBan" class="table table-striped table-bordered table-responsive table-sm">
                                  <thead>
                                      <th>TT</th>

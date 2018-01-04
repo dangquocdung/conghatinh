@@ -124,7 +124,7 @@
 
 
                     <br>
-                @elseif (count($lt->lichct) > 0)
+                @elseif (count($lt->vanbankhac) > 0)
                     <div class="lienquan-header" style="margin-bottom: 10px">
                         <a href="{{ route('loai-tin',[$cm->slug, $lt->slug])  }}">{{ $lt->name }}</a>
                     </div>
@@ -137,7 +137,7 @@
                         <th>Tệp đính kèm</th>
                         </thead>
                         <tbody>
-                        @foreach($lt->lichct->where('daduyet','1')->sortByDesc('ngaybanhanh')->take(5) as $lct)
+                        @foreach($lt->vanbankhac->where('daduyet','1')->sortByDesc('ngaybanhanh')->take(5) as $lct)
                             <tr>
                                 <td>
                                     {{ $loop->iteration }}
