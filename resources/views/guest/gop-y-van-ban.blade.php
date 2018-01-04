@@ -46,38 +46,38 @@
                                     <input id="duthao_name" type="text" class="form-control" name="duthao_name" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label>Họ và Tên </label>
+                                    <label>Họ và Tên<sup>*</sup> </label>
                                     <input type="text" class="form-control" name="hoten" required>
                                     @if ($errors->has('daidien'))
                                         <div class="error">{{ $errors->first('hoten') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Điện thoại </label>
+                                    <label>Điện thoại<sup>*</sup> </label>
                                     <input type="number" class="form-control" name="sodt" required>
                                     @if ($errors->has('dienthoai'))
                                         <div class="error">{{ $errors->first('sodt') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Email </label>
+                                    <label>Email<sup>*</sup> </label>
                                     <input type="email" class="form-control" name="email" required>
                                     @if ($errors->has('email'))
                                         <div class="error">{{ $errors->first('email') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Địa chỉ </label>
+                                    <label>Địa chỉ<sup>*</sup> </label>
                                     <input type="text" class="form-control" name="diachi" required>
                                     @if ($errors->has('diachi'))
                                         <div class="error">{{ $errors->first('diachi') }}</div>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Câu hỏi </label>
+                                    <label>Góp ý<sup>*</sup> </label>
                                     <textarea class="form-control textarea" name="noidung" placeholder="Nhập nội dung góp ý ở đây"
                                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
-                                    @if ($errors->has('cauhoi'))
+                                    @if ($errors->has('noidung'))
                                         <div class="error">{{ $errors->first('noidung') }}</div>
                                     @endif
                                 </div>
