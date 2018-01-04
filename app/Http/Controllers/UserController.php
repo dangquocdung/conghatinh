@@ -99,7 +99,7 @@ class UserController extends Controller
         event(new LoggedOut());
         Auth::logout();
         flash('You have been logged out');
-        return redirect('/');
+        return redirect('dang-nhap');
     }
 
     /**

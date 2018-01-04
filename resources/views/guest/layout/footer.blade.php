@@ -87,6 +87,9 @@
       });
     });
 
+
+//      $('#banner-main-top').css('margin-top',$('#admin_bar').height());
+
     $('.menu-main').scrollToFixed();
 
 

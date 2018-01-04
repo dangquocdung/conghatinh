@@ -1,4 +1,4 @@
-<div class="container nen-trang">
+<div class="container nen-trang" id="banner-main-top">
     <div class="margin-15px">
 {{--        @include('guest.layout.header-slide')--}}
         <div style="position: relative">
