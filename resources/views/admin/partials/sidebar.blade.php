@@ -35,7 +35,7 @@
       </li>
 
       <li class="treeview">
-        <a href="{{route('trang-chu')}}"><i class="fa fa-dashboard"></i><span>Trang tin </span></a>
+        <a href="{{route('trang-chu')}}"><i class="fa fa-home"></i><span>Trang tin </span></a>
       </li>
 
       <li class="{{ Request::is('toa-soan/tin-bai/*') ? 'active' : ''  }} treeview">
