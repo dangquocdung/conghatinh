@@ -97,13 +97,14 @@ Route::get('forgot-password/set/{token}', 'UserController@getSetForgotPassword')
 Route::post('forgot-password/update', 'UserController@postSetForgotPassword')->name('update-forgot-password');
 
 /*Urls based on functionality of User can register*/
-if (\Setting::get('user_can_register')) {
-    Route::get('register', 'UserController@getRegistrationPage')->name('register');
-    Route::post('do-register', 'UserController@postHandleUserRegistration')->name('do-register');
-    Route::get('toa-soan/config/user/activation-pending', 'AdminController@getUserActivationPending')->middleware(['auth', 'role:admin'])->name('user-activation-pending');
-}
+//if (\Setting::get('user_can_register')) {
+//    Route::get('register', 'UserController@getRegistrationPage')->name('register');
+//    Route::post('do-register', 'UserController@postHandleUserRegistration')->name('do-register');
+//    Route::get('toa-soan/config/user/activation-pending', 'AdminController@getUserActivationPending')->middleware(['auth', 'role:admin'])->name('user-activation-pending');
+//}
 
 Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
+
     Route::get('/', 'UserController@pageDashboard')->name('dashboard');
     Route::get('dashboard', 'UserController@pageDashboard')->name('dashboard');
     Route::get('cau-hinh/he-thong/my-activities', 'UserController@pageMyActivities')->name('my-activities');
@@ -111,6 +112,8 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::get('user/profile', 'UserController@pageUserProfile')->name('profile');
     Route::post('user/profile', 'UserController@postUpdateProfile')->name('update-profile');
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
+
+
 
     //Da Phuong Tien
     Route::group(['prefix'=>'da-phuong-tien'],function () {
@@ -211,14 +214,10 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     });
 
 
+
     Route::group(['middleware' => 'role:admin'], function () {
-        Route::get('cau-hinh', 'AdminController@getConfigPage')->name('config');
 
-        Route::get('cau-hinh/he-thong/activities', 'WatchdogController@getWatchdogPage')->name('activities');
 
-        Route::get('cau-hinh/he-thong/settings', 'AdminController@getSettingsPage')->name('settings');
-        Route::post('cau-hinh/he-thong/settings', 'AdminController@postHandleSettingsPageSave')->name('settings-save');
-        Route::post('cau-hinh/he-thong/settings-add', 'AdminController@postHandleSettingsPageAdd')->name('settings-add');
 
         Route::get('config/user/manager', 'AdminController@getUser')->name('user');
         Route::post('config/user/manager', 'AdminController@postAddUser')->name('save-user');
@@ -237,10 +236,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('config/user/permission/{id}', 'AdminController@getEditPermission')->name('edit-permission');
         Route::post('config/user/permission/update', 'AdminController@postUpdatePermission')->name('update-permission');
 
-        Route::get('cau-hinh/he-thong/toppic', 'TopPicController@index')->name('index-toppic');
-        Route::post('cau-hinh/he-thong/save-toppic', 'TopPicController@store')->name('save-toppic');
-        Route::get('cau-hinh/he-thong/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
-        Route::post('cau-hinh/he-thong/update-toppic', 'TopPicController@update')->name('update-toppic');
+
 
 
         //Load
@@ -251,8 +247,39 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('load-tintn','DichVuCongController@getTinTN');
         Route::get('load-tinqt','DichVuCongController@getTinQT');
 
+        Route::group(['prefix'=>'cau-hinh'], function () {
+
+            Route::group(['prefix'=>'users-roles'], function () {
+
+                Route::resource('users', 'UsersController');
+                Route::resource('roles', 'RoleController');
+                Route::resource('permissions', 'PermissionController');
+                //    Route::resource('posts', 'PostController');
+            });
+
+
+            Route::get('/', 'AdminController@getConfigPage')->name('config');
+
+            Route::get('he-thong/activities', 'WatchdogController@getWatchdogPage')->name('activities');
+
+            Route::get('he-thong/settings', 'AdminController@getSettingsPage')->name('settings');
+            Route::post('he-thong/settings', 'AdminController@postHandleSettingsPageSave')->name('settings-save');
+            Route::post('he-thong/settings-add', 'AdminController@postHandleSettingsPageAdd')->name('settings-add');
+
+            Route::get('he-thong/toppic', 'TopPicController@index')->name('index-toppic');
+            Route::post('he-thong/save-toppic', 'TopPicController@store')->name('save-toppic');
+            Route::get('he-thong/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
+            Route::post('he-thong/update-toppic', 'TopPicController@update')->name('update-toppic');
+
+
+
+        });
+
 
     });
+
+
+
 
     Route::group(['prefix'=>'cau-hinh','middleware' => 'role:tbt'], function () {
 
@@ -330,9 +357,6 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
     Route::post('delete-file', 'Api\FileApiController@deleteFile');
 
     Route::post('delete-banner-trang-chu', 'BannerController@destroy');
-
-
-    
 
 
     Route::group(['middleware' => 'role:admin'], function () {
