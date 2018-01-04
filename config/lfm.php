@@ -121,7 +121,6 @@ return [
         'image/svg+xml',
         'application/pdf',
         'text/plain',
-        'video/mp4',
     ],
 
     /*
