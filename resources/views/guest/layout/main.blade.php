@@ -51,9 +51,9 @@
                 <a href="http://baochinhphu.vn/Phat-quang-rung-thu-tuc/485.vgp" target="_blank">Phát quang 'rừng' thủ tục</a>
             </marquee>
 
-            <a href="{{$banner->where('vitri','8')->last()->lienket}}" target="_blank">
-                <img src="{{ $banner->where('vitri','8')->last()->banner}}" alt="{{ $banner->where('vitri','8')->last()->name}}" title="{{ $banner->where('vitri','8')->last()->name}}" width="100%">
-            </a>
+            {{--<a href="{{$banner->where('vitri','8')->last()->lienket}}" target="_blank">--}}
+                {{--<img src="{{ $banner->where('vitri','8')->last()->banner}}" alt="{{ $banner->where('vitri','8')->last()->name}}" title="{{ $banner->where('vitri','8')->last()->name}}" width="100%">--}}
+            {{--</a>--}}
 
         </div>
 
