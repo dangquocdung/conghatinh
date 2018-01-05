@@ -55,7 +55,7 @@
                         <div id="tin-noi-bat">
                             <ul>
                                 @foreach($chuyenmuc->whereIn('id',['2','16']) as $cm)
-                                    @foreach ($cm->tintuc->where('daduyet','1')->where('noibat','1')->sortbydesc('id')->take(4) as $tnb)
+                                    @foreach ($cm->tintuc->where('daduyet','1')->where('noibat','1')->sortbydesc('id')->take(8) as $tnb)
                                         <li>
                                             <div class="hot-news-block">
 
@@ -96,7 +96,7 @@
                         <div id="tin-moi-nhat">
                             <ul>
                                 @foreach($chuyenmuc->whereIn('id',['2','16']) as $cm)
-                                    @foreach ($cm->tintuc->where('daduyet','1')->sortbydesc('id')->take(4) as $tnb)
+                                    @foreach ($cm->tintuc->where('daduyet','1')->sortbydesc('id')->take(8) as $tnb)
                                         <li>
                                             <div class="hot-news-block">
 
