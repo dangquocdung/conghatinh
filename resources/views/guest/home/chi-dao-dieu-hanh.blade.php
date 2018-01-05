@@ -134,7 +134,7 @@
                                                         Trích yếu
                                                     </th>
                                                     <th class="col-md-1">
-                                                        Đính kèm
+                                                        <i class="fa fa-paperclip" aria-hidden="true">
                                                     </th>
                                                 </tr>
                                                 </thead>
@@ -177,7 +177,7 @@
                                                         <th>TT</th>
                                                         <th>Nội dung </th>
                                                         <th class="col-md-2" style="text-align: center">Ngày đăng </th>
-                                                        <th>Tệp đính kèm</th>
+                                                        <th><i class="fa fa-paperclip" aria-hidden="true"></i></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
