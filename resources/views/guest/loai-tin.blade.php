@@ -160,9 +160,9 @@
 
                     @include('guest.layout.tien-ich')
 
-                    <div class="text-center">
-                      {{ $tintuc->render() }}
-                    </div>
+                    {{--<div class="text-center">--}}
+                      {{--{{ $tintuc->render() }}--}}
+                    {{--</div>--}}
 
                 </div>
 @endsection
