@@ -140,7 +140,7 @@
                                                 </thead>
 
                                                 <tbody>
-                                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
+                                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(3) as $vb)
                                                     <tr>
                                                         <td>
                                                             {{ $loop->iteration }}
