@@ -43,9 +43,9 @@
                         <a href="#tinnoibat" aria-controls="tinnoibat" role="tab" data-toggle="tab"><i class="fa fa-bars"></i>  <span>Nổi bật </span></a>
                     </li>
 
-                    {{--<li role="presentation">--}}
-                        {{--<a href="#tinmoi" aria-controls="tinmoi" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  <span>Tin mới </span></a>--}}
-                    {{--</li>--}}
+                    <li role="presentation">
+                        <a href="#tindocnhieu" aria-controls="tindocnhieu" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o" aria-hidden="true"></i>  <span>Tin đọc nhiều </span></a>
+                    </li>
 
                 </ul>
 
@@ -61,7 +61,7 @@
 
                                                 <a href="{{  route('chi-tiet-tin', [$tnb->loaitin->chuyenmuc->slug,$tnb->loaitin->slug,'tin-tuc',$tnb->id,$tnb->slug]) }}" class="news-title">
                                                     <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tnb->name }}
-                                                    <small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                    {{--<small><em style="font-weight: normal">({{ \Carbon\Carbon::parse($tnb->ngaydang)->format('d-m-Y H:i:s')}})</em></small>--}}
 
                                                     @if ($tnb->tinanh == '1')
                                                         &nbsp;<i class="fa fa-picture-o" title="Tin ảnh"></i>
@@ -193,21 +193,21 @@ var isMobile = $(window).width() < 768;
 
 if(!isMobile) {
 
-$("#tinNoiBatChinh .hot-news").animate({marginBottom: "0"}, 0, function () {
+    $("#tinNoiBatChinh .hot-news").animate({marginBottom: "0"}, 0, function () {
 
-    jQueryActive.removeClass('active');
+        jQueryActive.removeClass('active');
 
-    jQueryNext.addClass('active');
+        jQueryNext.addClass('active');
 
-    $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
+        $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
 
-    $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
+        $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
 
-    $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
+        $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
 
-    $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
+        $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
 
-});
+    });
 }
 
 
@@ -216,63 +216,60 @@ $("#tinNoiBatChinh .hot-news").animate({marginBottom: "0"}, 0, function () {
 
 $(document).ready(function () {
 
-var UnionNewsRefreshInterval2
+    var UnionNewsRefreshInterval2
 
 
-$("#tin-noi-bat ul li:first").addClass('active');
+    $("#tin-noi-bat ul li:first").addClass('active');
 
-UnionNewsRefreshInterval2 = setInterval("UnionSwitchMode2()", "4000");
-
-$("#tin-noi-bat ul")
-.on('mouseenter',function () {
-    console.log('mouse enter');
-    clearInterval(UnionNewsRefreshInterval2);
-})
-.on('mouseleave', function() {
-    console.log('mouse leave');
     UnionNewsRefreshInterval2 = setInterval("UnionSwitchMode2()", "4000");
-});
 
-$("#tin-noi-bat ul li")
+    $("#tin-noi-bat ul")
+    .on('mouseenter',function () {
+        console.log('mouse enter');
+        clearInterval(UnionNewsRefreshInterval2);
+    })
+    .on('mouseleave', function() {
+        console.log('mouse leave');
+        UnionNewsRefreshInterval2 = setInterval("UnionSwitchMode2()", "4000");
+    });
 
-.on('mouseenter', function() {
+    $("#tin-noi-bat ul li")
 
-    console.log("li mouse enter");
+    .on('mouseenter', function() {
 
-    $(this).addClass('hover');
+        console.log("li mouse enter");
 
-
-    var imgAlt = $(this).find('img').attr("alt");
-
-    var imgSrc = $(this).find('img').attr("src");
-
-    var aHref = $(this).find('a').attr("href");
-
-    var newsDesc = $(this).find('.item-desc').html();
-
-
-    $("#tinNoiBatChinh").addClass('w3-animate-left');
-
-    $("#tinNoiBatChinh .hot-news img").attr({ src: imgSrc, alt: imgAlt });
-
-    $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
-
-    $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
-
-    $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
+        $(this).addClass('hover');
 
 
+        var imgAlt = $(this).find('img').attr("alt");
 
-})
-.on("mouseleave", function() {
-    console.log('li mouse leave');
-    $(this).removeClass('hover');
-    $("#tinNoiBatChinh").removeClass('w3-animate-left');
-//                $("#tinNoiBatChinh .hot-news .hot-news-block").stop(true, true);
-});
+        var imgSrc = $(this).find('img').attr("src");
 
+        var aHref = $(this).find('a').attr("href");
+
+        var newsDesc = $(this).find('.item-desc').html();
 
 
+        $("#tinNoiBatChinh").addClass('w3-animate-left');
+
+        $("#tinNoiBatChinh .hot-news img").attr({ src: imgSrc, alt: imgAlt });
+
+        $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
+
+        $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
+
+        $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
+
+
+
+    })
+    .on("mouseleave", function() {
+        console.log('li mouse leave');
+        $(this).removeClass('hover');
+        $("#tinNoiBatChinh").removeClass('w3-animate-left');
+    //                $("#tinNoiBatChinh .hot-news .hot-news-block").stop(true, true);
+    });
 
 })
 </script>

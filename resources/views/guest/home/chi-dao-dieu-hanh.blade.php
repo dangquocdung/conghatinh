@@ -9,13 +9,13 @@
                     <div class="box-tools pull-right">
                         <a class="btn btn-box-tool" href="{{ route('chuyen-muc',$cm->slug) }}"><i class="fa  fa-folder-open"></i></a>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                        {{--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>--}}
                     </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="card">
-                        <ul class="nav nav-tabs" role="tablist">
+                        <ul class="nav nav-tabs" role="tablist" style="border-bottom: none">
                             @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                 @if ($lt->thutu == 1)
                                     <li class="active">
@@ -91,7 +91,8 @@
                                                                     @foreach($tins as $tin)
                                                                         <li>
                                                                             <a href="{{  route('chi-tiet-tin', [$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug]) }}" class="news-title">
-                                                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }} <small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>
+                                                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ $tin->name }}
+                                                                                {{--<small><em>({{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s')}})</em></small>--}}
                                                                                 @if ($tin->tinanh == '1')
                                                                                     &nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
 
