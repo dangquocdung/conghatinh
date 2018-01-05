@@ -181,7 +181,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($lt->vanbankhac->where('daduyet','1')->sortByDesc('ngaybanhanh')->sortByDesc('id')->take(5) as $lct)
+                                                @foreach($lt->vanbankhac->where('daduyet','1')->sortByDesc('ngaybanhanh')->sortByDesc('id')->take(3) as $lct)
                                                     <tr>
                                                         <td>
                                                             {{ $loop->iteration }}
