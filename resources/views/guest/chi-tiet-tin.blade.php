@@ -60,6 +60,8 @@
 						</div>
 					</div>
 
+					@if ( ($tin->tinanh == 0)&&($tin->video==0))
+
 					<div class="col-md-3">
 
 						<div class="row">
@@ -122,6 +124,12 @@
 					</div>
 
 					<div class="col-md-9">
+
+						@else
+							<div class="col-md-12">
+
+								@endif
+
 
 
 						<div class="chi-tiet-tin">
