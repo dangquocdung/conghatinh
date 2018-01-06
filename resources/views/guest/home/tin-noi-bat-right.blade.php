@@ -1,4 +1,4 @@
-<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+<div class="btn-pref-tnb btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
     <div class="btn-group" role="group">
         <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab">
             <i class="fa fa-bars"></i>  <span class="hidden-xs">Nổi bật </span>
@@ -56,7 +56,7 @@
             <div id="tin-noi-bat">
                 <ul>
                     @foreach($chuyenmuc->where('id','2') as $cm)
-                        @foreach ($cm->tintuc->where('daduyet','1')->sortbydesc('id')->take(7) as $tnb)
+                        @foreach ($cm->tintuc->where('daduyet','1')->sortbydesc('counter')->take(7) as $tnb)
                             <li>
                                 <div class="hot-news-block">
 
@@ -73,7 +73,6 @@
                                             &nbsp;<i class="fa fa-film" title="Tin Video"></i>
 
                                         @endif
-
 
                                     </a>
 
@@ -96,10 +95,14 @@
 
 <script>
     $(document).ready(function() {
-        $(".btn-pref .btn").click(function () {
-            $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+        $(".btn-pref-tnb .btn").click(function () {
+
+            $(".btn-pref-tnb .btn").removeClass("btn-primary").addClass("btn-default");
+
             // $(".tab").addClass("active"); // instead of this do the below
+
             $(this).removeClass("btn-default").addClass("btn-primary");
+
         });
     });
 </script>

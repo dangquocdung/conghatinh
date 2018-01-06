@@ -13,7 +13,7 @@
         <div class="box-body">
 
             <div class="card">
-                <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+                <div class="btn-pref-tochuc btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
                     {{--@foreach($nhomcq as $ncq)--}}
                         {{--@if ($ncq->id == 1)--}}
                             {{--<li class="active">--}}
@@ -88,3 +88,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $(".btn-pref-tochuc .btn").click(function () {
+
+            $(".btn-pref-tochuc .btn").removeClass("btn-primary").addClass("btn-default");
+
+            // $(".tab").addClass("active"); // instead of this do the below
+
+            $(this).removeClass("btn-default").addClass("btn-primary");
+
+        });
+    });
+</script>
