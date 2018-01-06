@@ -19,7 +19,7 @@
                             @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                 <li class=" @if ($lt->thutu == 1) active @endif">
                                     <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
-                                        <i class="fa {{$lt->icon}}"></i><span class="hidden-xs"> {{$lt->name}}</span>
+                                        <i class="fa {{$lt->icon}}"></i>  <span class="hidden-xs">{{$lt->name}}</span>
                                     </a>
                                 </li>
                             @endforeach

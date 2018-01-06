@@ -1,7 +1,7 @@
 <div class="btn-pref-tnb btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
     <div class="btn-group" role="group">
         <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab">
-            <i class="fa fa-bars"></i>  <span class="hidden-xs">Nổi bật </span>
+            <i class="fa fa-bars"></i>  <span class="hidden-xs">Nổi bật </span>
         </button>
     </div>
     <div class="btn-group" role="group">
