@@ -17,19 +17,11 @@
                     <div class="card">
                         <ul class="nav nav-tabs" role="tablist" style="border-bottom: none">
                             @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
-                                @if ($lt->thutu == 1)
-                                    <li class="active">
-                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
-                                            <i class="fa {{$lt->icon}}"></i><span class="hidden-xs">{{$lt->name}}</span>
-                                        </a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
-                                            <i class="fa {{$lt->icon}}"></i><span class="hidden-xs">{{$lt->name}}</span>
-                                        </a>
-                                    </li>
-                                @endif
+                                <li class=" @if ($lt->thutu == 1) active @endif">
+                                    <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
+                                        <i class="fa {{$lt->icon}}"></i><span class="hidden-xs"> {{$lt->name}}</span>
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                         <!-- Tab panes -->
