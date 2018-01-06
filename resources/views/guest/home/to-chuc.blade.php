@@ -68,7 +68,6 @@
                     {{--</div>--}}
                     @foreach($nhomcq as $ncq)
                         <div class="to-chuc tab-pane fade in @if($ncq->id == '1') active @endif" id="{{ $ncq->slug }}">
-
                             <ul>
                                 @foreach($ncq->coquan->sortby('name') as $cq)
                                     <li class="col-md-3 col-sm-4 col-xs-6">
@@ -78,9 +77,6 @@
                                     </li>
                                 @endforeach
                             </ul>
-
-
-
                         </div>
                     @endforeach
                 </div>

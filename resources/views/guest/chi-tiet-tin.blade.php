@@ -50,6 +50,7 @@
 						<div class="meta clearfix">
 							<em>
 								<time><i class="fa fa-clock-o"></i> Đăng ngày {{ \Carbon\Carbon::parse($tin->ngaydang)->format('d-m-Y H:i:s') }}</time>
+								&nbsp;<i class="fa fa-eye"></i> {{ $lt->counter }}
 							</em>
 						</div>
 					</div>
