@@ -34,7 +34,7 @@
                         @foreach($nhomcq as $ncq)
                             <div class="btn-group" role="group">
                                 <button type="button" id="stars" class="btn @if ($ncq->id == '1') btn-primary @else btn-default @endif" href="#{{ $ncq->slug }}" data-toggle="tab">
-                                    <i class="fa fa-bars"></i>  <span class="hidden-xs">{{ $ncq->name }} </span>
+                                    <i class="fa fa-home"></i>  <span class="hidden-xs">{{ $ncq->name }} </span>
                                 </button>
                             </div>
                         @endforeach
