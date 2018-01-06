@@ -36,7 +36,7 @@
                         <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
                             @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                 <div class="btn-group" role="group">
-                                    <button type="button" id="stars" class="btn @if ($lt->thutu == '1') btn-primary @else btn-default @endif" href="#{{ $lt->slug }}" data-toggle="tab">
+                                    <button type="button" id="{{ $lt->slug }}" class="btn @if ($lt->thutu == '1') btn-primary @else btn-default @endif" href="#{{ $lt->slug }}" data-toggle="tab">
                                         <i class="fa {{ $lt->icon }}"></i>  <span class="hidden-xs">{{ $lt->name }} </span>
                                     </button>
                                 </div>
