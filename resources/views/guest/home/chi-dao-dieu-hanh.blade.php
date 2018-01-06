@@ -15,35 +15,38 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="card">
-                        <ul class="nav nav-tabs" role="tablist" style="border-bottom: none">
+                        {{--<ul class="nav nav-tabs" role="tablist" style="border-bottom: none">--}}
+                            {{--@foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)--}}
+                                {{--@if ($lt->thutu == 1)--}}
+                                    {{--<li class="active">--}}
+                                        {{--<a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">--}}
+                                            {{--{{$lt->name}}--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
+                                {{--@else--}}
+                                    {{--<li>--}}
+                                        {{--<a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">--}}
+                                            {{--{{$lt->name}}--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
+                                {{--@endif--}}
+                            {{--@endforeach--}}
+                        {{--</ul>--}}
+
+                        <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
                             @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
-                                @if ($lt->thutu == 1)
-                                    <li class="active">
-                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
-                                            {{$lt->name}}
-                                        </a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
-                                            {{$lt->name}}
-                                        </a>
-                                    </li>
-                                @endif
+                                <div class="btn-group" role="group">
+                                    <button type="button" id="stars" class="btn @if ($lt->thutu == '1') btn-primary @else btn-default @endif" href="#{{ $lt->slug }}" data-toggle="tab">
+                                        <i class="fa {{ $lt->icon }}"></i>  <span class="hidden-xs">{{ $lt->name }} </span>
+                                    </button>
+                                </div>
                             @endforeach
-                        </ul>
+
+                        </div>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-content">
-                                @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
-                                    <div class="to-chuc tab-pane
-                                    @if ($lt->thutu == 1)
-                                            active " id="{{$lt->slug}}">
-
-                                    @else
-                                        " id="{{$lt->slug}}">
-
-                                    @endif
+                            @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
+                                <div class="tab-pane fade in @if($lt->thutu == '1') active @endif" id="{{ $lt->slug }}">
 
                                     @if (count($lt->tintuc) > 0)
 
@@ -117,117 +120,118 @@
 
                                             </div>
                                         @endif
-                                        @elseif (count($lt->vanban) >0 )
+                                    @elseif (count($lt->vanban) >0 )
 
-                                            <table class="table table-striped table-bordered table-responsive table-sm" style="margin-bottom: 5px">
-                                                <thead>
+                                        <table class="table table-striped table-bordered table-responsive table-sm" style="margin-bottom: 5px">
+                                            <thead>
+                                            <tr>
+                                                <th>TT</th>
+                                                <th>
+                                                    Số/Kí hiệu
+                                                </th>
+                                                <th>
+                                                    Ngày ban hành
+                                                </th>
+
+                                                <th class="col-md-6">
+                                                    Trích yếu
+                                                </th>
+                                                <th class="col-md-1">
+                                                    <i class="fa fa-paperclip" aria-hidden="true">
+                                                </th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(3) as $vb)
                                                 <tr>
-                                                    <th>TT</th>
-                                                    <th>
-                                                        Số/Kí hiệu
-                                                    </th>
-                                                    <th>
-                                                        Ngày ban hành
-                                                    </th>
+                                                    <td>
+                                                        {{ $loop->iteration }}
 
-                                                    <th class="col-md-6">
-                                                        Trích yếu
-                                                    </th>
-                                                    <th class="col-md-1">
-                                                        <i class="fa fa-paperclip" aria-hidden="true">
-                                                    </th>
-                                                </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(3) as $vb)
-                                                    <tr>
-                                                        <td>
-                                                            {{ $loop->iteration }}
-
-                                                        </td>
-                                                        <td>
-                                                            <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban',$vb->id,$vb->slug]) }}" class="news-title bold">
-                                                                {{ $vb->kihieuvb }}
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban',$vb->id,$vb->slug]) }}" class="news-title bold">
+                                                            {{ $vb->kihieuvb }}
+                                                        </a>
+                                                    </td>
+                                                    <td style="text-align: center">
+                                                        {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
+                                                    </td>
+                                                    <td>
+                                                        {{$vb->trichyeu}}
+                                                    </td>
+                                                    <td style="text-align: center">
+                                                        @foreach($vb->tepvanban as $tvb)
+                                                            <a href="{{ $tvb->path }}" target="_blank">
+                                                                <i class="fa fa-paperclip" title="{{ $vb->kihieuvb }}"></i>
+                                                                {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">--}}
                                                             </a>
-                                                        </td>
-                                                        <td style="text-align: center">
-                                                            {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
-                                                        </td>
-                                                        <td>
-                                                            {{$vb->trichyeu}}
-                                                        </td>
-                                                        <td style="text-align: center">
-                                                            @foreach($vb->tepvanban as $tvb)
+                                                        @endforeach
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    @elseif (count($lt->vanbankhac) > 0)
+
+                                        <table class="table table-striped table-bordered table-responsive table-sm" style="margin-bottom: 5px">
+                                            <thead>
+                                            <tr>
+                                                <th>TT</th>
+                                                <th>Nội dung </th>
+                                                <th class="col-md-2" style="text-align: center">Ngày đăng </th>
+                                                <th><i class="fa fa-paperclip" aria-hidden="true"></i></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($lt->vanbankhac->where('daduyet','1')->sortByDesc('ngaybanhanh')->sortByDesc('id')->take(3) as $lct)
+                                                <tr>
+                                                    <td>
+                                                        {{ $loop->iteration }}
+
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-file-word-o" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
+                                                    </td>
+                                                    <td style="text-align: center">
+                                                        {{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}
+                                                    </td>
+                                                    <td style="text-align: center">
+
+                                                        @if ($lct->tepvanbankhac->count() >0 )
+                                                            @foreach($lct->tepvanbankhac as $tvb)
                                                                 <a href="{{ $tvb->path }}" target="_blank">
-                                                                    <i class="fa fa-paperclip" title="{{ $vb->kihieuvb }}"></i>
-                                                                    {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $vb->kihieuvb }}">--}}
-                                                                </a>
-                                                            @endforeach
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-                                        @elseif (count($lt->vanbankhac) > 0)
-
-                                            <table class="table table-striped table-bordered table-responsive table-sm" style="margin-bottom: 5px">
-                                                <thead>
-                                                    <tr>
-                                                        <th>TT</th>
-                                                        <th>Nội dung </th>
-                                                        <th class="col-md-2" style="text-align: center">Ngày đăng </th>
-                                                        <th><i class="fa fa-paperclip" aria-hidden="true"></i></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach($lt->vanbankhac->where('daduyet','1')->sortByDesc('ngaybanhanh')->sortByDesc('id')->take(3) as $lct)
-                                                    <tr>
-                                                        <td>
-                                                            {{ $loop->iteration }}
-
-                                                        </td>
-                                                        <td>
-                                                            <a href="{{ route('chi-tiet-tin',[$cm->slug,$lt->slug,'van-ban-khac',$lct->id,$lct->slug]) }}" style="text-decoration: none"><i class="fa fa-file-word-o" aria-hidden="true"></i> &nbsp;{{ $lct->name }}&nbsp;{{ $lct->thang }}</a>
-                                                        </td>
-                                                        <td style="text-align: center">
-                                                            {{\Carbon\Carbon::parse($lct->ngaybanhanh)->format('d-m-Y')}}
-                                                        </td>
-                                                        <td style="text-align: center">
-
-                                                            @if ($lct->tepvanbankhac->count() >0 )
-                                                                @foreach($lct->tepvanbankhac as $tvb)
-                                                                    <a href="{{ $tvb->path }}" target="_blank">
-                                                                        <i class="fa fa-paperclip" title="{{ $lct->name }}" style="text-align: center"></i>
-                                                                        {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
-                                                                    </a>
-                                                                @endforeach
-                                                            @else
-
-                                                                <a href="{{ $lct->noidung }}" target="_blank">
                                                                     <i class="fa fa-paperclip" title="{{ $lct->name }}" style="text-align: center"></i>
                                                                     {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
                                                                 </a>
+                                                            @endforeach
+                                                        @else
 
-                                                            @endif
-                                                        </td>
+                                                            <a href="{{ $lct->noidung }}" target="_blank">
+                                                                <i class="fa fa-paperclip" title="{{ $lct->name }}" style="text-align: center"></i>
+                                                                {{--<img src="/images/pdf-file-512.png" alt="" width="20px" style="float: right" title="{{ $lct->name }}">--}}
+                                                            </a>
 
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-                                    @endif
-                                        <!-- /.box-body -->
+                                                        @endif
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                @endif
+                                <!-- /.box-body -->
 
                                     <div class="pull-right">
 
-                                            <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}" style="text-decoration: none"><em>Xem tiếp...</em></a>
+                                        <a href="{{ route('loai-tin',[$cm->slug, $lt->slug]) }}" style="text-decoration: none"><em>Xem tiếp...</em></a>
 
                                     </div>
 
+
+
                                 </div>
-                                @endforeach
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- /.row -->
@@ -251,14 +255,10 @@
                     @endforeach
                 </ul>
             </div>
-
             <div class="clearfix"></div>
         @endif
 
-
-
         @if ($cm->banner_id != null)
-
             <div class="block2">
 
                 @foreach($banner as $bn)
