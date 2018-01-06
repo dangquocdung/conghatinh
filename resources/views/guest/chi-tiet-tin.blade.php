@@ -60,8 +60,69 @@
 						</div>
 					</div>
 
-					
-					<div class="col-md-12">
+					<div class="col-md-3">
+
+						<div class="row">
+
+							<div id="tin-noi-bat-left" class="hidden-xs hidden-sm">
+
+								<h4 class="label">Tin nổi bật</h4>
+
+								@foreach($chuyenmuc as $cm)
+
+									@foreach ($cm->tintuc->where('daduyet','1')->where('noibat','1')->sortbydesc('id')->take(4) as $tinnb)
+
+										<article>
+
+											<a href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">
+												<img src="{{$tinnb->avatar}}" alt="{{$tinnb->name}}">
+
+											</a>
+
+											<h6 style="text-align: center">
+												<a class="title" href="{{route('chi-tiet-tin',[$tinnb->loaitin->chuyenmuc->slug,$tinnb->loaitin->slug,'tin-tuc',$tinnb->id,$tinnb->slug])}}" title="{{$tinnb->name}}">{{ $tinnb->name }}</a>
+												@if ($tinnb->tinanh == '1')
+													&nbsp;<i class="fa fa-picture-o" title="Tin ảnh "></i>
+
+												@endif
+												@if ($tinnb->tinvideo == '1')
+													&nbsp;<i class="fa fa-film" title="Tin Video "></i>
+
+												@endif
+											</h6>
+										</article>
+									@endforeach
+								@endforeach
+
+							</div>
+
+
+							<script>
+
+                                $(document).ready(function () {
+
+                                    $('#tin-noi-bat-left').scrollToFixed({
+                                        marginTop: 50,
+                                        // neither of these fixes the problem:
+                                        // removeOffset, offsets
+                                        limit: function() {
+                                            var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
+                                            return limit;
+                                        },
+                                        removeOffsets: true,
+                                        zIndex: 999
+                                    });
+                                });
+
+
+							</script>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-9">
+
 
 						<div class="chi-tiet-tin">
 
@@ -95,9 +156,6 @@
 						</div>
 
 						<div id="tag"></div>
-
-
-
 					</div>
 				</div>
 				<hr>
