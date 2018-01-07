@@ -38,6 +38,40 @@
         <a href="{{route('trang-chu')}}"><i class="fa fa-home"></i><span>Trang tin </span></a>
       </li>
 
+      <li class="{{ Request::is('toa-soan/load/*') ? 'active' : ''  }} treeview">
+        <a href="javascript:void(0)">
+          <i class="fa fa-newspaper-o"></i> <span> Nạp tin tư động </span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+
+          <li class="{{ Request::is('toa-soan/load/cddh') ? 'active' : ''  }}">
+            <a href="{{route('load-cddh')}}"><i class="fa fa-circle-o"></i> Chỉ đạo, điều hành </a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/load/llv') ? 'active' : ''  }}">
+            <a href="{{route('load-llv')}}"><i class="fa fa-circle-o"></i> Lịch làm việc </a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/load/vbm') ? 'active' : ''  }}">
+            <a href="{{route('load-vbm')}}"><i class="fa fa-circle-o"></i> Văn bản mới </a>
+          </li>
+          <li class="divider"></li>
+          <li class="{{ Request::is('toa-soan/load/tintt') ? 'active' : ''  }}">
+            <a href="{{route('load-tintt')}}"><i class="fa fa-circle-o"></i> Tin trong tỉnh  </a>
+          </li>
+          <li class="{{ Request::is('toa-soan/load/tintn') ? 'active' : ''  }}">
+            <a href="{{route('load-tintn')}}"><i class="fa fa-circle-o"></i> Tin trong nước  </a>
+          </li>
+          <li class="{{ Request::is('toa-soan/load/tinqt') ? 'active' : ''  }}">
+            <a href="{{route('load-tinqt')}}"><i class="fa fa-circle-o"></i> Tin quốc tế  </a>
+          </li>
+
+        </ul>
+      </li>
+
       <li class="{{ Request::is('toa-soan/tin-bai/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-newspaper-o"></i> <span> Tin, Bài</span>

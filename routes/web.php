@@ -237,15 +237,16 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('config/user/permission/update', 'AdminController@postUpdatePermission')->name('update-permission');
 
 
+        Route::group(['prefix'=>'load'], function () {
 
-
-        //Load
-        Route::get('load-cddh','DichVuCongController@getCDDH');
-        Route::get('load-llv','DichVuCongController@getLLV');
-        Route::get('load-vbm','DichVuCongController@getVBM');
-        Route::get('load-tintt','DichVuCongController@getTinTT');
-        Route::get('load-tintn','DichVuCongController@getTinTN');
-        Route::get('load-tinqt','DichVuCongController@getTinQT');
+            //Load
+            Route::get('cddh', 'DichVuCongController@getCDDH')->name('load-cddh');
+            Route::get('llv', 'DichVuCongController@getLLV')->name('load-llv');
+            Route::get('vbm', 'DichVuCongController@getVBM')->name('load-vbm');
+            Route::get('tintt', 'DichVuCongController@getTinTT')->name('load-tintt');
+            Route::get('tintn', 'DichVuCongController@getTinTN')->name('load-tintn');
+            Route::get('tinqt', 'DichVuCongController@getTinQT')->name('load-tinqt');
+        });
 
         Route::group(['prefix'=>'cau-hinh'], function () {
 
