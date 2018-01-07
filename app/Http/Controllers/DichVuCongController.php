@@ -82,7 +82,7 @@ class DichVuCongController extends Controller
 
         $client = new Client();
 
-        for ($i=1;$i<10;$i++) {
+        for ($i=1;$i<4;$i++) {
 
             $url = 'http://dhtn.hatinh.gov.vn/dhtn/portal/folder/chuong-trinh-cong-tac/'.$i.'.htm';
 
@@ -120,7 +120,9 @@ class DichVuCongController extends Controller
             });
         }
 
-        return redirect()->back();
+        $llv = LichCongTac::all();
+
+        return response()->json($llv);
     }
 
     public function getVBM()
