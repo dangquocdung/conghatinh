@@ -120,7 +120,7 @@ class DichVuCongController extends Controller
             });
         }
 
-        $llv = LichCongTac::all();
+        $llv = LichCongTac::where('loaitin_id','74')->get();
 
         return response()->json($llv);
     }
