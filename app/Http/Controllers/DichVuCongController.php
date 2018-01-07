@@ -78,42 +78,47 @@ class DichVuCongController extends Controller
     public function getLLV()
     {
 
-//        LichCongTac::where('loaitin_id','74')->delete();
+        LichCongTac::where('loaitin_id','74')->delete();
 
         $client = new Client();
 
-        $crawler = $client->request('GET', 'http://dhtn.hatinh.gov.vn/dhtn/portal/folder/chuong-trinh-cong-tac/3.htm');
+        for ($i=1;$i<10;$i++) {
 
-        $crawler->filter('table>tbody>tr')->each(function ($node) {
+            $url = 'http://dhtn.hatinh.gov.vn/dhtn/portal/folder/chuong-trinh-cong-tac/'.$i.'.htm';
 
-            if ($node->filter('td')->count() >0){
+            $crawler = $client->request('GET', $url);
 
-                $exist = LichCongTac::where('slug',str_slug($node->filter('td')->eq(1)->text()))->first();
+            $crawler->filter('table>tbody>tr')->each(function ($node) {
 
-                if (empty($exist)) {
+                if ($node->filter('td')->count() > 0) {
 
-                    $vb = new LichCongTac;
-                    $vb->user_id = Auth::user()->id;
-                    $vb->loaitin_id = '74';
-                    $vb->name = trim($node->filter('td')->eq(1)->text());
-                    $vb->slug = str_slug($node->filter('td')->eq(1)->text());
-                    $vb->noidung = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
-                    $vb->daduyet = '1';
-                    $vb->save();
+                    $exist = LichCongTac::where('slug', str_slug($node->filter('td')->eq(1)->text()))->first();
 
-                    $vbkid = $vb->id;
+                    if (empty($exist)) {
 
-                    $tvbk = new TepVanBanKhac();
+                        $vb = new LichCongTac;
+                        $vb->user_id = Auth::user()->id;
+                        $vb->loaitin_id = '74';
+                        $vb->name = trim($node->filter('td')->eq(1)->text());
+                        $vb->slug = str_slug($node->filter('td')->eq(1)->text());
+                        $vb->noidung = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
+                        $vb->daduyet = '1';
+                        $vb->save();
 
-                    $tvbk->vanbankhac_id = $vbkid;
+                        $vbkid = $vb->id;
 
-                    $tvbk->path = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
+                        $tvbk = new TepVanBanKhac();
 
-                    $tvbk->save();
+                        $tvbk->vanbankhac_id = $vbkid;
+
+                        $tvbk->path = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
+
+                        $tvbk->save();
+                    }
+
                 }
-
-            }
-        });
+            });
+        }
 
         return redirect()->back();
     }
