@@ -18,16 +18,15 @@
 @section('content')
   <div class="row">
     <div class="col-sm-12">
-      {{--Box--}}
 
-        @foreach($chuyenmuc->sortbydesc('thutu') as $cm)
-            @if (count($cm->tintuc) > 0)
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">{{ $cm->name }}</h3>
-            </div>
+        @foreach($chuyenmuc->whereIn('id',['1','2'])->sortbydesc('id') as $cm)
+          {{--Box--}}
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">{{ $cm->name }} &nbsp;({{ count($cm->tintuc) }}) </h3>
+                </div>
 
-              <div class="box-body">
+                <div class="box-body">
                   <div class="card">
                       <ul class="nav nav-tabs" role="tablist">
 
@@ -96,7 +95,7 @@
                                                       <tbody>
 
 
-                                                                  @foreach ($lt->tintuc->sortbydesc('id') as $key=>$tin)
+                                                                  @foreach ($lt->tintuc->sortbydesc('id')->take(50) as $key=>$tin)
 
 
                                                                       <tr>
@@ -222,11 +221,9 @@
                           </div>
                       </div>
                   </div>
-              </div>
-
-          </div>
+                </div>
+            </div>
           {{--End box--}}
-            @endif
 
         @endforeach
     </div>
