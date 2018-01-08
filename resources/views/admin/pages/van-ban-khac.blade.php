@@ -169,7 +169,7 @@
 
               "iDisplayLength": 25,
 
-              "order": [[ 0, "desc" ]],
+              "order": [[ 0, "asc" ]],
 
               "sType": "numeric",
 
