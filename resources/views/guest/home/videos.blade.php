@@ -101,9 +101,11 @@
                         <div class="video-thumbnail">
                             <a href="{{ route('thu-vien-video',$vd->id) }}">
                                 <img data-u="image" src="{{ $vd->loaivideo->cover_image }}" title="{{ $vd->name }}" />
-                                <p style="position: absolute; bottom: 10px; right:10px; font-size: 1.5em; color: #ffffff;">
-                                    {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y')}}
-                                </p>
+
+                                    <p style="position: absolute; bottom: 10px; right:10px; font-size: 1.1em; color: #ffffff; background: url(./images/transparent.png) repeat-x">
+                                        {{ \Carbon\Carbon::parse($vd->ngayphat)->format('d-m-Y')}}
+                                    </p>
+
                             </a>
 
                         </div>

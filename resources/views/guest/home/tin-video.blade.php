@@ -103,7 +103,7 @@
                                 <a href="{{route('chi-tiet-tin',[$tv->loaitin->chuyenmuc->slug,$tv->loaitin->slug,'tin-tuc',$tv->id,$tv->slug])}}">
                                     <img data-u="image" src="{{ $tv->avatar }}" title="{{ $tv->name }}" />
                                 </a>
-                                <p style="position: absolute; bottom: 10px; left:5px; right:5px; font-size: 1.3em; color: #ffffff; text-align: center;">
+                                <p style="background: url(./images/transparent.png) repeat-x; position: absolute; bottom: 10px; left:5px; right:5px; font-size: 1.1em; color: #ffffff; text-align: center;">
                                     {{ $tv->name }}
                                 </p>
                             </div>

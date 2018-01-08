@@ -103,7 +103,7 @@
                                 <a href="{{route('chi-tiet-tin',[$ta->loaitin->chuyenmuc->slug,$ta->loaitin->slug,'tin-tuc',$ta->id,$ta->slug])}}">
                                     <img data-u="image" src="{{ $ta->avatar }}" title="{{ $ta->name }}" />
                                 </a>
-                                <p style="position: absolute; bottom: 10px; left:5px; right:5px; font-size: 1.3em; color: #ffffff; text-align: center;">
+                                <p style="background: url(./images/transparent.png) repeat-x; position: absolute; bottom: 10px; left:5px; right:5px; font-size: 1.1em; color: #ffffff; text-align: center;">
                                     {{ $ta->name }}
                                 </p>
                             </div>
