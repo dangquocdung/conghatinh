@@ -18,12 +18,17 @@
 @section('content')
   <div class="row">
     <div class="col-sm-12">
+
+        @php
+
+            $cm = $chuyenmuc->where('id','3')->first();
+
+        @endphp
       {{--Box--}}
-        @foreach($chuyenmuc->sortbydesc('thutu') as $cm)
-            @if (count($cm->vanban) > 0)
+
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Văn bản Chỉ đạo, Điều hành</h3>
+          <h3 class="box-title">Văn bản Chỉ đạo, Điều hành &nbsp;({{ count($cm->vanban) }})</h3>
         </div>
           <div class="box-body">
               <div class="card">
@@ -82,7 +87,7 @@
                             </thead>
                             <tbody>
 
-                            @foreach ($lt->vanban->sortbydesc('id') as $key=>$vb)
+                            @foreach ($lt->vanban->sortbydesc('id')->take(50) as $key=>$vb)
 
                                           <tr>
                                             <td>{{++$key}}</td>
@@ -162,8 +167,7 @@
           </div>
       </div>
       {{--End box--}}
-            @endif
-        @endforeach
+
     </div>
 
 

@@ -23,7 +23,7 @@
             @if (count($cm->vanbankhac) > 0)
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Văn bản khác </h3>
+          <h3 class="box-title">{{ $cm->name }} &nbsp;({{ count($cm->vanbankhac) }})</h3>
         </div>
         <!-- /.box-header -->
 
@@ -59,7 +59,7 @@
                           @foreach($cm->loaitin as $lt)
                               <div class="to-chuc tab-pane
 
-                                      @if ($loop->iteration == 1)
+                                      @if ($lt->thutu == '1')
                                       active " id="{{$lt->slug}}">
 
                                   @else
@@ -84,7 +84,7 @@
                                     <tbody>
 
 
-                                    @foreach ($lt->vanbankhac->sortbydesc('id') as $key=>$vbk)
+                                    @foreach ($lt->vanbankhac->sortbydesc('id')->take(50) as $key=>$vbk)
                                         <tr>
                                             <td>{{ ++$key }}</td>
                                             <td>{{ $vbk->loaitin->name }}</td>
