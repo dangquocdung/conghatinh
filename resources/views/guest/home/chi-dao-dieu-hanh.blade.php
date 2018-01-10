@@ -29,7 +29,7 @@
                             <div class="tab-content">
                                 @foreach($cm->loaitin->sortby('thutu')->where('show','1') as $lt)
                                     <div class="to-chuc tab-pane
-                                    @if ($lt->thutu == 1)
+                                    @if ($loop->iteration == 1)
                                             active " id="{{$lt->slug}}">
 
                                         @else
@@ -144,7 +144,7 @@
                                                             </a>
                                                         </td>
                                                         <td style="text-align: center">
-                                                            {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
+                                                            {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('Y-m-d')}}
                                                         </td>
                                                         <td>
                                                             {{$vb->trichyeu}}
