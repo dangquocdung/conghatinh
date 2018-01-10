@@ -24,7 +24,7 @@ class DichVuCongController extends Controller
     public function getCDDH()
     {
 
-        VanBan::where('loaitin_id','38')->delete();
+//        VanBan::where('loaitin_id','38')->delete();
 
         for ($i=1;$i<10;$i++) {
 
@@ -78,7 +78,7 @@ class DichVuCongController extends Controller
     public function getLLV()
     {
 
-        LichCongTac::where('loaitin_id','74')->delete();
+//        LichCongTac::where('loaitin_id','74')->delete();
 
         $client = new Client();
 
@@ -128,7 +128,7 @@ class DichVuCongController extends Controller
     public function getVBM()
     {
 
-        VanBan::where('loaitin_id','90')->delete();
+//        VanBan::where('loaitin_id','90')->delete();
 
         $client = new Client();
 
