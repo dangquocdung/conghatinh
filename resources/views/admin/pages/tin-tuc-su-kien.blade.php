@@ -54,7 +54,7 @@
                       <!-- Tab panes -->
                       <div class="tab-content">
                           <div class="tab-content">
-                              @foreach($cm->loaitin as $lt)
+                              @foreach($cm->loaitin->sortby('thutu') as $lt)
                                   <div class="to-chuc tab-pane
 
                                       @if ($loop->iteration == 1)
