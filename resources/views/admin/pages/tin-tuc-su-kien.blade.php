@@ -30,7 +30,7 @@
                   <div class="card">
                       <ul class="nav nav-tabs" role="tablist">
 
-                              @foreach($cm->loaitin as $lt)
+                              @foreach($cm->loaitin->sortby('thutu') as $lt)
 
                                   @if (count($lt->tintuc) > 0)
                                       @if ($loop->iteration == 1)
