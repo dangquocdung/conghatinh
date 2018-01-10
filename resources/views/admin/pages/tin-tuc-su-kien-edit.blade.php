@@ -44,7 +44,7 @@
 
                           <optgroup label="{{ $cm->name}}">
 
-                            @foreach ($cm->loaitin as $lt)
+                            @foreach ($cm->loaitin->orderby('thutu') as $lt)
 
                               @if ($tintuc->loaitin_id == $lt->id )
 

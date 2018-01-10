@@ -38,7 +38,7 @@
                     @foreach ($chuyenmuc->where('show','1') as $cm)
                         @if (count($cm->loaitin)>0)
                           <optgroup label="{{ $cm->name}}">
-                            @foreach ($cm->loaitin as $lt)
+                            @foreach ($cm->loaitin->orderby('thutu') as $lt)
                                 @if ($lt->type == 'tt')
                                     <option value={{ $lt->id }}>{{ $lt->name}}</option>
                                   @endif

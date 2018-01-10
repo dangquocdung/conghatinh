@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-        @foreach($chuyenmuc->whereIn('id',['1','2'])->sortbydesc('id') as $cm)
+        @foreach($chuyenmuc->whereIn('id',['1','2','5'])->sortbydesc('id') as $cm)
           {{--Box--}}
             <div class="box box-primary">
                 <div class="box-header with-border">
