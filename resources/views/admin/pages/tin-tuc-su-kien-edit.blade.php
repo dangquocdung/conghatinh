@@ -158,8 +158,8 @@
                           <i class="fa fa-refresh"></i> Nạp lại
                       </button>
                   </div>
-                  
-                  <select name="teptintuc[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp đính kèm" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
+
+                  <select id="teptintuc" name="teptintuc[]" class="form-control select2"  multiple="multiple" data-placeholder="Chọn tệp đính kèm" style="width: 100%;" ondragover="allowDrop(event)" ondrop="drop(event)">
                       @foreach($pdfs as $pdf)
                           @if (in_array($pdf->id,$items))
                               <option value="{{$pdf->id}}" selected>{{ $pdf->id.'-'.$pdf->filename }}</option>
@@ -350,10 +350,10 @@
 
             $.get('/toa-soan/json-tepdinhkem', function (data) {
                 console.log(data);
-                $('select#tepvanban').empty();
+                $('select#teptintuc').empty();
 //                      $('select#tepdinhkem').append('<option value="0" disable="true" selected="true">=== Chọn tệp đính kèm ===</option>');
                 $.each(data, function(index, tdkObj){
-                    $('select#tepvanban').append('<option value="'+ tdkObj.id +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
+                    $('select#teptintuc').append('<option value="'+ tdkObj.id +'">'+ tdkObj.filename + '.' + tdkObj.extension +'</option>');
                 })
             })
         })
