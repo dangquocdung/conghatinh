@@ -1,3 +1,4 @@
+<div class="clearfix"></div>
 <div class="right-box">
 
     {{--    @include(('guest.menu-right.tim-kiem'))--}}
