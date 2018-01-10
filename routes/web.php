@@ -35,15 +35,26 @@ Route::group(['prefix'=>'vi'], function ()
 
 
     Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
-    Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
-    Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
+    Route::get('/chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
+    Route::post('/chuyen-trang/doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
     Route::get('tu-van-ho-tro-phap-ly-doanh-nghiep', 'GuestController@getHoTroPhapLy');
     Route::post('tu-van-ho-tro-phap-ly-doanh-nghiep', 'HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
     Route::get('danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'GuestController@getNguoiPhatNgon');
     Route::post('ds-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
     Route::get('danh-sach-vpdd-pvtt-dang-ky-hoat-dong', 'GuestController@getPhongVienThuongTru');
-    Route::get('/tra-cuu-dvc-truc-tuyen', 'GuestController@tracuuDVC');
 
+
+    Route::group(['prefix'=>'chuyen-trang'], function ()
+    {
+
+        Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
+        Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
+
+        Route::get('/tra-cuu-dvc-truc-tuyen', 'GuestController@tracuuDVC');
+
+
+
+    });
 
 
 
