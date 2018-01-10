@@ -133,7 +133,20 @@
                                                                           <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
 
                                                                           <td>
-                                                                              <strong>{{$tin->name}}</strong>
+                                                                              <strong>
+
+                                                                                  @if ($tin->tinanh == '1')
+                                                                                      &nbsp;<i class="fa fa-camera" title="Tin ảnh "></i>
+
+                                                                                  @endif
+                                                                                  @if ($tin->tinvideo == '1')
+                                                                                      &nbsp;<i class="fa fa-video-camera" title="Tin Video "></i>
+
+                                                                                  @endif
+
+                                                                                  {{$tin->name}}
+
+                                                                              </strong>
                                                                               <br>
 
 
