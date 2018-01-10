@@ -144,7 +144,7 @@
                                                             </a>
                                                         </td>
                                                         <td style="text-align: center">
-                                                            {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('Y-m-d')}}
+                                                            {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
                                                         </td>
                                                         <td>
                                                             {{$vb->trichyeu}}
