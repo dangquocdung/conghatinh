@@ -32,7 +32,7 @@
                      <div class="loai-tin">
 
                          @if (count($lt->tintuc) > 0)
-                            @foreach ($tintuc->where('daduyet','1')->sortByDesc('id') as $tin)
+                            @foreach ($lt->tintuc->where('daduyet','1')->sortByDesc('id') as $tin)
                                  <div class="news-main" style="padding: 0;">
                                     <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
 
@@ -100,7 +100,7 @@
                                  </thead>
 
                                  <tbody>
-                                 @foreach($tintuc->where('daduyet','1')->sortByDesc('ngaybanhanh') as $vb)
+                                 @foreach($lt->vanban->where('daduyet','1')->sortByDesc('ngaybanhanh') as $vb)
                                      <tr>
                                          <td>
                                              <a href="{{ route('chi-tiet-tin',[$lt->chuyenmuc->slug,$lt->slug,'van-ban',$vb->id,$vb->slug]) }}" class="news-title bold">
@@ -134,7 +134,7 @@
                                      <th>Tệp đính kèm</th>
                                  </thead>
                                  <tbody>
-                                 @foreach($tintuc->where('daduyet','1')->sortByDesc('ngaybanhanh') as $lct)
+                                 @foreach($lt->vanbankhac->where('daduyet','1')->sortByDesc('ngaybanhanh') as $lct)
                                      <tr>
                                          <td>
                                              {{ $loop->iteration }}
