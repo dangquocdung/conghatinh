@@ -139,7 +139,7 @@
 							@if (count($tin->teptintuc) > 0)
 								<div class="noi-dung">
 									@foreach($tin->teptintuc as $ttt)
-										<iframe src="{{ $ttt->path }}" width="100%" height="640px"> </iframe>
+										<iframe src="{{ $ttt->path }}" width="100%" height="860px"> </iframe>
 									@endforeach
 								</div>
 							@endif
