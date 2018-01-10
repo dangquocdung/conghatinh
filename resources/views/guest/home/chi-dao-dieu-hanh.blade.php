@@ -126,13 +126,13 @@
                                                         Trích yếu
                                                     </th>
                                                     <th class="col-md-1">
-                                                        <i class="fa fa-paperclip" aria-hidden="true">
+                                                        <i class="fa fa-paperclip" aria-hidden="true"></i>
                                                     </th>
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
-                                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(3) as $vb)
+                                                @foreach($lt->vanban->where('daduyet','1')->sortByDesc('ngaybanhanh')->take(3) as $vb)
                                                     <tr>
                                                         <td>
                                                             {{ $loop->iteration }}
