@@ -16,8 +16,9 @@
         <div class="tab-pane fade in active" id="tab1">
             <div id="tin-noi-bat">
                 <ul>
-                    @foreach($chuyenmuc->where('id','2') as $cm)
-                        @foreach ($cm->tintuc->where('daduyet','1')->where('noibat','1')->sortbydesc('id')->take(7) as $tnb)
+                    {{--@foreach($chuyenmuc->whereIn('id',['2','5']) as $cm)--}}
+{{--                        @foreach ($cm->tintuc->where('daduyet','1')->where('noibat','1')->sortbydesc('id')->take(7) as $tnb)--}}
+                        @foreach($tinnoibat as $tnb)
                             <li>
                                 <div class="hot-news-block">
 
@@ -45,7 +46,7 @@
                                 </div>
                             </li>
                         @endforeach
-                    @endforeach
+                    {{--@endforeach--}}
                 </ul>
                 <div class="xem-tiep" style="float:right; padding-bottom: 8px;">
                     <a href="/vi/tin-noi-bat" style="text-decoration: none;"><em>Xem tiếp... <i class="fa fa-angle-double-right" aria-hidden="true"></i></em></a>
