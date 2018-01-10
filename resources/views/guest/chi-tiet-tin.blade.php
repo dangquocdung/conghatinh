@@ -99,20 +99,20 @@
 
 							<script>
 
-                                $(document).ready(function () {
-
-                                    $('#tin-noi-bat-left').scrollToFixed({
-                                        marginTop: 50,
+//                                $(document).ready(function () {
+//
+//                                    $('#tin-noi-bat-left').scrollToFixed({
+//                                        marginTop: 50,
                                         // neither of these fixes the problem:
                                         // removeOffset, offsets
-                                        limit: function() {
-                                            var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
-                                            return limit;
-                                        },
-                                        removeOffsets: true,
-                                        zIndex: 999
-                                    });
-                                });
+//                                        limit: function() {
+//                                            var limit = $('#tag').offset().top + $('#tag').outerHeight(true) - $('#tin-noi-bat-left').outerHeight(true);
+//                                            return limit;
+//                                        },
+//                                        removeOffsets: true,
+//                                        zIndex: 999
+//                                    });
+//                                });
 
 
 							</script>
