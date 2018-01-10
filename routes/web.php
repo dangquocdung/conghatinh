@@ -5,7 +5,9 @@ Route::feeds();
 Route::get('/', 'GuestController@index')->name('trang-chu');
 
 
-Route::get('/tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
+Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
+Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
+Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
 
 
 //Route::get('/update-slug-van-ban', 'VanBanController@updateSlug');
@@ -42,19 +44,6 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('danh-sach-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'GuestController@getNguoiPhatNgon');
     Route::post('ds-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
     Route::get('danh-sach-vpdd-pvtt-dang-ky-hoat-dong', 'GuestController@getPhongVienThuongTru');
-
-
-    Route::group(['prefix'=>'chuyen-trang'], function ()
-    {
-
-        Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
-        Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
-
-        Route::get('/tra-cuu-dvc-truc-tuyen', 'GuestController@tracuuDVC');
-
-
-
-    });
 
 
 
