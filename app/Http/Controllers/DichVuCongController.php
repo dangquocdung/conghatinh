@@ -128,6 +128,8 @@ class DichVuCongController extends Controller
     public function getVBM()
     {
 
+        VanBan::where('loaitin_id','90')->delete();
+
         $client = new Client();
 
         $crawler = $client->request('GET', 'http://congbao.hatinh.gov.vn/vbpq_hatinh.nsf/VwAllDocNew');
@@ -150,7 +152,8 @@ class DichVuCongController extends Controller
                     $vb->ngaybanhanh = Carbon::parse(trim( str_replace("/","-", $node->filter('td')->eq(2)->text())  )  );
 
                     $vb->trichyeu = trim($node->filter('td')->eq(4)->text());
-                    $vb->slug = str_slug(trim($node->filter('td')->eq(3)->text()));
+                    $vb->slug = str_slug(trim($node->filter('td')->eq(4)->text()));
+                    $vb->daduyet = '1';
                     $vb->save();
 
                     $vbid = $vb->id;
