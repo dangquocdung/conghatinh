@@ -39,8 +39,8 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('duong-day-nong-so-ban-nganh-huyen-thi-thanh', 'GuestController@getHotLine')->name('duong-day-nong');
     Route::get('tu-van-ho-tro-phap-ly-doanh-nghiep', 'GuestController@getHoTroPhapLy');
     Route::post('tu-van-ho-tro-phap-ly-doanh-nghiep', 'HoTroPhapLyController@store')->name('post-ho-tro-phap-ly');
-    Route::get('ds-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'GuestController@getNguoiPhatNgon');
-    Route::post('ds-nguoi-phat-ngon-va-cung-cap-thong-tin-cho-bao-chi', 'NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
+    Route::get('ds-nguoi-phat-ngon-cung-cap-thong-tin-cho-bao-chi', 'GuestController@getNguoiPhatNgon');
+    Route::post('ds-nguoi-phat-ngon-cung-cap-thong-tin-cho-bao-chi', 'NguoiPhatNgonController@store')->name('post-nguoi-phat-ngon');
     Route::get('ds-vpdd-pvtt-dang-ky-hoat-dong', 'GuestController@getPhongVienThuongTru');
 
 
