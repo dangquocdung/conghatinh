@@ -24,10 +24,7 @@ class DichVuCongController extends Controller
 
     public function getDNH()
     {
-
-
-
-        $url = "/load-dnh";
+        $url = "https://hatinh.top/load-dnh";
 
         $client = new Client();
 
@@ -35,15 +32,12 @@ class DichVuCongController extends Controller
 
         $crawler->filter('table>tbody>tr')->each(function ($node) {
 
-            if ($node->filter('td')->count() > 0) {
+
 
                 print($node->filter('td')."<br>");
 
-            }
+
         });
-
-
-        return redirect()->back();
     }
 
     public function getCDDH()
