@@ -32,7 +32,10 @@ class DichVuCongController extends Controller
 
         $crawler->filter('table>tbody>tr')->each(function ($node) {
 
-            print($node->filter('td')->text()."<br>");
+            print($node->filter('td')->eq(0)->text()."<br>");
+            print($node->filter('td')->eq(1)->text()."<br>");
+            print($node->filter('td')->eq(2)->text()."<br>");
+            print($node->filter('td')->eq(3)->text()."<hr>");
 
         });
     }
