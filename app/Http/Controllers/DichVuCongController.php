@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\VanBan;
 use App\TepVanBan;
 use Carbon\Carbon;
+use App\dnhcqnn;
 
 class DichVuCongController extends Controller
 {
@@ -20,6 +21,30 @@ class DichVuCongController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function getDNH()
+    {
+
+
+
+        $url = "/load-dnh";
+
+        $client = new Client();
+
+        $crawler = $client->request('GET', $url);
+
+        $crawler->filter('table>tbody>tr')->each(function ($node) {
+
+            if ($node->filter('td')->count() > 0) {
+
+                print($node->filter('td')."<br>");
+
+            }
+        });
+
+
+        return redirect()->back();
+    }
 
     public function getCDDH()
     {

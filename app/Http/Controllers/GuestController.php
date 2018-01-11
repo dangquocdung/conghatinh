@@ -73,6 +73,13 @@ class GuestController extends Controller
     }
 
 
+    public function loadDNH()
+    {
+        return view('guest.dnh-cqnntl');
+
+    }
+
+
 //    public function getVideo($id=null)
 //    {
 //

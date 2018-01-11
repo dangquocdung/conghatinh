@@ -5,6 +5,9 @@ Route::feeds();
 Route::get('/', 'GuestController@index')->name('trang-chu');
 
 
+Route::get('load-dnh', 'GuestController@loadDNH');
+
+
 Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
 Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
@@ -244,6 +247,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
             Route::get('tintt', 'DichVuCongController@getTinTT')->name('load-tintt');
             Route::get('tintn', 'DichVuCongController@getTinTN')->name('load-tintn');
             Route::get('tinqt', 'DichVuCongController@getTinQT')->name('load-tinqt');
+            Route::get('dnh', 'DichVuCongController@getDNH')->name('load-dnh');
         });
 
         Route::group(['prefix'=>'cau-hinh'], function () {
