@@ -17,8 +17,9 @@ class CreateDnhcqnnsTable extends Migration
             $table->increments('id');
 
             $table->string('doanhnghiep');
-            $table->string('diachi');
+            $table->string('diachi')->nullable();
             $table->text('cauhoi');
+            $table->timestamp('ngayhoi')->nullable();
             $table->boolean('daduyet')->default(false);
             $table->string('nguoitraloi')->nullable();
             $table->string('chucvu')->nullable();

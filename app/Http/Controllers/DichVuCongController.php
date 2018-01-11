@@ -31,11 +31,23 @@ class DichVuCongController extends Controller
         $crawler = $client->request('GET', $url);
 
         $crawler->filter('table>tbody>tr')->each(function ($node) {
+            if ($node->filter('td')->count() > 0) {
 
-            print($node->filter('td')->eq(0)->text()."<br>");
-            print($node->filter('td')->eq(1)->text()."<br>");
-            print($node->filter('td')->eq(2)->text()."<br>");
-            print($node->filter('td')->eq(3)->text()."<hr>");
+
+                print($node->filter('td')->eq(0)->text() . "<br>");
+                print($node->filter('td')->eq(1)->text() . "<br>");
+                print($node->filter('td')->eq(2)->text() . "<br>");
+                print($node->filter('td')->eq(3)->text() . "<hr>");
+
+                $dnh = new dnhcqnn();
+                $dnh->doanhnghiep=$node->filter('td')->eq(1)->text();
+                $dnh->cauhoi = $node->filter('td')->eq(0)->text();
+                $dnh->daduyet = '1';
+                $dnh->save();
+            }
+
+
+
 
         });
     }
