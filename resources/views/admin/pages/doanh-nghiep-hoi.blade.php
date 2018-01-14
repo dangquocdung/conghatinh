@@ -32,6 +32,7 @@
                           <th>Câu hỏi</th>
                           <th>Cơ quan trả lời </th>
                           <th>Câu Trả lời</th>
+                          <th></th>
                       </tr>
                       </thead>
                           <tbody>
@@ -41,6 +42,40 @@
                               <tr>
                                   <td>
                                       {{ $dnh->id }}
+
+                                  </td>
+                                  <td>{{ \Carbon\Carbon::parse($dnh->created_at)->format('d-m-Y H:i:s') }} <br>{{ $dnh->doanhnghiep }}</td>
+                                  <td>{{ $dnh->diachi }}</td>
+                                  <td class="col-md-3 more">
+                                      {!! $dnh->cauhoi !!}
+                                  </td>
+                                  <td>{{ $dnh->coquantraloi }}</td>
+                                  <td class="col-md-3">
+                                      @if (strlen($dnh->cautraloi) >0 )
+
+                                          <a class="btn btn-info btn-xs chinh-sua" data-toggle="modal" data-target="#tra-loi" dnh-id="{{ $dnh->id }}" cq-id="{{$dnh->coquan_id}}" ntl="{{$dnh->nguoitraloi}}" cv="{{$dnh->chucvu}}" ctl="{{$dnh->cautraloi}}">Chỉnh sửa</a>
+
+
+
+                                          Ngày {{ \Carbon\Carbon::parse($dnh->ngaytraloi)->format('d-m-Y H:i:s') }} <br>
+                                          {{--<strong>{{ $dnh->nguoitraloi }}</strong> --}}
+                                          {{--<em>({{ $dnh->chucvu }}):</em>--}}
+                                          <span class="more">
+                      {!! $dnh->cautraloi !!}
+
+                    </span>
+
+                                      @else
+
+
+
+                                          <div class="pull-left gap-left gap-10">
+                                              <a class="btn btn-info btn-xs tra-loi" data-toggle="modal" data-target="#tra-loi" dnh-id="{{ $dnh->id }}" cq-id="{{$dnh->coquan_id}}">Trả lời</a>
+                                          </div>
+                                      @endif
+
+                                  </td>
+                                  <td>
                                       @if ($dnh->daduyet == '1')
                                           {{--<span class="label label-success">Đã duyệt đăng</span>--}}
                                           <div class="pull-left gap-left gap-10">
@@ -79,35 +114,6 @@
                                                   message="Bạn chắc chắn muốn xóa?">
                                           </confirm-modal>
                                       </div>
-                                  </td>
-                                  <td>{{ \Carbon\Carbon::parse($dnh->created_at)->format('d-m-Y H:i:s') }} <br>{{ $dnh->doanhnghiep }}</td>
-                                  <td>{{ $dnh->diachi }}</td>
-                                  <td class="col-md-3 more">
-                                      {!! $dnh->cauhoi !!}
-                                  </td>
-                                  <td>{{ $dnh->coquantraloi }}</td>
-                                  <td class="col-md-3">
-                                      @if (strlen($dnh->cautraloi) >0 )
-
-                                          <a class="btn btn-info btn-xs chinh-sua" data-toggle="modal" data-target="#tra-loi" dnh-id="{{ $dnh->id }}" cq-id="{{$dnh->coquan_id}}" ntl="{{$dnh->nguoitraloi}}" cv="{{$dnh->chucvu}}" ctl="{{$dnh->cautraloi}}">Chỉnh sửa</a>
-
-
-
-                                          Ngày {{ \Carbon\Carbon::parse($dnh->ngaytraloi)->format('d-m-Y H:i:s') }} <br>
-                                          {{--<strong>{{ $dnh->nguoitraloi }}</strong> --}}
-                                          {{--<em>({{ $dnh->chucvu }}):</em>--}}
-                                          <span class="more">
-                      {!! $dnh->cautraloi !!}
-
-                    </span>
-
-                                      @else
-
-                                          <div class="pull-left gap-left gap-10">
-                                              <a class="btn btn-info btn-xs tra-loi" data-toggle="modal" data-target="#tra-loi" dnh-id="{{ $dnh->id }}" cq-id="{{$dnh->coquan_id}}">Trả lời</a>
-                                          </div>
-                                      @endif
-
                                   </td>
 
                               </tr>
