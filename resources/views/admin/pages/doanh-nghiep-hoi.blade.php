@@ -169,7 +169,7 @@
 
         $(document).ready(function() {
             // Configure/customize these variables.
-            var showChar = 100;  // How many characters are shown by default
+            var showChar = 150;  // How many characters are shown by default
             var ellipsestext = "...";
             var moretext = "Nhiều hơn >>";
             var lesstext = "<< Ít hơn";
