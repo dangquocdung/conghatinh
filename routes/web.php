@@ -17,7 +17,7 @@ Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DnhcqnnController@store')->name('p
 
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'GuestController@getDoanhNghiepHoiChiTiet')->name('doanh-nghiep-hoi');
 
-Route::post('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'DnhcqnnController@update')->name('update-doanh-nghiep-hoi');
+Route::post(['doanh-nghiep-hoi-cqnn-tra-loi/{id}','middleware' => 'auth'], 'DnhcqnnController@update')->name('update-doanh-nghiep-hoi');
 
 //Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
 

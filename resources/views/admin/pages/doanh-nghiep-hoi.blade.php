@@ -135,6 +135,39 @@
     </div>
 
 
+      <!-- Modal Edit Album-->
+      <div class="modal modal-default fade" id="tra-loi">
+          <div class="modal-dialog">
+              <div class="modal-content" style="padding: 0">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" style="padding-bottom: 0">Trả lời câu hỏi</h4>
+                  </div>
+                  <form action="{{ route('update-doanh-nghiep-hoi') }}" method="post" id="role-save-form">
+                      {{csrf_field()}}
+
+                      <div class="modal-body">
+
+
+                          <input type="hidden" name="id" id="dnh-id">
+
+                          
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                  </form>
+
+              </div>
+              <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+
   </div>
 
 @endsection
