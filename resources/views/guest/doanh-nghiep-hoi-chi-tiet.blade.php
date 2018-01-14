@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label>Câu hỏi </label>
-                            <p>{{ $dnh->cauhoi }}</p>
+                            <p>{!! $dnh->cauhoi !!} </p>
                         </div>
 
                         <div class="form-group">
