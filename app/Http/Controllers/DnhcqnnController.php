@@ -89,7 +89,7 @@ class DnhcqnnController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dnhcqnn::where('id',$id)->update($request->all());
+        dnhcqnn::where('id',$id)->update($request->except(['_token','_wysihtml5_mode']));
 
 //        flash('Câu hỏi của bạn đã được gởi đến BBT, xin cảm ơn!');
 
