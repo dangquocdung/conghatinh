@@ -120,68 +120,7 @@
       </div>
       {{--End box--}}
     </div>
-
-    <!-- Modal Edit Album-->
-    <div class="modal modal-default fade" id="tra-loi">
-      <div class="modal-dialog">
-        <div class="modal-content" style="padding: 0">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" style="padding-bottom: 0">Trả lời câu hỏi</h4>
-          </div>
-          <form action="{{ route('update-doanh-nghiep-hoi') }}" method="post" id="role-save-form">
-            {{csrf_field()}}
-
-            <div class="modal-body">
-
-
-              <input type="hidden" name="id" id="dnh-id">
-
-              <div class="form-group">
-                <label>Đơn vị trả lời </label>
-                <select name="coquan_id" class="form-control" disabled>
-                  @foreach($coquan as $cq)
-                    <option value="{{ $cq->id }}">{{ $cq->name }}</option>
-                  @endforeach
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Người trả lời </label>
-                <input type="text" class="form-control" name="nguoitraloi" id="nguoitraloi" required>
-                @if ($errors->has('nguoitraloi'))
-                  <div class="error">{{ $errors->first('nguoitraloi') }}</div>
-                @endif
-              </div>
-              <div class="form-group">
-                <label>Chức vụ </label>
-                <input type="text" class="form-control" name="chucvu" id="chucvu" required>
-                @if ($errors->has('chucvu'))
-                  <div class="error">{{ $errors->first('chucvu') }}</div>
-                @endif
-              </div>
-
-              <div class="form-group">
-                <label>Câu trả lời </label>
-                <textarea class="form-control textarea" name="cautraloi" id="cautraloi" placeholder="Nhập câu trả lời ở đây"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
-                @if ($errors->has('cautraloi'))
-                  <div class="error">{{ $errors->first('cautraloi') }}</div>
-                @endif
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-          </form>
-
-        </div>
-        <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+      
 
   </div>
 
