@@ -38,7 +38,6 @@
             @foreach($dnhoi as $dnh)
               <tr>
                 <td>
-                  {{ $dnh->id }}
                   @if ($dnh->daduyet == '1')
                     {{--<span class="label label-success">Đã duyệt đăng</span>--}}
                     <div class="pull-left gap-left gap-10">
@@ -120,7 +119,7 @@
       </div>
       {{--End box--}}
     </div>
-      
+
 
   </div>
 
