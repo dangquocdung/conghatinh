@@ -108,4 +108,19 @@ class DnhcqnnController extends Controller
     {
         //
     }
+
+
+    public function postDuyet(Request $request)
+    {
+        $id = $request->input('id');
+
+
+        $dnh = dnhcqnn::findOrFail($id);
+
+        $dnh->daduyet = $request->input('duyetdang');
+
+        $dnh->save();
+
+        return response(['data' => 'Done'], 200);
+    }
 }
