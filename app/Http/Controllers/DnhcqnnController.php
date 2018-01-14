@@ -16,9 +16,7 @@ class DnhcqnnController extends Controller
      */
     public function index()
     {
-        $dnhoi = dnhcqnn::orderBy('id','decs')->paginate(12);
-
-        return view('admin.pages.doanh-nghiep-hoi',compact('dnhoi'));
+        //
     }
 
     /**
@@ -39,7 +37,25 @@ class DnhcqnnController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v = Validator::make($request->all(),
+            [
+                'doanhnghiep' => 'required|min:10|max:191',
+                'diachi' => 'required|min:10|max:191',
+                'cauhoi' => 'required|min:20'
+
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
+        dnhcqnn::create($request->all());
+
+        flash('Câu hỏi của bạn đã được gởi đến BBT, xin cảm ơn!');
+
+        return redirect()->back();
     }
 
     /**

@@ -13,9 +13,11 @@ Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
 
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
 
+Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DnhcqnnController@store')->name('post-doanh-nghiep-hoi');
+
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'GuestController@getDoanhNghiepHoiChiTiet')->name('doanh-nghiep-hoi');
 
-Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
+//Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
 
 
 //Route::get('/update-slug-van-ban', 'VanBanController@updateSlug');
@@ -96,6 +98,7 @@ Route::get('/api/nguoi-phat-ngon','GuestController@apiNguoiPhatNgon');
 Route::get('/api/phong-vien-thuong-tru','GuestController@apiPhongVienThuongTru');
 
 Route::get('/dang-nhap', function () {return view('admin.pages.login');})->name('dang-nhap');
+
 Route::post('/dang-nhap', 'UserController@login')->name('login');
 
 Route::post('forgot-password/send','UserController@postForgotPassword')->name('forgot-password-send');
