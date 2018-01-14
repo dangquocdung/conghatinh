@@ -19,7 +19,7 @@
         <div class="input-box" style="padding: 5px">
             <div class="dv" style="padding-bottom: 5px">
 
-                <form action="{{ route('post-lien-he-cong-tac') }}" method="post">
+                <form action="{{ route('update-doanh-nghiep-hoi',$dnh->id) }}" method="post">
                     {{ csrf_field() }}
                     <div class="box-body">
 

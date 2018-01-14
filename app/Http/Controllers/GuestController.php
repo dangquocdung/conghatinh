@@ -200,16 +200,16 @@ class GuestController extends Controller
         switch ($type){
 
             case 'tin-tuc':
-                $tin = TinTuc::where('daduyet','1')->find($id);
+                $tin = TinTuc::where('daduyet','1')->findOrFail($id);
                 event(new TinTucCounter($tin));
                 break;
 
             case 'van-ban':
-                $tin = VanBan::where('daduyet','1')->find($id);
+                $tin = VanBan::where('daduyet','1')->findOrFail($id);
                 break;
 
             case 'van-ban-khac':
-                $tin = LichCongTac::where('daduyet','1')->find($id);
+                $tin = LichCongTac::where('daduyet','1')->findOrFail($id);
                 break;
         }
 

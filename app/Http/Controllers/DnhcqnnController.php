@@ -87,9 +87,13 @@ class DnhcqnnController extends Controller
      * @param  \App\dnhcqnn  $dnhcqnn
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, dnhcqnn $dnhcqnn)
+    public function update(Request $request, $id)
     {
-        //
+        dnhcqnn::where('id',$id)->update($request->all());
+
+//        flash('Câu hỏi của bạn đã được gởi đến BBT, xin cảm ơn!');
+
+        return redirect()->back();
     }
 
     /**
