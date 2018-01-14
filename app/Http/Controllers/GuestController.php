@@ -284,14 +284,18 @@ class GuestController extends Controller
 
     public function getDoanhNghiepHoi()
     {
-
         $dnhoi = dnhcqnn::orderBy('id','decs')->get();
         return view ('guest.doanh-nghiep-hoi',compact('dnhoi'));
     }
 
+    public function getDoanhNghiepHoiChiTiet($id)
+    {
+        $dnh = dnhcqnn::find($id);
+        return view ('guest.doanh-nghiep-hoi-chi-tiet',compact('dnh'));
+    }
+
     public function getHoTroPhapLy()
     {
-
         $linhvuc = Linhvuc::orderby('slug','asc')->get();
         return view ('guest.ho-tro-phap-ly',compact('linhvuc'));
     }

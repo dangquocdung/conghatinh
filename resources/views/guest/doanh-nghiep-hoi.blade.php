@@ -74,9 +74,6 @@
                 }else{
                     $(".input-box").css("display","block");
                 }
-
-
-
             })
         </script>
 
@@ -95,7 +92,7 @@
                 @foreach($dnhoi as $dnh)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $dnh->cauhoi }}</td>
+                        <td><a href="{{ route('doanh-nghiep-hoi',$dnh->id) }}" style="text-decoration: none">{{ $dnh->cauhoi }}</a></td>
                         <td>{{ $dnh->doanhnghiep }}</td>
                         <td>{{ $dnh->coquantraloi }}</td>
                     </tr>

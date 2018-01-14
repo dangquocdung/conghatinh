@@ -9,7 +9,12 @@ Route::get('load-dnh', 'GuestController@loadDNH');
 
 
 Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
+
+
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
+
+Route::get('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'GuestController@getDoanhNghiepHoiChiTiet')->name('doanh-nghiep-hoi');
+
 Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
 
 
