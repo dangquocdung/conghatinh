@@ -196,7 +196,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     //Van ban
     Route::group(['prefix'=>'chuyen-trang'],function (){
 
-//        Route::get('doanh-nghiep-hoi','DoanhNghiepHoiController@index')->name('index-doanh-nghiep-hoi');
+
         Route::get('ho-tro-phap-ly','HoTroPhapLyController@index')->name('index-ho-tro-phap-ly');
         Route::get('gop-y-du-thao-van-ban','DuThaoController@index')->name('index-du-thao-van-ban');
         Route::post('them-du-thao-van-ban','DuThaoController@store')->name('them-du-thao-van-ban');
@@ -208,9 +208,6 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('lien-he-cong-tac', 'LienHeController@index')->name('index-lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('index-gop-y');
 
-//        Route::post('duyet-doanh-nghiep-hoi', 'DoanhNghiepHoiController@postDuyet')->name('duyet-doanh-nghiep-hoi');
-//        Route::post('update-doanh-nghiep-hoi', 'DoanhNghiepHoiController@update')->name('update-doanh-nghiep-hoi');
-//        Route::post('delete-doanh-nghiep-hoi', 'DoanhNghiepHoiController@destroy')->name('delete-doanh-nghiep-hoi');
 
         Route::post('duyet-ho-tro-phap-ly', 'HoTroPhapLyController@postDuyet')->name('duyet-ho-tro-phap-ly');
         Route::post('update-ho-tro-phap-ly', 'HoTroPhapLyController@update')->name('update-ho-tro-phap-ly');
@@ -218,8 +215,6 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
         Route::post('duyet-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@postDuyet')->name('duyet-hoi-dap-truc-tuyen');
         Route::post('tra-loi-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@postTraLoi')->name('tra-loi-hoi-dap-truc-tuyen');
-//        Route::post('update-ho-tro-phap-ly', 'HoTroPhapLyController@update')->name('update-ho-tro-phap-ly');
-//        Route::post('delete-ho-tro-phap-ly', 'HoTroPhapLyController@destroy')->name('delete-ho-tro-phap-ly');
 
 
     });
