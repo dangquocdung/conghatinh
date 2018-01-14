@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label>Câu trả lời </label>
-                            <p>{{ $dnh->cautraloi }}</p>
+                            <p>{!! $dnh->cautraloi !!}</p>
                         </div>
 
                         @role('tbt')
