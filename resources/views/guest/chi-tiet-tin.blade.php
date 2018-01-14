@@ -519,10 +519,6 @@
 
 @endsection
 
-@section('content-right')
-	@include('guest.menu-right.thong-bao')
-@endsection
-
 @section('js')
 
 	<script>

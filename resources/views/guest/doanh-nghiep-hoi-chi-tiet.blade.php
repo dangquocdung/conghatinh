@@ -73,6 +73,9 @@
 
 
         </div>
+
+        @include('guest.layout.tien-ich')
+
     </div>
 @endsection
 
