@@ -37,12 +37,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Địa chỉ </label>
-                            <p>{{ $dnh->diachi }}</p>
+                            <label>Cơ quan trả lời </label>
+                            <p>{{ $dnh->coquantraloi }}</p>
                         </div>
                         <div class="form-group">
-                            <label>Câu hỏi </label>
-                            <p>{{ $dnh->cauhoi }}</p>
+                            <label>Câu trả lời </label>
+                            <p>{{ $dnh->cautraloi }}</p>
                         </div>
 
                         @role('tbt')
