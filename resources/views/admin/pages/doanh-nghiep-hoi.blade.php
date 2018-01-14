@@ -16,9 +16,7 @@
     <div class="col-md-12">
       {{--Box--}}
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Doanh nghiệp hỏi - CQNN trả lời</h3>
-        </div>
+        
         <!-- /.box-header -->
 
           <div class="box-body table-responsive">
