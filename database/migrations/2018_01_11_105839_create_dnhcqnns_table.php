@@ -21,6 +21,7 @@ class CreateDnhcqnnsTable extends Migration
             $table->text('cauhoi');
             $table->timestamp('ngayhoi')->nullable();
             $table->boolean('daduyet')->default(false);
+            $table->string('coquantraloi')->nullable();
             $table->string('nguoitraloi')->nullable();
             $table->string('chucvu')->nullable();
             $table->timestamp('ngaytraloi')->nullable();

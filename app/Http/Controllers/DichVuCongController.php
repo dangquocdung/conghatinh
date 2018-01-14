@@ -40,8 +40,12 @@ class DichVuCongController extends Controller
                 print($node->filter('td')->eq(3)->text() . "<hr>");
 
                 $dnh = new dnhcqnn();
-                $dnh->doanhnghiep=$node->filter('td')->eq(1)->text();
+                $dnh->doanhnghiep = $node->filter('td')->eq(1)->text();
                 $dnh->cauhoi = $node->filter('td')->eq(0)->text();
+                $dnh->ngayhoi = Carbon::parse($node->filter('td')->eq(2)->text());
+                $dnh->ngaytraloi = Carbon::parse($node->filter('td')->eq(2)->text());
+                $dnh->coquantraloi = $node->filter('td')->eq(3)->text();
+
                 $dnh->daduyet = '1';
                 $dnh->save();
             }
