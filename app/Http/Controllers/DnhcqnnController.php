@@ -89,9 +89,18 @@ class DnhcqnnController extends Controller
      * @param  \App\dnhcqnn  $dnhcqnn
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id=null)
     {
-        dnhcqnn::where('id',$id)->update($request->except(['_token','_wysihtml5_mode']));
+        if ($id == null){
+
+            dnhcqnn::where('id',$request->id)->update($request->except(['_token','_wysihtml5_mode']));
+
+        }else{
+
+            dnhcqnn::where('id',$id)->update($request->except(['_token','_wysihtml5_mode']));
+
+        }
+
 
 //        flash('Câu hỏi của bạn đã được gởi đến BBT, xin cảm ơn!');
 

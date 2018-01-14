@@ -19,7 +19,7 @@ Route::get('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'GuestController@getDoanhNghiep
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::post('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'DnhcqnnController@update')->name('update-doanh-nghiep-hoi');
+    Route::post('doanh-nghiep-hoi-cqnn-tra-loi/{id?}', 'DnhcqnnController@update')->name('update-doanh-nghiep-hoi');
 });
 
 //Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
