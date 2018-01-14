@@ -104,9 +104,11 @@ class DnhcqnnController extends Controller
      * @param  \App\dnhcqnn  $dnhcqnn
      * @return \Illuminate\Http\Response
      */
-    public function destroy(dnhcqnn $dnhcqnn)
+    public function destroy(Request $request)
     {
-        //
+        dnhcqnn::destroy($request->input('id'));
+
+        return response(['data' => 'Done'], 200);
     }
 
 
