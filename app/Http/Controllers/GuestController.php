@@ -290,7 +290,7 @@ class GuestController extends Controller
 
     public function getDoanhNghiepHoiChiTiet($id)
     {
-        $dnh = dnhcqnn::find($id);
+        $dnh = dnhcqnn::findOrFail($id);
         return view ('guest.doanh-nghiep-hoi-chi-tiet',compact('dnh'));
     }
 
