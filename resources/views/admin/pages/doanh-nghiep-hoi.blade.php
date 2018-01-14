@@ -146,32 +146,7 @@
     <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
-        $(function () {
-            $('.tblDNH').DataTable({
 
-                "iDisplayLength": 10,
-
-                "order": [[ 1, "desc" ]],
-
-                "sType": "numeric",
-
-                "language": {
-                    "sProcessing": "Đang xử lý...",
-                    "sLengthMenu": "Hiển thị _MENU_ mục",
-                    "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
-                    "sInfoPostFix": "",
-                    "sSearch": "Tìm kiếm:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "oPaginate": {
-                        "sFirst": "Đầu tiên",
-                        "sLast": "Cuối cùng",
-                        "sNext": "Sau",
-                        "sPrevious": "Trước"
-                    }
-                }
-            })
-        });
 
         $(document).ready(function() {
             // Configure/customize these variables.
@@ -226,6 +201,34 @@
                 $("#tra-loi").find("input#nguoitraloi").val($(this).attr('ntl'));
                 $("#tra-loi").find("input#chucvu").val($(this).attr('cv'));
                 $("#tra-loi").find("textarea#cautraloi").html($(this).attr('ctl'));
+            });
+
+
+            $(function () {
+                $('.tblDNH').DataTable({
+
+                    "iDisplayLength": 25,
+
+                    "order": [[ 1, "desc" ]],
+
+                    "sType": "numeric",
+
+                    "language": {
+                        "sProcessing": "Đang xử lý...",
+                        "sLengthMenu": "Hiển thị _MENU_ mục",
+                        "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+                        "sInfoPostFix": "",
+                        "sSearch": "Tìm kiếm:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "oPaginate": {
+                            "sFirst": "Đầu tiên",
+                            "sLast": "Cuối cùng",
+                            "sNext": "Sau",
+                            "sPrevious": "Trước"
+                        }
+                    }
+                })
             });
 
 
