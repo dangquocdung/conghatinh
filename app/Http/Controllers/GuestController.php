@@ -26,6 +26,7 @@ use App\LichCongTac;
 use App\ThongTinDoanhNghiep;
 use App\Events\User\TinTucCounter;
 use App\DichVuCong;
+use App\dnhcqnn;
 
 
 
@@ -283,9 +284,9 @@ class GuestController extends Controller
 
     public function getDoanhNghiepHoi()
     {
-        $chuyenmuc = ChuyenMuc::all();
 
-        return view ('guest.doanh-nghiep-hoi',compact('coquan','chuyenmuc'));
+        $dnhoi = dnhcqnn::orderBy('id','decs')->get();
+        return view ('guest.doanh-nghiep-hoi',compact('dnhoi'));
     }
 
     public function getHoTroPhapLy()

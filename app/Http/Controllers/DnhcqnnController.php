@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\dnhcqnn;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class DnhcqnnController extends Controller
 {
@@ -14,7 +16,9 @@ class DnhcqnnController extends Controller
      */
     public function index()
     {
-        //
+        $dnhoi = dnhcqnn::orderBy('id','decs')->paginate(12);
+
+        return view('admin.pages.doanh-nghiep-hoi',compact('dnhoi'));
     }
 
     /**
