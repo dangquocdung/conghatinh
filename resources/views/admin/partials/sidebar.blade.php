@@ -107,9 +107,9 @@
           <li class="{{ Request::is('toa-soan/chuyen-trang/doanh-nghiep-hoi') ? 'active' : ''  }}">
             <a href="{{route('index-doanh-nghiep-hoi')}}"><i class="fa fa-circle-o"></i> Doanh nghiệp hỏi</a>
           </li>
-          <li class="{{ Request::is('toa-soan/chuyen-trang/ho-tro-phap-ly') ? 'active' : ''  }}">
-            <a href="{{route('index-ho-tro-phap-ly')}}"><i class="fa fa-circle-o"></i> Hỗ trợ pháp lý</a>
-          </li>
+          {{--<li class="{{ Request::is('toa-soan/chuyen-trang/ho-tro-phap-ly') ? 'active' : ''  }}">--}}
+            {{--<a href="{{route('index-ho-tro-phap-ly')}}"><i class="fa fa-circle-o"></i> Hỗ trợ pháp lý</a>--}}
+          {{--</li>--}}
           <li class="{{ Request::is('toa-soan/chuyen-trang/gop-y-du-thao-van-ban') ? 'active' : ''  }}">
             <a href="{{ route('index-du-thao-van-ban') }}"><i class="fa fa-circle-o"></i> Góp ý dự thảo văn bản</a>
           </li>

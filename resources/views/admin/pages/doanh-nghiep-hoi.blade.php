@@ -111,9 +111,6 @@
             @endforeach
             </tbody>
           </table>
-          <div class="text-center">
-            {{$dnhoi->render()}}
-          </div>
         </div>
         <!-- /.box-body -->
       </div>
