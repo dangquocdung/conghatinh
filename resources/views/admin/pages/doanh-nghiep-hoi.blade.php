@@ -25,7 +25,7 @@
 
               <div class="table-responsive">
 
-                  <table class="table table-bordered table-striped table-hover tblTinTuc">
+                  <table class="table table-bordered table-striped table-hover tblDNH">
                       <thead>
                       <tr>
                           <th>TT</th>
@@ -137,67 +137,39 @@
 
 
 @section('js')
-  <script>
-      $(document).ready(function() {
-          // Configure/customize these variables.
-          var showChar = 100;  // How many characters are shown by default
-          var ellipsestext = "...";
-          var moretext = "Nhiều hơn >>";
-          var lesstext = "<< Ít hơn";
+
+    <!-- DataTables -->
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('.tblTinTuc').DataTable({
+
+                "iDisplayLength": 10,
+
+                "order": [[ 1, "desc" ]],
+
+                "sType": "numeric",
+
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Hiển thị _MENU_ mục",
+                    "sInfo": "Đang hiển thị từ mục _START_ đến mục _END_ trong tổng _TOTAL_ mục",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm kiếm:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "oPaginate": {
+                        "sFirst": "Đầu tiên",
+                        "sLast": "Cuối cùng",
+                        "sNext": "Sau",
+                        "sPrevious": "Trước"
+                    }
+                }
+            })
+        })
 
 
-          $('.more').each(function() {
-
-              var content = $(this).html();
-
-              if(content.length > showChar) {
-
-                  var c = content.substr(0, showChar);
-
-                  var h = content.substr(showChar, content.length - showChar);
-
-                  var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span style="display:none">' + h + '</span>&nbsp;&nbsp;<a class="morelink" style="display:inline block">' + moretext + '</a></span>';
-
-
-//                  var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span>' +
-//                      '<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-
-                  $(this).html(html);
-              }
-
-          });
-
-          $(".morelink").click(function(){
-              if($(this).hasClass("less")) {
-                  $(this).removeClass("less");
-                  $(this).html(moretext);
-              } else {
-                  $(this).addClass("less");
-                  $(this).html(lesstext);
-              }
-              $(this).parent().prev().toggle();
-              $(this).prev().toggle();
-              return false;
-          });
-
-          $('.tra-loi').click(function(){
-              $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
-              $("#tra-loi").find("select").val($(this).attr('cq-id'));
-          });
-
-          $('.chinh-sua').click(function(){
-              $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
-              $("#tra-loi").find("select").val($(this).attr('cq-id'));
-              $("#tra-loi").find("input#nguoitraloi").val($(this).attr('ntl'));
-              $("#tra-loi").find("input#chucvu").val($(this).attr('cv'));
-              $("#tra-loi").find("textarea#cautraloi").html($(this).attr('ctl'));
-          });
-
-
-      });
-
-  </script>
-
-
+    </script>
 
 @stop
