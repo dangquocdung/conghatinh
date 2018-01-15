@@ -51,9 +51,13 @@
                                   </td>
                                   <td>{{ $dnh->coquantraloi }}</td>
                                   <td class="col-md-3">
-                                      <div class="pull-left gap-left gap-10">
-                                          <a class="btn btn-info btn-xs tra-loi" href="{{ route('edit-doanh-nghiep-hoi',$dnh->id) }}">Trả lời</a>
-                                      </div>
+                                      Ngày {{ \Carbon\Carbon::parse($dnh->ngaytraloi)->format('d-m-Y H:i:s') }} <br>
+                                      {{--<strong>{{ $dnh->nguoitraloi }}</strong> --}}
+                                      {{--<em>({{ $dnh->chucvu }}):</em>--}}
+                                      <span class="more">
+                                          {!! $dnh->cautraloi !!}
+                                      </span>
+
                                   </td>
                                   <td>
                                       @if ($dnh->daduyet == '1')
@@ -83,6 +87,10 @@
 
                                           {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
                                       @endif
+
+                                      <div class="pull-left gap-left gap-10">
+                                          <a class="btn btn-info btn-xs tra-loi" href="{{ route('edit-doanh-nghiep-hoi',$dnh->id) }}">Trả lời</a>
+                                      </div>
 
                                       @role('tbt')
 
