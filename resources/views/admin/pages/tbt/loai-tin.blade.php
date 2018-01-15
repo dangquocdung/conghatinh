@@ -74,8 +74,9 @@
                             lt-id="{{ $lt->id }}"
                             lt-cm="{{$lt->chuyenmuc->id}}"
                             lt-name="{{$lt->name}}"
+                            lt-icon="{{ $lt->icon }}"
                             lt-ghichu="{{$lt->ghichu}}"
-                           lt-show = "{{$lt->show}}"
+                            lt-show = "{{$lt->show}}"
                             lt-thutu="{{$lt->thutu}}">
                             <i class="fa fa-edit"></i> Sửa
                         </a>
@@ -151,6 +152,16 @@
                       </div>
 
                       <div class="form-group">
+                          <label for="">Icon: </label>
+                          <input type="text"
+                                 placeholder="Biểu tượng (tuỳ chọn) "
+                                 name="icon"
+                                 value="{{old('icon')}}"
+                                 class="form-control">
+                          <div class="HelpText error">{{$errors->first('icon')}}</div>
+                      </div>
+
+                      <div class="form-group">
                           <label for="">Ghi chú: </label>
                           <input type="text"
                                  placeholder="Nhập ghi chú "
@@ -213,6 +224,17 @@
                                  value="{{old('name')}}"
                                  class="form-control">
                           <div class="HelpText error">{{$errors->first('name')}}</div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="">Icon: </label>
+                          <input type="text"
+                                 placeholder="Biểu tượng (tuỳ chọn) "
+                                 name="icon"
+                                 id="lt-icon"
+                                 value="{{old('icon')}}"
+                                 class="form-control">
+                          <div class="HelpText error">{{$errors->first('icon')}}</div>
                       </div>
 
                       <div class="form-group">
@@ -315,6 +337,7 @@
             $('#suaLoaiTin').find('input#lt-id').val($(this).attr('lt-id'));
             $('#suaLoaiTin').find('select#lt-cm').val($(this).attr('lt-cm'));
             $('#suaLoaiTin').find('input#lt-name').val($(this).attr('lt-name'));
+            $('#suaLoaiTin').find('input#lt-icon').val($(this).attr('lt-icon'));
             $('#suaLoaiTin').find('input#lt-ghichu').val($(this).attr('lt-ghichu'));
             $('#suaLoaiTin').find('input#lt-show').val($(this).attr('lt-show'));
             $('#suaLoaiTin').find('select#lt-thutu').val($(this).attr('lt-thutu'));

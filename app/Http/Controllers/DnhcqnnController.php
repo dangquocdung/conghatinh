@@ -77,9 +77,11 @@ class DnhcqnnController extends Controller
      * @param  \App\dnhcqnn  $dnhcqnn
      * @return \Illuminate\Http\Response
      */
-    public function edit(dnhcqnn $dnhcqnn)
+    public function edit($id)
     {
-        //
+        $dnh = dnhcqnn::findOrFail($id);
+
+        return view('admin.pages.doanh-nghiep-hoi-chi-tiet',compact('dnh'));
     }
 
     /**
@@ -89,20 +91,37 @@ class DnhcqnnController extends Controller
      * @param  \App\dnhcqnn  $dnhcqnn
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id=null)
+    public function update(Request $request, $id)
     {
-        if ($id == null){
 
-            dnhcqnn::where('id',$request->id)->update($request->except(['_token','_wysihtml5_mode']));
 
-        }else{
+//            $dnh = dnhcqnn::findOrFail($request->id);
+//
+//            $dnh->coquantraloi = $request->coquantraloi;
+//            $dnh->cautraloi = $request->cautraloi;
+//
+//            $dnh->save();
 
-            dnhcqnn::where('id',$id)->update($request->except(['_token','_wysihtml5_mode']));
 
+        $v = Validator::make($request->all(),
+            [
+                'doanhnghiep' => 'required|min:10|max:191',
+                'diachi' => 'required|min:10|max:191',
+                'cauhoi' => 'required|min:20',
+                'coquantraloi' => 'required|min:10|max:191',
+                'cautraloi' => 'required|min:20'
+            ]
+        );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
         }
 
 
-//        flash('Câu hỏi của bạn đã được gởi đến BBT, xin cảm ơn!');
+        dnhcqnn::where('id',$id)->update($request->except(['_token','_wysihtml5_mode']));
+
+        flash('Dữ liệu đã được cập nhật, xin cảm ơn!');
 
         return redirect()->back();
     }

@@ -51,9 +51,38 @@
                                   </td>
                                   <td>{{ $dnh->coquantraloi }}</td>
                                   <td class="col-md-3">
-                                      <div class="pull-left gap-left gap-10">
-                                          <a class="btn btn-info btn-xs tra-loi" href="{{ route('edit-doanh-nghiep-hoi',$dnh->id) }}">Trả lời</a>
-                                      </div>
+                                      @if (strlen($dnh->cautraloi) >0 )
+
+                                          @role('tbt')
+                                            <a class="btn btn-info btn-xs chinh-sua" data-toggle="modal" data-target="#tra-loi"
+                                               dnh-id="{{ $dnh->id }}"
+                                               dn="{{ $dnh->doanhnghiep }}"
+                                               dc="{{ $dnh->diachi }}"
+                                               ch="{{ $dnh->cauhoi }}"
+                                               cqtl="{{ $dnh->coquantraloi }}"
+                                               ctl="{{$dnh->cautraloi}}">
+                                                Chỉnh sửa
+                                            </a>
+                                          @endrole
+
+
+
+                                          Ngày {{ \Carbon\Carbon::parse($dnh->ngaytraloi)->format('d-m-Y H:i:s') }} <br>
+                                          {{--<strong>{{ $dnh->nguoitraloi }}</strong> --}}
+                                          {{--<em>({{ $dnh->chucvu }}):</em>--}}
+                                          <span class="more">
+                                            {!! $dnh->cautraloi !!}
+
+                                            </span>
+
+                                      @else
+                                          <div class="pull-left gap-left gap-10">
+                                              <a class="btn btn-info btn-xs tra-loi" data-toggle="modal" data-target="#tra-loi"
+                                                 dnh-id="{{ $dnh->id }}"
+                                                 cqtl="{{ $dnh->coquantraloi }}">Trả lời</a>
+                                          </div>
+                                      @endif
+
                                   </td>
                                   <td>
                                       @if ($dnh->daduyet == '1')
@@ -118,7 +147,82 @@
     </div>
 
 
+      <!-- Modal Edit Album-->
+      <div class="modal modal-default fade" id="tra-loi">
+          <div class="modal-dialog">
+              <div class="modal-content" style="padding: 0">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" style="padding-bottom: 0">Trả lời câu hỏi</h4>
+                  </div>
+                  <form action="{{ route('update-doanh-nghiep-hoi') }}" method="post" id="role-save-form">
+                      {{csrf_field()}}
 
+                      <div class="modal-body">
+
+                          <input type="hidden" name="id" id="dnh-id">
+
+                          @role('tbt')
+
+                              <div class="form-group">
+                                  <label>Doanh nghiệp </label>
+                                  <input type="text" class="form-control" name="doanhnghiep" id="doanhnghiep" required>
+                                  @if ($errors->has('doanhnghiep'))
+                                      <div class="error">{{ $errors->first('doanhnghiep') }}</div>
+                                  @endif
+                              </div>
+
+                              <div class="form-group">
+                                  <label>Địa chỉ </label>
+                                  <input type="text" class="form-control" name="diachi" id="diachi" required>
+                                  @if ($errors->has('diachi'))
+                                      <div class="error">{{ $errors->first('diachi') }}</div>
+                                  @endif
+                              </div>
+
+                              <div class="form-group">
+                                  <label>Câu hỏi </label>
+                                  <textarea class="form-control textarea" name="cauhoi" id="cauhoi"
+                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                                  @if ($errors->has('cauhoi'))
+                                      <div class="error">{{ $errors->first('cauhoi') }}</div>
+                                  @endif
+                              </div>
+
+                          @endrole
+
+                          <div class="form-group">
+                              <label>Cơ quan trả lời  </label>
+                              <input type="text" class="form-control" name="coquantraloi" id="coquantraloi" required>
+                              @if ($errors->has('coquantraloi'))
+                                  <div class="error">{{ $errors->first('coquantraloi') }}</div>
+                              @endif
+                          </div>
+
+                          <div class="form-group">
+                              <label>Câu trả lời </label>
+                              <textarea class="form-control textarea" name="cautraloi" id="cautraloi" placeholder="Nhập câu trả lời ở đây"
+                                        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                              @if ($errors->has('cautraloi'))
+                                  <div class="error">{{ $errors->first('cautraloi') }}</div>
+                              @endif
+                          </div>
+
+
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                  </form>
+
+              </div>
+              <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
 
   </div>
@@ -188,6 +292,26 @@
                 return false;
             });
 
+            $('.tra-loi').click(function(){
+                $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
+                $("#tra-loi").find("input#coquantraloi").val($(this).attr('cqtl'));
+            });
+
+            $('.chinh-sua').click(function(){
+
+//                resetInput();
+
+
+
+                $("#tra-loi").find("input#dnh-id").val($(this).attr('dnh-id'));
+                $("#tra-loi").find("input#doanhnghiep").val($(this).attr('dn'));
+                $("#tra-loi").find("input#diachi").val($(this).attr('dc'));
+                $("#tra-loi").find("textarea#cauhoi").html($(this).attr('ch'));
+                $("#tra-loi").find("input#coquantraloi").val($(this).attr('cqtl'));
+                $("#tra-loi").find("textarea#cautraloi").html($(this).attr('ctl'));
+            });
+
+
             $(function () {
                 $('.tblDNH').DataTable({
 
@@ -217,6 +341,20 @@
 
 
         });
+
+
+        $(function resetInput(){
+
+            $("#tra-loi").find("input#dnh-id").val('');
+            $("#tra-loi").find("input#doanhnghiep").val('');
+            $("#tra-loi").find("input#diachi").val('');
+            $("#tra-loi").find("textarea#cauhoi").html('');
+            $("#tra-loi").find("input#coquantraloi").val('');
+            $("#tra-loi").find("textarea#cautraloi").html('');
+
+        })
+
+
 
     </script>
 

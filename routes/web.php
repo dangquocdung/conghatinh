@@ -17,10 +17,6 @@ Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DnhcqnnController@store')->name('p
 
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'GuestController@getDoanhNghiepHoiChiTiet')->name('doanh-nghiep-hoi');
 
-Route::group(['middleware' => 'auth'], function () {
-
-    Route::post('doanh-nghiep-hoi-cqnn-tra-loi/{id?}', 'DnhcqnnController@update')->name('update-doanh-nghiep-hoi');
-});
 
 //Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');
 
@@ -200,6 +196,8 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::group(['prefix'=>'chuyen-trang'],function (){
 
         Route::get('doanh-nghiep-hoi','DnhcqnnController@index')->name('index-doanh-nghiep-hoi');
+        Route::get('doanh-nghiep-hoi/{id}','DnhcqnnController@edit')->name('edit-doanh-nghiep-hoi');
+        Route::post('doanh-nghiep-hoi/{id}','DnhcqnnController@update')->name('update-doanh-nghiep-hoi');
         Route::get('ho-tro-phap-ly','HoTroPhapLyController@index')->name('index-ho-tro-phap-ly');
         Route::get('gop-y-du-thao-van-ban','DuThaoController@index')->name('index-du-thao-van-ban');
         Route::post('them-du-thao-van-ban','DuThaoController@store')->name('them-du-thao-van-ban');

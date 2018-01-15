@@ -50,6 +50,7 @@ class LoaiTinController extends Controller
             'chuyenmuc_id'=>$request->input('chuyenmuc_id'),
             'name' => $request->input('name'),
             'slug'=>str_slug($request->input('name')),
+            'icon'=> $request->input('icon'),
             'ghichu'=>$request->ghichu,
             'thutu'=>($request->input('thutu'))
         ]);
@@ -101,6 +102,7 @@ class LoaiTinController extends Controller
         $lt->chuyenmuc_id = $request->input('chuyenmuc_id');
         $lt->name = $request->input('name');
         $lt->slug = str_slug($request->input('name'));
+        $lt->icon = $request->icon;
         $lt->ghichu = $request->ghichu;
         $lt->show = $request->show;
         $lt->thutu = $request->input('thutu');
