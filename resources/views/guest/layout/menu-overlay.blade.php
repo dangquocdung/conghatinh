@@ -18,7 +18,7 @@
 <div id="side-menu">
     <ul id="navigation">
         @if (Auth::user())
-            <li class="contact"><a href="/toan-soan/dashboard" title="{{ Auth::user()->name }}"><span><i class="fa fa-user" aria-hidden="true"></i></span></a></li>
+            <li class="contact"><a href="/toa-soan/dashboard" title="{{ Auth::user()->name }}"><span><i class="fa fa-user" aria-hidden="true"></i></span></a></li>
         @endif
 
         <li class="home"><a href="/" title="Trang chủ"><span><i class="glyphicon glyphicon-home"></i></span></a></li>
