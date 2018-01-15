@@ -44,7 +44,7 @@
                                       {{ $dnh->id }}
 
                                   </td>
-                                  <td>{{ \Carbon\Carbon::parse($dnh->created_at)->format('d-m-Y H:i:s') }} <br>{{ $dnh->doanhnghiep }}</td>
+                                  <td>{{ \Carbon\Carbon::parse($dnh->ngayhoi)->format('d-m-Y H:i:s') }} <br>{{ $dnh->doanhnghiep }}</td>
                                   <td>{{ $dnh->diachi }}</td>
                                   <td class="col-md-3 more">
                                       {!! $dnh->cauhoi !!}
