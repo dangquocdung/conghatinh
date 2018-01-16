@@ -1,7 +1,7 @@
 @extends('admin.html')
 
 @section('title')
-    <title>Sửa Văn bản khác</title>
+    <title>Sửa Thông tin chỉ đạo, điều hành</title>
 @stop
 
 @section('breadcrumb')
@@ -10,7 +10,7 @@
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-      <li class="active">Sửa Văn bản khác</li>
+      <li class="active">Sửa Thông tin chỉ đạo, điều hành</li>
     </ol>
   </section>
 @endsection

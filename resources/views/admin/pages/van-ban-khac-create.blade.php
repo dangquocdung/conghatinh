@@ -1,7 +1,7 @@
 @extends('admin.html')
 
 @section('title')
-    <title>Thêm Văn bản khác</title>
+    <title>Thêm Thông tin chỉ đạo, điều hành</title>
 @stop
 
 @section('breadcrumb')
@@ -10,7 +10,7 @@
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
-        <li><a href="javascript:void(0);">Văn bản khác </a></li>
+        <li><a href="javascript:void(0);">Thông tin chỉ đạo, điều hành </a></li>
         <li class="active">Tạo mới</li>
     </ol>
   </section>
@@ -22,7 +22,7 @@
       {{--Box--}}
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Văn bản khác</h3>
+          <h3 class="box-title">Thông tin chỉ đạo, điều hành</h3>
             <div class="pull-right">
                 <button type="button" class="btn btn-primary btn-xs" id="btnThem">
                     <i class="fa fa-plus"></i> Thêm tệp

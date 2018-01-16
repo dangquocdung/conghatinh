@@ -40,7 +40,7 @@
 
       <li class="{{ Request::is('toa-soan/load/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
-          <i class="fa fa-newspaper-o"></i> <span> Nạp tin tư động </span>
+          <i class="fa fa-newspaper-o"></i> <span> Nạp tin tự động </span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -80,17 +80,15 @@
             </span>
         </a>
         <ul class="treeview-menu">
-
           <li class="{{ Request::is('toa-soan/tin-bai/tin-tuc') ? 'active' : ''  }}">
-          <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Tin tức, sự kiện </a>
+            <a href="{{route('tin-tuc-su-kien')}}"><i class="fa fa-circle-o"></i> Tin tức, sự kiện </a>
           </li>
           <li class="{{ Request::is('toa-soan/tin-bai/van-ban') ? 'active' : ''  }}">
             <a href="{{route('index-van-ban')}}"><i class="fa fa-circle-o"></i> Văn bản CĐ, ĐH </a>
           </li>
           <li class="{{ Request::is('toa-soan/tin-bai/van-ban-khac') ? 'active' : ''  }}">
-            <a href="{{route('index-van-ban-khac')}}"><i class="fa fa-circle-o"></i> Văn bản khác </a>
+            <a href="{{route('index-van-ban-khac')}}"><i class="fa fa-circle-o"></i> Thông tin CĐ, ĐH</a>
           </li>
-
         </ul>
       </li>
 
