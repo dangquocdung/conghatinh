@@ -1,4 +1,4 @@
-<div class="panel-body">
+<div style="padding: 5px">
     <div id="scrolling-text"></div>
 </div>
 
