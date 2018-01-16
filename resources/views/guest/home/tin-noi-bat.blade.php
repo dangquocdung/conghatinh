@@ -12,6 +12,8 @@
 
 
         <div id="tinNoiBatChinh" class="col-md-7 col-xs-12 w3-animate-left">
+            
+            @include(('guest.menu-right.scrollingtext'))
 
             @php
                 $tin1 = $tinnoibat->first();
@@ -41,8 +43,7 @@
 
     @endif
 
-    <div class="clearfix"></div>
-    @include(('guest.menu-right.scrollingtext'))
+
 </div>
 
 <div class="hot-item" style="background-color:#ffffff">
