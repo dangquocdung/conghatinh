@@ -1,10 +1,5 @@
-<div class="block4">
-
-
-
+<div class="block3">
     @include(('guest.menu-right.scrollingtext'))
-
-
 </div>
 
 <div class="block3">
