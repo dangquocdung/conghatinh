@@ -1,8 +1,4 @@
 <div class="block3">
-    @include(('guest.menu-right.scrollingtext'))
-</div>
-
-<div class="block3">
 
     <div class="portlet-header">
         <img src="/images/background/lotus.ico">
@@ -44,6 +40,9 @@
         </div>
 
     @endif
+
+    <div class="clearfix"></div>
+    @include(('guest.menu-right.scrollingtext'))
 </div>
 
 <div class="hot-item" style="background-color:#ffffff">

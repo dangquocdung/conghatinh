@@ -1,5 +1,5 @@
 <div style="padding: 5px">
-    <strong>Tin vắn:</strong><span id="scrolling-text"></span>
+    <strong>Tin vắn: &nbsp;</strong><span id="scrolling-text"></span>
 </div>
 
 <script>
