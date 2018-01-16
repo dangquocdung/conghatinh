@@ -1,3 +1,12 @@
+<div class="block4">
+
+
+
+    @include(('guest.menu-right.scrollingtext'))
+
+
+</div>
+
 <div class="block3">
 
     <div class="portlet-header">
