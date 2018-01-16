@@ -109,6 +109,33 @@
                                                     {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
                                                 @endif
 
+                                                {{--Thong bao--}}
+
+                                                @if ($vbk->thongbao == '1')
+                                                    <div class="pull-left gap-left gap-10">
+                                                        <confirm-modal
+                                                                btn-text='Hủy Thông báo '
+                                                                btn-class="btn-danger"
+                                                                url="{{url('api/v1/thong-bao')}}"
+                                                                :post-data="{{json_encode(['id' => $vbk->id, 'thongbao'=>'0'])}}"
+                                                                :refresh="true"
+                                                                message="Bạn chắc chắn muốn hủy thông báo?">
+                                                        </confirm-modal>
+                                                    </div>
+                                                @else
+                                                    <div class="pull-left gap-left gap-10">
+                                                        <confirm-modal
+                                                                btn-text='Thông báo '
+                                                                btn-class="btn-warning"
+                                                                url="{{url('api/v1/thong-bao')}}"
+                                                                :post-data="{{json_encode(['id' => $vbk->id, 'thongbao'=>'1'])}}"
+                                                                :refresh="true"
+                                                                message="Bạn chắc chắn muốn thêm thông báo?">
+                                                        </confirm-modal>
+                                                    </div>
+
+                                                @endif
+
                                             </td>
                                             <td>
                                                 @foreach($vbk->tepvanbankhac as $tvb)

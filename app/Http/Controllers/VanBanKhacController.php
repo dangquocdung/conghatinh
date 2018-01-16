@@ -245,4 +245,18 @@ class VanBanKhacController extends Controller
 
         return response(['data' => 'Văn bản đã được cập nhật slug'], 200);
     }
+
+    public function postThongBao(Request $request)
+    {
+
+
+
+        $vbk = TinTuc::findOrFail($request->id);
+
+        $vbk->thongbao = $request->input('thongbao');
+
+        $vbk->save();
+
+        return response(['data' => 'Bản tin đã có thông báo'], 200);
+    }
 }

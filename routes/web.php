@@ -422,6 +422,7 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
 
         Route::post('tin-van', 'TinTucController@postTinVan');
+        Route::post('thong-bao', 'VanBanKhacController@postThongBao');
 
 
 
