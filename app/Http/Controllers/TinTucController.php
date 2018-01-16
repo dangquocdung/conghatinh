@@ -271,7 +271,7 @@ class TinTucController extends Controller
         $tinTucId = $request->input('id');
 
         // this is only done to get the role name
-        $tintuc = TinTuc::find($tinTucId);
+        $tintuc = TinTuc::findOrFail($tinTucId);
 
         $tintuc->delete();
 
@@ -287,7 +287,7 @@ class TinTucController extends Controller
         $tinTucId = $request->input('id');
 
 
-        $tintuc = TinTuc::find($tinTucId);
+        $tintuc = TinTuc::findOrFail($tinTucId);
 
 //        $tintuc->daduyet = $request->input('daduyet');
 
@@ -303,12 +303,26 @@ class TinTucController extends Controller
         $tinTucId = $request->input('id');
 
 
-        $tintuc = TinTuc::find($tinTucId);
+        $tintuc = TinTuc::findOrFail($tinTucId);
 
         $tintuc->noibat = $request->input('noibat');
 
         $tintuc->save();
 
         return response(['data' => 'Bản tin đã nổi bật'], 200);
+    }
+
+    public function postTinVan(Request $request)
+    {
+        $tinTucId = $request->input('id');
+
+
+        $tintuc = TinTuc::findOrFail($tinTucId);
+
+        $tintuc->tinvan = $request->input('tinvan');
+
+        $tintuc->save();
+
+        return response(['data' => 'Bản tin đã có tin vắn'], 200);
     }
 }

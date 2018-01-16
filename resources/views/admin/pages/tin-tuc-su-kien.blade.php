@@ -129,6 +129,35 @@
 
                                                                               @endif
 
+                                                                              {{--Tin van--}}
+
+                                                                              @if ($tin->tinvan == '1')
+                                                                                  <div class="pull-left gap-left gap-10">
+                                                                                      <confirm-modal
+                                                                                              btn-text='Hủy Tin vắn'
+                                                                                              btn-class="btn-danger"
+                                                                                              url="{{url('api/v1/tin-van')}}"
+                                                                                              :post-data="{{json_encode(['id' => $tin->id, 'tinvan'=>'0'])}}"
+                                                                                              :refresh="true"
+                                                                                              message="Bạn chắc chắn muốn hủy tin vắn bản tin {{$tin->name}}?">
+                                                                                      </confirm-modal>
+                                                                                  </div>
+
+                                                                              @else
+                                                                                  <div class="pull-left gap-left gap-10">
+                                                                                      <confirm-modal
+                                                                                              btn-text='Tin vắn'
+                                                                                              btn-class="btn-warning"
+                                                                                              url="{{url('api/v1/tin-van')}}"
+                                                                                              :post-data="{{json_encode(['id' => $tin->id, 'tinvan'=>'1'])}}"
+                                                                                              :refresh="true"
+                                                                                              message="Bạn chắc chắn muốn thêm tin vắn bản tin {{$tin->name}}?">
+                                                                                      </confirm-modal>
+                                                                                  </div>
+
+                                                                              @endif
+
+
                                                                           </td>
                                                                           <td><img src="{{$tin->avatar}}" alt="{{$tin->name}}" width="120"></td>
 

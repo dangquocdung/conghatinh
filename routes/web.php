@@ -421,6 +421,9 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('delete-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@destroy');
 
 
+        Route::post('tin-van', 'TinTucController@postTinVan');
+
+
 
     });
 
