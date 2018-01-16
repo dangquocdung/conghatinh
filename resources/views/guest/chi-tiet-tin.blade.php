@@ -428,6 +428,8 @@
 					@endforeach
 				@endif
 
+				<div class="clearfix"></div>
+
 
 				@include('guest.layout.tien-ich')
 
