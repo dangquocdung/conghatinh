@@ -164,6 +164,8 @@
             @endforeach
         </div>
 
+        <div class="clearfix"></div>
+
         @include('guest.layout.tien-ich')
 
         {{--<div class="text-center">--}}
