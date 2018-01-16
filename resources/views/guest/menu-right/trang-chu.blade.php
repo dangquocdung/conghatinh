@@ -5,6 +5,22 @@
 
     {{--    @include(('guest.menu-right.calendar'))--}}
 
+    <div class="block4">
+
+
+
+            @include(('guest.menu-right.scrollingtext'))
+
+
+    </div>
+
+
+
+
+
+
+
+
     {{--@include('guest.layout.menu-right')--}}
 
     <div class="block4">
