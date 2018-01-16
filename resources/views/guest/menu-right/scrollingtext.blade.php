@@ -45,9 +45,9 @@
         })(0);
     };
 
-    $('#scrolling-text').typer({!! json_encode($json_tinnoibat) !!}  );
+{{--    $('#scrolling-text').typer({!! json_encode($json_tinnoibat) !!}  );--}}
 
-//    $('#scrolling-text').typer('<a href="http://thongbao.hatinh.gov.vn">dang quoc dung </a>');
+    $('#scrolling-text').typer('<a href="javascript:void(0);">dang quoc dung </a>');
 
 //    $('#type').typer('dang quoc dung');
 
