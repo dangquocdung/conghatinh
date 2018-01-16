@@ -161,7 +161,7 @@ class VanBanKhacController extends Controller
      */
         public function update(Request $request)
         {
-            $vb = LichCongTac::find($request->vbedit);
+            $vb = LichCongTac::findOrFail($request->vbedit);
 
             $vb->loaitin_id = $request->loaitin_id;
             $vb->name = $request->name;
@@ -212,7 +212,7 @@ class VanBanKhacController extends Controller
     {
 
         // this is only done to get the role name
-        $vbk = LichCongTac::find($request->input('id'));
+        $vbk = LichCongTac::findOrFail($request->input('id'));
 
         $vbk->delete();
 
@@ -226,9 +226,9 @@ class VanBanKhacController extends Controller
 
 
 
-        $vbk = LichCongTac::find($request->input('id'));
+        $vbk = LichCongTac::findOrFail($request->id);
 
-        $vbk->daduyet = '1';
+        $vbk->daduyet = $request->daduyet;
 
         $vbk->save();
 
@@ -249,11 +249,9 @@ class VanBanKhacController extends Controller
     public function postThongBao(Request $request)
     {
 
+        $vbk = LichCongTac::findOrFail($request->id);
 
-
-        $vbk = TinTuc::findOrFail($request->id);
-
-        $vbk->thongbao = $request->input('thongbao');
+        $vbk->thongbao = $request->thongbao;
 
         $vbk->save();
 

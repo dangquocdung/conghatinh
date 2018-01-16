@@ -397,6 +397,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('duyet-tin-tuc', 'TinTucController@postDuyetTinTuc');
 
         Route::post('noi-bat-tin-tuc', 'TinTucController@postNoiBatTinTuc');
+
+        Route::post('tin-van', 'TinTucController@postTinVan');
        
         Route::post('delete-chuyen-muc', 'Api\TbtApiController@postDeleteChuyenMuc');
         
@@ -410,6 +412,8 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
         Route::post('duyet-van-ban-khac', 'VanBanKhacController@postDuyetVanBan');
 
+        Route::post('thong-bao', 'VanBanKhacController@postThongBao');
+
         Route::post('delete-van-ban-khac', 'VanBanKhacController@destroy');
 
         Route::post('duyet-video', 'VideoController@postDuyet');
@@ -421,8 +425,9 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
         Route::post('delete-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@destroy');
 
 
-        Route::post('tin-van', 'TinTucController@postTinVan');
-        Route::post('thong-bao', 'VanBanKhacController@postThongBao');
+
+
+
 
 
 

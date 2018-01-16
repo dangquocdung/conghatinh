@@ -93,14 +93,24 @@
                                                 <br>
 
                                                 @if ($vbk->daduyet == '1')
-                                                    <span class="label label-success">Đã duyệt đăng</span>
+                                                    <div class="pull-left gap-left gap-10">
+                                                        <confirm-modal
+                                                                btn-text='Đã duyệt'
+                                                                btn-class="btn-info"
+                                                                url="{{url('api/v1/duyet-van-ban-khac')}}"
+                                                                :post-data="{{json_encode(['id' => $vbk->id, 'daduyet'=>'0'])}}"
+                                                                :refresh="true"
+                                                                message="Bạn chắc chắn muốn huỷ duyệt đăng văn bản {{$vbk->name}}?">
+                                                        </confirm-modal>
+                                                    </div>
+
                                                 @else
                                                     <div class="pull-left gap-left gap-10">
                                                         <confirm-modal
                                                                 btn-text='Chờ duyệt'
                                                                 btn-class="btn-warning"
                                                                 url="{{url('api/v1/duyet-van-ban-khac')}}"
-                                                                :post-data="{{json_encode(['id' => $vbk->id])}}"
+                                                                :post-data="{{json_encode(['id' => $vbk->id, 'daduyet'=>'1'])}}"
                                                                 :refresh="true"
                                                                 message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vbk->name}}?">
                                                         </confirm-modal>
