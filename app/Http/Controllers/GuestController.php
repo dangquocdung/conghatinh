@@ -51,7 +51,7 @@ class GuestController extends Controller
         $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $json_tinnoibat = TinTuc::where('daduyet','1')->where('tinvan','1')->orderBy('id', 'decs')->take(8)->pluck('gioithieu')->toArray();
-        $thongbao = LichCongTac::where('daduyet','1')->where('tinvan','1')->orderby('id','desc')->take(5)->get();
+        $thongbao = LichCongTac::where('daduyet','1')->where('thongbao','1')->orderby('id','desc')->take(5)->get();
 
 
         view()->share('vbmoinhat',$vbmoinhat);
