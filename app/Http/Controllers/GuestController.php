@@ -50,13 +50,16 @@ class GuestController extends Controller
 
         $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
-        $json_tinnoibat = TinTuc::where('daduyet','1')->where('tinvan','1')->orderBy('id', 'decs')->take(8)->pluck('slug','gioithieu')->toArray();
+        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->get();
+//        $tinvan = TinTuc::where('daduyet','1')->where('tinvan','1')->orderBy('id', 'decs')->take(8)->pluck('slug','gioithieu')->toArray();
+        $tinvan = $tinnoibat->pluck('name')->toArray();
         $thongbao = LichCongTac::where('daduyet','1')->where('thongbao','1')->orderby('id','desc')->take(5)->get();
 
 
         view()->share('vbmoinhat',$vbmoinhat);
         view()->share('lctmoinhat',$lctmoinhat);
-        view()->share('json_tinnoibat',$json_tinnoibat);
+        view()->share('tinnoibat',$tinnoibat);
+        view()->share('tinvan',$tinvan);
         view()->share('thongbao',$thongbao);
 
 
@@ -65,13 +68,13 @@ class GuestController extends Controller
     public function index()
     {
 
-        $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->get();
+
 
 //        $tinmoinhat = TinTuc::where('loaitin_id','')->where('daduyet','1')->orderBy('id', 'decs')->take(8)->get();
 
 
 
-        return view('guest.trang-chu', compact('tinnoibat'));
+        return view('guest.trang-chu');
 
     }
 
