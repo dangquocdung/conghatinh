@@ -51,8 +51,8 @@ class GuestController extends Controller
         $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->get();
-//        $tinvan = TinTuc::where('daduyet','1')->where('tinvan','1')->orderBy('id', 'decs')->take(8)->pluck('slug','gioithieu')->toArray();
-        $tinvan = $tinnoibat->pluck('name')->toArray();
+        $tinvan = TinTuc::where('tinvan','1')->orderBy('id', 'decs')->take(8)->pluck('slug','gioithieu')->toArray();
+
         $thongbao = LichCongTac::where('daduyet','1')->where('thongbao','1')->orderby('id','desc')->take(5)->get();
 
 
@@ -67,15 +67,7 @@ class GuestController extends Controller
 
     public function index()
     {
-
-
-
-//        $tinmoinhat = TinTuc::where('loaitin_id','')->where('daduyet','1')->orderBy('id', 'decs')->take(8)->get();
-
-
-
         return view('guest.trang-chu');
-
     }
 
 
