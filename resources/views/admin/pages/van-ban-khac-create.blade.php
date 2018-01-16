@@ -6,7 +6,7 @@
 
 @section('breadcrumb')
   <section class="content-header">
-    <h1>Văn bản khác</h1>
+    <h1>Thông tin chỉ đạo, điều hành</h1>
     <ol class="breadcrumb">
       <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{route('config')}}">Configurations</a></li>
