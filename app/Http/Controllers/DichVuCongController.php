@@ -26,7 +26,14 @@ class DichVuCongController extends Controller
     public function getBaoHaTinh()
     {
 
-        $urlArray = ['http://baohatinh.vn/rss/xa-hoi.xml', 'http://baohatinh.vn/rss/chinh-tri.xml'];
+        $urlArray = [
+            'http://baohatinh.vn/rss/xa-hoi.xml',
+            'http://baohatinh.vn/rss/chinh-tri.xml',
+            'http://baohatinh.vn/rss/phap-luat.xml',
+            'http://baohatinh.vn/rss/kinh-te.xml',
+            'http://baohatinh.vn/rss/quoc-phong-an-ninh.xml',
+            'http://baohatinh.vn/rss/van-hoa-giai-tri.xml',
+            'http://baohatinh.vn/rss/quoc-te.xml'];
 
 
         foreach ($urlArray as $url) {
