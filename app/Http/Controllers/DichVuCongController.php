@@ -70,7 +70,7 @@ class DichVuCongController extends Controller
 
                         $tintuc->noidung = $node->filter('description')->text();
 
-                        $tintuc->nguon = $url;
+                        $tintuc->nguon = "<a href='".$url."' target='_blank'> baohatinh.vn</a>";
 
                         $tintuc->ngaydang = Carbon::parse($node->filter('pubDate')->text());
 
