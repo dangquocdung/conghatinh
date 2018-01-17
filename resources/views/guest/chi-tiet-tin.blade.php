@@ -146,7 +146,7 @@
 
 
 
-							<div class="pull-right" style="display: block; text-align:center; margin: 10px 0 10px 0">
+							<div class="pull-right" style="display: block; text-align:right; margin: 10px 0 10px 0">
 								<strong>{{ $tin->tacgia  }}</strong>
 								<br>
 								@if ($tin->nguon)

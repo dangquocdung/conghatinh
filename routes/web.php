@@ -7,6 +7,8 @@ Route::get('/', 'GuestController@index')->name('trang-chu');
 
 Route::get('load-dnh', 'GuestController@loadDNH');
 
+Route::get('load-baohatinh', 'DichVuCongController@getBaoHaTinh');
+
 
 Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
 

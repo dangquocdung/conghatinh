@@ -22,6 +22,73 @@ class DichVuCongController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
+    public function getBaoHaTinh()
+    {
+
+        $urlArray = ['http://baohatinh.vn/rss/xa-hoi.xml', 'http://baohatinh.vn/rss/chinh-tri.xml'];
+
+
+        foreach ($urlArray as $url) {
+
+            $client = new Client();
+
+            $crawler = $client->request('GET', $url);
+
+            $links_count = $crawler->filter('item')->count();
+
+            if ($links_count > 0) {
+
+                $crawler->filter('item')->each(function ($node) {
+
+                    $name = $node->filter('title')->text(); // String. You have extracted description part from your feed
+
+                    $slug = str_slug($name);
+
+                    $url = $node->filter('link')->text(); // String. You have extracted description part from your feed
+
+
+                    //Them tin tuc
+
+                    $exist = TinTuc::where('slug', $slug)->first();
+
+                    if (empty($exist)) {
+
+                        $tintuc = new TinTuc;
+
+                        $tintuc->user_id = '2';
+
+                        $tintuc->loaitin_id = '1';
+
+                        $tintuc->name = $name;
+
+                        $tintuc->slug = $slug;
+
+                        $tintuc->avatar = 'https://cdn.shopify.com/s/files/1/1380/9193/t/3/assets/no-image.svg?2375582141201571545';
+
+                        $tintuc->gioithieu = $node->filter('description')->text();
+
+                        $tintuc->noidung = $node->filter('description')->text();
+
+                        $tintuc->nguon = $url;
+
+                        $tintuc->ngaydang = Carbon::parse($node->filter('pubDate')->text());
+
+                        $tintuc->save();
+
+                    }
+
+                });
+
+
+            } else {
+
+                echo "No item found ";
+            }
+        }
+
+    }
+
     public function getDNH()
     {
         $url = "https://hatinh.top/load-dnh";
@@ -287,7 +354,6 @@ class DichVuCongController extends Controller
                     $exist = TinTuc::where('slug', str_slug(trim($node->filter('.news_title>a')->text())))->first();
 
                     if (empty($exist)) {
-
 
                         $tintuc = new TinTuc;
 
