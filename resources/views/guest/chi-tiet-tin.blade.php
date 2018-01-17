@@ -150,7 +150,7 @@
 								<strong>{{ $tin->tacgia  }}</strong>
 								<br>
 								@if ($tin->nguon)
-									<em><small>Nguồn: {{ $tin->nguon }}</small></em>
+									<em><small>Nguồn: {!! $tin->nguon !!} </small></em>
 								@endif
 							</div>
 						</div>
