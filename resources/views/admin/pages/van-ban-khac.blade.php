@@ -18,179 +18,214 @@
 @section('content')
   <div class="row">
     <div class="col-md-12">
-      {{--Box--}}
-        @foreach($chuyenmuc->sortbydesc('thutu') as $cm)
-            @if (count($cm->vanbankhac) > 0)
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">{{ $cm->name }} &nbsp;({{ count($cm->vanbankhac) }})</h3>
-        </div>
-        <!-- /.box-header -->
+        {{--Box--}}
+        <div class="box box-primary">
+            <div class="box-body">
+                <div class="card">
+                    <ul class="nav nav-tabs" role="tablist">
+                        @foreach($chuyenmuc->sortbydesc('thutu') as $cm)
+                            @if (count($cm->vanbankhac) > 0)
+                                @if ($cm->id == 11)
+                                    <li class="active">
+                                        <a href="#{{$cm->slug}}" data-toggle="tab" title="{{ $cm->ghichu }}">
+                                            {{$cm->name}}
+                                        </a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="#{{$cm->slug}}" data-toggle="tab" title="{{ $cm->ghichu }}">
+                                            {{$cm->name}}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endif
+                        @endforeach
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-content">
+                            @foreach($chuyenmuc->sortbydesc('thutu') as $cm)
+                                @if (count($cm->vanbankhac) > 0)
+                                    <div class="to-chuc tab-pane
 
-          <div class="box-body">
-              <div class="card">
-                  <ul class="nav nav-tabs" role="tablist">
+                                        @if ($cm->id == 11)
+                                            active " id="{{$cm->slug}}">
 
-                      @foreach($cm->loaitin as $lt)
+                                        @else
+                                            " id="{{$cm->slug}}">
 
-                          @if (count($lt->vanbankhac) > 0)
-                              @if ($loop->iteration == 1)
-                                  <li class="active">
-                                      <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
-                                          {{$lt->name}}
-                                      </a>
-                                  </li>
-                              @else
-                                  <li>
-                                      <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
-                                          {{$lt->name}}
-                                      </a>
-                                  </li>
-                              @endif
-                          @endif
+                                        @endif
 
-                      @endforeach
+                                        <div class="box-body">
+                                                <div class="card">
+                                                    <ul class="nav nav-tabs" role="tablist">
 
-                  </ul>
+                                                        @foreach($cm->loaitin as $lt)
 
-                  <!-- Tab panes -->
-                  <div class="tab-content">
-                      <div class="tab-content">
-                          @foreach($cm->loaitin as $lt)
-                              <div class="to-chuc tab-pane
+                                                            @if (count($lt->vanbankhac) > 0)
+                                                                @if ($loop->iteration == 1)
+                                                                    <li class="active">
+                                                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
+                                                                            {{$lt->name}}
+                                                                        </a>
+                                                                    </li>
+                                                                @else
+                                                                    <li>
+                                                                        <a href="#{{$lt->slug}}" data-toggle="tab" title="{{ $lt->ghichu }}">
+                                                                            {{$lt->name}}
+                                                                        </a>
+                                                                    </li>
+                                                                @endif
+                                                            @endif
+
+                                                        @endforeach
+
+                                                    </ul>
+
+                                                    <!-- Tab panes -->
+                                                    <div class="tab-content">
+                                                        <div class="tab-content">
+                                                            @foreach($cm->loaitin as $lt)
+                                                                <div class="to-chuc tab-pane
 
                                       @if ($lt->thutu == '1')
-                                      active " id="{{$lt->slug}}">
+                                                                        active " id="{{$lt->slug}}">
 
-                                  @else
-                                      " id="{{$lt->slug}}">
+                                                                    @else
+                                                                        " id="{{$lt->slug}}">
 
-                              @endif
-                              <!-- /.box-header -->
-                                <div class="box-body table-responsive">
-                                  <table class="table table-bordered table-striped table-hover tblLCT">
-                                    <thead>
-                                    <tr>
-                                      <th>#</th>
-                                      <th>Loại </th>
-                                      <th>Nội dung</th>
-                                      <th>Tệp đính kèm</th>
-                                      <th>Ngày ban hành </th>
-                                        <th>
-                                            <a class="btn btn-warning btn-xs" href="{{route('tao-van-ban-khac')}}"><i class="fa fa-plus "></i> Thêm </a>
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
+                                                                @endif
+                                                                <!-- /.box-header -->
+                                                                    <div class="box-body table-responsive">
+                                                                        <table class="table table-bordered table-striped table-hover tblLCT">
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th>Loại </th>
+                                                                                <th>Nội dung</th>
+                                                                                <th>Tệp đính kèm</th>
+                                                                                <th>Ngày ban hành </th>
+                                                                                <th>
+                                                                                    <a class="btn btn-warning btn-xs" href="{{route('tao-van-ban-khac')}}"><i class="fa fa-plus "></i> Thêm </a>
+                                                                                </th>
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <tbody>
 
 
-                                    @foreach ($lt->vanbankhac->sortbydesc('id')->take(50) as $key=>$vbk)
-                                        <tr>
-                                            <td>{{ ++$key }}</td>
-                                            <td>{{ $vbk->loaitin->name }}</td>
-                                            <td>
-                                                {{ $vbk->name }}
-                                                <br>
+                                                                            @foreach ($lt->vanbankhac->sortbydesc('id')->take(50) as $key=>$vbk)
+                                                                                <tr>
+                                                                                    <td>{{ ++$key }}</td>
+                                                                                    <td>{{ $vbk->loaitin->name }}</td>
+                                                                                    <td>
+                                                                                        {{ $vbk->name }}
+                                                                                        <br>
 
-                                                @if ($vbk->daduyet == '1')
-                                                    <div class="pull-left gap-left gap-10">
-                                                        <confirm-modal
-                                                                btn-text='Đã duyệt'
-                                                                btn-class="btn-info"
-                                                                url="{{url('api/v1/duyet-van-ban-khac')}}"
-                                                                :post-data="{{json_encode(['id' => $vbk->id, 'daduyet'=>'0'])}}"
-                                                                :refresh="true"
-                                                                message="Bạn chắc chắn muốn huỷ duyệt đăng văn bản {{$vbk->name}}?">
-                                                        </confirm-modal>
+                                                                                        @if ($vbk->daduyet == '1')
+                                                                                            <div class="pull-left gap-left gap-10">
+                                                                                                <confirm-modal
+                                                                                                        btn-text='Đã duyệt'
+                                                                                                        btn-class="btn-info"
+                                                                                                        url="{{url('api/v1/duyet-van-ban-khac')}}"
+                                                                                                        :post-data="{{json_encode(['id' => $vbk->id, 'daduyet'=>'0'])}}"
+                                                                                                        :refresh="true"
+                                                                                                        message="Bạn chắc chắn muốn huỷ duyệt đăng văn bản {{$vbk->name}}?">
+                                                                                                </confirm-modal>
+                                                                                            </div>
+
+                                                                                        @else
+                                                                                            <div class="pull-left gap-left gap-10">
+                                                                                                <confirm-modal
+                                                                                                        btn-text='Chờ duyệt'
+                                                                                                        btn-class="btn-warning"
+                                                                                                        url="{{url('api/v1/duyet-van-ban-khac')}}"
+                                                                                                        :post-data="{{json_encode(['id' => $vbk->id, 'daduyet'=>'1'])}}"
+                                                                                                        :refresh="true"
+                                                                                                        message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vbk->name}}?">
+                                                                                                </confirm-modal>
+                                                                                            </div>
+
+                                                                                            {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                                                                                        @endif
+
+                                                                                        {{--Thong bao--}}
+
+                                                                                        @if ($vbk->thongbao == '1')
+                                                                                            <div class="pull-left gap-left gap-10">
+                                                                                                <confirm-modal
+                                                                                                        btn-text='Hủy Thông báo '
+                                                                                                        btn-class="btn-danger"
+                                                                                                        url="{{url('api/v1/thong-bao')}}"
+                                                                                                        :post-data="{{json_encode(['id' => $vbk->id, 'thongbao'=>'0'])}}"
+                                                                                                        :refresh="true"
+                                                                                                        message="Bạn chắc chắn muốn hủy thông báo?">
+                                                                                                </confirm-modal>
+                                                                                            </div>
+                                                                                        @else
+                                                                                            <div class="pull-left gap-left gap-10">
+                                                                                                <confirm-modal
+                                                                                                        btn-text='Thông báo '
+                                                                                                        btn-class="btn-warning"
+                                                                                                        url="{{url('api/v1/thong-bao')}}"
+                                                                                                        :post-data="{{json_encode(['id' => $vbk->id, 'thongbao'=>'1'])}}"
+                                                                                                        :refresh="true"
+                                                                                                        message="Bạn chắc chắn muốn thêm thông báo?">
+                                                                                                </confirm-modal>
+                                                                                            </div>
+
+                                                                                        @endif
+
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        @foreach($vbk->tepvanbankhac as $tvb)
+                                                                                            <a href="{{ $tvb->path }}" target="_blank">
+                                                                                                <img src="/images/pdf-file-512.png" alt="{{ $vbk->name }}" title="{{ $vbk->name }}" width="20px">
+                                                                                            </a>
+                                                                                        @endforeach
+                                                                                    </td>
+                                                                                    <td>{{ \Carbon\Carbon::parse($vbk->ngaybanhanh)->format('d-m-Y') }}</td>
+                                                                                    <td>
+
+                                                                                        <div class="pull-left">
+                                                                                            <a href="{{route('edit-van-ban-khac', $vbk->id)}}" class="btn btn-primary btn-xs">
+                                                                                                <i class="fa fa-edit"></i> Sửa
+                                                                                            </a>
+                                                                                        </div>
+
+                                                                                        <div class="pull-left gap-left gap-10" style="padding-left: 5px">
+                                                                                            <confirm-modal
+                                                                                                    btn-text='<i class="fa fa-trash"></i> Xoá'
+                                                                                                    btn-class="btn-danger"
+                                                                                                    url="{{url('api/v1/delete-van-ban-khac')}}"
+                                                                                                    :post-data="{{json_encode(['id' => $vbk->id])}}"
+                                                                                                    :refresh="true"
+                                                                                                    message="Bạn chắc chắn muốn xoá văn bản {{$vbk->kihieuvb}}?">
+                                                                                            </confirm-modal>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            @endforeach
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <!-- /.box-body -->
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
                                                     </div>
-
-                                                @else
-                                                    <div class="pull-left gap-left gap-10">
-                                                        <confirm-modal
-                                                                btn-text='Chờ duyệt'
-                                                                btn-class="btn-warning"
-                                                                url="{{url('api/v1/duyet-van-ban-khac')}}"
-                                                                :post-data="{{json_encode(['id' => $vbk->id, 'daduyet'=>'1'])}}"
-                                                                :refresh="true"
-                                                                message="Bạn chắc chắn muốn duyệt đăng văn bản {{$vbk->name}}?">
-                                                        </confirm-modal>
-                                                    </div>
-
-                                                    {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
-                                                @endif
-
-                                                {{--Thong bao--}}
-
-                                                @if ($vbk->thongbao == '1')
-                                                    <div class="pull-left gap-left gap-10">
-                                                        <confirm-modal
-                                                                btn-text='Hủy Thông báo '
-                                                                btn-class="btn-danger"
-                                                                url="{{url('api/v1/thong-bao')}}"
-                                                                :post-data="{{json_encode(['id' => $vbk->id, 'thongbao'=>'0'])}}"
-                                                                :refresh="true"
-                                                                message="Bạn chắc chắn muốn hủy thông báo?">
-                                                        </confirm-modal>
-                                                    </div>
-                                                @else
-                                                    <div class="pull-left gap-left gap-10">
-                                                        <confirm-modal
-                                                                btn-text='Thông báo '
-                                                                btn-class="btn-warning"
-                                                                url="{{url('api/v1/thong-bao')}}"
-                                                                :post-data="{{json_encode(['id' => $vbk->id, 'thongbao'=>'1'])}}"
-                                                                :refresh="true"
-                                                                message="Bạn chắc chắn muốn thêm thông báo?">
-                                                        </confirm-modal>
-                                                    </div>
-
-                                                @endif
-
-                                            </td>
-                                            <td>
-                                                @foreach($vbk->tepvanbankhac as $tvb)
-                                                    <a href="{{ $tvb->path }}" target="_blank">
-                                                        <img src="/images/pdf-file-512.png" alt="{{ $vbk->name }}" title="{{ $vbk->name }}" width="20px">
-                                                    </a>
-                                                @endforeach
-                                            </td>
-                                            <td>{{ \Carbon\Carbon::parse($vbk->ngaybanhanh)->format('d-m-Y') }}</td>
-                                            <td>
-
-                                                <div class="pull-left">
-                                                    <a href="{{route('edit-van-ban-khac', $vbk->id)}}" class="btn btn-primary btn-xs">
-                                                        <i class="fa fa-edit"></i> Sửa
-                                                    </a>
                                                 </div>
+                                            </div>
 
-                                                <div class="pull-left gap-left gap-10" style="padding-left: 5px">
-                                                    <confirm-modal
-                                                            btn-text='<i class="fa fa-trash"></i> Xoá'
-                                                            btn-class="btn-danger"
-                                                            url="{{url('api/v1/delete-van-ban-khac')}}"
-                                                            :post-data="{{json_encode(['id' => $vbk->id])}}"
-                                                            :refresh="true"
-                                                            message="Bạn chắc chắn muốn xoá văn bản {{$vbk->kihieuvb}}?">
-                                                    </confirm-modal>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                    </tbody>
-                                  </table>
-                                </div>
-                                <!-- /.box-body -->
-                              </div>
-                              @endforeach
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      {{--End box--}}
-            @endif
-        @endforeach
     </div>
   </div>
 @stop
