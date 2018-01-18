@@ -22,6 +22,11 @@ class DichVuCongController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+
 
     public function getBaoHaTinh()
     {
@@ -151,6 +156,12 @@ class DichVuCongController extends Controller
 
             echo "No item qt found ";
         }
+
+
+        return redirect()->route('tin-tuc-su-kien');
+
+
+
     }
 
     public function getDNH()
@@ -180,10 +191,6 @@ class DichVuCongController extends Controller
                 $dnh->daduyet = '1';
                 $dnh->save();
             }
-
-
-
-
         });
     }
 

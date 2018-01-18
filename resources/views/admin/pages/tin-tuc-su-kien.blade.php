@@ -26,7 +26,7 @@
                         <div class="card">
                             <ul class="nav nav-tabs" role="tablist">
                                 @foreach($chuyenmuc->whereIn('id',['1','2','5'])->sortbydesc('id') as $cm)
-                                    @if ($loop->iteration == 1)
+                                    @if ($loop->iteration == 2)
                                         <li class="active">
                                             <a href="#{{$cm->slug}}" data-toggle="tab" title="{{ $cm->ghichu }}">
                                                 {{$cm->name}}
@@ -48,7 +48,7 @@
                                     @foreach($chuyenmuc->whereIn('id',['1','2','5'])->sortbydesc('id') as $cm)
                                         <div class="to-chuc tab-pane
 
-                                            @if ($loop->iteration == 1)
+                                            @if ($loop->iteration == 2)
                                                     active " id="{{$cm->slug}}">
 
                                                 @else

@@ -59,14 +59,8 @@
             <a href="{{route('load-vbm')}}"><i class="fa fa-circle-o"></i> Văn bản mới </a>
           </li>
           <li class="divider"></li>
-          <li class="{{ Request::is('toa-soan/load/tintt') ? 'active' : ''  }}">
-            <a href="{{route('load-tintt')}}"><i class="fa fa-circle-o"></i> Tin trong tỉnh  </a>
-          </li>
-          <li class="{{ Request::is('toa-soan/load/tintn') ? 'active' : ''  }}">
-            <a href="{{route('load-tintn')}}"><i class="fa fa-circle-o"></i> Tin trong nước  </a>
-          </li>
-          <li class="{{ Request::is('toa-soan/load/tinqt') ? 'active' : ''  }}">
-            <a href="{{route('load-tinqt')}}"><i class="fa fa-circle-o"></i> Tin quốc tế  </a>
+          <li class="{{ Request::is('toa-soan/load/baohatinh') ? 'active' : ''  }}">
+            <a href="{{route('load-baohatinh')}}"><i class="fa fa-circle-o"></i> Báo Hà Tĩnh </a>
           </li>
 
         </ul>

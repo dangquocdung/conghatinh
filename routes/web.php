@@ -5,9 +5,9 @@ Route::feeds();
 Route::get('/', 'GuestController@index')->name('trang-chu');
 
 
-Route::get('load-dnh', 'GuestController@loadDNH');
-
-Route::get('load-baohatinh', 'DichVuCongController@getBaoHaTinh');
+//Route::get('load-dnh', 'GuestController@loadDNH');
+//
+//Route::get('load-baohatinh', 'DichVuCongController@getBaoHaTinh');
 
 
 Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
@@ -258,9 +258,13 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
             Route::get('cddh', 'DichVuCongController@getCDDH')->name('load-cddh');
             Route::get('llv', 'DichVuCongController@getLLV')->name('load-llv');
             Route::get('vbm', 'DichVuCongController@getVBM')->name('load-vbm');
-            Route::get('tintt', 'DichVuCongController@getTinTT')->name('load-tintt');
-            Route::get('tintn', 'DichVuCongController@getTinTN')->name('load-tintn');
-            Route::get('tinqt', 'DichVuCongController@getTinQT')->name('load-tinqt');
+
+            Route::get('baohatinh', 'DichVuCongController@getBaoHaTinh')->name('load-baohatinh');
+
+
+//            Route::get('tintt', 'DichVuCongController@getTinTT')->name('load-tintt');
+//            Route::get('tintn', 'DichVuCongController@getTinTN')->name('load-tintn');
+//            Route::get('tinqt', 'DichVuCongController@getTinQT')->name('load-tinqt');
             Route::get('dnh', 'DichVuCongController@getDNH')->name('load-dnh');
         });
 
@@ -288,15 +292,10 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
             Route::get('he-thong/edit-toppic', 'TopPicController@edit')->name('edit-toppic');
             Route::post('he-thong/update-toppic', 'TopPicController@update')->name('update-toppic');
 
-
-
         });
 
 
     });
-
-
-
 
     Route::group(['prefix'=>'cau-hinh','middleware' => 'role:tbt'], function () {
 
@@ -426,16 +425,7 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
         Route::post('delete-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@destroy');
 
-
-
-
-
-
-
-
     });
-
-    
 });
 
 
