@@ -185,6 +185,9 @@
 
             $('#tblVanBan').DataTable({
                 "iDisplayLength": 25,
+
+                "order": [[ 2, "desc" ]],
+
                 "language": {
                     "sProcessing": "Đang xử lý...",
                     "sLengthMenu": "Hiển thị _MENU_ mục",
