@@ -55,10 +55,8 @@ class AppServiceProvider extends ServiceProvider
 
             $nhomcq = NhomCQ::orderby('id')->get();
 
-            $json_tinnoibat = TinTuc::where('daduyet','1')->where('noibat','1')->orderBy('id', 'decs')->take(8)->pluck('name')->toArray();
 
-
-            $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
+            $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq'));
 
         });
 
