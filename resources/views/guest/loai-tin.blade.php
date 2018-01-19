@@ -83,6 +83,7 @@
                              <table id="tblVanBan" class="table table-striped table-bordered table-responsive table-sm">
                                  <thead>
                                  <tr>
+                                     <th>TT</th>
                                      <th>
                                          Số/Kí hiệu
                                      </th>
@@ -102,6 +103,10 @@
                                  <tbody>
                                  @foreach($lt->vanban->where('daduyet','1')->sortByDesc('ngaybanhanh') as $vb)
                                      <tr>
+                                         <td>
+                                             {{ $loop->iteration }}
+                                         </td>
+
                                          <td>
                                              <a href="{{ route('chi-tiet-tin',[$lt->chuyenmuc->slug,$lt->slug,'van-ban',$vb->id,$vb->slug]) }}" class="news-title bold">
                                                  {{ $vb->kihieuvb }}
@@ -179,6 +184,9 @@
 
             $('#tblVanBan').DataTable({
                 "iDisplayLength": 25,
+
+                "order": [[ 2, "desc" ]],
+
                 "language": {
                     "sProcessing": "Đang xử lý...",
                     "sLengthMenu": "Hiển thị _MENU_ mục",
