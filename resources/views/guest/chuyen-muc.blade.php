@@ -77,9 +77,7 @@
                                 Ngày ban hành
                             </th>
 
-                            <th>
-                                Nơi ban hành
-                            </th>
+                           
 
                             <th class="col-md-6">
                                 Trích yếu
@@ -91,7 +89,7 @@
                         </thead>
 
                         <tbody>
-                        @foreach($lt->vanban->where('daduyet','1')->sortByDesc('id')->take(5) as $vb)
+                        @foreach($lt->vanban->where('daduyet','1')->sortByDesc('ngaybanhanh')->take(5) as $vb)
                             <tr>
                                 <td>
                                     {{ $loop->iteration }}
@@ -105,9 +103,7 @@
                                 <td>
                                     {{\Carbon\Carbon::parse($vb->ngaybanhanh)->format('d-m-Y')}}
                                 </td>
-                                <td>
-                                    {{$vb->nguoiki->cqbh->name}}
-                                </td>
+
                                 <td>
                                     {{$vb->trichyeu}}
                                 </td>
