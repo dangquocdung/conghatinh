@@ -221,7 +221,7 @@ class DichVuCongController extends Controller
                         $vb->user_id = Auth::user()->id;
                         $vb->loaitin_id = '38';
                         $vb->kihieuvb = trim($node->filter('td')->eq(0)->text());
-                        $vb->ngaybanhanh = Carbon::parse('1-1-2011');
+                        $vb->ngaybanhanh = Carbon::now();
                         $vb->trichyeu = trim($node->filter('td')->eq(1)->text());
                         $vb->slug = str_slug(trim($node->filter('td')->eq(1)->text()));
                         $vb->daduyet = '1';
