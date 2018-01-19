@@ -18,6 +18,7 @@
             @foreach ($cm->loaitin as $lt)
 
                 @if (count($lt->tintuc) > 0)
+                    
                     <div class="lienquan-header" style="margin-bottom: 10px">
                         <a href="{{ route('loai-tin',[$cm->slug, $lt->slug])  }}">{{ $lt->name }}</a>
                     </div>
