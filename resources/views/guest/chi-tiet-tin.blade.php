@@ -298,7 +298,7 @@
 					@foreach($tin->tepvanban as $tvb)
 
 						<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">
-							<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp PDFs. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
+							<p><b>Thông báo: </b> Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp tệp pdf và doc(x). Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>
 						</object>
 
 						<hr>
