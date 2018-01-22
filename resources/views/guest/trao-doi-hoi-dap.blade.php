@@ -121,7 +121,7 @@
                                 <td>{{ $hdtt->sodt }}</td>
                                 <td>{!! $hdtt->cauhoi !!}</td>
                                 <td>{!! $hdtt->cautraloi !!}</td>
-                                <td>{{ $hdtt->created_at }}</td>
+                                <td>{{ \Carbon\Carbon::parse($hdtt->created_at)->format('d-m'Y) }}</td>
                             </tr>
                         @endforeach
                         </tbody>
