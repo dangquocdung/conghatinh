@@ -115,7 +115,7 @@
                         <tbody>
                         @foreach($hoidaptt as $hdtt )
                             <tr>
-                                <td>{{ $loop->interation }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $hdtt->hoten }}</td>
                                 <td>{{ $hdtt->sodt }}</td>
                                 <td>{!! $hdtt->cauhoi !!}</td>
