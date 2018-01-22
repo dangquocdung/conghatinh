@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DuThao;
+use App\GopYDuThao;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +15,24 @@ class DuThaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug=null)
     {
-        $duthao = DuThao::orderBy('id','decs')->paginate(12);
+        if ($slug==null){
 
-        return view('admin.pages.gop-y-du-thao',compact('duthao'));
+            $duthao = DuThao::orderBy('id','decs')->paginate(12);
+
+            return view('admin.pages.gop-y-du-thao',compact('duthao'));
+
+        }else{
+
+            $dt = DuThao::where('slug',$slug)->get();
+
+            $gopy = GopYDuThao::where('duthao_id',$dt->id)->orderBy('id','decs')->paginate(12);
+
+            return view('admin.pages.gop-y-du-thao-chi-tiet',compact('gopy'));
+
+        }
+
     }
 
     /**

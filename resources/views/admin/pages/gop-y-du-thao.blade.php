@@ -35,7 +35,7 @@
                 @foreach ($duthao as $dt)
                     <tr>
                         <td>{{ $dt->id }}</td>
-                        <td>{{ $dt->name }}</td>
+                        <td><a href="#">{{ $dt->name }}</a></td>
                         <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
                         <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                         <td>
