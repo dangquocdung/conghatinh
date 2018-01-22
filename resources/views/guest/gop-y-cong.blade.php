@@ -25,14 +25,6 @@
                 <div class="input-box" style="padding: 5px">
                     <div class="dv" style="padding-bottom: 5px">
 
-                        <div class="breadcrumb">
-
-                                    <span class="breadcrumb-item active">
-                                        <i class="fa fa-comments" aria-hidden="true"></i> Gửi Góp ý
-                                    </span>
-
-                        </div>
-
                         <form action="{{ route('post-gop-y-cong') }}" method="post">
                             {{ csrf_field() }}
                             <div class="box-body">

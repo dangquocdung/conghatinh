@@ -90,7 +90,7 @@ class DichVuCongController extends Controller
                         $partern = '/(<\/?i>)/';
                         $replacement = '';
                         $tintuc->gioithieu = preg_replace($partern, $replacement,substr($desc,strpos($desc,'<br />') + 6));
-                        
+
                         $tintuc->noidung = substr($desc,strpos($desc,'<br />') + 6);
                         $tintuc->nguon = "<a href='".$url."' target='_blank'> baohatinh.vn</a>";
                         $tintuc->ngaydang = Carbon::parse($node->filter('pubDate')->text());

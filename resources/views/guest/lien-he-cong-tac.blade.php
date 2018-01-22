@@ -25,14 +25,6 @@
                     <div class="input-box" style="padding: 5px">
                         <div class="dv" style="padding-bottom: 5px">
 
-                            <div class="breadcrumb">
-
-                                    <span class="breadcrumb-item active">
-                                        <i class="fa fa-comments" aria-hidden="true"></i> Liên hệ công tác
-                                    </span>
-
-                            </div>
-
                             <form action="{{ route('post-lien-he-cong-tac') }}" method="post">
                                 {{ csrf_field() }}
                                 <div class="box-body">
