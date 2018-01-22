@@ -34,6 +34,7 @@
             </thead>
             <tbody>
                 @foreach($hoidaptructuyen as $hdtt )
+                    <tr>
                     <td>
                         {{ $hdtt->id }}
 
@@ -87,6 +88,7 @@
                         </div>
                         {{-- @endif --}}
                     </td>
+                    </tr>
                 @endforeach
             </tbody>
           </table>
