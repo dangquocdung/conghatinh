@@ -110,6 +110,7 @@
                             <th>Số ĐT</th>
                             <th>Câu hỏi</th>
                             <th>Câu Trả lời</th>
+                            <th>Ngày đăng </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -120,6 +121,7 @@
                                 <td>{{ $hdtt->sodt }}</td>
                                 <td>{!! $hdtt->cauhoi !!}</td>
                                 <td>{!! $hdtt->cautraloi !!}</td>
+                                <td>{{ $hdtt->created_at }}</td>
                             </tr>
                         @endforeach
                         </tbody>
