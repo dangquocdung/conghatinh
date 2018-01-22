@@ -164,36 +164,6 @@ class DichVuCongController extends Controller
 
 
 
-    public function getDNH()
-    {
-        $url = "https://hatinh.top/load-dnh";
-
-        $client = new Client();
-
-        $crawler = $client->request('GET', $url);
-
-        $crawler->filter('table>tbody>tr')->each(function ($node) {
-            if ($node->filter('td')->count() > 0) {
-
-
-                print($node->filter('td')->eq(0)->text() . "<br>");
-                print($node->filter('td')->eq(1)->text() . "<br>");
-                print($node->filter('td')->eq(2)->text() . "<br>");
-                print($node->filter('td')->eq(3)->text() . "<hr>");
-
-                $dnh = new dnhcqnn();
-                $dnh->doanhnghiep = $node->filter('td')->eq(1)->text();
-                $dnh->cauhoi = $node->filter('td')->eq(0)->text();
-                $dnh->ngayhoi = Carbon::parse($node->filter('td')->eq(2)->text());
-                $dnh->ngaytraloi = Carbon::parse($node->filter('td')->eq(2)->text());
-                $dnh->coquantraloi = $node->filter('td')->eq(3)->text();
-
-                $dnh->daduyet = '1';
-                $dnh->save();
-            }
-        });
-    }
-
     public function getCDDH()
     {
 
@@ -213,30 +183,36 @@ class DichVuCongController extends Controller
 
                 if ($node->filter('td')->count() > 0) {
 
-                    $exist = VanBan::where('kihieuvb',trim($node->filter('td')->eq(0)->text()))->where('slug',str_slug(trim($node->filter('td')->eq(1)->text())))->first();
+                    if (strlen(trim($node->filter('td')->eq(0)->text())) > 0){
 
-                    if (empty($exist)) {
+                        $exist = VanBan::where('kihieuvb',trim($node->filter('td')->eq(0)->text()))->where('slug',str_slug(trim($node->filter('td')->eq(1)->text())))->first();
 
-                        $vb = new VanBan();
-                        $vb->user_id = Auth::user()->id;
-                        $vb->loaitin_id = '38';
-                        $vb->kihieuvb = trim($node->filter('td')->eq(0)->text());
-                        $vb->ngaybanhanh = Carbon::now();
-                        $vb->trichyeu = trim($node->filter('td')->eq(1)->text());
-                        $vb->slug = str_slug(trim($node->filter('td')->eq(1)->text()));
-                        $vb->daduyet = '1';
-                        $vb->save();
+                        if (empty($exist)) {
 
-                        $vbid = $vb->id;
+                            $vb = new VanBan();
+                            $vb->user_id = Auth::user()->id;
+                            $vb->loaitin_id = '38';
+                            $vb->kihieuvb = trim($node->filter('td')->eq(0)->text());
+                            $vb->ngaybanhanh = Carbon::now();
+                            $vb->trichyeu = trim($node->filter('td')->eq(1)->text());
+                            $vb->slug = str_slug(trim($node->filter('td')->eq(1)->text()));
+                            $vb->daduyet = '1';
+                            $vb->save();
 
-                        $tvbn = new TepVanBan;
+                            $vbid = $vb->id;
 
-                        $tvbn->vanban_id = $vbid;
+                            $tvbn = new TepVanBan;
 
-                        $tvbn->path = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('a.icon_preview')->attr('href'));
+                            $tvbn->vanban_id = $vbid;
 
-                        $tvbn->save();
+                            $tvbn->path = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('a.icon_preview')->attr('href'));
+
+                            $tvbn->save();
+                        }
+
                     }
+
+
 
 //                    print $node->filter('a.icon_preview')->attr('href')."<br>";
 
@@ -248,59 +224,6 @@ class DichVuCongController extends Controller
     }
 
 
-    public function getLLV()
-    {
-
-//        LichCongTac::where('loaitin_id','74')->delete();
-
-        $client = new Client();
-
-        for ($i=1;$i<4;$i++) {
-
-            $url = 'http://dhtn.hatinh.gov.vn/dhtn/portal/folder/chuong-trinh-cong-tac/'.$i.'.htm';
-
-            $crawler = $client->request('GET', $url);
-
-            $crawler->filter('table>tbody>tr')->each(function ($node) {
-
-                if ($node->filter('td')->count() > 0) {
-
-                    $exist = LichCongTac::where('slug', str_slug($node->filter('td')->eq(1)->text()))->first();
-
-                    if (empty($exist)) {
-
-                        $vb = new LichCongTac;
-                        $vb->user_id = Auth::user()->id;
-                        $vb->loaitin_id = '74';
-                        $vb->name = trim($node->filter('td')->eq(1)->text());
-                        $vb->slug = str_slug($node->filter('td')->eq(1)->text());
-                        $vb->noidung = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
-                        $vb->daduyet = '1';
-                        $vb->save();
-
-                        $vbkid = $vb->id;
-
-                        $tvbk = new TepVanBanKhac();
-
-                        $tvbk->vanbankhac_id = $vbkid;
-
-                        $tvbk->path = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('td>a')->attr('href'));
-
-                        $tvbk->save();
-                    }
-
-                }
-            });
-        }
-
-//        $llv = LichCongTac::where('loaitin_id','74')->get();
-//
-//        return response()->json($llv);
-
-        return redirect()->back();
-
-
-    }
 
     public function getVBM()
     {
@@ -351,178 +274,6 @@ class DichVuCongController extends Controller
         return redirect()->back();
     }
 
-    public function getTinTT()
-    {
-        for ($i=1;$i<6;$i++) {
-
-            $url = "http://dhtn.hatinh.gov.vn/dhtn/portal/folder/tin-trong-tinh/" . $i . ".html";
-
-            $client = new Client();
-
-            $crawler = $client->request('GET', $url);
-
-            $links_count = $crawler->filter('.page_news > div')->count();
-
-            if ($links_count > 0) {
-
-
-                $crawler->filter('.page_news > div')->each(function ($node) {
-
-                    $exist = TinTuc::where('slug', str_slug(trim($node->filter('.news_title>a')->text())))->first();
-
-                    if (empty($exist)) {
-
-
-                        $tintuc = new TinTuc;
-
-                        $tintuc->user_id = Auth::user()->id;
-
-                        $tintuc->loaitin_id = '1';
-
-                        $tintuc->name = trim($node->filter('.news_title>a')->text());
-
-                        $tintuc->slug = str_slug(trim($node->filter('.news_title>a')->text()));
-
-                        $tintuc->avatar = trim($node->filter('img')->attr('src'));
-
-                        $tintuc->gioithieu = trim($node->filter('p.news_summary')->text());
-
-                        $tintuc->noidung = trim($node->filter('p.news_summary')->text());
-
-                        $tintuc->nguon = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('.news_title>a')->attr('href'));
-
-                        $tintuc->ngaydang = Carbon::parse(str_replace('/', '-', $node->filter('p>em')->text()));
-
-                        $tintuc->save();
-
-                    }
-
-                });
-
-
-            } else {
-
-                echo "No Links Found ".$i;
-            }
-        }
-
-        return redirect()->back();
-    }
-
-    public function getTinTN()
-    {
-        for ($i=1;$i<5;$i++) {
-
-            $url = "http://dhtn.hatinh.gov.vn/dhtn/portal/folder/tin-trong-nuoc/" . $i . ".html";
-
-            $client = new Client();
-
-            $crawler = $client->request('GET', $url);
-
-            $links_count = $crawler->filter('.page_news > div')->count();
-
-            if ($links_count > 0) {
-
-
-                $crawler->filter('.page_news > div')->each(function ($node) {
-
-                    $exist = TinTuc::where('slug', str_slug(trim($node->filter('.news_title>a')->text())))->first();
-
-                    if (empty($exist)) {
-
-                        $tintuc = new TinTuc;
-
-                        $tintuc->user_id = Auth::user()->id;
-
-                        $tintuc->loaitin_id = '2';
-
-                        $tintuc->name = trim($node->filter('.news_title>a')->text());
-
-                        $tintuc->slug = str_slug(trim($node->filter('.news_title>a')->text()));
-
-                        $tintuc->avatar = trim($node->filter('img')->attr('src'));
-
-                        $tintuc->gioithieu = trim($node->filter('p.news_summary')->text());
-
-                        $tintuc->noidung = trim($node->filter('p.news_summary')->text());
-
-                        $tintuc->nguon = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('.news_title>a')->attr('href'));
-
-                        $tintuc->ngaydang = Carbon::parse(str_replace('/', '-', $node->filter('p>em')->text()));
-
-                        $tintuc->save();
-
-                    }
-
-                });
-
-
-            } else {
-
-                echo "No Links Found ".$i;
-            }
-        }
-
-        return redirect()->back();
-    }
-
-    public function getTinQT()
-    {
-        for ($i=1;$i<3;$i++) {
-
-            $url = "http://dhtn.hatinh.gov.vn/dhtn/portal/folder/tin-quoc-te/" . $i . ".html";
-
-            $client = new Client();
-
-            $crawler = $client->request('GET', $url);
-
-            $links_count = $crawler->filter('.page_news > div')->count();
-
-            if ($links_count > 0) {
-
-
-                $crawler->filter('.page_news > div')->each(function ($node) {
-
-                    $exist = TinTuc::where('slug', str_slug(trim($node->filter('.news_title>a')->text())))->first();
-
-                    if (empty($exist)) {
-
-
-                        $tintuc = new TinTuc;
-
-                        $tintuc->user_id = Auth::user()->id;
-
-                        $tintuc->loaitin_id = '3';
-
-                        $tintuc->name = trim($node->filter('.news_title>a')->text());
-
-                        $tintuc->slug = str_slug(trim($node->filter('.news_title>a')->text()));
-
-                        $tintuc->avatar = trim($node->filter('img')->attr('src'));
-
-                        $tintuc->gioithieu = trim($node->filter('p.news_summary')->text());
-
-                        $tintuc->noidung = trim($node->filter('p.news_summary')->text());
-
-                        $tintuc->nguon = 'http://dhtn.hatinh.gov.vn' . trim($node->filter('.news_title>a')->attr('href'));
-
-                        $tintuc->ngaydang = Carbon::parse(str_replace('/', '-', $node->filter('p>em')->text()));
-
-                        $tintuc->save();
-
-                    }
-
-                });
-
-
-            } else {
-
-                echo "No Links Found ".$i;
-            }
-        }
-
-        return redirect()->back();
-    }
 
     /**
      * Show the form for creating a new resource.

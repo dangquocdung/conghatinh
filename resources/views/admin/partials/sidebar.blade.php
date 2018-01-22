@@ -48,15 +48,11 @@
         <ul class="treeview-menu">
 
           <li class="{{ Request::is('toa-soan/load/cddh') ? 'active' : ''  }}">
-            <a href="{{route('load-cddh')}}"><i class="fa fa-circle-o"></i> Chỉ đạo, điều hành </a>
-          </li>
-
-          <li class="{{ Request::is('toa-soan/load/llv') ? 'active' : ''  }}">
-            <a href="{{route('load-llv')}}"><i class="fa fa-circle-o"></i> Lịch làm việc </a>
+            <a href="{{route('load-cddh')}}"><i class="fa fa-circle-o"></i> Điều hành tác nghiệp </a>
           </li>
 
           <li class="{{ Request::is('toa-soan/load/vbm') ? 'active' : ''  }}">
-            <a href="{{route('load-vbm')}}"><i class="fa fa-circle-o"></i> Văn bản mới </a>
+            <a href="{{route('load-vbm')}}"><i class="fa fa-circle-o"></i> Công báo </a>
           </li>
           <li class="divider"></li>
           <li class="{{ Request::is('toa-soan/load/baohatinh') ? 'active' : ''  }}">
