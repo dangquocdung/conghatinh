@@ -86,7 +86,11 @@ class DichVuCongController extends Controller
                         $start = strpos($desc,'src="') + 5;
                         $end = strpos($desc,'" />');
                         $tintuc->avatar = 'http://baohatinh.vn'.substr($desc,$start,$end-$start);
-                        $tintuc->gioithieu = substr($desc,strpos($desc,'<br />') + 6);
+
+                        $partern = '/(<\/?i>)/';
+                        $replacement = '';
+                        $tintuc->gioithieu = preg_replace($partern, $replacement,substr($desc,strpos($desc,'<br />') + 6));
+                        
                         $tintuc->noidung = substr($desc,strpos($desc,'<br />') + 6);
                         $tintuc->nguon = "<a href='".$url."' target='_blank'> baohatinh.vn</a>";
                         $tintuc->ngaydang = Carbon::parse($node->filter('pubDate')->text());
