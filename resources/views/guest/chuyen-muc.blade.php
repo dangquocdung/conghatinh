@@ -77,7 +77,7 @@
                                 Ngày ban hành
                             </th>
 
-                           
+
 
                             <th class="col-md-6">
                                 Trích yếu

@@ -135,17 +135,21 @@
                 <input name="nguon" class="form-control" type="text" value="{{$tintuc->nguon}}">
               </div>
 
+              <p class="pull-right">
+                  {!! $tintuc->nguon !!}
+              </p>
+
+              <div class="clearfix"></div>
+
               @php
 
                   $items = array();
 
-
-
                   foreach($teptintuc as $ttt){
+
                     if ($ttt->tintuc_id == $tintuc->id){
                         $items[] = $ttt->media_id;
                     }
-
                   }
 
               @endphp

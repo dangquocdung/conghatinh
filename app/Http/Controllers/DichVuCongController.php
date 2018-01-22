@@ -58,6 +58,8 @@ class DichVuCongController extends Controller
 
                     $url = $node->filter('link')->text(); // String. You have extracted description part from your feed
 
+                    $desc = $node->filter('description')->text();
+
 
                     //Them tin tuc
 
@@ -69,25 +71,29 @@ class DichVuCongController extends Controller
 
                         $tintuc->user_id = '2';
 
-                        $tintuc->loaitin_id = '1';
+                        if (strpos($desc,'<i>(Baohatinh.vn)</i>') > 0){
+
+                            $tintuc->loaitin_id = 1;
+
+                        }else{
+
+                            $tintuc->loaitin_id = 2;
+
+                        }
 
                         $tintuc->name = $name;
-
                         $tintuc->slug = $slug;
-
-                        $tintuc->avatar = 'https://cdn.shopify.com/s/files/1/1380/9193/t/3/assets/no-image.svg?2375582141201571545';
-
-                        $tintuc->gioithieu = $node->filter('description')->text();
-
-                        $tintuc->noidung = $node->filter('description')->text();
-
+                        $start = strpos($desc,'src="') + 5;
+                        $end = strpos($desc,'" />');
+                        $tintuc->avatar = 'http://baohatinh.vn'.substr($desc,$start,$end-$start);
+                        $tintuc->gioithieu = substr($desc,strpos($desc,'<br />') + 6);
+                        $tintuc->noidung = substr($desc,strpos($desc,'<br />') + 6);
                         $tintuc->nguon = "<a href='".$url."' target='_blank'> baohatinh.vn</a>";
-
                         $tintuc->ngaydang = Carbon::parse($node->filter('pubDate')->text());
 
                         $tintuc->save();
 
-                    }
+                    };
 
                 });
 
@@ -96,16 +102,12 @@ class DichVuCongController extends Controller
 
                 echo "No item found ";
             }
-        }
+        };
 
-
-        //Quoc te
-
-        $url = 'http://baohatinh.vn/rss/quoc-te.xml';
 
         $client = new Client();
 
-        $crawler = $client->request('GET', $url);
+        $crawler = $client->request('GET', 'http://baohatinh.vn/rss/quoc-te.xml');
 
         $links_count = $crawler->filter('item')->count();
 
@@ -119,6 +121,8 @@ class DichVuCongController extends Controller
 
                 $url = $node->filter('link')->text(); // String. You have extracted description part from your feed
 
+                $desc = $node->filter('description')->text();
+
 
                 //Them tin tuc
 
@@ -130,39 +134,35 @@ class DichVuCongController extends Controller
 
                     $tintuc->user_id = '2';
 
-                    $tintuc->loaitin_id = '3';
+                    $tintuc->loaitin_id = 3;
 
                     $tintuc->name = $name;
-
                     $tintuc->slug = $slug;
-
-                    $tintuc->avatar = 'https://cdn.shopify.com/s/files/1/1380/9193/t/3/assets/no-image.svg?2375582141201571545';
-
-                    $tintuc->gioithieu = $node->filter('description')->text();
-
-                    $tintuc->noidung = $node->filter('description')->text();
-
+                    $start = strpos($desc,'src="') + 5;
+                    $end = strpos($desc,'" />');
+                    $tintuc->avatar = 'http://baohatinh.vn'.substr($desc,$start,$end-$start);
+                    $tintuc->gioithieu = substr($desc,strpos($desc,'<br />') + 6);
+                    $tintuc->noidung = substr($desc,strpos($desc,'<br />') + 6);
                     $tintuc->nguon = "<a href='".$url."' target='_blank'> baohatinh.vn</a>";
-
                     $tintuc->ngaydang = Carbon::parse($node->filter('pubDate')->text());
 
                     $tintuc->save();
 
-                }
+                };
 
             });
 
+
         } else {
 
-            echo "No item qt found ";
+            echo "No item found ";
         }
-
 
         return redirect()->route('tin-tuc-su-kien');
 
-
-
     }
+
+
 
     public function getDNH()
     {
