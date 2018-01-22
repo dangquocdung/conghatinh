@@ -4,8 +4,8 @@
   <section class="content-header">
     <h1>Góp ý dự thảo văn bản</h1>
     <ol class="breadcrumb">
-      <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="{{route('config')}}">Configurations</a></li>
+      <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Trang quản trị </a></li>
+      <li><a href="javascript:void(0);">Chuyên trang </a></li>
       <li class="active">Góp ý dự thảo văn bản</li>
     </ol>
   </section>
