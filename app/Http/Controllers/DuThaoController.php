@@ -27,11 +27,6 @@ class DuThaoController extends Controller
 
             $dt = DuThao::where('slug',$slug)->first();
 
-
-            
-
-
-
             $gopy = GopYDuThao::where('duthao_id',$dt->id)->orderBy('id','decs')->paginate(12);
 
             return view('admin.pages.gop-y-du-thao-chi-tiet',compact('gopy'));
