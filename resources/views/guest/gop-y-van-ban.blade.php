@@ -108,7 +108,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($duthao as $dt)
+
+                            @if ($duthao)
+                                @foreach ($duthao as $dt)
+                                    <tr>
+                                        <td>{{ $dt->id }}</td>
+                                        <td><a href="{{ route('gop-y-van-ban-qppl',$dt->id) }}">{{ $dt->name }}</a></td>
+                                        <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
+                                        <td>{{ count($dt->gopy) }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
+                                        <td>
+
+                                            @if ($dt->thoihan >= date('Y-m-d'))
+                                                <button class="btn btn-info btn-xs gopy" duthao_id="{{ $dt->id }}" duthao_name="{{ $dt->name }}">Góp ý</button>
+
+                                                @else
+
+                                                <button class="btn btn-info btn-xs" disabled>Góp ý</button>
+
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @elseif ($dt)
+
                                 <tr>
                                     <td>{{ $dt->id }}</td>
                                     <td><a href="{{ route('gop-y-van-ban-qppl',$dt->id) }}">{{ $dt->name }}</a></td>
@@ -120,14 +143,16 @@
                                         @if ($dt->thoihan >= date('Y-m-d'))
                                             <button class="btn btn-info btn-xs gopy" duthao_id="{{ $dt->id }}" duthao_name="{{ $dt->name }}">Góp ý</button>
 
-                                            @else
+                                        @else
 
                                             <button class="btn btn-info btn-xs" disabled>Góp ý</button>
 
                                         @endif
                                     </td>
                                 </tr>
-                            @endforeach
+
+                            @endif
+
 
                             </tbody>
 

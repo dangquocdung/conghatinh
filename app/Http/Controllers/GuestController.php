@@ -232,7 +232,7 @@ class GuestController extends Controller
         }else{
 
             $dt = DuThao::findOrFail($id)->first();
-            return view('guest.gop-y-van-ban-chi-tiet',compact('dt'));
+            return view('guest.gop-y-van-ban',compact('dt'));
 
 
         }
