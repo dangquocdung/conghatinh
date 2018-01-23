@@ -206,46 +206,58 @@
 
     @if (!empty($gopy))
 
-        <div class="block3">
+        <div class="gopy-box" style="padding: 5px; display: none;transition: opacity 1s ease-out; opacity: 0;">
+            <div class="dv" style="padding-bottom: 5px">
+
+                <div class="breadcrumb">
+
+                            <span class="breadcrumb-item active">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i> Các ý kiến đóng góp
+                            </span>
+
+                    <span class="pull-right" id="btn-close">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </span>
 
 
-            <div class="portlet-header">
+                </div>
 
-                <a href="javascript:void(0);">
-                    <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Các ý kiến đóng góp </h4>
-                </a>
+
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>TT</th>
+                        <th>Ngày gởi</th>
+                        <th>Họ và Tên</th>
+                        <th>Email</th>
+                        <th>Nội dung</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach($gopy as $gy)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ \Carbon\Carbon::parse($gy->created_at)->format('d-m-Y H:i:s') }}</td>
+                            <td>{{ $gy->hoten }}</td>
+                            <td>{{ $gy->email }}</td>
+                            <td>{!! $gy->noidung !!}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
 
             </div>
 
 
-
-
-
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th>TT</th>
-                    <th>Ngày gởi</th>
-                    <th>Họ và Tên</th>
-                    <th>Email</th>
-                    <th>Nội dung</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                @foreach($gopy as $gy)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ \Carbon\Carbon::parse($gy->created_at)->format('d-m-Y H:i:s') }}</td>
-                        <td>{{ $gy->hoten }}</td>
-                        <td>{{ $gy->email }}</td>
-                        <td>{!! $gy->noidung !!}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-
         </div>
+
+
+
+
+
+
+
 
 
     @endif
