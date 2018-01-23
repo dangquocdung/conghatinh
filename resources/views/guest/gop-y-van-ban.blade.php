@@ -207,6 +207,7 @@
                                 <td>{{ $gy->email }}</td>
                                 <td>{!! $gy->noidung !!}</td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
 
