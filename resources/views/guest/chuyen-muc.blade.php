@@ -129,7 +129,7 @@
                     <table id="tblVanBan" class="table table-striped table-bordered table-responsive table-sm">
                         <thead>
                         <th>TT</th>
-                        <th>Chương trình công tác </th>
+                        <th>Nội dung </th>
                         <th>Ngày đăng </th>
                         <th>Tệp đính kèm</th>
                         </thead>

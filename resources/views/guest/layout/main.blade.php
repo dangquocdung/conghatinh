@@ -46,9 +46,8 @@
         <div class="chao-mung">
 
             <marquee class="hot-tip" behavior="scroll" direction="left" scrollamount="3">
-                <a href="javascript:void(0);" style="color:red;">Thông báo: &nbsp;</a>
                 @foreach($thongbao as $tb)
-                    <a href="http://baochinhphu.vn/Dong-luc-tang-truong/489.vgp" target="_blank">{{ $tb->name }}</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="{{ route('chi-tiet-tin',[$tb->loaitin->chuyenmuc->slug,$tb->loaitin->slug,'van-ban-khac',$tb->id,$tb->slug]) }}" target="_blank">{{ $tb->name }}</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                 @endforeach
             </marquee>
 
