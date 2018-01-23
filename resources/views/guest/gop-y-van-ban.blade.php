@@ -201,6 +201,9 @@
 
                 @if (!empty($gopy))
 
+                    <div>Các ý kiến đóng góp</div>
+                    <br>
+
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
