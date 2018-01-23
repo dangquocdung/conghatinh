@@ -161,6 +161,8 @@
                     </div>
                     <!-- /.box-body -->
 
+
+
                     <script>
                         $(".gopy").click(function () {
 
@@ -183,9 +185,36 @@
                     </script>
                 </div>
 
+                @if (!empty($gopy))
 
-                </div>
+                    <table id="gopy" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>TT</th>
+                            <th>Ngày gởi</th>
+                            <th>Họ và Tên</th>
+                            <th>Email</th>
+                            <th>Nội dung</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($gopy as $gy)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ \Carbon\Carbon::parse($gy->created_at)->format('d-m-Y H:i:s') }}</td>
+                                <td>{{ $gy->hoten }}</td>
+                                <td>{{ $gy->email }}</td>
+                                <td>{!! $gy->noidung !!}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                @endif
+
             </div>
+    </div>
 @endsection
 
 

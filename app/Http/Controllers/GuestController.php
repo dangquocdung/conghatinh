@@ -27,6 +27,7 @@ use App\ThongTinDoanhNghiep;
 use App\Events\User\TinTucCounter;
 use App\DichVuCong;
 use App\dnhcqnn;
+use App\GopYDuThao;
 
 
 
@@ -232,7 +233,8 @@ class GuestController extends Controller
         }else{
 
             $dt = DuThao::findOrFail($id);
-            return view('guest.gop-y-van-ban',compact('dt'));
+            $gopy = GopYDuThao::where('duthao_id',$dt->id)->paginate(12);
+            return view('guest.gop-y-van-ban',compact('dt','gopy'));
 
 
         }
