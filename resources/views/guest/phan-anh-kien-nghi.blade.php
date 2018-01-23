@@ -112,11 +112,13 @@
                         </thead>
                         <tbody>
                         @foreach($hoidaptt as $hdtt )
-                            <td>{{ $hdtt->id }}</td>
-                            <td>{{ $hdtt->hoten }}</td>
-                            <td>{{ $hdtt->sodt }}</td>
-                            <td>{!! $hdtt->cauhoi !!}</td>
-                            <td>{!! $hdtt->cautraloi !!}</td>
+                            <tr>
+                                <td>{{ $hdtt->id }}</td>
+                                <td>{{ $hdtt->hoten }}</td>
+                                <td>{{ $hdtt->sodt }}</td>
+                                <td>{!! $hdtt->cauhoi !!}</td>
+                                <td>{!! $hdtt->cautraloi !!}</td>
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>
