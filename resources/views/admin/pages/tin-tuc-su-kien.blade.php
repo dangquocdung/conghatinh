@@ -129,7 +129,7 @@
                                                                                         <tbody>
 
 
-                                                                                        @foreach ($lt->tintuc->sortbydesc('id')->take(50) as $key=>$tin)
+                                                                                        @foreach ($lt->tintuc->sortbydesc('id')->take(30) as $key=>$tin)
 
 
                                                                                             <tr>
