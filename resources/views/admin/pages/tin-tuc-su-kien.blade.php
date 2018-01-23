@@ -129,11 +129,11 @@
                                                                                         <tbody>
 
 
-                                                                                        @foreach ($lt->tintuc->sortbydesc('id')->take(30) as $key=>$tin)
+                                                                                        @foreach ($lt->tintuc->sortbydesc('id')->take(30) as $tin)
 
 
                                                                                             <tr>
-                                                                                                <td>{{++$key}}</td>
+                                                                                                <td>{{$tin->id}}</td>
                                                                                                 <td>
                                                                                                     {{ \Carbon\Carbon::parse($tin->ngaydang)->format('Y/m/d') }}
 
@@ -326,8 +326,6 @@
             $('.tblTinTuc').DataTable({
 
                 "iDisplayLength": 10,
-
-                "order": [[ 0, "desc" ]],
 
                 "sType": "numeric",
 
