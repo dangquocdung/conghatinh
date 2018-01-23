@@ -231,7 +231,7 @@ class GuestController extends Controller
 
         }else{
 
-            $dt = DuThao::findOrFail($id)->first();
+            $dt = DuThao::findOrFail($id);
             return view('guest.gop-y-van-ban',compact('dt'));
 
 
