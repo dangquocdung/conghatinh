@@ -129,7 +129,7 @@
                                                                                         <tbody>
 
 
-                                                                                        @foreach ($lt->tintuc->sortbydesc('id')->take(40) as $tin)
+                                                                                        @foreach ($lt->tintuc->sortbydesc('id')->take(50) as $tin)
 
 
                                                                                             <tr>
@@ -326,6 +326,8 @@
             $('.tblTinTuc').DataTable({
 
                 "iDisplayLength": 10,
+
+                "order": [[ 0, "desc" ]],
 
                 "sType": "numeric",
 
