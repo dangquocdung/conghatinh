@@ -233,7 +233,9 @@ class GuestController extends Controller
         }else{
 
             $dt = DuThao::findOrFail($id);
-            $gopy = GopYDuThao::where('duthao_id',$dt->id)->paginate(12);
+
+            $gopy = GopYDuThao::where('duthao_id',$dt->id)->orderby('id','desc')->get();
+
             return view('guest.gop-y-van-ban',compact('dt','gopy'));
 
 
