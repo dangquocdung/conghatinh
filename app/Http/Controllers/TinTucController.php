@@ -288,7 +288,7 @@ class TinTucController extends Controller
 
         $tin = TinTuc::findOrFail($request->id);
 
-        $tin->daduyet = $request->daduyet;
+        $tin->daduyet = $request->duyetdang;
 
         $tin->save();
 

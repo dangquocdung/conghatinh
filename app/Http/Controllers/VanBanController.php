@@ -222,7 +222,7 @@ class VanBanController extends Controller
 
         $vb = VanBan::findOrFail($request->id);
 
-        $vb->daduyet = $request->daduyet;
+        $vb->daduyet = $request->duyetdang;
 
         $vb->save();
 
