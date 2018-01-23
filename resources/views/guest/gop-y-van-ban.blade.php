@@ -102,6 +102,7 @@
                                     <th>TT</th>
                                     <th>Dự thảo văn bản</th>
                                     <th>Tệp văn bản</th>
+                                    <th>Góp ý </th>
                                     <th>Hạn góp ý</th>
                                     <th></th>
                                 </tr>
@@ -112,6 +113,7 @@
                                     <td>{{ $dt->id }}</td>
                                     <td>{{ $dt->name }}</td>
                                     <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
+                                    <td>{{ count($dt->gopy) }}</td>
                                     <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                                     <td>
 

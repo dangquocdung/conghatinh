@@ -1,5 +1,9 @@
 @extends('admin.html')
 
+@section('title')
+    <title>Góp ý dự thảo văn bản</title>
+@stop
+
 @section('breadcrumb')
   <section class="content-header">
     <h1>Góp ý dự thảo văn bản</h1>
@@ -27,6 +31,7 @@
                     <th>TT</th>
                     <th>Dự thảo văn bản</th>
                     <th>Tệp văn bản</th>
+                    <th>Góp ý </th>
                     <th>Hạn góp ý</th>
                     <th></th>
                 </tr>
@@ -37,6 +42,7 @@
                         <td>{{ $dt->id }}</td>
                         <td><a href="{{ route('index-du-thao-van-ban',$dt->slug) }}">{{ $dt->name }}</a></td>
                         <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
+                        <td>{{ count($dt->gopy) }}</td>
                         <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                         <td>
                             <div class="pull-left">

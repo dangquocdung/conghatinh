@@ -15,4 +15,9 @@ class DuThao extends Model
     {
         return $this->belongsTo('App\User','user_id','id');
     }
+
+    public function gopy()
+    {
+        return $this->hasMany('App\GopYDuThao','duthao_id','id');
+    }
 }

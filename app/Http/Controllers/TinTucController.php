@@ -284,16 +284,13 @@ class TinTucController extends Controller
 
     public function postDuyetTinTuc(Request $request)
     {
-        $tinTucId = $request->input('id');
 
 
-        $tintuc = TinTuc::findOrFail($tinTucId);
+        $tin = TinTuc::findOrFail($request->id);
 
-//        $tintuc->daduyet = $request->input('daduyet');
+        $tin->daduyet = $request->daduyet;
 
-        $tintuc->daduyet = '1';
-
-        $tintuc->save();
+        $tin->save();
 
         return response(['data' => 'Tin bài đã được duyệt đăng'], 200);
     }

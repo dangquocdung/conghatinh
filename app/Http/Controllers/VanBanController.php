@@ -214,16 +214,15 @@ class VanBanController extends Controller
 //        event(new TinTucDeleted($tintuc));
 
         return response(['data' => 'Văn bản đã bị xoá'], 200);
+
     }
 
     public function postDuyetVanBan(Request $request)
     {
 
+        $vb = VanBan::findOrFail($request->id);
 
-
-        $vb = VanBan::find($request->input('id'));
-
-        $vb->daduyet = '1';
+        $vb->daduyet = $request->daduyet;
 
         $vb->save();
 

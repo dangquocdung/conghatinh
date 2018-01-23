@@ -40,7 +40,7 @@ class GopYDuThaoController extends Controller
             'noidung' => 'required',
         ]);
 
-        $create = GopYDuThao::create($request->all());
+        GopYDuThao::create($request->all());
 
         flash('Cảm ơn bạn đã đóng góp ý kiến');
 
@@ -91,8 +91,27 @@ class GopYDuThaoController extends Controller
      * @param  \App\GopYDuThao  $gopYDuThao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GopYDuThao $gopYDuThao)
+    public function destroy(Request $request)
     {
-        //
+        GopYDuThao::destroy($request->input('id'));
+
+
+
+        flash('Xoá thành công!');
+
+        return redirect()->back();
+
+    }
+
+
+    public function postDuyet(Request $request)
+    {
+        $gy = GopYDuThao::findOrFail($request->input('id'));
+
+        $gy->daduyet = $request->input('duyetdang');
+
+        $gy->save();
+
+        return response(['data' => 'Duyệt đăng thành công!'], 200);
     }
 }

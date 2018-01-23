@@ -29,7 +29,7 @@ class DuThaoController extends Controller
 
             $gopy = GopYDuThao::where('duthao_id',$dt->id)->orderBy('id','decs')->paginate(12);
 
-            return view('admin.pages.gop-y-du-thao-chi-tiet',compact('gopy'));
+            return view('admin.pages.gop-y-du-thao-chi-tiet',compact('gopy','dt'));
 
         }
 

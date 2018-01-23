@@ -224,8 +224,6 @@ class VanBanKhacController extends Controller
     public function postDuyetVanBan(Request $request)
     {
 
-
-
         $vbk = LichCongTac::findOrFail($request->id);
 
         $vbk->daduyet = $request->daduyet;

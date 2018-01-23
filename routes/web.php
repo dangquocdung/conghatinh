@@ -374,6 +374,10 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
     Route::post('delete-banner-trang-chu', 'BannerController@destroy');
 
+    Route::post('delete-gop-y-du-thao', 'GopYDuThaoController@destroy');
+
+    Route::post('duyet-gop-y-du-thao', 'GopYDuThaoController@postDuyet');
+
 
     Route::group(['middleware' => 'role:admin'], function () {
 
