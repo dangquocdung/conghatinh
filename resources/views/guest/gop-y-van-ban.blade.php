@@ -206,7 +206,7 @@
 
     @if (!empty($gopy))
 
-        <div class="gopy-box" style="padding: 5px; display: none;transition: opacity 1s ease-out; opacity: 0;">
+        <div class="gopy-box" style="padding: 5px;">
             <div class="dv" style="padding-bottom: 5px">
 
                 <div class="breadcrumb">
