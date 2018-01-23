@@ -201,18 +201,13 @@
                     <br>
 
                     @if (!empty($gopy))
-                        <div class="dv" style="padding-bottom: 5px">
+
 
                             <div class="breadcrumb">
 
-                            <span class="breadcrumb-item active">
-                                <i class="fa fa-commenting-o" aria-hidden="true"></i> Các ý kiến đóng góp
-                            </span>
-
-                                <span class="pull-right" id="btn-close">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </span>
-
+                                <span class="breadcrumb-item active">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i> Các ý kiến đóng góp
+                                </span>
 
                             </div>
 
@@ -241,7 +236,7 @@
                                 </tbody>
                             </table>
 
-                        </div>
+                        
                     @endif
                 </div>
 
