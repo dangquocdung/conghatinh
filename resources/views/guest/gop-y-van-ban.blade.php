@@ -109,7 +109,7 @@
                             </thead>
                             <tbody>
 
-                            @if ($duthao)
+                            @if (!empty($duthao))
                                 @foreach ($duthao as $dt)
                                     <tr>
                                         <td>{{ $dt->id }}</td>
@@ -130,7 +130,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                            @elseif ($dt)
+                            @elseif (!empty($dt))
 
                                 <tr>
                                     <td>{{ $dt->id }}</td>
@@ -186,10 +186,6 @@
                 </div>
             </div>
 @endsection
-
-@section('content-right')
-    @include('guest.menu-right.trang-chu')
-@stop
 
 
 @section('js')
