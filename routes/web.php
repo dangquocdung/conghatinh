@@ -43,7 +43,7 @@ Route::group(['prefix'=>'vi'], function ()
     Route::get('so-do-cong', 'GuestController@getSoDoCong')->name('so-do-cong');
 
 
-    Route::get('gop-y-van-ban-qppl', 'GuestController@getGopYVanBan');
+    Route::get('gop-y-van-ban-qppl/{id?}', 'GuestController@getGopYVanBan')->name('gop-y-van-ban-qppl');
     Route::get('phan-anh-kien-nghi', 'GuestController@getPhanAnhKienNghi');
     Route::get('trao-doi-hoi-dap', 'GuestController@getTraoDoiHoiDap');
     Route::get('thong-tin-doanh-nghiep', 'GuestController@getThongTinDoanhNghiep');

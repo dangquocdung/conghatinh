@@ -222,10 +222,21 @@ class GuestController extends Controller
 
     }
 
-    public function getGopYVanBan()
+    public function getGopYVanBan($id=null)
     {
-        $duthao = DuThao::orderby('id','desc')->paginate(12);
-        return view('guest.gop-y-van-ban',compact('duthao'));
+        if ($id==null){
+
+            $duthao = DuThao::orderby('id','desc')->paginate(12);
+            return view('guest.gop-y-van-ban',compact('duthao'));
+
+        }else{
+
+            $dt = DuThao::findOrFail($id)->first();
+            return view('guest.gop-y-van-ban-chi-tiet',compact('dt'));
+
+
+        }
+
     }
 
     public function getPhanAnhKienNghi()

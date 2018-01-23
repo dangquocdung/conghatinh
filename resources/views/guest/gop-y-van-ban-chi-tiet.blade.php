@@ -108,10 +108,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($duthao as $dt)
+
                                 <tr>
                                     <td>{{ $dt->id }}</td>
-                                    <td><a href="{{ route('gop-y-van-ban-qppl',$dt->id) }}">{{ $dt->name }}</a></td>
+                                    <td>{{ $dt->name }}</td>
                                     <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
                                     <td>{{ count($dt->gopy) }}</td>
                                     <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
@@ -127,7 +127,7 @@
                                         @endif
                                     </td>
                                 </tr>
-                            @endforeach
+
 
                             </tbody>
 
