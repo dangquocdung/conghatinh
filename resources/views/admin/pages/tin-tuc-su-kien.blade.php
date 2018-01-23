@@ -327,6 +327,8 @@
 
                 "iDisplayLength": 10,
 
+                "order": [[ 0, "desc" ]],
+
                 "sType": "numeric",
 
                 "language": {
