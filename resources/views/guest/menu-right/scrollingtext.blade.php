@@ -1,4 +1,4 @@
-<div style="padding: 5px; min-height: 200px" >
+<div style="padding: 5px; min-height: 160px" >
     <strong style="color:red;">Thông báo khẩn: &nbsp;</strong><span id="scrolling-text"></span>
 </div>
 
