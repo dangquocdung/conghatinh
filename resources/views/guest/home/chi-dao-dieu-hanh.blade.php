@@ -248,7 +248,6 @@
         @endif
 
 
-
         @if ($cm->banner_id != null)
 
             <div class="block2">

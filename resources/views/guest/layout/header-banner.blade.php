@@ -3,7 +3,7 @@
 {{--        @include('guest.layout.header-slide')--}}
         <div style="position: relative">
             <a href="/">
-                <img u="image" src="{{$toppic->hinhanh}}" width="100%"/>
+                <img src="{{ Setting::get('banner') }}" width="100%"/>
             </a>
             <div id="google_translate_element"></div>
             <script type="text/javascript">

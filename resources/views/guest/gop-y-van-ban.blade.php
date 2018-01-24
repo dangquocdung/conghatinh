@@ -97,7 +97,7 @@
                     <!-- /.box-header -->
                     <div class="dv-body">
                         @if (!empty($duthao))
-                            <table id="example1" class="dv-table">
+                            <table id="tblConHan" class="dv-table">
                                 <thead>
                                     <tr>
                                         <th>TT</th>
@@ -110,25 +110,55 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($duthao as $dt)
+                                        @if ($dt->thoihan >= date('Y-m-d'))
                                         <tr>
-                                            <td>{{ $dt->id }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td><a href="{{ route('gop-y-van-ban-qppl',$dt->id) }}">{{ $dt->name }}</a></td>
                                             <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
                                             <td>{{ count($dt->gopy) }}</td>
                                             <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
                                             <td>
-
-                                                @if ($dt->thoihan >= date('Y-m-d'))
-                                                    <button class="btn btn-info btn-xs gopy" duthao_id="{{ $dt->id }}" duthao_name="{{ $dt->name }}">Góp ý</button>
-
-                                                    @else
-
-                                                    <button class="btn btn-info btn-xs" disabled>Góp ý</button>
-
-                                                @endif
+                                                <button class="btn btn-info btn-xs gopy" duthao_id="{{ $dt->id }}" duthao_name="{{ $dt->name }}">Góp ý</button>
                                             </td>
                                         </tr>
+                                        @endif
                                     @endforeach
+                                </tbody>
+
+                            </table>
+
+                            <br>
+                            <div class="breadcrumb">
+
+                                <span class="breadcrumb-item active">
+                                    <i class="fa fa-commenting-o" aria-hidden="true"></i> Các dự thảo văn bản đã hết hạn lấy ý kiến đóng góp
+                                </span>
+
+                            </div>
+
+
+                            <table id="tblHetHan" class="dv-table">
+                                <thead>
+                                <tr>
+                                    <th>TT</th>
+                                    <th>Dự thảo văn bản</th>
+                                    <th>Tệp văn bản</th>
+                                    <th>Góp ý </th>
+                                    <th>Hạn góp ý</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($duthao as $dt)
+                                    @if ($dt->thoihan < date('Y-m-d'))
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><a href="{{ route('gop-y-van-ban-qppl',$dt->id) }}">{{ $dt->name }}</a></td>
+                                            <td style="text-align: center"><a href="{{ $dt->path_file }}"><i class="fa fa-file-archive-o" aria-hidden="true"></i></a></td>
+                                            <td>{{ count($dt->gopy) }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($dt->thoihan)->format('d-m-Y') }}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
                                 </tbody>
 
                             </table>
@@ -262,8 +292,8 @@
 
             $('.textarea').wysihtml5()
 
-            $('#example1').DataTable({
-                "iDisplayLength": 25,
+            $('.dv-table').DataTable({
+                "iDisplayLength": 10,
                 "language": {
                     "sProcessing": "Đang xử lý...",
                     "sLengthMenu": "Hiển thị _MENU_ mục",
@@ -284,15 +314,6 @@
                         "sPrevious": "Trước"
                     }
                 }
-            })
-
-            $('#example2').DataTable({
-                'paging'      : true,
-                'lengthChange': false,
-                'searching'   : false,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false
             })
         })
     </script>

@@ -70,7 +70,10 @@ class GuestController extends Controller
 
     public function index()
     {
-        return view('guest.trang-chu');
+
+        $banner_tt = TopPic::all();
+
+        return view('guest.trang-chu',compact('banner_tt'));
     }
 
 

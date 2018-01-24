@@ -1,5 +1,5 @@
-<div style="padding: 5px">
-    <strong>Tin vắn: &nbsp;</strong><span id="scrolling-text"></span>
+<div style="padding: 5px; min-height: 200px" >
+    <strong style="color:red;">Thông báo khẩn: &nbsp;</strong><span id="scrolling-text"></span>
 </div>
 
 <script>

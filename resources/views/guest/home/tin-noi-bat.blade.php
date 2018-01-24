@@ -44,18 +44,57 @@
 
 </div>
 
-<div class="hot-item" style="background-color:#ffffff">
-<ul>
-    @foreach ($banner->where('vitri','7') as $bn)
-        <li class="col-md-3 col-sm-3 col-xs-6">
-            <div class="block2">
-                <a href="{{$bn->lienket}}" target="_blank">
-                    <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
-                </a>
+<div class="clearfix"></div>
+
+@if (!empty($banner_tt))
+
+    <div class="banner-tuyentruyen">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @foreach($banner_tt as $key=>$bntt)
+                    <li data-target="#carousel-example-generic" data-slide-to="{{ $key }}" class="@if ($key == 0) active @endif"></li>
+                @endforeach
+
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                @foreach($banner_tt as $key=>$bntt)
+                    <div class="item
+                    @if ($key == 0) active @endif">
+                        <img src="{{ $bntt->hinhanh }}">
+                    </div>
+                @endforeach
+
             </div>
-        </li>
-    @endforeach
-</ul>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+@endif
+
+<div class="hot-item" style="background-color:#ffffff">
+    <ul>
+        @foreach ($banner->where('vitri','7') as $bn)
+            <li class="col-md-3 col-sm-3 col-xs-6">
+                <div class="block2">
+                    <a href="{{$bn->lienket}}" target="_blank">
+                        <img src="{{ $bn->banner}}" alt="{{ $bn->name}}" title="{{ $bn->name}}" width="100%">
+                    </a>
+                </div>
+            </li>
+        @endforeach
+    </ul>
 </div>
 
 
