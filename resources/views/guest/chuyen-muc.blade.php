@@ -15,7 +15,7 @@
         </div>
 
         <div class="loai-tin">
-            @foreach ($cm->loaitin as $lt)
+            @foreach ($cm->loaitin->sortby('thutu') as $lt)
 
                 @if (count($lt->tintuc) > 0)
 
