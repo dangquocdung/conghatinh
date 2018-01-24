@@ -228,7 +228,7 @@
           </li>
 
           <li class="{{ Request::is('toa-soan/cau-hinh/toppic') ? 'active' : ''  }}">
-            <a href="{{route('index-toppic')}}"><i class="fa fa-circle-o"></i> Banner chính</a>
+            <a href="{{route('index-toppic')}}"><i class="fa fa-circle-o"></i> Banner tuyên truyền </a>
           </li>
 
           <li class="{{ Request::is('toa-soan/cau-hinh/loai-tin') ? 'active' : ''  }}">
