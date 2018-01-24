@@ -37,17 +37,13 @@ class GuestController extends Controller
     public function __construct()
     {
 
+        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
 
-//        $nhomcq = NhomCQ::orderby('id')->get();
-//        $banner = Banner::orderby('thutu','asc')->get();
-//        $phimtat = PhimTat::orderby('thutu','asc')->get();
-//        $loaivideo = LoaiVideo::orderby('thutu')->get();
-//
-//
-//        view()->share('nhomcq',$nhomcq);
-//        view()->share('banner',$banner);
-//        view()->share('phimtat',$phimtat);
-//        view()->share('loaivideo',$loaivideo);
+        $banner = Banner::orderby('thutu','asc')->get();
+
+        $nhomcq = NhomCQ::orderby('id')->get();
+
+
 
         $vbmoinhat = VanBan::where('daduyet','1')->orderby('id','desc')->take(5)->get();
         $lctmoinhat = LichCongTac::where('daduyet','1')->orderby('id','desc')->take(5)->get();
@@ -64,6 +60,9 @@ class GuestController extends Controller
         view()->share('tinnoibat_left',$tinnoibat_left);
         view()->share('tinvan',$tinvan);
         view()->share('thongbao',$thongbao);
+        view()->share('chuyenmuc',$chuyenmuc);
+        view()->share('banner',$banner);
+        view()->share('nhomcq',$nhomcq);
 
 
     }

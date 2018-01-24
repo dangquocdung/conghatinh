@@ -13,19 +13,13 @@ use Laravel\Dusk\DuskServiceProvider;
 
 use App\TopPic;
 use App\ChuyenMuc;
-use App\LoaiTin;
-use App\TinTuc;
 use App\CQBH;
-use App\NguoiKi;
-use App\VanBan;
 use App\Media;
 use App\Banner;
-use App\LinhVuc;
 use App\LoaiVB;
-use App\Album;
-use App\Video;
-use App\CoQuan;
 use App\PhimTat;
+use App\LichCongTac;
+use App\TinTuc;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -39,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        view()->composer(['guest.trang-chu','guest.chuyen-muc','guest.loai-tin','guest.chi-tiet-tin','guest.so-do-cong','guest.tim-kiem','errors::403','errors::404','errors::500'],function($view){
+        view()->composer(['errors::403','errors::404','errors::500'],function($view){
 
             $toppic = TopPic::all()->last();
 
@@ -55,32 +49,15 @@ class AppServiceProvider extends ServiceProvider
 
             $nhomcq = NhomCQ::orderby('id')->get();
 
+            $thongbao = LichCongTac::where('daduyet','1')->where('thongbao','1')->orderby('id','desc')->take(5)->get();
 
-            $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq'));
+            $tinvan = TinTuc::where('tinvan','1')->orderBy('id', 'decs')->take(8)->pluck('gioithieu')->toArray();
 
-        });
 
-        view()->composer(['guest.gop-y-van-ban','guest.phan-anh-kien-nghi','guest.trao-doi-hoi-dap','guest.thu-vien','guest.thong-tin-doanh-nghiep','guest.nguoi-phat-ngon','guest.phong-vien-thuong-tru','guest.lien-he-cong-tac','guest.duong-day-nong', 'guest.dvc-m3','guest.ban-bien-tap','guest.gop-y-cong','guest.doanh-nghiep-hoi','guest.doanh-nghiep-hoi-chi-tiet','guest.dnh-cqnntl'],function($view){
 
-            $toppic = TopPic::all()->last();
-
-            $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-
-            $cqbh = CQBH::all();
-
-            $loaivb = LoaiVB::all();
-
-            $phimtat = PhimTat::orderby('thutu','asc')->get();
-
-            $banner = Banner::orderby('thutu','asc')->get();
-
-            $nhomcq = NhomCQ::orderby('id')->get();
-
-            $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','json_tinnoibat'));
+            $view->with(compact('toppic','chuyenmuc','cqbh','loaivb','phimtat','banner','nhomcq','thongbao','tinvan'));
 
         });
-
-
 
 
         view()->composer([
