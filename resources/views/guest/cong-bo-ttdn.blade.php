@@ -9,7 +9,7 @@
         <div class="portlet-header">
 
 
-            <a href="javascript:void(0);">
+            <a href="{{ route('cong-bo-thong-tin') }}">
                 <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Công bố Thông tin Doanh nghiệp </h4>
             </a>
 
@@ -36,57 +36,64 @@
                     @foreach($cbtt as $cb)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><a href="{{ route('cong-bo-thong-tin',$cb->slug) }}">{{ $cb->name }}</a></td>
+                            <th><a href="{{ route('cong-bo-thong-tin',$cb->slug) }}" style="text-decoration: none">{{ $cb->name }}</a></th>
                             <td>{!! $cb->thongtin !!}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             @elseif (!empty($cb))
+                <br>
+                <h3 style="text-align: center; text-transform: uppercase">{{ $cb->name }}</h3>
 
                 <table id="tblDNH" class="table table-striped table-bordered table-responsive table-sm">
 
                     <tbody>
 
                         <tr>
-                            <td>Thông tin doanh nghiệp</td>
-                            <td></td>
+                            <th>Thông tin doanh nghiệp</th>
+                            <td>{!! $cb->thongtin !!}</td>
                         </tr>
                         <tr>
-                            <td>Chiến lược phát triển</td>
-                            <td></td>
+                            <th>Chiến lược phát triển</th>
+                            <td>{{ $cb->chienluoc }}</td>
                         </tr>
                         <tr>
-                            <td>Tin Tức hoạt động chính</td>
-                            <td></td>
+                            <th>Tin Tức hoạt động chính</th>
+                            <td>{{ $cb->tintuc }}</td>
                         </tr>
                         <tr>
-                            <td>Kế hoạch sản xuất, kinh doanh và đầu tư 5 năm</td>
-                            <td></td>
+                            <th>Kế hoạch sản xuất, kinh doanh và đầu tư 5 năm</th>
+                            <td>{{ $cb->kh_5nam }}</td>
                         </tr>
                         <tr>
-                            <td>Kế hoạch sản xuất, kinh doanh và đầu tư hàng năm</td>
-                            <td></td>
+                            <th>Kế hoạch sản xuất, kinh doanh và đầu tư hàng năm</th>
+                            <td>{{ $cb->kh_hangnam }}</td>
                         </tr>
                         <tr>
-                            <td>Báo cáo đánh giá sản xuất, kinh doanh và đầu tư hàng năm</td>
-                            <td></td>
+                            <th>Báo cáo đánh giá sản xuất, kinh doanh và đầu tư hàng năm</th>
+                            <td>{{ $cb->bc_hangnam }}</td>
                         </tr>
                         <tr>
-                            <td>Báo cáo đánh giá sản xuất, kinh doanh 3 năm gần nhất</td>
-                            <td></td>
+                            <th>Báo cáo đánh giá sản xuất, kinh doanh 3 năm gần nhất</th>
+                            <td>{{ $cb->bc_3nam }}</td>
                         </tr>
                         <tr>
-                            <td>Báo cáo kết quả thức hiện nhiệm vụ công ích và trách nhiệm xã hội</td>
-                            <td></td>
+                            <th>Báo cáo kết quả thức hiện nhiệm vụ công ích và trách nhiệm xã hội</th>
+                            <td>{{ $cb->nvci }}</td>
                         </tr>
                         <tr>
-                            <td>Tình hình thực hiện sắp xếp, đổi mới doanh nghiệp hàng năm</td>
-                            <td></td>
+                            <th>Tình hình thực hiện sắp xếp, đổi mới doanh nghiệp hàng năm</th>
+                            <td>{{ $cb->tinhhinh }}</td>
+                        </tr><tr>
+                            <th>Ghi chú </th>
+                            <td>{{ $cb->ghichu }}</td>
                         </tr>
 
                     </tbody>
                 </table>
+
+                @include('guest.layout.tien-ich')
 
 
 
