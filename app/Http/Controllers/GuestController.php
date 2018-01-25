@@ -86,7 +86,7 @@ class GuestController extends Controller
     public function congboTTDN()
     {
         $cbtt =CongBoTTDN::all();
-        return view('guest.cong-bo-tttdn',compact('cbtt'));
+        return view('guest.cong-bo-ttdn',compact('cbtt'));
 
     }
 
