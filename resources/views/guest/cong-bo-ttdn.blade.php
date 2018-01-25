@@ -36,7 +36,7 @@
                     @foreach($cbtt as $cb)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $cb->name }}</td>
+                            <td><a href="{{ route('cong-bo-thong-tin',$cb->slug) }}">{{ $cb->name }}</a></td>
                             <td>{!! $cb->thongtin !!}</td>
                         </tr>
                     @endforeach

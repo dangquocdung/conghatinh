@@ -12,7 +12,7 @@ Route::get('/', 'GuestController@index')->name('trang-chu');
 
 Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
 
-Route::get('cong-bo-thong-tin-doanh-nghiep/{slug?}', 'GuestController@congboTTDN');
+Route::get('cong-bo-thong-tin-doanh-nghiep/{slug?}', 'GuestController@congboTTDN')->name('cong-bo-thong-tin');
 
 
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
