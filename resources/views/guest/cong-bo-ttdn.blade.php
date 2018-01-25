@@ -35,7 +35,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $cb->name }}</td>
-                        <td>{{ $cb->mota }}</td>
+                        <td>{{ $cb->thongtin }}</td>
                     </tr>
                 @endforeach
                 </tbody>
