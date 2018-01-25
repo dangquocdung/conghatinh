@@ -12,6 +12,8 @@ Route::get('/', 'GuestController@index')->name('trang-chu');
 
 Route::get('tra-cuu-dich-vu-cong', 'GuestController@tracuuDVC');
 
+Route::get('cong-bo-thong-tin-doanh-nghiep', 'GuestController@congboTTDN');
+
 
 Route::get('doanh-nghiep-hoi-cqnn-tra-loi', 'GuestController@getDoanhNghiepHoi');
 

@@ -28,6 +28,7 @@ use App\Events\User\TinTucCounter;
 use App\DichVuCong;
 use App\dnhcqnn;
 use App\GopYDuThao;
+use App\CongBoTTDN;
 
 
 
@@ -79,6 +80,13 @@ class GuestController extends Controller
     public function loadDNH()
     {
         return view('guest.dnh-cqnntl');
+
+    }
+
+    public function congboTTDN()
+    {
+        $cbtt =CongBoTTDN::all();
+        return view('guest.cong-bo-tttdn',compact('cbtt'));
 
     }
 

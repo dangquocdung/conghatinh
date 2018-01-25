@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
 
 //        $this->call(AlbumTableSeeder::class);
 
-//        $this->call(ImageTableSeeder::class);
-        $this->call(RolesAndPermissionsSeeder::class);
+        $this->call(CongBoTTDNSeeder::class);
+//        $this->call(RolesAndPermissionsSeeder::class);
     
     }
 }
