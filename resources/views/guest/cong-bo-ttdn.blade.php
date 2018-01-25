@@ -21,25 +21,76 @@
 
 
         <div class="loai-tin">
-            <table id="tblDNH" class="table table-striped table-bordered table-responsive table-sm">
-                <thead>
-                <tr>
-                    <th>TT</th>
-                    <th>Tên Doanh nghiệp </th>
-                    <th>Thông tin doanh nghiệp  </th>
-                </tr>
-                </thead>
 
-                <tbody>
-                @foreach($cbtt as $cb)
+            @if (!empty($cbtt))
+                <table id="tblDNH" class="table table-striped table-bordered table-responsive table-sm">
+                    <thead>
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $cb->name }}</td>
-                        <td>{!! $cb->thongtin !!}</td>
+                        <th>TT</th>
+                        <th>Tên Doanh nghiệp </th>
+                        <th>Thông tin doanh nghiệp  </th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                    @foreach($cbtt as $cb)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $cb->name }}</td>
+                            <td>{!! $cb->thongtin !!}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            @elseif (!empty($cb))
+
+                <table id="tblDNH" class="table table-striped table-bordered table-responsive table-sm">
+
+                    <tbody>
+
+                        <tr>
+                            <td>Thông tin doanh nghiệp</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Chiến lược phát triển</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Tin Tức hoạt động chính</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Kế hoạch sản xuất, kinh doanh và đầu tư 5 năm</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Kế hoạch sản xuất, kinh doanh và đầu tư hàng năm</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Báo cáo đánh giá sản xuất, kinh doanh và đầu tư hàng năm</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Báo cáo đánh giá sản xuất, kinh doanh 3 năm gần nhất</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Báo cáo kết quả thức hiện nhiệm vụ công ích và trách nhiệm xã hội</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Tình hình thực hiện sắp xếp, đổi mới doanh nghiệp hàng năm</td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+
+            @endif
         </div>
 
 
