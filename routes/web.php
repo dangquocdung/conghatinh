@@ -201,6 +201,8 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     //Van ban
     Route::group(['prefix'=>'chuyen-trang'],function (){
 
+        Route::resource('cong-bo-thong-tin-dn','CongBoTTDNController');
+
         Route::get('doanh-nghiep-hoi','DnhcqnnController@index')->name('index-doanh-nghiep-hoi');
         Route::get('doanh-nghiep-hoi/{id}','DnhcqnnController@edit')->name('edit-doanh-nghiep-hoi');
         Route::post('doanh-nghiep-hoi/{id}','DnhcqnnController@update')->name('update-doanh-nghiep-hoi');

@@ -50,7 +50,7 @@
 
                   <option value=""></option>
 
-                    @foreach ($chuyenmuc->where('show','1') as $cm)
+                    @foreach ($chuyenmuc as $cm)
 
                         @if (count($cm->loaitin)>0)
 

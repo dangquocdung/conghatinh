@@ -15,6 +15,9 @@ class CongBoTTDNController extends Controller
     public function index()
     {
         //
+        $cbtt =CongBoTTDN::all();
+
+        return  view('admin.pages.cong-bo-tt-dn',compact('cbtt'));
     }
 
     /**

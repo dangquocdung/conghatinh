@@ -92,7 +92,12 @@
             </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ Request::is('toa-soan/chuyen-trang/doanh-nghiep-hoi/*') ? 'active' : ''  }}">
+
+          <li class="{{ Request::is('toa-soan/chuyen-trang/cong-bo-thong-tin-dn') ? 'active' : ''  }}">
+            <a href="{{route('cong-bo-thong-tin-dn.index')}}"><i class="fa fa-circle-o"></i> CBTT Doanh nghiệp </a>
+          </li>
+
+          <li class="{{ Request::is('toa-soan/chuyen-trang/doanh-nghiep-hoi') ? 'active' : ''  }}">
             <a href="{{route('index-doanh-nghiep-hoi')}}"><i class="fa fa-circle-o"></i> Doanh nghiệp hỏi</a>
           </li>
           {{--<li class="{{ Request::is('toa-soan/chuyen-trang/ho-tro-phap-ly') ? 'active' : ''  }}">--}}
