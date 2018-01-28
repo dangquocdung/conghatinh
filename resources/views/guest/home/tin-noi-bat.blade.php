@@ -63,7 +63,7 @@
                 @foreach($banner_tt as $key=>$bntt)
                     <div class="item
                     @if ($key == 0) active @endif">
-                        <img src="{{ $bntt->hinhanh }}">
+                        <img src="{{ $bntt->hinhanh }}" width="100%">
                     </div>
                 @endforeach
 
