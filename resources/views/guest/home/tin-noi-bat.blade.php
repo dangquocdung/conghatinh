@@ -51,12 +51,12 @@
     <div class="banner-tuyentruyen">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
-                @foreach($banner_tt as $key=>$bntt)
-                    <li data-target="#carousel-example-generic" data-slide-to="{{ $key }}" class="@if ($key == 0) active @endif"></li>
-                @endforeach
+            {{--<ol class="carousel-indicators">--}}
+                {{--@foreach($banner_tt as $key=>$bntt)--}}
+                    {{--<li data-target="#carousel-example-generic" data-slide-to="{{ $key }}" class="@if ($key == 0) active @endif"></li>--}}
+                {{--@endforeach--}}
 
-            </ol>
+            {{--</ol>--}}
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
