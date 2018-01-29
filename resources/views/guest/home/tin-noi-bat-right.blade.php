@@ -57,7 +57,7 @@
             <div id="tin-noi-bat">
                 <ul>
                     @foreach($chuyenmuc->where('id','2') as $cm)
-                        @foreach ($cm->tintuc->where('daduyet','1')->sortbydesc('counter')->take(5) as $tnb)
+                        @foreach ($cm->tintuc->where('daduyet','1')->sortbydesc('counter')->take(6) as $tnb)
                             <li>
                                 <div class="hot-news-block">
 
