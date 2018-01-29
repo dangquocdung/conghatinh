@@ -20,7 +20,7 @@
             <div class="hot-news">
 
                 <a href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,'tin-tuc',$tin1->id,$tin1->slug]) }}" class="hot-news-thumb-nail">
-                    <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
+                    <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left" width="90%">
                 </a>
 
                 <div class="hot-news-title" style="display: block; text-align: center">
@@ -28,7 +28,7 @@
                         <a href=" {{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,'tin-tuc',$tin1->id,$tin1->slug]) }}">{{ $tin1->name }}</a>
                     </h3>
                 </div>
-                <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px;">
+                <div class="hot-news-desc" style="text-align: justify; line-height: 20px; padding-bottom: 15px; display:none">
                     {{ $tin1->gioithieu }}
 
                 </div>
@@ -154,6 +154,8 @@ if(!isMobile) {
         jQueryActive.removeClass('active');
 
         jQueryNext.addClass('active');
+
+        $("#tinNoiBatChinh .hot-news a").attr({href: aHref});
 
         $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
 
