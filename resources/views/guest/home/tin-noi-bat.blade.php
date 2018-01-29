@@ -19,7 +19,7 @@
 
             <div class="hot-news">
 
-                <a href="#" class="hot-news-thumb-nail">
+                <a href="{{  route('chi-tiet-tin', [$tin1->loaitin->chuyenmuc->slug,$tin1->loaitin->slug,'tin-tuc',$tin1->id,$tin1->slug]) }}" class="hot-news-thumb-nail">
                     <img src="{{$tin1->avatar}}" alt="{{ $tin1->name }}" class="w3-animate-left">
                 </a>
 
