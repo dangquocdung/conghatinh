@@ -390,7 +390,7 @@
 				<div class="dv-body table-responsive" style="padding: 10px">
 {{--					{!! $tin->noidung !!}--}}
 
-					<a href="{{ $tin->noidung }}"><i class="fa file-word-o"></i> Tải về</a> &nbsp;&nbsp;
+					<a href="{{ $tin->noidung }}"><i class="fa fa-file-word-o fa-2x"></i> Tải về</a> &nbsp;&nbsp;
 				</div>
 
 				{{--@if (!empty($tin->media_id))--}}
