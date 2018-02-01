@@ -388,9 +388,11 @@
 		@elseif ($type=='van-ban-khac')
 			<div class="col-md-12">
 				<div class="dv-body table-responsive" style="padding: 10px">
-{{--					{!! $tin->noidung !!}--}}
 
-					<a href="{{ $tin->noidung }}"><i class="fa fa-file-word-o fa-2x"></i> Tải về</a> &nbsp;&nbsp;
+					
+					{!! $tin->noidung !!}
+
+{{--					<a href="{{ $tin->noidung }}"><i class="fa fa-file-word-o fa-2x"></i> Tải về</a> &nbsp;&nbsp;--}}
 				</div>
 
 				{{--@if (!empty($tin->media_id))--}}
@@ -426,7 +428,7 @@
 
 					@foreach($tin->tepvanbankhac as $tvb)
 
-						<a href="{{ $tvb->path }}"><i class="fa file-word-o"></i> Tải về</a> &nbsp;&nbsp;
+						<a href="{{ $tvb->path }}"><i class="fa fa-file-word-o"></i> Tải về</a> &nbsp;&nbsp;
 
 						{{--<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">--}}
 							{{--<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>--}}
