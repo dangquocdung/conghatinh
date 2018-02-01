@@ -413,22 +413,13 @@
 
 					{{--@endforeach--}}
 				{{--@endif--}}
-
-
-
-				<script>
-                    $(document).ready(function () {
-                        $('table').addClass('table table-bordered table-striped table-hover');
-                        $('table').removeAttr('style');
-					})
-
-				</script>
+				
 
 				@if (count($tin->tepvanbankhac) > 0)
 
 					@foreach($tin->tepvanbankhac as $tvb)
 
-						<a href="{{ $tvb->path }}" style="text-decoration: none"><i class="fa fa-file-word-o"></i> Tải về</a> &nbsp;&nbsp;
+						<a href="{{ $tvb->path }}" style="text-decoration: none"><i class="fa fa-file-word-o fa-2x"></i> Tải về</a> &nbsp;&nbsp;
 
 						{{--<object data="{{ $tvb->path }}" type="application/pdf" width="100%" height="640px">--}}
 							{{--<p><b>Thông báo: </b>: Trình duyệt bạn đang dùng không hỗ trợ xem trực tiếp. Vui lòng tải tệp tại đây để xem nội dung: <a href="{{ $tvb->path }}">Tải về</a>.</p>--}}
