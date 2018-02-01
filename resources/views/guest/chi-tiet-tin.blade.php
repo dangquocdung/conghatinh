@@ -401,6 +401,15 @@
 
 				{{--@endif--}}
 
+				@if (count($tin->tepvanban) > 0)
+
+					@foreach($tin->tepvanban as $tvb)
+
+						<a href="{{ $tvb->path }}"><i class="fa file-word-o"></i> Tải về</a> &nbsp;&nbsp;
+
+					@endforeach
+				@endif
+
 
 
 				<script>
