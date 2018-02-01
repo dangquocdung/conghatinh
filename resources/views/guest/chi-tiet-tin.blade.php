@@ -388,7 +388,9 @@
 		@elseif ($type=='van-ban-khac')
 			<div class="col-md-12">
 				<div class="dv-body table-responsive" style="padding: 10px">
-					{!! $tin->noidung !!}
+{{--					{!! $tin->noidung !!}--}}
+
+					<a href="{{ $tin->noidung }}"><i class="fa file-word-o"></i> Tải về</a> &nbsp;&nbsp;
 				</div>
 
 				{{--@if (!empty($tin->media_id))--}}
@@ -401,14 +403,14 @@
 
 				{{--@endif--}}
 
-				@if (count($tin->tepvanban) > 0)
+				{{--@if (count($tin->tepvanban) > 0)--}}
 
-					@foreach($tin->tepvanban as $tvb)
+					{{--@foreach($tin->tepvanban as $tvb)--}}
 
-						<a href="{{ $tvb->path }}"><i class="fa file-word-o"></i> Tải về</a> &nbsp;&nbsp;
+						{{--<a href="{{ $tvb->path }}"><i class="fa file-word-o"></i> Tải về</a> &nbsp;&nbsp;--}}
 
-					@endforeach
-				@endif
+					{{--@endforeach--}}
+				{{--@endif--}}
 
 
 
