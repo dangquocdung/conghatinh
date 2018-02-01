@@ -207,7 +207,12 @@
 
                                                                                                         @endif
 
-                                                                                                            <a href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug])}}" target="_blank">{{$tin->name}}</a>
+                                                                                                        @if ($tin->daduyet == '1')
+                                                                                                                <a href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug])}}" target="_blank">{{$tin->name}}</a>
+                                                                                                            @else
+                                                                                                                {{$tin->name}}
+                                                                                                        @endif
+
 
                                                                                                     </strong>
                                                                                                     <br>
