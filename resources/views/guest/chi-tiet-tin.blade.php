@@ -387,7 +387,7 @@
 
 		@elseif ($type=='van-ban-khac')
 			<div class="col-md-12">
-				<div class="dv-body table-responsive" style="padding: 10px">
+				<div class="dv-body" style="padding: 10px">
 
 
 					{!! $tin->noidung !!}
@@ -413,7 +413,7 @@
 
 					{{--@endforeach--}}
 				{{--@endif--}}
-				
+
 
 				@if (count($tin->tepvanbankhac) > 0)
 
