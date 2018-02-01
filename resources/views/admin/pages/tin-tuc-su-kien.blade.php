@@ -207,7 +207,7 @@
 
                                                                                                         @endif
 
-                                                                                                        {{$tin->name}}
+                                                                                                            <a href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug])}}" target="_blank">{{$tin->name}}</a>
 
                                                                                                     </strong>
                                                                                                     <br>
