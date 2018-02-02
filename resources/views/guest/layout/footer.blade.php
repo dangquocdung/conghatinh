@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<div id="back-top">
+<div id="back-top" style="z-index:10000;">
   <a href="#"> <img src="./images/btt.png" alt="Top" width=100%> </a>
 </div>
 
