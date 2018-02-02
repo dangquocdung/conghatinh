@@ -11,13 +11,6 @@
     </div>
     @endif
 
-
-
-
-
-
-
-
     {{--@include('guest.layout.menu-right')--}}
 
     <div class="block4">

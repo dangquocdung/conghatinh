@@ -27,6 +27,15 @@
 
         }
 
+        .titleIntro {
+            text-align: center;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 5px;
+            color: #FF9900;
+        }
+
 
     </style>
 
