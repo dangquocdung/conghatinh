@@ -85,11 +85,9 @@
 
                         <div class="form-group">
                             <label for="">Nội dung:</label>
-                            <input type="text"
-                                   placeholder="Nhập nội dung thông báo "
-                                   name="name"
-                                   value="{{old('noidung')}}"
-                                   class="form-control">
+                            <textarea placeholder="Nhập nội dung thông báo "
+                                      name="noidung"
+                                      class="form-control">{{old('noidung')}}</textarea>
                             <div class="HelpText error">{{$errors->first('noidung')}}</div>
                         </div>
 
