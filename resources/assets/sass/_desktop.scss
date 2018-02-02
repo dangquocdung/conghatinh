@@ -469,7 +469,7 @@ td{
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  padding: 10px;
+  padding: 5px !important;
 
   .form-group {
     margin-bottom: 10px;
@@ -500,6 +500,12 @@ td{
       transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     }
   }
+}
+
+.nav-tabs > li > a {
+  position: relative;
+  display: block;
+  padding: 5px 10px !important;
 }
 
 .lien-ket-tw{
