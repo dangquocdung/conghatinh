@@ -46,15 +46,15 @@
     </div>
 
     <div class="block4">
-        <h1 class="text-center">Guntersville, AL</h1>
-        <div>
-            <h2>Current Conditions</h2>
-            <h3 id="current"></h3>
-        </div>
-        <div>
-            <h2>Forecast</h2>
-                <h3 id="forecast"></h3>
-        </div>
+        {{--<h1 class="text-center">Guntersville, AL</h1>--}}
+        {{--<div>--}}
+            {{--<h2>Current Conditions</h2>--}}
+            {{--<h3 id="current"></h3>--}}
+        {{--</div>--}}
+        {{--<div>--}}
+            {{--<h2>Forecast</h2>--}}
+                {{--<h3 id="forecast"></h3>--}}
+        {{--</div>--}}
     </div>
 
 
