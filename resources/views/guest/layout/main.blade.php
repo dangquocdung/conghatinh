@@ -27,6 +27,8 @@
 </head>
 <body>
 
+    @include('guest.layout.tet')
+
 <script>
     $(function() {
         FastClick.attach(document.body);
