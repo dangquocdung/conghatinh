@@ -79,6 +79,9 @@
           <li class="{{ Request::is('toa-soan/tin-bai/van-ban-khac') ? 'active' : ''  }}">
             <a href="{{route('index-van-ban-khac')}}"><i class="fa fa-circle-o"></i> Thông tin CĐ, ĐH</a>
           </li>
+          <li class="{{ Request::is('toa-soan/tin-bai/thong-bao-khan') ? 'active' : ''  }}">
+            <a href="{{route('index-thong-bao-khan')}}"><i class="fa fa-circle-o"></i> Thông báo khẩn </a>
+          </li>
         </ul>
       </li>
 

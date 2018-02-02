@@ -195,6 +195,11 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 //        Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
     });
 
+    Route::group(['prefix'=>'tin-bai/thong-bao-khan'],function () {
+
+        Route::get('{slug?}', 'ThongBaoKhanController@index')->name('index-thong-bao-khan');
+    });
+
     Route::get('/json-tepdinhkem','VanBanKhacController@jsonTepDinhKem');
     Route::get('/json-hinhanh','VanBanKhacController@jsonHinhAnh');
 

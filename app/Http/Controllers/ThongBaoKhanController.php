@@ -12,10 +12,11 @@ class ThongBaoKhanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug=null)
     {
-        //
+        return view('admin.pages.thong-bao-khan',compact('slug'));
     }
+
 
     /**
      * Show the form for creating a new resource.
