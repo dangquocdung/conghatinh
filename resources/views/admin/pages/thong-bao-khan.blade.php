@@ -61,7 +61,7 @@
                                                     btn-text='Chờ duyệt đăng'
                                                     btn-class="btn-success"
                                                     url="{{url('api/v1/duyet-thong-bao-khan')}}"
-                                                    :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'1'])}}"
+                                                    :post-data="{{json_encode(['id' => $tbk->id, 'duyetdang'=>'1'])}}"
                                                     :refresh="true"
                                                     message="Bạn chắc chắn muốn duyệt đăng?">
                                             </confirm-modal>
