@@ -65,8 +65,6 @@
                         @endforeach
                         </tbody>
                     </table>
-
-                    {{$thongbaokhan->render()}}
                 </div>
                 <!-- /.box-body -->
             </div>
