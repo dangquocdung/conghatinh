@@ -1,1 +1,9 @@
-<style type="text/css">body{padding-bottom:20px}</style><a href="http://hackergrousrlpprsc.blogspot.com/" target="_blank"><img style="position:fixed;z-index:9999;top:0;left:0;" src="http://4.bp.blogspot.com/-Vlt_TV7Q9V8/UsA7lwMZryI/AAAAAAAAA3Q/ref7HQc1968/s1600/banner_left.png" _cke_saved_src="http://4.bp.blogspot.com/-Vlt_TV7Q9V8/UsA7lwMZryI/AAAAAAAAA3Q/ref7HQc1968/s1600/banner_left.png"/></a><a href="http://hackergrousrlpprsc.blogspot.com/" target="_blank"><img style="position:fixed;z-index:9999;top:0;right:0;" src="http://4.bp.blogspot.com/-A85wPjYE2BM/UsA7mDDQWmI/AAAAAAAAA3U/R9bxy6zSrLs/s1600/banner_right.png"/></a><div style="position:fixed;z-index:9999;bottom:-50px;left:0;width:100%;height:104px;background:url(https://3.bp.blogspot.com/-uQrQaR3IkxE/WF9dDUUVLLI/AAAAAAAAAdw/VKNA5q7FJSQX5OWofOiPafEEENaoBcY9wCLcB/s1600/nentet.png) repeat-x bottom left;"></div><a href="http://hackergrousrlpprsc.blogspot.com/" target="_blank"><img style="position:fixed;z-index:9999;bottom:20px;left:20px" src="http://3.bp.blogspot.com/-4Zt-ZB4tols/UsA_qIR0w9I/AAAAAAAAA3w/Ffyy-5OqGec/s320/banner_header.png"/></a>
+<style type="text/css">body{padding-bottom:20px}</style>
+
+<img style="position:fixed;z-index:9999;top:0;left:0;" src="http://4.bp.blogspot.com/-Vlt_TV7Q9V8/UsA7lwMZryI/AAAAAAAAA3Q/ref7HQc1968/s1600/banner_left.png" />
+
+<img style="position:fixed;z-index:9999;top:0;right:0;" src="http://4.bp.blogspot.com/-A85wPjYE2BM/UsA7mDDQWmI/AAAAAAAAA3U/R9bxy6zSrLs/s1600/banner_right.png"/>
+
+<div style="position:fixed;z-index:9999;bottom:-50px;left:0;width:100%;height:104px;background:url(https://3.bp.blogspot.com/-uQrQaR3IkxE/WF9dDUUVLLI/AAAAAAAAAdw/VKNA5q7FJSQX5OWofOiPafEEENaoBcY9wCLcB/s1600/nentet.png) repeat-x bottom left;"></div>
+
+<img style="position:fixed;z-index:9999;bottom:20px;left:20px" src="http://3.bp.blogspot.com/-4Zt-ZB4tols/UsA_qIR0w9I/AAAAAAAAA3w/Ffyy-5OqGec/s320/banner_header.png"/>
