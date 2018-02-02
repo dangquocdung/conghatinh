@@ -33,8 +33,8 @@
     <div class="mainvideo">
 
         <div class="doithoai">
-            <div class="col-sm-5">
-                <img src="http://doithoai.danang.gov.vn/skin-home/images/trung-tam-hanh-chinh.jpg" width="100%" style="padding-left: 0; margin: 10px; border: 1px #CCCCCC solid">
+            <div class="col-sm-5" style="padding-left: 0;">
+                <img src="http://doithoai.danang.gov.vn/skin-home/images/trung-tam-hanh-chinh.jpg" width="100%" style="margin: 10px; border: 1px #CCCCCC solid">
             </div>
             <div class="col-sm-7">
                 <p class="titleIntro">KÊNH ĐỐI THOẠI TRỰC TUYẾN</p>
