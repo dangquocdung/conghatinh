@@ -20,6 +20,45 @@
             background-image: -ms-linear-gradient(#111, #1a66a5);
             background-image: linear-gradient(#111, #1a66a5);
         }
+
+        .doithoai {
+            width: 900px; /*Width of main container*/
+            margin: 0 auto; /*Center container on page*/
+
+        }
+
+        .videoIntro {
+            width: 44%;
+            float: left;
+        }
+
+        .infodoithoaiIntro {
+            float: left;
+            width: 53%;
+            text-align: justify;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .titleIntro {
+            text-align: center;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 5px;
+            color: #FF9900;
+        }
+
+        .contentIntro {
+            line-height: 20px;
+            text-indent: 20px;
+        }
+
+        .contentIntroRight {
+            text-align: center;
+            /*font-weight:bold;*/
+        }
+
     </style>
 
     <div class="mainvideo">
