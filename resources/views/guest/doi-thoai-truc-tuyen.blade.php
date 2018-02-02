@@ -28,41 +28,8 @@
         }
 
         .imgDoithoaiIntro {
-            width: 380px;
             margin: 10px;
             border: 1px #CCCCCC solid;
-        }
-
-        .videoIntro {
-            width: 44%;
-            float: left;
-        }
-
-        .infodoithoaiIntro {
-            float: left;
-            width: 53%;
-            text-align: justify;
-            color: #fff;
-            padding: 10px;
-        }
-
-        .titleIntro {
-            text-align: center;
-            font-family: Arial;
-            font-size: 20px;
-            font-weight: bold;
-            margin: 5px;
-            color: #FF9900;
-        }
-
-        .contentIntro {
-            line-height: 20px;
-            text-indent: 20px;
-        }
-
-        .contentIntroRight {
-            text-align: center;
-            /*font-weight:bold;*/
         }
 
     </style>
@@ -70,14 +37,14 @@
     <div class="mainvideo">
 
         <div class="doithoai">
-            <div class="videoIntro">
+            <div class="col-sm-4">
 
                 <p>
                     <img src="http://doithoai.danang.gov.vn/skin-home/images/trung-tam-hanh-chinh.jpg" class="imgDoithoaiIntro">
                 </p>
 
             </div>
-            <div class="infodoithoaiIntro">
+            <div class="col-sm-8">
                 <p class="titleIntro">KÊNH ĐỐI THOẠI TRỰC TUYẾN</p>
                 <p>
                     <br>
