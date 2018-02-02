@@ -3,7 +3,7 @@
     Đối thoại trực tuyến
 @endsection
 
-@section('content-main')
+@section('doi-')
 
     <style>
         .mainvideo {
@@ -98,6 +98,9 @@
 
     </div>
 
+@endsection
+
+@section('content-main')
 
     <div class="block3">
 
@@ -114,7 +117,7 @@
 
 
         {{--<div id="app" style="padding: 5px;">--}}
-            {{--<nguoi-phat-ngon source="/api/nguoi-phat-ngon" title="Danh sách" />--}}
+        {{--<nguoi-phat-ngon source="/api/nguoi-phat-ngon" title="Danh sách" />--}}
         {{--</div>--}}
 
     </div>

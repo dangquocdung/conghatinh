@@ -60,6 +60,8 @@
 
         </div>
 
+        @yield('doi-thoai')
+
 
 
         <div class="row row-offcanvas row-offcanvas-right">
