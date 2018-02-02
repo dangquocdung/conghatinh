@@ -22,9 +22,15 @@
         }
 
         .doithoai {
-            width: 900px; /*Width of main container*/
+            width: 100%; /*Width of main container*/
             margin: 0 auto; /*Center container on page*/
 
+        }
+
+        .imgDoithoaiIntro {
+            width: 380px;
+            margin: 10px;
+            border: 1px #CCCCCC solid;
         }
 
         .videoIntro {
