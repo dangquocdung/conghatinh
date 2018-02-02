@@ -151,10 +151,15 @@ class GuestController extends Controller
 
     public function getBBT()
     {
-
-        $chuyenmuc = ChuyenMuc::orderby('thutu','asc')->get();
-        return view('guest.ban-bien-tap',compact('chuyenmuc'));
+        return view('guest.ban-bien-tap');
     }
+
+    public function getDoiThoai()
+    {
+        return view('guest.doi-thoai-truc-tuyen');
+    }
+
+
 
 //    public function getLLV()
 //    {
