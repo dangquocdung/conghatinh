@@ -14,7 +14,8 @@ class ThongBaoKhanController extends Controller
      */
     public function index($slug=null)
     {
-        return view('admin.pages.thong-bao-khan',compact('slug'));
+        $thongbaokhan = ThongBaoKhan::orderby('id','asc')->get();
+        return view('admin.pages.thong-bao-khan',compact('slug','thongbaokhan'));
     }
 
 
