@@ -438,6 +438,10 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
         Route::post('delete-hoi-dap-truc-tuyen', 'HoiDapTrucTuyenController@destroy');
 
+        Route::post('delete-thong-bao-khan', 'ThongBaoKhanController@destroy');
+
+        Route::post('duyet-thong-bao-khan', 'ThongBaoKhanController@postDuyet');
+
     });
 });
 

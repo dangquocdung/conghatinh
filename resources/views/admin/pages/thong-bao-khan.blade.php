@@ -39,21 +39,47 @@
                         @foreach($thongbaokhan as $tbk)
                             <tr>
                                 <td>{{$tbk->id}}</td>
-                                <td>{{($tbk->noidung)}}</td>
+                                <td>
+                                    {{($tbk->noidung)}}
+
+                                    @if ($tbk->daduyet == '1')
+                                        {{--<span class="label label-success">Đã duyệt đăng</span>--}}
+                                        <div class="pull-left gap-left gap-10">
+                                            <confirm-modal
+                                                    btn-text='Thôi Duyệt đăng'
+                                                    btn-class="btn-danger"
+                                                    url="{{url('api/v1/duyet-thong-bao-khan')}}"
+                                                    :post-data="{{json_encode(['id' => $tbk->id, 'duyetdang'=>'0'])}}"
+                                                    :refresh="true"
+                                                    message="Bạn chắc chắn muốn thôi duyệt đăng?">
+                                            </confirm-modal>
+                                        </div>
+
+                                    @else
+                                        <div class="pull-left gap-left gap-10">
+                                            <confirm-modal
+                                                    btn-text='Chờ duyệt đăng'
+                                                    btn-class="btn-success"
+                                                    url="{{url('api/v1/duyet-thong-bao-khan')}}"
+                                                    :post-data="{{json_encode(['id' => $tin->id, 'duyetdang'=>'1'])}}"
+                                                    :refresh="true"
+                                                    message="Bạn chắc chắn muốn duyệt đăng?">
+                                            </confirm-modal>
+                                        </div>
+
+                                        {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                                    @endif
+
+                                </td>
                                 <td>{{ $tbk->user_id }}</td>
                                 <td>{{$tbk->created_at}}</td>
                                 <td class="col-sm-3">
-                                    {{-- @if($chuyenmuc->id != 1 && $chuyenmuc->id != 2) --}}
-                                    <div class="pull-left">
-                                        <a href="{{route('edit-so-ban-nganh', $tbk->id)}}" class="btn btn-primary btn-xs">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </a>
-                                    </div>
+
                                     <div class="pull-left gap-left gap-10">
                                         <confirm-modal
                                                 btn-text='<i class="fa fa-trash"></i> Delete'
                                                 btn-class="btn-danger"
-                                                url="{{url('api/v1/delete-lien-ket')}}"
+                                                url="{{url('api/v1/delete-thong-bao-khan')}}"
                                                 :post-data="{{json_encode(['id' => $tbk->id])}}"
                                                 :refresh="true"
                                                 message="Bạn chắc chắn muốn xoá thông báo: {{$tbk->noidung}}?">

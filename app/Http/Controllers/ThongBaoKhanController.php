@@ -80,8 +80,30 @@ class ThongBaoKhanController extends Controller
      * @param  \App\ThongBaoKhan  $thongBaoKhan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ThongBaoKhan $thongBaoKhan)
+    public function destroy(Request $request)
     {
-        //
+
+        $tbk = ThongBaoKhan::findOrFail($request->input('id'));
+
+        $tbk->delete();
+
+//        DB::table('tintuc')->where('id', $tinTucId)->delete();
+//
+//        event(new TinTucDeleted($tintuc));
+
+        return response(['data' => 'Thông báo đã bị xoá'], 200);
+    }
+
+    public function postDuyet(Request $request)
+    {
+
+
+        $tbk = ThongBaoKhan::findOrFail($request->id);
+
+        $tbk->daduyet = $request->duyetdang;
+
+        $tbk->save();
+
+        return response(['data' => 'Thông báo đã được duyệt đăng'], 200);
     }
 }
