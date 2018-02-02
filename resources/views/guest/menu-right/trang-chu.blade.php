@@ -5,14 +5,11 @@
 
     {{--    @include(('guest.menu-right.calendar'))--}}
 
+    @if (!empty($thongbaokhan))
     <div class="block4">
-
-
-
-            @include(('guest.menu-right.scrollingtext'))
-
-
+        @include(('guest.menu-right.scrollingtext'))
     </div>
+    @endif
 
 
 

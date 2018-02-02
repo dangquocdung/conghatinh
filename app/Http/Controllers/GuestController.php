@@ -29,6 +29,7 @@ use App\DichVuCong;
 use App\dnhcqnn;
 use App\GopYDuThao;
 use App\CongBoTTDN;
+use App\ThongBaoKhan;
 
 
 
@@ -53,6 +54,7 @@ class GuestController extends Controller
         $tinvan = TinTuc::where('tinvan','1')->orderBy('id', 'decs')->take(8)->pluck('gioithieu')->toArray();
 
         $thongbao = LichCongTac::where('daduyet','1')->where('thongbao','1')->orderby('id','desc')->take(5)->get();
+        $thongbaokhan =ThongBaoKhan::where('daduyet','1')->orderby('id','desc')->take(5)->pluck('noidung')->toArray();
 
 
         view()->share('vbmoinhat',$vbmoinhat);
@@ -64,6 +66,7 @@ class GuestController extends Controller
         view()->share('chuyenmuc',$chuyenmuc);
         view()->share('banner',$banner);
         view()->share('nhomcq',$nhomcq);
+        view()->share('thongbaokhan',$thongbaokhan);
 
 
     }

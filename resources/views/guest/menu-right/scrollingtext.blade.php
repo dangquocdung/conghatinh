@@ -45,7 +45,7 @@
         })(0);
     };
 
-    $('#scrolling-text').typer({!! json_encode($tinvan) !!}  );
+    $('#scrolling-text').typer({!! json_encode($thongbaokhan) !!}  );
 
 //    $('#scrolling-text').typer('<a href="javascript:void(0);">dang quoc dung </a>');
 
