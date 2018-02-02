@@ -51,6 +51,10 @@
 <script src="guest/js/adminlte.min.js"></script>
 
 
+<script type="text/javascript" src="http://rilwis.googlecode.com/svn/trunk/weather.min.js"></script>
+
+
+
 
 <script>
     jssor_slider1_init = function (containerId) {

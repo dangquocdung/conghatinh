@@ -52,6 +52,12 @@
 
     </div>
 
+    <div class="block4">
+        <script type="text/javascript">
+            showWeather('hanoi, vietnam');
+        </script>
+    </div>
+
 
     @if (strlen(Setting::get('video_livestream')) > 50 )
         <div class="block4" id="live-stream" style="border-radius: 5px">
