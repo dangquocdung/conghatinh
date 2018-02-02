@@ -3,7 +3,7 @@
     Đối thoại trực tuyến
 @endsection
 
-@section('doi-')
+@section('doi-thoai')
 
     <style>
         .mainvideo {
@@ -114,11 +114,6 @@
         <div class="col-md-12" style="padding: 5px">
 
         </div>
-
-
-        {{--<div id="app" style="padding: 5px;">--}}
-        {{--<nguoi-phat-ngon source="/api/nguoi-phat-ngon" title="Danh sách" />--}}
-        {{--</div>--}}
 
     </div>
 @endsection
