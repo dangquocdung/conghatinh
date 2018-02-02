@@ -26,10 +26,5 @@
 @endsection
 
 
-@section('content-right')
-    @include('guest.menu-right.thong-bao')
-@stop
-
-
 
 

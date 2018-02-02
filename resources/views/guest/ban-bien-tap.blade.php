@@ -34,11 +34,6 @@
 
 @endsection
 
-@section('content-right')
-
-    @include('guest.menu-right.trang-chu')
-
-@endsection
 
 
 

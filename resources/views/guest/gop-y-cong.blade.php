@@ -78,12 +78,6 @@
 @endsection
 
 
-@section('content-right')
-
-    @include('guest.menu-right.trang-chu')
-
-    @endsection
-
 @section('js')
     <!-- Bootstrap WYSIHTML5 -->
     <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>

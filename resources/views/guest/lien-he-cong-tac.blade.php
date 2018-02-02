@@ -77,12 +77,6 @@
                 </div>
 @endsection
 
-@section('content-right')
-
-    @include('guest.menu-right.trang-chu')
-
-@endsection
-
 
 @section('js')
     <!-- Bootstrap WYSIHTML5 -->

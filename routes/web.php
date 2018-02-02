@@ -23,7 +23,7 @@ Route::get('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'GuestController@getDoanhNghiep
 
 Route::post('doanh-nghiep-hoi-cqnn-tra-loi/{id}', 'DnhcqnnController@update')->name('update-doanh-nghiep-hoi-out');
 
-Route::get('doi-thoai-truc-tuyen', 'GuestController@getDoiThoai');
+Route::get('doi-thoai-truc-tuyen/{slug?}', 'GuestController@getDoiThoai');
 
 
 //Route::post('doanh-nghiep-hoi-cqnn-tra-loi', 'DoanhNghiepHoiController@store')->name('post-doanh-nghiep-hoi');

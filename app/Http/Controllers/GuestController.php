@@ -154,9 +154,9 @@ class GuestController extends Controller
         return view('guest.ban-bien-tap');
     }
 
-    public function getDoiThoai()
+    public function getDoiThoai($slug=null)
     {
-        return view('guest.doi-thoai-truc-tuyen');
+        return view('guest.doi-thoai-truc-tuyen',compact('slug'));
     }
 
 

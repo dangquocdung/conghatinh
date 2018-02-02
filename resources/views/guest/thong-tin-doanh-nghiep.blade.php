@@ -170,10 +170,6 @@
 @endsection
 
 
-@section('content-right')
-    @include('guest.menu-right.chuyen-trang')
-@stop
-
 @section('js')
     <!-- DataTables -->
     <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>

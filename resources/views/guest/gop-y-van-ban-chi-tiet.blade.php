@@ -162,10 +162,6 @@
             </div>
 @endsection
 
-@section('content-right')
-    @include('guest.menu-right.trang-chu')
-@stop
-
 
 @section('js')
     <!-- DataTables -->

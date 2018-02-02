@@ -52,10 +52,6 @@
 @endsection
 
 
-@section('content-right')
-    @include('guest.menu-right.thong-bao')
-@stop
-
 @section('js')
     <!-- DataTables -->
     <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
