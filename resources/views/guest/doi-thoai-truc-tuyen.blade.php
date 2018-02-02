@@ -5,13 +5,30 @@
 
 @section('content-main')
 
+    <style>
+        .mainvideo {
+            /* background: transparent url(aspximages/CSS-Background.jpg);
+              background-repeat:repeat;
+            background-color: #F4F4F6;*/
+            width: 100%;
+            display: inline-block;
+            background-color: #111;
+            background-image: -moz-linear-gradient(#111, #1a66a5);
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#111), to(#1a66a5));
+            background-image: -webkit-linear-gradient(#111, #1a66a5);
+            background-image: -o-linear-gradient(#111, #1a66a5);
+            background-image: -ms-linear-gradient(#111, #1a66a5);
+            background-image: linear-gradient(#111, #1a66a5);
+        }
+    </style>
+
     <div class="mainvideo">
 
         <div class="doithoai">
             <div class="videoIntro">
 
                 <p>
-                    <img src="skin-home/images/trung-tam-hanh-chinh.jpg" class="imgDoithoaiIntro">
+                    <img src="http://doithoai.danang.gov.vn/skin-home/images/trung-tam-hanh-chinh.jpg" class="imgDoithoaiIntro">
                 </p>
 
             </div>
