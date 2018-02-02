@@ -46,19 +46,15 @@
     </div>
 
     <div class="block4">
-        <script type="text/javascript">
-            Weather.getCurrent("Kansas City", function(current) {
-                console.log(
-                    ["currently:",current.temperature(),"and",current.conditions()].join(" ")
-                );
-            });
-
-            Weather.getForecast("Kansas City", function(forecast) {
-                console.log("Forecast High in Kelvin: " + forecast.high());
-                console.log("Forecast High in Fahrenheit" + Weather.kelvinToFahrenheit(forecast.high()));
-                console.log("Forecast High in Celsius" + Weather.kelvinToCelsius(forecast.high()));
-            });
-        </script>
+        <h1 class="text-center">Guntersville, AL</h1>
+        <div>
+            <h2>Current Conditions</h2>
+            <h3 id="current"></h3>
+        </div>
+        <div>
+            <h2>Forecast</h2>
+                <h3 id="forecast"></h3>
+        </div>
     </div>
 
 

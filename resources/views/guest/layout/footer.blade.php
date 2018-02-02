@@ -112,3 +112,21 @@
     $('div.alert').delay(3000).slideUp(300);
   });
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/weather/0.0.2/weather.min.js"></script>
+<script>
+    Weather.getCurrent( "Guntersville", function( current ) {
+        $( "#current" ).html( "Temperature: " + current.temperature() + "&deg;K or " +
+            Weather.kelvinToFahrenheit( current.temperature() ) + "&deg;F or " +
+            Weather.kelvinToCelsius( current.temperature() ) + "&deg;C" +
+            "<br />Current Conditions: " + current.conditions() );
+    });
+    Weather.getForecast( "Guntersville", function ( forecast ) {
+        $( "#forecast" ).html( "High: " + forecast.high() + "&deg;K or " +
+            Weather.kelvinToFahrenheit( forecast.high() ) + "&deg;F or " +
+            Weather.kelvinToCelsius( forecast.high() ) + "&deg;C<br />Low: " +
+            forecast.low() + "&deg;K or " +
+            Weather.kelvinToFahrenheit( forecast.low() ) + "&deg;F or " +
+            Weather.kelvinToCelsius( forecast.low() ) + "&deg;C" );
+    });
+</script>
