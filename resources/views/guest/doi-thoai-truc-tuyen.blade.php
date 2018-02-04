@@ -43,7 +43,7 @@
             </div>
             <div class="col-sm-7">
 
-                <div style="margin-top: 15px">
+                <div class="titleIntro" style="margin-top: 15px">
                     <p>KÊNH ĐỐI THOẠI TRỰC TUYẾN</p>
                 </div>
 
