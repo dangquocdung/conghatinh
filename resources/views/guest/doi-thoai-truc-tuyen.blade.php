@@ -54,7 +54,7 @@
                     <p>KÊNH ĐỐI THOẠI TRỰC TUYẾN</p>
                 </div>
 
-                <div class="" style="color: #ffffff">
+                <div class="" style="color: #ffffff; text-align: justify">
 
                     <p>
                         Nhằm tăng cường hơn nữa việc tiếp nhận, trao đổi thông tin, Cổng thông tin điện tử tỉnh xây dựng và mở chuyên mục đối thoại trực tuyến. Mong rằng đây sẽ là một kênh thông tin hữu ích giúp các cơ quan nhà nước đến gần hơn với nhân dân, cộng đồng doanh nghiệp.
