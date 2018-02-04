@@ -62,11 +62,12 @@
                     <p>
                         Quý vị quan tâm đến Đối thoại trực tuyến có thể tham gia và gửi câu hỏi trực tiếp bằng cách truy cập địa chỉ <a class="introlink" href="http://doithoai.hatinh.gov.vn">http://doithoai.hatinh.gov.vn</a> hoặc gửi thư điện tử về <a class="introlink" href="mailto:doithoai@hatinh.gov.vn">doithoai@hatinh.gov.vn</a>.
                     </p>
-                    <p>Trân trọng. </p>
+
 
                 </div>
 
-                <div class="">
+                <div class="pull-right">
+                    <p>Trân trọng. </p>
                     <p>BAN BIÊN TẬP CỔNG TTĐT TỈNH HÀ TĨNH </p>
                 </div>
 
