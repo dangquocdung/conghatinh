@@ -113,6 +113,10 @@
             <a href="{{ route('hoi-dap-truc-tuyen.index') }}"><i class="fa fa-circle-o"></i> Hỏi - Đáp trực tuyến</a>
           </li>
 
+          <li class="{{ Request::is('toa-soan/chuyen-trang/doi-thoai-truc-tuyen') ? 'active' : ''  }}">
+            <a href="{{ route('doi-thoai-truc-tuyen.index') }}"><i class="fa fa-circle-o"></i> Đối thoại trực tuyến</a>
+          </li>
+
           <li class="{{ Request::is('toa-soan/chuyen-trang/lien-he-cong-tac') ? 'active' : ''  }} treeview">
             <a href="{{route('index-lien-he-cong-tac')}}"><i class="fa fa-circle-o"></i><span> Liên hệ công tác</span></a>
           </li>

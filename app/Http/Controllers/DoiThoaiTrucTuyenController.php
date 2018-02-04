@@ -14,7 +14,11 @@ class DoiThoaiTrucTuyenController extends Controller
      */
     public function index()
     {
-        //
+        $doithoaitructuyen = DoiThoaiTrucTuyen::orderBy('id','decs')->paginate(12);
+
+
+
+        return view('admin.pages.doi-thoai-truc-tuyen',compact('doithoaitructuyen'));
     }
 
     /**

@@ -221,6 +221,8 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
 
         Route::resource('hoi-dap-truc-tuyen','HoiDapTrucTuyenController');
 
+        Route::resource('doi-thoai-truc-tuyen','DoiThoaiTrucTuyenController');
+
         Route::get('lien-he-cong-tac', 'LienHeController@index')->name('index-lien-he-cong-tac');
         Route::get('gop-y', 'GopYController@index')->name('index-gop-y');
 
