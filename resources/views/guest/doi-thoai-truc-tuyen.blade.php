@@ -86,7 +86,7 @@
 
         <div class="portlet-header">
             <a href="javascript:void(0);">
-                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Đối thoại trực tuyến</h4>
+                <h4 class="portlet-header-title no-pd-top"><img src="/images/background/lotus.ico" alt="" width="26px"> Đối thoại đã diễn ra </h4>
             </a>
         </div>
 
