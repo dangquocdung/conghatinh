@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="pull-right">
-                    <p>Trân trọng. </p>
+                    <p style="text-align: center">Trân trọng. </p>
                     <p>BAN BIÊN TẬP CỔNG TTĐT TỈNH HÀ TĨNH </p>
                 </div>
 
