@@ -24,12 +24,14 @@
           <table class="table table-bordered table-striped table-hover">
             <thead>
             <tr>
-              <th>TT</th>
-              <th>Họ Tên</th>
-              <th>Số ĐT</th>
-              <th>Câu hỏi</th>
-              <th>Câu Trả lời</th>
-                <th></th>
+                <th>TT</th>
+                <th>Tiêu đề</th>
+                <th>Hình ảnh</th>
+                <th>Video</th>
+                <th>Giới thiệu</th>
+                <th>
+                    <a class="btn btn-warning btn-xs" href="{{route('tao-tin-tuc')}}"><i class="fa fa-plus "></i> Thêm </a>
+                </th>
             </tr>
             </thead>
             <tbody>
