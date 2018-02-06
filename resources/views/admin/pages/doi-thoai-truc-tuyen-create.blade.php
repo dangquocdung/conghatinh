@@ -25,13 +25,13 @@
               <h3 class="box-title">Tạo mới</h3>
             </div>
             <!-- /.box-header -->
-            <form action="{{ route('them-tin-tuc') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('doi-thoai-truc-tuyen.store') }}" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
               <input type="hidden" name="avatar" id="avatar">
 
                 <div class="box-body">
                     <div class="form-group">
-                        <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
+                        <input name="name" class="form-control" type="text" placeholder="Tiêu đề" value="{{ old('name') }}" required>
                     </div>
 
 
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
+                        <input name="video" class="form-control" type="text" placeholder="embed code"  value="{{ old('video') }}" required>
                     </div>
 
                     <div class="form-group">
@@ -52,7 +52,7 @@
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-success pull-right">Gởi chờ duyệt</button>
-                    <button type="button" class="btn btn-danger pull-left">Huỷ bài viết</button>
+                    <button type="reset" class="btn btn-danger pull-left">Huỷ bài viết</button>
                 </div>
 
             </form>
