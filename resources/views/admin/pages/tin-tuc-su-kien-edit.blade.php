@@ -44,43 +44,7 @@
           <input type="hidden" name="avatar" value="{{ $tintuc->avatar }}" id="avatar">
 
           <div class="box-body">
-              <div class="form-group">
 
-                <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
-
-                  <option value=""></option>
-
-                    @foreach ($chuyenmuc as $cm)
-
-                        @if (count($cm->loaitin)>0)
-
-                          <optgroup label="{{ $cm->name}}">
-
-                            @foreach ($cm->loaitin->sortby('thutu') as $lt)
-
-                              @if ($tintuc->loaitin_id == $lt->id )
-
-                                <option value={{ $lt->id }} selected="">{{ $lt->name}}</option>
-
-                              @else
-
-                                <option value={{ $lt->id }}>{{ $lt->name}}</option>
-
-                              @endif
-
-                            @endforeach
-
-                          </optgroup>
-                        @endif
-
-                  @endforeach
-
-                </select>
-            
-              </div>
-              <div class="form-group">
-                  <input name="name" class="form-control input-lg" type="text" value="{{$tintuc->name}}" style="font-weight: bold; font-size: 1.5em" required="">
-              </div>
               <div class="form-group">
                   <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="{{ $tintuc->avatar }}" width="500px" alt="{{$tintuc->name}}" style="margin: 0 auto;" />
                   <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
@@ -121,7 +85,46 @@
               </script>
 
               <div class="form-group">
-                  <textarea class="form-control" name="gioithieu" rows="3" cols="80" required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;">{{ $tintuc->gioithieu }}</textarea>
+
+                <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+
+                  <option value=""></option>
+
+                    @foreach ($chuyenmuc as $cm)
+
+                        @if (count($cm->loaitin)>0)
+
+                          <optgroup label="{{ $cm->name}}">
+
+                            @foreach ($cm->loaitin->sortby('thutu') as $lt)
+
+                              @if ($tintuc->loaitin_id == $lt->id )
+
+                                <option value={{ $lt->id }} selected="">{{ $lt->name}}</option>
+
+                              @else
+
+                                <option value={{ $lt->id }}>{{ $lt->name}}</option>
+
+                              @endif
+
+                            @endforeach
+
+                          </optgroup>
+                        @endif
+
+                  @endforeach
+
+                </select>
+            
+              </div>
+              <div class="form-group">
+                  <input name="name" class="form-control input-lg" type="text" value="{{$tintuc->name}}" style="font-weight: bold" required="">
+              </div>
+
+
+              <div class="form-group">
+                  <textarea class="form-control" name="gioithieu" rows="3" cols="80" required="" style="font-style: italic;">{{ $tintuc->gioithieu }}</textarea>
               </div>
 
               <div class="form-group">
