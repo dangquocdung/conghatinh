@@ -31,14 +31,12 @@
 
                 <div class="box-body">
                     <div class="form-group">
-                        <input name="name" class="form-control" type="text" placeholder="Tiêu đề" value="{{ old('name') }}" required>
-                    </div>
-
-
-
-                    <div class="form-group">
                         <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive" src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" />
                         <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
+                    </div>
+
+                    <div class="form-group">
+                        <input name="name" class="form-control" type="text" placeholder="Tiêu đề" value="{{ old('name') }}" required>
                     </div>
 
                     <div class="form-group">
@@ -52,7 +50,7 @@
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-success pull-right">Gởi chờ duyệt</button>
-                    <button type="reset" class="btn btn-danger pull-left">Huỷ bài viết</button>
+                    <button type="reset" class="btn btn-danger pull-left">Nhập lại </button>
                 </div>
 
             </form>
