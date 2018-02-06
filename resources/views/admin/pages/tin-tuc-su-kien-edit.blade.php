@@ -202,7 +202,7 @@
             
             <button type="submit" class="btn btn-success pull-right">Cập nhật</button>
 
-            <button type="button" class="btn btn-danger pull-left">Huỷ bài viết</button>
+            <button type="reset" class="btn btn-danger pull-left">Nhập lại </button>
 
           </div>
         </form>
