@@ -30,7 +30,7 @@
                 <th>Video</th>
                 <th>Giới thiệu</th>
                 <th>
-                    <a class="btn btn-warning btn-xs" href="{{route('tao-tin-tuc')}}"><i class="fa fa-plus "></i> Thêm </a>
+                    <a class="btn btn-warning btn-xs" href="{{route('doi-thoai-truc-tuyen.create')}}"><i class="fa fa-plus "></i> Thêm </a>
                 </th>
             </tr>
             </thead>
