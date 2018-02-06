@@ -31,51 +31,12 @@
 
             <div class="box-body">
 
-              <div class="form-group">
+                <div class="form-group">
+                    <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive"
+                         src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" />
 
-                <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
-                  <option value=""></option>
-                    @foreach ($chuyenmuc as $cm)
-                        @if (count($cm->loaitin)>0)
-                          <optgroup label="{{ $cm->name}}">
-                            @foreach ($cm->loaitin->sortby('thutu') as $lt)
-                                @if ($lt->type == 'tt')
-                                    <option value={{ $lt->id }}>{{ $lt->name}}</option>
-                                  @endif
-                            @endforeach
-                          </optgroup>
-                        @endif
-                  @endforeach
-                </select>
-              </div>
-
-              <div class="form-group">
-           
-
-                <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold; font-size: 1.5em" value="{{ old('name') }}" required>
-              </div>
-
-              <div class="form-group">
-
-
-
-                  <div class='input-group date' id='datetimepicker1'>
-                      <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                      <input type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
-
-                  </div>
-              </div>
-
-
-
-              <div class="form-group">
-                <img id="dropbox" ondrop="drop(event);" ondragover="return false" class="img-responsive"
-                 src="http://placehold.it/500x300" width="500px" style="margin: 0 auto;" />
-
-                  <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
-              </div>
+                    <p><span id="imageerror" style="font-weight: bold; color: red"></span></p>
+                </div>
 
                 <div class="checkbox">
                     <label>
@@ -112,12 +73,54 @@
                 </script>
 
 
+
+                <div class="form-group">
+
+                <select name="loaitin_id" id="loaitin" class="form-control select2" data-placeholder="Chọn loại tin" data-rel="chosen" required="">
+                  <option value=""></option>
+                    @foreach ($chuyenmuc as $cm)
+                        @if (count($cm->loaitin)>0)
+                          <optgroup label="{{ $cm->name}}">
+                            @foreach ($cm->loaitin->sortby('thutu') as $lt)
+                                @if ($lt->type == 'tt')
+                                    <option value={{ $lt->id }}>{{ $lt->name}}</option>
+                                  @endif
+                            @endforeach
+                          </optgroup>
+                        @endif
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
+           
+
+                <input name="name" class="form-control" type="text" placeholder="Tiêu đề" style="font-weight: bold" value="{{ old('name') }}" required>
+              </div>
+
+              <div class="form-group">
+
+
+
+                  <div class='input-group date' id='datetimepicker1'>
+                      <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      <input type='text' class="form-control" value="{{ Carbon\Carbon::now()->format('d/m/Y H:i:s') }}"/>
+
+                  </div>
+              </div>
+
+
+
+
+
           
 
 
               <div class="form-group">
 
-                <textarea class="form-control" name="gioithieu" rows="3" cols="80" placeholder="Giới thiệu ..." required="" style="font-size: 1.1em; font-weight: bold; font-style: italic;"></textarea>
+                <textarea class="form-control" name="gioithieu" rows="3" cols="80" placeholder="Giới thiệu ..." required="" style="font-style: italic;"></textarea>
               </div>
 
               <div class="form-group">
