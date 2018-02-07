@@ -27,7 +27,9 @@
             <!-- /.box-header -->
             <form action="{{ route('doi-thoai-truc-tuyen.store') }}" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
-              <input type="hidden" name="avatar" id="avatar">
+                <input type="hidden" name="avatar" id="avatar">
+
+                <input type="text" name="user_id" value="{{ Auth::user()->id }}">
 
                 <div class="box-body">
                     <div class="form-group">
@@ -40,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input name="video" class="form-control" type="text" placeholder="embed code"  value="{{ old('video') }}" required>
+                        <input name="video" class="form-control" type="text" placeholder="Mã nhúng video "  value="{{ old('video') }}" required>
                     </div>
 
                     <div class="form-group">

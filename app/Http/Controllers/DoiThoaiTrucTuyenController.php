@@ -39,7 +39,11 @@ class DoiThoaiTrucTuyenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DoiThoaiTrucTuyen::create($request->all());
+
+        flash('Đăng thành công!');
+
+        return redirect()->back();
     }
 
     /**
