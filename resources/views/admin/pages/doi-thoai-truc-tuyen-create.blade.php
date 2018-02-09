@@ -26,10 +26,12 @@
             </div>
             <!-- /.box-header -->
             <form action="{{ route('doi-thoai-truc-tuyen.store') }}" method="post" enctype="multipart/form-data">
-              {{ csrf_field() }}
-                <input type="hidden" name="avatar" id="avatar">
 
-                <input type="text" name="user_id" value="{{ Auth::user()->id }}">
+                {{ csrf_field() }}
+
+                <input type="hidden" name="avatar" id="avatar" value="/images/no-image-found.gif">
+
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
                 <div class="box-body">
                     <div class="form-group">
@@ -38,7 +40,11 @@
                     </div>
 
                     <div class="form-group">
-                        <input name="name" class="form-control" type="text" placeholder="Tiêu đề" value="{{ old('name') }}" required>
+                        <input name="name" id="name" class="form-control" type="text" placeholder="Tiêu đề" value="{{ old('name') }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input name="slug" id="slug" class="form-control" type="text" placeholder="slug" value="{{ old('slug') }}" required>
                     </div>
 
                     <div class="form-group">
@@ -93,7 +99,6 @@
 
     dropbox.addEventListener('drop', drop, false);
 
-
     function drop(evt)
     {
         evt.stopPropagation();
@@ -119,14 +124,15 @@
         $('.select2').select2({
           width: '100%'
         });
-    });
-
-    $(document).ready(function () {
 
         $('#thu-vien-hinh-anh').scrollToFixed({
             marginTop: 10,
             removeOffsets: true,
             zIndex: 999
+        });
+
+        $('#name').change(function () {
+            $('#slug').val(to_slug($(this).val()));
         });
     });
 

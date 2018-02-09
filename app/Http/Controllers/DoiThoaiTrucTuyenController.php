@@ -43,7 +43,7 @@ class DoiThoaiTrucTuyenController extends Controller
 
         flash('Đăng thành công!');
 
-        return redirect()->back();
+        return redirect()->route('doi-thoai-truc-tuyen.index');
     }
 
     /**
