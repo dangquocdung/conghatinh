@@ -86,8 +86,26 @@ class DoiThoaiTrucTuyenController extends Controller
      * @param  \App\DoiThoaiTrucTuyen  $doiThoaiTrucTuyen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DoiThoaiTrucTuyen $doiThoaiTrucTuyen)
+    public function destroy(Request $request)
     {
-        //
+
+        $dt = DoiThoaiTrucTuyen::findOrFail($request->id);
+
+        $dt->delete();
+
+        return response(['data' => 'Tin bài đã bị xoá'], 200);
+    }
+
+    public function postDuyet(Request $request)
+    {
+
+
+        $dt = DoiThoaiTrucTuyen::findOrFail($request->id);
+
+        $dt->daduyet = $request->duyetdang;
+
+        $dt->save();
+
+        return response(['data' => 'Tin bài đã được duyệt đăng'], 200);
     }
 }

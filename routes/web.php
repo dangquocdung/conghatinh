@@ -446,6 +446,10 @@ Route::group(['prefix' => 'api/v1', 'middleware' => 'auth'], function () {
 
         Route::post('duyet-thong-bao-khan', 'ThongBaoKhanController@postDuyet');
 
+        Route::post('delete-doi-thoai-truc-tuyen', 'DoiThoaiTrucTuyenController@destroy');
+
+        Route::post('duyet-doi-thoai-truc-tuyen', 'DoiThoaiTrucTuyenController@postDuyet');
+
     });
 });
 

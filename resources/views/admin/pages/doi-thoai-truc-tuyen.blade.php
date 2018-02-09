@@ -39,7 +39,37 @@
             @foreach($doithoaitructuyen as $dttt)
                 <tr>
                     <td>{{ $dttt->id }}</td>
-                    <td>{{ $dttt->name }}</td>
+                    <td>
+                        {{ $dttt->name }}
+                        <br>
+                        @if ($tin->daduyet == '1')
+                            {{--<span class="label label-success">Đã duyệt đăng</span>--}}
+                            <div class="pull-left gap-left gap-10">
+                                <confirm-modal
+                                        btn-text='Thôi Duyệt đăng'
+                                        btn-class="btn-danger"
+                                        url="{{url('api/v1/duyet-doi-thoai-truc-tuyen')}}"
+                                        :post-data="{{json_encode(['id' => $dttt->id, 'duyetdang'=>'0'])}}"
+                                        :refresh="true"
+                                        message="Bạn chắc chắn muốn thôi duyệt đăng bản tin {{$dttt->name}}?">
+                                </confirm-modal>
+                            </div>
+
+                        @else
+                            <div class="pull-left gap-left gap-10">
+                                <confirm-modal
+                                        btn-text='Chờ duyệt đăng'
+                                        btn-class="btn-success"
+                                        url="{{url('api/v1/duyet-doi-thoai-truc-tuyen')}}"
+                                        :post-data="{{json_encode(['id' => $dttt->id, 'duyetdang'=>'1'])}}"
+                                        :refresh="true"
+                                        message="Bạn chắc chắn muốn duyệt đăng bản tin {{$dttt->name}}?">
+                                </confirm-modal>
+                            </div>
+
+                            {{--<a href="#"><span class="label label-warning">Chờ duyệt...</span></a>--}}
+                        @endif
+                    </td>
                     <td>
 
                         <img src="{{ $dttt->avatar }}" alt="{{ $dttt->name }}" width="120">
