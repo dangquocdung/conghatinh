@@ -36,6 +36,34 @@
             </thead>
             <tbody>
 
+            @foreach($doithoaitructuyen as $dttt)
+                <tr>
+                    <td>{{ $dttt->id }}</td>
+                    <td>{{ $dttt->name }}</td>
+                    <td>{{ $dttt->avatar }}</td>
+                    <td>{{ $dttt->video }}</td>
+                    <td>{{ $dttt->gioithieu }}</td>
+                    <td>
+                        <div class="pull-left">
+                            <a href="{{route('doi-thoai-truc-tuyen.edit', $dttt->slug)}}" class="btn btn-primary btn-xs">
+                                <i class="fa fa-edit"></i> Edit
+                            </a>
+                        </div>
+                        <div class="pull-left gap-left gap-10" style="padding-left: 5px">
+                            <confirm-modal
+                                    btn-text='<i class="fa fa-trash"></i> Delete'
+                                    btn-class="btn-danger"
+                                    url="{{url('api/v1/delete-doi-thoai-truc-tuyen')}}"
+                                    :post-data="{{json_encode(['id' => $dttt->id])}}"
+                                    :refresh="true"
+                                    message="Bạn chắc chắn muốn xoá bản tin {{$dttt->name}}?">
+                            </confirm-modal>
+                        </div>
+                    </td>
+                </tr>
+
+                @endforeach
+
             </tbody>
           </table>
 
