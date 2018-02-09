@@ -40,10 +40,16 @@
                 <tr>
                     <td>{{ $dttt->id }}</td>
                     <td>{{ $dttt->name }}</td>
-                    <td>{{ $dttt->avatar }}</td>
+                    <td>
+
+                        <img src="{{ $dttt->avatar }}" alt="{{ $dttt->name }}" width="120">
+
+
+
+                    </td>
                     <td>{{ $dttt->video }}</td>
                     <td>{{ $dttt->gioithieu }}</td>
-                    <td>
+                    <td class="col-sm-3">
                         <div class="pull-left">
                             <a href="{{route('doi-thoai-truc-tuyen.edit', $dttt->slug)}}" class="btn btn-primary btn-xs">
                                 <i class="fa fa-edit"></i> Edit
