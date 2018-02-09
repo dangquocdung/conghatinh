@@ -42,7 +42,7 @@
                     <td>
                         {{ $dttt->name }}
                         <br>
-                        @if ($tin->daduyet == '1')
+                        @if ($dttt->daduyet == '1')
                             {{--<span class="label label-success">Đã duyệt đăng</span>--}}
                             <div class="pull-left gap-left gap-10">
                                 <confirm-modal
