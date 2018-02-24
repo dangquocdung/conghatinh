@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0982a443f18cfd3bf5d43f39167f012",
+    "content-hash": "05305f47cdc4e309d85063884479cd1d",
     "packages": [
         {
             "name": "akaunting/language",
@@ -2975,12 +2975,12 @@
             "version": "3.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/piwik/device-detector.git",
+                "url": "https://github.com/matomo-org/device-detector.git",
                 "reference": "caf2d15349caffd94a8cfe46edf4061fbc99f70b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/piwik/device-detector/zipball/caf2d15349caffd94a8cfe46edf4061fbc99f70b",
+                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/caf2d15349caffd94a8cfe46edf4061fbc99f70b",
                 "reference": "caf2d15349caffd94a8cfe46edf4061fbc99f70b",
                 "shasum": ""
             },
@@ -5604,6 +5604,40 @@
             "time": "2017-09-18T13:32:46+00:00"
         },
         {
+            "name": "botble/backup",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./backup",
+                "reference": "0355d1dae4bc775e093d12cb10890165734c5aec",
+                "shasum": null
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Botble\\Backup\\Providers\\BackupServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Botble\\Backup\\": "src",
+                    "Botble\\Support\\": "support/src"
+                }
+            },
+            "license": [
+                "GNU"
+            ],
+            "authors": [
+                {
+                    "name": "Sang Nguyen",
+                    "email": "sangnguyenplus@gmail.com"
+                }
+            ],
+            "description": "Backup package for Laravel application"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.1.0",
             "source": {
@@ -7399,8 +7433,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "botble/backup": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

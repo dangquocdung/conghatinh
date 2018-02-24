@@ -249,6 +249,9 @@
           <li class="{{ Request::is('toa-soan/cau-hinh/chuyen-muc') ? 'active' : ''  }}">
             <a href="{{route('index-chuyen-muc')}}"><i class="fa fa-circle-o"></i> Quản lý chuyên mục</a>
           </li>
+          <li class="{{ Request::is('toa-soan/cau-hinh/sao-luu') ? 'active' : ''  }}">
+            <a href="{{route('index-sao-luu')}}"><i class="fa fa-circle-o"></i> Sao lưu</a>
+          </li>
           @endrole
         </ul>
       </li>
