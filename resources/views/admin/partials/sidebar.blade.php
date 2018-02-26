@@ -128,6 +128,10 @@
         </ul>
       </li>
 
+      <li class="{{ Request::is('toa-soan/media') ? 'active' : ''  }}">
+        <a href="{{route('media.index')}}"><i class="fa fa-gear"></i> Quản lí tập tin </a>
+      </li>
+
 
       <li class="{{ Request::is('toa-soan/da-phuong-tien/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
@@ -254,6 +258,9 @@
           </li>
           @endrole
         </ul>
+      </li>
+      <li class="{{ Request::is('toa-soan/sao-luu') ? 'active' : ''  }}">
+        <a href="{{route('index-sao-luu')}}"><i class="fa fa-gear"></i> Sao lưu</a>
       </li>
 
     </ul>

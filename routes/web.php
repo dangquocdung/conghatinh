@@ -321,13 +321,11 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('loai-tin', 'LoaiTinController@store')->name('save-loai-tin');
 //        Route::get('loai-tin/{id}', 'LoaiTinController@show')->name('edit-loai-tin');
         Route::post('loai-tin/update', 'LoaiTinController@update')->name('update-loai-tin');
-
-        Route::get('sao-luu', function (){
-            return view('admin.pages.tbt.sao-luu');
-        })->name('index-sao-luu');
-
-
     });
+
+    Route::get('sao-luu', function (){
+        return view('admin.pages.tbt.sao-luu');
+    })->name('index-sao-luu');
 
     Route::group(['prefix' => 'lien-ket', 'middleware' => 'role:tbt'], function () {
 
