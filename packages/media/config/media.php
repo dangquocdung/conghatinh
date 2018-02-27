@@ -29,7 +29,7 @@ return [
     ],
 
     'route' => [
-        'prefix' => 'toa-soan/media', // Media URL. Ex: media => http://laravel.dev/media
+        'prefix' => 'media', // Media URL. Ex: media => http://laravel.dev/media
         'middleware' => ['web', 'auth'],
         'options' => [],
     ],

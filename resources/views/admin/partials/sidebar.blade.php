@@ -129,7 +129,7 @@
       </li>
 
       <li class="{{ Request::is('toa-soan/media') ? 'active' : ''  }}">
-        <a href="{{route('media.index')}}"><i class="fa fa-gear"></i> Quản lí tập tin </a>
+        <a href="{{route('quan-li-tap-tin-media')}}"><i class="fa fa-gear"></i> Quản lí tập tin </a>
       </li>
 
 

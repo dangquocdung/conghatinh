@@ -131,6 +131,9 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
     Route::post('user/profile', 'UserController@postUpdateProfile')->name('update-profile');
     Route::post('user/password-change', 'UserController@postHandlePasswordChange')->name('change-password');
 
+    Route::get('/media', function() {
+        return view('admin.pages.media');
+    })->name('quan-li-tap-tin-media');
 
 
     //Da Phuong Tien
