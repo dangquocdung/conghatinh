@@ -31,7 +31,7 @@
       <li class="header">DANH MỤC</li>
 
       <li class="{{ Request::is('toa-soan/dashboard') ? 'active' : ''  }} treeview">
-        <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i><span>Hoạt động</span></a>
+        <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i><span>Bảng điều khiển </span></a>
       </li>
 
       <li class="treeview">

@@ -112,6 +112,12 @@ class UserController extends Controller
         $dashboardData = [
             'activation_pending' => DB::table('users')->where('active', '=', 0)->count(),
             'my_recent_activities' => DB::table('watchdogs')->where('user_id', request()->user()->id)->count(),
+
+            'sotin_daduyet' =>DB::table('tintuc')->where('user_id', request()->user()->id)->where('daduyet', '=', 1)->count(),
+            'sotin_chuaduyet' =>DB::table('tintuc')->where('user_id', request()->user()->id)->where('daduyet', '=', 0)->count(),
+
+            'sovb_daduyet' =>DB::table('vanban')->where('user_id', request()->user()->id)->where('daduyet', '=', 1)->count(),
+            'sovb_chuaduyet' =>DB::table('vanban')->where('user_id', request()->user()->id)->where('daduyet', '=', 0)->count(),
         ];
 
         $chuyenmuc = ChuyenMuc::all();
