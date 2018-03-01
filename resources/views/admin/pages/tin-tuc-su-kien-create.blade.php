@@ -229,6 +229,7 @@
 <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+{{--  <script src="vendor/media/packages/ckeditor/ckeditor.js"></script>  --}}
 
 
 <script>
@@ -260,12 +261,15 @@
 
     // CKEDITOR.replace( 'gioi-thieu' );
     CKEDITOR.replace('noi-dung',{
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        filebrowserImageBrowseUrl: 'media/?media-action=select-files&method=ckeditor&type=image',
+        filebrowserImageUploadUrl: 'media?method=ckeditor&type=image&_token=' + $('meta[name="csrf-token"]').attr('content'),
+        filebrowserBrowseUrl: 'media?type=Files',
+        filebrowserUploadUrl: 'media/upload?type=Files&_token=',
+        filebrowserWindowWidth: '768',
+        filebrowserWindowHeight: '500',
+        height: 356,
+        allowedContent: true 
     });
-
 
     $(document).ready(function() {
 

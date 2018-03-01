@@ -59,8 +59,7 @@ class MediaController extends Controller
         MediaFolderInterface $folderRepository,
         MediaSettingInterface $mediaSettingRepository,
         UploadsManager $uploadManager
-    )
-    {
+    ) {
         $this->fileRepository = $fileRepository;
         $this->folderRepository = $folderRepository;
         $this->uploadManager = $uploadManager;
@@ -283,7 +282,7 @@ class MediaController extends Controller
             'id' => $file->id,
             'name' => $file->name,
             'basename' => File::basename($file->url),
-            'url' => $file->url,
+            'url' => config('filesystems.default') == 'local' ? '/' . ltrim($file->url, '/') : $file->url,
             'full_url' => url($file->url),
             'type' => $file->type,
             'icon' => $file->icon,
@@ -383,7 +382,6 @@ class MediaController extends Controller
                             $error = true;
                         }
                     } else {
-
                         $this->folderRepository->deleteFolder($id);
                     }
                 }
@@ -426,7 +424,6 @@ class MediaController extends Controller
                     if ($item['is_folder'] == 'false') {
                         $file = $this->fileRepository->getFirstBy(['id' => $id]);
                         $this->copyFile($file);
-
                     } else {
                         $old_folder = $this->folderRepository->getFirstBy(['id' => $id]);
                         $folderData = $old_folder->replicate()->toArray();
@@ -443,7 +440,6 @@ class MediaController extends Controller
 
                         $children = $this->folderRepository->getAllChildFolders($id);
                         foreach ($children as $parent_id => $child) {
-
                             if ($parent_id != $old_folder->id) {
                                 /**
                                  * @var MediaFolder $child
@@ -534,7 +530,6 @@ class MediaController extends Controller
 
                         $this->mediaSettingRepository->createOrUpdate($meta);
                     }
-
                 }
 
                 return RvMedia::responseSuccess([], trans('media::media.remove_favorite_success'));
@@ -618,7 +613,6 @@ class MediaController extends Controller
                     }
                 }
             }
-
         } else {
             $fileData['url'] = str_replace(
                 $this->uploadManager->uploadPath($this->folderRepository->getFullPath($file->folder_id)),
@@ -681,7 +675,6 @@ class MediaController extends Controller
             } else {
                 return RvMedia::responseError(trans('media::media.mMissing_zip_archive_extension'));
             }
-
         }
         return RvMedia::responseError(trans('media::media.can_not_download_file'));
     }

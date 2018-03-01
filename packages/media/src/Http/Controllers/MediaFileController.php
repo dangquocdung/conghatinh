@@ -2,6 +2,7 @@
 
 namespace Botble\Media\Http\Controllers;
 
+use Auth;
 use Botble\Media\Http\Requests\MediaFileRequest;
 use Botble\Media\Repositories\Interfaces\MediaFileInterface;
 use Botble\Media\Repositories\Interfaces\MediaFolderInterface;
@@ -10,7 +11,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use RvMedia;
-use Auth;
 
 /**
  * Class FileController
@@ -45,8 +45,7 @@ class MediaFileController extends Controller
         MediaFileInterface $fileRepository,
         MediaFolderInterface $folderRepository,
         UploadsManager $uploadManager
-    )
-    {
+    ) {
         $this->fileRepository = $fileRepository;
         $this->folderRepository = $folderRepository;
         $this->uploadManager = $uploadManager;
@@ -111,7 +110,7 @@ class MediaFileController extends Controller
             if ($request->input('upload_type') == 'tinymce') {
                 return response('<script>parent.setImageValue("' . url($file->url) . '"); </script>')->header('Content-Type', 'text/html');
             } else {
-                return response('<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction("' . $request->input('CKEditorFuncNum') . '", "' . url($file->url) . '", "");</script>')->header('Content-Type', 'text/html');
+                return response('<script type="text/javascript">window.parent.CKEDITOR.tools.callFunction("' . $request->input('CKEditorFuncNum') . '", "' . (config('filesystems.default') == 'local' ? '/' . ltrim($file->url, '/') : $file->url) . '", "");</script>')->header('Content-Type', 'text/html');
             }
         }
         return response('<script>alert("' . array_get($result, 'message') . '")</script>')->header('Content-Type', 'text/html');

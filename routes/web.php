@@ -155,15 +155,15 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::get('calendar', 'FileController@getCalendar')->name('get-calendar');
     });
 
-    //Van ban
+    //Tin tuc
     Route::group(['prefix'=>'tin-bai/tin-tuc'],function () {
 
         Route::get('tao-tin-tuc', 'TinTucController@create')->name('tao-tin-tuc');
         Route::post('them-tin-tuc', 'TinTucController@store')->name('them-tin-tuc');
         Route::get('edit-tin-tuc/{slug}', 'TinTucController@edit')->name('edit-tin-tuc');
         Route::post('update-tin-tuc', 'TinTucController@update')->name('update-tin-tuc');
-
         Route::get('{slug?}', 'TinTucController@index')->name('tin-tuc-su-kien');
+
     });
 
 
@@ -181,6 +181,7 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::post('/them-cqbh','CQBHController@store')->name('save-cqbh');
 
         Route::get('/{slug?}','VanBanController@index')->name('index-van-ban');
+
     });
 
 

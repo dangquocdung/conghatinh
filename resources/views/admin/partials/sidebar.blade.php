@@ -128,12 +128,12 @@
         </ul>
       </li>
 
-      <li class="{{ Request::is('toa-soan/media') ? 'active' : ''  }}">
-        <a href="{{route('quan-li-tap-tin-media')}}"><i class="fa fa-gear"></i> Quản lí tập tin </a>
+      <li class="{{ Request::is('toa-soan/media') ? 'active' : ''  }} treeview">
+        <a href="{{route('quan-li-tap-tin-media')}}"><i class="fa fa-picture-o"></i><span>Quản lí tập tin </span></a>
       </li>
 
 
-      <li class="{{ Request::is('toa-soan/da-phuong-tien/*') ? 'active' : ''  }} treeview">
+      {{--  <li class="{{ Request::is('toa-soan/da-phuong-tien/*') ? 'active' : ''  }} treeview">
         <a href="javascript:void(0)">
           <i class="fa fa-film"></i> <span> Đa phương tiện</span>
           <span class="pull-right-container">
@@ -166,7 +166,7 @@
             <a href="{{route('get-calendar')}}"><i class="fa fa-circle-o"></i><span> Lịch </span></a>
           </li>
         </ul>
-      </li>
+      </li>  --}}
 
 
 
@@ -259,8 +259,8 @@
           @endrole
         </ul>
       </li>
-      <li class="{{ Request::is('toa-soan/sao-luu') ? 'active' : ''  }}">
-        <a href="{{route('index-sao-luu')}}"><i class="fa fa-gear"></i> Sao lưu</a>
+      <li class="{{ Request::is('toa-soan/sao-luu') ? 'active' : ''  }} treeview">
+        <a href="{{route('index-sao-luu')}}"><i class="fa fa-life-ring"></i><span>Sao lưu & Khôi phục </span></a>
       </li>
 
     </ul>
