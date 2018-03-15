@@ -25,6 +25,4 @@
 
         @endif
     @endrole
-
-
 </div>

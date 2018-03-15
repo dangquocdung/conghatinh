@@ -27,7 +27,7 @@
 </head>
 <body>
 
-    @include('guest.layout.tet')
+    {{-- @include('guest.layout.tet') --}}
 
 <script>
     $(function() {

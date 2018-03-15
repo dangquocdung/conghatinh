@@ -6,30 +6,30 @@
   active
 @endsection
 @section('content-main')
-    <div class="block3">
-                    {{--<div class="breadcrumb">--}}
-                        {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
-                        {{--<a class="breadcrumb-item" href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">{{ $lt->chuyenmuc->name }}</a>--}}
-                        {{--<span class="breadcrumb-item active">{{ $lt->name }}</span>--}}
-                    {{--</div>--}}
+        <div class="block3">
+                        {{--<div class="breadcrumb">--}}
+                            {{--<a class="breadcrumb-item" href="#"><i class="fa fa-university" aria-hidden="true"></i></a>--}}
+                            {{--<a class="breadcrumb-item" href="chuyen-muc/{{ $lt->chuyenmuc->slug }}">{{ $lt->chuyenmuc->name }}</a>--}}
+                            {{--<span class="breadcrumb-item active">{{ $lt->name }}</span>--}}
+                        {{--</div>--}}
 
-                    <div class="portlet-header">
+                        <div class="portlet-header">
 
-                        <img src="/images/background/lotus.ico" alt="">
-
-
-                        <a href="{{ route('chuyen-muc',$lt->chuyenmuc->slug) }}">
-                            <h4 class="portlet-header-title no-pd-top">{{ $lt->chuyenmuc->name }} / </h4>
-                        </a>
-
-                        <a href="javascript:void(0);">
-                            <h4 class="portlet-header-title no-pd-top">{{ $lt->name }}</h4>
-                        </a>
+                            <img src="/images/background/lotus.ico" alt="">
 
 
-                    </div>
+                            <a href="{{ route('chuyen-muc',$lt->chuyenmuc->slug) }}">
+                                <h4 class="portlet-header-title no-pd-top">{{ $lt->chuyenmuc->name }} / </h4>
+                            </a>
 
-                     <div class="loai-tin">
+                            <a href="javascript:void(0);">
+                                <h4 class="portlet-header-title no-pd-top">{{ $lt->name }}</h4>
+                            </a>
+
+
+                        </div>
+
+                         <div class="loai-tin">
 
                          @if (count($lt->tintuc) > 0)
                             @foreach ($lt->tintuc->where('daduyet','1')->sortByDesc('id') as $tin)
@@ -37,6 +37,7 @@
                                     <div class="row" style="padding: 0 15px 10px 15px; border-bottom: 1px solid #eaeaea;">
 
                                       <span class="label label-info pull-right hidden-xs" style="margin-left: 15px">{{$tin->loaitin->name}}</span>
+
                                       <a class="tin_title_text" href="{{route('chi-tiet-tin',[$tin->loaitin->chuyenmuc->slug,$tin->loaitin->slug,'tin-tuc',$tin->id,$tin->slug])}}">
 
                                           @if (strlen(trim($tin->avatar)) > 20)

@@ -272,17 +272,15 @@ Route::group(['prefix'=>'toa-soan','middleware' => 'auth'], function () {
         Route::group(['prefix'=>'load'], function () {
 
             //Load
-            Route::get('cddh', 'DichVuCongController@getCDDH')->name('load-cddh');
-            Route::get('llv', 'DichVuCongController@getLLV')->name('load-llv');
-            Route::get('vbm', 'DichVuCongController@getVBM')->name('load-vbm');
+            // Route::get('cddh', 'DichVuCongController@getCDDH')->name('load-cddh');
+            // Route::get('llv', 'DichVuCongController@getLLV')->name('load-llv');
+            // Route::get('vbm', 'DichVuCongController@getVBM')->name('load-vbm');
+            // Route::get('baohatinh', 'DichVuCongController@getBaoHaTinh')->name('load-baohatinh');
+            
 
-            Route::get('baohatinh', 'DichVuCongController@getBaoHaTinh')->name('load-baohatinh');
+            // Route::get('dnh', 'DichVuCongController@getDNH')->name('load-dnh');
 
-
-//            Route::get('tintt', 'DichVuCongController@getTinTT')->name('load-tintt');
-//            Route::get('tintn', 'DichVuCongController@getTinTN')->name('load-tintn');
-//            Route::get('tinqt', 'DichVuCongController@getTinQT')->name('load-tinqt');
-            Route::get('dnh', 'DichVuCongController@getDNH')->name('load-dnh');
+            
         });
 
         Route::group(['prefix'=>'cau-hinh'], function () {

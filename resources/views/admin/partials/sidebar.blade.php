@@ -48,15 +48,15 @@
         <ul class="treeview-menu">
 
           <li class="{{ Request::is('toa-soan/load/cddh') ? 'active' : ''  }}">
-            <a href="{{route('load-cddh')}}"><i class="fa fa-circle-o"></i> Điều hành tác nghiệp </a>
+            <a href="{{route('api-load-cddh')}}"><i class="fa fa-circle-o"></i> Điều hành tác nghiệp </a>
           </li>
 
           <li class="{{ Request::is('toa-soan/load/vbm') ? 'active' : ''  }}">
-            <a href="{{route('load-vbm')}}"><i class="fa fa-circle-o"></i> Công báo </a>
+            <a href="{{route('api-load-vbm')}}"><i class="fa fa-circle-o"></i> Công báo </a>
           </li>
           <li class="divider"></li>
           <li class="{{ Request::is('toa-soan/load/baohatinh') ? 'active' : ''  }}">
-            <a href="{{route('load-baohatinh')}}"><i class="fa fa-circle-o"></i> Báo Hà Tĩnh </a>
+            <a href="{{route('api-load-baohatinh')}}"><i class="fa fa-circle-o"></i> Báo Hà Tĩnh </a>
           </li>
 
         </ul>

@@ -116,57 +116,57 @@
 
 function UnionSwitchMode2() {
 
-var isMobile = $(window).width() < 768;
-console.log("isMobile");
-console.log(isMobile);
+    var isMobile = $(window).width() < 768;
+    console.log("isMobile");
+    console.log(isMobile);
 
-var idUnion_image_thumb = "tin-noi-bat"
-
-
-var jQueryActive = $("#" + idUnion_image_thumb + ' .active');
+    var idUnion_image_thumb = "tin-noi-bat"
 
 
-var jQueryNext = jQueryActive.next().length ? jQueryActive.next() : $("#" + idUnion_image_thumb + ' ul li:first');
-
-//Tìm giá trị
+    var jQueryActive = $("#" + idUnion_image_thumb + ' .active');
 
 
+    var jQueryNext = jQueryActive.next().length ? jQueryActive.next() : $("#" + idUnion_image_thumb + ' ul li:first');
 
-var imgAlt = jQueryNext.find('img').attr("alt");
-
-var imgSrc = jQueryNext.find('img').attr("src");
-
-var imgDesc = jQueryNext.find('.hot-news-block').html();
-
-var aHref = jQueryNext.find('a').attr("href");
-
-var imgDescHeight = $("#tinNoiBatChinh .hot-news").find('#tinNoiBatChinh .hot-news-block').height();
-
-var newsDesc = jQueryNext.find('.item-desc').html();
-
-var isMobile = $(window).width() < 768;
+    //Tìm giá trị
 
 
-if(!isMobile) {
 
-    $("#tinNoiBatChinh .hot-news").animate({marginBottom: "0"}, 0, function () {
+    var imgAlt = jQueryNext.find('img').attr("alt");
 
-        jQueryActive.removeClass('active');
+    var imgSrc = jQueryNext.find('img').attr("src");
 
-        jQueryNext.addClass('active');
+    var imgDesc = jQueryNext.find('.hot-news-block').html();
 
-        $("#tinNoiBatChinh .hot-news a").attr({href: aHref});
+    var aHref = jQueryNext.find('a').attr("href");
 
-        $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
+    var imgDescHeight = $("#tinNoiBatChinh .hot-news").find('#tinNoiBatChinh .hot-news-block').height();
 
-        $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
+    var newsDesc = jQueryNext.find('.item-desc').html();
 
-        $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
+    var isMobile = $(window).width() < 768;
 
-        $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
 
-    });
-}
+    if(!isMobile) {
+
+        $("#tinNoiBatChinh .hot-news").animate({marginBottom: "0"}, 0, function () {
+
+            jQueryActive.removeClass('active');
+
+            jQueryNext.addClass('active');
+
+            $("#tinNoiBatChinh .hot-news a").attr({href: aHref});
+
+            $("#tinNoiBatChinh .hot-news img").attr({src: imgSrc, alt: imgAlt});
+
+            $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").attr({href: aHref});
+
+            $("#tinNoiBatChinh .hot-news .hot-news-title h3 a").html(imgAlt);
+
+            $("#tinNoiBatChinh .hot-news .hot-news-desc").html(newsDesc);
+
+        });
+    }
 
 
 
