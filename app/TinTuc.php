@@ -37,10 +37,12 @@ class TinTuc extends Model implements Feedable
         return FeedItem::create()
             ->id($this->id)
             ->title($this->name)
-            ->summary($this->gioithieu)
+            ->link($this->avatar)
+            ->summary($this->noidung)
             ->updated($this->updated_at)
-            ->link('chi-tiet/'.$this->slug)
-            ->author($this->user->name);
+            ->author($this->updated_at);
+
+
     }
 
     public static function getFeedItems()
