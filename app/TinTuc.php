@@ -21,7 +21,7 @@ class TinTuc extends Model implements Feedable
     {
         return $this->belongsTo('App\LoaiTin','loaitin_id','id');
     }
-	  
+
 	public function user()
 	{
 	    return $this->belongsTo('App\User','user_id','id');
@@ -45,6 +45,9 @@ class TinTuc extends Model implements Feedable
 
     public static function getFeedItems()
     {
-        return TinTuc::where('daduyet','1')->orderby('id','desc')->take(20)->get();
+
+        // return TinTuc::where('daduyet','1')->where('loaitin_id','1')->orderby('id','desc')->take(20)->get();
+
+        return TinTuc::whereIn('loaitin_id',array(32,33,35,69,77,78,79,80))->all()
     }
 }
