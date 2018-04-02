@@ -48,6 +48,6 @@ class TinTuc extends Model implements Feedable
 
         // return TinTuc::where('daduyet','1')->where('loaitin_id','1')->orderby('id','desc')->take(20)->get();
 
-        return TinTuc::whereIn('loaitin_id',array(32,33,35,69,77,78,79,80))->all()
+        return TinTuc::whereIn('loaitin_id',array(32,33,35,69,77,78,79,80))->all();
     }
 }
